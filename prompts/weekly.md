@@ -18,7 +18,8 @@ Read `prompts/_shared.md` first. Generated on Saturday for the week starting Mon
    - About one item a week can be cross-domain (`cross_domain`).
 4. Every item: `tier`, `dimensions`, `mode` (learn / practise / create / experience / reflect), `topic` and `time_estimate`. At least one item should be about doing, often via `then` ("explain it to a friend", "write one critical question").
 5. **Every reading, implementation or learning exercise** (categories research_fundamentals, ai_study, paper, new_knowledge, or `mode: learn`) needs **detailed `steps`** and **real `resources`**: a book with `chapters` ("Ch. 3, Sec. 3.2"), a lecture or video, a blog post or a paper, each verified. Validation enforces this.
-6. Write `content/weekly/<YYYY>/<YYYY-Www>.json` with a one-line `intro`, `load` and items (`status: "suggested"`). Don't change idea statuses yourself.
-7. `history rebuild`, `validate`.
+6. **Languages (required):** add `language.lessons`, one lesson per language you're learning, as in `prompts/language.md`.
+7. Write `content/weekly/<YYYY>/<YYYY-Www>.json` with a one-line `intro`, `load` and items (`status: "suggested"`). Don't change idea statuses yourself.
+8. `history rebuild`, `validate`.
 
 A previous item returns only if feedback decided so. Then use `origin: "continued"` with `continues`, and modify it rather than copying it.

@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 
 import pytest
 
-from conftest import ROOT, D, activity, daily, shorts_day, video, weekly
+from conftest import ROOT, D, activity, daily, language_pack, shorts_day, video, weekly
 from dsys import diversity, ideas, profile
 from dsys import youtube as yt
 from dsys.core import load_json, write_json
@@ -140,6 +140,7 @@ MEDIA_PAIR = [rec("disc-pod", type="podcast", action="listen", tier="established
 def test_cross_domain_is_a_schema_type(repo):
     daily(repo, "discovery", "2026-11-24", [rec("disc-1", cross_domain={"fields": ["cinema", "psychology"],
                                                                           "connection": "How editing shapes empathy."})] + MEDIA_PAIR)
+    daily(repo, "language", "2026-11-24", [language_pack()])
     assert validate_repo(repo).ok
     daily(repo, "discovery", "2026-11-24", [rec("disc-1", cross_domain={"fields": ["one"], "connection": "too few fields"})] + MEDIA_PAIR)
     assert not validate_repo(repo).ok
@@ -342,6 +343,7 @@ MEDIA_PAIR = [rec("disc-pod", type="podcast", action="listen", tier="established
 def test_cross_domain_is_a_schema_type(repo):
     daily(repo, "discovery", "2026-11-24", [rec("disc-1", cross_domain={"fields": ["cinema", "psychology"],
                                                                           "connection": "How editing shapes empathy."})] + MEDIA_PAIR)
+    daily(repo, "language", "2026-11-24", [language_pack()])
     assert validate_repo(repo).ok
     daily(repo, "discovery", "2026-11-24", [rec("disc-1", cross_domain={"fields": ["one"], "connection": "too few fields"})] + MEDIA_PAIR)
     assert not validate_repo(repo).ok
@@ -544,6 +546,8 @@ def test_discovery_rules_enforced_by_validation(repo):
     daily(repo, "discovery", "2026-11-24", [rec("disc-1")])
     assert not validate_repo(repo).ok
     daily(repo, "discovery", "2026-11-24", [rec("disc-1")] + MEDIA_PAIR)
+    assert any("language pack" in e for e in validate_repo(repo).errors)  # language is compulsory
+    daily(repo, "language", "2026-11-24", [language_pack()])
     assert validate_repo(repo).ok
 
 
@@ -578,3 +582,56 @@ def test_skip_reason_is_generic_only(repo):
     write_json(repo.feedback_path("2026-W49"), {"schema": "feedback", "period": "2026-W49", "date": "2026-12-06",
                "entries": [{"item_id": "w-1", "status": "skipped", "skip_reason": "travelling to my cousin's wedding"}]})
     assert not validate_repo(repo).ok
+
+
+
+# --- languages ---------------------------------------------------------------------------
+def test_language_pack_rules(repo):
+    daily(repo, "language", "2026-11-24", [language_pack()])
+    assert validate_repo(repo).ok
+    daily(repo, "language", "2026-11-24", [language_pack(minutes=12)])
+    assert not validate_repo(repo).ok  # 5 minutes max
+    daily(repo, "language", "2026-11-24", [language_pack(language="klingon")])
+    assert any("not in config/languages.json" in e for e in validate_repo(repo).errors)
+    daily(repo, "language", "2026-11-24", [language_pack(practice=[{"question": "only one", "answer": "x"}])])
+    assert not validate_repo(repo).ok  # needs practice questions
+
+
+def test_weekly_and_monthly_require_language_section(repo):
+    from conftest import monthly
+    doc = weekly(repo)
+    assert validate_repo(repo).ok
+    doc.pop("language")
+    write_json(repo.weekly_path("2026-W49"), doc)
+    assert any("language" in e for e in validate_repo(repo).errors)
+    weekly(repo)
+    m = monthly(repo)
+    m.pop("language")
+    write_json(repo.monthly_path("2026-12"), m)
+    assert any("language" in e for e in validate_repo(repo).errors)
+
+
+def test_languages_config(repo):
+    from dsys.config import check
+    cfg = load_json(ROOT / "config" / "languages.json")
+    assert cfg["current_focus"] == "japanese" and {l["id"] for l in cfg["learning"]} == {"japanese", "telugu"}
+    bad = dict(cfg, current_focus="french")
+    write_json(repo.p("config", "languages.json"), bad)
+    assert any("current_focus" in e for e in check(repo)[0])
+
+
+def test_language_context_and_rendering(repo, tmp_path):
+    from dsys.site import build_site
+    daily(repo, "language", "2026-11-24", [language_pack()])
+    ctx = context(repo, "language", D)
+    assert ctx["languages"]["current_focus"] == "japanese" and ctx["recent_packs"][0]["theme"] == "ordering"
+    assert "languages" in context(repo, "weekly", D, "2026-W49")
+    weekly(repo)
+    out = build_site(repo, tmp_path / "s")
+    day = (out / "daily" / "2026-11-24.html").read_text()
+    assert "コーヒーをください" in day and "kōhī o kudasai" in day and "<summary>Answer</summary>" in day
+    wk = (out / "weekly" / "2026-W49.html").read_text()
+    assert "Languages" in wk and "こんにちは" in wk
+    xml = build_feed(repo, "language")
+    assert "Japanese: At a café" in xml
+    assert "language.xml" in (out / "index.html").read_text()

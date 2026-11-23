@@ -8,7 +8,7 @@ arXiv, YouTube, web search or Claude; those integrations are only tested with mo
 import json
 import xml.etree.ElementTree as ET
 
-from conftest import activity, paper, project, shorts_day, video
+from conftest import LESSON, PLAN, activity, language_pack, paper, project, shorts_day, video
 from dsys.cli import main
 from dsys.core import load_json, write_json
 from dsys.site import build_site
@@ -55,7 +55,7 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
            "tier": "growth"}
     pod.pop("cross_domain"); vid.pop("cross_domain")
     for stream, its in (("research_updates", [ru]), ("world", [world]), ("discovery", [disc, pod, vid]),
-                        ("youtube_shorts", shorts_day(video()))):
+                        ("youtube_shorts", shorts_day(video())), ("language", [language_pack(day)])):
         f = tmp_path / f"{stream}.json"
         f.write_text(json.dumps({"items": its}))
         run("daily", "merge", stream, "--date", day, "--items", str(f))
@@ -84,7 +84,8 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
                   activity("w-2026-w49-proof", title="A proof", category="research_fundamentals", mode="learn",
                            topic="probability puzzles", hints=["h1", "h2"], dimensions=["research"],
                            steps=["Try small n by hand", "Prove the bound"],
-                           resources=[{"title": "A probability text", "type": "book", "chapters": "Ch. 2"}])]})
+                           resources=[{"title": "A probability text", "type": "book", "chapters": "Ch. 2"}])],
+        "language": {"lessons": [LESSON]}})
     run("validate")
 
     # 5. feedback: keep going, try again later, let go
@@ -113,7 +114,8 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
         "schema": "monthly", "month": "2026-12", "generated_at": "2026-12-01T00:45:00Z", "load": "normal",
         "intro": "Optional depth.", "items": [project("m-2026-12-photo", title="A small photo series", kind="user_idea",
                                                       origin="user_idea", idea_id="idea-learn-photography",
-                                                      modes=["learn", "create"], dimensions=["culture"])]})
+                                                      modes=["learn", "create"], dimensions=["culture"])],
+        "language": {"plans": [PLAN]}})
     run("ideas", "drop", "idea-seed-tides", "--note", "not now", "--date", "2026-12-01")
 
     # 7. synthesis evidence is qualitative

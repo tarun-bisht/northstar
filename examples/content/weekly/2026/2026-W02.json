@@ -109,5 +109,87 @@
       "tier": "exploration"
     }
   ],
-  "reflection_prompt": "Optional: what kind of activity gave you energy this week?"
+  "reflection_prompt": "Optional: what kind of activity gave you energy this week?",
+  "language": {
+    "lessons": [
+      {
+        "language": "japanese",
+        "title": "[EXAMPLE] Asking where something is",
+        "explanation": "Use 〜はどこですか (… wa doko desu ka) to ask where something is. Replace … with the place.",
+        "examples": [
+          {
+            "text": "駅はどこですか",
+            "romanization": "eki wa doko desu ka",
+            "meaning": "Where is the station?"
+          },
+          {
+            "text": "トイレはどこですか",
+            "romanization": "toire wa doko desu ka",
+            "meaning": "Where is the toilet?"
+          },
+          {
+            "text": "あそこです",
+            "romanization": "asoko desu",
+            "meaning": "It's over there."
+          }
+        ],
+        "questions": [
+          {
+            "question": "Ask where the hotel (ホテル) is.",
+            "answer": "ホテルはどこですか"
+          },
+          {
+            "question": "What does あそこ mean?",
+            "answer": "over there"
+          },
+          {
+            "question": "Ask where the bank (銀行, ginkō) is.",
+            "answer": "銀行はどこですか (ginkō wa doko desu ka)"
+          }
+        ],
+        "practice": [
+          "Say each example aloud, then ask Claude to role-play giving you directions."
+        ]
+      },
+      {
+        "language": "telugu",
+        "title": "[EXAMPLE] Greetings",
+        "explanation": "నమస్కారం (namaskāram) is a respectful hello. ఎలా ఉన్నారు? (elā unnāru?) asks 'how are you?' politely.",
+        "examples": [
+          {
+            "text": "నమస్కారం",
+            "romanization": "namaskāram",
+            "meaning": "hello (respectful)"
+          },
+          {
+            "text": "ఎలా ఉన్నారు?",
+            "romanization": "elā unnāru?",
+            "meaning": "how are you? (polite)"
+          },
+          {
+            "text": "బాగున్నాను",
+            "romanization": "bāgunnānu",
+            "meaning": "I am fine"
+          }
+        ],
+        "questions": [
+          {
+            "question": "Greet someone respectfully.",
+            "answer": "నమస్కారం (namaskāram)"
+          },
+          {
+            "question": "Answer 'how are you?'",
+            "answer": "బాగున్నాను (bāgunnānu)"
+          },
+          {
+            "question": "Ask someone politely how they are.",
+            "answer": "ఎలా ఉన్నారు? (elā unnāru?)"
+          }
+        ],
+        "practice": [
+          "Greet one Telugu speaker this week, or practise the exchange aloud with Claude."
+        ]
+      }
+    ]
+  }
 }

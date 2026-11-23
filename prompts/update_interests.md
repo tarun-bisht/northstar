@@ -15,6 +15,7 @@ Read `prompts/_shared.md` first. Use this whenever the user says something about
 | **travel or a trip** ("going to Vietnam") | interests such as `exploration.culture` or `exploration.subjects`: "Vietnam travel videos", "Vietnam documentaries", "Vietnamese cuisine", "Southeast Asian history" | dates, the fact of the trip, who with, where they're staying |
 | **schedule or busyness** ("busy until the 15th", "free next week") | nothing. Just adjust this conversation's suggestions. | anything, including `config/schedules.json`, which only the user edits by hand |
 | "I want to try / learn X" (an activity) | an idea at interest level: `prompts/inbox.md` (`ideas add`) | personal context |
+| learning a language, switching daily focus, level changes | `config/languages.json` (see `prompts/language.md`) | why they're learning it |
 | sources: blogs, arXiv categories, YouTube topics or languages | `config/sources.json` (the only place for these) | — |
 | tone, sizes, difficulty | `config/preferences.json` | — |
 

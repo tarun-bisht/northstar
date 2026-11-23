@@ -206,12 +206,61 @@ def video_item(v: dict, embed: bool = True) -> str:
     return "".join(parts)
 
 
+def _line(l: dict) -> str:
+    rom = f' <span class="rom">{esc(l["romanization"])}</span>' if l.get("romanization") else ""
+    note = f' <span class="meta">({esc(l["note"])})</span>' if l.get("note") else ""
+    return f'<li><span class="native">{esc(l["text"])}</span>{rom} — {esc(l["meaning"])}{note}</li>'
+
+
+def _questions(qs: list) -> str:
+    out = []
+    for i, q in enumerate(qs, 1):
+        hint = f"<p class='meta'>Hint: {esc(q['hint'])}</p>" if q.get("hint") else ""
+        out.append(f"<li>{esc(q['question'])}{hint}<details><summary>Answer</summary><p>{esc(q['answer'])}</p></details></li>")
+    return "<ol class='qs'>" + "".join(out) + "</ol>"
+
+
+def language_pack(p: dict) -> str:
+    res = _resources("Listen", [p["resource"]]) if p.get("resource") else ""
+    return "".join([
+        meta(esc(p["language"].capitalize()), esc(p["theme"]), f"{p['minutes']} min"),
+        "<p><strong>Phrases</strong></p><ul class='lang'>" + "".join(_line(l) for l in p["phrases"]) + "</ul>",
+        "<p><strong>Dialogue</strong></p><ul class='lang'>" + "".join(_line(l) for l in p["dialogue"]) + "</ul>",
+        "<p><strong>Practice</strong></p>" + _questions(p["practice"]),
+        _field("Say it aloud today", p.get("say_aloud")),
+        res,
+    ])
+
+
+def language_lessons(block: dict) -> str:
+    out = ["<h2>Languages</h2>"]
+    for ls in block.get("lessons", []):
+        out.append(f"<section class='activity'><h3>{esc(ls['language'].capitalize())}: {esc(ls['title'])}</h3>"
+                   f"<p>{esc(ls['explanation'])}</p>"
+                   "<p><strong>Examples</strong></p><ul class='lang'>" + "".join(_line(l) for l in ls["examples"]) + "</ul>"
+                   "<p><strong>Questions</strong></p>" + _questions(ls["questions"])
+                   + _list("Practice", ls["practice"]) + _resources("Resources", ls.get("resources")) + "</section>")
+    return "".join(out)
+
+
+def language_plans(block: dict) -> str:
+    out = ["<h2>Languages this month</h2>"]
+    for pl in block.get("plans", []):
+        weeks = "".join(f"<li><strong>Week {w['week']}: {esc(w['focus'])}</strong>"
+                        + ("<ul>" + "".join(f"<li>{esc(t)}</li>" for t in w.get("tasks", [])) + "</ul>" if w.get("tasks") else "")
+                        + "</li>" for w in pl["weeks"])
+        out.append(f"<section class='activity'><h3>{esc(pl['language'].capitalize())}</h3>"
+                   f"{_field('Goal', pl['goal'])}<ol class='weeks'>{weeks}</ol>{_resources('Resources', pl['resources'])}</section>")
+    return "".join(out)
+
+
 ITEM_RENDERERS = {
     "arxiv": arxiv_item,
     "research_updates": update_item,
     "world": world_item,
     "discovery": recommendation_item,
     "youtube_shorts": video_item,
+    "language": language_pack,
 }
 
 
@@ -259,6 +308,8 @@ def weekly_package(doc: dict) -> str:
            f"planned for {LOAD_TEXT.get(doc['load'], doc['load'])}. All optional.</p>"]
     out += [f'<section class="activity e-{(it.get("dimensions") or ["research"])[0]}">{activity(it)}</section>'
             for it in doc["items"]]
+    if doc.get("language"):
+        out.append(language_lessons(doc["language"]))
     if doc.get("reflection_prompt"):
         out.append(f"<h3>If you feel like reflecting</h3><p>{esc(doc['reflection_prompt'])}</p>")
     return "".join(out)
@@ -291,6 +342,8 @@ def monthly_package(doc: dict) -> str:
            "Pick one, or none.</p>"]
     out += [f'<section class="activity e-{(pj.get("dimensions") or ["research"])[0]}">{project(pj)}</section>'
             for pj in doc["items"]]
+    if doc.get("language"):
+        out.append(language_plans(doc["language"]))
     if doc.get("reflection_prompts"):
         out.append(_list("If you feel like reflecting", doc["reflection_prompts"]))
     return "".join(out)

@@ -1,0 +1,26 @@
+{
+  "_doc": "Languages you are learning. Required section. The daily 5-minute pack uses current_focus; weekly and monthly mix all languages in 'learning'. Always show the native script plus romanization (and a translation). Add or remove languages freely, or tell Claude.",
+  "current_focus": "japanese",
+  "learning": [
+    {
+      "id": "japanese",
+      "name": "Japanese",
+      "script": "Japanese (kana/kanji)",
+      "romanization": "romaji",
+      "level": "beginner",
+      "goal": "conversation: speaking and listening with native speakers",
+      "reading": "later (kana first, then kanji)"
+    },
+    {
+      "id": "telugu",
+      "name": "Telugu",
+      "script": "Telugu",
+      "romanization": "ISO 15919-style transliteration",
+      "level": "beginner",
+      "goal": "conversation: everyday speaking and listening",
+      "reading": "later"
+    }
+  ],
+  "daily_minutes": 5,
+  "practice_style": "conversation first: useful phrases, short dialogues, listening, speaking out loud; correct gently"
+}

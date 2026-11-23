@@ -26,9 +26,10 @@ Daily keeps you aware, weekly suggests something new, and monthly goes deeper. A
 | Research Updates | daily | lab posts, methods, tools, benchmarks, debates |
 | World Radar | daily | what happened, why it matters, what to watch |
 | Daily Discovery | daily | 3–6 picks; **always** an established-tier podcast, a video or lecture, and something from each tier |
+| Language pack | daily | 5 minutes in your current focus language: phrases, a short dialogue, practice questions |
 | YouTube Shorts | daily | up to ~100 short videos (English and Hindi, plus some easy Japanese), at least one per tier |
-| Weekly package | Saturday | 3–5 small optional activities; every learning item has steps and resources |
-| Monthly package | 1st | 1–3 one-month projects with a week-by-week syllabus (books with chapters, lectures, papers); always one growth reading in science, maths, neuroscience or philosophy |
+| Weekly package | Saturday | 3–5 small optional activities, plus a lesson with questions for each language you're learning |
+| Monthly package | 1st | 1–3 one-month projects with a week-by-week syllabus (books with chapters, lectures, papers); always one growth reading in science, maths, neuroscience or philosophy, plus a plan for each language |
 | Quarterly synthesis | Jan/Apr/Jul/Oct | what you explored and what's emerging; delivered to you, never saved |
 
 Validation enforces the **bold** daily rules and the weekly and monthly syllabus rules.
@@ -36,6 +37,7 @@ Validation enforces the **bold** daily rules and the weekly and monthly syllabus
 ## Using it
 
 - **Read:** add the feed URLs from the home page to any RSS reader (Feedly, Inoreader, NetNewsWire, Reeder, Feeder, Thunderbird). Some readers block embedded YouTube players; every video also has a thumbnail and a link.
+- **Languages:** set them in `config/languages.json` (now Japanese and Telugu, with Japanese as the daily focus). To practise any time, tell Claude "let's practise Japanese" or "quiz me in Telugu".
 - **Talk to Claude** in a Claude Code session with this repo: "I'm into pottery", "less anime", "I want to try X next month", "feedback: loved the puzzle, skipped the film". Claude updates the files and commits.
 - **Or write** in `inbox/ideas.md` and `inbox/feedback.md` on GitHub. The next scheduled run processes them. These files are public.
 

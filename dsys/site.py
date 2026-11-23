@@ -21,9 +21,9 @@ from .render import DIMENSION_NAMES, TIME_LABEL, a, esc, human
 from .rss import generate_all
 
 DIMENSIONS: list[str] = list(DIMENSION_NAMES)  # refreshed from config in build_site
-STREAM_DEFAULT_DIMENSION = {"arxiv": "research", "research_updates": "research", "world": "world",
+STREAM_DEFAULT_DIMENSION = {"language": "culture", "arxiv": "research", "research_updates": "research", "world": "world",
                          "discovery": "curiosity", "youtube_shorts": "curiosity"}
-STREAM_SHORT = {"arxiv": "Papers", "research_updates": "Research", "world": "World", "discovery": "Discovery",
+STREAM_SHORT = {"language": "Language", "arxiv": "Papers", "research_updates": "Research", "world": "World", "discovery": "Discovery",
                 "youtube_shorts": "Shorts"}
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
@@ -135,6 +135,8 @@ CSS += """
 .short a.thumb{display:block;aspect-ratio:9/14;overflow:hidden;border-radius:6px;background:var(--paper-2)}
 .short img{width:100%;height:100%;object-fit:cover;display:block}
 .short p{margin:.35rem 0 0;font:400 .85rem/1.35 var(--sans)}
+.lang{list-style:none;padding:0}.lang li{margin:.3rem 0}.native{font-size:1.1em}.rom{color:var(--ink-2);font-style:italic}
+.qs li{margin:.4rem 0}
 .short .ch{color:var(--ink-2);font-size:.8rem}
 /* ideas */
 .idea{padding:.7rem 0;border-top:1px solid var(--rule)}

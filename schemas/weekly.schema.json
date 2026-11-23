@@ -11,7 +11,8 @@
     "generated_at",
     "load",
     "intro",
-    "items"
+    "items",
+    "language"
   ],
   "additionalProperties": false,
   "properties": {
@@ -55,6 +56,23 @@
     },
     "notes": {
       "type": "string"
+    },
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lessons"
+      ],
+      "properties": {
+        "lessons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/lesson"
+          },
+          "minItems": 1,
+          "maxItems": 4
+        }
+      }
     }
   },
   "$defs": {
@@ -240,6 +258,59 @@
         },
         "tier": {
           "$ref": "common.schema.json#/$defs/tier"
+        }
+      }
+    },
+    "lesson": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "language",
+        "title",
+        "explanation",
+        "examples",
+        "questions",
+        "practice"
+      ],
+      "properties": {
+        "language": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 20
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/lang_line"
+          },
+          "minItems": 3
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/lang_question"
+          },
+          "minItems": 3
+        },
+        "practice": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "speaking/listening tasks"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/resource"
+          }
         }
       }
     }

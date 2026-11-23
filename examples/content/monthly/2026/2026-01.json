@@ -83,5 +83,50 @@
   "reflection_prompts": [
     "What am I becoming better at?",
     "What did I avoid this month, and why?"
-  ]
+  ],
+  "language": {
+    "plans": [
+      {
+        "language": "japanese",
+        "goal": "[EXAMPLE] Hold a 2-minute self-introduction and small-talk conversation.",
+        "weeks": [
+          {
+            "week": 1,
+            "focus": "Greetings and introductions",
+            "tasks": [
+              "Daily packs + shadow one dialogue"
+            ]
+          },
+          {
+            "week": 2,
+            "focus": "Asking questions",
+            "tasks": [
+              "Practise question words with Claude"
+            ]
+          },
+          {
+            "week": 3,
+            "focus": "Small talk",
+            "tasks": [
+              "Two 5-minute role-plays"
+            ]
+          },
+          {
+            "week": 4,
+            "focus": "Put it together",
+            "tasks": [
+              "Record a 2-minute self-introduction"
+            ]
+          }
+        ],
+        "resources": [
+          {
+            "title": "[EXAMPLE] A beginner conversation course",
+            "type": "course",
+            "chapters": "Units 1-4"
+          }
+        ]
+      }
+    ]
+  }
 }

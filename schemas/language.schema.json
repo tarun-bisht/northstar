@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/language.schema.json",
+  "title": "Daily 5-minute language pack (one item per day, current focus language)",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/daily_envelope"
+    }
+  ],
+  "properties": {
+    "schema": {
+      "const": "language"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/pack"
+      },
+      "minItems": 1,
+      "maxItems": 1
+    }
+  },
+  "$defs": {
+    "pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "language",
+        "title",
+        "theme",
+        "minutes",
+        "phrases",
+        "dialogue",
+        "practice",
+        "tier",
+        "dimensions"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "language": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3
+        },
+        "theme": {
+          "type": "string",
+          "minLength": 2,
+          "description": "e.g. ordering food, self-introduction"
+        },
+        "minutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "phrases": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/lang_line"
+          },
+          "minItems": 3,
+          "maxItems": 8
+        },
+        "dialogue": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "common.schema.json#/$defs/lang_line"
+              }
+            ]
+          },
+          "minItems": 2,
+          "maxItems": 8
+        },
+        "practice": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/lang_question"
+          },
+          "minItems": 2,
+          "maxItems": 5
+        },
+        "say_aloud": {
+          "type": "string",
+          "description": "one thing to say out loud today"
+        },
+        "resource": {
+          "$ref": "common.schema.json#/$defs/resource"
+        },
+        "tier": {
+          "$ref": "common.schema.json#/$defs/tier"
+        },
+        "dimensions": {
+          "$ref": "common.schema.json#/$defs/dimensions"
+        }
+      }
+    }
+  }
+}

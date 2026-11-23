@@ -94,6 +94,11 @@ def _daily_entry(stream, doc, it, day, order, site):
         creator = it.get("creator")
         desc = it["description"]
         cats = [it["category"], it["tier"]]
+    elif stream == "language":
+        title = f"{it['language'].capitalize()}: {it['title']}"
+        desc = it["theme"]
+        cats = [it["language"]]
+        link = f"{site['base_url']}/daily/{doc['date']}.html#language"
     elif stream == "youtube_shorts":
         creator = it["channel"]["name"]
         desc = it["why_it_matches"]

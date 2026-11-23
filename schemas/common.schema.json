@@ -296,6 +296,52 @@
         "exploration"
       ],
       "description": "established: what you follow (relevance); growth: what develops you; exploration: worthwhile surprises"
+    },
+    "lang_line": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "meaning"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "native script"
+        },
+        "romanization": {
+          "type": "string"
+        },
+        "meaning": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "lang_question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question",
+        "answer"
+      ],
+      "properties": {
+        "question": {
+          "type": "string",
+          "minLength": 3
+        },
+        "answer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hint": {
+          "type": "string"
+        }
+      }
     }
   }
 }

@@ -9,7 +9,8 @@
     "generated_at",
     "load",
     "intro",
-    "items"
+    "items",
+    "language"
   ],
   "additionalProperties": false,
   "properties": {
@@ -50,6 +51,22 @@
     },
     "notes": {
       "type": "string"
+    },
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "plans"
+      ],
+      "properties": {
+        "plans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/language_plan"
+          },
+          "minItems": 1
+        }
+      }
     }
   },
   "$defs": {
@@ -205,6 +222,40 @@
         },
         "tier": {
           "$ref": "common.schema.json#/$defs/tier"
+        }
+      }
+    },
+    "language_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "language",
+        "goal",
+        "weeks",
+        "resources"
+      ],
+      "properties": {
+        "language": {
+          "type": "string"
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 5
+        },
+        "weeks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/week_plan"
+          },
+          "minItems": 4,
+          "maxItems": 5
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/resource"
+          },
+          "minItems": 1
         }
       }
     }

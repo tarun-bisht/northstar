@@ -66,9 +66,35 @@ def weekly(repo: Repo, week="2026-W49", items=None, **kw):
     s, e = week_bounds(week)
     items = items if items is not None else [activity(f"w-{week.lower()}-a"), activity(f"w-{week.lower()}-b")]
     doc = {"schema": "weekly", "week": week, "start_date": s.isoformat(), "end_date": e.isoformat(),
-           "generated_at": "2026-11-28T01:00:00Z", "load": "normal", "intro": "Optional things.", "items": items, **kw}
+           "generated_at": "2026-11-28T01:00:00Z", "load": "normal", "intro": "Optional things.", "items": items,
+           "language": {"lessons": [LESSON]}, **kw}
     write_json(repo.weekly_path(week), doc)
     return doc
+
+
+LESSON = {"language": "japanese", "title": "Greetings", "explanation": "How to greet people politely in Japanese.",
+          "examples": [{"text": "こんにちは", "romanization": "konnichiwa", "meaning": "hello"},
+                       {"text": "おはよう", "romanization": "ohayō", "meaning": "good morning"},
+                       {"text": "こんばんは", "romanization": "konbanwa", "meaning": "good evening"}],
+          "questions": [{"question": "Say hello", "answer": "こんにちは"}, {"question": "Say good morning", "answer": "おはよう"},
+                        {"question": "Say good evening", "answer": "こんばんは"}],
+          "practice": ["Greet three people today"]}
+PLAN = {"language": "telugu", "goal": "Basic greetings and small talk",
+        "weeks": [{"week": i, "focus": f"week {i}", "tasks": ["practise"]} for i in range(1, 5)],
+        "resources": [{"title": "A Telugu course", "type": "course", "chapters": "Units 1-2"}]}
+
+
+def language_pack(date="2026-11-24", **kw):
+    p = {"id": f"lang-{date}", "language": "japanese", "title": "At a café", "theme": "ordering", "minutes": 5,
+         "phrases": [{"text": "コーヒーをください", "romanization": "kōhī o kudasai", "meaning": "coffee, please"},
+                     {"text": "いくらですか", "romanization": "ikura desu ka", "meaning": "how much is it?"},
+                     {"text": "ありがとう", "romanization": "arigatō", "meaning": "thank you"}],
+         "dialogue": [{"text": "いらっしゃいませ", "meaning": "welcome"}, {"text": "コーヒーをください", "meaning": "coffee, please"}],
+         "practice": [{"question": "Order a coffee", "answer": "コーヒーをください"},
+                      {"question": "Ask the price", "answer": "いくらですか"}],
+         "tier": "growth", "dimensions": ["culture"]}
+    p.update(kw)
+    return p
 
 
 def activity(aid, **kw):
@@ -82,7 +108,7 @@ def activity(aid, **kw):
 def monthly(repo: Repo, month="2026-12", items=None):
     items = items if items is not None else [project(f"m-{month}-a")]
     doc = {"schema": "monthly", "month": month, "generated_at": "2026-12-01T01:00:00Z", "load": "normal",
-           "intro": "Optional depth.", "items": items}
+           "intro": "Optional depth.", "items": items, "language": {"plans": [PLAN]}}
     write_json(repo.monthly_path(month), doc)
     return doc
 

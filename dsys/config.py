@@ -8,7 +8,7 @@ import re
 
 from .core import Repo, load_json
 
-REQUIRED = ["interests", "preferences", "recommendation_policy", "sources", "site"]
+REQUIRED = ["interests", "preferences", "recommendation_policy", "sources", "site", "languages"]
 OPTIONAL = ["schedules"]
 ID_RE = re.compile(r"^[a-z][a-z0-9_]{1,40}$")
 ARXIV_CAT_RE = re.compile(r"^[a-z-]+(\.[A-Za-z-]+)?$")
@@ -84,6 +84,17 @@ def check(repo: Repo) -> tuple[list[str], list[str]]:
         for g in groups:
             if not g.get("language") or not g.get("queries"):
                 errors.append("config/sources.json: each youtube query group needs 'language' and 'queries'")
+
+    lg = cfg.get("languages", {})
+    if lg:
+        ids = [l.get("id") for l in lg.get("learning", [])]
+        if not ids:
+            errors.append("config/languages.json: 'learning' must list at least one language")
+        for l in lg.get("learning", []):
+            if not ID_RE.match(l.get("id") or "") or not l.get("name"):
+                errors.append(f"config/languages.json: each language needs an id (lowercase) and a name: {l}")
+        if lg.get("current_focus") not in ids:
+            errors.append("config/languages.json: current_focus must be one of the learning ids")
 
     site = cfg.get("site", {})
     if site:

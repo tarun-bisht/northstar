@@ -18,6 +18,7 @@ STREAM_SCHEMA = {
     "world": "world.schema.json",
     "discovery": "discovery.schema.json",
     "youtube_shorts": "youtube_shorts.schema.json",
+    "language": "language.schema.json",
     "weekly": "weekly.schema.json",
     "monthly": "monthly.schema.json",
     "feedback": "feedback.schema.json",

@@ -1,0 +1,63 @@
+{
+  "schema": "language",
+  "date": "2026-01-05",
+  "generated_at": "2026-01-05T01:50:00Z",
+  "generator": "example",
+  "example": true,
+  "notes": "EXAMPLE DATA.",
+  "items": [
+    {
+      "id": "lang-2026-01-05",
+      "language": "japanese",
+      "title": "[EXAMPLE] Introducing yourself",
+      "theme": "self-introduction",
+      "minutes": 5,
+      "phrases": [
+        {
+          "text": "はじめまして",
+          "romanization": "hajimemashite",
+          "meaning": "nice to meet you"
+        },
+        {
+          "text": "よろしくお願いします",
+          "romanization": "yoroshiku onegaishimasu",
+          "meaning": "please treat me well (polite closing)"
+        },
+        {
+          "text": "インドから来ました",
+          "romanization": "Indo kara kimashita",
+          "meaning": "I came from India"
+        }
+      ],
+      "dialogue": [
+        {
+          "text": "はじめまして。田中です。",
+          "romanization": "Hajimemashite. Tanaka desu.",
+          "meaning": "Nice to meet you. I'm Tanaka."
+        },
+        {
+          "text": "はじめまして。よろしくお願いします。",
+          "romanization": "Hajimemashite. Yoroshiku onegaishimasu.",
+          "meaning": "Nice to meet you. Pleased to meet you."
+        }
+      ],
+      "practice": [
+        {
+          "question": "How do you say 'nice to meet you'?",
+          "answer": "はじめまして (hajimemashite)"
+        },
+        {
+          "question": "Introduce yourself in two sentences.",
+          "answer": "はじめまして。[name]です。よろしくお願いします。",
+          "hint": "name + desu"
+        }
+      ],
+      "say_aloud": "Introduce yourself out loud three times.",
+      "tier": "growth",
+      "dimensions": [
+        "people",
+        "culture"
+      ]
+    }
+  ]
+}

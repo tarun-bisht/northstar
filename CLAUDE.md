@@ -17,6 +17,7 @@ Northstar is a public, forkable personal growth system. Claude generates content
 - Shorts: at least one per tier.
 - Weekly learning items: detailed steps and real resources (book chapters, lectures, blogs, papers).
 - Monthly: a week-by-week syllabus with resources, and at least one growth reading or exercise.
+- Languages (`config/languages.json`): a 5-minute pack every day (current focus), a lesson per language every week, a plan per language every month.
 
 ## Which prompt
 
@@ -26,6 +27,8 @@ Northstar is a public, forkable personal growth system. Claude generates content
 | "Recommend me…", "I want to try…" | `prompts/on_demand_recommendations.md`, then `prompts/inbox.md` to record it |
 | User shares interests, projects, trips, how busy they are | `prompts/update_interests.md` |
 | Feedback on a week or month | `prompts/feedback.md` |
+| Language lessons, packs, plans | `prompts/language.md` |
+| "Let's practise Japanese", "quiz me" | `prompts/language_practice.md` |
 
 ## Commands
 

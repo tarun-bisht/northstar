@@ -138,6 +138,11 @@ def _planning_prefs(repo: Repo) -> dict:
     return profile.planning_view(profile.load(repo), dropped)
 
 
+def _languages(repo: Repo) -> dict:
+    p = repo.p("config", "languages.json")
+    return load_json(p) if p.exists() else {}
+
+
 def _interest_hint(repo: Repo) -> dict:
     i = repo.config("interests")
     tiers = {t: {k: v for k, v in (i.get(t) or {}).items() if not k.startswith("_")}
@@ -178,6 +183,9 @@ def context(repo: Repo, stream: str, day: dt.date, period: str | None = None) ->
         ctx["preferences"] = _planning_prefs(repo)
         ctx["variety"] = diversity.report(repo, day, 30)
         ctx["interests_hint"] = _interest_hint(repo)
+    elif stream == "language":
+        ctx["languages"] = _languages(repo)
+        ctx["recent_packs"] = _recent(repo, "language", day, 60, ("language", "theme", "title"))
     elif stream == "youtube_shorts":
         ctx["candidates"] = {k: v for k, v in unseen_youtube_candidates(repo, day).items() if k != "candidates"}
         yh = repo.state_path("youtube_history")
@@ -213,6 +221,8 @@ def context(repo: Repo, stream: str, day: dt.date, period: str | None = None) ->
         ctx["preferences"] = _planning_prefs(repo)
         ctx["variety"] = diversity.report(repo, day, 60 if stream == "monthly" else 30)
         ctx["interests_hint"] = _interest_hint(repo)
+        ctx["languages"] = _languages(repo)
+        ctx["recent_language_themes"] = _recent(repo, "language", day, 60, ("language", "theme"))
         ctx["seed_rule"] = ("ideas_open_pool may include seeds (origin seed): they are suggestions, not intentions. "
                             "You may offer one as an optional item, but never mark it planned or schedule it. "
                             "Only ideas_scheduled_for_this_period reflect the user's explicit wish.")

@@ -67,6 +67,7 @@ def _walk(obj, path=""):
 
 
 _DIMS: set[str] | None = None
+_LANGS: set[str] = set()
 
 
 def _semantic_checks(rep: Report, where: str, doc) -> None:
@@ -171,8 +172,10 @@ def _load(rep: Report, repo: Repo, path: Path):
 
 
 def validate_repo(repo: Repo, examples: bool = False) -> Report:
-    global _DIMS
+    global _DIMS, _LANGS
     rep = Report()
+    lp = repo.p("config", "languages.json")
+    _LANGS = {l["id"] for l in load_json(lp).get("learning", [])} if lp.exists() else set()
     if not examples:
         from .config import check as check_config
         cerrs, cwarns = check_config(repo)
@@ -326,6 +329,20 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
             if stream == "discovery":
                 for e in discovery_rule_errors(items):
                     rep.err(where, e)
+            if stream == "language":
+                for it in items:
+                    if it.get("language") not in _LANGS:
+                        rep.err(where, f"language {it.get('language')!r} is not in config/languages.json -> learning")
+                    if it.get("id") != f"lang-{doc['date']}":
+                        rep.err(where, f"language pack id must be 'lang-{doc['date']}'")
+            if stream == "weekly":
+                for ls in doc.get("language", {}).get("lessons", []):
+                    if ls["language"] not in _LANGS:
+                        rep.err(where, f"lesson language {ls['language']!r} is not in config/languages.json")
+            if stream == "monthly":
+                for pl in doc.get("language", {}).get("plans", []):
+                    if pl["language"] not in _LANGS:
+                        rep.err(where, f"plan language {pl['language']!r} is not in config/languages.json")
             if stream == "youtube_shorts" and items:
                 missing = TIERS - {it.get("tier") for it in items}
                 if missing:
@@ -341,6 +358,13 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 for it in items:
                     for e in project_errors(it):
                         rep.err(where, e)
+
+    if not examples:
+        lang_days = {f.stem for f in repo.iter_stream_files("language")}
+        for f in repo.iter_stream_files("discovery"):
+            if f.stem not in lang_days:
+                rep.err(str(f.relative_to(repo.root)), "every day needs its 5-minute language pack "
+                        f"(content/language/{f.stem[:4]}/{f.stem[5:7]}/{f.stem}.json)")
 
     for where, ref in continues_refs:
         if ref not in all_periodic_ids:

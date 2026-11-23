@@ -24,6 +24,7 @@ Each item is a small course, not a theme (validation enforces weekly tasks and r
 
 1. Feedback for last month (`prompts/feedback.md`) and new ideas (`prompts/inbox.md`).
 2. `python scripts/dsys.py context monthly --period <YYYY-MM>`: schedule, ideas, preferences (`avoid` is binding), tiers and variety.
-3. Write `content/monthly/<YYYY>/<YYYY-MM>.json` (`status: "suggested"`), then `history rebuild` and `validate`.
+3. **Languages (required):** add `language.plans`, one plan per language you're learning, as in `prompts/language.md`.
+4. Write `content/monthly/<YYYY>/<YYYY-MM>.json` (`status: "suggested"`), then `history rebuild` and `validate`.
 
 Kinds: `ai_deep_dive`, `non_ai_deep_dive`, `research_exploration`, `teaching`, `people`, `creative_project`, `hobby_skill`, `exploration_theme`, `user_idea`.

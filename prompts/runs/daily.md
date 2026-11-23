@@ -8,7 +8,8 @@ Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
 4. **Research updates**: follow `prompts/research_updates.md`.
 5. **World radar**: follow `prompts/world.md`.
 6. **Daily discovery**: follow `prompts/discovery.md`.
-7. `python scripts/dsys.py history rebuild && python scripts/validate.py`, fix any errors, then commit `daily: <today>` and push.
-8. Final message (the run summary): items per stream, anything notable (one line each for must-read papers), and any limitations hit (e.g. candidates missing, a source unreachable). No praise, no padding.
+7. **Language pack (required)**: follow `prompts/language.md` (5 minutes, current focus language).
+8. `python scripts/dsys.py history rebuild && python scripts/validate.py`, fix any errors, then commit `daily: <today>` and push.
+9. Final message (the run summary): items per stream, anything notable (one line each for must-read papers), and any limitations hit (e.g. candidates missing, a source unreachable). No praise, no padding.
 
 Budget: keep the whole run focused. Prefer fewer well-verified items over broad but shallow coverage.

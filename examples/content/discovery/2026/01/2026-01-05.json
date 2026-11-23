@@ -40,7 +40,7 @@
           "thermodynamics",
           "machine unlearning"
         ],
-        "connection": "Erasing information has a physical cost; unlearning is erasure in a model, so Landauer offers a fresh angle on what forgetting means."
+        "connection": "Erasing information has a physical cost. unlearning is erasure in a model, so Landauer offers a fresh angle on what forgetting means."
       },
       "tier": "growth"
     },

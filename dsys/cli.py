@@ -112,7 +112,8 @@ def cmd_candidates(repo: Repo, args) -> int:
     if args.limit:
         data["candidates"] = data["candidates"][args.offset:args.offset + args.limit]
     if args.brief and args.kind == "arxiv":
-        data["candidates"] = [{"arxiv_id": c["arxiv_id"], "title": c["title"], "categories": c["categories"]}
+        data["candidates"] = [{"arxiv_id": c["arxiv_id"], "title": c["title"], "categories": c.get("categories", []),
+                               **({"hf_upvotes": c["hf_upvotes"]} if c.get("hf_upvotes") else {})}
                               for c in data["candidates"]]
     _print(data)
     return 0
@@ -283,6 +284,38 @@ def cmd_interests(repo: Repo, args) -> int:
     return 0
 
 
+def cmd_reading(repo: Repo, args) -> int:
+    """Add papers to a week's reading list (created if missing). Skips papers already on any list."""
+    from .core import iso_week, week_bounds
+    day = _day(args.date)
+    week = args.week or iso_week(day)
+    path = repo.reading_path(week)
+    s_, e_ = week_bounds(week)
+    doc = load_json(path) if path.exists() else {"schema": "reading", "week": week, "start_date": s_.isoformat(),
+                                                   "end_date": e_.isoformat(), "papers": []}
+    if args.action == "show":
+        _print(doc)
+        return 0
+    known = set()
+    for f in repo.iter_stream_files("reading"):
+        for pp in load_json(f)["papers"]:
+            known |= {k for k in (pp.get("arxiv_id"), pp["url"]) if k}
+    incoming = load_json(args.json)
+    incoming = incoming.get("papers", incoming) if isinstance(incoming, dict) else incoming
+    added = 0
+    for pp in incoming:
+        if (pp.get("arxiv_id") and pp["arxiv_id"] in known) or pp["url"] in known:
+            continue
+        pp.setdefault("added", day.isoformat())
+        doc["papers"].append(pp)
+        known |= {k for k in (pp.get("arxiv_id"), pp["url"]) if k}
+        added += 1
+    doc["generated_at"] = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    write_json(path, doc)
+    print(f"{path.relative_to(repo.root)}: +{added} papers ({len(doc['papers'])} total)")
+    return 0
+
+
 def cmd_synthesis(repo: Repo, args) -> int:
     from .synthesis import evidence, quarter_of
     q = args.quarter or quarter_of(_day(args.date))
@@ -412,6 +445,13 @@ def build_parser() -> argparse.ArgumentParser:
     x = isub2.add_parser("remove"); x.add_argument("path"); x.add_argument("value")
     x = isub2.add_parser("move"); x.add_argument("src"); x.add_argument("dst"); x.add_argument("value")
     s.set_defaults(fn=cmd_interests)
+
+    s = sub.add_parser("reading", help="weekly paper reading list: show, or add papers from a JSON file")
+    s.add_argument("action", choices=["show", "add"])
+    s.add_argument("--week", help="YYYY-Www (default: this week)")
+    s.add_argument("--json", help="file with a list of papers (or {papers: [...]})")
+    s.add_argument("--date")
+    s.set_defaults(fn=cmd_reading)
 
     s = sub.add_parser("synthesis", help="qualitative evidence for the optional quarterly synthesis")
     s.add_argument("--quarter", help="YYYY-Qn (default: current quarter)"); s.add_argument("--date")

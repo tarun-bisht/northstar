@@ -2,29 +2,94 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://dsys.local/schemas/research_updates.schema.json",
   "title": "Daily research updates (non-arXiv)",
-  "allOf": [{ "$ref": "common.schema.json#/$defs/daily_envelope" }],
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/daily_envelope"
+    }
+  ],
   "properties": {
-    "schema": { "const": "research_updates" },
-    "items": { "type": "array", "items": { "$ref": "#/$defs/update" } }
+    "schema": {
+      "const": "research_updates"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/update"
+      }
+    }
   },
   "$defs": {
     "update": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "title", "kind", "what_happened", "why_it_matters", "what_to_watch", "source", "published"],
+      "required": [
+        "id",
+        "title",
+        "kind",
+        "what_happened",
+        "why_it_matters",
+        "what_to_watch",
+        "source",
+        "published"
+      ],
       "properties": {
-        "id": { "$ref": "common.schema.json#/$defs/id" },
-        "title": { "$ref": "common.schema.json#/$defs/nonempty" },
-        "kind": { "enum": ["researcher_post", "lab_announcement", "new_method", "new_result", "benchmark", "tool", "conference", "debate", "resource", "other"] },
-        "what_happened": { "$ref": "common.schema.json#/$defs/nonempty" },
-        "why_it_matters": { "$ref": "common.schema.json#/$defs/nonempty" },
-        "what_to_watch": { "$ref": "common.schema.json#/$defs/nonempty" },
-        "source": { "$ref": "common.schema.json#/$defs/source" },
-        "additional_sources": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/source" } },
-        "published": { "$ref": "common.schema.json#/$defs/date" },
-        "research_area": { "type": "string" },
-        "uncertainty": { "type": "string" },
-        "dimensions": { "$ref": "common.schema.json#/$defs/dimensions" }
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "title": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "kind": {
+          "enum": [
+            "researcher_post",
+            "lab_announcement",
+            "new_method",
+            "new_result",
+            "benchmark",
+            "tool",
+            "conference",
+            "debate",
+            "resource",
+            "other"
+          ]
+        },
+        "what_happened": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 280
+        },
+        "why_it_matters": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 220
+        },
+        "what_to_watch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "source": {
+          "$ref": "common.schema.json#/$defs/source"
+        },
+        "additional_sources": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/source"
+          }
+        },
+        "published": {
+          "$ref": "common.schema.json#/$defs/date"
+        },
+        "research_area": {
+          "type": "string"
+        },
+        "uncertainty": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "dimensions": {
+          "$ref": "common.schema.json#/$defs/dimensions"
+        }
       }
     }
   }

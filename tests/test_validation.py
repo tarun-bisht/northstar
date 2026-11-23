@@ -156,8 +156,52 @@ def test_dimensions_come_from_config(repo):
     assert errs(repo) == []
 
 
-def test_arxiv_reason_is_optional(repo):
-    p = paper()
-    del p["selection_reason"]
-    daily(repo, "arxiv", "2026-11-24", [p])
+def test_arxiv_uses_fixed_tags_only(repo):
+    daily(repo, "arxiv", "2026-11-24", [paper(tags=["close to your work", "theory"])])
     assert errs(repo) == []
+    daily(repo, "arxiv", "2026-11-24", [paper(tags=["matches your optimizer method"])])
+    assert any("fixed paper_tags" in e for e in errs(repo))
+    p = paper()
+    p["selection_reason"] = "This matches your method."
+    daily(repo, "arxiv", "2026-11-24", [p])
+    assert any("selection_reason" in e for e in errs(repo))  # free-text reasons are not allowed
+
+
+def test_weekly_needs_reading_list(repo):
+    weekly(repo, with_reading=False)
+    assert any("reading list" in e for e in errs(repo))
+    from conftest import reading
+    reading(repo, "2026-W49", n=2)
+    assert any("at least 3 papers" in e for e in errs(repo))
+    reading(repo, "2026-W49", n=3)
+    assert errs(repo) == []
+
+
+def test_reading_list_rules(repo):
+    from conftest import reading
+    doc = reading(repo, "2026-W49")
+    doc["papers"][0]["tags"] = ["my own tag"]
+    write_json(repo.reading_path("2026-W49"), doc)
+    assert any("fixed paper_tags" in e for e in errs(repo))
+    reading(repo, "2026-W49")
+    dup = reading(repo, "2026-W50")
+    dup["papers"][0]["url"] = "https://example.org/2026-W49/0"
+    write_json(repo.reading_path("2026-W50"), dup)
+    assert any("already on the reading list" in e for e in errs(repo))
+
+
+def test_plain_style_warning(repo):
+    daily(repo, "world", "2026-11-24", [{
+        "id": "world-x", "title": "t", "regions": ["India"], "topic": "economics",
+        "what_happened": "Rates rose — again; markets fell.", "why_it_matters": "b", "what_to_watch": "c",
+        "confirmed_facts": ["f"], "sources": [{"name": "s", "url": "https://example.org/s"}], "published": "2026-11-24"}])
+    rep = validate_repo(repo)
+    assert rep.ok and any("plain sentences" in w for w in rep.warnings)
+
+
+def test_news_text_is_capped(repo):
+    daily(repo, "world", "2026-11-24", [{
+        "id": "world-x", "title": "t", "regions": ["India"], "topic": "economics",
+        "what_happened": "word " * 100, "why_it_matters": "b", "what_to_watch": "c",
+        "confirmed_facts": ["f"], "sources": [{"name": "s", "url": "https://example.org/s"}], "published": "2026-11-24"}])
+    assert any("too long" in e or "is too long" in e for e in errs(repo))

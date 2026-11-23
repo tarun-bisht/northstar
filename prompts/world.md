@@ -20,3 +20,5 @@ Read `prompts/_shared.md` first.
    - `sources`: one or more, each with its own published date; `published` is the primary source's date
 5. Be neutral on contested political questions: describe positions, don't take sides. For conflicts and disasters, be factual and humane; no graphic detail.
 6. Write `/tmp/world.json`, merge with `python scripts/dsys.py daily merge world --date <today> --items /tmp/world.json`, then `history rebuild` and `validate`.
+
+Keep every field to one or two short sentences. Say what happened, why it matters and what to watch, and stop. Validation rejects fields that run too long.

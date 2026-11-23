@@ -73,7 +73,9 @@
       "type": "boolean"
     },
     "description": {
-      "$ref": "common.schema.json#/$defs/nonempty"
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
     },
     "duration": {
       "type": "string"
@@ -82,13 +84,17 @@
       "$ref": "common.schema.json#/$defs/difficulty"
     },
     "why_recommended": {
-      "$ref": "common.schema.json#/$defs/nonempty"
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 180
     },
     "connection_to_interests": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 160
     },
     "what_i_might_get_from_it": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 160
     },
     "action": {
       "$ref": "common.schema.json#/$defs/action"

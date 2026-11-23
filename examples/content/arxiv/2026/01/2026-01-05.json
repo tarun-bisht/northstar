@@ -25,10 +25,12 @@
       "abstract": "This is an example abstract used to illustrate the data format. A real entry would contain the original abstract copied verbatim from arXiv, never a paraphrase or summary written by the generator.",
       "abstract_source": "arxiv_api_candidates",
       "research_area": "machine unlearning / interpretability",
-      "relevance": "must_read",
-      "selection_reason": "Closely related to your work.",
       "dimensions": [
         "research"
+      ],
+      "tags": [
+        "close to your work",
+        "new method or architecture"
       ]
     }
   ]

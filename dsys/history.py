@@ -29,7 +29,7 @@ def rebuild(repo: Repo) -> dict[str, int]:
     # papers
     ph_path = repo.state_path("paper_history")
     old = load_json(ph_path) if ph_path.exists() else {}
-    selected = {it["arxiv_id"]: {"date": d, "title": it["title"], "relevance": it["relevance"]}
+    selected = {it["arxiv_id"]: {"date": d, "title": it["title"], "tags": it.get("tags", [])}
                 for d, it in _iter_daily(repo, "arxiv")}
     seen = {k: v for k, v in sorted(old.get("seen", {}).items()) if k not in selected}
     write_json(ph_path, {"_doc": "Derived by `dsys history rebuild`. 'seen' = candidates reviewed but not selected.",
@@ -138,6 +138,16 @@ def _planning_prefs(repo: Repo) -> dict:
     return profile.planning_view(profile.load(repo), dropped)
 
 
+def _reading(repo: Repo, day: dt.date) -> dict:
+    """The reading list for the week containing `day`, plus every paper already listed (to avoid repeats)."""
+    week = iso_week(day)
+    p = repo.reading_path(week)
+    listed = []
+    for f in repo.iter_stream_files("reading"):
+        listed += [pp.get("arxiv_id") or pp["url"] for pp in load_json(f)["papers"]]
+    return {"week": week, "papers": load_json(p)["papers"] if p.exists() else [], "already_listed": listed}
+
+
 def _languages(repo: Repo) -> dict:
     p = repo.p("config", "languages.json")
     return load_json(p) if p.exists() else {}
@@ -174,6 +184,8 @@ def context(repo: Repo, stream: str, day: dt.date, period: str | None = None) ->
         ctx["is_weekday"] = day.weekday() < 5
         ctx["candidates"] = {k: v for k, v in unseen_arxiv_candidates(repo, day).items() if k != "candidates"}
         ctx["recent_selected"] = _recent(repo, "arxiv", day, 30, ("arxiv_id", "title"))
+        ctx["paper_tags"] = repo.config("sources").get("paper_tags", {}).get("tags", [])
+        ctx["reading_list_this_week"] = _reading(repo, day)
     elif stream in ("research_updates", "world"):
         ctx["recent_items"] = _recent(repo, stream, day, int(win.get(stream, 14)),
                                       ("id", "title", "published", "follows_up"))
@@ -221,6 +233,8 @@ def context(repo: Repo, stream: str, day: dt.date, period: str | None = None) ->
         ctx["preferences"] = _planning_prefs(repo)
         ctx["variety"] = diversity.report(repo, day, 60 if stream == "monthly" else 30)
         ctx["interests_hint"] = _interest_hint(repo)
+        ctx["paper_tags"] = repo.config("sources").get("paper_tags", {}).get("tags", [])
+        ctx["reading_list"] = _reading(repo, start)
         ctx["languages"] = _languages(repo)
         ctx["recent_language_themes"] = _recent(repo, "language", day, 60, ("language", "theme"))
         ctx["seed_rule"] = ("ideas_open_pool may include seeds (origin seed): they are suggestions, not intentions. "

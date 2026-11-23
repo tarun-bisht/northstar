@@ -16,3 +16,5 @@ Read `prompts/_shared.md` first.
 4. For each item: `what_happened` (facts, 1–3 sentences), `why_it_matters` (for researchers in these areas, in general public-safe terms), `what_to_watch` (what would confirm, refute or extend it), `source` (prefer the original: the lab post, the GitHub repo, the author's thread, not a news rewrite), `published` (source date), `kind`, `research_area`, `uncertainty` when claims are unreplicated.
 5. Write `/tmp/ru.json` and merge: `python scripts/dsys.py daily merge research_updates --date <today> --items /tmp/ru.json`. Add `notes` describing coverage, e.g. "X not reachable today; covered via lab blogs and GitHub".
 6. `history rebuild`, `validate`.
+
+Keep every field to one or two short sentences. If an item is a paper or technical report that is a must read, also add it to this week's reading list (`prompts/reading_list.md`).

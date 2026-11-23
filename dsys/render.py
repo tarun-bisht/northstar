@@ -42,7 +42,7 @@ def configure(repo) -> None:
             DIMENSION_SHORT[k] = (v.get("short") if isinstance(v, dict) else None) or DIMENSION_NAMES[k]
 
 
-TIME_LABEL = {"10-30m": "10–30 min", "30-60m": "30–60 min", "1-2h": "1–2 hours", "few_hours": "a few hours",
+TIME_LABEL = {"10-30m": "10 to 30 min", "30-60m": "30 to 60 min", "1-2h": "1 to 2 hours", "few_hours": "a few hours",
               "real_world_practice": "real-world practice"}
 
 
@@ -109,7 +109,7 @@ def _resources(label: str, res) -> str:
         title = a(r["url"], r["title"]) if r.get("url") else esc(r["title"])
         by = ", ".join(esc(x) for x in (r.get("creator"), r.get("year"), r.get("chapters")) if x)
         note = f". {esc(r['note'])}" if r.get("note") else ""
-        lis.append(f"<li>{title}{' — ' + by if by else ''} <span class='kind'>({human(r['type'])})</span>{note}</li>")
+        lis.append(f"<li>{title}{', ' + by if by else ''} <span class='kind'>({human(r['type'])})</span>{note}</li>")
     return f"<p><strong>{esc(label)}</strong></p><ul class='resources'>{''.join(lis)}</ul>"
 
 
@@ -127,19 +127,32 @@ KIND_LABEL = {"ai_deep_dive": "AI deep dive", "non_ai_deep_dive": "non-AI deep d
 TIER_LABEL = {"established": "established", "growth": "growth", "exploration": "exploration"}
 MODE_LABEL = {"learn": "learn", "practise": "practise", "create": "make something", "experience": "go and experience",
               "reflect": "reflect"}
-RELEVANCE = {"must_read": "Must read", "worth_skimming": "Worth skimming", "peripheral": "Peripheral"}
+
+
+def tags_line(tags) -> str:
+    return "<p class='tags'>" + "".join(f"<span class='tag'>{esc(t)}</span>" for t in tags) + "</p>" if tags else ""
 
 
 def arxiv_item(p: dict) -> str:
     links = a(p["url"], f"arXiv:{p['arxiv_id']}") + (f", {a(p['pdf_url'], 'PDF')}" if p.get("pdf_url") else "")
+    hf = f", {p['hf_upvotes']} upvotes on Hugging Face" if p.get("hf_upvotes") else ""
     return "".join([
-        meta(f'<span class="rel rel-{esc(p["relevance"])}">{RELEVANCE[p["relevance"]]}</span>',
-             esc(p["research_area"]), esc(" ".join(p["categories"])), f"submitted {nice_date(p['submitted'])}"),
-        f'<p class="authors">{esc(", ".join(p["authors"]))}</p>',
-        f'<p class="why">{esc(p["selection_reason"])}</p>' if p.get("selection_reason") else "",
-        f'<details class="abstract"><summary>Original abstract</summary><blockquote>{esc(p["abstract"])}</blockquote></details>',
-        f'<p class="links">{links}</p>',
+        tags_line(p["tags"]),
+        f'<p class="authors">{esc(", ".join(p["authors"][:8]))}{" et al." if len(p["authors"]) > 8 else ""}</p>',
+        f'<blockquote class="abstract">{esc(p["abstract"])}</blockquote>',
+        f'<p class="links">{links}. {esc(p["research_area"])}, {esc(" ".join(p["categories"]))}, '
+        f'submitted {nice_date(p["submitted"])}{hf}</p>',
     ])
+
+
+def reading_list(doc: dict) -> str:
+    out = []
+    for pp in doc["papers"]:
+        by = f"<p class='authors'>{esc(', '.join(pp['authors'][:6]))}</p>" if pp.get("authors") else ""
+        note = f"<p>{esc(pp['note'])}</p>" if pp.get("note") else ""
+        out.append(f"<article class='entry'><h3>{a(pp['url'], pp['title'])}</h3>{tags_line(pp['tags'])}{by}{note}"
+                   f"<p class='links'>{esc(pp['source'].replace('_', ' '))}, added {nice_date(pp['added'])}</p></article>")
+    return "".join(out) or "<p class='empty'>No papers yet.</p>"
 
 
 def update_item(u: dict) -> str:
@@ -198,7 +211,7 @@ def video_item(v: dict, embed: bool = True) -> str:
     parts.append(f'<p><a href="{esc(watch)}"><img src="{esc(thumb)}" alt="{esc(v["title"])}" width="320" loading="lazy"/></a></p>')
     dur = f", {v['duration_seconds']} s" if v.get("duration_seconds") else ""
     kind = {"short": "Short", "short_form": "short video", "unknown": "short video"}.get(v.get("format"), "video")
-    parts.append(f"<p>{a(watch, 'Watch on YouTube')} — {esc(v['channel']['name'])}, {kind}{dur}</p>")
+    parts.append(f"<p>{a(watch, 'Watch on YouTube')}. {esc(v['channel']['name'])}, {kind}{dur}</p>")
     parts.append(f'<p class="why">{esc(v["why_it_matches"])}</p>')
     if v.get("description"):
         parts.append(f"<p>{esc(v['description'])}</p>")
@@ -209,7 +222,7 @@ def video_item(v: dict, embed: bool = True) -> str:
 def _line(l: dict) -> str:
     rom = f' <span class="rom">{esc(l["romanization"])}</span>' if l.get("romanization") else ""
     note = f' <span class="meta">({esc(l["note"])})</span>' if l.get("note") else ""
-    return f'<li><span class="native">{esc(l["text"])}</span>{rom} — {esc(l["meaning"])}{note}</li>'
+    return f'<li><span class="native">{esc(l["text"])}</span>{rom}: {esc(l["meaning"])}{note}</li>'
 
 
 def _questions(qs: list) -> str:
@@ -283,7 +296,7 @@ def activity(it: dict, heading: str = "h3") -> str:
         out.append(f"<details><summary>What, why, how</summary>{inner}</details>")
     pp = it.get("paper")
     if pp:
-        out.append(f"<p><strong>Paper.</strong> {a(pp['url'], pp['title'])} — {esc(', '.join(pp['authors']))}, {pp['year']}</p>")
+        out.append(f"<p><strong>Paper.</strong> {a(pp['url'], pp['title'])}, {esc(', '.join(pp['authors']))}, {pp['year']}</p>")
         out.append(_field("Notice", pp.get("what_to_notice")))
         out.append(_field("Reading time", pp.get("reading_time")))
     if it.get("steps"):

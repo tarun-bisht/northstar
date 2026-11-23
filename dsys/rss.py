@@ -58,6 +58,15 @@ def collect_items(repo: Repo, stream: str, site: dict, examples: bool = False) -
                 "description": doc["intro"], "html": render.weekly_package(doc),
                 "pub": pub_datetime(start, site), "creator": None, "categories": ["weekly"], "media": None,
             })
+        elif stream == "reading":
+            for i, pp in enumerate(doc["papers"]):
+                entries.append({
+                    "guid": f"dsys:reading:{pp['id']}", "title": f"[{pp['tags'][0]}] {pp['title']}", "link": pp["url"],
+                    "description": pp.get("note") or ", ".join(pp["tags"]),
+                    "html": render.reading_list({"papers": [pp]}),
+                    "pub": pub_datetime(dt.date.fromisoformat(pp["added"]), site, i),
+                    "creator": ", ".join(pp.get("authors", [])[:6]) or None, "categories": pp["tags"], "media": None,
+                })
         elif stream == "monthly":
             start, _ = month_bounds(doc["month"])
             entries.append({
@@ -80,10 +89,10 @@ def _daily_entry(stream, doc, it, day, order, site):
     media = None
     desc = ""
     if stream == "arxiv":
-        title = f"[{it['relevance'].replace('_', ' ')}] {it['title']}"
+        title = f"[{it['tags'][0]}] {it['title']}"
         creator = ", ".join(it["authors"][:8]) + (" et al." if len(it["authors"]) > 8 else "")
         cats = it["categories"]
-        desc = it.get("selection_reason") or it["research_area"]
+        desc = ", ".join(it["tags"])
     elif stream == "research_updates":
         desc = it["what_happened"]
         cats = [it["kind"]]

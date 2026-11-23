@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/reading.schema.json",
+  "title": "Weekly paper reading list: papers worth definitely reading this week. Daily runs may add to it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "week",
+    "start_date",
+    "end_date",
+    "generated_at",
+    "papers"
+  ],
+  "properties": {
+    "schema": {
+      "const": "reading"
+    },
+    "week": {
+      "$ref": "common.schema.json#/$defs/isoweek"
+    },
+    "start_date": {
+      "$ref": "common.schema.json#/$defs/date"
+    },
+    "end_date": {
+      "$ref": "common.schema.json#/$defs/date"
+    },
+    "generated_at": {
+      "$ref": "common.schema.json#/$defs/datetime"
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "papers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/paper"
+      },
+      "maxItems": 12
+    }
+  },
+  "$defs": {
+    "paper": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "url",
+        "source",
+        "tags",
+        "added"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "arxiv_id": {
+          "type": "string",
+          "pattern": "^\\d{4}\\.\\d{4,5}$"
+        },
+        "source": {
+          "enum": [
+            "arxiv",
+            "huggingface",
+            "x_post",
+            "linkedin_post",
+            "tech_report",
+            "blog",
+            "conference",
+            "other"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 140,
+          "description": "Optional. One short plain sentence on what it is. No sales pitch."
+        },
+        "added": {
+          "$ref": "common.schema.json#/$defs/date"
+        }
+      }
+    }
+  }
+}

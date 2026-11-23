@@ -40,7 +40,19 @@ def fetch_arxiv(repo, day: dt.date) -> int:
                     by_id.setdefault(p["arxiv_id"], p)
         except Exception as e:  # keep going; record the failure
             errors.append(f"{cat}: {e}")
-    out = {"kind": "arxiv", "date": day.isoformat(), "fetched_at": now_utc(), "source": "export.arxiv.org API",
+    hf = sources.get("huggingface", {})
+    if hf.get("enabled", True):
+        for k in range(int(cfg.get("lookback_days", 4)) + 1):
+            d = (day - dt.timedelta(days=k)).isoformat()
+            try:
+                for p in ax.fetch_hf_daily(d, hf.get("daily_papers_api", "https://huggingface.co/api/daily_papers")):
+                    if p["arxiv_id"] in by_id:
+                        by_id[p["arxiv_id"]]["hf_upvotes"] = max(by_id[p["arxiv_id"]].get("hf_upvotes", 0), p["hf_upvotes"])
+                    else:
+                        by_id[p["arxiv_id"]] = {**p, "categories": [], "source": "huggingface_daily"}
+            except Exception as e:
+                errors.append(f"huggingface {d}: {e}")
+    out = {"kind": "arxiv", "date": day.isoformat(), "fetched_at": now_utc(), "source": "export.arxiv.org API + Hugging Face Daily Papers",
            "errors": errors, "candidates": sorted(by_id.values(), key=lambda p: p["arxiv_id"], reverse=True)}
     write_json(repo.p("candidates", "arxiv", f"{day.isoformat()}.json"), out)
     print(f"arxiv: {len(by_id)} candidates, {len(errors)} errors")

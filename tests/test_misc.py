@@ -102,3 +102,32 @@ def test_cli_end_to_end(repo, monkeypatch, capsys, tmp_path):
     capsys.readouterr()
     assert main(["inbox", "show", "ideas"]) == 0
     assert "(empty)" in capsys.readouterr().out
+
+
+def test_parse_hf_daily():
+    data = [{"paper": {"id": "2611.01234", "title": "A  paper", "summary": "An  abstract.", "upvotes": 42,
+                       "publishedAt": "2026-11-20T10:00:00.000Z", "authors": [{"name": "A B"}]}},
+            {"paper": {"id": "not-arxiv", "title": "skip"}}]
+    [p] = ax.parse_hf_daily(data)
+    assert p == {"arxiv_id": "2611.01234", "title": "A paper", "authors": ["A B"], "abstract": "An abstract.",
+                 "submitted": "2026-11-20", "hf_upvotes": 42, "url": "https://arxiv.org/abs/2611.01234"}
+
+
+def test_fetch_arxiv_merges_hf_signal(repo, monkeypatch):
+    import importlib.util
+    from conftest import ROOT
+    spec = importlib.util.spec_from_file_location("fc", ROOT / "scripts" / "fetch_candidates.py")
+    fc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(fc)
+    s = load_json(repo.p("config", "sources.json"))
+    s["arxiv"]["categories"] = [{"id": "cs.LG"}]
+    write_json(repo.p("config", "sources.json"), s)
+    monkeypatch.setattr(fc.ax, "fetch_recent", lambda cat, n: [
+        {"arxiv_id": "2611.00001", "title": "On arXiv", "submitted": "2026-11-23", "categories": ["cs.LG"]}])
+    monkeypatch.setattr(fc.ax, "fetch_hf_daily", lambda d, api: [
+        {"arxiv_id": "2611.00001", "hf_upvotes": 30, "title": "On arXiv", "submitted": "2026-11-23"},
+        {"arxiv_id": "2611.00002", "hf_upvotes": 80, "title": "Only on HF", "submitted": "2026-11-23",
+         "abstract": "x", "authors": [], "url": "https://arxiv.org/abs/2611.00002"}])
+    fc.fetch_arxiv(repo, D)
+    c = {p["arxiv_id"]: p for p in load_json(repo.p("candidates", "arxiv", f"{D}.json"))["candidates"]}
+    assert c["2611.00001"]["hf_upvotes"] == 30 and c["2611.00002"]["source"] == "huggingface_daily"

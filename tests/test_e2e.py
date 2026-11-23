@@ -30,7 +30,7 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
     run("candidates", "arxiv", "--date", day, "--brief")
     assert json.loads(capsys.readouterr().out)["unseen"] == 2
     items = tmp_path / "a.json"
-    items.write_text(json.dumps({"items": [paper(selection_reason="Closely related to your work.")],
+    items.write_text(json.dumps({"items": [paper(tags=["close to your work"])],
                                  "candidates_considered": 2, "notes": "2 candidates, 1 selected"}))
     run("daily", "merge", "arxiv", "--date", day, "--items", str(items))
     run("papers", "mark-seen", "2611.09999", "--date", day)
@@ -70,7 +70,13 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
     assert [i["id"] for i in ctx["ideas_scheduled_for_this_period"]] == ["idea-learn-photography"]
     assert "idea-seed-tides" in [i["id"] for i in ctx["ideas_open_pool"]]
 
-    # 4. weekly package (as the planner would write it)
+    # 4. reading list for the week (CLI), then the weekly package (as the planner would write it)
+    rl = tmp_path / "rl.json"
+    rl.write_text(json.dumps([{"id": f"rl-e2e-{i}", "title": f"Must read {i}", "url": f"https://example.org/p{i}",
+                               "source": "tech_report", "tags": ["new method or architecture"]} for i in range(3)]))
+    run("reading", "add", "--week", "2026-W49", "--json", str(rl), "--date", "2026-11-28")
+    run("reading", "add", "--week", "2026-W49", "--json", str(rl), "--date", "2026-11-29")  # duplicates skipped
+    assert len(load_json(repo.reading_path("2026-W49"))["papers"]) == 3
     from dsys.core import week_bounds
     s, e = week_bounds("2026-W49")
     write_json(repo.weekly_path("2026-W49"), {
@@ -132,7 +138,8 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
     for f in repo.p("feeds").glob("*.xml"):
         ET.parse(f)
     out = build_site(repo, tmp_path / "site")
-    for page in ("index.html", f"daily/{day}.html", "weekly/2026-W49.html", "monthly/2026-12.html"):
+    for page in ("index.html", f"daily/{day}.html", "weekly/2026-W49.html", "monthly/2026-12.html",
+                 "reading/2026-W49.html"):
         assert (out / page).exists(), page
     assert not (out / "ideas.html").exists()
     assert "Connects cinema and psychology" in (out / f"daily/{day}.html").read_text()

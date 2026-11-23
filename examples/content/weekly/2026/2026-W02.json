@@ -18,12 +18,12 @@
         "knowledge"
       ],
       "description": "Derive the probability that two of n people share a birthday. Then find which assumption fails in real data and how that changes the answer.",
-      "why": "Practises deriving instead of recalling, and questioning assumptions — the same move as critiquing an evaluation.",
+      "why": "Practises deriving instead of recalling, and questioning assumptions, the same move as critiquing an evaluation.",
       "time_estimate": "30-60m",
       "hints": [
         "Compute the probability that nobody shares a birthday.",
         "Write it as a product of (365-k)/365 terms.",
-        "Use 1 - x <= e^{-x} to get a clean approximation; what n gives 1/2?"
+        "Use 1 - x <= e^{-x} to get a clean approximation. what n gives 1/2?"
       ],
       "solution_available_on_request": true,
       "difficulty": "easy",

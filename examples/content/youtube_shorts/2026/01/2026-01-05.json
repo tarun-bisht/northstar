@@ -4,7 +4,7 @@
   "generated_at": "2026-01-05T02:00:00Z",
   "generator": "example",
   "example": true,
-  "notes": "EXAMPLE DATA. The video id below is a placeholder and is marked example_unverified; real feeds only accept API- or oEmbed-verified ids.",
+  "notes": "EXAMPLE DATA. The video id below is a placeholder and is marked example_unverified. real feeds only accept API- or oEmbed-verified ids.",
   "candidates_considered": 640,
   "items": [
     {

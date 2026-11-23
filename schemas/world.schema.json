@@ -2,32 +2,126 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://dsys.local/schemas/world.schema.json",
   "title": "Daily world radar",
-  "allOf": [{ "$ref": "common.schema.json#/$defs/daily_envelope" }],
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/daily_envelope"
+    }
+  ],
   "properties": {
-    "schema": { "const": "world" },
-    "items": { "type": "array", "items": { "$ref": "#/$defs/event" } }
+    "schema": {
+      "const": "world"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    }
   },
   "$defs": {
     "event": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "title", "regions", "topic", "what_happened", "why_it_matters", "what_to_watch", "confirmed_facts", "sources", "published"],
+      "required": [
+        "id",
+        "title",
+        "regions",
+        "topic",
+        "what_happened",
+        "why_it_matters",
+        "what_to_watch",
+        "confirmed_facts",
+        "sources",
+        "published"
+      ],
       "properties": {
-        "id": { "$ref": "common.schema.json#/$defs/id" },
-        "title": { "$ref": "common.schema.json#/$defs/nonempty" },
-        "regions": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
-        "topic": { "enum": ["geopolitics", "international_relations", "economics", "finance", "business", "technology", "science", "society", "culture", "conflict", "disaster", "politics", "environment", "health", "other"] },
-        "what_happened": { "$ref": "common.schema.json#/$defs/nonempty" },
-        "why_it_matters": { "$ref": "common.schema.json#/$defs/nonempty" },
-        "what_to_watch": { "$ref": "common.schema.json#/$defs/nonempty" },
-        "context": { "type": "string" },
-        "confirmed_facts": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
-        "analysis": { "type": "string", "description": "Interpretation, clearly separate from confirmed facts" },
-        "uncertainty": { "type": "string" },
-        "sources": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/source" }, "minItems": 1 },
-        "published": { "$ref": "common.schema.json#/$defs/date" },
-        "follows_up": { "type": "string", "description": "id of an earlier world item this continues" },
-        "dimensions": { "$ref": "common.schema.json#/$defs/dimensions" }
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "title": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "topic": {
+          "enum": [
+            "geopolitics",
+            "international_relations",
+            "economics",
+            "finance",
+            "business",
+            "technology",
+            "science",
+            "society",
+            "culture",
+            "conflict",
+            "disaster",
+            "politics",
+            "environment",
+            "health",
+            "other"
+          ]
+        },
+        "what_happened": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 280
+        },
+        "why_it_matters": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 220
+        },
+        "what_to_watch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "context": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "confirmed_facts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "minItems": 1,
+          "maxItems": 4
+        },
+        "analysis": {
+          "type": "string",
+          "description": "Interpretation, clearly separate from confirmed facts",
+          "maxLength": 250
+        },
+        "uncertainty": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "published": {
+          "$ref": "common.schema.json#/$defs/date"
+        },
+        "follows_up": {
+          "type": "string",
+          "description": "id of an earlier world item this continues"
+        },
+        "dimensions": {
+          "$ref": "common.schema.json#/$defs/dimensions"
+        }
       }
     }
   }

@@ -135,6 +135,9 @@ CSS += """
 .short a.thumb{display:block;aspect-ratio:9/14;overflow:hidden;border-radius:6px;background:var(--paper-2)}
 .short img{width:100%;height:100%;object-fit:cover;display:block}
 .short p{margin:.35rem 0 0;font:400 .85rem/1.35 var(--sans)}
+.tags{margin:.2rem 0 .4rem;display:flex;flex-wrap:wrap;gap:.35rem}
+.tag{font:700 .75rem/1 var(--sans);padding:.3rem .55rem;border-radius:999px;background:var(--paper-2);color:var(--ink);border:1px solid var(--rule)}
+.abstract{font-size:.95rem;line-height:1.55}
 .lang{list-style:none;padding:0}.lang li{margin:.3rem 0}.native{font-size:1.1em}.rom{color:var(--ink-2);font-style:italic}
 .qs li{margin:.4rem 0}
 .short .ch{color:var(--ink-2);font-size:.8rem}
@@ -172,7 +175,7 @@ def mark_svg() -> str:
 def page(site: dict, title: str, body: str, depth: int = 0, current: str = "") -> str:
     """One page. No navigation bar: every page links home; the home page links everywhere."""
     up = "../" * depth
-    head_title = esc(site["title"]) if title == "Home" else f"{esc(title)} — {esc(site['title'])}"
+    head_title = esc(site["title"]) if title == "Home" else f"{esc(title)} | {esc(site['title'])}"
     alt = "".join(f'<link rel="alternate" type="application/rss+xml" title="{esc(site["title"])}: {esc(m["title"])}" '
                   f'href="{up}feeds/{m["feed"]}">' for m in STREAM_META.values())
     header = ("" if current == "home" else
@@ -363,6 +366,15 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
         prev = dates[i + 1] if i + 1 < len(dates) else None
         _write(out / "daily" / f"{date}.html", _daily_page(site, date, streams, 1, prev, nxt))
 
+    readings = sorted((load_json(f) for f in repo.iter_stream_files("reading")), key=lambda d: d["week"], reverse=True)
+    for r in readings:
+        _write(out / "reading" / f"{r['week']}.html",
+               page(site, f"Reading list {r['week']}", f"<div class='col'><h1>Reading list, week of "
+                    f"{render.nice_date(r['start_date'])}</h1>{render.reading_list(r)}</div>", 1, "reading"))
+    _write(out / "reading" / "index.html", page(site, "Reading lists", "<div class='col'><h1>Reading lists</h1></div>" + (
+        "<ul class='days'>" + "".join(f"<li>{a(r['week'] + '.html', 'Week of ' + render.nice_date(r['start_date'], True))}"
+                                      f"<span class='meta'>{len(r['papers'])} papers</span></li>" for r in readings) + "</ul>"
+        if readings else "<p class='empty'>Nothing yet.</p>"), 1, "reading"))
     weeks = sorted((load_json(f) for f in repo.iter_stream_files("weekly")), key=lambda d: d["week"], reverse=True)
     months = sorted((load_json(f) for f in repo.iter_stream_files("monthly")), key=lambda d: d["month"], reverse=True)
     for w in weeks:
@@ -420,12 +432,12 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
         docs_html = f"<pre>{esc(text)}</pre>"
     _write(out / "docs.html", page(site, "How it works", f"<div class='doc'>{docs_html}</div>", 0, "docs"))
 
-    _write(out / "index.html", page(site, "Home", _home(repo, site, daily, weeks, months, feeds), 0, "home"))
+    _write(out / "index.html", page(site, "Home", _home(repo, site, daily, weeks, months, feeds, readings), 0, "home"))
     (out / ".nojekyll").write_text("", encoding="utf-8")
     return out
 
 
-def _home(repo, site, daily, weeks, months, feeds) -> str:
+def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
     latest = next(iter(daily), None)
     counts: Counter = Counter()
     if latest:
@@ -438,6 +450,8 @@ def _home(repo, site, daily, weeks, months, feeds) -> str:
     b = [f'<section class="hero"><div><h1>{esc(site["title"])}</h1><p class="lede">{esc(site["description"])}</p></div>'
          f'<figure style="margin:0">{instrument_svg(counts, quiet)}</figure></section>']
     buttons = [(f"daily/{latest}.html", "Today")] if latest else []
+    if readings:
+        buttons.append((f"reading/{readings[0]['week']}.html", "Reading list"))
     buttons += [("archive.html", "Archive"), ("weekly/index.html", "Weekly"), ("monthly/index.html", "Monthly"),
                 ("docs.html", "How it works")]
     b.append('<nav class="buttons" aria-label="Sections">' + "".join(
@@ -455,6 +469,11 @@ def _home(repo, site, daily, weeks, months, feeds) -> str:
             more = f"<li>{a(f'daily/{latest}.html#{s}', f'All {n}')}</li>" if n > 3 else ""
             b.append(f"<div class='stream'><h3>{esc(STREAM_META[s]['title'])} <span>{n}</span></h3><ul>{lis}{more}</ul></div>")
         b.append("</div>")
+
+    if readings:
+        r = readings[0]
+        lis = "".join(f"<li>{a(pp['url'], pp['title'])}{render.meta(esc(', '.join(pp['tags'])))}</li>" for pp in r["papers"][:6])
+        b.append(f"<h2>Read this week</h2><div class='plan'><div><ol>{lis}</ol></div></div>")
 
     plan = []
     if weeks:

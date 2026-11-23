@@ -46,6 +46,13 @@ Growth comes from doing too: **learn, practise, create, experience, reflect, ada
 - Weekly/monthly: write `content/weekly/YYYY/YYYY-Www.json` or `content/monthly/YYYY/YYYY-MM.json`.
 - Always finish with `python scripts/dsys.py history rebuild && python scripts/validate.py`, and fix every error before committing.
 
-## Tone
+## Writing style (all text: summaries, hints, lessons, notes)
 
-Warm, direct, specific, no hype. Short sentences, for a smart, busy reader.
+- Plain, simple English. Short sentences. Use technical words only where they are needed.
+- No semicolons. No em dashes. Avoid brackets inside sentences where you can.
+- Put the main point first. Prefer a few short bullets over a paragraph.
+- News and updates: one or two short sentences per field. Say what happened, why it matters and what to watch, and stop.
+- Teaching (hints, lessons, steps): explain like a patient friend. One idea per sentence.
+- Warm and direct, never hype. The goal is less reading and less stress, not more.
+
+Validation warns when text has em dashes or semicolons, and rejects news fields that run too long.

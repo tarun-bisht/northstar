@@ -1,0 +1,46 @@
+{
+  "schema": "reading",
+  "week": "2026-W02",
+  "start_date": "2026-01-05",
+  "end_date": "2026-01-11",
+  "generated_at": "2026-01-03T01:16:00Z",
+  "example": true,
+  "papers": [
+    {
+      "id": "rl-example-unlearning-audit",
+      "title": "[EXAMPLE] Auditing Unlearning by Probing Residual Knowledge",
+      "url": "https://arxiv.org/abs/9912.99999",
+      "arxiv_id": "9912.99999",
+      "source": "arxiv",
+      "tags": [
+        "close to your work"
+      ],
+      "added": "2026-01-03",
+      "authors": [
+        "Example Author A"
+      ]
+    },
+    {
+      "id": "rl-example-tech-report",
+      "title": "[EXAMPLE] A lab's technical report on a new model architecture",
+      "url": "https://example.org/tech-report",
+      "source": "tech_report",
+      "tags": [
+        "new method or architecture",
+        "worth knowing"
+      ],
+      "note": "A new attention variant that cuts memory use.",
+      "added": "2026-01-05"
+    },
+    {
+      "id": "rl-example-theory",
+      "title": "[EXAMPLE] A short theory paper on generalization",
+      "url": "https://example.org/theory-paper",
+      "source": "arxiv",
+      "tags": [
+        "theory"
+      ],
+      "added": "2026-01-06"
+    }
+  ]
+}

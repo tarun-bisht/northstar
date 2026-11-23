@@ -87,3 +87,30 @@ def fetch_recent(category: str, max_results: int = 150, timeout: int = 30) -> li
         text = r.read().decode("utf-8")
     time.sleep(3)  # arXiv API etiquette
     return parse_feed(text)
+
+
+def parse_hf_daily(data: list) -> list[dict]:
+    """Normalise Hugging Face /api/daily_papers JSON into candidate dicts (arXiv papers only)."""
+    out = []
+    for row in data or []:
+        p = row.get("paper", row)
+        aid = str(p.get("id", ""))
+        if not is_valid_id(aid):
+            continue
+        out.append({
+            "arxiv_id": aid,
+            "title": " ".join((p.get("title") or row.get("title") or "").split()),
+            "authors": [a.get("name", "") for a in p.get("authors", []) if a.get("name")],
+            "abstract": " ".join((p.get("summary") or row.get("summary") or "").split()),
+            "submitted": (p.get("publishedAt") or row.get("publishedAt") or "")[:10],
+            "hf_upvotes": int(p.get("upvotes") or 0),
+            "url": abs_url(aid),
+        })
+    return out
+
+
+def fetch_hf_daily(date: str, api: str = "https://huggingface.co/api/daily_papers", timeout: int = 30) -> list[dict]:
+    import json
+    req = urllib.request.Request(f"{api}?date={date}", headers={"User-Agent": "northstar/1.0"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return parse_hf_daily(json.load(r))

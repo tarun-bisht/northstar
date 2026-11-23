@@ -68,10 +68,15 @@ def _walk(obj, path=""):
 
 _DIMS: set[str] | None = None
 _LANGS: set[str] = set()
+_TAGS: set[str] = set()
+STYLE_KEYS = {"what_happened", "why_it_matters", "what_to_watch", "context", "analysis", "description",
+              "why_recommended", "why", "explanation", "note", "why_it_matches", "objective", "intro", "connection"}
 
 
 def _semantic_checks(rep: Report, where: str, doc) -> None:
     for path, k, v in _walk(doc):
+        if k in STYLE_KEYS and isinstance(v, str) and ("\u2014" in v or ";" in v):
+            rep.warn(where, f"{path}/{k}: use plain sentences (no em dashes or semicolons)")
         if k == "dimensions" and isinstance(v, list) and _DIMS is not None:
             for fa in v:
                 if fa not in _DIMS:
@@ -172,8 +177,10 @@ def _load(rep: Report, repo: Repo, path: Path):
 
 
 def validate_repo(repo: Repo, examples: bool = False) -> Report:
-    global _DIMS, _LANGS
+    global _DIMS, _LANGS, _TAGS
     rep = Report()
+    sp = repo.p("config", "sources.json")
+    _TAGS = set(load_json(sp).get("paper_tags", {}).get("tags", [])) if sp.exists() else set()
     lp = repo.p("config", "languages.json")
     _LANGS = {l["id"] for l in load_json(lp).get("learning", [])} if lp.exists() else set()
     if not examples:
@@ -229,6 +236,8 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
 
     # ---- content streams ----------------------------------------------------
     guids: dict[str, str] = {}
+    reading_weeks: dict[str, int] = {}
+    weekly_weeks: list[str] = []
     periodic_items: dict[str, dict[str, str]] = {}  # period -> {item_id: title}
     all_periodic_ids: dict[str, str] = {}
     continues_refs: list[tuple[str, str]] = []
@@ -273,7 +282,35 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 if f.name != f"{m}.json" or f.parent.name != m[:4]:
                     rep.err(where, f"path must be monthly/{m[:4]}/{m}.json")
 
+            if stream == "reading":
+                w = doc["week"]
+                try:
+                    s_, e_ = week_bounds(w)
+                    if doc["start_date"] != s_.isoformat() or doc["end_date"] != e_.isoformat():
+                        rep.err(where, f"start/end must be {s_}..{e_} for {w}")
+                except ValueError as ex:
+                    rep.err(where, str(ex))
+                if f.name != f"{w}.json" or f.parent.name != w[:4]:
+                    rep.err(where, f"path must be reading/{w[:4]}/{w}.json")
+                reading_weeks[w] = len(doc["papers"])
+                for pp in doc["papers"]:
+                    if pp["id"] in seen_ids:
+                        rep.err(where, f"duplicate reading-list id {pp['id']!r}")
+                    seen_ids[pp["id"]] = where
+                    key = pp.get("arxiv_id") or pp["url"]
+                    if key in seen_papers:
+                        rep.err(where, f"paper {key} is already on the reading list in {seen_papers[key]}")
+                    seen_papers[key] = where
+                    for t in pp["tags"]:
+                        if t not in _TAGS:
+                            rep.err(where, f"tag {t!r} is not one of the fixed paper_tags")
+                    g = f"dsys:reading:{pp['id']}"
+                    guids[g] = where
+                continue
+
             items = doc.get("items", [])
+            if stream == "weekly":
+                weekly_weeks.append(doc["week"])
             if stream in ("weekly", "monthly"):
                 period = doc.get("week") or doc.get("month")
                 periodic_items[period] = {}
@@ -294,6 +331,9 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 if stream == "arxiv":
                     for e in ax.url_errors(it):
                         rep.err(where, f"paper {iid}: {e}")
+                    for t in it.get("tags", []):
+                        if t not in _TAGS:
+                            rep.err(where, f"paper {iid}: tag {t!r} is not one of the fixed paper_tags")
                     a = it.get("arxiv_id")
                     if a in seen_papers:
                         rep.err(where, f"duplicate paper {a} (already in {seen_papers[a]})")
@@ -365,6 +405,11 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
             if f.stem not in lang_days:
                 rep.err(str(f.relative_to(repo.root)), "every day needs its 5-minute language pack "
                         f"(content/language/{f.stem[:4]}/{f.stem[5:7]}/{f.stem}.json)")
+
+    for w in weekly_weeks:
+        if not examples and reading_weeks.get(w, 0) < 3:
+            rep.err(f"content/weekly/{w[:4]}/{w}.json",
+                    f"week {w} needs a reading list with at least 3 papers (content/reading/{w[:4]}/{w}.json)")
 
     for where, ref in continues_refs:
         if ref not in all_periodic_ids:

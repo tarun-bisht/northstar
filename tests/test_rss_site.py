@@ -19,7 +19,7 @@ def test_all_seven_feeds_valid_when_empty(repo, tmp_path):
 
 def test_escaping_and_guids(repo):
     nasty = 'Bias & <script>alert("x")</script> ]]> test'
-    daily(repo, "arxiv", "2026-11-24", [paper(title=nasty, selection_reason="Uses <b>tags</b> & ampersands")])
+    daily(repo, "arxiv", "2026-11-24", [paper(title=nasty, abstract="Uses <b>tags</b> & ampersands in an abstract that is long enough.")])
     xml = build_feed(repo, "arxiv")
     root = ET.fromstring(xml)
     item = root.find("channel/item")
@@ -28,6 +28,7 @@ def test_escaping_and_guids(repo):
     assert item.find("guid").get("isPermaLink") == "false"
     html = item.find("content:encoded", NS).text
     assert "Uses &lt;b&gt;tags&lt;/b&gt; &amp; ampersands" in html and "<b>tags" not in html
+    assert item.find("title").text.startswith("[close to your work]")
     assert "]]&gt;" in xml or "]]>" not in xml.split("<title>", 2)[2]
 
 

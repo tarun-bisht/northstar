@@ -13,7 +13,7 @@ from typing import Any, Iterator
 DEFAULT_ROOT = Path(__file__).resolve().parent.parent
 
 DAILY_STREAMS = ["arxiv", "research_updates", "world", "discovery", "youtube_shorts", "language"]
-PERIODIC_STREAMS = ["weekly", "monthly"]
+PERIODIC_STREAMS = ["weekly", "monthly", "reading"]
 ALL_STREAMS = DAILY_STREAMS + PERIODIC_STREAMS
 
 STREAM_META = {
@@ -29,6 +29,8 @@ STREAM_META = {
                        "description": "Short videos across all your dimensions. Inline playback depends on your RSS reader."},
     "language": {"title": "Language", "feed": "language.xml",
                  "description": "A 5-minute daily practice in your current focus language."},
+    "reading": {"title": "Reading list", "feed": "reading.xml",
+                "description": "Papers worth definitely reading this week."},
     "weekly": {"title": "Weekly", "feed": "weekly.xml",
                "description": "Small optional things to learn, practise or experience this week."},
     "monthly": {"title": "Monthly", "feed": "monthly.xml",
@@ -58,6 +60,9 @@ class Repo:
 
     def weekly_path(self, week: str) -> Path:
         return self.p("content", "weekly", week[:4], f"{week}.json")
+
+    def reading_path(self, week: str) -> Path:
+        return self.p("content", "reading", week[:4], f"{week}.json")
 
     def monthly_path(self, month: str) -> Path:
         return self.p("content", "monthly", month[:4], f"{month}.json")

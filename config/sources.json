@@ -179,5 +179,23 @@
     ],
     "shorts_url_check": true,
     "max_candidates_per_channel": 5
+  },
+  "paper_tags": {
+    "_doc": "The only tags a paper can get, in the arXiv radar and the weekly reading list. Fixed on purpose: reuse these, never invent new ones. Order matters: the first tag is shown first.",
+    "tags": [
+      "close to your work",
+      "useful for your work",
+      "new method or architecture",
+      "strong result",
+      "benchmark or dataset",
+      "theory",
+      "survey or tutorial",
+      "worth knowing"
+    ]
+  },
+  "huggingface": {
+    "_doc": "Hugging Face Daily Papers (successor to Papers with Code). Used as a quality signal (community upvotes) and an extra source of arXiv papers.",
+    "daily_papers_api": "https://huggingface.co/api/daily_papers",
+    "enabled": true
   }
 }

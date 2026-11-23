@@ -36,7 +36,7 @@ def paper(aid="2611.01234", **kw):
         "id": f"arxiv-{aid}", "arxiv_id": aid, "title": "A paper", "authors": ["A. Author"],
         "url": f"https://arxiv.org/abs/{aid}", "submitted": "2026-11-23", "categories": ["cs.LG"],
         "abstract": "We study something important and report results that are quite long enough.",
-        "research_area": "unlearning", "relevance": "must_read", "selection_reason": "Directly on unlearning.",
+        "research_area": "unlearning", "tags": ["close to your work"],
     }
     p.update(kw)
     return p
@@ -61,8 +61,21 @@ def daily(repo: Repo, stream: str, date: str, items: list, **kw):
     return doc
 
 
-def weekly(repo: Repo, week="2026-W49", items=None, **kw):
+def reading(repo: Repo, week="2026-W49", n=3):
     from dsys.core import week_bounds
+    s, e = week_bounds(week)
+    papers = [{"id": f"rl-{week.lower()}-{i}", "title": f"Paper {i}", "url": f"https://example.org/{week}/{i}",
+               "source": "arxiv", "tags": ["worth knowing"], "added": s.isoformat()} for i in range(n)]
+    doc = {"schema": "reading", "week": week, "start_date": s.isoformat(), "end_date": e.isoformat(),
+           "generated_at": "2026-11-28T01:00:00Z", "papers": papers}
+    write_json(repo.reading_path(week), doc)
+    return doc
+
+
+def weekly(repo: Repo, week="2026-W49", items=None, with_reading=True, **kw):
+    from dsys.core import week_bounds
+    if with_reading:
+        reading(repo, week)
     s, e = week_bounds(week)
     items = items if items is not None else [activity(f"w-{week.lower()}-a"), activity(f"w-{week.lower()}-b")]
     doc = {"schema": "weekly", "week": week, "start_date": s.isoformat(), "end_date": e.isoformat(),

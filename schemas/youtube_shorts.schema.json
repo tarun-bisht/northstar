@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/youtube_shorts.schema.json",
+  "title": "Daily YouTube Shorts radar",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/daily_envelope"
+    }
+  ],
+  "properties": {
+    "schema": {
+      "const": "youtube_shorts"
+    },
+    "candidates_considered": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/video"
+      },
+      "maxItems": 150
+    }
+  },
+  "$defs": {
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "video_id",
+        "title",
+        "channel",
+        "url",
+        "embed_url",
+        "thumbnail",
+        "topic",
+        "category",
+        "dimensions",
+        "why_it_matches",
+        "discovery_source",
+        "format",
+        "verification",
+        "tier"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "video_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{11}$"
+        },
+        "title": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "channel": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "$ref": "common.schema.json#/$defs/nonempty"
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^UC[A-Za-z0-9_-]{22}$"
+            },
+            "url": {
+              "$ref": "common.schema.json#/$defs/url"
+            }
+          }
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "embed_url": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "thumbnail": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "duration_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3600
+        },
+        "published": {
+          "$ref": "common.schema.json#/$defs/date"
+        },
+        "topic": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "category": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "dimensions": {
+          "$ref": "common.schema.json#/$defs/dimensions"
+        },
+        "why_it_matches": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 400
+        },
+        "discovery_source": {
+          "enum": [
+            "youtube_data_api",
+            "web_search",
+            "channel_rss",
+            "user",
+            "other"
+          ]
+        },
+        "format": {
+          "enum": [
+            "short",
+            "short_form",
+            "unknown"
+          ],
+          "description": "'short' only with format_evidence; duration alone never proves a Short"
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "method"
+          ],
+          "properties": {
+            "method": {
+              "enum": [
+                "youtube_data_api",
+                "oembed",
+                "example_unverified"
+              ]
+            },
+            "verified_at": {
+              "$ref": "common.schema.json#/$defs/datetime"
+            }
+          }
+        },
+        "format_evidence": {
+          "enum": [
+            "shorts_url_check",
+            "none"
+          ]
+        },
+        "language": {
+          "type": "string",
+          "pattern": "^[a-z]{2,3}$"
+        },
+        "tier": {
+          "$ref": "common.schema.json#/$defs/tier"
+        }
+      }
+    }
+  }
+}

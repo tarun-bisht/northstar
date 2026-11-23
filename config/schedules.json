@@ -1,0 +1,33 @@
+{
+  "_doc": "Optional schedule awareness. 'recurring' is your usual weekly free time; 'periods' are dated exceptions (busy = light, free = more room). Planning compares available hours with a usual week: much less -> light, much more -> free, otherwise default_load. When periods overlap on a day, busy wins. Real life always comes first; a light week is not a failure.",
+  "default_load": "normal",
+  "recurring": [
+    {
+      "label": "Weekday evenings",
+      "days": [
+        "mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri"
+      ],
+      "hours_per_day": 0.5
+    },
+    {
+      "label": "Weekends",
+      "days": [
+        "sat",
+        "sun"
+      ],
+      "hours_per_day": 2.5
+    }
+  ],
+  "periods": [
+    {
+      "label": "Year-end holidays (example; edit or delete)",
+      "start": "2026-12-24",
+      "end": "2027-01-01",
+      "load": "free"
+    }
+  ]
+}

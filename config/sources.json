@@ -1,0 +1,170 @@
+{
+  "_doc": "Operational sources. This is the ONE place for arXiv categories and YouTube search queries (scripts/fetch_candidates.py reads them). config/interests.json says what you care about; this file says where to look.",
+  "arxiv": {
+    "_doc": "Categories chosen for coverage, not completeness. Volume-heavy categories get higher limits so a 4-day lookback (covers weekends) isn't truncated.",
+    "categories": [
+      {
+        "id": "cs.LG",
+        "covers": "machine learning, optimization for ML, trustworthy ML, unlearning, evaluation"
+      },
+      {
+        "id": "stat.ML",
+        "covers": "statistical ML, learning theory"
+      },
+      {
+        "id": "cs.AI",
+        "covers": "AI broadly, agents, reasoning"
+      },
+      {
+        "id": "cs.CL",
+        "covers": "NLP and LLMs"
+      },
+      {
+        "id": "cs.CV",
+        "covers": "computer vision, multimodal models"
+      },
+      {
+        "id": "cs.CR",
+        "covers": "security and privacy: attacks, defenses, privacy, unlearning"
+      },
+      {
+        "id": "cs.MA",
+        "covers": "multi-agent systems"
+      },
+      {
+        "id": "cs.DC",
+        "covers": "distributed systems, efficient training and inference"
+      },
+      {
+        "id": "math.OC",
+        "covers": "optimization"
+      }
+    ],
+    "max_results_per_category": 400,
+    "max_results_overrides": {
+      "cs.LG": 1200,
+      "cs.CV": 800,
+      "cs.CL": 800,
+      "cs.AI": 800
+    },
+    "lookback_days": 4
+  },
+  "research_updates": {
+    "lab_blogs": [
+      "https://www.anthropic.com/research",
+      "https://openai.com/research",
+      "https://deepmind.google/discover/blog/",
+      "https://ai.meta.com/blog/",
+      "https://transformer-circuits.pub/",
+      "https://www.alignmentforum.org/",
+      "https://bair.berkeley.edu/blog/",
+      "https://huggingface.co/blog"
+    ],
+    "aggregators_for_discovery_only": [
+      "https://news.ycombinator.com/",
+      "https://www.reddit.com/r/MachineLearning/"
+    ],
+    "note": "X/Twitter and LinkedIn posts are only included when reachable and quotable through legitimate access (search results or the post page). Never invent posts."
+  },
+  "world": {
+    "prefer": [
+      "Reuters",
+      "AP",
+      "BBC",
+      "The Hindu",
+      "Indian Express",
+      "Mint",
+      "The Economist",
+      "Financial Times",
+      "Al Jazeera",
+      "official government releases",
+      "RBI",
+      "IMF",
+      "World Bank"
+    ]
+  },
+  "youtube": {
+    "max_results_per_query": 25,
+    "published_within_days": 60,
+    "max_duration_seconds": 180,
+    "region_code": "IN",
+    "_doc": "Queries are grouped by language. Each group sets relevanceLanguage for the API. Quota: each query costs 100 units of the default 10,000/day.",
+    "query_groups": [
+      {
+        "language": "en",
+        "queries": [
+          "machine learning explained short",
+          "mathematics intuition short",
+          "physics explained short",
+          "astronomy facts short",
+          "biology fascinating short",
+          "neuroscience short",
+          "chemistry experiment short",
+          "history explained short",
+          "ancient civilizations short",
+          "philosophy explained short",
+          "psychology insight short",
+          "economics explained short",
+          "geography facts short",
+          "geopolitics explained short",
+          "communication skills short",
+          "emotional intelligence short",
+          "leadership lesson short",
+          "book recommendation short",
+          "anime analysis short",
+          "film analysis short",
+          "music theory short",
+          "art history short",
+          "architecture short",
+          "photography tip short",
+          "DIY build short",
+          "electronics project short",
+          "game development short",
+          "invention history short",
+          "programming tip short",
+          "engineering explained short",
+          "nature documentary short",
+          "science experiment short",
+          "topology explained short",
+          "real analysis intuition short",
+          "quantum mechanics explained short",
+          "cosmology explained short",
+          "consciousness neuroscience short",
+          "cognitive science short",
+          "philosophy of science short",
+          "public speaking tips short",
+          "active listening short",
+          "Antarctica short",
+          "Arctic life short",
+          "Japan culture short",
+          "Africa wildlife short",
+          "linguistics short",
+          "anthropology short"
+        ]
+      },
+      {
+        "language": "hi",
+        "queries": [
+          "विज्ञान समझाइए",
+          "गणित की रोचक बातें",
+          "भौतिकी सरल भाषा में",
+          "भारतीय इतिहास की कहानी",
+          "अंतरिक्ष के रहस्य",
+          "दर्शनशास्त्र सरल भाषा में",
+          "अर्थव्यवस्था समझिए",
+          "भूगोल रोचक तथ्य",
+          "जीव विज्ञान रोचक तथ्य",
+          "संवाद कौशल",
+          "आविष्कार की कहानी",
+          "विज्ञान प्रयोग"
+        ]
+      }
+    ],
+    "languages_accepted": [
+      "en",
+      "hi"
+    ],
+    "shorts_url_check": true,
+    "max_candidates_per_channel": 5
+  }
+}

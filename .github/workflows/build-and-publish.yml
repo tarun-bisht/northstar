@@ -1,0 +1,53 @@
+name: Build and publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Fetch candidates"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Test
+        run: python -m pytest -q
+      - name: Validate
+        run: python scripts/validate.py
+      - name: Generate RSS
+        run: python scripts/generate_rss.py
+      - name: Check feeds are well-formed XML
+        run: python -c "import glob,xml.etree.ElementTree as ET; [ET.parse(f) for f in glob.glob('feeds/*.xml')]; print('feeds ok')"
+      - name: Build site
+        run: python scripts/build.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_run'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

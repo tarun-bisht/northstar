@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/discovery.schema.json",
+  "title": "Daily discovery",
+  "allOf": [{ "$ref": "common.schema.json#/$defs/daily_envelope" }],
+  "properties": {
+    "schema": { "const": "discovery" },
+    "items": { "type": "array", "items": { "$ref": "recommendation.schema.json" }, "maxItems": 8 }
+  }
+}

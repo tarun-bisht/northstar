@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/feedback.schema.json",
+  "title": "Feedback on a weekly or monthly package",
+  "type": "object",
+  "required": [
+    "schema",
+    "period",
+    "date",
+    "entries"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "feedback"
+    },
+    "period": {
+      "anyOf": [
+        {
+          "$ref": "common.schema.json#/$defs/isoweek"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/month"
+        }
+      ]
+    },
+    "date": {
+      "$ref": "common.schema.json#/$defs/date"
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    },
+    "general": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "more_of": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "less_of": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "applied": {
+      "type": "boolean",
+      "description": "Set by `dsys feedback apply` once decisions are written to state"
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "item_id",
+        "status"
+      ],
+      "properties": {
+        "item_id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "status": {
+          "$ref": "common.schema.json#/$defs/feedback_status"
+        },
+        "learned": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Short, sanitized paraphrase. Never private details."
+        },
+        "enjoyed": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Short, sanitized paraphrase. Never private details."
+        },
+        "difficult": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Short, sanitized paraphrase. Never private details."
+        },
+        "skip_reason": {
+          "enum": [
+            "no_time",
+            "too_long",
+            "too_hard",
+            "not_interesting",
+            "other"
+          ],
+          "description": "Generic reason only. Never details of schedules or life events."
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Short, sanitized paraphrase. Never private details."
+        },
+        "decision": {
+          "$ref": "common.schema.json#/$defs/feedback_decision"
+        },
+        "decision_target": {
+          "anyOf": [
+            {
+              "$ref": "common.schema.json#/$defs/isoweek"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/month"
+            }
+          ]
+        },
+        "decision_note": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Short, sanitized paraphrase. Never private details."
+        },
+        "interest": {
+          "enum": [
+            "more",
+            "same",
+            "less",
+            "not_interested"
+          ],
+          "description": "Explicit interest signal for this item's topic"
+        },
+        "difficulty_feedback": {
+          "enum": [
+            "too_easy",
+            "right",
+            "too_hard"
+          ]
+        }
+      }
+    }
+  }
+}

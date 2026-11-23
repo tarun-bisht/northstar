@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/monthly.schema.json",
+  "title": "Optional monthly package",
+  "type": "object",
+  "required": [
+    "schema",
+    "month",
+    "generated_at",
+    "load",
+    "intro",
+    "items"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "monthly"
+    },
+    "month": {
+      "$ref": "common.schema.json#/$defs/month"
+    },
+    "generated_at": {
+      "$ref": "common.schema.json#/$defs/datetime"
+    },
+    "generator": {
+      "type": "string"
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "load": {
+      "$ref": "common.schema.json#/$defs/load"
+    },
+    "intro": {
+      "$ref": "common.schema.json#/$defs/nonempty"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/project"
+      },
+      "minItems": 1,
+      "maxItems": 4
+    },
+    "reflection_prompts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "week_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "week",
+        "focus"
+      ],
+      "properties": {
+        "week": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "focus": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "kind",
+        "dimensions",
+        "why",
+        "objective",
+        "weeks",
+        "deliverable",
+        "definition_of_done",
+        "time_estimate",
+        "origin",
+        "status",
+        "tier"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "title": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "kind": {
+          "enum": [
+            "ai_deep_dive",
+            "non_ai_deep_dive",
+            "research_exploration",
+            "teaching",
+            "people",
+            "creative_project",
+            "hobby_skill",
+            "exploration_theme",
+            "user_idea"
+          ]
+        },
+        "dimensions": {
+          "$ref": "common.schema.json#/$defs/dimensions"
+        },
+        "why": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "objective": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "prerequisites": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weeks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/week_plan"
+          },
+          "minItems": 2,
+          "maxItems": 5
+        },
+        "primary_resource": {
+          "$ref": "common.schema.json#/$defs/resource"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/resource"
+          }
+        },
+        "exercises": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deliverable": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "definition_of_done": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "final_synthesis": {
+          "type": "string"
+        },
+        "time_estimate": {
+          "type": "string",
+          "description": "e.g. '2-4 h/week'"
+        },
+        "light_version": {
+          "type": "string",
+          "description": "What to do if the month turns out busy"
+        },
+        "continuation": {
+          "type": "string",
+          "description": "Possible next milestone. Never automatic."
+        },
+        "origin": {
+          "enum": [
+            "system",
+            "user_idea",
+            "continued"
+          ]
+        },
+        "idea_id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "continues": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "status": {
+          "$ref": "common.schema.json#/$defs/activity_status"
+        },
+        "topic": {
+          "type": "string"
+        },
+        "modes": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/mode"
+          },
+          "uniqueItems": true
+        },
+        "cross_domain": {
+          "$ref": "common.schema.json#/$defs/cross_domain"
+        },
+        "tier": {
+          "$ref": "common.schema.json#/$defs/tier"
+        }
+      }
+    }
+  }
+}

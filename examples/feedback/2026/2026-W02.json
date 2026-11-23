@@ -1,0 +1,35 @@
+{
+  "schema": "feedback",
+  "period": "2026-W02",
+  "date": "2026-01-11",
+  "example": true,
+  "entries": [
+    {
+      "item_id": "w-2026-W02-example-birthday-coupling",
+      "status": "completed",
+      "enjoyed": "Breaking the assumption part",
+      "decision": "done",
+      "interest": "more"
+    },
+    {
+      "item_id": "w-2026-W02-example-photo-walk",
+      "status": "completed",
+      "enjoyed": "Seeing light differently",
+      "decision": "keep_in_progress",
+      "decision_target": "2026-02",
+      "decision_note": "Grow into a monthly skill project"
+    },
+    {
+      "item_id": "w-2026-W02-example-film",
+      "status": "not_started",
+      "skip_reason": "no_time",
+      "decision": "none"
+    }
+  ],
+  "general": {
+    "more_of": [
+      "probability puzzles"
+    ],
+    "less_of": []
+  }
+}

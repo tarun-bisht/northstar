@@ -1,0 +1,92 @@
+{
+  "schema": "discovery",
+  "date": "2026-01-05",
+  "generated_at": "2026-01-05T01:45:00Z",
+  "generator": "example",
+  "example": true,
+  "notes": "EXAMPLE DATA. Fictional recommendation.",
+  "items": [
+    {
+      "id": "disc-2026-01-05-example-maxwells-demon",
+      "title": "[EXAMPLE] Why erasing a bit costs energy: Maxwell's demon and Landauer's principle",
+      "creator": "Example Explainer",
+      "type": "article",
+      "category": "physics",
+      "topic": "thermodynamics of information",
+      "subtopics": [
+        "entropy",
+        "information theory",
+        "computation"
+      ],
+      "url": "https://example.org/articles/landauer",
+      "url_verified": false,
+      "description": "A story-driven explanation of how a thought experiment about a tiny demon ended up linking entropy and information.",
+      "duration": "20 min",
+      "difficulty": "medium",
+      "why_recommended": "Bridges information theory and physics, two of your favourite cross-domain links.",
+      "connection_to_interests": "Unlearning is erasure. Landauer is the physics of erasure.",
+      "what_i_might_get_from_it": "A memorable story you could tell at dinner, and a new angle on what 'forgetting' costs.",
+      "action": "read",
+      "time_required": "30m",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "cross_domain": {
+        "fields": [
+          "information theory",
+          "thermodynamics",
+          "machine unlearning"
+        ],
+        "connection": "Erasing information has a physical cost; unlearning is erasure in a model, so Landauer offers a fresh angle on what forgetting means."
+      },
+      "tier": "growth"
+    },
+    {
+      "id": "disc-2026-01-05-example-podcast",
+      "title": "[EXAMPLE] An episode on how the printing press changed science",
+      "creator": "Example Podcast",
+      "type": "podcast",
+      "category": "history of science",
+      "topic": "printing press",
+      "url": "https://example.org/podcast/printing-press",
+      "url_verified": false,
+      "description": "Placeholder podcast episode showing the required daily listen.",
+      "duration": "48 min",
+      "why_recommended": "A story about how a technology reshaped who could do research.",
+      "action": "listen",
+      "time_required": "1h",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "knowledge",
+        "world"
+      ],
+      "tier": "established"
+    },
+    {
+      "id": "disc-2026-01-05-example-lecture",
+      "title": "[EXAMPLE] A lecture on symmetry in physics",
+      "creator": "Example University",
+      "type": "lecture",
+      "category": "physics",
+      "topic": "symmetry",
+      "url": "https://example.org/lectures/symmetry",
+      "url_verified": false,
+      "description": "Placeholder lecture showing the required daily watch.",
+      "duration": "55 min",
+      "why_recommended": "Symmetry is the bridge between physics and many ideas in ML.",
+      "action": "watch",
+      "time_required": "1h",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "tier": "exploration"
+    }
+  ]
+}

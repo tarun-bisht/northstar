@@ -1,0 +1,26 @@
+{
+  "schema": "world",
+  "date": "2026-01-05",
+  "generated_at": "2026-01-05T01:40:00Z",
+  "generator": "example",
+  "example": true,
+  "notes": "EXAMPLE DATA. A fictional event used to show the structure. Not real news.",
+  "items": [
+    {
+      "id": "world-2026-01-05-example-monsoon-reservoirs",
+      "title": "[EXAMPLE] Reservoir levels in a fictional region fall below seasonal average",
+      "regions": ["India"],
+      "topic": "environment",
+      "what_happened": "A fictional water authority reported reservoir storage at 70% of the ten-year seasonal average.",
+      "why_it_matters": "Low winter storage affects summer irrigation, food prices and hydropower.",
+      "what_to_watch": "Pre-monsoon forecasts and any irrigation restrictions.",
+      "context": "Storage is normally drawn down through the dry season; the comparison is with the same week in past years.",
+      "confirmed_facts": ["Storage figure published by the (fictional) authority", "Comparison window is ten years"],
+      "analysis": "If the shortfall persists, food inflation could rise. This is interpretation, not a reported fact.",
+      "uncertainty": "Rainfall in the next two months could change the picture.",
+      "sources": [{ "name": "Example Water Authority", "url": "https://example.org/water/bulletin", "type": "official", "published": "2026-01-04" }],
+      "published": "2026-01-04",
+      "dimensions": ["world"]
+    }
+  ]
+}

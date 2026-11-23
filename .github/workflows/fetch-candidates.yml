@@ -1,0 +1,43 @@
+name: Fetch candidates
+
+# Collects real metadata from official APIs (no AI calls) so the Claude runs
+# select from verified data. 00:30 UTC = 06:00 IST, before the daily Claude runs.
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: candidates
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: arXiv (weekdays)
+        run: |
+          if [ "$(TZ=Asia/Kolkata date +%u)" -le 5 ]; then python scripts/fetch_candidates.py arxiv; else echo "weekend: skip arXiv"; fi
+      - name: YouTube (only if YOUTUBE_API_KEY secret is set)
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python scripts/fetch_candidates.py youtube
+      - name: Prune old candidates
+        run: python scripts/fetch_candidates.py prune --keep-days 14
+      - name: Commit
+        run: |
+          git config user.name "dsys-bot"
+          git config user.email "dsys-bot@users.noreply.github.com"
+          git add candidates
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "candidates: $(TZ=Asia/Kolkata date +%F)"
+          git pull --rebase origin main
+          git push origin main

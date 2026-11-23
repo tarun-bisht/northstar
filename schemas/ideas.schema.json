@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/ideas.schema.json",
+  "title": "Ideas and interests registry (state/ideas.json)",
+  "type": "object",
+  "required": ["ideas"],
+  "additionalProperties": false,
+  "properties": {
+    "_doc": { "type": "string" },
+    "ideas": { "type": "array", "items": { "$ref": "#/$defs/idea" } }
+  },
+  "$defs": {
+    "event": {
+      "type": "object",
+      "required": ["date", "action"],
+      "additionalProperties": false,
+      "properties": {
+        "date": { "$ref": "common.schema.json#/$defs/date" },
+        "action": { "type": "string" },
+        "detail": { "type": "string" }
+      }
+    },
+    "idea": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "status", "origin", "scope", "created", "updated"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "title": { "$ref": "common.schema.json#/$defs/nonempty" },
+        "description": { "type": "string" },
+        "dimensions": { "$ref": "common.schema.json#/$defs/dimensions" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "status": { "$ref": "common.schema.json#/$defs/idea_status" },
+        "origin": { "enum": ["user", "system", "seed", "feedback"] },
+        "scope": { "enum": ["weekly", "monthly", "either", "undecided"] },
+        "first_step": { "type": "string" },
+        "estimate": { "type": "string" },
+        "scheduled_for": { "anyOf": [{ "$ref": "common.schema.json#/$defs/isoweek" }, { "$ref": "common.schema.json#/$defs/month" }] },
+        "deferred_until": { "$ref": "common.schema.json#/$defs/date" },
+        "reschedule_count": { "type": "integer", "minimum": 0 },
+        "replaced_by": { "$ref": "common.schema.json#/$defs/id" },
+        "links": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/resource" } },
+        "notes": { "type": "string" },
+        "created": { "$ref": "common.schema.json#/$defs/date" },
+        "updated": { "$ref": "common.schema.json#/$defs/date" },
+        "history": { "type": "array", "items": { "$ref": "#/$defs/event" } }
+      }
+    }
+  }
+}

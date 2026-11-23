@@ -1,0 +1,35 @@
+{
+  "schema": "arxiv",
+  "date": "2026-01-05",
+  "generated_at": "2026-01-05T01:30:00Z",
+  "generator": "example",
+  "example": true,
+  "notes": "EXAMPLE DATA. Fictional paper. The arXiv id 9912.99999 cannot exist (new-style ids began in 2007), so it can never collide with a real paper.",
+  "candidates_considered": 412,
+  "items": [
+    {
+      "id": "arxiv-9912.99999",
+      "arxiv_id": "9912.99999",
+      "version": "v1",
+      "title": "[EXAMPLE] Auditing Unlearning by Probing Residual Knowledge in Intermediate Representations",
+      "authors": [
+        "Example Author A",
+        "Example Author B"
+      ],
+      "url": "https://arxiv.org/abs/9912.99999",
+      "submitted": "2026-01-02",
+      "categories": [
+        "cs.LG",
+        "cs.CR"
+      ],
+      "abstract": "This is an example abstract used to illustrate the data format. A real entry would contain the original abstract copied verbatim from arXiv, never a paraphrase or summary written by the generator.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "machine unlearning / interpretability",
+      "relevance": "must_read",
+      "selection_reason": "Closely related to your work.",
+      "dimensions": [
+        "research"
+      ]
+    }
+  ]
+}

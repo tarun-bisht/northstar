@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/common.schema.json",
+  "title": "Common definitions",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,120}$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "datetime": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2})?(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "isoweek": {
+      "type": "string",
+      "pattern": "^\\d{4}-W\\d{2}$"
+    },
+    "month": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}$"
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$",
+      "maxLength": 2000
+    },
+    "nonempty": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dimension": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,40}$",
+      "description": "An id from config/interests.json -> dimensions (checked by validate.py)"
+    },
+    "dimensions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/dimension"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "difficulty": {
+      "enum": [
+        "easy",
+        "medium",
+        "advanced"
+      ]
+    },
+    "load": {
+      "enum": [
+        "light",
+        "normal",
+        "free"
+      ]
+    },
+    "activity_status": {
+      "enum": [
+        "suggested",
+        "interested",
+        "planned",
+        "in_progress",
+        "completed",
+        "partially_completed",
+        "not_started",
+        "skipped",
+        "deferred",
+        "dropped",
+        "not_interested"
+      ]
+    },
+    "idea_status": {
+      "enum": [
+        "curiosity",
+        "interested",
+        "wants_to_try",
+        "planned",
+        "in_progress",
+        "completed",
+        "deferred",
+        "dropped",
+        "not_interested"
+      ]
+    },
+    "feedback_status": {
+      "enum": [
+        "completed",
+        "partially_completed",
+        "not_started",
+        "skipped",
+        "in_progress",
+        "dropped"
+      ]
+    },
+    "feedback_decision": {
+      "enum": [
+        "done",
+        "drop",
+        "reschedule",
+        "reduce_scope",
+        "modify",
+        "split",
+        "replace",
+        "keep_in_progress",
+        "none"
+      ]
+    },
+    "action": {
+      "enum": [
+        "read",
+        "watch",
+        "listen",
+        "think",
+        "solve",
+        "try",
+        "build",
+        "write",
+        "discuss",
+        "visit",
+        "practise",
+        "explore"
+      ]
+    },
+    "resource": {
+      "type": "object",
+      "required": [
+        "title",
+        "type"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "album",
+            "anime",
+            "article",
+            "artwork",
+            "blog",
+            "book",
+            "course",
+            "documentary",
+            "film",
+            "lecture",
+            "other",
+            "paper",
+            "place",
+            "playlist",
+            "podcast",
+            "series",
+            "tool",
+            "video",
+            "website"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/url"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": -3000,
+          "maximum": 2100
+        },
+        "note": {
+          "type": "string"
+        },
+        "url_verified": {
+          "type": "boolean",
+          "description": "true only if the URL was actually fetched/checked when generated"
+        },
+        "chapters": {
+          "type": "string",
+          "description": "Which part to read/watch, e.g. 'Ch. 2-3' or 'Lectures 1-4'"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "name",
+        "url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "url": {
+          "$ref": "#/$defs/url"
+        },
+        "type": {
+          "enum": [
+            "paper",
+            "lab_blog",
+            "researcher_blog",
+            "x_post",
+            "linkedin_post",
+            "github",
+            "conference",
+            "forum",
+            "news",
+            "official",
+            "data",
+            "podcast",
+            "video",
+            "other"
+          ]
+        },
+        "published": {
+          "$ref": "#/$defs/date"
+        }
+      }
+    },
+    "daily_envelope": {
+      "type": "object",
+      "required": [
+        "schema",
+        "date",
+        "generated_at",
+        "items"
+      ],
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "generated_at": {
+          "$ref": "#/$defs/datetime"
+        },
+        "generator": {
+          "type": "string"
+        },
+        "example": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Run notes: what was searched, why few/no items, limitations hit."
+        },
+        "items": {
+          "type": "array"
+        }
+      }
+    },
+    "cross_domain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fields",
+        "connection"
+      ],
+      "description": "An explicit cross-domain recommendation: links two or more fields that rarely meet.",
+      "properties": {
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 2
+          },
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "connection": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 400
+        }
+      }
+    },
+    "mode": {
+      "enum": [
+        "learn",
+        "practise",
+        "create",
+        "experience",
+        "reflect"
+      ],
+      "description": "Learn -> Practise -> Create -> Experience -> Reflect -> Adapt"
+    },
+    "tier": {
+      "enum": [
+        "established",
+        "growth",
+        "exploration"
+      ],
+      "description": "established: what you follow (relevance); growth: what develops you; exploration: worthwhile surprises"
+    }
+  }
+}

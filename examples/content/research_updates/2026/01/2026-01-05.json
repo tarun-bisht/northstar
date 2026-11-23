@@ -1,0 +1,23 @@
+{
+  "schema": "research_updates",
+  "date": "2026-01-05",
+  "generated_at": "2026-01-05T01:35:00Z",
+  "generator": "example",
+  "example": true,
+  "notes": "EXAMPLE DATA. Fictional lab and URL.",
+  "items": [
+    {
+      "id": "ru-2026-01-05-example-lab-eval-harness",
+      "title": "[EXAMPLE] A lab releases an open evaluation harness for agent prompt-injection robustness",
+      "kind": "tool",
+      "what_happened": "A (fictional) research lab released an open-source harness with 300 prompt-injection scenarios for tool-using agents.",
+      "why_it_matters": "Shared, adaptive benchmarks make agent-security claims comparable; static benchmarks overstate defenses.",
+      "what_to_watch": "Whether results hold under adaptive attackers, and whether other labs report on it.",
+      "source": { "name": "Example Lab blog", "url": "https://example.org/blog/agent-injection-harness", "type": "lab_blog", "published": "2026-01-04" },
+      "published": "2026-01-04",
+      "research_area": "agentic security",
+      "uncertainty": "Example only.",
+      "dimensions": ["research"]
+    }
+  ]
+}

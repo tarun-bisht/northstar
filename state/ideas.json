@@ -1,0 +1,422 @@
+{
+  "_doc": "Your ideas and interests. Edit via `python scripts/dsys.py ideas ...`, inbox/ideas.md, or by hand.",
+  "ideas": [
+    {
+      "id": "idea-anime-and-film-with-ideas-in-them",
+      "title": "Anime and film with ideas in them",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "weekly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Thoughtful classics and films that pair with ideas you're exploring, such as memory and identity, or the ethics of AI.",
+      "dimensions": [
+        "culture"
+      ],
+      "tags": [
+        "anime",
+        "film"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=weekly"
+        }
+      ]
+    },
+    {
+      "id": "idea-big-history-tour-civilizations-and-why-they-rose-a",
+      "title": "Big History tour: civilizations and why they rose and fell",
+      "status": "curiosity",
+      "origin": "seed",
+      "scope": "monthly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Indus Valley, Mauryas, Rome, Song China, Mughals: geography, economics and chance.",
+      "dimensions": [
+        "knowledge",
+        "world"
+      ],
+      "tags": [
+        "history",
+        "civilizations"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=curiosity, scope=monthly"
+        }
+      ]
+    },
+    {
+      "id": "idea-build-a-tiny-interactive-explainer",
+      "title": "Build a tiny interactive explainer",
+      "status": "curiosity",
+      "origin": "seed",
+      "scope": "monthly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "A small web visualization of something you understand deeply, such as a dynamical system or how a learning algorithm moves through a landscape.",
+      "dimensions": [
+        "curiosity",
+        "research"
+      ],
+      "tags": [
+        "making",
+        "teaching"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=curiosity, scope=monthly"
+        }
+      ]
+    },
+    {
+      "id": "idea-conversation-craft-asking-better-questions-and-tel",
+      "title": "Conversation craft: asking better questions and telling stories",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "either",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Practise open questions, follow-ups and short stories in real conversations; collect 10 good stories from things you learn.",
+      "dimensions": [
+        "curiosity",
+        "people"
+      ],
+      "first_step": "In one conversation this week, ask three follow-up questions before sharing your own view",
+      "tags": [
+        "communication",
+        "storytelling"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=either"
+        }
+      ]
+    },
+    {
+      "id": "idea-emotional-intelligence-in-practice",
+      "title": "Emotional intelligence in practice",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "weekly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Small real-world reps: naming emotions, active listening, making someone feel understood, handling disagreement kindly.",
+      "dimensions": [
+        "people"
+      ],
+      "tags": [
+        "eq",
+        "empathy"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=weekly"
+        }
+      ]
+    },
+    {
+      "id": "idea-explain-your-work-to-anyone",
+      "title": "Explain your work to anyone",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "weekly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Explain what you work on in three sentences, then to a 12-year-old, then with one good analogy.",
+      "dimensions": [
+        "people",
+        "research"
+      ],
+      "tags": [
+        "teaching",
+        "articulation"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=weekly"
+        }
+      ]
+    },
+    {
+      "id": "idea-helping-others-grow-mentoring-and-feedback",
+      "title": "Helping others grow: mentoring and feedback",
+      "status": "curiosity",
+      "origin": "seed",
+      "scope": "monthly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Leadership as responsibility: giving useful feedback, scoping work for others, building independence.",
+      "dimensions": [
+        "people",
+        "research"
+      ],
+      "tags": [
+        "leadership",
+        "mentoring"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=curiosity, scope=monthly"
+        }
+      ]
+    },
+    {
+      "id": "idea-history-of-science-how-ideas-actually-changed",
+      "title": "History of science: how ideas actually changed",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "either",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Scientific revolutions as case studies in research taste: Copernicus, Darwin, quantum mechanics. Kuhn vs Popper.",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "tags": [
+        "history",
+        "philosophy-of-science"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=either"
+        }
+      ]
+    },
+    {
+      "id": "idea-information-theory-and-the-thermodynamics-of-forge",
+      "title": "Information theory and the thermodynamics of forgetting",
+      "status": "curiosity",
+      "origin": "seed",
+      "scope": "weekly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Landauer's principle, Maxwell's demon, and what erasing information really costs.",
+      "dimensions": [
+        "curiosity",
+        "research"
+      ],
+      "tags": [
+        "physics",
+        "cross-domain"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=curiosity, scope=weekly"
+        }
+      ]
+    },
+    {
+      "id": "idea-mathematics-for-ml-research-rebuilt-from-first-pri",
+      "title": "Mathematics for ML research, rebuilt from first principles",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "monthly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Rotating one-month milestones: measure-theoretic probability, convex optimization and duality, concentration inequalities, information theory. Derive, don't recall.",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "first_step": "Derive Hoeffding's inequality from scratch with progressive hints",
+      "tags": [
+        "math",
+        "foundations"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=monthly"
+        }
+      ]
+    },
+    {
+      "id": "idea-philosophy-of-love-from-plato-s-symposium-to-erich",
+      "title": "Philosophy of love: from Plato's Symposium to Erich Fromm",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "either",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Read the Symposium (public domain) and Fromm's 'The Art of Loving'; compare with modern attachment research. Good conversation material.",
+      "dimensions": [
+        "culture",
+        "knowledge",
+        "people"
+      ],
+      "first_step": "Read the speeches of Aristophanes and Diotima in the Symposium",
+      "tags": [
+        "philosophy",
+        "love"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=either"
+        }
+      ]
+    },
+    {
+      "id": "idea-philosophy-of-mind-and-consciousness",
+      "title": "Philosophy of mind and consciousness",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "monthly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Nagel, Chalmers, Dennett and global workspace theory, read alongside interpretability research. What would it mean to 'understand' a mind or a model?",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "tags": [
+        "philosophy",
+        "cross-domain"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=monthly"
+        }
+      ]
+    },
+    {
+      "id": "idea-physics-for-intuition-the-feynman-lectures-one-cha",
+      "title": "Physics for intuition: the Feynman Lectures, one chapter at a time",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "either",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Classical mechanics, then statistical mechanics, then quantum basics. The lectures are free to read online. Pair each chapter with a connection to ML.",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "first_step": "Read Vol I ch. 1 'Atoms in Motion' and write 5 sentences on what surprised you",
+      "tags": [
+        "physics"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=either"
+        }
+      ]
+    },
+    {
+      "id": "idea-statistical-mechanics-and-machine-learning",
+      "title": "Statistical mechanics and machine learning",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "monthly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Boltzmann and softmax, free energy and the ELBO, energy-based models, phase transitions in learning.",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "tags": [
+        "physics",
+        "ml",
+        "cross-domain"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=monthly"
+        }
+      ]
+    },
+    {
+      "id": "idea-try-a-hands-on-hobby",
+      "title": "Try a hands-on hobby",
+      "status": "curiosity",
+      "origin": "seed",
+      "scope": "undecided",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Candidates: photography, pottery, electronics, sketching, an instrument. Start with one cheap first experience, no commitment.",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "tags": [
+        "hobby"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=curiosity, scope=undecided"
+        }
+      ]
+    },
+    {
+      "id": "idea-understand-the-economy-and-geopolitics-around-you",
+      "title": "Understand the economy and geopolitics around you",
+      "status": "interested",
+      "origin": "seed",
+      "scope": "either",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "Monetary policy, trade, energy and regional geopolitics. Learn the background so daily news makes sense.",
+      "dimensions": [
+        "knowledge",
+        "world"
+      ],
+      "tags": [
+        "world"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=seed, status=interested, scope=either"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "_doc": "What you care about, in three tiers that mean different things. established: what you follow and enjoy; most time goes here, to stay relevant. growth: what you want to understand because it develops you; steady, slow progress. exploration: what you haven't explored yet; optional but always present, for worthwhile surprises. Edit by hand or tell Claude (prompts/update_interests.md). Dimensions tag every item; sources and arXiv categories live in config/sources.json.",
+  "dimensions": {
+    "research": {
+      "name": "Researcher",
+      "description": "Become a strong researcher: foundations, research taste, independent ideas, experiments, critical reading, explaining research.",
+      "short": "Research"
+    },
+    "knowledge": {
+      "name": "Knowledge Explorer",
+      "description": "Broad and deep knowledge beyond your own field: mathematics, sciences, history, philosophy, psychology, economics, preferring connections between fields.",
+      "short": "Knowledge"
+    },
+    "world": {
+      "name": "World Radar",
+      "description": "Understand what is happening at home and in the world: what happened, why it matters, what to watch.",
+      "short": "World"
+    },
+    "people": {
+      "name": "People and Self",
+      "description": "Emotional intelligence, empathy, listening, communication, courage, leadership, boundaries and self-understanding, through real-world practice.",
+      "short": "People & self"
+    },
+    "culture": {
+      "name": "Culture and Life",
+      "description": "A rich life outside work: literature, philosophy, anime, film, music, art, architecture, photography, theatre, travel and experiences.",
+      "short": "Culture & life"
+    },
+    "curiosity": {
+      "name": "Curiosity, Discovery and Making",
+      "description": "Better questions and conversations, unusual ideas, new experiences, practical skills and making things.",
+      "short": "Curiosity & making"
+    }
+  },
+  "established": {
+    "_doc": "Topics you repeatedly enjoy or actively follow: AI and AI research, plus the foundations that build it.",
+    "ai_research": [
+      "machine learning and deep learning",
+      "large language models",
+      "trustworthy AI and AI safety",
+      "interpretability",
+      "evaluation methodology",
+      "machine unlearning",
+      "privacy",
+      "robustness",
+      "NLP",
+      "agents",
+      "AI systems",
+      "optimization",
+      "learning theory",
+      "representation learning",
+      "efficient AI",
+      "inference",
+      "quantization",
+      "generative models",
+      "multimodal AI",
+      "research methodology",
+      "generalization and learning dynamics",
+      "stability of learning algorithms",
+      "deep learning theory",
+      "continual and lifelong learning",
+      "causal machine learning",
+      "data-centric AI and dataset quality",
+      "distributed training and inference systems",
+      "AI infrastructure and hardware-aware ML",
+      "AI agents: planning, memory, tool use and multi-agent systems",
+      "benchmark design and scientific reproducibility"
+    ],
+    "foundations": [
+      "probability",
+      "statistics",
+      "linear algebra",
+      "calculus",
+      "optimization",
+      "information theory",
+      "algorithms",
+      "mathematical reasoning and proofs"
+    ]
+  },
+  "growth": {
+    "_doc": "Topics you want to understand because they make you a better researcher and person. Worked on slowly, a little at a time.",
+    "for_research": [
+      "topology",
+      "analysis",
+      "logic and foundations of mathematics",
+      "quantum mechanics and modern physics",
+      "cosmology and astrophysics",
+      "statistical physics",
+      "neuroscience",
+      "cognitive science",
+      "philosophy of mind and consciousness",
+      "philosophy of science"
+    ],
+    "research_skills": [
+      "generating and connecting research ideas",
+      "research taste",
+      "experiment design",
+      "critical reading of papers",
+      "explaining research clearly"
+    ],
+    "people_and_self": [
+      "active listening and asking better questions",
+      "understanding emotions and emotional needs",
+      "reading social situations",
+      "conflict resolution and disagreement",
+      "assertiveness and boundaries",
+      "building trust and psychological safety",
+      "small talk and initiating conversations",
+      "storytelling and conversational ability",
+      "negotiation and persuasion",
+      "public speaking and presenting ideas",
+      "mentoring and giving constructive feedback",
+      "taking initiative and making decisions under uncertainty",
+      "articulation",
+      "clear speaking and English accent",
+      "empathy",
+      "confidence",
+      "courage",
+      "leadership",
+      "self-understanding"
+    ],
+    "humanities_and_culture": [
+      "history",
+      "history of technology and computing",
+      "art history and movements",
+      "music history and music appreciation",
+      "literary fiction and classic literature",
+      "biographies and memoirs",
+      "philosophy"
+    ]
+  },
+  "exploration": {
+    "_doc": "Things you haven't explored yet but might find fascinating. Optional, never zero: they keep the mind fresh. world.regions double as places to explore.",
+    "subjects": [
+      "evolutionary biology",
+      "linguistics and language evolution",
+      "anthropology",
+      "sociology",
+      "behavioral economics",
+      "economic history",
+      "astronomy",
+      "chemistry",
+      "earth science",
+      "biology",
+      "geography"
+    ],
+    "culture": [
+      "world cinema and independent films",
+      "animation and visual storytelling",
+      "anime",
+      "documentaries",
+      "poetry and storytelling",
+      "design and visual aesthetics",
+      "cultural traditions and folklore",
+      "languages and literature from different cultures",
+      "architecture",
+      "photography",
+      "theatre",
+      "travel and experiences"
+    ],
+    "making_and_curiosity": [
+      "creative writing",
+      "interactive storytelling",
+      "game design and game theory",
+      "visualisation and information design",
+      "robotics and physical computing",
+      "creative coding",
+      "scientific experiments",
+      "maps and spatial exploration",
+      "nature observation and field exploration",
+      "learning a new language",
+      "pottery",
+      "electronics",
+      "photography walks",
+      "DIY",
+      "magic",
+      "strange science",
+      "fascinating people",
+      "unexpected connections"
+    ]
+  },
+  "world": {
+    "_doc": "Used by World Radar (news) and, for exploration, as places to discover.",
+    "regions": [
+      "India",
+      "South Asia",
+      "China",
+      "Japan",
+      "East Asia",
+      "Southeast Asia",
+      "Central Asia",
+      "Middle East",
+      "Russia/Ukraine",
+      "Europe",
+      "Nordic regions",
+      "United States",
+      "Arctic Circle and Alaska",
+      "Latin America",
+      "Africa",
+      "Tanzania",
+      "Australia and New Zealand",
+      "Oceania",
+      "Antarctica",
+      "small island territories (e.g. Tristan da Cunha)"
+    ],
+    "topics": [
+      "geopolitics",
+      "international relations",
+      "economics",
+      "finance",
+      "business",
+      "technology policy",
+      "science",
+      "society",
+      "conflicts",
+      "disasters",
+      "Indian society, public policy and institutions",
+      "climate change and energy transitions",
+      "demographics and migration",
+      "global trade and supply chains",
+      "international development",
+      "science and technology policy",
+      "economic history"
+    ]
+  },
+  "cross_domain_favourites": [
+    "physics <-> machine learning (statistical mechanics, energy-based models, symmetry)",
+    "information theory <-> thermodynamics",
+    "geometry <-> relativity",
+    "evolution <-> intelligence",
+    "neuroscience <-> consciousness",
+    "game theory <-> evolution <-> society",
+    "history of science <-> philosophy of science",
+    "philosophy of love <-> psychology of relationships"
+  ],
+  "culture_guidance": "Recommend for quality, beauty, historical significance, emotional depth or cultural importance, not popularity. Prefer variety across eras, countries and forms; avoid the same mainstream picks."
+}

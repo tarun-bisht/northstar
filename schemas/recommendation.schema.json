@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/recommendation.schema.json",
+  "title": "Recommendation (shared by discovery and on-demand)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "type",
+    "category",
+    "topic",
+    "description",
+    "why_recommended",
+    "tier",
+    "action",
+    "time_required",
+    "dimensions"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "title": {
+      "$ref": "common.schema.json#/$defs/nonempty"
+    },
+    "creator": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "book",
+        "paper",
+        "video",
+        "playlist",
+        "podcast",
+        "article",
+        "lecture",
+        "course",
+        "documentary",
+        "film",
+        "series",
+        "anime",
+        "album",
+        "music",
+        "artwork",
+        "place",
+        "website",
+        "tool",
+        "project",
+        "experience",
+        "idea",
+        "person",
+        "other"
+      ]
+    },
+    "category": {
+      "$ref": "common.schema.json#/$defs/nonempty"
+    },
+    "topic": {
+      "$ref": "common.schema.json#/$defs/nonempty"
+    },
+    "subtopics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "url": {
+      "$ref": "common.schema.json#/$defs/url"
+    },
+    "url_verified": {
+      "type": "boolean"
+    },
+    "description": {
+      "$ref": "common.schema.json#/$defs/nonempty"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "difficulty": {
+      "$ref": "common.schema.json#/$defs/difficulty"
+    },
+    "why_recommended": {
+      "$ref": "common.schema.json#/$defs/nonempty"
+    },
+    "connection_to_interests": {
+      "type": "string"
+    },
+    "what_i_might_get_from_it": {
+      "type": "string"
+    },
+    "action": {
+      "$ref": "common.schema.json#/$defs/action"
+    },
+    "time_required": {
+      "enum": [
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "half_day",
+        "multi-session"
+      ]
+    },
+    "priority": {
+      "enum": [
+        "high",
+        "medium",
+        "optional"
+      ]
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/activity_status"
+    },
+    "dimensions": {
+      "$ref": "common.schema.json#/$defs/dimensions"
+    },
+    "cross_domain": {
+      "$ref": "common.schema.json#/$defs/cross_domain"
+    },
+    "tier": {
+      "$ref": "common.schema.json#/$defs/tier"
+    }
+  }
+}

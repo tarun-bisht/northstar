@@ -1,0 +1,14 @@
+{
+  "_doc": "Sanitized, topic-level preferences learned from feedback. No raw feedback text. Explicit signals beat inferred ones; 'ignored' never means disliked.",
+  "explicit": {
+    "more": {},
+    "less": {},
+    "not_interested": {},
+    "enjoyed": {},
+    "too_hard": {},
+    "too_easy": {}
+  },
+  "inferred": {
+    "ignored": {}
+  }
+}

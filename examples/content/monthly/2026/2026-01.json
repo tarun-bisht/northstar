@@ -1,0 +1,87 @@
+{
+  "schema": "monthly",
+  "month": "2026-01",
+  "generated_at": "2026-01-01T00:53:00Z",
+  "generator": "example",
+  "example": true,
+  "load": "normal",
+  "intro": "[EXAMPLE] One deep dive for the month. Optional, and it has a light version if the month gets busy.",
+  "items": [
+    {
+      "id": "m-2026-01-example-stat-mech-ml",
+      "title": "Statistical mechanics for ML researchers",
+      "kind": "non_ai_deep_dive",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "why": "Energy-based models, softmax temperature, free energy and phase transitions in learning all come from statistical mechanics.",
+      "objective": "Be able to derive the Boltzmann distribution from maximum entropy and explain three places it shows up in ML.",
+      "prerequisites": [
+        "basic probability",
+        "Lagrange multipliers"
+      ],
+      "weeks": [
+        {
+          "week": 1,
+          "focus": "Entropy and the maximum-entropy principle",
+          "tasks": [
+            "Derive the max-entropy distribution under a mean-energy constraint"
+          ]
+        },
+        {
+          "week": 2,
+          "focus": "Partition functions and free energy",
+          "tasks": [
+            "Show log Z generates moments"
+          ]
+        },
+        {
+          "week": 3,
+          "focus": "Where it shows up in ML",
+          "tasks": [
+            "Softmax as Boltzmann",
+            "EBMs",
+            "Variational free energy"
+          ]
+        },
+        {
+          "week": 4,
+          "focus": "Synthesis",
+          "tasks": [
+            "Write a 1-page explainer for a friend"
+          ]
+        }
+      ],
+      "exercises": [
+        "Derive softmax from max-entropy",
+        "Explain temperature scaling physically"
+      ],
+      "deliverable": "A one-page explainer: 'Why your softmax is a Boltzmann distribution'.",
+      "definition_of_done": "The explainer exists and a non-physicist friend understood it.",
+      "final_synthesis": "Connect free energy to the ELBO.",
+      "time_estimate": "2-3 h/week",
+      "light_version": "Only week 1 and week 3.",
+      "continuation": "Possible later milestone: phase transitions in learning dynamics. Not scheduled automatically.",
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "primary_resource": {
+        "title": "[EXAMPLE] An introductory statistical mechanics text",
+        "type": "book",
+        "chapters": "Ch. 1-3"
+      },
+      "resources": [
+        {
+          "title": "[EXAMPLE] A lecture series on entropy",
+          "type": "lecture",
+          "chapters": "Lectures 1-4"
+        }
+      ]
+    }
+  ],
+  "reflection_prompts": [
+    "What am I becoming better at?",
+    "What did I avoid this month, and why?"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsys.local/schemas/arxiv.schema.json",
+  "title": "Daily arXiv paper radar",
+  "allOf": [{ "$ref": "common.schema.json#/$defs/daily_envelope" }],
+  "properties": {
+    "schema": { "const": "arxiv" },
+    "candidates_considered": { "type": "integer", "minimum": 0 },
+    "items": { "type": "array", "items": { "$ref": "#/$defs/paper" } }
+  },
+  "$defs": {
+    "paper": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "arxiv_id", "title", "authors", "url", "submitted", "categories", "abstract", "research_area", "relevance"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "arxiv_id": { "type": "string", "pattern": "^\\d{4}\\.\\d{4,5}$" },
+        "version": { "type": "string", "pattern": "^v\\d+$" },
+        "title": { "$ref": "common.schema.json#/$defs/nonempty" },
+        "authors": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+        "url": { "$ref": "common.schema.json#/$defs/url" },
+        "pdf_url": { "$ref": "common.schema.json#/$defs/url" },
+        "submitted": { "$ref": "common.schema.json#/$defs/date" },
+        "categories": { "type": "array", "items": { "type": "string", "pattern": "^[a-z-]+(\\.[A-Za-z-]+)?$" }, "minItems": 1 },
+        "abstract": { "type": "string", "minLength": 40, "description": "ORIGINAL abstract, verbatim from arXiv" },
+        "abstract_source": { "enum": ["arxiv_api_candidates", "arxiv_abs_page", "other_verbatim"] },
+        "research_area": { "$ref": "common.schema.json#/$defs/nonempty" },
+        "relevance": { "enum": ["must_read", "worth_skimming", "peripheral"] },
+        "selection_reason": { "type": "string", "minLength": 3, "maxLength": 160, "description": "Optional, short. e.g. 'Closely related to your work.' Never a pitch for why to read it, never names a private project." },
+        "dimensions": { "$ref": "common.schema.json#/$defs/dimensions" }
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "weekly",
+  "week": "2026-W02",
+  "start_date": "2026-01-05",
+  "end_date": "2026-01-11",
+  "generated_at": "2026-01-03T01:13:00Z",
+  "generator": "example",
+  "example": true,
+  "load": "normal",
+  "intro": "[EXAMPLE] A light week: one puzzle, one conversation practice, your photography idea, and a film. Do any, all, or none.",
+  "items": [
+    {
+      "id": "w-2026-W02-example-birthday-coupling",
+      "title": "Birthday problem, then break it",
+      "category": "research_fundamentals",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "description": "Derive the probability that two of n people share a birthday. Then find which assumption fails in real data and how that changes the answer.",
+      "why": "Practises deriving instead of recalling, and questioning assumptions — the same move as critiquing an evaluation.",
+      "time_estimate": "30-60m",
+      "hints": [
+        "Compute the probability that nobody shares a birthday.",
+        "Write it as a product of (365-k)/365 terms.",
+        "Use 1 - x <= e^{-x} to get a clean approximation; what n gives 1/2?"
+      ],
+      "solution_available_on_request": true,
+      "difficulty": "easy",
+      "origin": "system",
+      "status": "suggested",
+      "mode": "learn",
+      "topic": "probability puzzles",
+      "then": "Explain the surprising answer to a friend in two minutes.",
+      "tier": "established",
+      "steps": [
+        "Compute the probability that no two of n people share a birthday",
+        "Find n where it drops below 1/2",
+        "Look up real birth-date data and see which assumption breaks"
+      ],
+      "resources": [
+        {
+          "title": "[EXAMPLE] A probability textbook",
+          "type": "book",
+          "chapters": "Ch. 1, Sec. 1.4",
+          "note": "placeholder resource"
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W02-example-listening",
+      "title": "One conversation where you only ask questions",
+      "category": "people",
+      "dimensions": [
+        "people"
+      ],
+      "description": "In one real conversation this week, resist giving advice. Ask questions, and reflect back what you heard before responding.",
+      "why": "Making people feel understood is mostly listening. This is a small, safe rep.",
+      "time_estimate": "real_world_practice",
+      "steps": [
+        "Pick a low-stakes conversation",
+        "Ask at least three open questions",
+        "Afterwards, note one thing you learned about the person"
+      ],
+      "origin": "system",
+      "status": "suggested",
+      "mode": "practise",
+      "topic": "active listening",
+      "then": "Afterwards, write one sentence on what you noticed about the other person.",
+      "tier": "growth"
+    },
+    {
+      "id": "w-2026-W02-example-photo-walk",
+      "title": "Photo walk: only light and shadow",
+      "category": "user_idea",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "description": "Your idea, scoped as a first experience: a 45-minute walk with your phone, photographing only interesting light.",
+      "why": "You said you want to learn photography. A first experience tells you whether to make it a monthly skill project.",
+      "time_estimate": "1-2h",
+      "steps": [
+        "Go out in the hour before sunset",
+        "Take 30 photos, keep 3",
+        "Ask yourself why those 3 work"
+      ],
+      "origin": "user_idea",
+      "idea_id": "idea-learn-photography",
+      "status": "suggested",
+      "mode": "create",
+      "topic": "photography",
+      "tier": "exploration"
+    },
+    {
+      "id": "w-2026-W02-example-film",
+      "title": "Watch a film by a director you have never seen",
+      "category": "culture",
+      "dimensions": [
+        "culture"
+      ],
+      "description": "Placeholder culture item. A real package names a specific film, with why it's worth your time.",
+      "why": "Example only.",
+      "time_estimate": "few_hours",
+      "origin": "system",
+      "status": "suggested",
+      "mode": "experience",
+      "topic": "world cinema",
+      "tier": "exploration"
+    }
+  ],
+  "reflection_prompt": "Optional: what kind of activity gave you energy this week?"
+}

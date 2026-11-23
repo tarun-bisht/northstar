@@ -1,0 +1,9 @@
+{
+  "title": "Northstar",
+  "description": "An open, configurable framework for personal growth, learning, curiosity and discovery.",
+  "base_url": "https://tarunbisht.com/northstar",
+  "author": "tarun-bisht",
+  "timezone_offset": "+05:30",
+  "publish_hour_local": 6,
+  "repository": "https://github.com/tarun-bisht/northstar"
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "youtube_shorts",
+  "date": "2026-01-05",
+  "generated_at": "2026-01-05T02:00:00Z",
+  "generator": "example",
+  "example": true,
+  "notes": "EXAMPLE DATA. The video id below is a placeholder and is marked example_unverified; real feeds only accept API- or oEmbed-verified ids.",
+  "candidates_considered": 640,
+  "items": [
+    {
+      "id": "yt-EXAMPLE0001",
+      "video_id": "EXAMPLE0001",
+      "title": "[EXAMPLE] The Fourier transform in 60 seconds",
+      "channel": {
+        "name": "Example Channel"
+      },
+      "url": "https://www.youtube.com/watch?v=EXAMPLE0001",
+      "embed_url": "https://www.youtube.com/embed/EXAMPLE0001",
+      "thumbnail": "https://i.ytimg.com/vi/EXAMPLE0001/hqdefault.jpg",
+      "duration_seconds": 58,
+      "published": "2026-01-03",
+      "topic": "Fourier analysis",
+      "category": "mathematics",
+      "description": "Placeholder description.",
+      "dimensions": [
+        "knowledge"
+      ],
+      "why_it_matches": "Visual math intuition, short enough to watch between tasks.",
+      "discovery_source": "youtube_data_api",
+      "format": "short_form",
+      "verification": {
+        "method": "example_unverified"
+      },
+      "format_evidence": "none",
+      "language": "en",
+      "tier": "established"
+    },
+    {
+      "id": "yt-EXAMPLE0002",
+      "video_id": "EXAMPLE0002",
+      "title": "[EXAMPLE] What topology studies, in one minute",
+      "channel": {
+        "name": "Example Channel 2"
+      },
+      "url": "https://www.youtube.com/watch?v=EXAMPLE0002",
+      "embed_url": "https://www.youtube.com/embed/EXAMPLE0002",
+      "thumbnail": "https://i.ytimg.com/vi/EXAMPLE0002/hqdefault.jpg",
+      "duration_seconds": 58,
+      "published": "2026-01-03",
+      "topic": "Fourier analysis",
+      "category": "mathematics",
+      "description": "Placeholder description.",
+      "dimensions": [
+        "knowledge"
+      ],
+      "why_it_matches": "Visual math intuition, short enough to watch between tasks.",
+      "discovery_source": "youtube_data_api",
+      "format": "short_form",
+      "verification": {
+        "method": "example_unverified"
+      },
+      "format_evidence": "none",
+      "language": "en",
+      "tier": "growth"
+    },
+    {
+      "id": "yt-EXAMPLE0003",
+      "video_id": "EXAMPLE0003",
+      "title": "[EXAMPLE] Life on Tristan da Cunha",
+      "channel": {
+        "name": "Example Channel 3"
+      },
+      "url": "https://www.youtube.com/watch?v=EXAMPLE0003",
+      "embed_url": "https://www.youtube.com/embed/EXAMPLE0003",
+      "thumbnail": "https://i.ytimg.com/vi/EXAMPLE0003/hqdefault.jpg",
+      "duration_seconds": 58,
+      "published": "2026-01-03",
+      "topic": "Fourier analysis",
+      "category": "geography",
+      "description": "Placeholder description.",
+      "dimensions": [
+        "knowledge"
+      ],
+      "why_it_matches": "Visual math intuition, short enough to watch between tasks.",
+      "discovery_source": "youtube_data_api",
+      "format": "short_form",
+      "verification": {
+        "method": "example_unverified"
+      },
+      "format_evidence": "none",
+      "language": "en",
+      "tier": "exploration"
+    }
+  ]
+}

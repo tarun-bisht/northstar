@@ -1,0 +1,54 @@
+{
+  "_doc": "Rules the generators follow. Numbers are guidance, never quotas.",
+  "dedup_windows_days": {
+    "discovery": 365,
+    "weekly": 365,
+    "monthly": 730,
+    "research_updates": 30,
+    "world": 14,
+    "youtube_video": 100000,
+    "youtube_creator_soft_limit_per_day": 3
+  },
+  "reschedule_limit": 2,
+  "dimension_balance_lookback_days": 60,
+  "user_intent_overrides_algorithm": true,
+  "feeds": {
+    "arxiv": 200,
+    "research_updates": 150,
+    "world": 150,
+    "discovery": 150,
+    "youtube_shorts": 300,
+    "weekly": 52,
+    "monthly": 24
+  },
+  "source_quality": {
+    "prefer": [
+      "original papers",
+      "lab and researcher blogs",
+      "official statements",
+      "primary data",
+      "reputable outlets with named sources"
+    ],
+    "avoid": [
+      "content farms",
+      "unattributed reposts",
+      "engagement bait",
+      "low-quality AI-generated content"
+    ]
+  },
+  "tiers": {
+    "_doc": "How the three interest tiers are used. Shares are guidance, not quotas.",
+    "established": {
+      "share": 0.6,
+      "use": "stay relevant: the default for most items; go beyond the basics"
+    },
+    "growth": {
+      "share": 0.25,
+      "use": "develop: steady, small steps; every monthly package has at least one growth reading or exercise"
+    },
+    "exploration": {
+      "share": 0.15,
+      "use": "surprise: optional but never zero; something genuinely unfamiliar and worthwhile"
+    }
+  }
+}

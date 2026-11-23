@@ -1,0 +1,10 @@
+_site/
+feeds/*.xml
+__pycache__/
+*.pyc
+.pytest_cache/
+*.tmp
+.env
+# personal notes: never committed
+private/*
+!private/README.md

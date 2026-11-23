@@ -1,0 +1,5 @@
+{
+  "_doc": "Derived by `dsys history rebuild`. 'seen' = candidates reviewed but not selected.",
+  "selected": {},
+  "seen": {}
+}

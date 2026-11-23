@@ -1,0 +1,24 @@
+{
+  "_doc": "EXAMPLE ideas registry used only by examples/.",
+  "ideas": [
+    {
+      "id": "idea-learn-photography",
+      "title": "Learn photography",
+      "description": "User said: 'I want to learn photography.' Scoped as a small weekly first experience; could grow into a monthly skill project.",
+      "dimensions": ["culture", "curiosity"],
+      "status": "planned",
+      "origin": "user",
+      "scope": "weekly",
+      "first_step": "One photo walk with a phone, shooting only light and shadow.",
+      "estimate": "1-2h",
+      "scheduled_for": "2026-W02",
+      "reschedule_count": 0,
+      "created": "2026-01-03",
+      "updated": "2026-01-03",
+      "history": [
+        { "date": "2026-01-03", "action": "added", "detail": "origin=user" },
+        { "date": "2026-01-03", "action": "scheduled", "detail": "2026-W02" }
+      ]
+    }
+  ]
+}

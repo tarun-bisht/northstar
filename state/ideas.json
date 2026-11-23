@@ -235,6 +235,29 @@
       ]
     },
     {
+      "id": "idea-learn-to-read-japanese-kana-then-kanji",
+      "title": "Learn to read Japanese (kana, then kanji)",
+      "status": "curiosity",
+      "origin": "user",
+      "scope": "monthly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "For later, after conversation is comfortable.",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "first_step": "Learn hiragana in a week with a spaced-repetition deck",
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=user, status=curiosity, scope=monthly"
+        }
+      ]
+    },
+    {
       "id": "idea-mathematics-for-ml-research-rebuilt-from-first-pri",
       "title": "Mathematics for ML research, rebuilt from first principles",
       "status": "interested",

@@ -26,7 +26,7 @@ Daily keeps you aware, weekly suggests something new, and monthly goes deeper. A
 | Research Updates | daily | lab posts, methods, tools, benchmarks, debates |
 | World Radar | daily | what happened, why it matters, what to watch |
 | Daily Discovery | daily | 3–6 picks; **always** an established-tier podcast, a video or lecture, and something from each tier |
-| YouTube Shorts | daily | up to ~100 short videos (English and Hindi), at least one per tier |
+| YouTube Shorts | daily | up to ~100 short videos (English and Hindi, plus some easy Japanese), at least one per tier |
 | Weekly package | Saturday | 3–5 small optional activities; every learning item has steps and resources |
 | Monthly package | 1st | 1–3 one-month projects with a week-by-week syllabus (books with chapters, lectures, papers); always one growth reading in science, maths, neuroscience or philosophy |
 | Quarterly synthesis | Jan/Apr/Jul/Oct | what you explored and what's emerging; delivered to you, never saved |

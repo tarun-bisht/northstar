@@ -127,6 +127,10 @@
       "literary fiction and classic literature",
       "biographies and memoirs",
       "philosophy"
+    ],
+    "languages": [
+      "conversational Japanese (speaking and listening)",
+      "Japanese pronunciation and natural phrases"
     ]
   },
   "exploration": {
@@ -156,7 +160,9 @@
       "architecture",
       "photography",
       "theatre",
-      "travel and experiences"
+      "travel and experiences",
+      "Japanese culture, etiquette and everyday life",
+      "Japanese cinema and documentaries"
     ],
     "making_and_curiosity": [
       "creative writing",

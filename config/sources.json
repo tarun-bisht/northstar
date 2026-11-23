@@ -139,7 +139,11 @@
           "Japan culture short",
           "Africa wildlife short",
           "linguistics short",
-          "anthropology short"
+          "anthropology short",
+          "Japanese conversation practice short",
+          "useful Japanese phrases short",
+          "Japanese listening practice short",
+          "Japanese culture explained short"
         ]
       },
       {
@@ -158,11 +162,20 @@
           "आविष्कार की कहानी",
           "विज्ञान प्रयोग"
         ]
+      },
+      {
+        "language": "ja",
+        "queries": [
+          "やさしい日本語 会話",
+          "日本語 聞き取り 初心者",
+          "日本の文化"
+        ]
       }
     ],
     "languages_accepted": [
       "en",
-      "hi"
+      "hi",
+      "ja"
     ],
     "shorts_url_check": true,
     "max_candidates_per_channel": 5

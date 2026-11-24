@@ -37867,5 +37867,9 @@
       "categories": [],
       "source": "huggingface_daily"
     }
-  ]
+  ],
+  "failed_sources": [
+    "alphaxiv:trending"
+  ],
+  "notes": []
 }

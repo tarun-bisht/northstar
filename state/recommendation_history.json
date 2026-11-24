@@ -1,6 +1,59 @@
 {
   "_doc": "Derived. Everything recommended in discovery/weekly/monthly.",
   "items": {
+    "discovery:disc-2026-11-24-3b1b-fourier-transform": {
+      "date": "2026-11-24",
+      "title": "But what is the Fourier Transform? A visual introduction.",
+      "url": "https://www.youtube.com/watch?v=spUNpyF58BY",
+      "category": "mathematics",
+      "type": "video",
+      "dimensions": [
+        "knowledge"
+      ]
+    },
+    "discovery:disc-2026-11-24-aeon-language-hands": {
+      "date": "2026-11-24",
+      "title": "If language began in the hands, why did it ever leave?",
+      "url": "https://aeon.co/essays/if-language-began-in-the-hands-why-did-it-ever-leave",
+      "category": "linguistics",
+      "type": "article",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ]
+    },
+    "discovery:disc-2026-11-24-axrp-rein-metr-time-horizons": {
+      "date": "2026-11-24",
+      "title": "47 - David Rein on METR Time Horizons",
+      "url": "https://axrp.net/episode/2026/01/03/episode-47-david-rein-metr-time-horizons.html",
+      "category": "AI research",
+      "type": "podcast",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ]
+    },
+    "discovery:disc-2026-11-24-latent-space-goodfire-interpretability": {
+      "date": "2026-11-24",
+      "title": "The First Mechanistic Interpretability Frontier Lab",
+      "url": "https://www.latent.space/p/goodfire",
+      "category": "AI research",
+      "type": "podcast",
+      "dimensions": [
+        "research"
+      ]
+    },
+    "discovery:disc-2026-11-24-mlst-brain-metaphors": {
+      "date": "2026-11-24",
+      "title": "Why Every Brain Metaphor in History Has Been Wrong [SPECIAL EDITION]",
+      "url": "https://www.audioscrape.com/podcast/machine-learning-street-talk-mlst/episode/why-every-brain-metaphor-in-history-has-been-wrong-special-edition-64497",
+      "category": "philosophy of science",
+      "type": "podcast",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ]
+    },
     "monthly:m-2026-11-feynman-probability-and-random-walks": {
       "date": "2026-11-01",
       "title": "Feynman on probability and random walks, read with ML in mind",

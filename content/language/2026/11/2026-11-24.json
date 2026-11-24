@@ -1,0 +1,81 @@
+{
+  "schema": "language",
+  "date": "2026-11-24",
+  "items": [
+    {
+      "id": "lang-2026-11-24",
+      "language": "japanese",
+      "title": "Greetings through the day",
+      "theme": "greetings: morning, day and evening",
+      "minutes": 5,
+      "phrases": [
+        {
+          "text": "おはようございます",
+          "romanization": "ohayō gozaimasu",
+          "meaning": "good morning (polite)"
+        },
+        {
+          "text": "こんにちは",
+          "romanization": "konnichiwa",
+          "meaning": "hello, good afternoon"
+        },
+        {
+          "text": "こんばんは",
+          "romanization": "konbanwa",
+          "meaning": "good evening"
+        },
+        {
+          "text": "お元気ですか",
+          "romanization": "o-genki desu ka",
+          "meaning": "how are you?"
+        },
+        {
+          "text": "元気です。ありがとうございます",
+          "romanization": "genki desu. arigatō gozaimasu",
+          "meaning": "I'm fine. Thank you."
+        }
+      ],
+      "dialogue": [
+        {
+          "text": "おはようございます。",
+          "romanization": "Ohayō gozaimasu.",
+          "meaning": "Good morning."
+        },
+        {
+          "text": "おはようございます。お元気ですか。",
+          "romanization": "Ohayō gozaimasu. O-genki desu ka.",
+          "meaning": "Good morning. How are you?"
+        },
+        {
+          "text": "元気です。ありがとうございます。",
+          "romanization": "Genki desu. Arigatō gozaimasu.",
+          "meaning": "I'm fine. Thank you."
+        }
+      ],
+      "practice": [
+        {
+          "question": "You meet a colleague at 9 am. What do you say?",
+          "answer": "おはようございます (ohayō gozaimasu)"
+        },
+        {
+          "question": "How do you greet someone at 7 pm?",
+          "answer": "こんばんは (konbanwa)"
+        },
+        {
+          "question": "Someone asks お元気ですか. How do you reply?",
+          "answer": "元気です。ありがとうございます。(genki desu. arigatō gozaimasu)",
+          "hint": "genki desu, then thank them"
+        }
+      ],
+      "say_aloud": "Say the three greetings out loud, each with the time of day you would use it: ohayō gozaimasu, konnichiwa, konbanwa.",
+      "tier": "growth",
+      "dimensions": [
+        "people",
+        "culture"
+      ]
+    }
+  ],
+  "generated_at": "2026-11-24T12:52:08Z",
+  "generator": "claude-scheduled-task",
+  "notes": "First daily pack. Starts with greetings across the day."
+}

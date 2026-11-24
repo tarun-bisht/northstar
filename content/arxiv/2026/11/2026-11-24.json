@@ -1,0 +1,252 @@
+{
+  "schema": "arxiv",
+  "date": "2026-11-24",
+  "items": [
+    {
+      "id": "arxiv-2611.29285",
+      "arxiv_id": "2611.29285",
+      "version": "v1",
+      "title": "Compared to What? Calibrating Machine-Unlearning Diagnostics with Present, Absent and Suppressed Anchors",
+      "authors": [
+        "Arsalan Kaleem"
+      ],
+      "url": "https://arxiv.org/abs/2611.29285",
+      "pdf_url": "https://arxiv.org/pdf/2611.29285",
+      "submitted": "2026-11-22",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Unlearning methods for language models are judged mainly by behaviour, but a model can stop producing an answer while still encoding it. Internal diagnostics such as linear probes, the logit lens and relearning speed are used to tell removal from suppression, yet none has been checked against cases where the answer is known. We build such cases. A present anchor learned a set of synthetic facts; an absent anchor is a never-taught oracle retrained without them; and suppressed anchors are unlearned with their lower layers frozen, so the facts stay encoded below the frozen block by construction. We compare these anchors with NPO, RMU and gradient difference at a matched operating point on GPT-2 Small and Qwen3-0.6B-Base, scoring every diagnostic per entity with AUROC against the oracle. Behaviour cannot separate the suppressed anchors from the oracle (AUROC 0.51 to 0.58), while probes, the logit lens and relearning gain can (0.65 to 1.00), and the oracle seeds stay near 0.5. Applied to NPO on both models and RMU on Qwen3, the validated diagnostics disagree: probes put the facts at the oracle's level, while the models still relearn them much faster than a never-taught model does. Every unlearned model, anchor or method, also assigns the forgotten answer a far lower log-probability than the oracle does, a black-box signal that flagged all of them. A drift-ratio specificity rule fails on known cases. Code, data and every run are at https://github.com/ArsalanKaleem/unlearning-audit.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "machine unlearning evaluation",
+      "dimensions": [
+        "research"
+      ],
+      "tags": [
+        "close to your work",
+        "benchmark or dataset"
+      ]
+    },
+    {
+      "id": "arxiv-2611.27543",
+      "arxiv_id": "2611.27543",
+      "version": "v1",
+      "title": "On the Limits of Observability for Evaluating Coverage in Machine Unlearning",
+      "authors": [
+        "Ziluowen Luo",
+        "Jun Yin",
+        "Songyang Liu",
+        "Ji Qi",
+        "Chuang Hu",
+        "Kyrie You Wu",
+        "Chaozhuo Li",
+        "Senzhang Wang"
+      ],
+      "url": "https://arxiv.org/abs/2611.27543",
+      "pdf_url": "https://arxiv.org/pdf/2611.27543",
+      "submitted": "2026-11-20",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "abstract": "Machine unlearning aims to remove the influence of any requested subset of training data while preserving utility on the remaining data. Empirical evaluations measure predictive accuracy and infer training-set membership (MIAs) from model outputs or intermediate activations. However, by focusing on selected forget sets, these evaluations can overlook Coverage, the range of requests a method can fulfill. To assess this coverage, we first conduct a stress test of observability with 502 retrained models, finding that hidden embeddings reveal known deletions missed in predictions. To characterize capacity limits on coverage, we show that distinguishing all $n$ singleton deletions with linear scores can require a shared representation of rank $Ω(\\log n)$. We further extend the bound to arbitrary subsets and show when partial deletion can appear complete. Building on this analysis, we propose CEO, a framework for evaluating unlearning coverage under limited observability. Its compositional color-shape benchmark makes forgetting and retained utility measurable from the full output distribution and provides a leave-one-out retraining oracle for each target. From a fixed number of oracle observables, we estimate empirical target coverage, the fraction of targets reliably flagged when deleted and rarely flagged under any other deletions. To recover missed deletions, CEO further expands each observable representation into high-dimensional activation space with the frozen encoder of a SAE trained on the original model. Extensive experiments of 20 baselines shows that even on this simple synthetic task, only retraining from scratch covers all deletion targets.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "machine unlearning theory",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "tags": [
+        "close to your work",
+        "theory",
+        "benchmark or dataset"
+      ]
+    },
+    {
+      "id": "arxiv-2611.30116",
+      "arxiv_id": "2611.30116",
+      "version": "v1",
+      "title": "Grokking as a Subspace Search: Computing the Destination Before Training",
+      "authors": [
+        "Sunjae Jeong",
+        "Jaeseung Kim",
+        "Hyoseok Hwang"
+      ],
+      "url": "https://arxiv.org/abs/2611.30116",
+      "pdf_url": "https://arxiv.org/pdf/2611.30116",
+      "submitted": "2026-11-23",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "abstract": "Grokking is the phenomenon in which a neural network generalizes long after it has memorized its training data. Many explanations have been proposed for the delay between memorization and generalization. However, none of them can say before training where the network is heading, so they cannot be tested against one another. We show that on group tasks this destination can be computed from the task itself before training begins. It is a low-dimensional subspace of the network's embeddings, which we call the right subspace, and we prove that it is essentially unique. Knowing the destination makes our hypothesis falsifiable: the delay is a search for the right subspace, and generalization begins when the network finds it. When we give the network the right subspace from the start, the delay disappears. When we take the right subspace away, accuracy stops at a ceiling that we compute before training, and on multiplication the network cannot generalize at all. When we train the network normally, its embeddings move toward the right subspace by themselves, long before test accuracy rises. Finally, interventions during training show that this search sets the length of the delay, and that noise in the optimization does not. On every group task that we tested, grokking is a search for the right subspace, and the delay is the time that this search takes.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "learning dynamics, grokking",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "tags": [
+        "theory",
+        "strong result"
+      ]
+    },
+    {
+      "id": "arxiv-2611.29651",
+      "arxiv_id": "2611.29651",
+      "version": "v1",
+      "title": "Which Loopholes Get Found? Predicting Reward Hacking of LLM Judges Before RL Training",
+      "authors": [
+        "Xuanyi Lyu",
+        "Yuezhou Zhao",
+        "Qing Qin"
+      ],
+      "url": "https://arxiv.org/abs/2611.29651",
+      "pdf_url": "https://arxiv.org/pdf/2611.29651",
+      "submitted": "2026-11-22",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "abstract": "A policy trained against an LLM judge can learn to exploit its loopholes. Static probes show that such judges accept degenerate answers like a lone \"{\" or \"Thought process:\", but not which flaw a policy will find. In GRPO the first loophole to be exploited can be predicted before training from each pattern's exposure, the product of the starting policy's propensity to produce it and the judge's false-positive rate (FPR). To test exposure causally, we seed the patterns into fine-tuning at three doses in a Latin square. Across 36 GRPO runs with seven judges, the first exploited pattern had the highest exposure in all 12 runs with exploitation and the highest FPR in only 6. Predictions recorded before training held in three of four runs with one pattern masked by rule. When only two patterns were seeded, at 3% to 3.8% of the fine-tuning data and chosen so that exposure disagreed with FPR alone or propensity alone, exposure named the first exploited pattern and its onset window in all six runs. Exploitation occurred only on hard prompts, where an accepted exploit gets a large group-normalized advantage. Auditing exposure before RL therefore identifies the loophole a policy will likely exploit first.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "reward hacking, LLM judges",
+      "dimensions": [
+        "research"
+      ],
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    {
+      "id": "arxiv-2611.30639",
+      "arxiv_id": "2611.30639",
+      "version": "v1",
+      "title": "Uncovering the Tells: Efficient Black-Box Audits for LLM Data Contamination",
+      "authors": [
+        "Dominik Bernard Lau",
+        "Filip Pawlicki",
+        "Jan Dubiński",
+        "Sebastian Cygert"
+      ],
+      "url": "https://arxiv.org/abs/2611.30639",
+      "pdf_url": "https://arxiv.org/pdf/2611.30639",
+      "submitted": "2026-11-23",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "abstract": "Existing methods for assessing training data contamination in Large Language Models achieve high accuracy, but fundamentally rely on gray-box access, rendering them inapplicable to fully black-box environments. This limitation forces auditors to rely on full-sequence sampling or rigid heuristics, both of which incur prohibitive inference costs and struggle to isolate the underlying memorization signal. To overcome this, we propose a generation-based black-box framework that infers context-induced information gain from targeted token discrepancies. We introduce a budget-constrained auditing regime, building on the empirical observation that the membership signal is highly sparse and concentrated in a few highly informative tokens. We formalize this sparsity, showing why uniform sampling needs many more samples than a policy that targets informative positions. Empirically, our approach achieves state-of-the-art black-box separation accuracy while needing about 3x fewer queries than uniform position sampling. Finally, we apply this methodology to closed frontier models, exploring its capacity and limits in surfacing potential training data overlaps on commercial APIs.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "contamination, membership inference",
+      "dimensions": [
+        "research"
+      ],
+      "tags": [
+        "useful for your work",
+        "new method or architecture"
+      ]
+    },
+    {
+      "id": "arxiv-2611.27424",
+      "arxiv_id": "2611.27424",
+      "version": "v1",
+      "title": "Jagged Robustness: Uneven Safety Transfer and Emerging Vulnerabilities under LLM Quantization",
+      "authors": [
+        "Ramneek Agnihotri",
+        "Yingte Xu",
+        "Hans Vath"
+      ],
+      "url": "https://arxiv.org/abs/2611.27424",
+      "pdf_url": "https://arxiv.org/pdf/2611.27424",
+      "submitted": "2026-11-20",
+      "categories": [
+        "cs.AI"
+      ],
+      "abstract": "Quantization enables efficient inference in language models through model parameter compression. This work audits the impact of quantization on capability and safety domains including model safeguards, instruction-following, ethics and bias. Through benchmarks, we find that model safeguards and bias can degrade under quantization, while other capabilities such as truthfulness remain more stable in Qwen3-4B. We define this uneven transfer of LLM capabilities under quantization as Jagged Robustness. We find multiple factors driving Jagged Robustness: task complexity, evaluation method and generation coherence. Moreover, we verify the degradation of model safeguards by observing increased compliance with unsafe requests under quantization, and demonstrate universal adversarial suffix attacks that are benign for the full model but jailbreak quantized models. The findings indicate that it is risky to assume that the performance and robustness can transfer evenly across different capability domains from full models to quantized models.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "quantization and safety",
+      "dimensions": [
+        "research"
+      ],
+      "tags": [
+        "worth knowing"
+      ]
+    },
+    {
+      "id": "arxiv-2611.27125",
+      "arxiv_id": "2611.27125",
+      "version": "v1",
+      "title": "When Students Fail to Learn from Teachers: Learning Dynamics of On-Policy Distillation",
+      "authors": [
+        "Xinnan Zhang",
+        "Zeyi Liao",
+        "Siliang Zeng",
+        "Zhongruo Wang",
+        "Jiaxiang Li",
+        "Xinyan Zhao",
+        "Huan Sun",
+        "Mingyi Hong"
+      ],
+      "url": "https://arxiv.org/abs/2611.27125",
+      "pdf_url": "https://arxiv.org/pdf/2611.27125",
+      "submitted": "2026-11-20",
+      "categories": [
+        "cs.AI"
+      ],
+      "abstract": "On-policy distillation (OPD) has become a core technique for post-training large language models, enabling students to learn from dense token-level supervision on their own generations. However, even with a capable teacher, OPD training can be unstable, leading to excessive response length, repetitive generation, and severe performance degradation. One example is \\textit{spurious agreement}, where the student maintains high overlap with the teacher at the states visited but produces repetitive generations. Although such failures have been observed, the mechanisms behind these failures remain poorly understood. To address this gap, we investigate OPD through the lens of learning dynamics, tracing three mechanisms from local analysis to subsequent on-policy sampling. We first identify states where sampled-token OPD updates fail to correct teacher--student mismatch and characterize them using the student's mass on the teacher's top-$p$ set. We then show that learning from the teacher is difficult at mismatched states and that their gradients can also affect with learning at other tokens. Finally, using a termination-token mismatch as a case study, we study how continued training on mismatched states influences on-policy sampling, suppressing the student's current modes and leading the student toward states where the teacher is unreliable . These findings help explain the benefits of supervised fine-tuning (SFT) initialization and motivate targeted correction of states where student and teacher are mismatched.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "distillation learning dynamics",
+      "dimensions": [
+        "research"
+      ],
+      "tags": [
+        "worth knowing"
+      ]
+    },
+    {
+      "id": "arxiv-2611.27193",
+      "arxiv_id": "2611.27193",
+      "version": "v1",
+      "title": "cmHC: Balancing Stream Mixing in Hyper-Connections via Geometric Contraction",
+      "authors": [
+        "Haowei He",
+        "Ziwen Zhao",
+        "Chenshuo Pan",
+        "Gang Lin",
+        "Zhihao Yang",
+        "Chao Wang",
+        "Xinzhang Liu",
+        "Kaidong Yu",
+        "Han Gao",
+        "Dongfang Li",
+        "Menglin Yang",
+        "Shuangyong Song",
+        "Yongxiang Li"
+      ],
+      "url": "https://arxiv.org/abs/2611.27193",
+      "pdf_url": "https://arxiv.org/pdf/2611.27193",
+      "submitted": "2026-11-20",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Manifold-constrained Hyper-Connections (mHC) extends residual connections to multiple streams and stabilizes residual propagation by constraining stream-mixing residual matrices to the Birkhoff polytope, the set of doubly stochastic matrices. In this work, we investigate how to effectively mix residual streams within the Birkhoff polytope. We reveal a mixing trade-off: when under-mixed residual matrices stay close to the vertices of the Birkhoff polytope, hyper-connections will degenerate into a set of nearly independent streams; when over-mixed residual matrices are concentrated around the uniform barycenter of the polytope, streams will become less distinguishable from each other. We theoretically validate our findings by bounding the cumulative residual mixing, stream difference and gradient difference of mixing coefficients across layers. Motivated by these findings, we propose Contraction for Manifold-Constrained Hyper-Connections (cmHC), an exact doubly stochastic method which geometrically contracts the Birkhoff polytope toward its interior. This contraction mitigates under-mixing by forcing the residual matrices to explore deeper into the polytope, with a provable stream mixing bound and no new parameterization. Moreover, we apply a moderate contraction at the shallow layers to prevent over-mixing, enabling stable gradient propagation on extremely large-scale model pretraining. Extensive experiments across dense and mixture-of-experts models at various parameter scales demonstrate the effectiveness and scalability of cmHC. We also develop fused operators for cmHC on Ascend NPUs, reducing hyper-connection execution latency by up to 44.8%.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "residual architectures",
+      "dimensions": [
+        "research"
+      ],
+      "tags": [
+        "new method or architecture"
+      ],
+      "hf_upvotes": 94
+    }
+  ],
+  "generated_at": "2026-11-24T12:39:47Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Filtered 1834 arXiv and Hugging Face candidates down to 8. Four good Hugging Face picks were dropped because their arXiv categories could not be confirmed (arXiv was unreachable): 2611.26627, 2611.19499, 2611.26073, 2611.21885.",
+  "candidates_considered": 1834
+}

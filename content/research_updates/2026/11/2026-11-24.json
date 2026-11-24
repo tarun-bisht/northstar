@@ -1,0 +1,69 @@
+{
+  "schema": "research_updates",
+  "date": "2026-11-24",
+  "items": [
+    {
+      "id": "ru-2026-11-24-neuron-basis-interpretability",
+      "title": "Anthropic argues for reading models through their own neurons",
+      "kind": "lab_announcement",
+      "what_happened": "Two Anthropic alignment posts argue that plain neurons are more readable than people assume. Without training, neuron probes beat text search on 11 of 16 safety sets and helped a blind auditor name hidden behaviours in 75% of cases, against 40% from outputs alone.",
+      "why_it_matters": "It questions the default move to sparse autoencoders for safety work. It also finds that many WMDP unlearning methods seem to hide knowledge rather than remove it.",
+      "what_to_watch": "Whether others reproduce the results on larger models and longer finetunes. Also watch for a code release, since none is mentioned.",
+      "source": {
+        "name": "Anthropic Alignment Science Blog",
+        "url": "https://alignment.anthropic.com/2026/neuron-basis-applications/",
+        "type": "lab_blog",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "interpretability, unlearning",
+      "uncertainty": "Model organisms were mostly short finetunes. On one security news set, label-free probes did no better than chance.",
+      "dimensions": [
+        "research"
+      ]
+    },
+    {
+      "id": "ru-2026-11-24-metr-th2-capability-update",
+      "title": "METR updates its time-horizon method and says capabilities are getting harder to measure",
+      "kind": "new_result",
+      "what_happened": "METR released a new task suite, TH2, with 36 tasks split into verifiable and judgment-heavy subsets. It estimates that time horizons double about every 3.6 months, and up to about 27 hours on verifiable tasks.",
+      "why_it_matters": "Models do well on tasks with fast feedback but worse on judgment tasks. AI judges also rated outputs from similar or stronger models too highly, a direct warning for LLM-as-judge evaluation.",
+      "what_to_watch": "Critiques of the new estimates, since human baselines inform only 9% of task time estimates. Also watch whether others adopt the new METR Capability Index.",
+      "source": {
+        "name": "METR Blog",
+        "url": "https://metr.org/blog/2026-11-20-q4-2026-capability-update/",
+        "type": "lab_blog",
+        "published": "2026-11-20"
+      },
+      "published": "2026-11-20",
+      "research_area": "evaluation methodology",
+      "uncertainty": "The authors say most time estimates come from researchers, not measured baselines. The acceleration findings depend on method choices.",
+      "dimensions": [
+        "research"
+      ]
+    },
+    {
+      "id": "ru-2026-11-24-perplexity-as-safety-limit",
+      "title": "Debate over OpenAI's idea of perplexity as a shared safety limit",
+      "kind": "debate",
+      "what_happened": "OpenAI's chief scientist reportedly posted an essay on 22 November sharing an internal pretraining perplexity curve. It proposes perplexity-linked limits shared by all frontier labs. Critics said the number depends on the tokenizer, evaluation method and a private test set.",
+      "why_it_matters": "It is a concrete proposal to tie safety rules to one measurable training signal. The critique shows why such a metric is hard to compare across labs and misses gains from reasoning and RL.",
+      "what_to_watch": "Whether labs agree on a neutral test set or on bits per byte. Also watch whether other labs publish comparable numbers.",
+      "source": {
+        "name": "DEV Community analysis of the OpenAI post",
+        "url": "https://dev.to/jamilxt/openai-wants-perplexity-as-an-ai-speed-limit-what-the-number-really-measures-5bba",
+        "type": "other",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-22",
+      "research_area": "evaluation, governance",
+      "uncertainty": "The original OpenAI page could not be opened. Its content comes from secondary reports that agree with each other.",
+      "dimensions": [
+        "research"
+      ]
+    }
+  ],
+  "generated_at": "2026-11-24T12:51:52Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Covered the Anthropic alignment blog, transformer-circuits.pub, DeepMind, OpenAI alignment, ICLR and NeurIPS pages, the Alignment Forum and METR. The original OpenAI perplexity post could not be opened. The Meta FAIR blog was blocked."
+}

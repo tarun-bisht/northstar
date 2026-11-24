@@ -1,0 +1,89 @@
+{
+  "schema": "reading",
+  "week": "2026-W48",
+  "start_date": "2026-11-23",
+  "end_date": "2026-11-29",
+  "papers": [
+    {
+      "id": "rl-unlearning-diagnostics-anchors",
+      "title": "Compared to What? Calibrating Machine-Unlearning Diagnostics with Present, Absent and Suppressed Anchors",
+      "url": "https://arxiv.org/abs/2611.29285",
+      "arxiv_id": "2611.29285",
+      "authors": [
+        "Arsalan Kaleem"
+      ],
+      "source": "arxiv",
+      "tags": [
+        "close to your work",
+        "benchmark or dataset"
+      ],
+      "note": "Tests which unlearning diagnostics can tell removal from suppression, using cases where the answer is known.",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "rl-grokking-subspace-search",
+      "title": "Grokking as a Subspace Search: Computing the Destination Before Training",
+      "url": "https://arxiv.org/abs/2611.30116",
+      "arxiv_id": "2611.30116",
+      "authors": [
+        "Sunjae Jeong",
+        "Jaeseung Kim",
+        "Hyoseok Hwang"
+      ],
+      "source": "arxiv",
+      "tags": [
+        "theory",
+        "strong result"
+      ],
+      "note": "Shows the grokking destination can be computed before training on group tasks.",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "rl-predicting-judge-reward-hacking",
+      "title": "Which Loopholes Get Found? Predicting Reward Hacking of LLM Judges Before RL Training",
+      "url": "https://arxiv.org/abs/2611.29651",
+      "arxiv_id": "2611.29651",
+      "authors": [
+        "Xuanyi Lyu",
+        "Yuezhou Zhao",
+        "Qing Qin"
+      ],
+      "source": "arxiv",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "note": "Predicts which LLM judge loophole a GRPO policy will exploit first, before training.",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "rl-neuron-basis-interpretability",
+      "title": "Returning to the Neuron Basis for Interpretability",
+      "url": "https://alignment.anthropic.com/2026/neuron-basis-theory/",
+      "authors": [
+        "Jasmine Shone",
+        "Lisa Dunlap"
+      ],
+      "source": "tech_report",
+      "tags": [
+        "useful for your work",
+        "worth knowing"
+      ],
+      "note": "Anthropic posts arguing that raw neurons support useful safety probes and audits without training an SAE. Part 2 covers applications.",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "rl-metr-q4-2026-capability-update",
+      "title": "AI R&D-relevant model capabilities are improving rapidly and are getting harder to measure",
+      "url": "https://metr.org/blog/2026-11-20-q4-2026-capability-update/",
+      "source": "tech_report",
+      "tags": [
+        "benchmark or dataset",
+        "worth knowing"
+      ],
+      "note": "METR's new time-horizon task suite and its limits, including LLM judges rating similar models too highly.",
+      "added": "2026-11-24"
+    }
+  ],
+  "generated_at": "2026-11-24T12:52:08Z"
+}

@@ -1,0 +1,213 @@
+{
+  "schema": "world",
+  "date": "2026-11-24",
+  "items": [
+    {
+      "id": "world-2026-11-24-india-nepal-reset",
+      "title": "Nepal's prime minister makes first official visit to India",
+      "regions": [
+        "India",
+        "Nepal",
+        "South Asia"
+      ],
+      "topic": "geopolitics",
+      "what_happened": "Nepal's Prime Minister Balendra Shah visited New Delhi on 22 and 23 November. He held talks with Prime Minister Modi and the two sides announced aid, energy and transport projects.",
+      "confirmed_facts": [
+        "The visit ran from 22 to 23 November 2026, with talks at Hyderabad House on 23 November, ETV Bharat reported.",
+        "India announced a reconstruction package after Nepal's August 2026 floods, according to ETV Bharat's live coverage.",
+        "The sides adopted a 10-pillar joint vision with a monitoring group that meets at least every six months, ETV Bharat reported.",
+        "A road bridge linking Dharchula and Darchula opened and a weekly Ayodhya to Janakpur train was flagged off, ETV Bharat reported."
+      ],
+      "why_it_matters": "Nepal is a key neighbour for India's energy, trade and border security. The visit signals a reset after a tense period with Nepal's new government.",
+      "context": "Shah's government came to power after the 2025 youth protests. Earlier in 2026 his aides said he would not travel abroad in his first year, and a border dispute over Lipulekh resurfaced.",
+      "analysis": "Big project and aid packages are India's main tool to keep influence in Nepal as China also competes there. Delivery speed will decide whether the goodwill lasts.",
+      "uncertainty": "Reports differ on the size of the aid package. The Lipulekh border dispute was not publicly settled.",
+      "what_to_watch": "Whether the package size is confirmed, the first meeting of the monitoring group, and progress on the 669 MW Lower Arun hydro project.",
+      "sources": [
+        {
+          "name": "ETV Bharat",
+          "url": "https://etvbharat.com/en/bharat/live-blog--nepal-pm-india-visit-balen-shah-bilateral-trip-meetin-with-narendra-modi-energy-connectivity-on-agenda-live-updates-november-23-2026-enn26112301169",
+          "type": "news",
+          "published": "2026-11-23"
+        },
+        {
+          "name": "The Hindu, via Legacy IAS summary",
+          "url": "https://www.legacyias.com/the-hindu-upsc-news-analysis-for-23-november-2026/",
+          "type": "news",
+          "published": "2026-11-23"
+        }
+      ],
+      "published": "2026-11-23",
+      "dimensions": [
+        "world"
+      ]
+    },
+    {
+      "id": "world-2026-11-24-rbi-fraud-safeguards",
+      "title": "RBI proposes new customer controls against digital payment fraud",
+      "regions": [
+        "India"
+      ],
+      "topic": "finance",
+      "what_happened": "The Reserve Bank of India issued draft rules on 23 November to protect electronic banking from fraud. Reports say it dropped an earlier idea of a one-hour delay on larger transfers.",
+      "confirmed_facts": [
+        "The RBI listed draft amendment directions on preventive safeguards for electronic banking transactions dated 23 November 2026.",
+        "DNP India reported a proposed stop switch that lets customers block all outgoing debits at once.",
+        "Customers could name a trusted person to approve transfers above a set limit, DNP India reported.",
+        "DNP India said the April 2026 idea of a one-hour cooling period for transfers of Rs 10,000 or more was dropped."
+      ],
+      "why_it_matters": "Digital payments are central to daily life in India, and fraud losses are rising. These rules could change how millions of people use UPI and net banking.",
+      "context": "In April 2026 the RBI floated a discussion paper with a cooling period and a kill switch. The new draft follows public feedback on that paper.",
+      "analysis": "Most tools are opt-in, so the benefit depends on banks making them easy to find and on customers turning them on.",
+      "uncertainty": "The RBI listing gives only the title. Details come from one news report and may change in the final rules.",
+      "what_to_watch": "Final rules after the 14 December comment deadline. Reported start dates are 1 January 2027 for bank liability rules and 1 July 2027 for customer controls.",
+      "sources": [
+        {
+          "name": "Reserve Bank of India",
+          "url": "https://www.rbi.org.in/scripts/DraftNotificationsGuildelines.aspx",
+          "type": "official",
+          "published": "2026-11-23"
+        },
+        {
+          "name": "DNP India",
+          "url": "https://www.dnpindia.in/nation/rbi-drops-1-hour-transfer-delay-idea-introduces-new-stop-switch-against-digital-fraud-can-it-prevent-frauds/621785/",
+          "type": "news",
+          "published": "2026-11-24"
+        }
+      ],
+      "published": "2026-11-23",
+      "dimensions": [
+        "world"
+      ]
+    },
+    {
+      "id": "world-2026-11-24-cop31-collapse",
+      "title": "COP31 climate talks in Turkey end without a deal",
+      "regions": [
+        "World",
+        "India",
+        "Europe"
+      ],
+      "topic": "environment",
+      "what_happened": "The UN climate summit in Antalya ended on 22 November with no agreed final decision. The EU and many others rejected a text that did not call for moving away from fossil fuels.",
+      "confirmed_facts": [
+        "The talks ran about two days past the planned 20 November close, IntelliNews and The Hindu reported.",
+        "The Hindu said over 130 parties, led by the EU, rejected the draft cover text.",
+        "India and China accepted the text to move talks forward, IntelliNews reported. The Hindu also named Saudi Arabia as a supporter.",
+        "COP31 President Murat Kurum said he would not put forward a new text, The Hindu reported."
+      ],
+      "why_it_matters": "It is the first collapse of this kind since Copenhagen in 2009. It weakens global climate action and leaves finance and fossil fuel questions open.",
+      "context": "India went to Antalya pressing rich countries to meet their climate finance duties under the Paris Agreement. It stressed equity and differentiated responsibilities.",
+      "analysis": "The split puts India on the opposite side from the EU and small island states on fossil fuel wording. That could shape trade talks, including over carbon border taxes.",
+      "uncertainty": "Accounts differ on exactly which countries backed or blocked the text. Some technical decisions may still be counted as adopted.",
+      "what_to_watch": "How leftover items are handled at the Bonn session in June 2027, and whether India updates its climate plans before COP32.",
+      "sources": [
+        {
+          "name": "IntelliNews, via Yahoo News",
+          "url": "https://www.yahoo.com/news/world/articles/cop31-turkey-collapses-without-deal-000618355.html",
+          "type": "news",
+          "published": "2026-11-23"
+        },
+        {
+          "name": "The Hindu, via Legacy IAS summary",
+          "url": "https://www.legacyias.com/the-hindu-upsc-news-analysis-for-23-november-2026/",
+          "type": "news",
+          "published": "2026-11-23"
+        },
+        {
+          "name": "Down To Earth",
+          "url": "https://www.downtoearth.org.in/climate-change/cop31-india-urges-developed-countries-to-fulfil-climate-finance-obligations",
+          "type": "news",
+          "published": "2026-11-10"
+        }
+      ],
+      "published": "2026-11-23",
+      "dimensions": [
+        "world"
+      ]
+    },
+    {
+      "id": "world-2026-11-24-bangladesh-hasina-return",
+      "title": "Bangladesh tensions rise over Sheikh Hasina's planned return from India",
+      "regions": [
+        "Bangladesh",
+        "India",
+        "South Asia"
+      ],
+      "topic": "geopolitics",
+      "what_happened": "Bangladesh says it will arrest former Prime Minister Sheikh Hasina if she returns from India. She has vowed to come back in December, and unrest has grown.",
+      "confirmed_facts": [
+        "Hasina has lived in India since fleeing in August 2024 and was sentenced to death in absentia, AFP reported.",
+        "Bangladesh deployed border guard forces in seven districts after arson and violence, AFP reported on 19 November.",
+        "Dhaka police said 107 people linked to the Awami League were arrested, AFP reported.",
+        "On 23 November a Bangladeshi minister said Hasina would be arrested on return, according to a Reuters report summarised by Just Security."
+      ],
+      "why_it_matters": "The issue directly affects India, which hosts Hasina and has an extradition request from Dhaka. A return could trigger more violence near India's border.",
+      "context": "The Awami League is banned. A new government led by Prime Minister Tarique Rahman took office in February 2026.",
+      "analysis": "India faces a hard choice between ties with Dhaka's new government and its long links with Hasina.",
+      "uncertainty": "No exact return date has been confirmed. It is unclear whether India will let her travel or act on the extradition request.",
+      "what_to_watch": "Any announced return date, India's response, and further unrest or arrests in December.",
+      "sources": [
+        {
+          "name": "Khaleej Times, AFP",
+          "url": "https://www.khaleejtimes.com/asia/bangladesh-unrest-ex-pm-sheikh-hasina",
+          "type": "news",
+          "published": "2026-11-19"
+        },
+        {
+          "name": "Just Security, summarising Reuters",
+          "url": "https://www.justsecurity.org/165610/early-edition-november-23-2026/",
+          "type": "news",
+          "published": "2026-11-23"
+        }
+      ],
+      "published": "2026-11-23",
+      "dimensions": [
+        "world"
+      ]
+    },
+    {
+      "id": "world-2026-11-24-ukraine-war-spreads",
+      "title": "Russia-Ukraine war spreads far beyond the front line",
+      "regions": [
+        "Europe",
+        "Ukraine",
+        "Russia"
+      ],
+      "topic": "conflict",
+      "what_happened": "Over 21 to 23 November, Russian strikes hit Ukrainian towns while Ukraine said it struck Russian ships as far away as Libya. Poland reported a Russian airspace violation.",
+      "confirmed_facts": [
+        "Zelenskyy said Ukraine sank a Russian corvette near Libya's coast, a Reuters report summarised by Just Security said.",
+        "The Kremlin accused Ukraine of terrorism after a drone hit a Russian cargo ship in the Baltic, Just Security reported citing Reuters.",
+        "NATO chief Mark Rutte pledged to defend all Polish territory after the reported violation, Just Security reported.",
+        "US-brokered talks in Abu Dhabi earlier in November gave no breakthrough beyond a prisoner swap deal, Al Jazeera reported."
+      ],
+      "why_it_matters": "Attacks at sea raise risks for global shipping and energy. They also raise the chance of a direct clash between Russia and NATO.",
+      "context": "Earlier in November Ukraine hit a Russian warship in the Gulf of Finland and a Baltic port. The US has criticised such strikes over fuel prices.",
+      "analysis": "Both sides seem to be using force to gain leverage while peace talks continue.",
+      "uncertainty": "Several claims come from the warring parties and are hard to verify independently.",
+      "what_to_watch": "The next round of peace talks, any NATO response to Poland's report, and more strikes on shipping.",
+      "sources": [
+        {
+          "name": "Just Security",
+          "url": "https://www.justsecurity.org/165610/early-edition-november-23-2026/",
+          "type": "news",
+          "published": "2026-11-23"
+        },
+        {
+          "name": "Al Jazeera",
+          "url": "https://aljazeera.com/news/2026/11/13/why-is-ukraine-attacking-russian-warships-in-the-baltic-sea-amid-talks",
+          "type": "news",
+          "published": "2026-11-13"
+        }
+      ],
+      "published": "2026-11-23",
+      "dimensions": [
+        "world"
+      ]
+    }
+  ],
+  "generated_at": "2026-11-24T12:51:25Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Reuters and BBC pages could not be opened. Bangladesh and Ukraine items use Just Security's digest of Reuters and AP. The Hindu items come via a summary page. RBI details come from one news report plus the RBI listing."
+}

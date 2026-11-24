@@ -54,30 +54,31 @@
         "curiosity"
       ]
     },
-    "monthly:m-2026-11-pather-panchali-week": {
+    "monthly:m-2026-11-consciousness-and-ai-week": {
       "date": "2026-11-01",
-      "title": "Satyajit Ray's Pather Panchali: a week with one film",
-      "category": "exploration_theme",
+      "title": "Philosophy of mind: what would it take for a model to be conscious?",
+      "category": "non_ai_deep_dive",
       "dimensions": [
-        "culture"
+        "knowledge",
+        "research"
       ],
       "status": "suggested"
     },
-    "monthly:m-2026-11-speculative-decoding-week": {
+    "monthly:m-2026-11-error-bars-for-evals-week": {
       "date": "2026-11-01",
-      "title": "Speculative decoding: faster LLMs with the same outputs",
+      "title": "Error bars for LLM evals: is that gap real?",
       "category": "ai_deep_dive",
       "dimensions": [
         "research"
       ],
       "status": "suggested"
     },
-    "monthly:m-2026-11-statistical-mechanics-for-ml-week": {
+    "monthly:m-2026-11-explorable-explanation-week": {
       "date": "2026-11-01",
-      "title": "Statistical mechanics behind softmax, energy and free energy",
-      "category": "non_ai_deep_dive",
+      "title": "Make a tiny explorable explanation of one idea you love",
+      "category": "creative_project",
       "dimensions": [
-        "knowledge",
+        "curiosity",
         "research"
       ],
       "status": "suggested"

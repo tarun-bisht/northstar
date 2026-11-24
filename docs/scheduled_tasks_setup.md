@@ -42,6 +42,8 @@ Running it again is safe. It replaces the old tasks instead of adding copies.
 3. Set **Repository** to your fork. No connectors are needed, and the **Default** environment is fine.
 4. In the task settings, turn on **Automatically approve**.
 
+Web access is pre-approved in `.claude/settings.json`, which allows `WebFetch` and `WebSearch`. Runs check many links, and without this file they can pause to ask before fetching each new site, even in auto mode. Keep the file in your fork.
+
 ## Check that it works
 
 1. Open the daily task and click **Run now**.

@@ -1462,11 +1462,11 @@
           "section": "geopolitics"
         },
         {
-          "q": "resigns OR \"steps down\" OR \"sworn in\" OR \"new prime minister\" OR \"new president\"",
+          "q": "(\"prime minister\" OR president OR \"foreign minister\" OR \"finance minister\" OR \"central bank governor\") (resigns OR \"sworn in\" OR appointed OR ousted OR elected)",
           "section": "leadership"
         },
         {
-          "q": "\"appointed CEO\" OR \"new CEO\" OR \"steps down as CEO\"",
+          "q": "(\"named CEO\" OR \"appointed CEO\" OR \"steps down as CEO\" OR \"chief executive resigns\") (bank OR tech OR global OR India)",
           "section": "leadership"
         },
         {

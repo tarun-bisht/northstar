@@ -52,10 +52,34 @@ Some feed readers block embedded YouTube players. Every video also has a thumbna
 
 ## Make it yours
 
-1. Fork the repo. In Settings, turn on Pages with GitHub Actions as the source.
-2. Edit `config/interests.json` for your tiers and topics. Edit `config/languages.json` for your languages. Edit `config/sources.json` for arXiv categories and YouTube searches. Edit `config/site.json` for your title and web address.
-3. Empty `state/ideas.json` so it reads `{"ideas": []}`.
-4. Set up Claude scheduled tasks that follow the files in `prompts/runs/`.
+**1. Fork and publish**
+
+1. Fork the repo.
+2. Open the **Actions** tab and turn on workflows. Forks start with them off.
+3. In **Settings → Pages**, set the source to **GitHub Actions**.
+4. In **Settings → Environments → github-pages**, make sure `main` is allowed to deploy.
+
+**2. Personalise**
+
+1. Edit the files in `config/`. Use `interests.json` for your tiers, `languages.json` for your languages, `sources.json` for arXiv categories and YouTube searches, and `site.json` for your title, web address and repo.
+2. Clear my data. Delete everything in `content/` and `candidates/`, and set `state/ideas.json` to `{"ideas": []}`.
+
+**3. YouTube key (optional, free)**
+
+Without a key, Shorts come from web search and you get far fewer of them.
+
+1. In [Google Cloud Console](https://console.cloud.google.com/), create a project.
+2. Go to **APIs & Services → Library** and enable **YouTube Data API v3**.
+3. Go to **APIs & Services → Credentials → Create credentials → API key**. Restrict the key to YouTube Data API v3.
+4. In your GitHub repo, go to **Settings → Secrets and variables → Actions → New repository secret**. Name it `YOUTUBE_API_KEY` and paste the key.
+
+The free quota is 10,000 units a day. Each search costs 100, so keep the searches in `config/sources.json` under 100.
+
+**4. Claude scheduled tasks**
+
+1. Go to [claude.ai/code/routines](https://claude.ai/code/routines) and create the five tasks in [`docs/scheduled_tasks.md`](docs/scheduled_tasks.md). Copy each name, prompt and schedule. Put your own repo in the prompts.
+2. For each task, set **Repository** to your fork. No connectors are needed, and the **Default** environment is fine.
+3. Click **Run now** on the daily task to test it.
 
 Useful commands:
 

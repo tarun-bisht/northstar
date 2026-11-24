@@ -1,0 +1,345 @@
+{
+  "schema": "monthly",
+  "month": "2026-11",
+  "generated_at": "2026-11-24T10:00:00Z",
+  "generator": "claude-monthly-run",
+  "load": "normal",
+  "intro": "A short package for the last week of November (24 to 30 Nov). Each plan is split into four small blocks of one or two days. Everything is optional and each item has a light version.",
+  "notes": "Manual test run on 24 Nov. Only 7 days were left, so every item and language plan is scaled to about one week. Each 'week' entry is a block of one or two days. December is planned by the 1 December run. The arXiv page for Toy Models of Superposition could not be fetched this run, so its URL is left out.",
+  "items": [
+    {
+      "id": "m-2026-11-feynman-probability-and-random-walks",
+      "title": "Feynman on probability and random walks, read with ML in mind",
+      "kind": "non_ai_deep_dive",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research",
+        "curiosity"
+      ],
+      "topic": "physics for intuition: probability, fluctuations and diffusion",
+      "why": "Random walks and Brownian motion sit under diffusion models, SGD noise and Langevin sampling. Feynman explains them with physical pictures, not formulas. That kind of intuition helps when you think up research ideas.",
+      "objective": "Explain in your own words why the distance of a random walk grows like the square root of the number of steps, and name two places this idea shows up in ML.",
+      "prerequisites": [
+        "basic probability",
+        "comfort with simple algebra"
+      ],
+      "weeks": [
+        {
+          "week": 1,
+          "focus": "Days 1-2 (24-25 Nov): the atomic picture",
+          "tasks": [
+            "Read Vol I Ch. 1 'Atoms in Motion' (about 40 minutes).",
+            "Write 5 sentences on what surprised you."
+          ]
+        },
+        {
+          "week": 2,
+          "focus": "Days 3-4 (26-27 Nov): probability and the random walk",
+          "tasks": [
+            "Read Vol I Ch. 6 'Probability', Sec. 6-1 to 6-4 (chance, fluctuations, the random walk).",
+            "Do Exercise 1 and Exercise 2 below with pen and paper."
+          ]
+        },
+        {
+          "week": 3,
+          "focus": "Days 5-6 (28-29 Nov): Brownian motion",
+          "tasks": [
+            "Read Vol I Ch. 41 'The Brownian Movement', Sec. 41-1 and 41-4 (the random walk).",
+            "Simulate 1,000 random walks in a notebook and plot mean squared distance against steps (Exercise 3)."
+          ]
+        },
+        {
+          "week": 4,
+          "focus": "Day 7 (30 Nov): connect it to ML",
+          "tasks": [
+            "Write the half-page note (deliverable).",
+            "List one research question it raises for you."
+          ]
+        }
+      ],
+      "primary_resource": {
+        "title": "The Feynman Lectures on Physics, Volume I",
+        "creator": "Richard Feynman, Robert Leighton, Matthew Sands",
+        "type": "book",
+        "chapters": "Ch. 1, Ch. 6 (Sec. 6-1 to 6-4), Ch. 41 (Sec. 41-1, 41-4)",
+        "url": "https://www.feynmanlectures.caltech.edu",
+        "url_verified": true,
+        "note": "Free to read online at Caltech. Chapters are listed in the Volume I table of contents."
+      },
+      "resources": [
+        {
+          "title": "The Feynman Lectures on Physics, Volume I, Ch. 41 'The Brownian Movement'",
+          "creator": "Richard Feynman",
+          "type": "book",
+          "chapters": "Ch. 41",
+          "url": "https://www.feynmanlectures.caltech.edu",
+          "url_verified": true,
+          "note": "Read after Ch. 6. It turns the random walk into diffusion."
+        },
+        {
+          "title": "The Feynman Lectures on Physics, Volume I, Ch. 1 'Atoms in Motion'",
+          "creator": "Richard Feynman",
+          "type": "book",
+          "chapters": "Ch. 1",
+          "url": "https://www.feynmanlectures.caltech.edu",
+          "url_verified": true
+        }
+      ],
+      "exercises": [
+        "Flip a coin 30 times. Track +1 for heads and -1 for tails. Plot your position after each flip.",
+        "Show that after N steps of size 1 the mean squared distance is N. Hint: expand the square and use that cross terms average to zero.",
+        "In a notebook, simulate 1,000 walks of 500 steps. Check that mean squared distance grows in a straight line with steps."
+      ],
+      "deliverable": "A half-page note: 'Random walks in physics and in ML', with your simulation plot.",
+      "definition_of_done": "You can explain the square-root law to a friend in two minutes without notes, and the note names two ML links such as diffusion models and SGD noise.",
+      "final_synthesis": "Write one paragraph on how the forward process of a diffusion model is a random walk, and what that suggests about why it needs many small steps.",
+      "time_estimate": "3-4 h this week",
+      "light_version": "Read only Ch. 6, Sec. 6-1 to 6-3, and do Exercise 1.",
+      "continuation": "Possible later milestone: statistical mechanics and ML (Boltzmann and softmax, free energy and the ELBO). Not scheduled automatically.",
+      "origin": "system",
+      "status": "suggested",
+      "modes": [
+        "learn",
+        "practise",
+        "create",
+        "reflect"
+      ],
+      "cross_domain": {
+        "fields": [
+          "physics",
+          "machine learning"
+        ],
+        "connection": "Brownian motion and the random walk are the same maths as the noising process in diffusion models and the noise in stochastic gradient descent."
+      }
+    },
+    {
+      "id": "m-2026-11-toy-models-of-superposition",
+      "title": "Toy Models of Superposition: read it and rebuild the core experiment",
+      "kind": "ai_deep_dive",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "topic": "interpretability: superposition and features",
+      "why": "Superposition explains why single neurons often mean many things. It is the starting point for sparse autoencoders and much of modern interpretability. Rebuilding the small experiment gives you a feel for it that reading alone does not.",
+      "objective": "Train the small ReLU toy model yourself and show the change from no superposition to superposition as features become sparse.",
+      "prerequisites": [
+        "linear algebra",
+        "PyTorch basics",
+        "what a ReLU network is"
+      ],
+      "weeks": [
+        {
+          "week": 1,
+          "focus": "Days 1-2 (24-25 Nov): the question",
+          "tasks": [
+            "Read the sections 'Background & Motivation' and 'Demonstrating Superposition'.",
+            "Write down the model in one line: x' = ReLU(W^T W x + b)."
+          ]
+        },
+        {
+          "week": 2,
+          "focus": "Days 3-4 (26-27 Nov): build it",
+          "tasks": [
+            "In a notebook, train the toy model with 5 features and 2 hidden dimensions.",
+            "Use feature importances that decay, and try sparsity 0, 0.7 and 0.9."
+          ]
+        },
+        {
+          "week": 3,
+          "focus": "Days 5-6 (28-29 Nov): phase change",
+          "tasks": [
+            "Read 'Superposition as a Phase Change'.",
+            "Plot the columns of W in 2D for each sparsity and compare with the paper's figures."
+          ]
+        },
+        {
+          "week": 4,
+          "focus": "Day 7 (30 Nov): explain it",
+          "tasks": [
+            "Read the start of 'The Geometry of Superposition'.",
+            "Write the one-page explainer (deliverable)."
+          ]
+        }
+      ],
+      "primary_resource": {
+        "title": "Toy Models of Superposition",
+        "creator": "Nelson Elhage, Tristan Hume, Catherine Olsson and others (Anthropic)",
+        "type": "paper",
+        "year": 2022,
+        "url": "https://transformer-circuits.pub/2022/toy_model/index.html",
+        "url_verified": true,
+        "chapters": "Sections: Background & Motivation, Demonstrating Superposition, Superposition as a Phase Change, start of The Geometry of Superposition",
+        "note": "The paper says its figures can be reproduced with a Colab notebook in the authors' GitHub repo."
+      },
+      "resources": [
+        {
+          "title": "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning",
+          "creator": "Anthropic",
+          "type": "paper",
+          "year": 2023,
+          "url": "https://transformer-circuits.pub/2023/monosemantic-features/index.html",
+          "url_verified": false,
+          "note": "Optional next step. Shows how sparse autoencoders pull features out of superposition."
+        },
+        {
+          "title": "A Mathematical Framework for Transformer Circuits",
+          "creator": "Nelson Elhage, Neel Nanda, Catherine Olsson and others (Anthropic)",
+          "type": "paper",
+          "year": 2021,
+          "note": "Background on the circuits view, if you want more context."
+        }
+      ],
+      "exercises": [
+        "With sparsity 0, check that only the 2 most important features are learned.",
+        "With high sparsity, count how many features the model packs into 2 dimensions.",
+        "Explain in two sentences why sparsity makes interference cheaper."
+      ],
+      "deliverable": "A notebook with the trained toy models and plots, plus a one-page explainer of superposition.",
+      "definition_of_done": "Your plots show the shift from 2 features to more than 2 features as sparsity grows, and the explainer says why in plain words.",
+      "final_synthesis": "Write one critical question about whether toy-model superposition tells us how large language models store features.",
+      "time_estimate": "4-5 h this week",
+      "light_version": "Read only 'Background & Motivation' and 'Demonstrating Superposition', and sketch the model on paper.",
+      "continuation": "Possible later milestone: train a small sparse autoencoder on these toy activations. Not scheduled automatically.",
+      "origin": "system",
+      "status": "suggested",
+      "modes": [
+        "learn",
+        "practise",
+        "create",
+        "reflect"
+      ]
+    }
+  ],
+  "reflection_prompts": [
+    "What idea from this week would I like to explain to someone?",
+    "Which part felt easy, and which part did I avoid?"
+  ],
+  "language": {
+    "plans": [
+      {
+        "language": "japanese",
+        "goal": "Greet someone at any time of day, introduce yourself in about 30 seconds, and say you don't understand politely.",
+        "weeks": [
+          {
+            "week": 1,
+            "focus": "Days 1-2 (24-25 Nov): greetings",
+            "tasks": [
+              "Irodori Starter Lesson 1 'Good morning!': listen to the audio twice and repeat each line.",
+              "Say aloud: おはようございます (ohayō gozaimasu, good morning), こんにちは (konnichiwa, hello), こんばんは (konbanwa, good evening)."
+            ]
+          },
+          {
+            "week": 2,
+            "focus": "Days 3-4 (26-27 Nov): when you don't understand",
+            "tasks": [
+              "Irodori Starter Lesson 2 'I'm sorry, I don't really understand.': shadow the dialogues.",
+              "Practise: すみません、よくわかりません (sumimasen, yoku wakarimasen, sorry, I don't really understand) and もういちどおねがいします (mō ichido onegai shimasu, once more, please)."
+            ]
+          },
+          {
+            "week": 3,
+            "focus": "Days 5-6 (28-29 Nov): self-introduction",
+            "tasks": [
+              "Irodori Starter Lesson 3 'Nice to meet you.': listen and repeat.",
+              "Write and say: はじめまして (hajimemashite, nice to meet you), ＿です (＿ desu, I am ＿), ＿からきました (＿ kara kimashita, I'm from ＿), よろしくおねがいします (yoroshiku onegai shimasu, please treat me kindly)."
+            ]
+          },
+          {
+            "week": 4,
+            "focus": "Day 7 (30 Nov): put it together",
+            "tasks": [
+              "Listen to one NHK Easy Japanese conversation lesson.",
+              "Role-play a first meeting with Claude: greet, introduce yourself, and ask for a repeat once.",
+              "Record your 30-second introduction."
+            ]
+          }
+        ],
+        "resources": [
+          {
+            "title": "Irodori: Japanese for Life in Japan, Starter (A1)",
+            "creator": "The Japan Foundation",
+            "type": "course",
+            "chapters": "Lessons 1-3",
+            "url": "https://www.irodori.jpf.go.jp/en/starter/pdf.html",
+            "url_verified": true,
+            "note": "Downloadable PDFs and MP3 audio for each lesson."
+          },
+          {
+            "title": "Easy Japanese: Conversation Lessons",
+            "creator": "NHK WORLD-JAPAN",
+            "type": "podcast",
+            "url": "https://podcasts.apple.com/us/podcast/easy-japanese-nhk-world-japan/id1482221142",
+            "url_verified": true,
+            "note": "About 10-minute beginner lessons. Start from Lesson 1."
+          }
+        ]
+      },
+      {
+        "language": "telugu",
+        "goal": "Greet someone, ask how they are, say thank you, and say your name in Telugu.",
+        "weeks": [
+          {
+            "week": 1,
+            "focus": "Days 1-2 (24-25 Nov): hello and how are you",
+            "tasks": [
+              "Learn నమస్కారం (namaskāram, hello, formal) and మీరు ఎలా ఉన్నారు? (mīru elā unnāru?, how are you?).",
+              "Watch 'Daily Telugu 01' from Spoken Telugu Through English and repeat each line."
+            ]
+          },
+          {
+            "week": 2,
+            "focus": "Days 3-4 (26-27 Nov): thank you and good morning",
+            "tasks": [
+              "Learn ధన్యవాదాలు (dhanyavādālu, thank you) and శుభోదయం (śubhōdayaṁ, good morning) from the Preply guide.",
+              "Watch 'Daily Telugu 02' and shadow it twice."
+            ]
+          },
+          {
+            "week": 3,
+            "focus": "Days 5-6 (28-29 Nov): saying your name",
+            "tasks": [
+              "Read the Polyglot Club page on greetings and introductions.",
+              "Practise నా పేరు ＿ (nā pēru ＿, my name is ＿) out loud 10 times."
+            ]
+          },
+          {
+            "week": 4,
+            "focus": "Day 7 (30 Nov): a tiny conversation",
+            "tasks": [
+              "Role-play with Claude: greet, ask how they are, give your name, and say thank you.",
+              "Watch 'Daily Telugu 03' as review."
+            ]
+          }
+        ],
+        "resources": [
+          {
+            "title": "Spoken Telugu Through English",
+            "creator": "Gokila Agurchand (YouTube, listed on Class Central)",
+            "type": "playlist",
+            "chapters": "Daily Telugu 01-03",
+            "url": "https://classcentral.com/course/youtube-spoken-telugu-through-english-53731",
+            "url_verified": true
+          },
+          {
+            "title": "Basic words in Telugu: A beginner's guide to essential vocabulary",
+            "creator": "Preply",
+            "type": "blog",
+            "chapters": "Greetings section",
+            "url": "https://preply.com/en/blog/basic-words-in-telugu",
+            "url_verified": true
+          },
+          {
+            "title": "Telugu Vocabulary: Greeting and Introducing Yourself",
+            "creator": "Polyglot Club",
+            "type": "website",
+            "url": "https://polyglotclub.com/wiki/Language%2FTelugu%2FVocabulary%2FGreeting-and-Introducing-Yourself",
+            "url_verified": true
+          }
+        ]
+      }
+    ]
+  }
+}

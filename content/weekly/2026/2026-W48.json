@@ -1,0 +1,178 @@
+{
+  "schema": "weekly",
+  "week": "2026-W48",
+  "start_date": "2026-11-23",
+  "end_date": "2026-11-29",
+  "generated_at": "2026-11-24T13:30:00Z",
+  "generator": "claude-weekly-run",
+  "load": "light",
+  "intro": "A small package for the rest of this week (24 to 29 Nov): one eval exercise, one conversation rep and one physics curiosity. Do any, all, or none.",
+  "notes": "Manual test run on Tuesday 24 Nov. Planned the current week instead of next week, so it is kept light to fit five days. It sits next to the November monthly package and avoids repeating its topics. No feedback and no new ideas were in the inbox.",
+  "items": [
+    {
+      "id": "w-2026-W48-error-bars-on-a-benchmark",
+      "title": "Put error bars on a benchmark score",
+      "category": "research_fundamentals",
+      "tier": "established",
+      "dimensions": ["research", "knowledge"],
+      "mode": "practise",
+      "topic": "evaluation methodology: uncertainty in benchmark scores",
+      "description": "Two models score 71% and 73% on a 500-question benchmark. Work out whether that gap means anything. Then do it again when the questions come in related groups.",
+      "why": "Many eval claims rest on small gaps. Knowing the standard error by heart makes you a sharper reader and a more careful author.",
+      "time_estimate": "30-60m",
+      "difficulty": "easy",
+      "steps": [
+        "Treat each question as a coin flip with success rate p. Write the standard error of the mean score for n questions.",
+        "Compute a 95% interval for each model at n = 500. Check whether the intervals overlap.",
+        "Now use a paired view. Both models answered the same questions, so look at the per-question difference. Write why this can shrink the error a lot.",
+        "Suppose the 500 questions come from 50 passages with 10 questions each. Write in one line why the naive error is now too small.",
+        "Skim Sections 2 to 4 of the error bars paper and compare its formulas with yours.",
+        "Optional: in a notebook, simulate two models on 500 questions and bootstrap the score gap 1,000 times."
+      ],
+      "hints": [
+        "For a 0 or 1 score, the variance of one question is p times (1 minus p).",
+        "Divide by n and take the square root. At p near 0.7 and n = 500 the error is about 2 points.",
+        "For paired data, the variance of the difference is var(A) plus var(B) minus twice their covariance. Models usually agree on easy questions.",
+        "With clusters, questions in one passage are not independent. Think of 50 effective samples, not 500, as the worst case."
+      ],
+      "solution_available_on_request": true,
+      "resources": [
+        {
+          "title": "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations",
+          "creator": "Evan Miller",
+          "type": "paper",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2411.00640",
+          "url_verified": true,
+          "chapters": "Sec. 2 to 4 (standard errors, clustering, paired differences)"
+        },
+        {
+          "title": "All of Statistics",
+          "creator": "Larry Wasserman",
+          "type": "book",
+          "chapters": "Ch. 8, The Bootstrap",
+          "note": "Optional background for the bootstrap step."
+        }
+      ],
+      "then": "Pick one recent paper that reports a small benchmark gap and write one sentence on whether it would survive error bars.",
+      "origin": "system",
+      "status": "suggested"
+    },
+    {
+      "id": "w-2026-W48-three-follow-up-questions",
+      "title": "Three follow-up questions before your own view",
+      "category": "people",
+      "tier": "growth",
+      "dimensions": ["people"],
+      "mode": "practise",
+      "topic": "active listening and asking better questions",
+      "description": "In one ordinary conversation this week, ask three follow-up questions before you share your own opinion.",
+      "why": "Follow-up questions show people you are really listening. They also make conversations deeper and easier.",
+      "time_estimate": "real_world_practice",
+      "steps": [
+        "Pick a relaxed, low-stakes chat.",
+        "When the other person says something, ask about it instead of answering. Try 'What was that like?' or 'How did that happen?'",
+        "Ask two more follow-ups that build on their answers.",
+        "Only then share your own view."
+      ],
+      "then": "Afterwards, write one sentence on something you learned that you would have missed.",
+      "origin": "system",
+      "status": "suggested"
+    },
+    {
+      "id": "w-2026-W48-what-forgetting-costs",
+      "title": "What does it cost to forget one bit?",
+      "category": "random_curiosity",
+      "tier": "exploration",
+      "dimensions": ["curiosity", "research"],
+      "mode": "learn",
+      "topic": "information theory and the thermodynamics of forgetting",
+      "description": "Landauer's principle says erasing one bit of information must release a tiny amount of heat. Read a short review and see why Maxwell's demon cannot break the second law.",
+      "why": "It is a surprising link between information and physics. It is also a fun lens on what 'forgetting' means, from memory to unlearning.",
+      "time_estimate": "30-60m",
+      "steps": [
+        "Read the introduction and the section on Maxwell's demon in the review below.",
+        "Write the Landauer bound in your own words: erasing one bit releases at least kT ln 2 of heat.",
+        "Work out the number at room temperature (about 300 K) in joules. Compare it with what a real chip spends per operation, as a rough order of magnitude.",
+        "Write two sentences on why the demon must erase its memory, and why that saves the second law."
+      ],
+      "resources": [
+        {
+          "title": "The physics of forgetting: Landauer's erasure principle and information theory",
+          "creator": "M. B. Plenio and V. Vitelli",
+          "type": "paper",
+          "year": 2001,
+          "url": "https://arxiv.org/pdf/quant-ph/0103108",
+          "url_verified": true,
+          "chapters": "Introduction and the Maxwell's demon section"
+        }
+      ],
+      "cross_domain": {
+        "fields": ["statistical physics", "information theory", "machine learning"],
+        "connection": "Landauer ties erasing information to heat. It invites a playful question: is there any useful sense in which forgetting in a model has a cost?"
+      },
+      "then": "Explain the demon puzzle to a friend in two minutes.",
+      "origin": "system",
+      "status": "suggested"
+    }
+  ],
+  "reflection_prompt": "Optional: which of these, if any, did you feel like doing?",
+  "language": {
+    "lessons": [
+      {
+        "language": "japanese",
+        "title": "Thank you, sorry and excuse me",
+        "explanation": "すみません (sumimasen) is the most useful word for a beginner. It means 'excuse me' when you want attention. It means 'sorry' for a small mistake. It can even mean 'thank you' when someone helps you. Use ありがとうございます (arigatō gozaimasu) for a clear, polite thank you.",
+        "examples": [
+          {"text": "ありがとうございます", "romanization": "arigatō gozaimasu", "meaning": "Thank you very much. (polite)"},
+          {"text": "すみません、ちょっといいですか", "romanization": "sumimasen, chotto ii desu ka", "meaning": "Excuse me, do you have a moment?"},
+          {"text": "すみません", "romanization": "sumimasen", "meaning": "Sorry. (after bumping into someone)"},
+          {"text": "いいえ、だいじょうぶです", "romanization": "iie, daijōbu desu", "meaning": "No, it's fine."},
+          {"text": "どういたしまして", "romanization": "dō itashimashite", "meaning": "You're welcome."}
+        ],
+        "questions": [
+          {"question": "You want to ask a stranger something. What do you say first?", "answer": "すみません (sumimasen)"},
+          {"question": "Someone says ありがとうございます to you. How can you reply?", "answer": "どういたしまして (dō itashimashite), or いいえ (iie)"},
+          {"question": "Someone apologises for a tiny thing. Tell them it's fine.", "answer": "いいえ、だいじょうぶです (iie, daijōbu desu)"},
+          {"question": "Translate: Thank you very much.", "answer": "ありがとうございます (arigatō gozaimasu)"}
+        ],
+        "practice": [
+          "Say each example aloud three times. Bow slightly as you say すみません.",
+          "Role-play with Claude: get a stranger's attention, ask for help, and thank them."
+        ],
+        "resources": [
+          {
+            "title": "Irodori: Japanese for Life in Japan (Starter A1)",
+            "creator": "The Japan Foundation",
+            "type": "course",
+            "url": "https://www.irodori.jpf.go.jp/en/about.html",
+            "url_verified": true,
+            "note": "Free course with audio, explained in English. The same course as the monthly plan."
+          }
+        ]
+      },
+      {
+        "language": "telugu",
+        "title": "Yes, no and okay",
+        "explanation": "అవును (avunu) means yes. Telugu has two common ways to say no. కాదు (kādu) means 'it is not' and denies what something is. లేదు (lēdu) means 'there isn't' or 'no' about having or happening. సరే (sarē) means okay.",
+        "examples": [
+          {"text": "అవును", "romanization": "avunu", "meaning": "Yes."},
+          {"text": "కాదు, ఇది టీ కాదు", "romanization": "kādu, idi ṭī kādu", "meaning": "No, this is not tea."},
+          {"text": "లేదు, నా దగ్గర లేదు", "romanization": "lēdu, nā daggara lēdu", "meaning": "No, I don't have it."},
+          {"text": "సరే", "romanization": "sarē", "meaning": "Okay."},
+          {"text": "నాకు తెలుగు కొంచెం వచ్చు", "romanization": "nāku telugu koñcem vaccu", "meaning": "I know a little Telugu."}
+        ],
+        "questions": [
+          {"question": "Someone asks if you are ready. Say yes.", "answer": "అవును (avunu)"},
+          {"question": "Someone asks if you have a pen. You don't. Which no fits?", "answer": "లేదు (lēdu)"},
+          {"question": "Someone points at coffee and calls it tea. Which no fits?", "answer": "కాదు (kādu)"},
+          {"question": "Agree to a plan in one word.", "answer": "సరే (sarē)"}
+        ],
+        "practice": [
+          "Answer ten yes or no questions from Claude out loud, using అవును, కాదు, లేదు or సరే.",
+          "Say నాకు తెలుగు కొంచెం వచ్చు (nāku telugu koñcem vaccu) aloud five times until it feels smooth."
+        ]
+      }
+    ]
+  }
+}

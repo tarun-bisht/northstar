@@ -74,6 +74,142 @@
         "knowledge"
       ],
       "status": "suggested"
+    },
+    "weekly:w-2026-W48-after-life-kore-eda": {
+      "date": "2026-11-23",
+      "title": "After Life: which single memory would you keep?",
+      "category": "culture",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-grokking-progress-measures": {
+      "date": "2026-11-23",
+      "title": "How grokking works inside: the modular addition circuit",
+      "category": "paper",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested",
+      "url": "https://arxiv.org/abs/2301.05217"
+    },
+    "weekly:w-2026-W48-grpo-std-normalization": {
+      "date": "2026-11-23",
+      "title": "What does dividing by the group std do in GRPO?",
+      "category": "research_fundamentals",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-hammershoi-quiet-rooms": {
+      "date": "2026-11-23",
+      "title": "Hammershøi: two quiet rooms",
+      "category": "culture",
+      "dimensions": [
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-inspection-paradox": {
+      "date": "2026-11-23",
+      "title": "Buses every 10 minutes. Why do you wait more than 5?",
+      "category": "question",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-landauer-cost-of-forgetting": {
+      "date": "2026-11-23",
+      "title": "Why does erasing one bit release heat?",
+      "category": "question",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-looping-listening": {
+      "date": "2026-11-23",
+      "title": "Looping: check you understood before you reply",
+      "category": "people",
+      "dimensions": [
+        "people"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-lovelace-objection": {
+      "date": "2026-11-23",
+      "title": "Lady Lovelace's objection: can a machine originate anything?",
+      "category": "talking_point",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-malacca-strait": {
+      "date": "2026-11-23",
+      "title": "The Strait of Malacca: the narrow sea Asia depends on",
+      "category": "world_understanding",
+      "dimensions": [
+        "world"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-neuraths-boat": {
+      "date": "2026-11-23",
+      "title": "Neurath's boat: rebuilding knowledge at sea",
+      "category": "talking_point",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-room-camera-obscura": {
+      "date": "2026-11-23",
+      "title": "Turn a room into a camera",
+      "category": "making",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-sakamoto-three-pieces": {
+      "date": "2026-11-23",
+      "title": "Ryuichi Sakamoto: one life, three pieces",
+      "category": "culture",
+      "dimensions": [
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-unlearning-removal-or-suppression": {
+      "date": "2026-11-23",
+      "title": "Design the test: was it forgotten or just hidden?",
+      "category": "research_fundamentals",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
     }
   }
 }

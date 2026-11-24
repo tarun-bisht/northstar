@@ -1,0 +1,677 @@
+{
+  "schema": "weekly",
+  "week": "2026-W48",
+  "start_date": "2026-11-23",
+  "end_date": "2026-11-29",
+  "generated_at": "2026-11-24T19:55:00Z",
+  "generator": "claude-weekly",
+  "load": "normal",
+  "intro": "A week about memory and forgetting, plus a few quiet surprises. Everything is optional. Pick what pulls you.",
+  "items": [
+    {
+      "id": "w-2026-W48-grpo-std-normalization",
+      "origin": "system",
+      "status": "suggested",
+      "title": "What does dividing by the group std do in GRPO?",
+      "section": "research_practice",
+      "category": "research_fundamentals",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "mode": "practise",
+      "topic": "RL for LLMs: advantage normalization",
+      "difficulty": "medium",
+      "time_estimate": "30-60m",
+      "description": "GRPO scores each answer against its group: advantage = (reward minus group mean) divided by group std. Work out what this does to the learning signal when rewards are 0 or 1, and which questions end up weighted most.",
+      "why": "GRPO is everywhere in reasoning-model training. Deriving one line of it shows how a small design choice quietly changes what the model learns.",
+      "hints": [
+        "Take a group of G answers with binary rewards. Let p be the fraction that are correct.",
+        "The group std is sqrt(p(1 minus p)). Write the advantage of a correct answer and of a wrong one as functions of p.",
+        "A correct answer gets sqrt((1 minus p)/p). Plot this for p from 0.05 to 0.95. Which questions get the biggest push?",
+        "Now drop the std and compare. Which questions lose weight, and is that good or bad?"
+      ],
+      "solution_available_on_request": true,
+      "steps": [
+        "Read Sec. 4.1 of the DeepSeekMath paper, where GRPO is defined",
+        "Do the binary-reward derivation from the hints on paper",
+        "Plot the advantage of a correct answer against p for both versions",
+        "Read the part of the Dr. GRPO paper on the biases in GRPO and compare it with your answer"
+      ],
+      "resources": [
+        {
+          "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2402.03300",
+          "url_verified": true,
+          "year": 2024,
+          "chapters": "Sec. 4.1 (GRPO)"
+        },
+        {
+          "title": "Understanding R1-Zero-Like Training: A Critical Perspective",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2503.20783",
+          "url_verified": true,
+          "year": 2025,
+          "note": "Argues the std term adds a question-difficulty bias"
+        }
+      ],
+      "then": "Say in two sentences when you would keep the std term and when you would drop it."
+    },
+    {
+      "id": "w-2026-W48-unlearning-removal-or-suppression",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Design the test: was it forgotten or just hidden?",
+      "section": "research_practice",
+      "category": "research_fundamentals",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "mode": "practise",
+      "topic": "unlearning evaluation design",
+      "difficulty": "medium",
+      "time_estimate": "30-60m",
+      "description": "A model has been unlearned on a set of facts and now refuses or fails on them. Design three experiments that tell real removal apart from suppression. Say what result each one would show in each case.",
+      "why": "Telling removal from hiding is the core problem of unlearning evaluation. Designing the controls yourself sharpens research taste more than reading results.",
+      "hints": [
+        "What is the best possible reference model, even if it is expensive to build?",
+        "Hidden knowledge often comes back fast. Think about fine-tuning on a few examples, and what you would compare it to.",
+        "Inputs are not the only place to look. What could a probe on the activations tell you?",
+        "Every test needs a control set of facts the model was never asked to forget."
+      ],
+      "solution_available_on_request": true,
+      "steps": [
+        "Write down your three experiments before reading anything",
+        "For each, write the expected result under removal and under suppression",
+        "Read the Eight Methods paper and mark which of your tests it covers",
+        "Skim the anchors paper on this week's reading list and compare its reference cases with yours"
+      ],
+      "resources": [
+        {
+          "title": "Eight Methods to Evaluate Robust Unlearning in LLMs",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2402.16835",
+          "url_verified": true,
+          "year": 2024
+        },
+        {
+          "title": "Compared to What? Calibrating Machine-Unlearning Diagnostics with Present, Absent and Suppressed Anchors",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2611.29285",
+          "url_verified": true,
+          "year": 2026,
+          "note": "On this week's reading list"
+        }
+      ],
+      "then": "Pick the cheapest of your three tests and sketch how you would run it in an afternoon."
+    },
+    {
+      "id": "w-2026-W48-grokking-progress-measures",
+      "origin": "system",
+      "status": "suggested",
+      "title": "How grokking works inside: the modular addition circuit",
+      "section": "research_reading",
+      "category": "paper",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "mode": "learn",
+      "topic": "grokking and mechanistic interpretability",
+      "difficulty": "medium",
+      "time_estimate": "1-2h",
+      "description": "Read the classic paper that reverse-engineered a small transformer that groks modular addition. It found the network uses discrete Fourier features and trig identities, and tracked the circuit forming long before test accuracy jumps.",
+      "why": "This week's reading list has a new grokking paper. The classic one gives you the picture it builds on, and it is a model of careful interpretability work.",
+      "paper": {
+        "title": "Progress measures for grokking via mechanistic interpretability",
+        "authors": [
+          "Neel Nanda",
+          "Lawrence Chan",
+          "Tom Lieberum",
+          "Jess Smith",
+          "Jacob Steinhardt"
+        ],
+        "year": 2023,
+        "url": "https://arxiv.org/abs/2301.05217",
+        "area": "interpretability",
+        "what_to_notice": "How the progress measures show the circuit forming gradually while test accuracy looks flat.",
+        "reading_time": "1-2h",
+        "difficulty": "medium"
+      },
+      "steps": [
+        "Read the abstract and look at Figure 1 first",
+        "Read the section on the Fourier multiplication algorithm slowly",
+        "Read the progress measures section and note the three training phases",
+        "Then read the abstract of the grokking subspace paper on this week's list and ask what is new"
+      ],
+      "resources": [
+        {
+          "title": "Progress measures for grokking via mechanistic interpretability",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2301.05217",
+          "url_verified": true,
+          "year": 2023
+        }
+      ],
+      "then": "Explain to a friend in two minutes why test accuracy can jump suddenly even if learning was gradual."
+    },
+    {
+      "id": "w-2026-W48-landauer-cost-of-forgetting",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Why does erasing one bit release heat?",
+      "section": "questions",
+      "category": "question",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "mode": "practise",
+      "topic": "Landauer's principle",
+      "time_estimate": "30-60m",
+      "description": "Landauer's principle says erasing one bit must release at least kT ln 2 of heat. Copying a bit can be free in principle. Why is forgetting the step that costs something?",
+      "why": "It links physics, information and computation in one idea. It also gives a new way to think about what it means to forget.",
+      "cross_domain": {
+        "fields": [
+          "statistical physics",
+          "information theory",
+          "machine learning"
+        ],
+        "connection": "Erasure is a many-to-one map. Physics says that costs entropy. Unlearning in ML is also an attempt to make many training histories look the same."
+      },
+      "hints": [
+        "Think of a bit as a particle in a box with a wall in the middle. Left is 0, right is 1.",
+        "Erasing means resetting to 0 whatever the start state was. How many start states map to one end state?",
+        "Count the entropy change of the bit. The second law says it has to go somewhere.",
+        "Now explain why Maxwell's demon has to pay when it clears its memory."
+      ],
+      "solution_available_on_request": true,
+      "resources": [
+        {
+          "title": "Notes on Landauer's principle, reversible computation, and Maxwell's Demon",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/physics/0210005",
+          "url_verified": true,
+          "creator": "Charles H. Bennett",
+          "year": 2003
+        },
+        {
+          "title": "Landauer's principle",
+          "type": "website",
+          "url": "https://en.wikipedia.org/wiki/Landauer%27s_principle",
+          "url_verified": true
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W48-inspection-paradox",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Buses every 10 minutes. Why do you wait more than 5?",
+      "section": "questions",
+      "category": "question",
+      "tier": "established",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "mode": "practise",
+      "topic": "probability: the inspection paradox",
+      "time_estimate": "30-60m",
+      "description": "Buses arrive on average every 10 minutes, but at random. You turn up at a random time. Show that your expected wait can be much longer than 5 minutes, and find it when arrivals are a Poisson process.",
+      "why": "The same length-biased sampling hides in data. Class sizes, friend counts and sampled sequences all show it, so it is a useful bias to recognise in experiments.",
+      "hints": [
+        "You are more likely to arrive during a long gap than a short one.",
+        "If gaps have density f(t), the gap you land in has density proportional to t times f(t).",
+        "Your expected wait is E[T squared] divided by 2 E[T]. Compute it for fixed gaps and for exponential gaps.",
+        "Where in ML training or evaluation could you be sampling by length without noticing?"
+      ],
+      "solution_available_on_request": true,
+      "resources": [
+        {
+          "title": "The Waiting-Time Paradox",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2007.05883",
+          "url_verified": true,
+          "creator": "Naoki Masuda and Mason A. Porter",
+          "year": 2020
+        },
+        {
+          "title": "Learning Data Science, Ch. 5: Why Is My Bus Always Late?",
+          "type": "book",
+          "url": "https://www.textbook.ds100.org/ch/05/bus_intro.html",
+          "url_verified": true,
+          "chapters": "Ch. 5",
+          "note": "A worked case study with real bus data"
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W48-lovelace-objection",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Lady Lovelace's objection: can a machine originate anything?",
+      "section": "talking_points",
+      "category": "talking_point",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "mode": "reflect",
+      "topic": "history of computing and AI creativity",
+      "time_estimate": "10-30m",
+      "description": "In 1843 Ada Lovelace wrote that the Analytical Engine has no pretensions to originate anything. It can only do what we know how to order it to do. A century later Turing named this Lady Lovelace's objection and argued against it. The same debate is alive today about LLMs.",
+      "why": "It is a 180-year-old argument about AI that most people have never heard. It makes a great opening in any conversation about machine creativity.",
+      "steps": [
+        "Read Note G in Lovelace's notes, the famous passage and her Bernoulli number program",
+        "Ask yourself which side you take today, and what evidence would change your mind"
+      ],
+      "resources": [
+        {
+          "title": "Sketch of the Analytical Engine, with Notes by Ada Lovelace",
+          "type": "article",
+          "url": "https://psychclassics.yorku.ca/Lovelace/lovelace.htm",
+          "url_verified": true,
+          "year": 1843,
+          "chapters": "Note G"
+        }
+      ],
+      "then": "Question to discuss: if a model surprises its makers, has it originated something, or did we just not know what we ordered?"
+    },
+    {
+      "id": "w-2026-W48-neuraths-boat",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Neurath's boat: rebuilding knowledge at sea",
+      "section": "talking_points",
+      "category": "talking_point",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "mode": "reflect",
+      "topic": "philosophy of science",
+      "time_estimate": "10-30m",
+      "description": "Otto Neurath compared us to sailors who must rebuild their ship on the open sea, plank by plank, never able to start again in dry dock. We can never put knowledge on a perfect foundation. We fix it while using it.",
+      "why": "It is one of the best short pictures of how science really works. It fits research too: you revise methods and beliefs while depending on them.",
+      "resources": [
+        {
+          "title": "Otto Neurath",
+          "type": "website",
+          "url": "https://plato.stanford.edu/entries/neurath/",
+          "url_verified": true,
+          "creator": "Stanford Encyclopedia of Philosophy"
+        },
+        {
+          "title": "Neurath's boat",
+          "type": "website",
+          "url": "https://en.wikipedia.org/wiki/Neurath%27s_boat",
+          "url_verified": true
+        }
+      ],
+      "then": "Question to discuss: which plank in your own field is being replaced right now while everyone stays afloat?"
+    },
+    {
+      "id": "w-2026-W48-sakamoto-three-pieces",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Ryuichi Sakamoto: one life, three pieces",
+      "section": "culture",
+      "category": "culture",
+      "tier": "growth",
+      "dimensions": [
+        "culture"
+      ],
+      "mode": "experience",
+      "topic": "music appreciation: Ryuichi Sakamoto",
+      "time_estimate": "30-60m",
+      "description": "Sakamoto went from synth-pop with Yellow Magic Orchestra to film scores to quiet late work about sound and mortality. Listen to three pieces from three stages: Merry Christmas Mr. Lawrence (1983), Rain from The Last Emperor (1987) and andata from async (2017).",
+      "why": "Three pieces show how one artist's ear changed over 35 years. It is also good listening for the end of November.",
+      "steps": [
+        "Listen to the three pieces in order, once each, with nothing else on",
+        "Notice what changes: melody, space, texture",
+        "If you want more, watch the documentary Coda, about his return to music after illness"
+      ],
+      "resources": [
+        {
+          "title": "async",
+          "type": "album",
+          "url": "https://en.wikipedia.org/wiki/Async_(album)",
+          "url_verified": true,
+          "creator": "Ryuichi Sakamoto",
+          "year": 2017,
+          "note": "andata is the opening track"
+        },
+        {
+          "title": "Ryuichi Sakamoto: Coda",
+          "type": "documentary",
+          "url": "https://en.wikipedia.org/wiki/Ryuichi_Sakamoto:_Coda",
+          "url_verified": true,
+          "creator": "Stephen Nomura Schible",
+          "year": 2017
+        }
+      ],
+      "then": "Pick the one you liked most and say in one sentence why."
+    },
+    {
+      "id": "w-2026-W48-after-life-kore-eda",
+      "origin": "system",
+      "status": "suggested",
+      "title": "After Life: which single memory would you keep?",
+      "section": "culture",
+      "category": "culture",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "mode": "experience",
+      "topic": "Japanese cinema: memory and identity",
+      "time_estimate": "few_hours",
+      "description": "Hirokazu Kore-eda's After Life (1998). The newly dead spend a week in a plain office building choosing one memory to keep for eternity. Staff then recreate it on film. Gentle, funny and quietly profound.",
+      "why": "A film about memory that pairs well with this week's unlearning and Landauer items. It is also a fine way into Japanese cinema.",
+      "cross_domain": {
+        "fields": [
+          "film",
+          "memory and identity"
+        ],
+        "connection": "The film asks what makes a memory worth keeping. Unlearning asks what it means for a system to truly lose one."
+      },
+      "resources": [
+        {
+          "title": "After Life",
+          "type": "film",
+          "url": "https://www.criterion.com/films/29081-after-life",
+          "url_verified": true,
+          "creator": "Hirokazu Kore-eda",
+          "year": 1998
+        }
+      ],
+      "then": "Question to sit with: what memory would you choose, and is it the happiest one?"
+    },
+    {
+      "id": "w-2026-W48-hammershoi-quiet-rooms",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Hammershøi: two quiet rooms",
+      "section": "culture",
+      "category": "culture",
+      "tier": "exploration",
+      "dimensions": [
+        "culture"
+      ],
+      "mode": "experience",
+      "topic": "art: Vilhelm Hammershøi",
+      "time_estimate": "10-30m",
+      "description": "The Danish painter Vilhelm Hammershøi painted almost the same grey rooms in his Copenhagen flat again and again. Look slowly at two: Dust Motes Dancing in the Sunbeams (1900) and Interior (1899).",
+      "why": "An unusual painter few people know. His rooms show how much light and empty space can say.",
+      "steps": [
+        "Look at each painting for two full minutes before reading anything",
+        "Notice where the light comes from and what is missing from the room"
+      ],
+      "resources": [
+        {
+          "title": "Dust Motes Dancing in the Sunbeams",
+          "type": "artwork",
+          "url": "https://hammershoi.smk.dk/?p=1629",
+          "url_verified": true,
+          "creator": "Vilhelm Hammershøi",
+          "year": 1900
+        },
+        {
+          "title": "Interior",
+          "type": "artwork",
+          "url": "https://nationalgallery.org.uk/paintings/vilhelm-hammershoi-interior",
+          "url_verified": true,
+          "creator": "Vilhelm Hammershøi",
+          "year": 1899
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W48-looping-listening",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Looping: check you understood before you reply",
+      "section": "people_self",
+      "category": "people",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "mode": "practise",
+      "topic": "active listening",
+      "time_estimate": "real_world_practice",
+      "description": "Looping is a simple listening move. Listen, sum up what you heard in your own words, then ask: did I get that right? Keep going until the other person says yes. Only then share your view.",
+      "why": "People feel understood when they hear their point said back well. It also slows down disagreements before they heat up.",
+      "steps": [
+        "Understand: read the short looping guide (10 minutes)",
+        "Practise: in one easy chat, loop once before you give an opinion",
+        "Real interaction: try it once in a conversation where you disagree a little",
+        "Afterwards notice one thing the other person added after your loop"
+      ],
+      "resources": [
+        {
+          "title": "Looping",
+          "type": "website",
+          "url": "https://understandinginconflict.org/looping/",
+          "url_verified": true
+        }
+      ],
+      "then": "Notice whether the conversation changed after you looped."
+    },
+    {
+      "id": "w-2026-W48-room-camera-obscura",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Turn a room into a camera",
+      "section": "curiosity_making",
+      "category": "making",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ],
+      "mode": "create",
+      "topic": "camera obscura",
+      "time_estimate": "1-2h",
+      "description": "Black out a window on a sunny day and leave one coin-sized hole. The street outside appears upside down on the opposite wall, in colour and moving. This is the oldest camera there is.",
+      "why": "It feels like magic and takes cardboard and tape. It also shows how a lens-free image forms, the idea behind every camera.",
+      "steps": [
+        "Pick a small room with a window facing a bright view",
+        "Cover the window fully with cardboard or foil and tape the edges",
+        "Cut a hole about 1 cm wide and wait a few minutes for your eyes to adjust",
+        "Try a smaller hole and a bigger one and compare sharpness and brightness"
+      ],
+      "resources": [
+        {
+          "title": "How to Turn a Room into a Camera",
+          "type": "article",
+          "url": "https://www.eastman.org/sites/default/files/2020_GEM-CameraObscura_HowTo.pdf",
+          "url_verified": true,
+          "creator": "George Eastman Museum"
+        },
+        {
+          "title": "How to Make a Pinhole Camera",
+          "type": "website",
+          "url": "https://www.jpl.nasa.gov/edu/resources/project/how-to-make-a-pinhole-camera/",
+          "url_verified": true,
+          "creator": "NASA JPL",
+          "note": "A box version if a room is not possible"
+        }
+      ],
+      "then": "Take a phone photo of the image on the wall."
+    },
+    {
+      "id": "w-2026-W48-malacca-strait",
+      "origin": "system",
+      "status": "suggested",
+      "title": "The Strait of Malacca: the narrow sea Asia depends on",
+      "section": "world",
+      "category": "world_understanding",
+      "tier": "exploration",
+      "dimensions": [
+        "world"
+      ],
+      "mode": "learn",
+      "topic": "geopolitics: maritime chokepoints",
+      "time_estimate": "10-30m",
+      "description": "A narrow channel between Malaysia, Singapore and Sumatra carries a large share of the world's sea trade, including much of East Asia's oil. China's worry about being cut off there is called the Malacca dilemma. It got fresh attention in 2026 after the Hormuz crisis.",
+      "why": "Many news stories about trade, energy and the Indian Ocean make more sense once you know this one place.",
+      "steps": [
+        "Find the strait on a map and trace a tanker route from the Gulf to East Asia",
+        "Read the Lowy Institute piece on why chokepoints still matter",
+        "Ask yourself what alternatives exist and why they are harder"
+      ],
+      "resources": [
+        {
+          "title": "Why maritime choke points still decide the fate of nations",
+          "type": "article",
+          "url": "https://www.lowyinstitute.org/the-interpreter/gallipoli-strait-malacca-why-maritime-choke-points-still-decide-fate-nations",
+          "url_verified": true,
+          "creator": "Lowy Institute, The Interpreter"
+        },
+        {
+          "title": "Malacca dilemma",
+          "type": "website",
+          "url": "https://www.wikiwand.com/en/articles/Malacca_dilemma",
+          "url_verified": true
+        }
+      ]
+    }
+  ],
+  "language": {
+    "lessons": [
+      {
+        "language": "japanese",
+        "title": "Introducing yourself: はじめまして",
+        "explanation": "A Japanese self-introduction has three parts. Start with はじめまして (nice to meet you). Then say your name with です. End with よろしくおねがいします (please treat me kindly). You can add where you are from with 〜からきました (I came from ...).",
+        "examples": [
+          {
+            "text": "はじめまして",
+            "romanization": "hajimemashite",
+            "meaning": "Nice to meet you (said only the first time)"
+          },
+          {
+            "text": "ラジです",
+            "romanization": "raji desu",
+            "meaning": "I am Raj"
+          },
+          {
+            "text": "インドからきました",
+            "romanization": "indo kara kimashita",
+            "meaning": "I came from India"
+          },
+          {
+            "text": "よろしくおねがいします",
+            "romanization": "yoroshiku onegaishimasu",
+            "meaning": "Nice to meet you / please treat me kindly"
+          },
+          {
+            "text": "おなまえは？",
+            "romanization": "onamae wa?",
+            "meaning": "And your name?"
+          }
+        ],
+        "questions": [
+          {
+            "question": "Say 'Nice to meet you, I am Tom.'",
+            "answer": "はじめまして、トムです (hajimemashite, tomu desu)"
+          },
+          {
+            "question": "How do you end a self-introduction politely?",
+            "answer": "よろしくおねがいします (yoroshiku onegaishimasu)"
+          },
+          {
+            "question": "Say 'I came from Japan' (にほん, nihon).",
+            "answer": "にほんからきました (nihon kara kimashita)"
+          },
+          {
+            "question": "Someone says はじめまして to you. What do you say back?",
+            "answer": "はじめまして + your name + です + よろしくおねがいします"
+          }
+        ],
+        "practice": [
+          "Say your full four-line introduction out loud five times until it flows",
+          "Role-play meeting someone new with Claude, then swap roles and ask おなまえは？",
+          "Record yourself once and listen for the long sounds in よろしく and おねがい"
+        ],
+        "resources": [
+          {
+            "title": "How to Introduce Yourself in Japanese",
+            "type": "article",
+            "url": "https://ej.alc.co.jp/tag/fun-fun-nihongo/20260216-introduce-yourself-japanese",
+            "url_verified": true,
+            "creator": "ALC"
+          }
+        ]
+      },
+      {
+        "language": "telugu",
+        "title": "Asking and giving names: మీ పేరు ఏమిటి?",
+        "explanation": "To ask someone's name politely, say మీ పేరు ఏమిటి? (your name what?). To answer, say నా పేరు ... (my name ...). There is no word for 'is' here. Use మీ (mī) for the polite 'your' with elders and strangers.",
+        "examples": [
+          {
+            "text": "మీ పేరు ఏమిటి?",
+            "romanization": "mī pēru ēmiṭi?",
+            "meaning": "What is your name? (polite)"
+          },
+          {
+            "text": "నా పేరు అను",
+            "romanization": "nā pēru anu",
+            "meaning": "My name is Anu"
+          },
+          {
+            "text": "మిమ్మల్ని కలవడం సంతోషం",
+            "romanization": "mimmalni kalavaḍaṁ santōṣaṁ",
+            "meaning": "Happy to meet you"
+          },
+          {
+            "text": "మీది ఏ ఊరు?",
+            "romanization": "mīdi ē ūru?",
+            "meaning": "Which town are you from?"
+          }
+        ],
+        "questions": [
+          {
+            "question": "Ask an elder their name politely.",
+            "answer": "మీ పేరు ఏమిటి? (mī pēru ēmiṭi?)"
+          },
+          {
+            "question": "Say 'My name is Ravi.'",
+            "answer": "నా పేరు రవి (nā pēru ravi)"
+          },
+          {
+            "question": "What does పేరు (pēru) mean?",
+            "answer": "name"
+          },
+          {
+            "question": "Ask someone which town they are from.",
+            "answer": "మీది ఏ ఊరు? (mīdi ē ūru?)"
+          }
+        ],
+        "practice": [
+          "Say the four lines aloud, then answer each question about yourself",
+          "Role-play a first meeting with Claude: greet with నమస్కారం, ask the name, say yours",
+          "If you meet a Telugu speaker, ask మీ పేరు ఏమిటి? and listen to the answer"
+        ],
+        "resources": [
+          {
+            "title": "Basic Telugu, 2.4 Introductions and Formal Conversations",
+            "type": "book",
+            "url": "https://openbooks.lib.msu.edu/basictelugu/chapter/2-4/",
+            "url_verified": true,
+            "creator": "Michigan State University Libraries",
+            "chapters": "Ch. 2, Sec. 2.4"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": "Generated mid-week for the current week on request, in the new sectioned format. The world-models idea is scheduled for 2026-W49 and is not included here."
+}

@@ -1,22 +1,62 @@
-# Scheduled tasks
+# Scheduled tasks setup
 
-Northstar runs on five Claude scheduled tasks. To set them up (or recreate them), start a Claude Code session on this repo and say:
+Northstar runs on five Claude scheduled tasks. Each one starts a fresh Claude session, follows a prompt from this file, and commits the result to your repo.
 
-> Create the five scheduled tasks in docs/scheduled_tasks.md exactly as written, with automatic approval. Delete any older scheduled tasks with the same names first. https://github.com/tarun-bisht/northstar.git. Keep each schedule task in auto mode and add this repo also in each task.
+| Task | When (IST) | What it does |
+|---|---|---|
+| Daily northstar schedule | Every day, 07:19 | arXiv radar, research and world updates, daily discovery, language pack |
+| Shorts northstar schedule | Every day, 08:15 | YouTube shorts across your interests |
+| Weekly northstar schedule | Saturday, 06:46 | Next week's package and paper reading list |
+| Monthly northstar schedule | 1st of the month, 06:15 | This month's projects and language plans |
+| Quarterly northstar schedule | 1 Jan, Apr, Jul, Oct, 06:41 | A short look back, sent to you and never saved |
 
-See [setup_prompt.md](setup_prompt.md) for what this prompt does.
+Every task runs after the 06:00 IST candidate fetch on GitHub Actions.
 
-All times are in `Asia/Kolkata`. Change the time zone and times to suit you. Every task starts after the 06:00 IST candidate fetch on GitHub Actions.
+## Before you start
 
-Every prompt shares the same first step:
+1. Fork this repo and turn on GitHub Actions and Pages. See "Make it yours" in the [README](../README.md).
+2. Edit the files in `config/` for your interests and languages.
+3. Have a Claude account with scheduled tasks and Claude Code on the web.
+
+## Option A: let Claude set it up (recommended)
+
+Start a Claude session, replace `OWNER/REPO` with your fork (for example `tarun-bisht/northstar`), and paste this prompt:
 
 ```
-Clone or update the repo (git clone https://github.com/tarun-bisht/northstar.git ~/northstar; then cd ~/northstar && git checkout main && git pull --rebase origin main) and install requirements (pip install -r requirements.txt, adding --break-system-packages if needed).
+Set up the Northstar scheduled tasks for my GitHub repo https://github.com/OWNER/REPO.
+
+1. Read docs/scheduled_tasks_setup.md in that repo.
+2. Delete any existing scheduled tasks with the same five names.
+3. Create the five tasks under "The five tasks" in that file. Use each name, cron schedule and prompt exactly as written. If my repo is not tarun-bisht/northstar, replace tarun-bisht/northstar with OWNER/REPO in every prompt and change nothing else.
+4. Give every task automatic approval (auto mode), so runs never wait for me.
+5. Attach my repo to every task with push access, so runs can commit to main.
+6. When done, list each task with its schedule, next run time and approval mode.
 ```
 
-Fork owners: replace `tarun-bisht/northstar` with your own repo.
+Running it again is safe. It replaces the old tasks instead of adding copies.
 
-## Daily northstar schedule
+## Option B: create the tasks by hand
+
+1. Go to [claude.ai/code/routines](https://claude.ai/code/routines).
+2. For each task below, create a new task. Copy its name, cron schedule and prompt. Replace `tarun-bisht/northstar` with your fork in the prompt.
+3. Set **Repository** to your fork. No connectors are needed, and the **Default** environment is fine.
+4. In the task settings, turn on **Automatically approve**.
+
+## Check that it works
+
+1. Open the daily task and click **Run now**.
+2. When it finishes, check that a new commit landed on `main` and the site rebuilt.
+3. If the run says it could not push, check that the task has your repo attached with push access.
+
+## Change the times
+
+All times use `CRON_TZ=Asia/Kolkata`. To use your own time zone, change the zone name (for example `CRON_TZ=Europe/London`) and the hour. Keep every task after the 06:00 IST candidate fetch, or move that fetch in `.github/workflows/` too.
+
+## The five tasks
+
+Every prompt starts with the same step: clone or update the repo, then install requirements.
+
+### Daily northstar schedule
 
 Cron: `CRON_TZ=Asia/Kolkata 19 7 * * *`
 
@@ -31,7 +71,7 @@ You are running the DAILY RADAR for my Northstar personal growth system in the G
 6. End with a short summary: items per stream, papers kept and their top tags, anything added to the reading list, today's language theme, and any limitation hit.
 ```
 
-## Shorts northstar schedule
+### Shorts northstar schedule
 
 Cron: `CRON_TZ=Asia/Kolkata 15 8 * * *`
 
@@ -46,7 +86,7 @@ You are running the YOUTUBE SHORTS RADAR for my Northstar personal growth system
 6. End with a short summary: number of videos, the mode used, the language split, the tier split and the language-learning shorts added.
 ```
 
-## Weekly northstar schedule
+### Weekly northstar schedule
 
 Cron: `CRON_TZ=Asia/Kolkata 46 6 * * 6` (Saturday)
 
@@ -61,7 +101,7 @@ You are running the WEEKLY PACKAGE for my Northstar personal growth system in th
 6. End with the reading list titles, the package in 4 to 6 short lines, the language lesson titles, and one line saying I can reply in inbox/feedback.md or a Claude chat, or ignore it.
 ```
 
-## Monthly northstar schedule
+### Monthly northstar schedule
 
 Cron: `CRON_TZ=Asia/Kolkata 15 6 1 * *`
 
@@ -75,7 +115,7 @@ You are running the MONTHLY PACKAGE for my Northstar personal growth system in t
 5. End with the projects, one line each, with their tiers and light versions, plus each language's goal for the month.
 ```
 
-## Quarterly northstar schedule
+### Quarterly northstar schedule
 
 Cron: `CRON_TZ=Asia/Kolkata 41 6 1 1,4,7,10 *`
 

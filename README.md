@@ -77,9 +77,8 @@ The free quota is 10,000 units a day. Each search costs 100, so keep the searche
 
 **4. Claude scheduled tasks**
 
-1. Go to [claude.ai/code/routines](https://claude.ai/code/routines) and create the five tasks in [`docs/scheduled_tasks.md`](docs/scheduled_tasks.md). Copy each name, prompt and schedule. Put your own repo in the prompts.
-2. For each task, set **Repository** to your fork. No connectors are needed, and the **Default** environment is fine.
-3. Click **Run now** on the daily task to test it.
+1. Follow [`docs/scheduled_tasks_setup.md`](docs/scheduled_tasks_setup.md). The easiest way is to paste its setup prompt into a Claude session. You can also create the five tasks by hand at [claude.ai/code/routines](https://claude.ai/code/routines).
+2. Click **Run now** on the daily task to test it.
 
 Useful commands:
 

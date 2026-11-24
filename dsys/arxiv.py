@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import re
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -83,8 +84,15 @@ def fetch_recent(category: str, max_results: int = 150, timeout: int = 30) -> li
     })
     req = urllib.request.Request("http://export.arxiv.org/api/query?" + q,
                                  headers={"User-Agent": "northstar/1.0"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        text = r.read().decode("utf-8")
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            text = r.read().decode("utf-8")
+    except urllib.error.HTTPError as e:
+        if e.code != 429:
+            raise
+        time.sleep(30)  # rate limited: wait once, then retry
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            text = r.read().decode("utf-8")
     time.sleep(3)  # arXiv API etiquette
     return parse_feed(text)
 

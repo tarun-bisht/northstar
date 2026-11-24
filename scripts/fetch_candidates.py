@@ -52,9 +52,15 @@ def fetch_arxiv(repo, day: dt.date) -> int:
                         by_id[p["arxiv_id"]] = {**p, "categories": [], "source": "huggingface_daily"}
             except Exception as e:
                 errors.append(f"huggingface {d}: {e}")
+    # A re-run on the same day merges with the earlier file, so a rate-limited
+    # re-run can never replace good candidates with a smaller set.
+    path = repo.p("candidates", "arxiv", f"{day.isoformat()}.json")
+    if path.exists():
+        for p in load_json(path).get("candidates", []):
+            by_id.setdefault(p["arxiv_id"], p)
     out = {"kind": "arxiv", "date": day.isoformat(), "fetched_at": now_utc(), "source": "export.arxiv.org API + Hugging Face Daily Papers",
            "errors": errors, "candidates": sorted(by_id.values(), key=lambda p: p["arxiv_id"], reverse=True)}
-    write_json(repo.p("candidates", "arxiv", f"{day.isoformat()}.json"), out)
+    write_json(path, out)
     print(f"arxiv: {len(by_id)} candidates, {len(errors)} errors")
     return 0 if by_id or not errors else 1
 

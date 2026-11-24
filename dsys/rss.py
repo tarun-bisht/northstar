@@ -72,10 +72,12 @@ def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
                     f"{render.esc(', '.join(p['authors'][:4]))}{' et al.' if len(p['authors']) > 4 else ''}</li>"
                     for p in items) + "</ul>")
             elif s == "world":
-                for _, sec, its in render.group_world(items):
-                    out.append(f"<h4>{render.esc(sec)}</h4><ul>" + "".join(
+                briefs = streams[s].get("briefs", [])
+                for key, sec, its in render.group_world(items, briefs):
+                    out.append(f"<h4>{render.esc(sec)}</h4>" + ("<ul>" + "".join(
                         f"<li><strong>{render.a(w['sources'][0]['url'], w['title'])}</strong><br/>{render.esc(w['what_happened'])} "
-                        f"<em>Why it matters:</em> {render.esc(w['why_it_matters'])}</li>" for w in its) + "</ul>")
+                        f"<em>Why it matters:</em> {render.esc(w['why_it_matters'])}</li>" for w in its) + "</ul>" if its else "")
+                        + render.world_briefs(briefs, key))
             elif s == "research_updates":
                 out.append("<ul>" + "".join(
                     f"<li><strong>{render.a(u['source']['url'], u['title'])}</strong><br/>{render.esc(u['what_happened'])}</li>"
@@ -116,7 +118,7 @@ def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None, p
         if rl and rl.get("papers"):
             streams["reading"] = rl
         names = next(ss for k, _, ss in render.DAILY_PARTS if k == part)
-        if not any(s in streams and (streams[s].get("items") or streams[s].get("papers")) for s in names):
+        if not any(s in streams and (streams[s].get("items") or streams[s].get("papers") or streams[s].get("briefs")) for s in names):
             continue
         labels = {"arxiv": "papers", "research_updates": "updates", "reading": "on the reading list", "world": "stories",
                   "discovery": "finds", "youtube_shorts": "shorts", "language": "language pack"}

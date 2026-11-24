@@ -160,6 +160,9 @@ def cmd_daily(repo: Repo, args) -> int:
             doc["notes"] = incoming["notes"]
         if "candidates_considered" in incoming:
             doc["candidates_considered"] = incoming["candidates_considered"]
+        if incoming.get("briefs"):  # world: one-line "also in the news" headlines
+            seen = {b["url"] for b in doc.get("briefs", [])}
+            doc["briefs"] = doc.get("briefs", []) + [b for b in incoming["briefs"] if b["url"] not in seen]
         incoming = incoming.get("items", [])
     have = {i["id"] for i in doc["items"]}
     added = 0

@@ -823,7 +823,7 @@
       "IMF",
       "World Bank"
     ],
-    "_doc": "World Radar. feeds are fetched by GitHub Actions into candidates/news/<date>.json (headline, link, date, summary). The run picks from them, then cross-checks and adds web search for gaps. Add or remove feeds freely; a failing feed is listed in failed_sources and retried by the 06:50 run. A feed's section is only how candidates are grouped for reading; each chosen item gets its own news category (prompts/world.md).",
+    "_doc": "World Radar. Publisher feeds and Google News are fetched by GitHub Actions into candidates/news/<date>.json (headline, link, date, summary). Each headline is categorized in code (categories) and duplicates are merged. The run picks from them. A failing feed is listed in failed_sources and retried by the 06:50 run. A feed's section is only how candidates are grouped; each chosen item gets its own news category (prompts/world.md). lookback_hours on a feed overrides the default.",
     "lookback_hours": 36,
     "max_per_feed": 40,
     "feeds": [
@@ -845,12 +845,12 @@
       {
         "name": "BBC Science and Environment",
         "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
-        "section": "science_health"
+        "section": "science_space"
       },
       {
         "name": "BBC Technology",
         "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
-        "section": "business_tech"
+        "section": "technology"
       },
       {
         "name": "The Hindu National",
@@ -875,7 +875,8 @@
       {
         "name": "Indian Express Explained",
         "url": "https://indianexpress.com/section/explained/feed/",
-        "section": "explainers"
+        "section": "explainers",
+        "lookback_hours": 96
       },
       {
         "name": "Mint Markets",
@@ -925,12 +926,14 @@
       {
         "name": "The Conversation (Global)",
         "url": "https://theconversation.com/global/articles.atom",
-        "section": "explainers"
+        "section": "explainers",
+        "lookback_hours": 96
       },
       {
         "name": "The Conversation (US)",
         "url": "https://theconversation.com/us/articles.atom",
-        "section": "explainers"
+        "section": "explainers",
+        "lookback_hours": 96
       },
       {
         "name": "RBI Press Releases",
@@ -940,17 +943,17 @@
       {
         "name": "The Hindu Sci-Tech",
         "url": "https://www.thehindu.com/sci-tech/feeder/default.rss",
-        "section": "science_health"
+        "section": "science_space"
       },
       {
         "name": "The Guardian Science",
         "url": "https://www.theguardian.com/science/rss",
-        "section": "science_health"
+        "section": "science_space"
       },
       {
         "name": "The Guardian Technology",
         "url": "https://www.theguardian.com/technology/rss",
-        "section": "business_tech"
+        "section": "technology"
       },
       {
         "name": "The Guardian Environment",
@@ -960,7 +963,31 @@
       {
         "name": "BBC Health",
         "url": "https://feeds.bbci.co.uk/news/health/rss.xml",
-        "section": "science_health"
+        "section": "health"
+      },
+      {
+        "name": "The Conversation (UK)",
+        "url": "https://theconversation.com/uk/articles.atom",
+        "section": "explainers",
+        "lookback_hours": 96
+      },
+      {
+        "name": "The Conversation (Australia)",
+        "url": "https://theconversation.com/au/articles.atom",
+        "section": "explainers",
+        "lookback_hours": 96
+      },
+      {
+        "name": "The Conversation (Africa)",
+        "url": "https://theconversation.com/africa/articles.atom",
+        "section": "explainers",
+        "lookback_hours": 96
+      },
+      {
+        "name": "The Conversation (Canada)",
+        "url": "https://theconversation.com/ca/articles.atom",
+        "section": "explainers",
+        "lookback_hours": 96
       }
     ],
     "categories": {
@@ -970,9 +997,11 @@
         "conflict_disaster",
         "economy_markets",
         "geopolitics",
+        "technology",
+        "science_space",
+        "health",
         "climate_energy",
-        "science_health",
-        "business_tech",
+        "business",
         "society",
         "india",
         "explainers"
@@ -981,8 +1010,12 @@
         "india": "india",
         "world": "geopolitics",
         "economy_markets": "economy_markets",
-        "business_tech": "business_tech",
-        "science_health": "science_health",
+        "business": "business",
+        "business_tech": "technology",
+        "technology": "technology",
+        "science_health": "science_space",
+        "science_space": "science_space",
+        "health": "health",
         "climate_energy": "climate_energy",
         "explainers": "explainers"
       },
@@ -1110,58 +1143,6 @@
           "monsoon",
           "environment"
         ],
-        "science_health": [
-          "scientists",
-          "study finds",
-          "researchers",
-          "space",
-          "isro",
-          "nasa",
-          "rocket",
-          "satellite",
-          "telescope",
-          "vaccine",
-          "virus",
-          "disease",
-          "outbreak",
-          "health",
-          "hospital",
-          "cancer",
-          "medicine",
-          "dengue",
-          "covid",
-          "genome",
-          "fossil",
-          "physics"
-        ],
-        "business_tech": [
-          "company",
-          "startup",
-          "acquisition",
-          "merger",
-          "deal",
-          "revenue",
-          "profit",
-          "layoffs",
-          "ceo",
-          "tech",
-          "ai",
-          "artificial intelligence",
-          "openai",
-          "google",
-          "apple",
-          "microsoft",
-          "nvidia",
-          "semiconductor",
-          "chip",
-          "telecom",
-          "5g",
-          "smartphone",
-          "app",
-          "cyber",
-          "data centre",
-          "data center"
-        ],
         "society": [
           "migration",
           "migrants",
@@ -1242,8 +1223,210 @@
           "fake",
           "scam alert",
           "quiz"
+        ],
+        "business": [
+          "company",
+          "startup",
+          "acquisition",
+          "merger",
+          "deal",
+          "revenue",
+          "profit",
+          "quarterly results",
+          "earnings",
+          "layoffs",
+          "ceo",
+          "conglomerate",
+          "adani",
+          "reliance",
+          "tata",
+          "infosys",
+          "tcs",
+          "wipro",
+          "airline",
+          "automaker",
+          "telecom",
+          "retail",
+          "e-commerce",
+          "antitrust",
+          "funding round",
+          "valuation"
+        ],
+        "technology": [
+          "tech",
+          "technology",
+          "ai",
+          "artificial intelligence",
+          "openai",
+          "anthropic",
+          "google",
+          "alphabet",
+          "microsoft",
+          "apple",
+          "meta",
+          "amazon",
+          "nvidia",
+          "amd",
+          "intel",
+          "tsmc",
+          "semiconductor",
+          "chip",
+          "chips",
+          "gpu",
+          "data centre",
+          "data center",
+          "smartphone",
+          "5g",
+          "6g",
+          "cyber",
+          "cybersecurity",
+          "hack",
+          "software",
+          "app",
+          "chatbot",
+          "robot",
+          "robotics",
+          "quantum computing",
+          "deepfake",
+          "social media",
+          "x corp",
+          "tiktok",
+          "jensen huang",
+          "sam altman"
+        ],
+        "science_space": [
+          "scientists",
+          "study finds",
+          "researchers",
+          "discovery",
+          "space",
+          "isro",
+          "nasa",
+          "esa",
+          "spacex",
+          "blue origin",
+          "rocket",
+          "launch",
+          "satellite",
+          "telescope",
+          "moon",
+          "lunar",
+          "mars",
+          "asteroid",
+          "orbit",
+          "astronaut",
+          "gaganyaan",
+          "chandrayaan",
+          "physics",
+          "genome",
+          "fossil",
+          "dinosaur",
+          "species",
+          "nobel"
+        ],
+        "health": [
+          "health",
+          "hospital",
+          "disease",
+          "virus",
+          "outbreak",
+          "vaccine",
+          "cancer",
+          "medicine",
+          "drug",
+          "fda",
+          "who",
+          "dengue",
+          "malaria",
+          "covid",
+          "tuberculosis",
+          "mental health",
+          "obesity",
+          "diabetes",
+          "heatstroke",
+          "doctors",
+          "patients",
+          "clinical trial"
         ]
       }
+    },
+    "google_news": {
+      "_doc": "Google News RSS, fetched by GitHub Actions alongside the publisher feeds. topics are Google's top-story sections. queries are searches for subjects you want covered every day. Links point to news.google.com and redirect to the publisher.",
+      "enabled": true,
+      "edition": {
+        "hl": "en-IN",
+        "gl": "IN",
+        "ceid": "IN:en"
+      },
+      "max_per_feed": 30,
+      "topics": [
+        {
+          "id": "WORLD",
+          "section": "world"
+        },
+        {
+          "id": "NATION",
+          "section": "india"
+        },
+        {
+          "id": "BUSINESS",
+          "section": "economy_markets"
+        },
+        {
+          "id": "TECHNOLOGY",
+          "section": "technology"
+        },
+        {
+          "id": "SCIENCE",
+          "section": "science_space"
+        },
+        {
+          "id": "HEALTH",
+          "section": "health"
+        }
+      ],
+      "queries": [
+        {
+          "q": "Nvidia",
+          "section": "technology"
+        },
+        {
+          "q": "OpenAI OR Anthropic OR \"Google DeepMind\"",
+          "section": "technology"
+        },
+        {
+          "q": "artificial intelligence policy",
+          "section": "technology"
+        },
+        {
+          "q": "semiconductor chips",
+          "section": "technology"
+        },
+        {
+          "q": "ISRO",
+          "section": "science_space"
+        },
+        {
+          "q": "SpaceX OR NASA OR \"space mission\"",
+          "section": "science_space"
+        },
+        {
+          "q": "Sensex Nifty",
+          "section": "economy_markets"
+        },
+        {
+          "q": "RBI",
+          "section": "economy_markets"
+        },
+        {
+          "q": "climate change",
+          "section": "climate_energy"
+        },
+        {
+          "q": "India foreign policy",
+          "section": "geopolitics"
+        }
+      ]
     }
   },
   "youtube": {

@@ -17,7 +17,7 @@ Northstar is a public, forkable personal discovery and growth companion. Claude 
 - **Parts, each on its own page:** daily = Research (papers, research updates, reading list), News (world radar by category), Exploration (discovery by type, shorts, language). Weekly, monthly and quarterly = Research, Knowledge, Exploration (`docs/how_it_works.md` §2).
 - **Papers:** read the code-ranked shortlist (`candidates arxiv --ranked`), judge each abstract against the rubric in `prompts/arxiv.md`, keep trending and notable papers that pass it. Abstracts copied word for word. Tags from the fixed `paper_tags` list only, never free-text reasons.
 - **Reading list:** at least 3 entries every week, kept current by the daily runs: must-reads for the user plus important trending papers, models, reports and methods.
-- **World Radar:** every item has a news `section`, at least 6 categories a day, markets every day.
+- **World Radar:** 12 to 20 explained items across at least 7 of 11 categories plus 15 to 30 one-line briefs. Markets, technology and explainers every day, with a Conversation explainer when available (`prompts/world.md`).
 - **Daily Discovery:** an established-tier podcast, a video, lecture or documentary, and at least one item per tier. Shorts: at least one per tier.
 - **Weekly:** items grouped by `section`. Required by load: research practice, questions, culture, and for normal weeks also things to know and people and self. Learning items have detailed steps and real resources (book chapters, lectures, blogs, papers).
 - **Monthly:** a research, a knowledge and an exploration deep dive (unless light), each a week-by-week syllabus with resources, and at least one growth item.

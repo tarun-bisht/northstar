@@ -16,6 +16,55 @@
       "items": {
         "$ref": "#/$defs/event"
       }
+    },
+    "briefs": {
+      "type": "array",
+      "maxItems": 40,
+      "description": "Also in the news: one-line headlines beyond the explained items, with links straight from the fetched candidates.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "url",
+          "source",
+          "section"
+        ],
+        "properties": {
+          "title": {
+            "$ref": "common.schema.json#/$defs/nonempty"
+          },
+          "url": {
+            "$ref": "common.schema.json#/$defs/url"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "section": {
+            "enum": [
+              "india",
+              "geopolitics",
+              "conflict_disaster",
+              "economy_markets",
+              "business",
+              "technology",
+              "science_space",
+              "health",
+              "climate_energy",
+              "society",
+              "explainers"
+            ]
+          },
+          "line": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "published": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "$defs": {
@@ -134,13 +183,17 @@
             "geopolitics",
             "conflict_disaster",
             "economy_markets",
-            "business_tech",
-            "science_health",
+            "business",
+            "technology",
+            "science_space",
+            "health",
             "climate_energy",
             "society",
-            "explainers"
+            "explainers",
+            "business_tech",
+            "science_health"
           ],
-          "description": "News category on the daily page (see prompts/world.md). Omit to derive it from topic and regions."
+          "description": "News category (prompts/world.md). business_tech and science_health are older values."
         }
       }
     }

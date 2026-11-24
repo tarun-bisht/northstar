@@ -22,7 +22,7 @@
     ],
     "youtube_shorts_target": 100,
     "max_research_updates": 8,
-    "max_world_items": 16,
+    "max_world_items": 20,
     "discovery_formats": {
       "_doc": "Rules for Daily Discovery and Shorts (validation enforces the 'required' ones).",
       "required": "every day: at least one podcast episode in the established tier; at least one video, lecture or documentary; at least one item in each tier (established, growth, exploration)",
@@ -31,8 +31,12 @@
       "videos": "verified links; YouTube IDs confirmed via oEmbed or the API"
     },
     "world_target": [
-      10,
-      16
+      12,
+      20
+    ],
+    "world_briefs_target": [
+      15,
+      30
     ]
   },
   "weekly": {

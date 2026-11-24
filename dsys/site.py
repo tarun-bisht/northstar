@@ -148,6 +148,7 @@ h1 .sub{display:block;font:400 1rem var(--sans);color:var(--ink-2);margin-top:.4
 .stream-h span,.sub-h span{font-weight:400;color:var(--ink-2)}
 .entry h4,.entry h5{font-family:var(--serif);font-size:1.12rem;margin:0 0 .3rem;font-weight:600;line-height:1.25}
 .tags .sep,.areas .sep{display:none}
+.also{margin:1rem 0 .2rem;font:700 .85rem var(--sans);color:var(--ink-2)}.briefs{margin:.2rem 0 1rem;padding-left:1.1rem}.briefs li{margin:.35rem 0;line-height:1.4}
 .shorts{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:1.2rem 1rem;margin-top:1rem}
 .short a.thumb{display:block;aspect-ratio:9/14;overflow:hidden;border-radius:6px;background:var(--paper-2)}
 .short img{width:100%;height:100%;object-fit:cover;display:block}
@@ -365,8 +366,10 @@ def _stream_block(s: str, doc: dict, date: str | None = None) -> str:
     elif s == "youtube_shorts":
         out.append('<div class="shorts">' + "".join(_short(it) for it in items) + "</div>")
     elif s == "world":
-        out += [_sub(f"news-{k}", label, len(its), "".join(_entry(s, it, "h5") for it in its))
-                for k, label, its in render.group_world(items)]
+        briefs = doc.get("briefs", [])
+        for k, label, its in render.group_world(items, briefs):
+            n = len(its) + sum(1 for b in briefs if render.world_section({"section": b["section"]}) == k)
+            out.append(_sub(f"news-{k}", label, n, "".join(_entry(s, it, "h5") for it in its) + render.world_briefs(briefs, k)))
     elif s == "discovery":
         out += [_sub(f"discover-{k}", label, len(its), "".join(_entry(s, it, "h5") for it in its))
                 for k, label, its in render.group_discovery(items)]
@@ -415,7 +418,9 @@ def _daily_part_page(site, date, streams, part, prev=None, nxt=None) -> str:
     toc = []
     for s in present:
         if s == "world":
-            toc += [f'<a href="#news-{k}">{esc(lab)}</a> <span>{len(its)}</span>' for k, lab, its in render.group_world(streams[s]["items"])]
+            br = streams[s].get("briefs", [])
+            toc += [f'<a href="#news-{k}">{esc(lab)}</a> <span>{len(its) + sum(1 for b in br if render.world_section({"section": b["section"]}) == k)}</span>'
+                    for k, lab, its in render.group_world(streams[s]["items"], br)]
         elif s == "discovery":
             toc += [f'<a href="#discover-{k}">{esc(lab)}</a> <span>{len(its)}</span>' for k, lab, its in render.group_discovery(streams[s]["items"])]
         else:

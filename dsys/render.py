@@ -207,20 +207,23 @@ WORLD_SECTIONS = [  # (key, label): news categories, shown in this order
     ("geopolitics", "Geopolitics and international relations"),
     ("conflict_disaster", "Conflicts and disasters"),
     ("economy_markets", "Economy, finance and markets"),
-    ("business_tech", "Business and technology"),
-    ("science_health", "Science and health"),
+    ("business", "Business and companies"),
+    ("technology", "Technology and AI"),
+    ("science_space", "Science and space"),
+    ("health", "Health"),
     ("climate_energy", "Climate, energy and environment"),
     ("society", "Society, demographics and migration"),
     ("explainers", "Explainers and analysis"),
 ]
 _TOPIC_SECTION = {"economics": "economy_markets", "finance": "economy_markets", "trade": "economy_markets",
-                  "business": "business_tech", "technology": "business_tech",
-                  "science": "science_health", "health": "science_health",
+                  "business": "business", "technology": "technology",
+                  "science": "science_space", "health": "health",
                   "environment": "climate_energy", "climate": "climate_energy", "energy": "climate_energy",
                   "society": "society", "culture": "society", "migration": "society", "demographics": "society",
                   "conflict": "conflict_disaster", "disaster": "conflict_disaster",
                   "geopolitics": "geopolitics", "international_relations": "geopolitics"}
-_OLD_SECTION = {"world": "geopolitics", "science_tech": "science_health"}
+_OLD_SECTION = {"world": "geopolitics", "science_tech": "science_space", "business_tech": "technology",
+                "science_health": "science_space"}
 
 
 def world_section(w: dict) -> str:
@@ -234,11 +237,23 @@ def world_section(w: dict) -> str:
     return _TOPIC_SECTION.get(w.get("topic"), "india" if india else "geopolitics")
 
 
-def group_world(items: list[dict]) -> list[tuple[str, str, list[dict]]]:
+def group_world(items: list[dict], briefs: list[dict] | None = None) -> list[tuple[str, str, list[dict]]]:
+    """Explained items by category. With briefs, categories that only have briefs are included too."""
     by: dict[str, list] = {}
     for w in items:
         by.setdefault(world_section(w), []).append(w)
-    return [(k, label, by[k]) for k, label in WORLD_SECTIONS if by.get(k)]
+    keys = set(by) | {_OLD_SECTION.get(b["section"], b["section"]) for b in (briefs or [])}
+    return [(k, label, by.get(k, [])) for k, label in WORLD_SECTIONS if k in keys]
+
+
+def world_briefs(briefs: list[dict], section: str) -> str:
+    """'Also in the news': one line per headline, linking straight to the article."""
+    rows = [b for b in briefs or [] if _OLD_SECTION.get(b["section"], b["section"]) == section]
+    if not rows:
+        return ""
+    return ("<p class='also'><strong>Also in the news</strong></p><ul class='briefs'>" + "".join(
+        f"<li>{a(b['url'], b['title'])} <span class='meta'>{esc(b['source'])}</span>"
+        + (f"<br/>{esc(b['line'])}" if b.get("line") else "") + "</li>" for b in rows) + "</ul>")
 
 
 # --- daily items ---------------------------------------------------------------

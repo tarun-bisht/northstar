@@ -11,6 +11,7 @@ import email.utils
 import html
 import functools
 import re
+import urllib.parse
 import xml.etree.ElementTree as ET
 
 from . import net
@@ -49,9 +50,19 @@ def parse(xml_text: str | bytes) -> list[dict]:
         if not link:
             g = it.find("guid")
             link = (g.text or "").strip() if g is not None and (g.text or "").startswith("http") else ""
-        out.append({"title": clean(it.findtext("title"), 200), "url": link,
-                    "published": _date(it.findtext("pubDate") or it.findtext("{http://purl.org/dc/elements/1.1/}date")),
-                    "summary": clean(it.findtext("description"))})
+        title = clean(it.findtext("title"), 220)
+        publisher = (it.findtext("source") or "").strip()  # Google News names the outlet here
+        if publisher and title.endswith(f" - {publisher}"):
+            title = title[: -len(publisher) - 3].rstrip()
+        summary = clean(it.findtext("description"))
+        if publisher and summary.startswith(title):  # Google News repeats the headline as the summary
+            summary = ""
+        row = {"title": title, "url": link,
+               "published": _date(it.findtext("pubDate") or it.findtext("{http://purl.org/dc/elements/1.1/}date")),
+               "summary": summary}
+        if publisher:
+            row["publisher"] = publisher
+        out.append(row)
     for e in root.iter(f"{ATOM}entry"):  # Atom
         link = ""
         for ln in e.findall(f"{ATOM}link"):
@@ -133,3 +144,20 @@ def merge_duplicates(items: list[dict], threshold: float = 0.34, min_shared: int
             out.append(dict(it))
             toks.append(t)
     return out
+
+
+def google_news_feeds(cfg: dict) -> list[dict]:
+    """Expand config world.google_news into feed entries (topic sections and searches)."""
+    g = cfg.get("google_news", {})
+    if not g.get("enabled"):
+        return []
+    ed = g.get("edition", {"hl": "en-IN", "gl": "IN", "ceid": "IN:en"})
+    tail = urllib.parse.urlencode(ed)
+    feeds = [{"name": f"Google News {t['id'].title()}", "section": t["section"],
+              "url": f"https://news.google.com/rss/headlines/section/topic/{t['id']}?{tail}"} for t in g.get("topics", [])]
+    feeds += [{"name": f"Google News: {q['q']}", "section": q["section"],
+               "url": f"https://news.google.com/rss/search?{urllib.parse.urlencode({'q': q['q'] + ' when:1d', **ed})}"}
+              for q in g.get("queries", [])]
+    for f in feeds:
+        f["max_items"] = int(g.get("max_per_feed", 30))
+    return feeds

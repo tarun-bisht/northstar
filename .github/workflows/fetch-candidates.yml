@@ -14,6 +14,10 @@ on:
         description: "Only refetch sources that failed earlier today"
         type: boolean
         default: false
+      kinds:
+        description: "Which sources to fetch: all, or a comma list of arxiv,news,youtube"
+        type: string
+        default: "all"
 
 permissions:
   contents: write
@@ -40,6 +44,7 @@ jobs:
             echo "flag=" >> "$GITHUB_OUTPUT"
           fi
       - name: arXiv, Hugging Face, alphaXiv (weekdays)
+        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'arxiv') }}
         run: |
           if [ "$(TZ=Asia/Kolkata date +%u)" -gt 5 ]; then echo "weekend: skip arXiv"; exit 0; fi
           python scripts/fetch_candidates.py arxiv ${{ steps.mode.outputs.flag }}
@@ -49,6 +54,7 @@ jobs:
             python scripts/fetch_candidates.py arxiv --retry-failed
           fi
       - name: News headlines (every day)
+        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'news') }}
         run: |
           python scripts/fetch_candidates.py news ${{ steps.mode.outputs.flag }}
           if python -c "import json,sys,datetime as d,zoneinfo as z;f='candidates/news/'+d.datetime.now(z.ZoneInfo('Asia/Kolkata')).date().isoformat()+'.json';sys.exit(0 if json.load(open(f)).get('failed_sources') else 1)"; then
@@ -56,6 +62,7 @@ jobs:
             python scripts/fetch_candidates.py news --retry-failed
           fi
       - name: YouTube (only if YOUTUBE_API_KEY secret is set)
+        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'youtube') }}
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python scripts/fetch_candidates.py youtube ${{ steps.mode.outputs.flag }}

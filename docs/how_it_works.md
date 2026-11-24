@@ -44,7 +44,7 @@ Feed HTML is plain and semantic: folded sections are opened, and tags are separa
 | arXiv API, one call per category (rss.arxiv.org fallback) | new papers, with comments (venue, code) | `candidates/arxiv/<date>.json` |
 | Hugging Face Daily Papers | community upvotes | same file (`hf_upvotes`) |
 | alphaXiv trending | papers becoming widely discussed (`alphaxiv_votes`) | same file |
-| about 25 publisher RSS feeds (BBC, The Hindu, Indian Express, Mint, The Economic Times, CNBC, The Guardian, Al Jazeera, NPR, The Conversation, RBI and more) | headlines with summaries | `candidates/news/<date>.json` |
+| about 30 publisher RSS feeds (BBC, The Hindu, Indian Express, Mint, The Economic Times, CNBC, The Guardian, Al Jazeera, NPR, The Conversation in five editions, RBI and more) plus Google News (top stories by section, and searches such as Nvidia, AI, chips, ISRO, SpaceX) | headlines with summaries | `candidates/news/<date>.json` |
 | YouTube Data API (needs the `YOUTUBE_API_KEY` secret) | short videos | `candidates/youtube/<date>.json` |
 
 Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 06:50 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them. Runs fall back to web search for anything still missing and say so in `notes`.
@@ -65,7 +65,12 @@ Reading thousands of abstracts, or any PDFs, is not possible in a run. So:
 
 ## 6. Choosing news
 
-Every headline is categorized in code (`dsys/news.py`, keywords in `config/sources.json → world.categories`) into India, geopolitics, conflicts and disasters, economy and markets, business and tech, science and health, climate and energy, society, explainers, or "other" (sport, celebrity, local notices). Headlines about the same event are merged, with the other outlets in `also_in`. The run reads every category, keeps 10 to 16 items across at least 6 categories, always includes markets, and assigns each item its final category (`prompts/world.md`).
+Every headline is categorized in code (`dsys/news.py`, keywords in `config/sources.json → world.categories`) into 11 categories: India, geopolitics, conflicts and disasters, economy and markets, business, technology and AI, science and space, health, climate and energy, society, and explainers. Sport, celebrity and local notices go to "other". Headlines about the same event are merged, with the other outlets in `also_in`. The run reads every category and writes two layers (`prompts/world.md`):
+
+- **Explained items:** 12 to 20 stories worth understanding, across at least 7 categories, each with what happened, why it matters, context and what to watch.
+- **Briefs:** 15 to 30 one-line headlines linking straight to the article, so other notable stories are not missed.
+
+Markets, technology and explainers appear every day, with at least one explainer from The Conversation when its feeds have something relevant.
 
 ## 7. What is never done (vision §2 and §17)
 

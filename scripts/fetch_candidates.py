@@ -130,7 +130,7 @@ def fetch_arxiv(repo, day: dt.date, retry_failed: bool = False) -> int:
 def fetch_news(repo, day: dt.date, retry_failed: bool = False) -> int:
     """Headlines from config/sources.json -> world.feeds into candidates/news/<date>.json."""
     cfg = repo.config("sources").get("world", {})
-    feeds = cfg.get("feeds", [])
+    feeds = cfg.get("feeds", []) + news.google_news_feeds(cfg)
     path = repo.p("candidates", "news", f"{day.isoformat()}.json")
     prev = load_json(path) if path.exists() else {}
     if retry_failed and prev:
@@ -144,11 +144,12 @@ def fetch_news(repo, day: dt.date, retry_failed: bool = False) -> int:
     errors, failed, counts = [], [], {}
     for f in feeds:
         try:
-            got = news.select_recent(news.fetch(f["url"]), now, int(cfg.get("lookback_hours", 36)))
-            got = got[: int(cfg.get("max_per_feed", 40))]
+            got = news.select_recent(news.fetch(f["url"]), now, int(f.get("lookback_hours", cfg.get("lookback_hours", 36))))
+            got = got[: int(f.get("max_items", cfg.get("max_per_feed", 40)))]
             counts[f["name"]] = len(got)
             for x in got:
-                by_url.setdefault(x["url"], {**x, "source": f["name"], "section": f.get("section", "world")})
+                by_url.setdefault(x["url"], {**x, "source": x.pop("publisher", None) or f["name"], "feed": f["name"],
+                                             "section": f.get("section", "world")})
         except Exception as e:  # keep going; record the failure for --retry-failed
             errors.append(f"{f['name']}: {e}")
             failed.append(f["name"])

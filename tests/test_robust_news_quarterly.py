@@ -326,3 +326,43 @@ def test_config_warns_when_interest_has_no_coverage(repo):
     repo.p("config", "interests.json").write_text(json.dumps(cfg))
     _, warnings = check(repo)
     assert any("quantum machine learning" in w for w in warnings)
+
+
+GNEWS = """<?xml version="1.0"?><rss version="2.0"><channel>
+<item><title>Nvidia shares slide after record run - Reuters</title><link>https://news.google.com/rss/articles/abc</link>
+<pubDate>Wed, 25 Nov 2026 01:00:00 GMT</pubDate><description>&lt;a href="x"&gt;Nvidia shares slide after record run&lt;/a&gt; Reuters</description>
+<source url="https://www.reuters.com">Reuters</source></item></channel></rss>"""
+
+
+def test_google_news_parse_and_feeds():
+    [x] = news.parse(GNEWS)
+    assert x["title"] == "Nvidia shares slide after record run" and x["publisher"] == "Reuters" and x["summary"] == ""
+    cfg = load_json(ROOT / "config" / "sources.json")["world"]
+    feeds = news.google_news_feeds(cfg)
+    assert any("topic/TECHNOLOGY" in f["url"] and f["section"] == "technology" for f in feeds)
+    assert any("q=Nvidia+when%3A1d" in f["url"] for f in feeds)
+    cat = news.categorize({"title": "Nvidia unveils new AI chip", "section": "world"}, cfg)
+    assert cat == "technology"
+    assert news.categorize({"title": "ISRO readies next Gaganyaan test launch", "section": "india"}, cfg) == "science_space"
+
+
+def test_world_briefs_merge_and_render(repo, tmp_path):
+    import subprocess, sys
+    p = tmp_path / "w.json"
+    p.write_text(json.dumps({"items": [], "briefs": [
+        {"title": "Nvidia shares slide", "url": "https://example.com/n", "source": "Reuters", "section": "technology",
+         "line": "Chip stocks fell with it."}]}))
+    from dsys.cli import main
+    import os
+    os.environ["DSYS_ROOT"] = str(repo.root)
+    try:
+        assert main(["daily", "merge", "world", "--date", "2026-11-25", "--items", str(p)]) == 0
+        assert main(["daily", "merge", "world", "--date", "2026-11-25", "--items", str(p)]) == 0  # no duplicates
+    finally:
+        os.environ.pop("DSYS_ROOT")
+    doc = load_json(repo.daily_path("world", "2026-11-25"))
+    assert len(doc["briefs"]) == 1
+    assert validate_repo(repo).ok, validate_repo(repo).errors
+    html = render.world_briefs(doc["briefs"], "technology")
+    assert "Also in the news" in html and "Reuters" in html
+    assert render.group_world([], doc["briefs"])[0][0] == "technology"

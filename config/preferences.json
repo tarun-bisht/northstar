@@ -16,18 +16,17 @@
   "daily": {
     "arxiv_weekdays_only": true,
     "complements_existing_newsletter": true,
-    "discovery_target": [
-      5,
-      8
+    "youtube_shorts_target": [
+      30,
+      40
     ],
-    "youtube_shorts_target": 100,
     "max_research_updates": 8,
     "max_world_items": 20,
     "discovery_formats": {
       "_doc": "Rules for Daily Discovery and Shorts (validation enforces the 'required' ones).",
-      "required": "every day: at least one podcast episode in the established tier; at least one video, lecture or documentary; at least one item in each tier (established, growth, exploration)",
-      "shorts": "at least one short video in each tier",
-      "podcasts": "link to the specific episode page, not the show",
+      "required": "every day: at least one podcast episode and at least one video, lecture or documentary; at least one item in each tier (established, growth, exploration). The rest is free: entertainment, free-time interests, reads, no fixed number",
+      "shorts": "30 to 40 videos a day, at least one in each tier",
+      "podcasts": "link to the specific episode page, not the show; add audio_url (the episode's audio file from the show's RSS feed) when you have it, so it plays on the page",
       "videos": "verified links; YouTube IDs confirmed via oEmbed or the API"
     },
     "world_target": [
@@ -41,8 +40,8 @@
   },
   "weekly": {
     "typical_item_count": [
-      8,
-      14
+      14,
+      22
     ],
     "include_progressive_hints_for_problems": true,
     "making_frequency": "occasional",
@@ -51,8 +50,8 @@
   },
   "monthly": {
     "typical_item_count": [
-      2,
-      4
+      4,
+      6
     ],
     "max_scope": "one month; split anything larger into a one-month milestone"
   },

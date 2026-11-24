@@ -457,12 +457,13 @@ def _daily_overview(site, date, streams, prev=None, nxt=None) -> str:
 
 
 def _period_pages(out: Path, site: dict, kind: str, key: str, title: str, overview_html: str,
-                  part_html: dict[str, str], counts: dict[str, int]) -> None:
+                  part_html: dict[str, str], counts: dict[str, int], part_list=None) -> None:
     """<kind>/<key>/index.html plus one page per part, all sharing the same tabs."""
-    parts = [(k, label, counts.get(k, 0)) for k, label in render.PERIOD_PARTS]
+    part_list = part_list or render.QUARTERLY_PARTS
+    parts = [(k, label, counts.get(k, 0)) for k, label in part_list]
     _write(out / kind / key / "index.html",
            page(site, title, f"<div class='col'><h1>{esc(title)}</h1>{_part_tabs(parts, None, '')}{overview_html}</div>", 2, kind))
-    for k, label in render.PERIOD_PARTS:
+    for k, label in part_list:
         _write(out / kind / key / f"{k}.html",
                page(site, f"{label}, {title}", f"<div class='col'><h1>{esc(label)}<span class='sub'>{esc(title)}</span></h1>"
                     f"{_part_tabs(parts, k, '')}{part_html.get(k) or '<p class=empty>Nothing in this part.</p>'}</div>", 2, kind))
@@ -471,23 +472,52 @@ def _period_pages(out: Path, site: dict, kind: str, key: str, title: str, overvi
            f'<link rel="canonical" href="{key}/index.html"><a href="{key}/index.html">{esc(title)}</a>')
 
 
-def _weekly_overview(w: dict) -> str:
-    out = [f'<p class="lede">{esc(w["intro"])}</p>']
-    for k, label in render.PERIOD_PARTS:
-        its = [it for it in w["items"] if render.weekly_part(it) == k]
-        if its:
-            out.append(f"<h2><a href='{k}.html'>{esc(label)}</a></h2><ul>" + "".join(
-                f"<li><a href='{k}.html#{render.weekly_section(it)}'>{esc(it['title'])}</a></li>" for it in its) + "</ul>")
+def _weekly_counts(w: dict | None, r: dict | None) -> dict[str, int]:
+    c = {k: sum(1 for it in (w or {}).get("items", []) if render.weekly_part(it) == k) for k, _ in render.WEEKLY_PARTS}
+    c["papers"] = len((r or {}).get("papers", []))
+    c["languages"] = len((w or {}).get("language", {}).get("lessons", []))
+    return c
+
+
+def _weekly_overview(w: dict | None, r: dict | None) -> str:
+    out = [f'<p class="lede">{esc(w["intro"])}</p>'] if w else []
+    if r and r.get("papers"):
+        out.append("<h2><a href='papers.html'>Papers of the week</a></h2><ul>" + "".join(
+            f"<li>{a(p['url'], p['title'])}</li>" for p in r["papers"][:5]) + "</ul>")
+    if w:
+        for k, label in render.WEEKLY_PARTS[1:4]:
+            its = [it for it in w["items"] if render.weekly_part(it) == k]
+            if its:
+                out.append(f"<h2><a href='{k}.html'>{esc(label)}</a></h2><ul>" + "".join(
+                    f"<li><a href='{k}.html#{render.item_subject(it) if k == 'knowledge' else render.weekly_section(it)}'>"
+                    f"{esc(it['title'])}</a></li>" for it in its) + "</ul>")
+        ls = w.get("language", {}).get("lessons", [])
+        if ls:
+            out.append("<h2><a href='languages.html'>Languages</a></h2><ul>" + "".join(
+                f"<li><a href='languages.html'>{esc(x['language'].capitalize())}: {esc(x['title'])}</a></li>" for x in ls) + "</ul>")
     return "".join(out)
+
+
+def _monthly_counts(m: dict) -> dict[str, int]:
+    c = {k: sum(1 for pj in m["items"] if render.monthly_part(pj) == k) for k, _ in render.MONTHLY_PARTS}
+    c["knowledge"] += len(m.get("challenges", []))
+    c["languages"] = len(m.get("language", {}).get("plans", []))
+    return c
 
 
 def _monthly_overview(m: dict) -> str:
     out = [f'<p class="lede">{esc(m["intro"])}</p>']
-    for k, label in render.PERIOD_PARTS:
-        pjs = [pj for pj in m["items"] if render.monthly_section(pj) == k]
-        if pjs:
-            out.append(f"<h2><a href='{k}.html'>{esc(label)}</a></h2><ul>" + "".join(
-                f"<li><a href='{k}.html'>{esc(pj['title'])}</a></li>" for pj in pjs) + "</ul>")
+    for k, label in render.MONTHLY_PARTS[:3]:
+        lis = [f"<li><a href='{k}.html#{render.monthly_section(pj)}'>{esc(pj['title'])}</a></li>"
+               for pj in m["items"] if render.monthly_part(pj) == k]
+        if k == "knowledge" and m.get("challenges"):
+            lis.append(f"<li><a href='knowledge.html#challenges'>{len(m['challenges'])} challenge problems</a></li>")
+        if lis:
+            out.append(f"<h2><a href='{k}.html'>{esc(label)}</a></h2><ul>" + "".join(lis) + "</ul>")
+    pls = m.get("language", {}).get("plans", [])
+    if pls:
+        out.append("<h2><a href='languages.html'>Languages</a></h2><ul>" + "".join(
+            f"<li><a href='languages.html'>{esc(p['language'].capitalize())} plan</a></li>" for p in pls) + "</ul>")
     return "".join(out)
 
 
@@ -511,32 +541,31 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
     for i, (date, streams) in enumerate(daily.items()):
         nxt = dates[i - 1] if i > 0 else None
         prev = dates[i + 1] if i + 1 < len(dates) else None
-        st = _with_reading(streams, reading_by_week.get(iso_week(dt.date.fromisoformat(date))))
+        st = streams
         _write(out / "daily" / date / "index.html", _daily_overview(site, date, st, prev, nxt))
         for key, _, _ in _daily_parts(st):
             _write(out / "daily" / date / f"{key}.html", _daily_part_page(site, date, st, key, prev, nxt))
         _write(out / "daily" / f"{date}.html", f'<!doctype html><meta http-equiv="refresh" content="0; url={date}/index.html">'
                f'<a href="{date}/index.html">{date}</a>')
 
-    for r in readings:
+    for r in readings:  # old reading-list URLs point at the weekly papers page
         _write(out / "reading" / f"{r['week']}.html",
-               page(site, f"Reading list {r['week']}", f"<div class='col'><h1>Reading list, week of "
-                    f"{render.nice_date(r['start_date'])}</h1>{render.reading_list(r)}</div>", 1, "reading"))
-    _write(out / "reading" / "index.html", page(site, "Reading lists", "<div class='col'><h1>Reading lists</h1></div>" + (
-        "<ul class='days'>" + "".join(f"<li>{a(r['week'] + '.html', 'Week of ' + render.nice_date(r['start_date'], True))}"
-                                      f"<span class='meta'>{len(r['papers'])} papers</span></li>" for r in readings) + "</ul>"
-        if readings else "<p class='empty'>Nothing yet.</p>"), 1, "reading"))
+               f'<!doctype html><meta http-equiv="refresh" content="0; url=../weekly/{r["week"]}/papers.html">'
+               f'<a href="../weekly/{r["week"]}/papers.html">Papers of the week</a>')
     weeks = sorted((load_json(f) for f in repo.iter_stream_files("weekly")), key=lambda d: d["week"], reverse=True)
     months = sorted((load_json(f) for f in repo.iter_stream_files("monthly")), key=lambda d: d["month"], reverse=True)
-    for w in weeks:
-        counts = {k: sum(1 for it in w["items"] if render.weekly_part(it) == k) for k, _ in render.PERIOD_PARTS}
-        _period_pages(out, site, "weekly", w["week"], f"Week of {render.nice_date(w['start_date'], True)}",
-                      _weekly_overview(w), {k: render.weekly_package(w, k) for k, _ in render.PERIOD_PARTS}, counts)
+    week_by_key = {w["week"]: w for w in weeks}
+    for wk in sorted(set(week_by_key) | set(reading_by_week), reverse=True):
+        w, r = week_by_key.get(wk), reading_by_week.get(wk)
+        start = (w or r)["start_date"]
+        _period_pages(out, site, "weekly", wk, f"Week of {render.nice_date(start, True)}", _weekly_overview(w, r),
+                      {k: render.weekly_package(w, k, r) for k, _ in render.WEEKLY_PARTS}, _weekly_counts(w, r),
+                      render.WEEKLY_PARTS)
     for m in months:
         label = dt.date.fromisoformat(m["month"] + "-01").strftime("%B %Y")
-        counts = {k: sum(1 for pj in m["items"] if render.monthly_section(pj) == k) for k, _ in render.PERIOD_PARTS}
         _period_pages(out, site, "monthly", m["month"], label, _monthly_overview(m),
-                      {k: render.monthly_package(m, k) for k, _ in render.PERIOD_PARTS}, counts)
+                      {k: render.monthly_package(m, k) for k, _ in render.MONTHLY_PARTS}, _monthly_counts(m),
+                      render.MONTHLY_PARTS)
 
     def plist(items, href, label_fn):
         if not items:
@@ -545,6 +574,7 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
             f"<li>{a(href(x), label_fn(x))}<span class='meta'>{len(x['items'])} "
             f"{'things' if len(x['items']) != 1 else 'thing'}</span></li>" for x in items) + "</ul>"
 
+    _write(out / "reading" / "index.html", '<!doctype html><meta http-equiv="refresh" content="0; url=../weekly/index.html">')
     _write(out / "weekly" / "index.html", page(site, "Weekly", "<div class='col'><h1>Weekly</h1></div>"
            + (plist(weeks, lambda w: f"{w['week']}/index.html", lambda w: f"Week of {render.nice_date(w['start_date'], True)}")
               or "<p class='empty'>The first package arrives on Saturday morning.</p>"), 1, "weekly"))
@@ -555,9 +585,9 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
 
     quarters = sorted((load_json(f) for f in repo.iter_stream_files("quarterly")), key=lambda d: d["quarter"], reverse=True)
     for q in quarters:
-        counts = {k: len(q["parts"][k]["topics"]) for k, _ in render.PERIOD_PARTS}
+        counts = {k: len(q["parts"][k]["topics"]) for k, _ in render.QUARTERLY_PARTS}
         _period_pages(out, site, "quarterly", q["quarter"], f"{q['quarter']} review", render.quarterly_review(q),
-                      {k: render.quarterly_review(q, k) for k, _ in render.PERIOD_PARTS}, counts)
+                      {k: render.quarterly_review(q, k) for k, _ in render.QUARTERLY_PARTS}, counts)
     _write(out / "quarterly" / "index.html", page(site, "Quarterly", "<div class='col'><h1>Quarterly reviews</h1></div>"
            + ("<ul class='days'>" + "".join(f"<li>{a(q['quarter'] + '/index.html', q['quarter'] + ' review')}"
                                              f"<span class='meta'>{sum(len(p['topics']) for p in q['parts'].values())} topics</span></li>" for q in quarters) + "</ul>"
@@ -611,13 +641,12 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
          f'<figure style="margin:0">{instrument_svg(counts, quiet)}</figure></section>']
     buttons = [(f"daily/{latest}/{k}.html", label) for k, label, _ in render.DAILY_PARTS] if latest else []
     buttons += [("weekly/index.html", "Weekly"), ("monthly/index.html", "Monthly"), ("quarterly/index.html", "Quarterly"),
-                ("archive.html", "Archive"), ("vision.html", "Vision"), ("docs.html", "How it works")]
+                ("archive.html", "Archive"), ("docs.html", "How it works")]
     b.append('<nav class="buttons" aria-label="Sections">' + "".join(
         f'<a class="btn" href="{h}">{t}</a>' for h, t in buttons) + "</nav>")
 
     if latest:
-        rl = next((r for r in readings if r["week"] == iso_week(day)), None)
-        st = _with_reading(daily[latest], rl)
+        st = daily[latest]
         b.append(f"<h2>{a(f'daily/{latest}/index.html', long_date(latest))}</h2><div class='today'>")
         for key, label, names in render.DAILY_PARTS:
             blocks = []
@@ -635,14 +664,14 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
     plan = []
     for kind, docs, label_fn, part_fn in (
             ("weekly", weeks, lambda d: f"Week of {render.nice_date(d['start_date'])}", render.weekly_part),
-            ("monthly", months, lambda d: dt.date.fromisoformat(d["month"] + "-01").strftime("%B"), render.monthly_section)):
+            ("monthly", months, lambda d: dt.date.fromisoformat(d["month"] + "-01").strftime("%B"), render.monthly_part)):
         if not docs:
             continue
         d = docs[0]
         key = d.get("week") or d["month"]
         lis = "".join(f"<li><strong>{a(f'{kind}/{key}/{k}.html', lab)}</strong>: "
-                      + esc(", ".join(it["title"] for it in d["items"] if part_fn(it) == k) or "nothing this time") + "</li>"
-                      for k, lab in render.PERIOD_PARTS)
+                      + esc(", ".join(it["title"] for it in d["items"] if part_fn(it) == k) or "see the page") + "</li>"
+                      for k, lab in (render.WEEKLY_PARTS[1:4] if kind == "weekly" else render.MONTHLY_PARTS[:3]))
         plan.append(f"<div><h2>{a(f'{kind}/{key}/index.html', label_fn(d))}</h2><ul class='plain'>{lis}</ul></div>")
     if plan:
         b.append("<div class='plan'>" + "".join(plan) + "</div>")
@@ -653,9 +682,9 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
         return (f"<li><span class='fname'>{esc(title)}</span>"
                 f"<input readonly value='{esc(url)}' aria-label='{esc(title)} feed URL' onclick='this.select()'>"
                 f"<button type='button' data-copy='{esc(url)}'>Copy</button></li>")
-    groups = [("Daily", ["research", "news", "exploration", "reading"]),
-              ("Weekly", ["weekly-research", "weekly-knowledge", "weekly-exploration"]),
-              ("Monthly", ["monthly-research", "monthly-knowledge", "monthly-exploration"]),
+    groups = [("Daily", ["research", "news", "exploration", "languages"]),
+              ("Weekly", ["reading", "weekly-research", "weekly-knowledge", "weekly-exploration", "weekly-languages"]),
+              ("Monthly", ["monthly-research", "monthly-knowledge", "monthly-exploration", "monthly-languages"]),
               ("Quarterly", ["quarterly-research", "quarterly-knowledge", "quarterly-exploration"])]
     b.append("<h2>RSS feeds</h2>")
     for label, keys in groups:

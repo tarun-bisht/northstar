@@ -8,7 +8,7 @@ arXiv, YouTube, web search or Claude; those integrations are only tested with mo
 import json
 import xml.etree.ElementTree as ET
 
-from conftest import LESSON, PLAN, activity, fill_sections, language_pack, paper, project, shorts_day, video
+from conftest import LESSON, PLAN, activity, challenges, fill_sections, language_pack, paper, project, shorts_day, video
 from dsys.cli import main
 from dsys.core import load_json, write_json
 from dsys.site import build_site
@@ -122,7 +122,7 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
         "intro": "Optional depth.", "items": [project("m-2026-12-photo", title="A small photo series", kind="user_idea",
                                                       origin="user_idea", idea_id="idea-learn-photography",
                                                       modes=["learn", "create"], dimensions=["culture"])],
-        "language": {"plans": [PLAN]}})
+        "challenges": challenges("2026-12"), "language": {"plans": [PLAN]}})
     run("ideas", "drop", "idea-seed-tides", "--note", "not now", "--date", "2026-12-01")
 
     # 7. quarterly draft: stats and topics by part, no percentages

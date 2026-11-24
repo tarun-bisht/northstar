@@ -2,14 +2,14 @@
 
 Read `prompts/_shared.md` first.
 
-**Purpose:** a scrollable feed of short videos (target ~100 a day, **not a quota**) covering all dimensions: informative, entertaining, insightful, creative, fascinating. Better 40 great ones than 100 with filler.
+**Purpose:** a scrollable feed of short videos (**30 to 40 a day**, `preferences.daily.youtube_shorts_target`) covering all dimensions: informative, entertaining, insightful, creative, fascinating. Better 30 great ones than 40 with filler. They play on the page.
 
 ## Legitimate access only
 
 - **Preferred:** candidates fetched by GitHub Actions via the YouTube Data API v3 (`candidates/youtube/<date>.json`, needs the `YOUTUBE_API_KEY` repository secret). These have real IDs, titles, channels, durations and dates.
 - **Fallback (no API key):** use web search to find specific Shorts, then verify each id through oEmbed:
   `https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=<ID>`.
-  oEmbed confirms the video exists and gives title and channel name; it does **not** give duration, date or Shorts status. Leave those fields out, and use `format: "unknown"`. Expect far fewer than 100 videos per day in fallback mode, and say so in `notes`.
+  oEmbed confirms the video exists and gives title and channel name; it does **not** give duration, date or Shorts status. Leave those fields out, and use `format: "unknown"`. Expect fewer than 30 videos per day in fallback mode, and say so in `notes`.
 - Never scrape YouTube HTML, and never construct or guess video ids.
 
 ## Steps

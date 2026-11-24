@@ -14,14 +14,15 @@ Northstar is a public, forkable personal discovery and growth companion. Claude 
 
 ## Enforced content rules
 
-- **Parts, each on its own page:** daily = Research (papers, research updates, reading list), News (world radar by category), Exploration (discovery by type, shorts, language). Weekly, monthly and quarterly = Research, Knowledge, Exploration (`docs/how_it_works.md` §2).
+- **Parts, each on its own page and feed:** daily = Research, News, Exploration, Languages. Weekly = Papers of the week, Research, Knowledge, Exploration, Languages. Monthly = Research, Knowledge, Exploration, Languages. Quarterly = Research, Knowledge, Exploration (`docs/how_it_works.md` §2).
 - **Papers:** read the code-ranked shortlist (`candidates arxiv --ranked`), judge each abstract against the rubric in `prompts/arxiv.md`, keep trending and notable papers that pass it. Abstracts copied word for word. Tags from the fixed `paper_tags` list only, never free-text reasons.
-- **Reading list** (`reading.xml`): at least 3 entries every week in two groups, *For you* and *Trending this week* (`candidates arxiv --trending-week`), kept current by the daily runs.
+- **Papers of the week** (`reading.xml`, a weekly part): at least 3 entries every week in up to three groups, *For you*, *Trending this week* (`candidates arxiv --trending-week`) and *From leading groups*, kept current by the daily runs.
 - **World Radar:** 12 to 20 explained items across at least 7 of 12 categories (including leadership changes) plus 15 to 30 one-line briefs. Markets, technology and explainers every day, with a Conversation explainer when available (`prompts/world.md`).
-- **Daily Discovery:** an established-tier podcast, a video, lecture or documentary, and at least one item per tier. Shorts: at least one per tier.
-- **Weekly:** all six pillars of development every normal week, items grouped by `section`, at least 2 maths and 2 physics questions (`subject`), exploration the largest part. Learning items have detailed steps and real resources (book chapters, lectures, blogs, papers).
-- **Monthly:** a research, a knowledge and an exploration deep dive (unless light), the exploration one rotating through people, culture and making; each a week-by-week syllabus with resources, and at least one growth item.
+- **Daily Discovery:** at least one podcast and one video, lecture or documentary, at least one item per tier, the rest free. Shorts: 30 to 40, at least one per tier.
+- **Weekly:** all six pillars every normal week. Research = Fundamentals + New in AI. Knowledge grouped by `subject`: maths and physics always plus topics in 5 to 6 rotating subjects, each with a study plan (`steps`) and real resources, and approachable questions (at least 2 maths and 2 physics). Curiosities live in Exploration, the largest part.
+- **Monthly:** New in AI, Fundamentals, knowledge and exploration deep dives (unless light), the exploration one rotating through people, culture and making; each a week-by-week syllabus with resources, at least one growth item, and hard `challenges` (at least 2 maths, 2 physics, 4 other subjects) with real sources.
 - **Quarterly:** `quarterly draft` fills the numbers and topics. Write only the short summaries and one-line abouts.
+- **Links:** never add a URL you haven't seen in a search result or fetched page. External links open in a new tab.
 - **Writing:** plain simple English, short, main point first, no semicolons or em dashes.
 - **Languages** (`config/languages.json`): a 5-minute pack every day (current focus), a lesson per language every week, a plan per language every month.
 
@@ -34,7 +35,7 @@ Northstar is a public, forkable personal discovery and growth companion. Claude 
 | "Recommend me…", "I want to try…" | `prompts/on_demand_recommendations.md`, then `prompts/inbox.md` to record it |
 | User shares interests, projects, trips, how busy they are | `prompts/update_interests.md` |
 | Feedback on a week or month | `prompts/feedback.md` |
-| Weekly paper reading list | `prompts/reading_list.md` |
+| Papers of the week | `prompts/reading_list.md` |
 | Language lessons, packs, plans | `prompts/language.md` |
 | "Let's practise Japanese", "quiz me" | `prompts/language_practice.md` |
 

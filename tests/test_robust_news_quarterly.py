@@ -264,17 +264,46 @@ def test_weekly_and_monthly_section_rules():
     assert "culture" in errs[0] and any("physics" in e for e in errs)
     doc["items"] += [{"category": "making", "section": "culture"}, {"category": "question", "subject": "physics"}]
     assert weekly_section_errors(doc) == []
-    normal = {"load": "normal", "items": doc["items"] + [{"section": "things_to_know"}, {"section": "people_self"},
-              {"category": "question", "subject": "probability"}, {"category": "question", "subject": "physics"}]}
-    assert any("pillar" in e for e in weekly_section_errors(normal))
+    normal = {"load": "normal", "items": doc["items"] + [{"section": "curiosities"}, {"section": "people_self"},
+              {"category": "question", "subject": "probability"}, {"category": "question", "subject": "physics"},
+              {"category": "ai_study"}]}
+    errs = weekly_section_errors(normal)
+    assert any("pillar" in e for e in errs) and any("besides maths and physics" in e for e in errs)
+    normal["items"] += [{"section": "knowledge", "subject": s} for s in ("history", "philosophy", "biology", "economics", "art")]
     for it, d in zip(normal["items"], ["research", "knowledge", "culture", "knowledge", "knowledge", "people", "world", "curiosity"]):
         it["dimensions"] = [d]
     assert weekly_section_errors(normal) == []
-    assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}]})
-    assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}, {"kind": "non_ai_deep_dive"}]})
-    assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}, {"kind": "non_ai_deep_dive"},
-                                                               {"kind": "hobby_skill"}]}) == []
-    assert monthly_section_errors({"load": "light", "items": [{"kind": "hobby_skill"}]}) == []
+    cs = [{"subject": s} for s in ("maths", "probability", "physics", "physics", "history", "biology", "chemistry", "art")]
+    assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}], "challenges": cs})
+    full = [{"kind": "ai_deep_dive"}, {"section": "fundamentals"}, {"kind": "non_ai_deep_dive"}, {"kind": "hobby_skill"}]
+    assert any("challenges" in e for e in monthly_section_errors({"load": "normal", "items": full, "challenges": cs[:4]}))
+    assert monthly_section_errors({"load": "normal", "items": full, "challenges": cs}) == []
+    assert monthly_section_errors({"load": "light", "items": [{"kind": "ai_deep_dive"}], "challenges": [cs[0], cs[2]]}) == []
+
+
+def test_weekly_knowledge_by_subject_and_monthly_challenges():
+    w = {"intro": "i", "start_date": "2026-11-30", "end_date": "2026-12-06", "load": "normal", "items": [
+        {"id": "a", "title": "Rome falls", "section": "knowledge", "subject": "history", "category": "new_knowledge",
+         "description": "d", "why": "w", "time_estimate": "1-2h", "origin": "system", "steps": ["s1", "s2", "s3"]},
+        {"id": "b", "title": "A spring", "section": "questions", "subject": "physics", "category": "question",
+         "description": "d", "why": "w", "time_estimate": "10-30m", "origin": "system", "solution": "x = 2"}]}
+    html = render.weekly_package(w, "knowledge")
+    assert html.index("Physics") < html.index("History") and "<summary>Solution</summary>" in html
+    m = {"intro": "i", "load": "normal", "items": [], "challenges": [
+        {"id": "c", "subject": "maths", "title": "Sum", "question": "Prove.", "source": "Putnam 2004 B2", "level": "olympiad",
+         "source_url": "https://example.org/p"}]}
+    html = render.monthly_package(m, "knowledge")
+    assert "Challenge problems" in html and 'target="_blank"' in html
+    assert render.monthly_package(m, "research").count("Challenge") == 0
+
+
+def test_media_embeds_and_new_tab_links():
+    assert 'target="_blank"' in render.a("https://example.org") and "target" not in render.a("index.html")
+    assert "youtube.com/embed/abcDEF12345" in render.media_embed("https://www.youtube.com/watch?v=abcDEF12345")
+    assert "open.spotify.com/embed/episode/xyz" in render.media_embed("https://open.spotify.com/episode/xyz")
+    assert "embed.podcasts.apple.com/us/podcast" in render.media_embed("https://podcasts.apple.com/us/podcast/x/id1")
+    assert "<audio" in render.media_embed(None, audio_url="https://example.org/ep.mp3")
+    assert render.media_embed("https://example.org/article") == ""
 
 
 # --- paper ranking and news categories -------------------------------------------------

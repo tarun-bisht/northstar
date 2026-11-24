@@ -41,7 +41,7 @@
         "$ref": "#/$defs/project"
       },
       "minItems": 1,
-      "maxItems": 5
+      "maxItems": 6
     },
     "reflection_prompts": {
       "type": "array",
@@ -67,6 +67,14 @@
           "minItems": 1
         }
       }
+    },
+    "challenges": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "$ref": "#/$defs/challenge"
+      },
+      "description": "Hard problems by subject (olympiad, entrance exam, university or classic textbook level) that test knowledge and expose gaps."
     }
   },
   "$defs": {
@@ -226,10 +234,37 @@
         "section": {
           "enum": [
             "research",
+            "fundamentals",
             "knowledge",
             "exploration"
           ],
-          "description": "Section on the monthly page (prompts/monthly.md). Omit to derive it from kind."
+          "description": "Section on the monthly page (prompts/monthly.md): research is new in AI, fundamentals is the foundations behind it. Omit to derive it from kind."
+        },
+        "subject": {
+          "enum": [
+            "maths",
+            "probability",
+            "physics",
+            "computer_science",
+            "chemistry",
+            "biology",
+            "neuroscience",
+            "astronomy",
+            "earth_science",
+            "history",
+            "philosophy",
+            "economics",
+            "world",
+            "geography",
+            "psychology",
+            "linguistics",
+            "literature",
+            "art",
+            "music",
+            "other_science",
+            "other"
+          ],
+          "description": "For knowledge deep dives: the subject."
         }
       }
     },
@@ -264,6 +299,92 @@
             "$ref": "common.schema.json#/$defs/resource"
           },
           "minItems": 1
+        }
+      }
+    },
+    "challenge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "subject",
+        "title",
+        "question",
+        "source",
+        "level"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "subject": {
+          "enum": [
+            "maths",
+            "probability",
+            "physics",
+            "computer_science",
+            "chemistry",
+            "biology",
+            "neuroscience",
+            "astronomy",
+            "earth_science",
+            "history",
+            "philosophy",
+            "economics",
+            "world",
+            "geography",
+            "psychology",
+            "linguistics",
+            "literature",
+            "art",
+            "music",
+            "other_science",
+            "other"
+          ]
+        },
+        "title": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "question": {
+          "$ref": "common.schema.json#/$defs/nonempty"
+        },
+        "source": {
+          "$ref": "common.schema.json#/$defs/nonempty",
+          "description": "Where it comes from, e.g. 'IPhO 2019, Problem 2' or 'Putnam 2004 B2'. Never invented."
+        },
+        "source_url": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "level": {
+          "enum": [
+            "olympiad",
+            "entrance_exam",
+            "university",
+            "graduate",
+            "classic"
+          ]
+        },
+        "tests": {
+          "type": "string",
+          "description": "What knowledge it checks."
+        },
+        "hints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "solution": {
+          "type": "string"
+        },
+        "solution_url": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/resource"
+          }
         }
       }
     }

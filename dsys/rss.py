@@ -55,7 +55,7 @@ def for_readers(html_body: str) -> str:
 
 def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
     """One compact part of a day: headings per stream and section, short entries that link out."""
-    out = [f'<p><a href="{x(site["base_url"])}/daily/{date}/{part}.html">Open on the site</a></p>']
+    out = [f'<p><a href="{x(site["base_url"])}/daily/{date}/{part}.html" target="_blank" rel="noopener">Open on the site</a></p>']
     for key, label, names in render.DAILY_PARTS:
         if key != part:
             continue
@@ -86,7 +86,8 @@ def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
                 for _, sec, its in render.group_discovery(items):
                     out.append(f"<h4>{render.esc(sec)}</h4><ul>" + "".join(
                         f"<li><strong>{render.a(r['url'], r['title']) if r.get('url') else render.esc(r['title'])}</strong>"
-                        f"{' by ' + render.esc(r['creator']) if r.get('creator') else ''}<br/>{render.esc(r['description'])}</li>"
+                        f"{' by ' + render.esc(r['creator']) if r.get('creator') else ''}<br/>{render.esc(r['description'])}"
+                        f"{render.media_embed(r.get('url'), r.get('title', ''), r.get('audio_url'))}</li>"
                         for r in its) + "</ul>")
             elif s == "reading":
                 out.append("<ul>" + "".join(
@@ -97,9 +98,9 @@ def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
                         + for_readers(render.language_pack(pk)) for pk in items]
             elif s == "youtube_shorts":
                 out.append("<p>" + " ".join(
-                    f'<a href="{render.esc(v["url"])}"><img src="{render.esc(v["thumbnail"])}" alt="{render.esc(v["title"])}" width="120"/></a>'
+                    f'<a href="{render.esc(v["url"])}" target="_blank" rel="noopener noreferrer"><img src="{render.esc(v["thumbnail"])}" alt="{render.esc(v["title"])}" width="120"/></a>'
                     for v in items[:12]) + "</p>")
-                out.append(f'<p><a href="{x(site["base_url"])}/daily/{date}/exploration.html#youtube_shorts">All {len(items)} shorts</a></p>')
+                out.append(f'<p><a href="{x(site["base_url"])}/daily/{date}/exploration.html#youtube_shorts" target="_blank" rel="noopener">All {len(items)} shorts</a></p>')
     return "".join(out)
 
 
@@ -109,14 +110,9 @@ def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None, p
         for f in repo.iter_stream_files(s, examples):
             doc = load_json(f)
             by_date.setdefault(doc["date"], {})[s] = doc
-    from .core import iso_week
-    reading = {load_json(f)["week"]: load_json(f) for f in repo.iter_stream_files("reading", examples)}
     entries = []
     for date in sorted(by_date, reverse=True)[:limit]:
         streams = dict(by_date[date])
-        rl = reading.get(iso_week(dt.date.fromisoformat(date)))
-        if rl and rl.get("papers"):
-            streams["reading"] = rl
         names = next(ss for k, _, ss in render.DAILY_PARTS if k == part)
         if not any(s in streams and (streams[s].get("items") or streams[s].get("papers") or streams[s].get("briefs")) for s in names):
             continue
@@ -154,7 +150,7 @@ def collect_items(repo: Repo, feed: str, site: dict, examples: bool = False,
         doc = load_json(f)
         if stream == "reading":
             for i, pp in enumerate(doc["papers"]):
-                group = "Trending" if pp.get("kind") == "trending" else "For you"
+                group = {"trending": "Trending", "lab": pp.get("group") or "Leading group"}.get(pp.get("kind"), "For you")
                 entries.append({
                     "guid": f"dsys:reading:{pp['id']}", "title": f"[{group}] {pp['title']}", "link": pp["url"],
                     "description": pp.get("note") or ", ".join(pp["tags"]),
@@ -165,8 +161,10 @@ def collect_items(repo: Repo, feed: str, site: dict, examples: bool = False,
         elif stream == "weekly":
             start, _ = week_bounds(doc["week"])
             its = [it for it in doc["items"] if render.weekly_part(it) == part]
-            if its or (part == "exploration" and doc.get("language")):
-                label = dict(render.PERIOD_PARTS)[part]
+            label = dict(render.WEEKLY_PARTS)[part]
+            if part == "languages":
+                its = [{"title": f"{ls['language'].capitalize()}: {ls['title']}"} for ls in doc.get("language", {}).get("lessons", [])]
+            if its:
                 entries.append({
                     "guid": f"{guid_for(stream, doc)}:{part}",
                     "title": f"Week of {start.strftime('%-d %b')}, {label.lower()}: "
@@ -177,11 +175,16 @@ def collect_items(repo: Repo, feed: str, site: dict, examples: bool = False,
                 })
         elif stream == "monthly":
             start, _ = month_bounds(doc["month"])
-            pjs = [pj for pj in doc["items"] if render.monthly_section(pj) == part]
-            if pjs:
+            titles = [pj["title"] for pj in doc["items"] if render.monthly_part(pj) == part]
+            if part == "knowledge" and doc.get("challenges"):
+                titles.append(f"{len(doc['challenges'])} challenge problems")
+            if part == "languages":
+                titles = [f"{pl['language'].capitalize()} plan" for pl in doc.get("language", {}).get("plans", [])]
+            if titles:
+                label = dict(render.MONTHLY_PARTS)[part]
                 entries.append({
                     "guid": f"{guid_for(stream, doc)}:{part}",
-                    "title": f"{start.strftime('%B %Y')} deep dive: " + ", ".join(pj["title"] for pj in pjs),
+                    "title": f"{start.strftime('%B %Y')}, {label.lower()}: " + ", ".join(titles),
                     "link": f"{site['base_url']}/monthly/{doc['month']}/{part}.html",
                     "description": doc["intro"], "html": render.monthly_package(doc, part),
                     "pub": pub_datetime(start, site), "creator": None, "categories": ["monthly", part], "media": None,

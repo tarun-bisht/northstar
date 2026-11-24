@@ -17,7 +17,7 @@ from .schemas import schema_errors
 PODCAST_TYPES = {"podcast"}
 VIDEO_TYPES = {"video", "lecture", "documentary", "playlist"}
 DATE_KEYS = {"date", "submitted", "published", "created", "updated", "deferred_until", "start_date", "end_date"}
-URL_KEYS = {"url", "pdf_url", "embed_url", "thumbnail"}
+URL_KEYS = {"url", "pdf_url", "embed_url", "thumbnail", "audio_url", "source_url", "solution_url"}
 
 
 @dataclass
@@ -107,11 +107,11 @@ LEARNING_CATEGORIES = {"research_fundamentals", "ai_study", "paper", "new_knowle
 
 
 def discovery_rule_errors(items: list) -> list[str]:
-    """Daily rules: an established podcast, a video, and every tier represented."""
+    """Daily rules: at least one podcast, at least one video, and every tier represented. The rest is free."""
     errs = []
     types = {str(it.get("type", "")).lower() for it in items}
-    if not any(it.get("type") == "podcast" and it.get("tier") == "established" for it in items):
-        errs.append("Daily Discovery needs at least one podcast episode in the established tier every day")
+    if not types & PODCAST_TYPES:
+        errs.append("Daily Discovery needs at least one podcast episode every day")
     if not types & VIDEO_TYPES:
         errs.append("Daily Discovery needs at least one video, lecture or documentary every day")
     missing = TIERS - {it.get("tier") for it in items}
@@ -121,8 +121,19 @@ def discovery_rule_errors(items: list) -> list[str]:
 
 
 def learning_item_errors(it: dict) -> list[str]:
-    """Readings, implementations and learning exercises must come with steps and real resources."""
-    if it.get("category") not in LEARNING_CATEGORIES and it.get("mode") != "learn":
+    """Study topics, readings and learning exercises come with a study plan (steps) and real resources."""
+    from .render import weekly_section
+    sec = weekly_section(it)
+    if sec == "knowledge":
+        errs = []
+        if len(it.get("steps", [])) < 3:
+            errs.append(f"item {it.get('id')}: knowledge topics need a study plan of at least 3 steps")
+        if len(it.get("resources", [])) < 2:
+            errs.append(f"item {it.get('id')}: knowledge topics need at least 2 resources (video, lecture, notes, book chapter, paper)")
+        if not it.get("subject"):
+            errs.append(f"item {it.get('id')}: knowledge topics need a subject")
+        return errs
+    if it.get("category") not in LEARNING_CATEGORIES and it.get("mode") != "learn" and sec not in ("research_practice", "research_reading"):
         return []
     errs = []
     if len(it.get("steps", [])) < 2:
@@ -134,17 +145,19 @@ def learning_item_errors(it: dict) -> list[str]:
 
 WEEKLY_REQUIRED = {  # sections a weekly package must cover, by load (prompts/weekly.md)
     "light": {"research_practice", "questions", "culture"},
-    "normal": {"research_practice", "questions", "things_to_know", "culture", "people_self"},
-    "free": {"research_practice", "research_reading", "questions", "things_to_know", "culture", "people_self",
+    "normal": {"research_practice", "research_reading", "knowledge", "questions", "curiosities", "culture", "people_self"},
+    "free": {"research_practice", "research_reading", "knowledge", "questions", "curiosities", "culture", "people_self",
              "curiosity_making"},
 }
+OTHER_SUBJECTS_MIN = {"light": 0, "normal": 5, "free": 5}  # knowledge topics outside maths and physics
+CORE = {"maths", "probability", "physics"}
 
 
 PILLARS = ["research", "knowledge", "world", "people", "culture", "curiosity"]  # defaults; config dimensions win
 
 
 def weekly_section_errors(doc: dict, dims: list[str] | None = None) -> list[str]:
-    """Sections by load, maths and physics questions, and every pillar of development (vision §4)."""
+    """Sections by load, maths and physics questions, rotating subjects, and every pillar of development."""
     from .render import weekly_section
     items = doc.get("items", [])
     load = doc.get("load", "normal")
@@ -160,6 +173,11 @@ def weekly_section_errors(doc: dict, dims: list[str] | None = None) -> list[str]
     if maths < need or physics < need:
         errs.append(f"weekly questions need at least {need} maths or probability and {need} physics "
                     f"(subject field); found {maths} and {physics}")
+    others = {it.get("subject") for it in items if weekly_section(it) == "knowledge"} - CORE - {None}
+    need_other = OTHER_SUBJECTS_MIN.get(load, 5)
+    if len(others) < need_other:
+        errs.append(f"weekly knowledge needs topics in at least {need_other} subjects besides maths and physics; "
+                    f"found {len(others)} ({', '.join(sorted(others)) or 'none'})")
     if load != "light":
         pillars = [p for p in (dims or PILLARS)]
         covered = {d for it in items for d in it.get("dimensions", [])}
@@ -169,13 +187,30 @@ def weekly_section_errors(doc: dict, dims: list[str] | None = None) -> list[str]
     return errs
 
 
+MONTHLY_REQUIRED = {"light": {"research"}, "normal": {"research", "fundamentals", "knowledge", "exploration"},
+                    "free": {"research", "fundamentals", "knowledge", "exploration"}}
+
+
 def monthly_section_errors(doc: dict) -> list[str]:
+    """Deep dives in every section, and hard challenge problems: maths, physics and rotating subjects."""
     from .render import monthly_section
+    load = doc.get("load", "normal")
+    errs = []
     have = {monthly_section(pj) for pj in doc.get("items", [])}
-    missing = {"research", "knowledge", "exploration"} - have
-    if doc.get("load") != "light" and missing:
-        return [f"monthly package needs a deep dive in every part; missing: {', '.join(sorted(missing))} (see prompts/monthly.md)"]
-    return []
+    missing = MONTHLY_REQUIRED.get(load, MONTHLY_REQUIRED["normal"]) - have
+    if missing:
+        errs.append(f"monthly package needs a deep dive in: {', '.join(sorted(missing))} (see prompts/monthly.md)")
+    cs = doc.get("challenges", [])
+    need = 1 if load == "light" else 2
+    maths = sum(1 for c in cs if c.get("subject") in ("maths", "probability"))
+    physics = sum(1 for c in cs if c.get("subject") == "physics")
+    if maths < need or physics < need:
+        errs.append(f"monthly challenges need at least {need} maths or probability and {need} physics problems; "
+                    f"found {maths} and {physics}")
+    others = {c.get("subject") for c in cs} - CORE
+    if load != "light" and len(others) < 4:
+        errs.append(f"monthly challenges need problems in at least 4 subjects besides maths and physics; found {len(others)}")
+    return errs
 
 
 def monthly_rotation_warnings(repo: Repo, doc: dict) -> list[str]:

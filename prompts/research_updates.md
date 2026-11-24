@@ -17,4 +17,4 @@ Read `prompts/_shared.md` first.
 5. Write `/tmp/ru.json` and merge: `python scripts/dsys.py daily merge research_updates --date <today> --items /tmp/ru.json`. Add `notes` describing coverage, e.g. "X not reachable today; covered via lab blogs and GitHub".
 6. `history rebuild`, `validate`.
 
-Keep every field to one or two short sentences. If an item is a paper or technical report that is a must read, also add it to this week's reading list (`prompts/reading_list.md`).
+Keep every field to one or two short sentences. If an item is a paper or technical report that is a must read, also add it to this week's papers of the week list (`prompts/reading_list.md`).

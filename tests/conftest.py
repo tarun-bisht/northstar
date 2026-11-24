@@ -131,29 +131,60 @@ def activity(aid, **kw):
     return a
 
 
+RES = [{"title": "A text", "type": "book", "chapters": "Ch. 1"}, {"title": "A lecture", "type": "lecture", "chapters": "Lecture 2"}]
+STEPS = ["Read the chapter", "Work two examples", "Explain it in your own words"]
+
+
+def filler(aid, **kw):
+    return activity(aid, steps=STEPS, resources=RES, **kw)
+
+
 def pad_weekly_sections(week, items, load="normal"):
-    """A weekly package must cover the required sections, maths and physics questions and every
-    pillar; add one filler per gap."""
+    """A weekly package must cover the required sections, maths and physics questions, rotating subjects
+    and every pillar; add one filler per gap."""
     from dsys.render import weekly_section
-    from dsys.validate import PILLARS, WEEKLY_REQUIRED
+    from dsys.validate import CORE, OTHER_SUBJECTS_MIN, PILLARS, WEEKLY_REQUIRED
     items = list(items)
+    w = week.lower()
     have = {weekly_section(it) for it in items}
-    for sec in sorted(WEEKLY_REQUIRED.get(load, WEEKLY_REQUIRED["normal"]) - have - {"questions"}):
-        items.append(activity(f"w-{week.lower()}-fill-{sec.replace('_', '-')}", section=sec, title=f"Filler {sec}"))
+    for sec in sorted(WEEKLY_REQUIRED.get(load, WEEKLY_REQUIRED["normal"]) - have - {"questions", "knowledge"}):
+        items.append(filler(f"w-{w}-fill-{sec.replace('_', '-')}", section=sec, title=f"Filler {sec}"))
     need = 1 if load == "light" else 2
     qs = [it for it in items if weekly_section(it) == "questions"]
     for subj, n in (("maths", sum(q.get("subject") in ("maths", "probability") for q in qs)),
                     ("physics", sum(q.get("subject") == "physics" for q in qs))):
         for i in range(need - n):
-            items.append(activity(f"w-{week.lower()}-fill-q-{subj}-{i}", section="questions", category="question",
+            items.append(activity(f"w-{w}-fill-q-{subj}-{i}", section="questions", category="question",
                                   subject=subj, title=f"Filler {subj} question {i}"))
+    others = {it.get("subject") for it in items if weekly_section(it) == "knowledge"} - CORE - {None}
+    pool = [s for s in ("history", "philosophy", "biology", "economics", "chemistry", "psychology") if s not in others]
+    n_need = max(OTHER_SUBJECTS_MIN.get(load, 5) - len(others), 0)
+    if load != "light" and "knowledge" not in have:
+        n_need = max(n_need, 1)
+    for subj in pool[:n_need]:
+        items.append(filler(f"w-{w}-fill-k-{subj}", section="knowledge", category="new_knowledge", subject=subj,
+                            title=f"Filler {subj} topic"))
     if load != "light":
         covered = {d for it in items for d in it.get("dimensions", [])}
         for d in PILLARS:
             if d not in covered:
-                items.append(activity(f"w-{week.lower()}-fill-dim-{d}", section="curiosity_making",
+                items.append(activity(f"w-{w}-fill-dim-{d}", section="curiosity_making",
                                       dimensions=[d], title=f"Filler {d}"))
     return items
+
+
+def challenges(month, have=()):
+    from dsys.validate import CORE
+    subs = ["maths", "maths", "physics", "physics", "history", "biology", "chemistry", "economics"]
+    return [{"id": f"c-{month}-{i}", "subject": s, "title": f"Challenge {i}", "question": "Prove it.",
+             "source": "Putnam 2004 B2", "level": "olympiad"} for i, s in enumerate(subs)]
+
+
+def pad_monthly(month, items, doc=None):
+    from dsys.render import monthly_section
+    have = {monthly_section(pj) for pj in items}
+    return list(items) + [project(f"m-{month}-fill-{sec}", section=sec, title=f"Filler {sec}", tier="established")
+                          for sec in ("research", "fundamentals", "knowledge", "exploration") if sec not in have]
 
 
 def fill_sections(repo: Repo) -> None:
@@ -162,23 +193,18 @@ def fill_sections(repo: Repo) -> None:
         doc = load_json(f)
         doc["items"] = pad_weekly_sections(doc["week"], doc["items"], doc.get("load", "normal"))
         write_json(f, doc)
-    from dsys.render import monthly_section
     for f in repo.iter_stream_files("monthly"):
         doc = load_json(f)
-        have = {monthly_section(pj) for pj in doc["items"]}
-        doc["items"] += [project(f"m-{doc['month']}-fill-{sec}", section=sec, title=f"Filler {sec}", tier="established")
-                         for sec in ("research", "knowledge", "exploration") if sec not in have]
+        doc["items"] = pad_monthly(doc["month"], doc["items"])
+        doc.setdefault("challenges", challenges(doc["month"]))
         write_json(f, doc)
 
 
 def monthly(repo: Repo, month="2026-12", items=None):
     items = items if items is not None else [project(f"m-{month}-a")]
-    from dsys.render import monthly_section
-    have = {monthly_section(pj) for pj in items}
-    items = list(items) + [project(f"m-{month}-fill-{sec}", section=sec, title=f"Filler {sec}", tier="established")
-                           for sec in ("research", "knowledge", "exploration") if sec not in have]
+    items = pad_monthly(month, items)
     doc = {"schema": "monthly", "month": month, "generated_at": "2026-12-01T01:00:00Z", "load": "normal",
-           "intro": "Optional depth.", "items": items, "language": {"plans": [PLAN]}}
+           "intro": "Optional depth.", "items": items, "challenges": challenges(month), "language": {"plans": [PLAN]}}
     write_json(repo.monthly_path(month), doc)
     return doc
 

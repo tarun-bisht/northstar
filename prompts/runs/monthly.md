@@ -7,4 +7,4 @@ Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
 3. Inbox ideas: `prompts/inbox.md`.
 4. Plan `this_month`: follow `prompts/monthly.md`.
 5. Validate, commit `monthly: <this_month>`, push.
-6. Final message: one line per deep dive with its part (research, knowledge, exploration) and light version, plus each language's goal for the month.
+6. Final message: one line per deep dive with its section (New in AI, Fundamentals, knowledge, exploration) and light version, the number of challenge problems per subject, and each language's goal for the month.

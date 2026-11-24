@@ -13,18 +13,20 @@
 
 Before the runs, GitHub Actions fetches candidates at 06:00 and refills any gaps at 06:50 (section 4). No AI runs in that step.
 
-## 2. Three parts, each with its own URL
+## 2. Parts, each with its own URL
 
 Every page is split into parts, so research, news and exploration never pile up in one place.
 
 | Layer | Parts | Pages |
 |---|---|---|
-| Daily | **Research**: arXiv radar, research updates, this week's reading list. **News**: world radar by category. **Exploration**: podcasts, videos and lectures, reads, watch and listen, things to try, shorts, language pack | `daily/<date>/research.html`, `news.html`, `exploration.html`, plus `index.html` overview |
-| Weekly | Touches all six pillars of development every week (vision §4). **Research**: a research exercise, research reading. **Knowledge**: at least 2 maths and 2 physics questions, things to know and talk about, the world explained. **Exploration** (the largest part): culture, people and self, curiosity and making, language lessons | `weekly/<week>/research.html`, `knowledge.html`, `exploration.html`, plus `index.html` |
-| Monthly | One deep dive per part: **research**, **knowledge**, **exploration**. The exploration deep dive rotates through people and self, culture and life, and curiosity and making. Plus language plans | `monthly/<month>/<part>.html`, plus `index.html` |
+| Daily (be aware) | **Research**: arXiv radar, research updates. **News**: world radar by category. **Exploration**: at least one podcast and one video (they play on the page), the rest free (entertainment, free-time interests, reads), 30 to 40 shorts. **Languages**: the 5-minute pack | `daily/<date>/research.html`, `news.html`, `exploration.html`, `languages.html`, plus `index.html` |
+| Weekly (explore) | Touches all six pillars of development every week (vision §4). **Papers of the week**: for you (from the daily papers), trending, and leading groups. **Research**: Fundamentals and New in AI. **Knowledge**: topics grouped by subject, maths and physics always plus 5 to 6 rotating subjects, each with a study plan and resources, and approachable maths and physics questions. **Exploration** (the largest part): curiosities, culture, people and self, curiosity and making. **Languages**: a lesson per language | `weekly/<week>/papers.html`, `research.html`, `knowledge.html`, `exploration.html`, `languages.html`, plus `index.html` |
+| Monthly (go deep) | **Research**: a New in AI deep dive and a Fundamentals deep dive. **Knowledge**: a deep dive outside AI, and hard challenge problems (olympiad, entrance exam, university level) in maths, physics and 4 to 6 other subjects. **Exploration**: a deep dive that rotates through people and self, culture and life, and curiosity and making. **Languages**: a plan per language | `monthly/<month>/<part>.html`, plus `index.html` |
 | Quarterly | A short summary and the topics covered, per part, plus the numbers | `quarterly/<YYYY-Qn>/<part>.html`, plus `index.html` |
 
-The part maps live in one place, `dsys/render.py` (`DAILY_PARTS`, `PERIOD_PARTS`, `WEEKLY_SECTIONS`, `MONTHLY_SECTIONS`, `WORLD_SECTIONS`, `DISCOVERY_SECTIONS`). The site, the feeds, validation and the quarterly review all read them.
+The part maps live in one place, `dsys/render.py` (`DAILY_PARTS`, `WEEKLY_PARTS`, `MONTHLY_PARTS`, `QUARTERLY_PARTS`, `WEEKLY_SECTIONS`, `MONTHLY_SECTIONS`, `SUBJECTS`, `WORLD_SECTIONS`, `DISCOVERY_SECTIONS`). The site, the feeds, validation and the quarterly review all read them.
+
+Links that leave the site open in a new tab (`target="_blank"`), in the feeds too. YouTube videos, Spotify and Apple Podcasts episodes, and podcast audio files (`audio_url`) play on the page behind a "Play here" fold, so nothing loads until you open it.
 
 ## 3. RSS feeds
 
@@ -32,10 +34,10 @@ One feed per part, so each can be followed on its own:
 
 | Feed | One item per |
 |---|---|
-| `research.xml`, `news.xml`, `exploration.xml` | day |
-| `reading.xml` | paper on the week's reading list: *For you* and *Trending this week* |
-| `weekly-research.xml`, `weekly-knowledge.xml`, `weekly-exploration.xml` | week |
-| `monthly-research.xml`, `monthly-knowledge.xml`, `monthly-exploration.xml` | month |
+| `research.xml`, `news.xml`, `exploration.xml`, `languages.xml` | day |
+| `reading.xml` (papers of the week) | paper: *For you*, *Trending this week*, *From leading groups* |
+| `weekly-research.xml`, `weekly-knowledge.xml`, `weekly-exploration.xml`, `weekly-languages.xml` | week |
+| `monthly-research.xml`, `monthly-knowledge.xml`, `monthly-exploration.xml`, `monthly-languages.xml` | month |
 | `quarterly-research.xml`, `quarterly-knowledge.xml`, `quarterly-exploration.xml` | quarter, with the numbers |
 
 The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config/recommendation_policy.json → feeds`. Feed HTML is plain and semantic: folded sections are opened, and tags are separated, so it reads well in readers that drop CSS.
@@ -64,7 +66,7 @@ Reading thousands of abstracts, or any PDFs, is not possible in a run. So:
 2. **Ranking in code** (`dsys/rank.py`). Each candidate gets a relevance score from the coverage keywords (the title counts double, and a keyword only counts when the paper is in that topic's categories) plus quality signals: Hugging Face upvotes, alphaXiv votes, a notable researcher (`notable_researchers`), released code, a named venue in the arXiv comment.
 3. **Shortlist.** The best 3 papers for every interest, filled up to about 80 by score, plus every trending or notable paper (`candidates arxiv --ranked`).
 4. **Judgement from the abstract.** The run reads those abstracts (`candidates arxiv --ids …`) and rates each against the rubric in `prompts/arxiv.md`: a clear contribution, strong evidence, concrete results and outside signals keep a paper; vague claims, thin evaluation and recombined tricks drop it. Trending papers that pass the bar and touch any interest are kept even when keywords missed them.
-5. **Reading list** (`reading.xml`). Two groups: *For you*, the must-reads for your work from the week's radar, and *Trending this week*, the week's most voted papers on alphaXiv and Hugging Face (`candidates arxiv --trending-week`). Daily runs add to it, and the weekly run sets it up.
+5. **Papers of the week** (`reading.xml`, `weekly/<week>/papers.html`). Three groups: *For you*, the must-reads for your work from the week's radar; *Trending this week*, the week's most voted papers on alphaXiv and Hugging Face (`candidates arxiv --trending-week`); and *From leading groups*, strong work from top labs related to AI or your research. Daily runs add to it, and the weekly run sets it up. It is a weekly part, not shown in daily.
 
 ## 6. Choosing news
 

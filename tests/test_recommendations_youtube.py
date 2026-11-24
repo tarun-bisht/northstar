@@ -558,9 +558,13 @@ def test_learning_items_need_steps_and_resources(repo):
     weekly(repo, items=[activity("w-1", category="paper", mode="learn")])
     errs = " ".join(validate_repo(repo).errors)
     assert "steps" in errs and "resources" in errs
-    weekly(repo, items=[activity("w-1", category="new_knowledge", mode="learn", steps=["read", "summarise"],
+    weekly(repo, items=[activity("w-1", category="ai_study", mode="learn", steps=["read", "summarise"],
                                  resources=[{"title": "Book", "type": "book", "chapters": "Ch. 2"}])])
     assert validate_repo(repo).ok
+    # knowledge topics need a subject, a 3-step study plan and 2 resources
+    weekly(repo, items=[activity("w-1", category="new_knowledge", steps=["read", "summarise"])])
+    errs = " ".join(validate_repo(repo).errors)
+    assert "subject" in errs and "3 steps" in errs and "2 resources" in errs
 
 
 def test_monthly_needs_growth_item_and_syllabus(repo):
@@ -624,13 +628,16 @@ def test_language_context_and_rendering(repo, tmp_path):
     assert "languages" in context(repo, "weekly", D, "2026-W49")
     weekly(repo)
     out = build_site(repo, tmp_path / "s")
-    day = (out / "daily" / "2026-11-24" / "exploration.html").read_text()
+    day = (out / "daily" / "2026-11-24" / "languages.html").read_text()
     assert "コーヒーをください" in day and "kōhī o kudasai" in day and "<summary>Answer</summary>" in day
-    wk = (out / "weekly" / "2026-W49" / "exploration.html").read_text()
+    wk = (out / "weekly" / "2026-W49" / "languages.html").read_text()
     assert "Languages" in wk and "こんにちは" in wk
-    xml = build_feed(repo, "exploration")
-    assert "Japanese: At a café" in xml
-    assert "exploration.xml" in (out / "index.html").read_text()
+    assert "こんにちは" not in (out / "weekly" / "2026-W49" / "exploration.html").read_text()
+    assert "Japanese: At a café" in build_feed(repo, "languages")
+    assert "Japanese: At a café" not in build_feed(repo, "exploration")
+    assert "こんにちは" in build_feed(repo, "weekly-languages")
+    home = (out / "index.html").read_text()
+    assert "languages.xml" in home and "weekly-languages.xml" in home and "vision.html" not in home
 
 
 def test_learning_languages_only_as_beginner_lessons():

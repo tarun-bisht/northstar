@@ -4,9 +4,9 @@ Northstar runs on five Claude scheduled tasks. Each task starts a fresh Claude s
 
 | Task | When (IST) | Runbook | What it makes |
 |---|---|---|---|
-| Daily northstar schedule | Every day, 07:19 | `prompts/runs/daily.md` | Research (papers, updates, reading list), News, Exploration (discoveries, language pack) |
+| Daily northstar schedule | Every day, 07:19 | `prompts/runs/daily.md` | Research (papers, updates), News, Exploration (discoveries), Languages (language pack) |
 | Shorts northstar schedule | Every day, 08:15 | `prompts/runs/shorts.md` | YouTube shorts for the Exploration page |
-| Weekly northstar schedule | Saturday, 06:46 | `prompts/runs/weekly.md` | Next week's Research, Knowledge and Exploration, plus the reading list |
+| Weekly northstar schedule | Saturday, 06:46 | `prompts/runs/weekly.md` | Next week's Papers of the week, Research, Knowledge, Exploration and Languages |
 | Monthly northstar schedule | 1st of the month, 06:15 | `prompts/runs/monthly.md` | One deep dive per part, plus language plans |
 | Quarterly northstar schedule | 1 Jan, Apr, Jul, Oct, 06:41 | `prompts/runs/quarterly.md` | A short public review per part, with numbers |
 

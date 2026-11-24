@@ -48,6 +48,41 @@
       ]
     },
     {
+      "id": "w-2026-W02-example-new-in-ai",
+      "title": "What test-time compute scaling is",
+      "category": "ai_study",
+      "section": "research_reading",
+      "dimensions": [
+        "research"
+      ],
+      "description": "Placeholder new-in-AI concept.",
+      "why": "Example only.",
+      "time_estimate": "1-2h",
+      "origin": "system",
+      "status": "suggested",
+      "tier": "established",
+      "mode": "learn",
+      "steps": [
+        "Watch the lecture and note the three main ideas",
+        "Read the chapter and answer its first exercises",
+        "Explain the idea in five sentences without notes"
+      ],
+      "resources": [
+        {
+          "title": "[EXAMPLE] An introductory text",
+          "type": "book",
+          "chapters": "Ch. 1-2",
+          "note": "placeholder resource"
+        },
+        {
+          "title": "[EXAMPLE] A recorded lecture",
+          "type": "lecture",
+          "chapters": "Lecture 1",
+          "note": "placeholder resource"
+        }
+      ]
+    },
+    {
       "origin": "system",
       "status": "suggested",
       "tier": "growth",
@@ -67,7 +102,9 @@
         "Count expected returns.",
         "Compare the sum of 1/n with the sum of n to the minus 3/2."
       ],
-      "subject": "probability"
+      "subject": "probability",
+      "source": "[EXAMPLE] A classic textbook exercise",
+      "solution": "Placeholder worked answer."
     },
     {
       "origin": "system",
@@ -89,7 +126,9 @@
       "hints": [
         "Start small.",
         "Look for a contradiction."
-      ]
+      ],
+      "source": "[EXAMPLE] A classic textbook exercise",
+      "solution": "Placeholder worked answer."
     },
     {
       "origin": "system",
@@ -111,7 +150,9 @@
       "hints": [
         "Start small.",
         "Look for a contradiction."
-      ]
+      ],
+      "source": "[EXAMPLE] A classic textbook exercise",
+      "solution": "Placeholder worked answer."
     },
     {
       "origin": "system",
@@ -133,7 +174,9 @@
       "hints": [
         "Start small.",
         "Look for a contradiction."
-      ]
+      ],
+      "source": "[EXAMPLE] A classic textbook exercise",
+      "solution": "Placeholder worked answer."
     },
     {
       "origin": "system",
@@ -142,7 +185,7 @@
       "id": "w-2026-W02-example-talking-point",
       "title": "The Library of Alexandria: what was really lost?",
       "category": "talking_point",
-      "section": "things_to_know",
+      "section": "curiosities",
       "dimensions": [
         "knowledge"
       ],
@@ -214,10 +257,158 @@
       "tier": "exploration"
     },
     {
+      "category": "new_knowledge",
+      "description": "Placeholder study topic.",
+      "why": "Example only.",
+      "time_estimate": "10-30m",
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "mode": "learn",
+      "id": "w-2026-W02-example-history",
+      "title": "How the printing press changed Europe",
+      "section": "knowledge",
+      "subject": "history",
+      "dimensions": [
+        "knowledge"
+      ],
+      "topic": "history",
+      "steps": [
+        "Watch the lecture and note the three main ideas",
+        "Read the chapter and answer its first exercises",
+        "Explain the idea in five sentences without notes"
+      ],
+      "resources": [
+        {
+          "title": "[EXAMPLE] An introductory text",
+          "type": "book",
+          "chapters": "Ch. 1-2",
+          "note": "placeholder resource"
+        },
+        {
+          "title": "[EXAMPLE] A recorded lecture",
+          "type": "lecture",
+          "chapters": "Lecture 1",
+          "note": "placeholder resource"
+        }
+      ]
+    },
+    {
+      "category": "new_knowledge",
+      "description": "Placeholder study topic.",
+      "why": "Example only.",
+      "time_estimate": "10-30m",
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "mode": "learn",
+      "id": "w-2026-W02-example-philosophy",
+      "title": "What makes an explanation good",
+      "section": "knowledge",
+      "subject": "philosophy",
+      "dimensions": [
+        "knowledge"
+      ],
+      "topic": "philosophy",
+      "steps": [
+        "Watch the lecture and note the three main ideas",
+        "Read the chapter and answer its first exercises",
+        "Explain the idea in five sentences without notes"
+      ],
+      "resources": [
+        {
+          "title": "[EXAMPLE] An introductory text",
+          "type": "book",
+          "chapters": "Ch. 1-2",
+          "note": "placeholder resource"
+        },
+        {
+          "title": "[EXAMPLE] A recorded lecture",
+          "type": "lecture",
+          "chapters": "Lecture 1",
+          "note": "placeholder resource"
+        }
+      ]
+    },
+    {
+      "category": "new_knowledge",
+      "description": "Placeholder study topic.",
+      "why": "Example only.",
+      "time_estimate": "10-30m",
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "mode": "learn",
+      "id": "w-2026-W02-example-biology",
+      "title": "How neurons fire",
+      "section": "knowledge",
+      "subject": "biology",
+      "dimensions": [
+        "knowledge"
+      ],
+      "topic": "biology",
+      "steps": [
+        "Watch the lecture and note the three main ideas",
+        "Read the chapter and answer its first exercises",
+        "Explain the idea in five sentences without notes"
+      ],
+      "resources": [
+        {
+          "title": "[EXAMPLE] An introductory text",
+          "type": "book",
+          "chapters": "Ch. 1-2",
+          "note": "placeholder resource"
+        },
+        {
+          "title": "[EXAMPLE] A recorded lecture",
+          "type": "lecture",
+          "chapters": "Lecture 1",
+          "note": "placeholder resource"
+        }
+      ]
+    },
+    {
+      "category": "new_knowledge",
+      "description": "Placeholder study topic.",
+      "why": "Example only.",
+      "time_estimate": "10-30m",
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "mode": "learn",
+      "id": "w-2026-W02-example-economics",
+      "title": "Why prices are signals",
+      "section": "knowledge",
+      "subject": "economics",
+      "dimensions": [
+        "world"
+      ],
+      "topic": "economics",
+      "steps": [
+        "Watch the lecture and note the three main ideas",
+        "Read the chapter and answer its first exercises",
+        "Explain the idea in five sentences without notes"
+      ],
+      "resources": [
+        {
+          "title": "[EXAMPLE] An introductory text",
+          "type": "book",
+          "chapters": "Ch. 1-2",
+          "note": "placeholder resource"
+        },
+        {
+          "title": "[EXAMPLE] A recorded lecture",
+          "type": "lecture",
+          "chapters": "Lecture 1",
+          "note": "placeholder resource"
+        }
+      ]
+    },
+    {
       "id": "w-2026-W02-example-world",
       "title": "How the Strait of Hormuz shapes oil prices",
       "category": "world_understanding",
-      "section": "world",
+      "section": "knowledge",
       "dimensions": [
         "world"
       ],
@@ -228,7 +419,27 @@
       "status": "suggested",
       "tier": "growth",
       "mode": "reflect",
-      "topic": "geography of energy"
+      "topic": "geography of energy",
+      "subject": "world",
+      "steps": [
+        "Watch the lecture and note the three main ideas",
+        "Read the chapter and answer its first exercises",
+        "Explain the idea in five sentences without notes"
+      ],
+      "resources": [
+        {
+          "title": "[EXAMPLE] An introductory text",
+          "type": "book",
+          "chapters": "Ch. 1-2",
+          "note": "placeholder resource"
+        },
+        {
+          "title": "[EXAMPLE] A recorded lecture",
+          "type": "lecture",
+          "chapters": "Lecture 1",
+          "note": "placeholder resource"
+        }
+      ]
     }
   ],
   "reflection_prompt": "Optional: what kind of activity gave you energy this week?",

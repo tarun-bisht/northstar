@@ -105,9 +105,10 @@
         "kind": {
           "enum": [
             "for_you",
-            "trending"
+            "trending",
+            "lab"
           ],
-          "description": "for_you: close to the user's interests. trending: the week's most discussed papers on alphaXiv or Hugging Face Daily Papers. Default for_you."
+          "description": "for_you: close to the user's interests, mostly from the week's daily papers. trending: the week's most discussed papers on alphaXiv or Hugging Face Daily Papers. lab: strong work from a leading research group related to AI or the user's research. Default for_you."
         },
         "alphaxiv_votes": {
           "type": "integer",
@@ -116,6 +117,10 @@
         "hf_upvotes": {
           "type": "integer",
           "minimum": 0
+        },
+        "group": {
+          "type": "string",
+          "description": "For kind lab: the research group or lab, e.g. 'Google DeepMind'."
         }
       }
     }

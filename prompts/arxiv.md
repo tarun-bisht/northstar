@@ -33,5 +33,5 @@ The job is to filter. From a few thousand new papers, keep only the high-quality
    close to your work, useful for your work, new method or architecture, strong result, notable researcher, benchmark or dataset, theory, survey or tutorial, worth knowing.
    Never write a reason or explanation. Never mention a project or method of the user's.
 9. Mark every shortlisted paper you read but did not keep as seen: `python scripts/dsys.py papers mark-seen <id> ...`.
-10. **Reading list:** the best one to three papers of the day (yours, or trending and important for any researcher) also go on this week's reading list (`prompts/reading_list.md`).
+10. **Reading list:** the best one to three papers of the day (yours, or trending and important for any researcher) also go on this week's papers of the week list (`prompts/reading_list.md`).
 11. Merge: `python scripts/dsys.py daily merge arxiv --date <today> --items /tmp/arxiv.json`, then `history rebuild` and `validate`. Put a one-line `notes` on the day: how many candidates, how many shortlisted, how many kept.

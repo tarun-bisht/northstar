@@ -101,7 +101,7 @@ def topics(repo: Repo, quarter: str, base_url: str = "") -> dict[str, list[dict]
         doc = load_json(f)
         if s <= doc["month"] + "-01" <= e:
             for it in doc["items"]:
-                part = render.monthly_section(it)
+                part = render.monthly_part(it)
                 out[part].append({"period": doc["month"], "kind": "monthly", "title": it["title"],
                                   "url": f"{base_url}/monthly/{doc['month']}/{part}.html", "about": ""})
     for f in repo.iter_stream_files("weekly"):

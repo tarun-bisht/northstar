@@ -41,25 +41,32 @@ STREAM_META = {
 # Stream titles above name the daily streams on pages. The RSS feeds are below: one per part.
 FEEDS = {
     "research": {"title": "Research, daily", "file": "research.xml",
-                 "description": "One item per day: high-quality papers, research updates and this week's reading list."},
+                 "description": "One item per day: high-quality papers and research updates."},
     "news": {"title": "News, daily", "file": "news.xml",
              "description": "One item per day: the world radar by category, with explained stories and briefs."},
     "exploration": {"title": "Exploration, daily", "file": "exploration.xml",
-                    "description": "One item per day: podcasts, videos, reads, things to try, shorts and the language pack."},
+                    "description": "One item per day: podcasts, videos, reads, things to try and shorts."},
+    "languages": {"title": "Languages, daily", "file": "languages.xml",
+                  "description": "One item per day: the five-minute language pack."},
     "reading": {"title": "Papers of the week", "file": "reading.xml",
-                "description": "The weekly reading list: papers for you, and the week's trending papers on alphaXiv and Hugging Face."},
+                "description": "Papers worth reading this week: picks for you from the daily papers, the week's trending "
+                               "papers, and strong work from leading groups."},
     "weekly-research": {"title": "Weekly research", "file": "weekly-research.xml",
-                        "description": "Each week: a research exercise and something worth studying."},
+                        "description": "Each week: a fundamentals exercise and a new AI concept, with study plans."},
     "weekly-knowledge": {"title": "Weekly knowledge", "file": "weekly-knowledge.xml",
-                         "description": "Each week: maths and physics questions, things to know and talk about, the world explained."},
+                         "description": "Each week: topics by subject with study plans, and maths and physics questions."},
     "weekly-exploration": {"title": "Weekly exploration", "file": "weekly-exploration.xml",
-                           "description": "Each week: culture, people and self, curiosity and making, language lessons."},
-    "monthly-research": {"title": "Monthly research deep dive", "file": "monthly-research.xml",
-                         "description": "Each month: one research deep dive."},
-    "monthly-knowledge": {"title": "Monthly knowledge deep dive", "file": "monthly-knowledge.xml",
-                          "description": "Each month: one deep dive outside AI."},
-    "monthly-exploration": {"title": "Monthly exploration deep dive", "file": "monthly-exploration.xml",
-                            "description": "Each month: one deep dive to experience, practise or make, plus language plans."},
+                           "description": "Each week: curiosities, culture, people and self, curiosity and making."},
+    "weekly-languages": {"title": "Weekly languages", "file": "weekly-languages.xml",
+                         "description": "Each week: a lesson per language."},
+    "monthly-research": {"title": "Monthly research", "file": "monthly-research.xml",
+                         "description": "Each month: a new-in-AI deep dive and a fundamentals deep dive."},
+    "monthly-knowledge": {"title": "Monthly knowledge", "file": "monthly-knowledge.xml",
+                          "description": "Each month: a deep dive outside AI and hard challenge problems by subject."},
+    "monthly-exploration": {"title": "Monthly exploration", "file": "monthly-exploration.xml",
+                            "description": "Each month: one deep dive to experience, practise or make."},
+    "monthly-languages": {"title": "Monthly languages", "file": "monthly-languages.xml",
+                          "description": "Each month: a plan per language."},
     "quarterly-research": {"title": "Quarterly review: research", "file": "quarterly-research.xml",
                            "description": "Every three months: research summary, topics and numbers."},
     "quarterly-knowledge": {"title": "Quarterly review: knowledge", "file": "quarterly-knowledge.xml",
@@ -67,7 +74,7 @@ FEEDS = {
     "quarterly-exploration": {"title": "Quarterly review: exploration", "file": "quarterly-exploration.xml",
                               "description": "Every three months: exploration summary and topics."},
 }
-DIGEST_FEEDS = ["research", "news", "exploration"]  # daily part digests, built from the daily streams
+DIGEST_FEEDS = ["research", "news", "exploration", "languages"]  # daily part digests, built from the daily streams
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WEEK_RE = re.compile(r"^(\d{4})-W(\d{2})$")

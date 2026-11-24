@@ -49,7 +49,7 @@
         "$ref": "#/$defs/activity"
       },
       "minItems": 1,
-      "maxItems": 18
+      "maxItems": 24
     },
     "reflection_prompt": {
       "type": "string"
@@ -265,23 +265,53 @@
           "enum": [
             "research_practice",
             "research_reading",
+            "knowledge",
             "questions",
-            "things_to_know",
-            "world",
+            "curiosities",
             "culture",
             "people_self",
-            "curiosity_making"
+            "curiosity_making",
+            "things_to_know",
+            "world"
           ],
-          "description": "Section on the weekly page (prompts/weekly.md). Omit to derive it from category."
+          "description": "Section on the weekly page (prompts/weekly.md). things_to_know and world are old names for curiosities and knowledge. Omit to derive it from category."
         },
         "subject": {
           "enum": [
             "maths",
             "probability",
             "physics",
-            "other_science"
+            "computer_science",
+            "chemistry",
+            "biology",
+            "neuroscience",
+            "astronomy",
+            "earth_science",
+            "history",
+            "philosophy",
+            "economics",
+            "world",
+            "geography",
+            "psychology",
+            "linguistics",
+            "literature",
+            "art",
+            "music",
+            "other_science",
+            "other"
           ],
-          "description": "For section 'questions': the subject. Every week has at least 2 maths or probability questions and 2 physics questions."
+          "description": "For knowledge topics and questions: the subject they are grouped under. Every week has at least 2 maths or probability questions, 2 physics questions, and topics in 5 to 6 other subjects."
+        },
+        "source": {
+          "type": "string",
+          "description": "For questions: where the problem comes from, e.g. 'Feynman Lectures Vol. 1, Ch. 4' or 'Putnam 1995 A1'."
+        },
+        "source_url": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "solution": {
+          "type": "string",
+          "description": "For questions: a short worked answer, shown collapsed."
         }
       }
     },

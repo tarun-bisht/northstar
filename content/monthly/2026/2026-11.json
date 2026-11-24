@@ -1,271 +1,330 @@
 {
   "schema": "monthly",
   "month": "2026-11",
-  "generated_at": "2026-11-25T12:00:00+05:30",
-  "generator": "claude monthly run (manual, late month)",
+  "generated_at": "2026-11-25T18:00:00+05:30",
+  "generator": "claude monthly run (manual, regenerated late month)",
   "load": "normal",
-  "intro": "Only the last week of November is left, so each deep dive is sized for about one week. Pick one, two or all three. Skipping is fine.",
+  "intro": "Only the last week of November is left, so each deep dive fits about one week. Pick one, two or all three. Skipping is fine.",
   "items": [
     {
-      "id": "m-2026-11-sparse-autoencoders-week",
-      "title": "Superposition and sparse autoencoders in one week",
+      "id": "m-2026-11-speculative-decoding-week",
+      "title": "Speculative decoding: faster LLMs with the same outputs",
       "kind": "ai_deep_dive",
       "section": "research",
       "tier": "established",
-      "dimensions": ["research"],
-      "topic": "interpretability",
-      "why": "Sparse autoencoders are the main tool for finding features inside language models. Knowing why they work, and where they fail, helps you read new interpretability papers critically.",
-      "objective": "Explain superposition with a toy model, train a tiny sparse autoencoder yourself, and state one honest limit of the method.",
-      "prerequisites": ["PyTorch basics", "linear algebra: projections and dot products", "what an autoencoder is"],
+      "dimensions": [
+        "research"
+      ],
+      "topic": "efficient inference",
+      "why": "Speculative decoding is now built into most serving stacks. It is also a neat piece of probability: a small model guesses, a big model checks, and the output distribution does not change. Knowing why it is exact helps you judge new inference papers quickly.",
+      "objective": "Prove to yourself that the accept and reject rule keeps the target distribution, measure a real speedup on your own machine, and explain when the trick stops paying off.",
+      "prerequisites": [
+        "sampling from a softmax",
+        "basic PyTorch and Hugging Face transformers",
+        "expected value of a geometric-like series"
+      ],
       "weeks": [
         {
           "week": 1,
-          "focus": "Wed 25 to Fri 27 Nov: why neurons are polysemantic",
+          "focus": "Wed 25 to Fri 27 Nov: why the trick is exact",
           "tasks": [
-            "Read Toy Models of Superposition: the overview, the first toy model and the phase-change sections",
-            "Do ARENA 1.3.2 part 0, Toy Models of Superposition, in Colab",
-            "Write three sentences: when does a model store more features than it has dimensions?"
+            "Read Leviathan, Kalman and Matias: the abstract, the introduction, the algorithm and the analysis of how many tokens are accepted per step",
+            "On paper, show that accepting a draft token with probability min(1, p/q) and otherwise sampling from the leftover distribution gives exactly p",
+            "Read the Chen et al. abstract and method. Note one way their setup differs from Leviathan et al."
           ]
         },
         {
           "week": 2,
-          "focus": "Sat 28 to Mon 30 Nov: dictionary learning on a real model",
+          "focus": "Sat 28 to Mon 30 Nov: measure it and meet the variants",
           "tasks": [
-            "Read Towards Monosemanticity: the summary, the problem setup and one feature case study such as base64 or Arabic script",
-            "Skim Cunningham et al. 2023 for how they test features causally on indirect object identification",
-            "Do ARENA 1.3.2 part 1, Intro to SAE interpretability, or train a small SAE with the SAELens guide",
-            "Read the GDM progress update steering section and note one result where SAE features did worse than a plain steering vector"
+            "Follow the Hugging Face assisted decoding guide. Run SmolLM-1.7B with SmolLM-135M as the assistant and time tokens per second against plain decoding",
+            "Try prompt lookup decoding with prompt_lookup_num_tokens=5 on a summarisation prompt, where the output copies the input",
+            "Write the accept and reject rule from scratch for two toy distributions and check by sampling that the output matches p",
+            "Skim the Medusa abstract and the dynamic speculation blog post. Write one line on what each changes about drafting"
           ]
         }
       ],
       "primary_resource": {
-        "title": "Interpretability with Sparse Autoencoders (Colab exercises)",
-        "creator": "Callum McDougall (ARENA)",
-        "type": "course",
-        "url": "https://www.lesswrong.com/posts/LnHowHgmrMbWtpkxx/interpretability-with-sparse-autoencoders-colab-exercises",
+        "title": "Fast Inference from Transformers via Speculative Decoding",
+        "creator": "Yaniv Leviathan, Matan Kalman, Yossi Matias",
+        "type": "paper",
+        "year": 2022,
+        "url": "https://arxiv.org/abs/2211.17192",
         "url_verified": true,
-        "chapters": "ARENA 1.3.2, parts 0 and 1",
-        "note": "Self-contained Colab exercises. Part 3 covers training and evaluating SAEs if you want more."
+        "note": "ICML 2023. Reports 2x to 3x faster decoding on T5-XXL with identical outputs."
       },
       "resources": [
         {
-          "title": "Toy Models of Superposition",
-          "creator": "Elhage et al., Anthropic",
-          "type": "paper",
-          "year": 2022,
-          "url": "https://arxiv.org/abs/2209.10652",
-          "url_verified": true
-        },
-        {
-          "title": "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning",
-          "creator": "Bricken et al., Anthropic",
+          "title": "Accelerating Large Language Model Decoding with Speculative Sampling",
+          "creator": "Charlie Chen, Sebastian Borgeaud, Geoffrey Irving, Jean-Baptiste Lespiau, Laurent Sifre, John Jumper",
           "type": "paper",
           "year": 2023,
-          "url": "https://transformer-circuits.pub/2023/monosemantic-features/",
-          "url_verified": true
+          "url": "https://arxiv.org/abs/2302.01318",
+          "url_verified": true,
+          "note": "The same idea, found independently, on a 70B model."
         },
         {
-          "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
-          "creator": "Cunningham, Ewart, Riggs, Huben, Sharkey",
-          "type": "paper",
-          "year": 2023,
-          "url": "https://arxiv.org/abs/2309.08600",
-          "url_verified": true
-        },
-        {
-          "title": "Training SAEs (SAELens documentation)",
-          "creator": "SAELens",
+          "title": "Assisted decoding (Transformers documentation)",
+          "creator": "Hugging Face",
           "type": "website",
-          "url": "https://decoderesearch.github.io/SAELens/dev/training_saes",
-          "url_verified": true
+          "url": "https://huggingface.co/docs/transformers/assisted_decoding",
+          "url_verified": true,
+          "chapters": "Speculative decoding, Prompt lookup decoding",
+          "note": "Short runnable code for each method."
         },
         {
-          "title": "Progress Update #1 from the GDM Mech Interp Team",
-          "creator": "Nanda, Conmy, Smith, Rajamanoharan, Lieberum, Kramár, Varma",
+          "title": "Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads",
+          "creator": "Tianle Cai, Yuhong Li, Zhengyang Geng, Hongwu Peng, Jason D. Lee, Deming Chen, Tri Dao",
+          "type": "paper",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2401.10774",
+          "url_verified": true,
+          "note": "Drafts with extra heads on the big model instead of a separate small model."
+        },
+        {
+          "title": "Faster Assisted Generation with Dynamic Speculation",
+          "creator": "Intel Labs and Hugging Face",
           "type": "blog",
           "year": 2024,
-          "url": "https://www.lesswrong.com/posts/C5KAZQib3bzzpeyrg/full-post-progress-update-1-from-the-gdm-mech-interp-team",
+          "url": "https://huggingface.co/blog/dynamic_speculation_lookahead",
           "url_verified": true,
-          "note": "Honest, tentative results on using SAE features for steering."
+          "note": "The draft model stops early when it is unsure."
+        },
+        {
+          "title": "Universal Assisted Generation: Faster Decoding with Any Assistant Model",
+          "creator": "Intel Labs and Hugging Face",
+          "type": "blog",
+          "year": 2024,
+          "url": "https://huggingface.co/blog/universal_assisted_generation",
+          "url_verified": true,
+          "note": "Optional. How to use a draft model with a different tokenizer."
         }
       ],
       "exercises": [
-        "In the toy model, vary feature sparsity and watch when features start sharing dimensions",
-        "Pick one SAE feature and test it two ways: top activations and an ablation"
+        "If each draft token is accepted with probability a and you draft g tokens, show that the expected number of tokens per big-model call is (1 - a^(g+1)) / (1 - a)",
+        "Plot that expression for a = 0.6 and a = 0.9 as g grows. Where does drafting more stop helping?"
       ],
-      "deliverable": "A one-page note: what superposition is, how an SAE untangles it, and one open problem.",
-      "definition_of_done": "You can explain the L1 versus reconstruction trade-off and name one failure mode without notes.",
-      "final_synthesis": "Write one research question that SAEs cannot yet answer well, and what evidence would settle it.",
+      "deliverable": "A one-page note with the exactness proof in your own words, your measured speedup, and one case where speculative decoding would not help.",
+      "definition_of_done": "You can explain without notes why the output distribution is unchanged and what acceptance rate means for speed.",
+      "final_synthesis": "Write one research question about speculative decoding that matters for your area, such as how it interacts with quantized draft models or with safety filtering.",
       "time_estimate": "4-6 h this week",
-      "light_version": "Read only the Towards Monosemanticity summary and one case study, then write the one-page note.",
-      "continuation": "Possible later milestone: circuits built from SAE features, or SAEs for unlearning checks. Not scheduled automatically.",
-      "modes": ["learn", "practise", "reflect"],
+      "light_version": "Read the Leviathan et al. abstract and algorithm, then do only the exactness proof on paper.",
+      "continuation": "Possible later milestone: tree-based drafting and serving systems such as vLLM. Not scheduled automatically.",
+      "modes": [
+        "learn",
+        "practise",
+        "reflect"
+      ],
       "origin": "system",
       "status": "suggested"
     },
     {
-      "id": "m-2026-11-concentration-inequalities-week",
-      "title": "Concentration inequalities, derived by hand",
+      "id": "m-2026-11-statistical-mechanics-for-ml-week",
+      "title": "Statistical mechanics behind softmax, energy and free energy",
       "kind": "non_ai_deep_dive",
       "section": "knowledge",
       "tier": "growth",
-      "dimensions": ["knowledge", "research"],
-      "topic": "probability",
-      "why": "Every generalization bound and many evaluation error bars rest on a few inequalities. Deriving them once makes them tools you can use, not facts you recall.",
-      "objective": "Derive Markov, Chebyshev, Chernoff and Hoeffding from scratch, then use Hoeffding to bound the error of a finite hypothesis class.",
-      "prerequisites": ["expectation and variance", "the exponential function and Taylor series", "comfort with short proofs"],
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "topic": "statistical physics",
+      "why": "Softmax with a temperature, energy-based models, the partition function and the ELBO all come from statistical mechanics. Learning the physics once makes many ML ideas feel like one idea. This is the growth item for the month.",
+      "objective": "Derive the Boltzmann distribution, explain the partition function and free energy, and map each one to its ML twin.",
+      "prerequisites": [
+        "probability and expectations",
+        "entropy as -sum p log p",
+        "Lagrange multipliers"
+      ],
       "weeks": [
         {
           "week": 1,
-          "focus": "Wed 25 to Fri 27 Nov: from Markov to Chernoff",
+          "focus": "Wed 25 to Fri 27 Nov: the physics",
           "tasks": [
-            "Read Vershynin, High-Dimensional Probability, Ch. 1 on basic inequalities and the start of Ch. 2",
-            "Prove Markov's inequality on paper. Then get Chebyshev from it in two lines",
-            "Derive the Chernoff method: apply Markov to exp(tX) and optimise over t"
+            "Read Tong, Statistical Physics, chapter 1: section 1.2.3 The Two State System, then 1.3 The Canonical Ensemble, 1.3.1 The Partition Function and 1.3.4 Free Energy",
+            "Optional: read Feynman Lectures Vol. I, chapter 40, The Principles of Statistical Mechanics, for intuition",
+            "Derive the Boltzmann distribution by maximising entropy with a fixed mean energy"
           ]
         },
         {
           "week": 2,
-          "focus": "Sat 28 to Mon 30 Nov: Hoeffding and a first learning bound",
+          "focus": "Sat 28 to Mon 30 Nov: the ML twins",
           "tasks": [
-            "Prove Hoeffding's lemma for a bounded variable, then Hoeffding's inequality",
-            "Read Shalev-Shwartz and Ben-David, Ch. 2 to 4, and the concentration part of Appendix B",
-            "Derive the sample size needed for a finite hypothesis class to be agnostic PAC learnable"
+            "Read LeCun et al., A Tutorial on Energy-Based Learning: section 1.3 for the Gibbs distribution and partition function, and section 2.2.4 for free energy as a log partition function",
+            "Read the Nobel Prize 2024 popular information on Hopfield's energy and the Boltzmann machine",
+            "Code a 16-unit Hopfield network that stores two patterns. Start from a noisy pattern and print the energy at each update"
           ]
         }
       ],
       "primary_resource": {
-        "title": "High-Dimensional Probability: An Introduction with Applications in Data Science",
-        "creator": "Roman Vershynin",
-        "type": "book",
-        "chapters": "Ch. 1 and Ch. 2 up to Hoeffding",
-        "note": "The author hosts a free draft on his university page. Link not verified this run."
+        "title": "Statistical Physics, chapter 1: The Fundamentals of Statistical Mechanics",
+        "creator": "David Tong (University of Cambridge)",
+        "type": "lecture",
+        "url": "https://www.damtp.cam.ac.uk/user/tong/statphys/statmechhtml/S1.html",
+        "url_verified": true,
+        "chapters": "1.2.3, 1.3, 1.3.1 to 1.3.4",
+        "note": "Free lecture notes, clear and short."
       },
       "resources": [
         {
-          "title": "Understanding Machine Learning: From Theory to Algorithms",
-          "creator": "Shai Shalev-Shwartz and Shai Ben-David",
-          "type": "book",
-          "year": 2014,
-          "chapters": "Ch. 2 to 4 and Appendix B"
+          "title": "A Tutorial on Energy-Based Learning",
+          "creator": "Yann LeCun, Sumit Chopra, Raia Hadsell, Marc'Aurelio Ranzato, Fu Jie Huang",
+          "type": "paper",
+          "year": 2006,
+          "url": "https://cs.nyu.edu/~yann/2011f-G22-2565-001/diglib/lecun-06.pdf",
+          "url_verified": true,
+          "chapters": "Sections 1.3 and 2.2.4"
         },
         {
-          "title": "Understanding Machine Learning 2014: course lecture notes and videos",
-          "creator": "Shai Shalev-Shwartz",
-          "type": "lecture",
-          "url": "https://www.cs.huji.ac.il/~shais/IML2014.html",
+          "title": "The Nobel Prize in Physics 2024: popular information",
+          "creator": "The Nobel Prize",
+          "type": "article",
+          "year": 2024,
+          "url": "https://nobelprize.org/prizes/physics/2024/popular-information/",
           "url_verified": true,
-          "note": "Course that follows the book. Use the early PAC learning lectures."
+          "note": "How Hopfield networks use an energy and how the Boltzmann machine uses Boltzmann's equation."
+        },
+        {
+          "title": "The Feynman Lectures on Physics, Vol. I",
+          "creator": "Richard Feynman",
+          "type": "book",
+          "chapters": "Chapter 40, The Principles of Statistical Mechanics",
+          "note": "Free to read on the Caltech site. The page could not be fetched this run, so no link."
+        },
+        {
+          "title": "Information Theory, Inference and Learning Algorithms",
+          "creator": "David J. C. MacKay",
+          "type": "book",
+          "year": 2003,
+          "url": "https://www.cambridge.org/0521642981",
+          "url_verified": true,
+          "chapters": "31 Ising models, 33 Variational methods, 42 Hopfield networks, 43 Boltzmann machines",
+          "note": "Optional, for going further. Link is the publisher page."
         }
       ],
       "exercises": [
-        "Simulate coin flips in a notebook and plot the true tail probability against the Chebyshev and Hoeffding bounds",
-        "How many test examples do you need so a measured accuracy is within 1 point of the truth with 95 percent confidence?"
+        "Show that softmax(z / T) is a Boltzmann distribution with energy -z and temperature T. What happens as T goes to 0 and to infinity?",
+        "Show that log Z equals the maximum over q of (-E_q[energy] + H(q)). Then point to where this same step appears in the ELBO"
       ],
-      "deliverable": "Handwritten derivations of all four inequalities, plus a short notebook comparing the bounds.",
-      "definition_of_done": "You can rederive Hoeffding from a blank page and apply it to a benchmark error bar.",
-      "final_synthesis": "Write a short note on what Hoeffding assumes, and which of those assumptions break for real benchmark data.",
+      "deliverable": "A one-page dictionary with two columns: physics word and ML word, with one equation per row.",
+      "definition_of_done": "You can explain without notes why the free energy is a log partition function and why that makes the ELBO a bound.",
+      "final_synthesis": "Write one question that physics might answer about learning, such as whether sudden jumps in training look like phase transitions.",
       "time_estimate": "4-5 h this week",
-      "light_version": "Only derive Markov, Chebyshev and Hoeffding, and do the test-set size exercise.",
-      "continuation": "Possible later milestone: Rademacher complexity or martingale inequalities. Not scheduled automatically.",
-      "modes": ["learn", "practise", "create"],
+      "light_version": "Read Tong section 1.3 up to the partition function, then do only the softmax exercise.",
+      "continuation": "Possible later milestone: phase transitions in learning, or MacKay's Ising and variational chapters. Not scheduled automatically.",
       "cross_domain": {
-        "fields": ["probability theory", "machine learning evaluation"],
-        "connection": "The same inequality that proves learning is possible also tells you how big a test set must be before a benchmark gain means anything."
+        "fields": [
+          "statistical physics",
+          "machine learning"
+        ],
+        "connection": "The Boltzmann distribution, partition function and free energy reappear as softmax, normalising constants and the ELBO."
       },
+      "modes": [
+        "learn",
+        "practise",
+        "create"
+      ],
       "origin": "system",
-      "idea_id": "idea-mathematics-for-ml-research-rebuilt-from-first-pri",
       "status": "suggested"
     },
     {
-      "id": "m-2026-11-islamic-geometric-patterns-week",
-      "title": "Draw Islamic geometric patterns with a compass and ruler",
-      "kind": "creative_project",
+      "id": "m-2026-11-pather-panchali-week",
+      "title": "Satyajit Ray's Pather Panchali: a week with one film",
+      "kind": "exploration_theme",
       "section": "exploration",
       "tier": "exploration",
-      "dimensions": ["culture", "curiosity"],
-      "topic": "Islamic geometric design",
-      "why": "These patterns cover mosques and palaces from Spain to India. Drawing one by hand is calm, slow work, and it shows how a few circles hide a whole system of symmetry.",
-      "objective": "Draw three patterns by hand from a single circle grid, and learn to spot their symmetries in real buildings.",
-      "prerequisites": ["a compass, a ruler, a pencil and paper", "no art or maths background needed"],
+      "dimensions": [
+        "culture"
+      ],
+      "topic": "world cinema",
+      "why": "Pather Panchali is one of the great films about ordinary life. A family, a village, rain and a passing train become something you remember for years. Spending a week with one film trains slow attention, the opposite of scrolling.",
+      "objective": "Watch Pather Panchali closely, read two good essays on it, and make one small piece of your own about an everyday sight.",
+      "prerequisites": [
+        "about two hours for the film, with English subtitles"
+      ],
       "weeks": [
         {
           "week": 1,
-          "focus": "Wed 25 to Fri 27 Nov: look, then draw your first pattern",
+          "focus": "Wed 25 to Fri 27 Nov: watch it fresh",
           "tasks": [
-            "Read the Met essay Geometric Patterns in Islamic Art and look closely at its object images",
-            "Open the Smarthistory page on Eric Broug's explanation of how these designs come from a compass and ruler",
-            "Draw a simple eight-fold star pattern from one circle divided into eight, following Broug's step-by-step method"
+            "Watch Pather Panchali (1955, Bengali, 125 minutes) without reading anything first",
+            "Right after, write down three moments that stayed with you and one line on why",
+            "Read Terrence Rafferty's Criterion essay, Every Common Sight. Compare his moments with yours"
           ]
         },
         {
           "week": 2,
-          "focus": "Sat 28 to Mon 30 Nov: six-fold patterns and symmetry",
+          "focus": "Sat 28 to Mon 30 Nov: look again, then make something",
           "tasks": [
-            "Draw a six-fold pattern on a circle grid and repeat it to tile the page",
-            "Read the Heidelberg blog post on the Alhambra and the 17 wallpaper groups",
-            "Read Grünbaum's short article on whether all 17 groups really appear in the Alhambra",
-            "Find one building near you or online with a geometric pattern and name its rotation symmetry"
+            "Read Girish Shambu's Criterion essay, Behind the Universal, and rewatch one scene it discusses",
+            "Read the RogerEbert.com feature on the restoration of the trilogy",
+            "Make your own every common sight: six photos or 150 words about one ordinary thing near you, seen slowly",
+            "Optional: watch the next film, Aparajito (1956)"
           ]
         }
       ],
       "primary_resource": {
-        "title": "Islamic Geometric Patterns",
-        "creator": "Eric Broug",
-        "type": "book",
-        "year": 2008,
-        "url": "https://www.thamesandhudson.com/products/islamic-geometric-patterns-2",
+        "title": "Pather Panchali",
+        "creator": "Satyajit Ray",
+        "type": "film",
+        "year": 1955,
+        "url": "https://www.criterion.com/films/28021-pather-panchali",
         "url_verified": true,
-        "chapters": "Technical tips, then the first eight-fold and six-fold patterns",
-        "note": "Step-by-step drawing instructions. Library copies work well."
+        "note": "Bengali, black and white, 125 minutes. First film of the Apu Trilogy."
       },
       "resources": [
         {
-          "title": "Geometric Patterns in Islamic Art",
-          "creator": "Department of Islamic Art, The Metropolitan Museum of Art",
+          "title": "The Apu Trilogy: Every Common Sight",
+          "creator": "Terrence Rafferty (Criterion)",
           "type": "article",
-          "url": "https://www.metmuseum.org/essays/geometric-patterns-in-islamic-art",
+          "url": "https://www.criterion.com/current/posts/3798-the-apu-trilogy-every-common-sight",
           "url_verified": true
         },
         {
-          "title": "The complex geometry of Islamic design",
-          "creator": "Eric Broug, via Smarthistory and TED-Ed",
-          "type": "website",
-          "url": "https://smarthistory.org/the-complex-geometry-of-islamic-design",
-          "url_verified": true
-        },
-        {
-          "title": "The Palace of Alhambra and the Crystallographic Groups",
-          "creator": "Ana Chavez-Caliz, STRUCTURES blog, Heidelberg",
-          "type": "blog",
-          "year": 2023,
-          "url": "https://structures.uni-heidelberg.de/blog/posts/2023_01_palace_crystallographic/index.php",
-          "url_verified": true
-        },
-        {
-          "title": "What Symmetry Groups Are Present in the Alhambra?",
-          "creator": "Branko Grünbaum, Notices of the AMS",
+          "title": "The Apu Trilogy: Behind the Universal",
+          "creator": "Girish Shambu (Criterion)",
           "type": "article",
-          "year": 2006,
-          "url": "https://faculty.washington.edu/moishe/branko/BG262.Alhambra.pdf",
+          "year": 2015,
+          "url": "https://www.criterion.com/current/posts/3804-the-apu-trilogy-behind-the-universal",
           "url_verified": true
+        },
+        {
+          "title": "Cinematic Poetry: The Restoration of The Apu Trilogy",
+          "creator": "RogerEbert.com",
+          "type": "article",
+          "url": "https://www.rogerebert.com/features/cinematic-poetry-the-restoration-of-the-apu-trilogy",
+          "url_verified": true,
+          "note": "How the films were saved after a fire, and how the mother holds the story together."
+        },
+        {
+          "title": "Our Films, Their Films",
+          "creator": "Satyajit Ray",
+          "type": "book",
+          "note": "Optional. Ray's own essays on making films."
         }
       ],
       "exercises": [
-        "Draw the same eight-fold star twice, once with only a compass and ruler and once freehand, and compare",
-        "Colour one tiled pattern so that the colouring has less symmetry than the lines"
+        "Pick one scene and count the shots. Where is the camera, high or low, close or far?",
+        "Listen to the music alone for a minute. What does it tell you before the picture does?"
       ],
-      "deliverable": "Three hand-drawn patterns, one of them tiled across a full page.",
-      "definition_of_done": "You can start from a blank page and draw an eight-fold star pattern without looking at the steps.",
-      "final_synthesis": "Look at a pattern you did not draw and work out its starting circle grid.",
-      "time_estimate": "3-4 h this week",
-      "light_version": "Read the Met essay and draw just one eight-fold star.",
-      "continuation": "Possible later milestone: ten-fold patterns, or coding a pattern generator. Not scheduled automatically.",
-      "modes": ["learn", "create", "experience"],
+      "deliverable": "Your three moments and your six photos or 150 words.",
+      "definition_of_done": "You have watched the film and can describe one scene in detail to a friend.",
+      "final_synthesis": "Write two sentences: what does Ray make you notice that you usually pass by?",
+      "time_estimate": "3-5 h this week",
+      "light_version": "Watch the film and write your three moments. Skip the essays.",
+      "continuation": "Possible later: the rest of the Apu Trilogy, or Ray's Charulata. Not scheduled automatically.",
       "cross_domain": {
-        "fields": ["Islamic art", "group theory"],
-        "connection": "Craftsmen built these patterns with circles and lines. Mathematicians later classified the same repeats as wallpaper groups, and still argue about which ones the Alhambra contains."
+        "fields": [
+          "cinema",
+          "photography"
+        ],
+        "connection": "Ray's way of seeing ordinary life is a lesson in framing that carries straight into everyday photography."
       },
+      "modes": [
+        "experience",
+        "reflect",
+        "create"
+      ],
       "origin": "system",
       "status": "suggested"
     }
@@ -274,37 +333,36 @@
     "plans": [
       {
         "language": "japanese",
-        "goal": "Give a 30-second self-introduction out loud: name, where you are from, what you do, one hobby.",
+        "goal": "Order something politely: get attention, ask for an item, ask the price and say thank you.",
         "weeks": [
           {
             "week": 1,
-            "focus": "Wed 25 and Thu 26: open and close politely",
+            "focus": "Wed 25 and Thu 26: get attention and ask",
             "tasks": [
-              "Learn はじめまして (hajimemashite, nice to meet you) and よろしくお願いします (yoroshiku onegaishimasu, please treat me kindly)",
-              "Say 〇〇です (〇〇 desu, I am 〇〇) out loud ten times with your name"
+              "Learn すみません (sumimasen, excuse me) and これをください (kore o kudasai, this one please). Say each out loud ten times"
             ]
           },
           {
             "week": 2,
-            "focus": "Fri 27: where you are from",
+            "focus": "Fri 27: ask for a drink",
             "tasks": [
-              "Learn インドから来ました (Indo kara kimashita, I came from India)",
-              "Listen to one NHK Easy Japanese episode and shadow the greetings"
+              "Learn お水をください (omizu o kudasai, water please)",
+              "Listen to NHK Easy Japanese lesson 45 and shadow the request"
             ]
           },
           {
             "week": 3,
-            "focus": "Sat 28 and Sun 29: work and a hobby",
+            "focus": "Sat 28 and Sun 29: price and thanks",
             "tasks": [
-              "Learn 研究者です (kenkyūsha desu, I am a researcher) and 趣味は〇〇です (shumi wa 〇〇 desu, my hobby is 〇〇)",
-              "Role-play a first meeting with Claude, twice"
+              "Learn いくらですか (ikura desu ka, how much is it?) and ありがとうございます (arigatō gozaimasu, thank you very much)",
+              "Role-play ordering at a café with Claude, twice"
             ]
           },
           {
             "week": 4,
-            "focus": "Mon 30: put it together",
+            "focus": "Mon 30: the whole order",
             "tasks": [
-              "Record your 30-second introduction on your phone and listen back once"
+              "Say the full order out loud once without notes, then add おいしいです (oishii desu, it is tasty)"
             ]
           }
         ],
@@ -315,27 +373,28 @@
             "type": "podcast",
             "url": "https://podcasts.apple.com/us/podcast/easy-japanese-nhk-world-japan/id1482221142",
             "url_verified": true,
-            "chapters": "Episodes 1 to 3",
-            "note": "Short lessons with English titles, aimed at learners."
+            "chapters": "Lesson 45, Making a request politely",
+            "note": "Free learner course built around a short story."
           }
         ]
       },
       {
         "language": "telugu",
-        "goal": "Greet someone, ask how they are, and exchange names in Telugu.",
+        "goal": "Greet someone, exchange names and say thank you in Telugu.",
         "weeks": [
           {
             "week": 1,
-            "focus": "Wed 25 and Thu 26: greeting",
+            "focus": "Wed 25 and Thu 26: greet",
             "tasks": [
-              "Learn నమస్కారం (namaskāraṁ, hello) and say it out loud ten times"
+              "Learn నమస్కారం (namaskāraṁ, hello) and బాగున్నారా? (bāgunnārā?, are you well?). Say them out loud ten times"
             ]
           },
           {
             "week": 2,
-            "focus": "Fri 27: how are you",
+            "focus": "Fri 27: answer",
             "tasks": [
-              "Learn బాగున్నారా? (bāgunnārā?, are you well?) and బాగున్నాను (bāgunnānu, I am well)"
+              "Learn బాగున్నాను (bāgunnānu, I am well)",
+              "Watch Daily Telugu 01 and repeat after the teacher"
             ]
           },
           {
@@ -343,14 +402,14 @@
             "focus": "Sat 28 and Sun 29: names",
             "tasks": [
               "Learn మీ పేరు ఏమిటి? (mī pēru ēmiṭi?, what is your name?) and నా పేరు 〇〇 (nā pēru 〇〇, my name is 〇〇)",
-              "Watch the first lesson of Spoken Telugu Through English and repeat after the teacher"
+              "Role-play a first meeting with Claude"
             ]
           },
           {
             "week": 4,
-            "focus": "Mon 30: a tiny conversation",
+            "focus": "Mon 30: close kindly",
             "tasks": [
-              "Role-play a greeting, how are you and names with Claude, then say it once without notes"
+              "Learn ధన్యవాదాలు (dhanyavādālu, thank you) and run the whole greeting once without notes"
             ]
           }
         ],
@@ -359,14 +418,14 @@
             "title": "Spoken Telugu Through English",
             "creator": "Gokila Agurchand (YouTube, listed on Class Central)",
             "type": "playlist",
-            "url": "https://classcentral.com/course/youtube-spoken-telugu-through-english-53731",
+            "url": "https://classcentral.com/classroom/youtube-spoken-telugu-through-english-53731",
             "url_verified": true,
-            "chapters": "Lessons 1 to 2",
-            "note": "Free beginner lessons. Check that each lesson is the English-medium one."
+            "chapters": "Daily Telugu 01 to 03",
+            "note": "Free short lessons. Some videos in the list are taught through Tamil, so pick the English ones."
           }
         ]
       }
     ]
   },
-  "notes": "Manual late-month run. The earlier November package was removed because it used the old format, so this one covers only 25 to 30 Nov. Each deep dive is one week, split into two halves. Language plans use four short steps across the same days because the format needs four. The diffusion models idea stays in December. Vershynin's free draft link and the book site for Understanding Machine Learning could not be fetched, so those two books have no URL."
+  "notes": "Regenerated from scratch on 25 Nov, covering only 25 to 30 Nov. Each deep dive is split into two halves of the week. Language plans use four short steps across the same days. The diffusion models idea stays in December. The Feynman Lectures chapter page could not be fetched, so it has no link. An NPR piece on the Apu Trilogy was blocked by the site and left out."
 }

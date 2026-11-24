@@ -54,31 +54,30 @@
         "curiosity"
       ]
     },
-    "monthly:m-2026-11-concentration-inequalities-week": {
+    "monthly:m-2026-11-pather-panchali-week": {
       "date": "2026-11-01",
-      "title": "Concentration inequalities, derived by hand",
-      "category": "non_ai_deep_dive",
+      "title": "Satyajit Ray's Pather Panchali: a week with one film",
+      "category": "exploration_theme",
       "dimensions": [
-        "knowledge",
+        "culture"
+      ],
+      "status": "suggested"
+    },
+    "monthly:m-2026-11-speculative-decoding-week": {
+      "date": "2026-11-01",
+      "title": "Speculative decoding: faster LLMs with the same outputs",
+      "category": "ai_deep_dive",
+      "dimensions": [
         "research"
       ],
       "status": "suggested"
     },
-    "monthly:m-2026-11-islamic-geometric-patterns-week": {
+    "monthly:m-2026-11-statistical-mechanics-for-ml-week": {
       "date": "2026-11-01",
-      "title": "Draw Islamic geometric patterns with a compass and ruler",
-      "category": "creative_project",
+      "title": "Statistical mechanics behind softmax, energy and free energy",
+      "category": "non_ai_deep_dive",
       "dimensions": [
-        "culture",
-        "curiosity"
-      ],
-      "status": "suggested"
-    },
-    "monthly:m-2026-11-sparse-autoencoders-week": {
-      "date": "2026-11-01",
-      "title": "Superposition and sparse autoencoders in one week",
-      "category": "ai_deep_dive",
-      "dimensions": [
+        "knowledge",
         "research"
       ],
       "status": "suggested"

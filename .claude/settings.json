@@ -1,4 +1,8 @@
 {
+  "skipWebFetchPreflight": true,
+  "env": {
+    "CLAUDE_CODE_SKIP_WEBFETCH_PREFLIGHT": "true"
+  },
   "permissions": {
     "allow": [
       "WebFetch",
@@ -6,6 +10,16 @@
     ]
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "date -u +%FT%TZ > /tmp/northstar-project-settings-loaded"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "WebFetch|WebSearch",

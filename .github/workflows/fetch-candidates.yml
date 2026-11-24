@@ -2,10 +2,18 @@ name: Fetch candidates
 
 # Collects real metadata from official APIs (no AI calls) so the Claude runs
 # select from verified data. 00:30 UTC is 06:00 IST, before the daily Claude runs.
+# 01:20 UTC (06:50 IST) is a gap-filling run: it refetches only sources that failed
+# earlier, so a rate limit or outage at 06:00 is repaired before the 07:19 Daily run.
 on:
   schedule:
     - cron: "30 0 * * *"
+    - cron: "20 1 * * *"
   workflow_dispatch:
+    inputs:
+      retry_only:
+        description: "Only refetch sources that failed earlier today"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -23,13 +31,34 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - name: arXiv (weekdays)
+      - name: Mode
+        id: mode
         run: |
-          if [ "$(TZ=Asia/Kolkata date +%u)" -le 5 ]; then python scripts/fetch_candidates.py arxiv; else echo "weekend: skip arXiv"; fi
+          if [ "${{ github.event.schedule }}" = "20 1 * * *" ] || [ "${{ inputs.retry_only }}" = "true" ]; then
+            echo "flag=--retry-failed" >> "$GITHUB_OUTPUT"
+          else
+            echo "flag=" >> "$GITHUB_OUTPUT"
+          fi
+      - name: arXiv, Hugging Face, alphaXiv (weekdays)
+        run: |
+          if [ "$(TZ=Asia/Kolkata date +%u)" -gt 5 ]; then echo "weekend: skip arXiv"; exit 0; fi
+          python scripts/fetch_candidates.py arxiv ${{ steps.mode.outputs.flag }}
+          # In-job second chance: wait, then refetch only what failed.
+          if python -c "import json,sys,datetime as d,zoneinfo as z;f='candidates/arxiv/'+d.datetime.now(z.ZoneInfo('Asia/Kolkata')).date().isoformat()+'.json';sys.exit(0 if json.load(open(f)).get('failed_sources') else 1)"; then
+            echo "some sources failed; retrying them in 120 s"; sleep 120
+            python scripts/fetch_candidates.py arxiv --retry-failed
+          fi
+      - name: News headlines (every day)
+        run: |
+          python scripts/fetch_candidates.py news ${{ steps.mode.outputs.flag }}
+          if python -c "import json,sys,datetime as d,zoneinfo as z;f='candidates/news/'+d.datetime.now(z.ZoneInfo('Asia/Kolkata')).date().isoformat()+'.json';sys.exit(0 if json.load(open(f)).get('failed_sources') else 1)"; then
+            echo "some feeds failed; retrying them in 60 s"; sleep 60
+            python scripts/fetch_candidates.py news --retry-failed
+          fi
       - name: YouTube (only if YOUTUBE_API_KEY secret is set)
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-        run: python scripts/fetch_candidates.py youtube
+        run: python scripts/fetch_candidates.py youtube ${{ steps.mode.outputs.flag }}
       - name: Prune old candidates
         run: python scripts/fetch_candidates.py prune --keep-days 14
       - name: Commit
@@ -39,5 +68,8 @@ jobs:
           git add candidates
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
           git commit -m "candidates: $(TZ=Asia/Kolkata date +%F)"
-          git pull --rebase origin main
-          git push origin main
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && exit 0
+            echo "push failed (attempt $i), retrying in 15 s"; sleep 15
+          done
+          exit 1

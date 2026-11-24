@@ -3,5 +3,4 @@
 Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
 
 1. The quarter to review is the one that just ended (e.g. on 1 April, review `<year>-Q1`).
-2. Follow `prompts/quarterly.md`.
-3. The synthesis itself goes in your final message, never in a file. Commit only sanitized system adjustments, if any.
+2. Follow `prompts/quarterly.md`. It writes a public review file, validates it and commits `quarterly: <YYYY-Qn> review`.

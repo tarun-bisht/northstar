@@ -13,7 +13,7 @@ from typing import Any, Iterator
 DEFAULT_ROOT = Path(__file__).resolve().parent.parent
 
 DAILY_STREAMS = ["arxiv", "research_updates", "world", "discovery", "youtube_shorts", "language"]
-PERIODIC_STREAMS = ["weekly", "monthly", "reading"]
+PERIODIC_STREAMS = ["weekly", "monthly", "reading", "quarterly"]
 ALL_STREAMS = DAILY_STREAMS + PERIODIC_STREAMS
 
 STREAM_META = {
@@ -35,7 +35,12 @@ STREAM_META = {
                "description": "Small optional things to learn, practise or experience this week."},
     "monthly": {"title": "Monthly", "feed": "monthly.xml",
                 "description": "Optional one-month deep dives, projects and experiences."},
+    "quarterly": {"title": "Quarterly review", "feed": "quarterly.xml",
+                  "description": "Every three months: stats, a short summary of research and discovery, and the topics covered."},
+    "daily": {"title": "Daily digest", "feed": "daily.xml",
+              "description": "One item per day with every section: papers, research, world news, discovery and language."},
 }
+DIGEST_FEEDS = ["daily"]  # feeds built from other streams, not from their own content files
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WEEK_RE = re.compile(r"^(\d{4})-W(\d{2})$")

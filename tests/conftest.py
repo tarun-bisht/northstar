@@ -16,6 +16,18 @@ from dsys.core import Repo, load_json, write_json  # noqa: E402
 D = dt.date(2026, 11, 24)
 
 
+@pytest.fixture(autouse=True)
+def no_network(monkeypatch):
+    """Tests never touch the network: dsys.net.get raises at once and retry pauses are skipped.
+    Tests that need a response monkeypatch the fetcher they exercise."""
+    from dsys import net
+
+    def _blocked(url, **kw):
+        raise OSError(f"network disabled in tests: {url}")
+    monkeypatch.setattr(net, "get", _blocked)
+    monkeypatch.setattr(net, "_sleep", lambda s: None)
+
+
 @pytest.fixture
 def repo(tmp_path) -> Repo:
     """An empty repository with real schemas and config, plus a copy of examples/."""

@@ -9,7 +9,7 @@ A short list of papers that are **definitely worth reading this week**: 3 to 8 p
 - Papers close to the configured research interests or methods.
 - A new concept, method or architecture worth knowing about.
 - Papers with clear potential to matter in the future.
-- Sources can be anything verified: the arXiv radar, Hugging Face trending papers, posts on X or LinkedIn from researchers, technical reports from AI labs (DeepSeek, OpenAI, Anthropic, Google DeepMind, Meta, Qwen, Mistral and others), or award papers at conferences.
+- Sources can be anything verified: the arXiv radar, Hugging Face trending papers, alphaXiv trending (https://www.alphaxiv.org, or `alphaxiv_votes` in the arXiv candidates), papers by notable researchers, posts on X or LinkedIn from researchers, technical reports from AI labs (DeepSeek, OpenAI, Anthropic, Google DeepMind, Meta, Qwen, Mistral and others), or award papers at conferences.
 
 ## Each paper
 

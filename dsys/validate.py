@@ -42,6 +42,8 @@ def guid_for(stream: str, doc: dict, item: dict | None = None) -> str:
         return f"dsys:weekly:{doc['week']}"
     if stream == "monthly":
         return f"dsys:monthly:{doc['month']}"
+    if stream == "quarterly":
+        return f"dsys:quarterly:{doc['quarter']}"
     return f"dsys:{stream}:{item['id']}"
 
 
@@ -281,6 +283,15 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 m = doc["month"]
                 if f.name != f"{m}.json" or f.parent.name != m[:4]:
                     rep.err(where, f"path must be monthly/{m[:4]}/{m}.json")
+            elif stream == "quarterly":
+                q = doc["quarter"]
+                if f.name != f"{q}.json" or f.parent.name != q[:4]:
+                    rep.err(where, f"path must be quarterly/{q[:4]}/{q}.json")
+                if not doc["summary"].strip():
+                    rep.err(where, "summary is empty: write the five or six line summary")
+                for t in doc["topics"]:
+                    if not t["about"].strip():
+                        rep.err(where, f"topic {t['title']!r} has no 'about' line")
 
             if stream == "reading":
                 w = doc["week"]

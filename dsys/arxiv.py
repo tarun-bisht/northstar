@@ -1,17 +1,19 @@
 """arXiv helpers: ID checks and a small client for the official export API.
 
-The API (http://export.arxiv.org/api/query) is public; arXiv asks for at most one
-request every 3 seconds. Used by scripts/fetch_candidates.py in GitHub Actions.
+The API (https://export.arxiv.org/api/query) is public; arXiv asks for at most one
+request every 3 seconds. All calls go through dsys.net, which retries transient failures.
+rss.arxiv.org is the fallback when the API fails; alphaXiv adds community trending. Used by scripts/fetch_candidates.py in GitHub Actions.
 """
 
 from __future__ import annotations
 
+import email.utils
+import json
 import re
-import time
-import urllib.error
 import urllib.parse
-import urllib.request
 import xml.etree.ElementTree as ET
+
+from . import net
 
 ID_RE = re.compile(r"^(\d{4})\.(\d{4,5})$")
 ATOM = "{http://www.w3.org/2005/Atom}"
@@ -77,24 +79,62 @@ def parse_feed(xml_text: str) -> list[dict]:
     return out
 
 
-def fetch_recent(category: str, max_results: int = 150, timeout: int = 30) -> list[dict]:
+class RateExceeded(Exception):
+    """arXiv sometimes answers 200 with the text 'Rate exceeded.' instead of a 429."""
+
+
+def fetch_recent(category: str, max_results: int = 150, timeout: int = 90) -> list[dict]:
+    """Newest papers in a category from the export API, with retries (see dsys.net)."""
     q = urllib.parse.urlencode({
         "search_query": f"cat:{category}", "sortBy": "submittedDate", "sortOrder": "descending",
         "start": 0, "max_results": max_results,
     })
-    req = urllib.request.Request("http://export.arxiv.org/api/query?" + q,
-                                 headers={"User-Agent": "northstar/1.0"})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            text = r.read().decode("utf-8")
-    except urllib.error.HTTPError as e:
-        if e.code != 429:
-            raise
-        time.sleep(30)  # rate limited: wait once, then retry
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            text = r.read().decode("utf-8")
-    time.sleep(3)  # arXiv API etiquette
-    return parse_feed(text)
+    url = "https://export.arxiv.org/api/query?" + q
+    for attempt in range(3):
+        text = net.get(url, timeout=timeout).decode("utf-8", "replace")
+        net._sleep(3)  # arXiv asks for at most one request every 3 seconds
+        if not text.lstrip().lower().startswith("rate exceeded"):
+            return parse_feed(text)
+        net._sleep(30 * (attempt + 1))
+    raise RateExceeded(f"{category}: arXiv answered 'Rate exceeded' three times")
+
+
+def parse_rss(xml_text: str, category: str) -> list[dict]:
+    """Parse rss.arxiv.org/rss/<cat>: today's announcement list, used when the API fails.
+
+    Each item's description reads 'arXiv:<id>v1 Announce Type: new Abstract: <text>'.
+    Replacements (already announced papers) are skipped.
+    """
+    root = ET.fromstring(xml_text)
+    out = []
+    for it in root.iter("item"):
+        desc = " ".join((it.findtext("description") or "").split())
+        m = re.match(r"^arXiv:(\d{4}\.\d{4,5})(v\d+)?\s+Announce Type:\s*(\S+)\s+Abstract:\s*(.*)$", desc)
+        if not m or m.group(3).startswith("replace") or not is_valid_id(m.group(1)):
+            continue
+        aid = m.group(1)
+        creators = it.findtext("{http://purl.org/dc/elements/1.1/}creator") or ""
+        cats = [c.text for c in it.findall("category") if c.text] or [category]
+        pub = it.findtext("pubDate") or ""
+        try:
+            submitted = email.utils.parsedate_to_datetime(pub).date().isoformat()
+        except (TypeError, ValueError):
+            submitted = ""
+        out.append({
+            "arxiv_id": aid, "version": m.group(2),
+            "title": " ".join((it.findtext("title") or "").split()),
+            "authors": [a.strip() for a in creators.split(",") if a.strip()],
+            "abstract": m.group(4).strip(),
+            "submitted": submitted, "categories": cats, "primary_category": cats[0],
+            "url": abs_url(aid), "source": "arxiv_rss",
+        })
+    return out
+
+
+def fetch_rss(category: str, timeout: int = 60) -> list[dict]:
+    text = net.get(f"https://rss.arxiv.org/rss/{category}", timeout=timeout).decode("utf-8", "replace")
+    net._sleep(3)
+    return parse_rss(text, category)
 
 
 def parse_hf_daily(data: list) -> list[dict]:
@@ -118,7 +158,60 @@ def parse_hf_daily(data: list) -> list[dict]:
 
 
 def fetch_hf_daily(date: str, api: str = "https://huggingface.co/api/daily_papers", timeout: int = 30) -> list[dict]:
-    import json
-    req = urllib.request.Request(f"{api}?date={date}", headers={"User-Agent": "northstar/1.0"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return parse_hf_daily(json.load(r))
+    return parse_hf_daily(json.loads(net.get(f"{api}?date={date}", timeout=timeout)))
+
+
+# --- alphaXiv trending ---------------------------------------------------------------
+ALPHAXIV_FEED = "https://api.alphaxiv.org/papers/v3/feed"
+
+
+def _first(d: dict, *keys):
+    for k in keys:
+        v = d.get(k)
+        if v not in (None, "", [], {}):
+            return v
+    return None
+
+
+def parse_alphaxiv(data) -> list[dict]:
+    """Normalise alphaXiv feed JSON. The endpoint is undocumented, so read it defensively:
+    accept several field names and skip anything without a valid arXiv id."""
+    rows = data if isinstance(data, list) else (_first(data or {}, "papers", "data", "results") or [])
+    out = []
+    for row in rows if isinstance(rows, list) else []:
+        if not isinstance(row, dict):
+            continue
+        p = row.get("paper") if isinstance(row.get("paper"), dict) else row
+        raw = str(_first(p, "universal_paper_id", "universalId", "arxivId", "arxiv_id", "upid", "paperId") or "")
+        aid, _ = split_id(raw)
+        if not is_valid_id(aid):
+            continue
+        authors = _first(p, "authors", "authorNames") or []
+        names = [a.get("name", "") if isinstance(a, dict) else str(a) for a in authors] if isinstance(authors, list) else []
+        metrics = p.get("metrics") if isinstance(p.get("metrics"), dict) else {}
+        votes = _first(metrics, "public_total_votes", "total_votes", "upvotes", "votes") or \
+            _first(p, "public_total_votes", "total_votes", "upvotes", "votes") or 0
+        visits = metrics.get("visits_count") if isinstance(metrics.get("visits_count"), dict) else {}
+        when = str(_first(p, "first_publication_date", "firstPublicationDate", "publication_date",
+                          "submittedDate", "publishedDate") or "")[:10]
+        try:
+            votes = int(votes)
+        except (TypeError, ValueError):
+            votes = 0
+        out.append({
+            "arxiv_id": aid,
+            "title": " ".join(str(_first(p, "title", "name") or "").split()),
+            "authors": [n for n in names if n],
+            "abstract": " ".join(str(_first(p, "abstract", "paper_summary", "summary") or "").split()),
+            "submitted": when,
+            "alphaxiv_votes": votes,
+            **({"alphaxiv_visits": int(visits["all"])} if str(visits.get("all", "")).isdigit() else {}),
+            "url": abs_url(aid),
+        })
+    return out
+
+
+def fetch_alphaxiv(limit: int = 50, sort: str = "Hot", interval: str = "7 Days", timeout: int = 30) -> list[dict]:
+    q = urllib.parse.urlencode({"pageNum": 1, "pageSize": limit, "sort": sort, "interval": interval})
+    return parse_alphaxiv(json.loads(net.get(f"{ALPHAXIV_FEED}?{q}", timeout=timeout,
+                                             headers={"Accept": "application/json"})))

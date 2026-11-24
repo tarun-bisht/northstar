@@ -64,7 +64,13 @@
       "distributed training and inference systems",
       "AI infrastructure and hardware-aware ML",
       "AI agents: planning, memory, tool use and multi-agent systems",
-      "benchmark design and scientific reproducibility"
+      "benchmark design and scientific reproducibility",
+      "diffusion and flow-based generative models",
+      "world models (JEPA, latent dynamics, video and interactive world models)",
+      "graph neural networks and geometric deep learning",
+      "information retrieval, search and recommender systems",
+      "deep learning for combinatorial optimization",
+      "AI for science (protein structure, AlphaFold-style models)"
     ],
     "foundations": [
       "probability",

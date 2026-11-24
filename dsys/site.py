@@ -86,7 +86,7 @@ def dimension_css() -> str:
 
 CSS += """
 .entry,.activity{position:relative;padding:.15rem 0 .2rem 1.15rem;margin:1.6rem 0;border-left:3px solid var(--c,var(--rule))}
-.entry h3 a{color:var(--ink);text-decoration:none}.entry h3 a:hover{text-decoration:underline}
+.entry :is(h3,h4,h5) a{color:var(--ink);text-decoration:none}.entry :is(h3,h4,h5) a:hover{text-decoration:underline}
 .stream-note{font:400 .9rem/1.5 var(--sans);color:var(--ink-2);margin-top:-.4rem}
 .empty{font-style:italic;color:var(--ink-2)}
 /* home */
@@ -103,6 +103,8 @@ CSS += """
 .buttons{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.2rem 0 .4rem}
 .btn{font:700 .92rem/1 var(--sans);padding:.65rem 1.05rem;border:1px solid var(--ink);border-radius:999px;color:var(--ink);text-decoration:none}
 .btn:hover{background:var(--ink);color:var(--paper)}
+.stats{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.3rem 1rem}
+.stats strong{font:700 1.3rem var(--serif);margin-right:.3rem}.topics li{margin:.5rem 0}
 .feeds{list-style:none;padding:0;margin:0}
 .feeds li{display:grid;grid-template-columns:11rem minmax(0,1fr) auto;gap:.6rem;align-items:center;padding:.45rem 0;border-top:1px solid var(--rule)}
 .fname{font:700 .9rem var(--sans)}
@@ -129,8 +131,17 @@ CSS += """
 .plan li .meta{margin:0}
 /* daily */
 .daynav{display:flex;justify-content:space-between;gap:1rem;font:400 .9rem var(--sans);margin:.2rem 0 1.4rem}
-.toc{display:flex;flex-wrap:wrap;gap:.4rem 1.3rem;font:400 .92rem var(--sans);padding:.7rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.toc span{color:var(--ink-2)}
+.toc{font:400 .92rem/1.5 var(--sans);padding:.6rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.toc p{margin:.25rem 0;display:flex;flex-wrap:wrap;gap:.2rem .9rem;align-items:baseline}
+.toc strong{min-width:5.5rem}.toc span{color:var(--ink-2)}.toc a.minor{color:var(--ink-2)}
+.group{margin-top:2.2rem}.group>h2{margin:0 0 .4rem;padding-bottom:.35rem;border-bottom:2px solid var(--ink)}
+.stream-block{margin:1.4rem 0 0}
+.stream-h,.sub-h{font-family:var(--sans);font-weight:700;letter-spacing:.02em;display:flex;gap:.6rem;align-items:baseline}
+.stream-h{font-size:1rem;text-transform:uppercase;color:var(--ink);margin:0 0 .6rem}
+.sub-h{font-size:.95rem;color:var(--ink-2);margin:1.2rem 0 .4rem;padding-top:.6rem;border-top:1px solid var(--rule)}
+.stream-h span,.sub-h span{font-weight:400;color:var(--ink-2)}
+.entry h4,.entry h5{font-family:var(--serif);font-size:1.12rem;margin:0 0 .3rem;font-weight:600;line-height:1.25}
+.tags .sep,.areas .sep{display:none}
 .shorts{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:1.2rem 1rem;margin-top:1rem}
 .short a.thumb{display:block;aspect-ratio:9/14;overflow:hidden;border-radius:6px;background:var(--paper-2)}
 .short img{width:100%;height:100%;object-fit:cover;display:block}
@@ -309,9 +320,9 @@ def _daily_index(repo: Repo, examples: bool):
     return dict(sorted(by_date.items(), reverse=True))
 
 
-def _entry(stream: str, it: dict) -> str:
+def _entry(stream: str, it: dict, heading: str = "h3") -> str:
     title = a(it["url"], it["title"]) if it.get("url") else esc(it["title"])
-    return (f'<article class="entry e-{item_dimension(stream, it)}"><h3>{title}</h3>'
+    return (f'<article class="entry e-{item_dimension(stream, it)}"><{heading}>{title}</{heading}>'
             f'{render.ITEM_RENDERERS[stream](it)}</article>')
 
 
@@ -321,27 +332,48 @@ def _short(it: dict) -> str:
             f'<p class="ch">{esc(it["channel"]["name"])}</p></div>')
 
 
+def _stream_block(s: str, doc: dict) -> str:
+    out = [f'<section id="{s}" class="stream-block"><h3 class="stream-h">{esc(STREAM_META[s]["title"])}'
+           f' <span>{len(doc["items"])}</span></h3>']
+    if doc.get("notes"):
+        out.append(f'<p class="stream-note">{esc(doc["notes"])}</p>')
+    if not doc["items"]:
+        out.append('<p class="empty">Nothing worth your time here today.</p>')
+    elif s == "youtube_shorts":
+        out.append('<div class="shorts">' + "".join(_short(it) for it in doc["items"]) + "</div>")
+    elif s == "world":
+        for key, label, items in render.group_world(doc["items"]):
+            out.append(f'<div class="subsec" id="world-{key}"><h4 class="sub-h">{esc(label)} <span>{len(items)}</span></h4>'
+                       '<div class="col">' + "".join(_entry(s, it, "h5") for it in items) + "</div></div>")
+    else:
+        out.append('<div class="col">' + "".join(_entry(s, it, "h4") for it in doc["items"]) + "</div>")
+    out.append("</section>")
+    return "".join(out)
+
+
 def _daily_page(site, date, streams, depth, prev=None, nxt=None, title=None) -> str:
-    present = [s for s in DAILY_STREAMS if s in streams]
     nav = ('<div class="daynav">'
            + (f'<a href="{prev}.html" rel="prev">Earlier: {render.nice_date(prev)}</a>' if prev else "<span></span>")
            + (f'<a href="{nxt}.html" rel="next">Later: {render.nice_date(nxt)}</a>' if nxt else "<span></span>")
            + "</div>")
-    toc = '<p class="toc">' + "".join(
-        f'<a href="#{s}">{STREAM_META[s]["title"]}</a> <span>{len(streams[s]["items"])}</span>' for s in present) + "</p>"
-    body = [f"<h1>{esc(title or long_date(date))}</h1>", nav, toc]
-    for s in present:
-        doc = streams[s]
-        body.append(f'<section id="{s}"><h2>{esc(STREAM_META[s]["title"])}</h2>')
-        if doc.get("notes"):
-            body.append(f'<p class="stream-note">{esc(doc["notes"])}</p>')
-        if not doc["items"]:
-            body.append('<p class="empty">Nothing worth your time here today.</p>')
-        elif s == "youtube_shorts":
-            body.append('<div class="shorts">' + "".join(_short(it) for it in doc["items"]) + "</div>")
-        else:
-            body.append('<div class="col">' + "".join(_entry(s, it) for it in doc["items"]) + "</div>")
+    groups = [(g, label, [s for s in ss if s in streams]) for g, label, ss in render.DAILY_GROUPS]
+    groups = [x for x in groups if x[2]]
+    toc = ['<nav class="toc">']
+    for g, label, present in groups:
+        links = []
+        for s in present:
+            links.append(f'<a href="#{s}">{esc(STREAM_META[s]["title"])}</a> <span>{len(streams[s]["items"])}</span>')
+            if s == "world":
+                links += [f'<a class="minor" href="#world-{k}">{esc(lab)}</a> <span>{len(its)}</span>'
+                          for k, lab, its in render.group_world(streams[s]["items"])]
+        toc.append(f'<p><strong><a href="#{g}">{esc(label)}</a></strong> ' + " ".join(links) + "</p>")
+    toc.append("</nav>")
+    body = [f"<h1>{esc(title or long_date(date))}</h1>", nav, "".join(toc)]
+    for g, label, present in groups:
+        body.append(f'<section id="{g}" class="group"><h2>{esc(label)}</h2>')
+        body += [_stream_block(s, streams[s]) for s in present]
         body.append("</section>")
+    body.append(nav)
     return page(site, title or date, "".join(body), depth, "archive")
 
 
@@ -401,6 +433,16 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
                     lambda m: dt.date.fromisoformat(m["month"] + "-01").strftime("%B %Y"))
               or "<p class='empty'>The first package arrives on the 1st.</p>"), 1, "monthly"))
 
+    quarters = sorted((load_json(f) for f in repo.iter_stream_files("quarterly")), key=lambda d: d["quarter"], reverse=True)
+    for q in quarters:
+        _write(out / "quarterly" / f"{q['quarter']}.html",
+               page(site, f"{q['quarter']} review",
+                    f"<div class='col'><h1>{esc(q['quarter'])} review</h1>{render.quarterly_review(q)}</div>", 1, "quarterly"))
+    _write(out / "quarterly" / "index.html", page(site, "Quarterly", "<div class='col'><h1>Quarterly reviews</h1></div>"
+           + ("<ul class='days'>" + "".join(f"<li>{a(q['quarter'] + '.html', q['quarter'] + ' review')}"
+                                             f"<span class='meta'>{len(q['topics'])} topics</span></li>" for q in quarters) + "</ul>"
+              if quarters else "<p class='empty'>The first review arrives on 1 January.</p>"), 1, "quarterly"))
+
     # archive, grouped by month
     arch = ["<div class='col'><h1>Archive</h1></div>"]
     if not daily:
@@ -453,7 +495,7 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
     if readings:
         buttons.append((f"reading/{readings[0]['week']}.html", "Reading list"))
     buttons += [("archive.html", "Archive"), ("weekly/index.html", "Weekly"), ("monthly/index.html", "Monthly"),
-                ("docs.html", "How it works")]
+                ("quarterly/index.html", "Quarterly"), ("docs.html", "How it works")]
     b.append('<nav class="buttons" aria-label="Sections">' + "".join(
         f'<a class="btn" href="{h}">{t}</a>' for h, t in buttons) + "</nav>")
 

@@ -123,6 +123,25 @@ def unseen_youtube_candidates(repo: Repo, day: dt.date) -> dict:
             "total": len(cand.get("candidates", [])), "unseen": len(fresh), "candidates": fresh}
 
 
+def news_candidates(repo: Repo, day: dt.date, section: str | None = None, brief: bool = False) -> dict:
+    """Fetched headlines grouped by section. Missing file -> available False (fall back to search)."""
+    path = repo.p("candidates", "news", f"{day.isoformat()}.json")
+    if not path.exists():
+        return {"date": day.isoformat(), "available": False, "sections": {}}
+    cand = load_json(path)
+    groups: dict[str, list] = {}
+    for c in cand.get("candidates", []):
+        if section and c.get("section") != section:
+            continue
+        row = {k: c.get(k) for k in ("title", "source", "published", "url")}
+        if not brief:
+            row["summary"] = c.get("summary")
+        groups.setdefault(c.get("section", "world"), []).append(row)
+    return {"date": day.isoformat(), "available": True, "fetched_at": cand.get("fetched_at"),
+            "failed_sources": cand.get("failed_sources", []),
+            "counts": {k: len(v) for k, v in groups.items()}, "sections": groups}
+
+
 def _recent(repo: Repo, stream: str, day: dt.date, days: int, fields: tuple[str, ...]):
     cutoff = (day - dt.timedelta(days=days)).isoformat()
     out = []

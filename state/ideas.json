@@ -106,6 +106,38 @@
       ]
     },
     {
+      "id": "idea-diffusion-models-in-depth",
+      "title": "Diffusion models in depth",
+      "status": "planned",
+      "origin": "user",
+      "scope": "monthly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "A month of deep work on diffusion and flow models: score matching and SDE view, DDPM and DDIM, classifier-free guidance, latent diffusion, flow matching and rectified flow, consistency models. Derive the key math and implement a small DDPM and a flow-matching model from scratch.",
+      "dimensions": [
+        "research"
+      ],
+      "first_step": "Work through the DDPM derivation and train a tiny model on 2D toy data",
+      "tags": [
+        "diffusion",
+        "generative models"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=user, status=interested, scope=monthly"
+        },
+        {
+          "date": "2026-11-24",
+          "action": "scheduled",
+          "detail": "2026-12"
+        }
+      ],
+      "scheduled_for": "2026-12"
+    },
+    {
       "id": "idea-emotional-intelligence-in-practice",
       "title": "Emotional intelligence in practice",
       "status": "interested",
@@ -440,6 +472,37 @@
           "detail": "origin=seed, status=interested, scope=either"
         }
       ]
+    },
+    {
+      "id": "idea-world-models-a-one-week-map-of-the-field",
+      "title": "World models: a one-week map of the field",
+      "status": "planned",
+      "origin": "user",
+      "scope": "weekly",
+      "created": "2026-11-24",
+      "updated": "2026-11-24",
+      "reschedule_count": 0,
+      "description": "One week across the main kinds of world models, not just JEPA: latent-dynamics models for RL (World Models by Ha and Schmidhuber, the Dreamer series, MuZero), JEPA-style latent predictors (I-JEPA, V-JEPA 2), and generative video and interactive world models (Sora, NVIDIA Cosmos, Genie). The user also mentioned ATLAS: find and verify which work this is before including it. Pick one recent survey as the spine.",
+      "dimensions": [
+        "research"
+      ],
+      "first_step": "Read a recent world-models survey's taxonomy section and sort ten known models into it",
+      "tags": [
+        "world models"
+      ],
+      "history": [
+        {
+          "date": "2026-11-24",
+          "action": "added",
+          "detail": "origin=user, status=interested, scope=weekly"
+        },
+        {
+          "date": "2026-11-24",
+          "action": "scheduled",
+          "detail": "2026-W49"
+        }
+      ],
+      "scheduled_for": "2026-W49"
     }
   ]
 }

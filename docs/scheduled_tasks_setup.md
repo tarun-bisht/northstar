@@ -8,9 +8,9 @@ Northstar runs on five Claude scheduled tasks. Each one starts a fresh Claude se
 | Shorts northstar schedule | Every day, 08:15 | YouTube shorts across your interests |
 | Weekly northstar schedule | Saturday, 06:46 | Next week's package and paper reading list |
 | Monthly northstar schedule | 1st of the month, 06:15 | This month's projects and language plans |
-| Quarterly northstar schedule | 1 Jan, Apr, Jul, Oct, 06:41 | A short look back, sent to you and never saved |
+| Quarterly northstar schedule | 1 Jan, Apr, Jul, Oct, 06:41 | A short public review: stats, a few lines on research and discovery, and the topics covered |
 
-Every task runs after the 06:00 IST candidate fetch on GitHub Actions.
+Every task runs after the 06:00 IST candidate fetch on GitHub Actions, and after its 06:50 IST gap-filling run, which retries any source that failed.
 
 ## Before you start
 
@@ -122,11 +122,11 @@ You are running the MONTHLY PACKAGE for my Northstar personal growth system in t
 Cron: `CRON_TZ=Asia/Kolkata 41 6 1 1,4,7,10 *`
 
 ```
-You are running the optional QUARTERLY SYNTHESIS for my Northstar personal growth system in the GitHub repo tarun-bisht/northstar.
+You are running the QUARTERLY REVIEW for my Northstar personal growth system in the GitHub repo tarun-bisht/northstar.
 
 1. Clone or update the repo (git clone https://github.com/tarun-bisht/northstar.git ~/northstar; then cd ~/northstar && git checkout main && git pull --rebase origin main) and install requirements (pip install -r requirements.txt, adding --break-system-packages if needed).
-2. Read CLAUDE.md, then prompts/_shared.md, then follow prompts/runs/quarterly.md and prompts/quarterly.md. Review the quarter that just ended (for example on 1 April, review <year>-Q1) using `python scripts/dsys.py synthesis --quarter <YYYY-Qn>`.
-3. This is not a performance review: no percentages, no ranking, no judgement. Be honest when the evidence is thin. Look at the balance across the established, growth and exploration tiers.
-4. The synthesis is personal. Put it ONLY in your final message and never write it to a file in the repo. Commit only small, sanitized system adjustments (for example moving a topic between tiers in config/interests.json), and only if they are clearly helpful. Run `python scripts/validate.py` before committing and never force-push.
-5. End with the synthesis, short and warm, in plain English with no semicolons or em dashes, then one line per system change you made or propose.
+2. Read CLAUDE.md, then prompts/_shared.md, then follow prompts/runs/quarterly.md and prompts/quarterly.md. Review the quarter that just ended (for example on 1 April, review <year>-Q1): run `python scripts/dsys.py quarterly draft --quarter <YYYY-Qn>`, which fills in all the stats and topics.
+3. Keep it short and cheap. Write only the summary (five or six plain lines, research and discovery only, no news or shorts) and one plain sentence per topic. No percentages, no scores, no judgement. Say so when the evidence is thin.
+4. The review is public. Never include private details. Run `python scripts/dsys.py history rebuild` and `python scripts/validate.py`, fix all errors, then commit and push to main as described in prompts/runs/_git.md. Never force-push.
+5. End with the summary, then one line per system change you made or propose.
 ```

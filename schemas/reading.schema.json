@@ -76,6 +76,7 @@
           "enum": [
             "arxiv",
             "huggingface",
+            "alphaxiv",
             "x_post",
             "linkedin_post",
             "tech_report",

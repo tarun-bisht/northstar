@@ -1,11 +1,11 @@
 {
   "_doc": "Operational sources. This is the ONE place for arXiv categories and YouTube search queries (scripts/fetch_candidates.py reads them). config/interests.json says what you care about; this file says where to look.",
   "arxiv": {
-    "_doc": "Categories chosen for coverage, not completeness. Volume-heavy categories get higher limits so a 4-day lookback (covers weekends) isn't truncated.",
+    "_doc": "Categories chosen for coverage, not completeness. Volume-heavy categories get higher limits so a 4-day lookback (covers weekends) isn't truncated. arXiv allows one request every 3 seconds on one connection; the fetcher spaces calls, retries 429/5xx with backoff, and falls back to rss.arxiv.org per category.",
     "categories": [
       {
         "id": "cs.LG",
-        "covers": "machine learning, optimization for ML, trustworthy ML, unlearning, evaluation"
+        "covers": "machine learning, GNNs, generative and diffusion models, world models, trustworthy ML, unlearning, evaluation"
       },
       {
         "id": "stat.ML",
@@ -38,6 +38,30 @@
       {
         "id": "math.OC",
         "covers": "optimization"
+      },
+      {
+        "id": "cs.IR",
+        "covers": "information retrieval, search, recommender systems, RAG"
+      },
+      {
+        "id": "cs.NE",
+        "covers": "neural and evolutionary computing, neural combinatorial optimization"
+      },
+      {
+        "id": "cs.DS",
+        "covers": "algorithms and combinatorial optimization"
+      },
+      {
+        "id": "cs.RO",
+        "covers": "robotics, embodied agents, world models for control"
+      },
+      {
+        "id": "q-bio.BM",
+        "covers": "biomolecules: protein structure and design (AlphaFold-style models)"
+      },
+      {
+        "id": "q-bio.QM",
+        "covers": "quantitative methods: AI for biology and drug discovery"
       }
     ],
     "max_results_per_category": 400,
@@ -74,13 +98,145 @@
       "The Hindu",
       "Indian Express",
       "Mint",
+      "Business Standard",
+      "The Economic Times",
       "The Economist",
       "Financial Times",
+      "Bloomberg",
+      "CNBC",
+      "The Guardian",
       "Al Jazeera",
+      "The Conversation",
       "official government releases",
       "RBI",
+      "SEBI",
       "IMF",
       "World Bank"
+    ],
+    "_doc": "World Radar. feeds are fetched by GitHub Actions into candidates/news/<date>.json (headline, link, date, summary). The run picks from them, then cross-checks and adds web search for gaps. Add or remove feeds freely; a failing feed is listed in failed_sources and retried by the 06:50 run.",
+    "lookback_hours": 36,
+    "max_per_feed": 40,
+    "feeds": [
+      {
+        "name": "BBC World",
+        "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+        "section": "world"
+      },
+      {
+        "name": "BBC India",
+        "url": "https://feeds.bbci.co.uk/news/world/asia/india/rss.xml",
+        "section": "india"
+      },
+      {
+        "name": "BBC Business",
+        "url": "https://feeds.bbci.co.uk/news/business/rss.xml",
+        "section": "economy_markets"
+      },
+      {
+        "name": "BBC Science and Environment",
+        "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+        "section": "science_tech"
+      },
+      {
+        "name": "BBC Technology",
+        "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+        "section": "science_tech"
+      },
+      {
+        "name": "The Hindu National",
+        "url": "https://www.thehindu.com/news/national/feeder/default.rss",
+        "section": "india"
+      },
+      {
+        "name": "The Hindu International",
+        "url": "https://www.thehindu.com/news/international/feeder/default.rss",
+        "section": "world"
+      },
+      {
+        "name": "The Hindu Business",
+        "url": "https://www.thehindu.com/business/feeder/default.rss",
+        "section": "economy_markets"
+      },
+      {
+        "name": "Indian Express India",
+        "url": "https://indianexpress.com/section/india/feed/",
+        "section": "india"
+      },
+      {
+        "name": "Indian Express Explained",
+        "url": "https://indianexpress.com/section/explained/feed/",
+        "section": "explainers"
+      },
+      {
+        "name": "Mint Markets",
+        "url": "https://www.livemint.com/rss/markets",
+        "section": "economy_markets"
+      },
+      {
+        "name": "Mint Economy",
+        "url": "https://www.livemint.com/rss/economy",
+        "section": "economy_markets"
+      },
+      {
+        "name": "Economic Times Markets",
+        "url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+        "section": "economy_markets"
+      },
+      {
+        "name": "Business Standard Markets",
+        "url": "https://www.business-standard.com/rss/markets-106.rss",
+        "section": "economy_markets"
+      },
+      {
+        "name": "Business Standard Economy",
+        "url": "https://www.business-standard.com/rss/economy-102.rss",
+        "section": "economy_markets"
+      },
+      {
+        "name": "CNBC World Markets",
+        "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
+        "section": "economy_markets"
+      },
+      {
+        "name": "CNBC Finance",
+        "url": "https://www.cnbc.com/id/10000664/device/rss/rss.html",
+        "section": "economy_markets"
+      },
+      {
+        "name": "The Guardian World",
+        "url": "https://www.theguardian.com/world/rss",
+        "section": "world"
+      },
+      {
+        "name": "The Guardian Business",
+        "url": "https://www.theguardian.com/business/rss",
+        "section": "economy_markets"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/xml/rss/all.xml",
+        "section": "world"
+      },
+      {
+        "name": "NPR World",
+        "url": "https://feeds.npr.org/1004/rss.xml",
+        "section": "world"
+      },
+      {
+        "name": "The Conversation (Global)",
+        "url": "https://theconversation.com/global/articles.atom",
+        "section": "explainers"
+      },
+      {
+        "name": "The Conversation (US)",
+        "url": "https://theconversation.com/us/articles.atom",
+        "section": "explainers"
+      },
+      {
+        "name": "RBI Press Releases",
+        "url": "https://www.rbi.org.in/pressreleases_rss.xml",
+        "section": "economy_markets"
+      }
     ]
   },
   "youtube": {
@@ -190,6 +346,7 @@
       "useful for your work",
       "new method or architecture",
       "strong result",
+      "notable researcher",
       "benchmark or dataset",
       "theory",
       "survey or tutorial",
@@ -200,5 +357,73 @@
     "_doc": "Hugging Face Daily Papers (successor to Papers with Code). Used as a quality signal (community upvotes) and an extra source of arXiv papers.",
     "daily_papers_api": "https://huggingface.co/api/daily_papers",
     "enabled": true
+  },
+  "alphaxiv": {
+    "_doc": "alphaXiv community trending (votes and views). Undocumented endpoint, read defensively; if it fails the day still works and the gap-filling run retries it.",
+    "enabled": true,
+    "sort": "Hot",
+    "interval": "7 Days",
+    "limit": 50
+  },
+  "notable_researchers": {
+    "_doc": "Papers with one of these authors are flagged (notable_authors) in candidates so they are never missed. Keep a paper only if it also touches your interests. Edit freely.",
+    "names": [
+      "Yoshua Bengio",
+      "Yann LeCun",
+      "Geoffrey Hinton",
+      "Juergen Schmidhuber",
+      "Ilya Sutskever",
+      "Kaiming He",
+      "Yang Song",
+      "Stefano Ermon",
+      "Jonathan Ho",
+      "Tim Salimans",
+      "Diederik P. Kingma",
+      "Max Welling",
+      "Karsten Kreis",
+      "Tero Karras",
+      "Danijar Hafner",
+      "David Ha",
+      "Jürgen Schmidhuber",
+      "Sergey Levine",
+      "Pieter Abbeel",
+      "Chelsea Finn",
+      "Jitendra Malik",
+      "Fei-Fei Li",
+      "Percy Liang",
+      "Christopher D. Manning",
+      "Tatsunori Hashimoto",
+      "Jure Leskovec",
+      "Michael Bronstein",
+      "Petar Veličković",
+      "Joan Bruna",
+      "Thomas N. Kipf",
+      "Jimmy Lin",
+      "Omar Khattab",
+      "Matei Zaharia",
+      "Jeff Dean",
+      "Oriol Vinyals",
+      "Demis Hassabis",
+      "John Jumper",
+      "David Baker",
+      "Pushmeet Kohli",
+      "Chris Olah",
+      "Neel Nanda",
+      "Sanjeev Arora",
+      "Tengyu Ma",
+      "Zico Kolter",
+      "Nicholas Carlini",
+      "Florian Tramèr",
+      "Dawn Song",
+      "Aleksander Madry",
+      "Nicolas Papernot",
+      "Yarin Gal",
+      "Zoubin Ghahramani",
+      "Bernhard Schölkopf",
+      "Michael I. Jordan",
+      "Richard S. Sutton",
+      "Andrew Gordon Wilson",
+      "Durk Kingma"
+    ]
   }
 }

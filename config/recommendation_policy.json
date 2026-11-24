@@ -19,7 +19,8 @@
     "discovery": 150,
     "youtube_shorts": 300,
     "weekly": 52,
-    "monthly": 24
+    "monthly": 24,
+    "daily": 30
   },
   "source_quality": {
     "prefer": [

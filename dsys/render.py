@@ -90,7 +90,7 @@ def dimension_line(item) -> str:
     ps = item.get("dimensions") or []
     if not ps:
         return ""
-    spans = "".join(f'<span class="pl pl-{esc(p)}">{esc(DIMENSION_NAMES.get(p, p))}</span>' for p in ps)
+    spans = "<span class='sep'> · </span>".join(f'<span class="pl pl-{esc(p)}">{esc(DIMENSION_NAMES.get(p, p))}</span>' for p in ps)
     return f'<p class="areas">{spans}</p>'
 
 
@@ -121,6 +121,37 @@ def cross_domain_line(item) -> str:
             f'{esc(cd["connection"])}</p>')
 
 
+# --- daily page structure (shared by the site and the daily RSS digest) ---------------
+DAILY_GROUPS = [  # (anchor, heading, streams)
+    ("research", "Research", ["arxiv", "research_updates"]),
+    ("world-news", "World", ["world"]),
+    ("discover", "Discover", ["discovery", "language"]),
+    ("watch", "Shorts", ["youtube_shorts"]),
+]
+WORLD_SECTIONS = [("india", "India"), ("world", "World"), ("economy_markets", "Economy and markets"),
+                  ("science_tech", "Science and technology"), ("explainers", "Explainers")]
+
+
+def world_section(w: dict) -> str:
+    """The item's section, or one derived from its regions and topic for older items."""
+    if w.get("section"):
+        return w["section"]
+    if w.get("topic") in ("economics", "finance", "business"):
+        return "economy_markets"
+    if w.get("topic") in ("technology", "science", "environment", "health"):
+        return "science_tech"
+    if any(r.lower() == "india" for r in w.get("regions", [])):
+        return "india"
+    return "world"
+
+
+def group_world(items: list[dict]) -> list[tuple[str, str, list[dict]]]:
+    by: dict[str, list] = {}
+    for w in items:
+        by.setdefault(world_section(w), []).append(w)
+    return [(k, label, by[k]) for k, label in WORLD_SECTIONS if by.get(k)]
+
+
 # --- daily items ---------------------------------------------------------------
 KIND_LABEL = {"ai_deep_dive": "AI deep dive", "non_ai_deep_dive": "non-AI deep dive", "user_idea": "your idea",
               "ai_study": "AI study"}
@@ -130,7 +161,10 @@ MODE_LABEL = {"learn": "learn", "practise": "practise", "create": "make somethin
 
 
 def tags_line(tags) -> str:
-    return "<p class='tags'>" + "".join(f"<span class='tag'>{esc(t)}</span>" for t in tags) + "</p>" if tags else ""
+    """Tags as pills on the site; the ' · ' separators keep them readable in RSS readers that drop CSS."""
+    if not tags:
+        return ""
+    return "<p class='tags'>" + "<span class='sep'> · </span>".join(f"<span class='tag'>{esc(t)}</span>" for t in tags) + "</p>"
 
 
 def arxiv_item(p: dict) -> str:
@@ -359,4 +393,34 @@ def monthly_package(doc: dict) -> str:
         out.append(language_plans(doc["language"]))
     if doc.get("reflection_prompts"):
         out.append(_list("If you feel like reflecting", doc["reflection_prompts"]))
+    return "".join(out)
+
+
+STAT_LABEL = {"arxiv": "papers on the radar", "reading_list_papers": "reading-list papers",
+              "research_updates": "research updates", "discovery": "discoveries", "language": "language packs",
+              "world": "news items", "youtube_shorts": "shorts", "weekly_packages": "weekly packages",
+              "weekly_items": "weekly items", "monthly_packages": "monthly packages", "monthly_items": "monthly items"}
+
+
+def quarterly_review(doc: dict) -> str:
+    st = doc["stats"]
+    counts = st["counts"]
+    order = ["arxiv", "reading_list_papers", "research_updates", "discovery", "weekly_items", "monthly_items",
+             "language", "world", "youtube_shorts"]
+    rows = "".join(f"<li><strong>{counts[k]}</strong> {esc(STAT_LABEL.get(k, human(k)))}</li>" for k in order if counts.get(k))
+    tiers = ", ".join(f"{n} {t}" for t, n in st["discovery_by_tier"].items())
+    tags = ", ".join(f"{t} ({n})" for t, n in st["top_paper_tags"])
+    areas = ", ".join(f"{t} ({n})" for t, n in st["top_research_areas"])
+    out = [f'<p class="lede">{esc(doc["summary"])}</p>',
+           f"<p class='meta'>{nice_date(doc['from'], True)} to {nice_date(doc['to'], True)}, "
+           f"{st['days_with_content']} days with content</p>",
+           "<h2>In numbers</h2>", f"<ul class='stats'>{rows}</ul>" if rows else "<p class='empty'>No content yet.</p>",
+           _field("Discovery by tier", tiers), _field("Paper tags", tags), _field("Research areas", areas)]
+    tps = doc.get("topics") or []
+    for kind, label in (("monthly", "Monthly topics"), ("weekly", "Weekly topics")):
+        group = [t for t in tps if t["kind"] == kind]
+        if group:
+            out.append(f"<h2>{label}</h2><ul class='topics'>" + "".join(
+                f"<li><strong>{a(t['url'], t['title']) if t.get('url') else esc(t['title'])}</strong>"
+                f" <span class='meta'>({esc(t['period'])})</span><br/>{esc(t['about'])}</li>" for t in group) + "</ul>")
     return "".join(out)

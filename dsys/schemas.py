@@ -22,6 +22,7 @@ STREAM_SCHEMA = {
     "reading": "reading.schema.json",
     "weekly": "weekly.schema.json",
     "monthly": "monthly.schema.json",
+    "quarterly": "quarterly.schema.json",
     "feedback": "feedback.schema.json",
     "ideas": "ideas.schema.json",
     "recommendation": "recommendation.schema.json",

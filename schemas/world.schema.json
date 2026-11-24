@@ -121,6 +121,16 @@
         },
         "dimensions": {
           "$ref": "common.schema.json#/$defs/dimensions"
+        },
+        "section": {
+          "enum": [
+            "india",
+            "world",
+            "economy_markets",
+            "science_tech",
+            "explainers"
+          ],
+          "description": "Where the item appears on the daily page. Omit to derive it from regions and topic."
         }
       }
     }

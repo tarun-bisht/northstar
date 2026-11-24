@@ -88,7 +88,9 @@
             "arxiv_api_candidates",
             "arxiv_abs_page",
             "huggingface_daily",
-            "other_verbatim"
+            "other_verbatim",
+            "arxiv_rss",
+            "alphaxiv_trending"
           ]
         },
         "research_area": {

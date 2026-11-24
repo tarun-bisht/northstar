@@ -41,6 +41,80 @@ def rfc822(d: dt.datetime) -> str:
     return email.utils.format_datetime(d)
 
 
+_DETAILS_OPEN = re.compile(r"<details[^>]*>\s*<summary>(.*?)</summary>", re.S)
+
+
+def for_readers(html_body: str) -> str:
+    """Make fragments safe for RSS readers: many drop or mangle <details>, so open them up.
+
+    The summary becomes a bold lead-in and the content shows in full.
+    """
+    html_body = _DETAILS_OPEN.sub(lambda m: f"<p><strong>{m.group(1)}</strong></p>", html_body)
+    return html_body.replace("</details>", "")
+
+
+def _digest_html(site: dict, date: str, streams: dict) -> str:
+    """One compact day: headings per part and stream, short entries that link out."""
+    out = [f'<p><a href="{x(site["base_url"])}/daily/{date}.html">Open the full day on the site</a></p>']
+    for _, label, names in render.DAILY_GROUPS:
+        present = [s for s in names if s in streams and streams[s]["items"]]
+        if not present:
+            continue
+        out.append(f"<h2>{render.esc(label)}</h2>")
+        for s in present:
+            items = streams[s]["items"]
+            out.append(f"<h3>{render.esc(STREAM_META[s]['title'])} ({len(items)})</h3>")
+            if s == "arxiv":
+                out.append("<ul>" + "".join(
+                    f"<li><strong>{render.a(p['url'], p['title'])}</strong><br/>{render.esc(', '.join(p['tags']))}. "
+                    f"{render.esc(', '.join(p['authors'][:4]))}{' et al.' if len(p['authors']) > 4 else ''}</li>"
+                    for p in items) + "</ul>")
+            elif s == "world":
+                for _, sec, its in render.group_world(items):
+                    out.append(f"<h4>{render.esc(sec)}</h4><ul>" + "".join(
+                        f"<li><strong>{render.a(w['sources'][0]['url'], w['title'])}</strong><br/>{render.esc(w['what_happened'])} "
+                        f"<em>Why it matters:</em> {render.esc(w['why_it_matters'])}</li>" for w in its) + "</ul>")
+            elif s == "research_updates":
+                out.append("<ul>" + "".join(
+                    f"<li><strong>{render.a(u['source']['url'], u['title'])}</strong><br/>{render.esc(u['what_happened'])}</li>"
+                    for u in items) + "</ul>")
+            elif s == "discovery":
+                out.append("<ul>" + "".join(
+                    f"<li><strong>{render.a(r['url'], r['title']) if r.get('url') else render.esc(r['title'])}</strong>"
+                    f" ({render.esc(r.get('tier', ''))})<br/>{render.esc(r['description'])}</li>" for r in items) + "</ul>")
+            elif s == "language":
+                out += [f"<h4>{render.esc(pk['language'].capitalize())}: {render.esc(pk['title'])}</h4>"
+                        + for_readers(render.language_pack(pk)) for pk in items]
+            elif s == "youtube_shorts":
+                out.append("<p>" + " ".join(
+                    f'<a href="{render.esc(v["url"])}"><img src="{render.esc(v["thumbnail"])}" alt="{render.esc(v["title"])}" width="120"/></a>'
+                    for v in items[:12]) + "</p>")
+                out.append(f'<p><a href="{x(site["base_url"])}/daily/{date}.html#youtube_shorts">All {len(items)} shorts</a></p>')
+    return "".join(out)
+
+
+def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None) -> list[dict]:
+    by_date: dict[str, dict] = {}
+    for s in DAILY_STREAMS:
+        for f in repo.iter_stream_files(s, examples):
+            doc = load_json(f)
+            by_date.setdefault(doc["date"], {})[s] = doc
+    entries = []
+    for date in sorted(by_date, reverse=True)[:limit]:
+        streams = by_date[date]
+        counts = [f"{len(streams[s]['items'])} {lbl}" for s, lbl in
+                  (("arxiv", "papers"), ("world", "news"), ("discovery", "discoveries"), ("youtube_shorts", "shorts"))
+                  if s in streams and streams[s]["items"]]
+        day = dt.date.fromisoformat(date)
+        entries.append({
+            "guid": f"dsys:daily:{date}", "title": f"{day.strftime('%a %-d %b')}: " + ", ".join(counts or ["today"]),
+            "link": f"{site['base_url']}/daily/{date}.html", "description": "; ".join(counts),
+            "html": _digest_html(site, date, streams), "pub": pub_datetime(day, site, -3600),
+            "creator": None, "categories": ["daily"], "media": None,
+        })
+    return entries
+
+
 def collect_items(repo: Repo, stream: str, site: dict, examples: bool = False,
                   limit: int | None = None) -> list[dict]:
     """Return feed entries (newest first) as plain dicts.
@@ -49,6 +123,8 @@ def collect_items(repo: Repo, stream: str, site: dict, examples: bool = False,
     With a limit, reading stops once enough entries are collected, so feed builds stay fast
     however long the history grows.
     """
+    if stream == "daily":
+        return _digest_entries(repo, site, examples, limit)
     entries = []
     for f in sorted(repo.iter_stream_files(stream, examples), reverse=True):
         if limit is not None and len(entries) >= limit:
@@ -82,6 +158,15 @@ def collect_items(repo: Repo, stream: str, site: dict, examples: bool = False,
                 "link": f"{site['base_url']}/monthly/{doc['month']}.html",
                 "description": doc["intro"], "html": render.monthly_package(doc),
                 "pub": pub_datetime(start, site), "creator": None, "categories": ["monthly"], "media": None,
+            })
+        elif stream == "quarterly":
+            _, qend = (dt.date.fromisoformat(doc["from"]), dt.date.fromisoformat(doc["to"]))
+            entries.append({
+                "guid": guid_for(stream, doc), "title": f"{doc['quarter']}: quarterly review",
+                "link": f"{site['base_url']}/quarterly/{doc['quarter']}.html",
+                "description": doc["summary"], "html": render.quarterly_review(doc),
+                "pub": pub_datetime(qend + dt.timedelta(days=1), site), "creator": None,
+                "categories": ["quarterly"], "media": None,
             })
     entries.sort(key=lambda e: (e["pub"], e["guid"]), reverse=True)
     return entries[:limit] if limit is not None else entries
@@ -156,7 +241,7 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
         for c in e["categories"]:
             out.append(f"<category>{x(c)}</category>")
         out.append(f"<description>{x(e['description'])}</description>")
-        out.append(f"<content:encoded>{x(e['html'])}</content:encoded>")
+        out.append(f"<content:encoded>{x(for_readers(e['html']))}</content:encoded>")
         if e["media"]:
             m = e["media"]
             out.append(f'<media:thumbnail url="{x(m["thumbnail"])}"/>')
@@ -168,11 +253,11 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
 
 
 def generate_all(repo: Repo, out_dir: Path | None = None, examples: bool = False) -> dict[str, Path]:
-    from .core import ALL_STREAMS
+    from .core import ALL_STREAMS, DIGEST_FEEDS
     out_dir = out_dir or repo.p("feeds")
     out_dir.mkdir(parents=True, exist_ok=True)
     written = {}
-    for stream in ALL_STREAMS:
+    for stream in DIGEST_FEEDS + ALL_STREAMS:
         path = out_dir / STREAM_META[stream]["feed"]
         path.write_text(build_feed(repo, stream, examples), encoding="utf-8")
         written[stream] = path

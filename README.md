@@ -22,18 +22,19 @@ Everything is optional. There are no streaks, no scores and no backlog. Real lif
 
 | Part | When | What it gives you |
 |---|---|---|
-| arXiv radar | Weekdays | Good new papers that match your interests, each with its abstract and a few fixed tags |
+| Daily digest | Daily | One RSS item per day with every section below, for readers who prefer one entry a day |
+| arXiv radar | Weekdays | Good new papers that match your interests, chosen by abstract, each with a few fixed tags. Notable researchers' papers are flagged |
 | Research updates | Daily | Short notes on lab posts, new methods, tools and benchmarks |
-| World radar | Daily | What happened, why it matters and what to watch, in a few lines |
+| World radar | Daily | 10 to 16 items in five sections: India, World, Economy and markets, Science and technology, Explainers |
 | Daily discovery | Daily | 3 to 6 picks. Always a podcast, a video and something from each tier |
 | Language pack | Daily | 5 minutes of phrases, a short dialogue and practice questions |
 | YouTube shorts | Daily | Short videos across your interests, at least one per tier |
 | Reading list | Weekly | Papers you should definitely read this week. Daily runs can add to it |
 | Weekly package | Saturday | A few small activities plus a lesson for each language you learn |
 | Monthly package | 1st of the month | One to three projects with a week by week plan, plus a plan for each language |
-| Quarterly look back | Every 3 months | What you explored and what is emerging. Sent to you, never saved |
+| Quarterly review | Every 3 months | Stats, a five or six line summary of research and discovery, and the topics covered. Public |
 
-Paper tags come from one fixed list: close to your work, useful for your work, new method or architecture, strong result, benchmark or dataset, theory, survey or tutorial, worth knowing.
+Paper tags come from one fixed list: close to your work, useful for your work, new method or architecture, strong result, notable researcher, benchmark or dataset, theory, survey or tutorial, worth knowing.
 
 ## How to use it
 
@@ -46,7 +47,12 @@ Some feed readers block embedded YouTube players. Every video also has a thumbna
 
 ## How it runs
 
-1. At 06:00 IST, GitHub Actions fetches new papers from the arXiv API and Hugging Face Daily Papers. It also fetches YouTube videos if a `YOUTUBE_API_KEY` secret is set. No AI runs in this step.
+1. At 06:00 IST, GitHub Actions fetches candidates. No AI runs in this step.
+   - Papers from the arXiv API (with rss.arxiv.org as a fallback per category), Hugging Face Daily Papers and alphaXiv trending.
+   - Headlines from about 20 publisher RSS feeds (BBC, The Hindu, Indian Express, Mint, Business Standard, The Economic Times, CNBC, The Guardian, Al Jazeera, The Conversation, RBI and more). Edit them in `config/sources.json → world.feeds`.
+   - YouTube videos, if a `YOUTUBE_API_KEY` secret is set.
+
+   Every request is retried with backoff (429s and server errors, honouring `Retry-After`). Failed sources are listed in the candidate file, retried two minutes later in the same job, and again by a gap-filling run at 06:50 IST. Re-runs only ever add candidates, never remove them.
 2. Claude scheduled tasks then pick the best items, write short summaries and commit them. They follow the prompts in `prompts/`.
 3. GitHub Actions tests everything, builds the RSS feeds and the website, and publishes to GitHub Pages.
 

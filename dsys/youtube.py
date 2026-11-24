@@ -19,6 +19,8 @@ import unicodedata
 import urllib.parse
 import urllib.request
 
+from . import net
+
 VIDEO_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
 API = "https://www.googleapis.com/youtube/v3/"
 
@@ -102,8 +104,7 @@ def _get(endpoint: str, params: dict, timeout: int = 20) -> dict:
     if not key:
         raise RuntimeError("YOUTUBE_API_KEY is not set")
     q = urllib.parse.urlencode({**params, "key": key})
-    with urllib.request.urlopen(API + endpoint + "?" + q, timeout=timeout) as r:
-        return json.load(r)
+    return json.loads(net.get(API + endpoint + "?" + q, timeout=timeout))  # 403 quota errors are not retried
 
 
 def api_search(query: str, max_results: int, published_after: str, region: str, lang: str) -> list[str]:

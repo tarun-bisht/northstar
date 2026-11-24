@@ -205,6 +205,7 @@ def monthly_section(pj: dict) -> str:
 WORLD_SECTIONS = [  # (key, label): news categories, shown in this order
     ("india", "India"),
     ("geopolitics", "Geopolitics and international relations"),
+    ("leadership", "Leadership changes"),
     ("conflict_disaster", "Conflicts and disasters"),
     ("economy_markets", "Economy, finance and markets"),
     ("business", "Business and companies"),

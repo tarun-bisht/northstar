@@ -45,6 +45,7 @@
             "enum": [
               "india",
               "geopolitics",
+              "leadership",
               "conflict_disaster",
               "economy_markets",
               "business",
@@ -181,6 +182,7 @@
           "enum": [
             "india",
             "geopolitics",
+            "leadership",
             "conflict_disaster",
             "economy_markets",
             "business",

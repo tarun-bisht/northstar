@@ -366,3 +366,10 @@ def test_world_briefs_merge_and_render(repo, tmp_path):
     html = render.world_briefs(doc["briefs"], "technology")
     assert "Also in the news" in html and "Reuters" in html
     assert render.group_world([], doc["briefs"])[0][0] == "technology"
+
+
+def test_leadership_category():
+    cfg = load_json(ROOT / "config" / "sources.json")["world"]
+    assert news.categorize({"title": "Japan's new prime minister sworn in after vote", "section": "world"}, cfg) == "leadership"
+    assert news.categorize({"title": "Intel CEO steps down", "section": "business"}, cfg) == "leadership"
+    assert render.world_section({"section": "leadership"}) == "leadership"

@@ -995,6 +995,7 @@
       "order": [
         "other",
         "conflict_disaster",
+        "leadership",
         "economy_markets",
         "geopolitics",
         "technology",
@@ -1017,7 +1018,8 @@
         "science_space": "science_space",
         "health": "health",
         "climate_energy": "climate_energy",
-        "explainers": "explainers"
+        "explainers": "explainers",
+        "leadership": "leadership"
       },
       "keywords": {
         "conflict_disaster": [
@@ -1347,6 +1349,39 @@
           "doctors",
           "patients",
           "clinical trial"
+        ],
+        "leadership": [
+          "resigns",
+          "resigned",
+          "resignation",
+          "steps down",
+          "stepped down",
+          "sworn in",
+          "takes oath",
+          "appointed",
+          "appoints",
+          "new ceo",
+          "ceo exit",
+          "chief executive",
+          "successor",
+          "succeeds",
+          "takes charge",
+          "ousted",
+          "impeached",
+          "impeachment",
+          "no-confidence",
+          "new prime minister",
+          "new president",
+          "new governor",
+          "new chief",
+          "elected president",
+          "elected prime minister",
+          "wins election",
+          "election result",
+          "coalition government",
+          "cabinet reshuffle",
+          "leadership change",
+          "dies at"
         ]
       }
     },
@@ -1425,6 +1460,38 @@
         {
           "q": "India foreign policy",
           "section": "geopolitics"
+        },
+        {
+          "q": "resigns OR \"steps down\" OR \"sworn in\" OR \"new prime minister\" OR \"new president\"",
+          "section": "leadership"
+        },
+        {
+          "q": "\"appointed CEO\" OR \"new CEO\" OR \"steps down as CEO\"",
+          "section": "leadership"
+        },
+        {
+          "q": "war OR ceasefire OR airstrike",
+          "section": "conflict_disaster"
+        },
+        {
+          "q": "earthquake OR flood OR cyclone OR wildfire",
+          "section": "conflict_disaster"
+        },
+        {
+          "q": "summit OR sanctions OR \"foreign minister\"",
+          "section": "geopolitics"
+        },
+        {
+          "q": "migration OR census OR education policy",
+          "section": "society"
+        },
+        {
+          "q": "renewable energy OR oil prices OR emissions",
+          "section": "climate_energy"
+        },
+        {
+          "q": "startup funding OR acquisition OR merger",
+          "section": "business"
         }
       ]
     }

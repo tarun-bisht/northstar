@@ -12,6 +12,7 @@ Every item gets one `section`. The daily News page groups items by section in th
 |---|---|
 | `india` | national politics, governance, courts, states, Indian policy and society |
 | `geopolitics` | international relations, diplomacy, elections abroad, alliances, sanctions, India's foreign relations |
+| `leadership` | big leadership changes anywhere: new or outgoing heads of state and government, ministers, central bank governors, CEOs of major companies and institutions; resignations, appointments, swearing-ins, election results, ousters, deaths of major figures |
 | `conflict_disaster` | wars and armed conflicts, terrorism, natural disasters, humanitarian crises |
 | `economy_markets` | RBI and central banks, inflation, growth and jobs data, Sensex/Nifty, rupee, bonds, crude, global markets, trade and tariffs, SEBI |
 | `business` | major companies, deals, results, banking and corporate news, startups |
@@ -36,6 +37,7 @@ Every day:
 - `economy_markets` at least 2, one of them a short markets item
 - `technology` at least 2 (AI and the tech industry move fast: Nvidia, OpenAI, chips, policy)
 - `science_space` at least 1 when there is real news, space included
+- `leadership`: every significant change of leader worldwide that day, as an explained item if it matters for India or the world, otherwise as a brief
 - `explainers` at least 2, **at least one from The Conversation** whenever its feeds have something relevant (they use a 96-hour window)
 - the rest by importance. On a quiet day fewer is fine, but never pad.
 
@@ -44,7 +46,9 @@ Every day:
 ## Steps
 
 1. `python scripts/dsys.py context world --date <today>` shows recent items. Include an ongoing story only when something materially changed, and set `follows_up` to the earlier item's id.
-2. **Read every headline, by category.** `python scripts/dsys.py candidates news --date <today> --brief` lists every headline fetched at 06:00 IST from the publisher feeds and Google News (`config/sources.json → world.feeds` and `world.google_news`, which includes searches for subjects such as Nvidia, AI, chips, ISRO and SpaceX). In code, each headline gets a news category (`world.categories`), and headlines about the same event are merged into one row with `also_in` listing the other outlets. Read the categories one at a time with `--category <name>`, and drop `--brief` when you need summaries. The code category is a hint: assign each chosen item its own `section`. The `other` bucket (sport, celebrity, local notices, crime) is usually skipped.
+2. **Sweep every category, and miss nothing.** Go through all 12 categories in the table, one at a time, as a checklist (`--category <name>`, plus `other` to rescue anything miscategorized). If a category has few or no candidates but something big may have happened (a leadership change, a launch, a disaster, a market move), WebSearch that category's news for the last day (for example "leadership change resigns sworn in news today" or "space launch news today") before moving on. Note in `notes` any category you checked that had nothing worth including.
+
+   **Read every headline, by category.** `python scripts/dsys.py candidates news --date <today> --brief` lists every headline fetched at 06:00 IST from the publisher feeds and Google News (`config/sources.json → world.feeds` and `world.google_news`, which includes searches for subjects such as Nvidia, AI, chips, ISRO and SpaceX). In code, each headline gets a news category (`world.categories`), and headlines about the same event are merged into one row with `also_in` listing the other outlets. Read the categories one at a time with `--category <name>`, and drop `--brief` when you need summaries. The code category is a hint: assign each chosen item its own `section`. The `other` bucket (sport, celebrity, local notices, crime) is usually skipped.
    - A story many outlets carry (long `also_in`) is often the day's big story, but judge importance yourself.
    - If `available` is false, or `failed_sources` leaves a category empty, use web search for it (`world.prefer` sources) and say so in `notes`.
 3. Choose. Explained items: what will still matter in a month, changes something for India or for many people, or shows how the world works. Briefs: other genuinely notable stories, including ones the user would never have searched for. Drop crime blotter, celebrity, sport results and minor local politics.

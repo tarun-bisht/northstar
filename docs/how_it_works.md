@@ -65,7 +65,7 @@ Reading thousands of abstracts, or any PDFs, is not possible in a run. So:
 
 ## 6. Choosing news
 
-Every headline is categorized in code (`dsys/news.py`, keywords in `config/sources.json → world.categories`) into 11 categories: India, geopolitics, conflicts and disasters, economy and markets, business, technology and AI, science and space, health, climate and energy, society, and explainers. Sport, celebrity and local notices go to "other". Headlines about the same event are merged, with the other outlets in `also_in`. The run reads every category and writes two layers (`prompts/world.md`):
+Every headline is categorized in code (`dsys/news.py`, keywords in `config/sources.json → world.categories`) into 12 categories: India, geopolitics, leadership changes, conflicts and disasters, economy and markets, business, technology and AI, science and space, health, climate and energy, society, and explainers. Sport, celebrity and local notices go to "other". Headlines about the same event are merged, with the other outlets in `also_in`. The run reads every category and writes two layers (`prompts/world.md`):
 
 - **Explained items:** 12 to 20 stories worth understanding, across at least 7 categories, each with what happened, why it matters, context and what to watch.
 - **Briefs:** 15 to 30 one-line headlines linking straight to the article, so other notable stories are not missed.

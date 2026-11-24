@@ -1,35 +1,8 @@
 {
-  "skipWebFetchPreflight": true,
-  "env": {
-    "CLAUDE_CODE_SKIP_WEBFETCH_PREFLIGHT": "true"
-  },
   "permissions": {
     "allow": [
       "WebFetch",
       "WebSearch"
-    ]
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "date -u +%FT%TZ > /tmp/northstar-project-settings-loaded"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "WebFetch|WebSearch",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"allow\",\"permissionDecisionReason\":\"Northstar runs read public pages to verify links\"}}'"
-          }
-        ]
-      }
     ]
   }
 }

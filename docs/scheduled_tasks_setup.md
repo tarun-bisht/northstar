@@ -42,7 +42,7 @@ Running it again is safe. It replaces the old tasks instead of adding copies.
 3. Set **Repository** to your fork. No connectors are needed. The **Default** environment is fine.
 4. In the task settings, turn on **Automatically approve**.
 
-Web access is pre-approved in `.claude/settings.json`: allow rules for WebFetch and WebSearch, plus a `PreToolUse` hook that approves them. The hook is there because allow rules alone don't reliably stop the prompts. Runs check many links, and without this they can pause to ask before each new site. Keep the file in your fork.
+**Web access.** Scheduled runs never wait for approval when they follow the web-access rule in `prompts/_shared.md`: search first, then fetch only URLs from the search results. Cloud runs need approval to fetch a URL that didn't come from the session itself (one typed from memory or read from a file). `.claude/settings.json` allows WebFetch and WebSearch, but it can't lift that rule.
 
 ## Check that it works
 

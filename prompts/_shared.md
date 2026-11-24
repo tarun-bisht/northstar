@@ -25,6 +25,14 @@ Growth comes from doing too: **learn, practise, create, experience, reflect, ada
 - No streaks, scores, quotas, guilt or backlogs. Skipped items expire. User intent beats algorithmic recommendation.
 - Fewer, better items. Targets are guidance, except the explicit daily and monthly rules, which validation enforces.
 
+## Web access in scheduled runs (never wait for approval)
+
+Scheduled runs have nobody to approve anything, so a run must never trigger a permission prompt. WebSearch never asks. WebFetch only runs without asking when the URL already appeared in this session: in the run prompt, in a WebSearch result, or in a page you already fetched. A URL typed from memory, built by editing another URL, or read from a file (candidates, config, content) needs approval. The run then stalls and the fetch is withdrawn.
+
+- **Search first, then fetch.** To open a page, WebSearch for it (its title, or the site plus the topic), then WebFetch a URL from those results, or a link on a page you already fetched.
+- **Never WebFetch URLs from candidate files.** GitHub Actions already fetched arXiv, Hugging Face, alphaXiv, the news feeds and YouTube, so their URLs are real. Use their data as is. If you need a full news article, WebSearch its headline and fetch the matching result.
+- **Verifying a link:** a URL that appears in WebSearch results, or that you fetched, counts as verified. If you can't get a URL that way, leave `url` out and say so in `notes`.
+
 ## Truthfulness
 
 - Never invent papers, authors, posts, URLs, video IDs, dates, durations or facts. Every URL must come from something you retrieved this session; if unverified, omit `url`.

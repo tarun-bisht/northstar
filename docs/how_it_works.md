@@ -51,6 +51,8 @@ Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5
 
 arXiv allows one request every three seconds on a single connection. The fetcher spaces its calls to match.
 
+**Web access in runs.** Cloud runs fetch a page without asking only when its URL came from the session (a web search result or a page already fetched). So runs search first and then fetch, and never fetch URLs straight from candidate files, which Actions already checked (`prompts/_shared.md`). This keeps scheduled runs from stalling on approval.
+
 ## 5. Choosing papers (quality from abstracts)
 
 Reading thousands of abstracts, or any PDFs, is not possible in a run. So:

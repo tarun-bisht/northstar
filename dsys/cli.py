@@ -117,6 +117,9 @@ def cmd_candidates(repo: Repo, args) -> int:
         data["candidates"] = [c for c in data["candidates"] if c["arxiv_id"] in want]
         _print(data)
         return 0
+    if args.kind == "arxiv" and args.trending_week:
+        _print(history.week_trending(repo, args.trending_week, args.limit or 30))
+        return 0
     if args.kind == "arxiv" and args.ranked:
         from . import rank
         sl = rank.shortlist(data["candidates"], repo.config("sources"), args.limit)
@@ -390,6 +393,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--brief", action="store_true", help="arxiv: id/title/categories/signals only; news: no summaries")
     s.add_argument("--ranked", action="store_true", help="arxiv: code-ranked shortlist with interests and quality signals")
     s.add_argument("--ids", help="arxiv: comma-separated ids to print in full (abstracts)")
+    s.add_argument("--trending-week", help="arxiv: the week's most voted papers (alphaXiv, Hugging Face), e.g. 2026-W48")
     s.set_defaults(fn=cmd_candidates)
 
     s = sub.add_parser("context", help="planning/dedup context for a generator prompt")

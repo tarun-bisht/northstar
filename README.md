@@ -11,11 +11,11 @@ This repo is one person's real setup. Fork it and make it your own.
 | | Research | Knowledge / News | Exploration |
 |---|---|---|---|
 | **Daily** | High-quality new papers (arXiv, Hugging Face, alphaXiv), research updates, this week's reading list | **News:** 12 to 20 explained stories plus 15 to 30 one-line briefs, from about 30 publisher feeds and Google News, in 12 categories (India, geopolitics, leadership changes, conflicts, economy and markets, business, technology and AI, science and space, health, climate and energy, society, explainers) | Podcasts, videos and lectures, reads, things to watch, listen to and try, YouTube shorts, a 5-minute language pack |
-| **Weekly** | A research exercise and something worth studying | Questions to think about (maths, physics, science) and things to know and talk about | Culture (music, art, books, films, anime), people and self, curiosity and making, language lessons |
+| **Weekly** | A research exercise and something worth studying, plus the week's papers (for you, and trending) | Maths and physics questions, things to know and talk about, the world explained | Culture (music, art, books, films, anime), people and self, curiosity and making, language lessons |
 | **Monthly** | A research deep dive | A knowledge deep dive | An exploration deep dive, plus language plans |
 | **Quarterly** | Numbers, a short summary and the topics covered, for each part | | |
 
-Every part has its own page and its own RSS feed. Everything is optional.
+Every week touches every dimension of development in `config/interests.json` (vision §4). Every part has its own page and its own RSS feed. Everything is optional.
 
 ## How to use it
 

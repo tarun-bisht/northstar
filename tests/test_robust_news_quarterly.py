@@ -245,8 +245,8 @@ def test_quarterly_draft_validate_and_feed(repo):
     p.write_text(json.dumps(doc))
     rep = validate_repo(repo)
     assert not [e for e in rep.errors if "quarterly" in e], rep.errors
-    guids = {i.find("guid").text for i in ET.fromstring(build_feed(repo, "quarterly")).findall("channel/item")}
-    assert {"dsys:quarterly:2026-Q4:index", "dsys:quarterly:2026-Q4:research"} <= guids
+    item = ET.fromstring(build_feed(repo, "quarterly-research")).find("channel/item")
+    assert item.find("guid").text == "dsys:quarterly:2026-Q4:research" and "In numbers" in build_feed(repo, "quarterly-research")
     quarterly.draft(repo, "2026-Q4")  # a re-draft keeps what was written
     assert load_json(p)["parts"]["research"]["summary"].startswith("Two plain lines")
 
@@ -259,10 +259,17 @@ def test_discovery_grouped_by_type():
 
 def test_weekly_and_monthly_section_rules():
     from dsys.validate import monthly_section_errors, weekly_section_errors
-    doc = {"load": "light", "items": [{"category": "research_fundamentals"}, {"category": "question"}]}
-    assert "culture" in weekly_section_errors(doc)[0]
-    doc["items"].append({"category": "making", "section": "culture"})
+    doc = {"load": "light", "items": [{"category": "research_fundamentals"}, {"category": "question", "subject": "maths"}]}
+    errs = weekly_section_errors(doc)
+    assert "culture" in errs[0] and any("physics" in e for e in errs)
+    doc["items"] += [{"category": "making", "section": "culture"}, {"category": "question", "subject": "physics"}]
     assert weekly_section_errors(doc) == []
+    normal = {"load": "normal", "items": doc["items"] + [{"section": "things_to_know"}, {"section": "people_self"},
+              {"category": "question", "subject": "probability"}, {"category": "question", "subject": "physics"}]}
+    assert any("pillar" in e for e in weekly_section_errors(normal))
+    for it, d in zip(normal["items"], ["research", "knowledge", "culture", "knowledge", "knowledge", "people", "world", "curiosity"]):
+        it["dimensions"] = [d]
+    assert weekly_section_errors(normal) == []
     assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}]})
     assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}, {"kind": "non_ai_deep_dive"}]})
     assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}, {"kind": "non_ai_deep_dive"},

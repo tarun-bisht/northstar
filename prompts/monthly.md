@@ -1,6 +1,6 @@
 # Monthly package (optional)
 
-Read `docs/vision.md` and `prompts/_shared.md` first. Generated on the 1st for the current month.
+Read `docs/vision.md` (especially §4 and §15) and `prompts/_shared.md` first. Generated on the 1st for the current month.
 
 **Monthly = go deep.** A monthly deep dive can be about anything worth going deep on: AI research, mathematics, physics, history, philosophy, a civilization, an artist or filmmaker, music, a scientific field, a hobby, making something. There is no requirement to finish.
 
@@ -12,9 +12,13 @@ The site shows the month as `monthly/<month>/research.html`, `knowledge.html` an
 |---|---|
 | `research` | an AI research deep dive: a method family, a theory area, a field to map |
 | `knowledge` | a deep dive outside AI: maths, physics, history, philosophy, a civilization, a science |
-| `exploration` | a deep dive into something to experience, practise or make: an artist, filmmaker, author or musician and their work, a culture, a craft or hobby, a personal-development theme practised for a month, travel preparation, or a completely unexpected subject |
+| `exploration` | a deep dive to experience, practise or make. **It rotates through the three exploration pillars** so each gets depth over the months: People and Self (a personal-development theme practised for a month), Culture and Life (an artist, filmmaker, author, musician, a body of work, a culture), and Curiosity and Making (a craft, hobby or project to build). Pick the pillar the last two months' exploration deep dives did not cover (validation warns on repeats). Travel preparation or a completely unexpected subject also fit |
 
 **One deep dive per part, every month** (validation enforces all three unless `load` is light). A free month may add a fourth. Language plans appear on the Exploration page.
+
+Each part has its own page and feed: `monthly/<month>/<part>.html` and `monthly-research.xml`, `monthly-knowledge.xml`, `monthly-exploration.xml`.
+
+**Depth, not breadth.** The weekly packages explore widely. The month picks three subjects and goes deep: a real syllabus, real exercises, something made at the end. The knowledge deep dive also rotates across maths, physics, history, philosophy and the sciences, so no area dominates for long.
 
 ## Rules
 

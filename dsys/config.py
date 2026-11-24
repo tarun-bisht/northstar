@@ -143,6 +143,8 @@ def check(repo: Repo) -> tuple[list[str], list[str]]:
     if shares and abs(sum(shares) - 1) > 0.05:
         warnings.append("config/recommendation_policy.json: tier shares should add up to about 1 (they are guidance)")
     for k, v in pol.get("feeds", {}).items():
+        if k.startswith("_"):
+            continue
         if not isinstance(v, int) or v < 1:
             errors.append(f"config/recommendation_policy.json: feeds.{k} must be a positive integer")
     return errors, warnings

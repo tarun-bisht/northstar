@@ -115,7 +115,7 @@ def test_canonical_url_consistency(repo, tmp_path):
         assert f'href="{base}/feeds/{f.name}" rel="self"' in t
         assert "github.io" not in t
     home = (out / "index.html").read_text()
-    for feed in ("arxiv", "research-updates", "world", "discovery", "youtube-shorts", "weekly", "monthly"):
+    for feed in ("research", "news", "exploration", "reading", "weekly-research", "monthly-exploration", "quarterly-knowledge"):
         assert f"{base}/feeds/{feed}.xml" in home  # copyable on the home page
     readme = (ROOT / "README.md").read_text()
     assert "github.io" not in readme and "tarunbisht.com/northstar" in readme

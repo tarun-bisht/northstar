@@ -123,6 +123,34 @@ def unseen_youtube_candidates(repo: Repo, day: dt.date) -> dict:
             "total": len(cand.get("candidates", [])), "unseen": len(fresh), "candidates": fresh}
 
 
+def week_trending(repo: Repo, week: str, limit: int = 30) -> dict:
+    """The week's most discussed papers: alphaXiv votes and Hugging Face upvotes across every
+    day's candidates, with the interests each one touches. Feeds the reading list's trending group."""
+    from . import rank
+    from .core import week_bounds
+    start, end = week_bounds(week)
+    best: dict[str, dict] = {}
+    d = start
+    while d <= end:
+        f = repo.p("candidates", "arxiv", f"{d.isoformat()}.json")
+        if f.exists():
+            for c in load_json(f).get("candidates", []):
+                if c.get("alphaxiv_votes") or c.get("hf_upvotes"):
+                    old = best.get(c["arxiv_id"])
+                    if not old or (c.get("alphaxiv_votes", 0) + c.get("hf_upvotes", 0)) > (old.get("alphaxiv_votes", 0) + old.get("hf_upvotes", 0)):
+                        best[c["arxiv_id"]] = c
+        d += dt.timedelta(days=1)
+    topics = repo.config("sources").get("arxiv", {}).get("coverage", {}).get("topics", [])
+    rows = []
+    for c in best.values():
+        _, interests = rank.relevance(c, topics)
+        rows.append({"arxiv_id": c["arxiv_id"], "title": c.get("title", ""), "url": c.get("url"),
+                     "alphaxiv_votes": c.get("alphaxiv_votes", 0), "hf_upvotes": c.get("hf_upvotes", 0),
+                     "interests": interests[:3]})
+    rows.sort(key=lambda r: (-(2 * r["alphaxiv_votes"] + r["hf_upvotes"]), r["arxiv_id"]))
+    return {"week": week, "papers": rows[:limit], "total_with_votes": len(rows)}
+
+
 def news_candidates(repo: Repo, day: dt.date, category: str | None = None, brief: bool = False) -> dict:
     """Fetched headlines, each with a news category, duplicates merged, grouped by category.
     Missing file -> available False (fall back to search)."""

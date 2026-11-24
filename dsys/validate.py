@@ -140,11 +140,33 @@ WEEKLY_REQUIRED = {  # sections a weekly package must cover, by load (prompts/we
 }
 
 
-def weekly_section_errors(doc: dict) -> list[str]:
+PILLARS = ["research", "knowledge", "world", "people", "culture", "curiosity"]  # defaults; config dimensions win
+
+
+def weekly_section_errors(doc: dict, dims: list[str] | None = None) -> list[str]:
+    """Sections by load, maths and physics questions, and every pillar of development (vision §4)."""
     from .render import weekly_section
-    have = {weekly_section(it) for it in doc.get("items", [])}
-    missing = WEEKLY_REQUIRED.get(doc.get("load"), WEEKLY_REQUIRED["normal"]) - have
-    return [f"weekly package is missing sections: {', '.join(sorted(missing))} (see prompts/weekly.md)"] if missing else []
+    items = doc.get("items", [])
+    load = doc.get("load", "normal")
+    errs = []
+    have = {weekly_section(it) for it in items}
+    missing = WEEKLY_REQUIRED.get(load, WEEKLY_REQUIRED["normal"]) - have
+    if missing:
+        errs.append(f"weekly package is missing sections: {', '.join(sorted(missing))} (see prompts/weekly.md)")
+    qs = [it for it in items if weekly_section(it) == "questions"]
+    need = 1 if load == "light" else 2
+    maths = sum(1 for q in qs if q.get("subject") in ("maths", "probability"))
+    physics = sum(1 for q in qs if q.get("subject") == "physics")
+    if maths < need or physics < need:
+        errs.append(f"weekly questions need at least {need} maths or probability and {need} physics "
+                    f"(subject field); found {maths} and {physics}")
+    if load != "light":
+        pillars = [p for p in (dims or PILLARS)]
+        covered = {d for it in items for d in it.get("dimensions", [])}
+        gap = [p for p in pillars if p not in covered]
+        if gap:
+            errs.append(f"weekly package must touch every pillar of development; missing: {', '.join(gap)}")
+    return errs
 
 
 def monthly_section_errors(doc: dict) -> list[str]:
@@ -153,6 +175,21 @@ def monthly_section_errors(doc: dict) -> list[str]:
     missing = {"research", "knowledge", "exploration"} - have
     if doc.get("load") != "light" and missing:
         return [f"monthly package needs a deep dive in every part; missing: {', '.join(sorted(missing))} (see prompts/monthly.md)"]
+    return []
+
+
+def monthly_rotation_warnings(repo: Repo, doc: dict) -> list[str]:
+    """The exploration deep dive should rotate through people, culture and curiosity month to month."""
+    from .render import monthly_section
+    def explore_dims(d):
+        return {x for pj in d.get("items", []) if monthly_section(pj) == "exploration" for x in pj.get("dimensions", [])}
+    prev = sorted((load_json(f) for f in repo.iter_stream_files("monthly")
+                   if load_json(f)["month"] < doc["month"]), key=lambda d: d["month"])[-2:]
+    now = explore_dims(doc) & {"people", "culture", "curiosity"}
+    recent = set().union(*(explore_dims(d) for d in prev)) if prev else set()
+    if prev and now and now <= recent and {"people", "culture", "curiosity"} - recent:
+        return [f"monthly exploration repeats {', '.join(sorted(now))} from the last two months; "
+                f"rotate to {', '.join(sorted({'people', 'culture', 'curiosity'} - recent))}"]
     return []
 
 
@@ -427,7 +464,7 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 for it in items:
                     for e in learning_item_errors(it):
                         rep.err(where, e)
-                for e in weekly_section_errors(doc):
+                for e in weekly_section_errors(doc, sorted(_DIMS) if _DIMS else PILLARS):
                     rep.err(where, e)
             if stream == "monthly":
                 if not any(it.get("tier") == "growth" for it in items):
@@ -438,6 +475,8 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                         rep.err(where, e)
                 for e in monthly_section_errors(doc):
                     rep.err(where, e)
+                for w_ in monthly_rotation_warnings(repo, doc):
+                    rep.warn(where, w_)
 
     if not examples:
         lang_days = {f.stem for f in repo.iter_stream_files("language")}

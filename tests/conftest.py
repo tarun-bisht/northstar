@@ -132,13 +132,28 @@ def activity(aid, **kw):
 
 
 def pad_weekly_sections(week, items, load="normal"):
-    """A weekly package must cover the required sections; add one filler per missing section."""
+    """A weekly package must cover the required sections, maths and physics questions and every
+    pillar; add one filler per gap."""
     from dsys.render import weekly_section
-    from dsys.validate import WEEKLY_REQUIRED
+    from dsys.validate import PILLARS, WEEKLY_REQUIRED
+    items = list(items)
     have = {weekly_section(it) for it in items}
-    fill = [activity(f"w-{week.lower()}-fill-{sec.replace('_', '-')}", section=sec, title=f"Filler {sec}")
-            for sec in sorted(WEEKLY_REQUIRED.get(load, WEEKLY_REQUIRED["normal"]) - have)]
-    return list(items) + fill
+    for sec in sorted(WEEKLY_REQUIRED.get(load, WEEKLY_REQUIRED["normal"]) - have - {"questions"}):
+        items.append(activity(f"w-{week.lower()}-fill-{sec.replace('_', '-')}", section=sec, title=f"Filler {sec}"))
+    need = 1 if load == "light" else 2
+    qs = [it for it in items if weekly_section(it) == "questions"]
+    for subj, n in (("maths", sum(q.get("subject") in ("maths", "probability") for q in qs)),
+                    ("physics", sum(q.get("subject") == "physics" for q in qs))):
+        for i in range(need - n):
+            items.append(activity(f"w-{week.lower()}-fill-q-{subj}-{i}", section="questions", category="question",
+                                  subject=subj, title=f"Filler {subj} question {i}"))
+    if load != "light":
+        covered = {d for it in items for d in it.get("dimensions", [])}
+        for d in PILLARS:
+            if d not in covered:
+                items.append(activity(f"w-{week.lower()}-fill-dim-{d}", section="curiosity_making",
+                                      dimensions=[d], title=f"Filler {d}"))
+    return items
 
 
 def fill_sections(repo: Repo) -> None:

@@ -16,7 +16,7 @@ from pathlib import Path
 
 from . import ideas as ideas_mod
 from . import render
-from .core import DAILY_STREAMS, STREAM_META, Repo, iso_week, load_json, today
+from .core import DAILY_STREAMS, FEEDS, STREAM_META, Repo, iso_week, load_json, today
 from .render import DIMENSION_NAMES, TIME_LABEL, a, esc, human
 from .rss import generate_all
 
@@ -195,7 +195,7 @@ def page(site: dict, title: str, body: str, depth: int = 0, current: str = "") -
     up = "../" * depth
     head_title = esc(site["title"]) if title == "Home" else f"{esc(title)} | {esc(site['title'])}"
     alt = "".join(f'<link rel="alternate" type="application/rss+xml" title="{esc(site["title"])}: {esc(m["title"])}" '
-                  f'href="{up}feeds/{m["feed"]}">' for m in STREAM_META.values())
+                  f'href="{up}feeds/{m["file"]}">' for m in FEEDS.values())
     header = ("" if current == "home" else
               f'<header class="site"><div class="bar"><a class="mark" href="{up}index.html">{mark_svg()}'
               f'{esc(site["title"])}</a></div></header>')
@@ -647,14 +647,17 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
     if plan:
         b.append("<div class='plan'>" + "".join(plan) + "</div>")
 
-    def frow(stream, path):
+    def frow(feed, path):
         url = f"{site['base_url']}/feeds/{path.name}"
-        return (f"<li><span class='fname'>{esc(STREAM_META[stream]['title'])}</span>"
-                f"<input readonly value='{esc(url)}' aria-label='{esc(STREAM_META[stream]['title'])} feed URL' onclick='this.select()'>"
+        title = FEEDS[feed]["title"]
+        return (f"<li><span class='fname'>{esc(title)}</span>"
+                f"<input readonly value='{esc(url)}' aria-label='{esc(title)} feed URL' onclick='this.select()'>"
                 f"<button type='button' data-copy='{esc(url)}'>Copy</button></li>")
-    from .core import DIGEST_FEEDS, PERIODIC_STREAMS
-    main = [s for s in DIGEST_FEEDS + PERIODIC_STREAMS if s in feeds and s != "reading"]
-    rest = [s for s in feeds if s not in main]
-    b.append("<h2>RSS feeds</h2><ul class='feeds'>" + "".join(frow(s, feeds[s]) for s in main) + "</ul>")
-    b.append("<h3>Single streams</h3><ul class='feeds'>" + "".join(frow(s, feeds[s]) for s in rest) + "</ul>")
+    groups = [("Daily", ["research", "news", "exploration", "reading"]),
+              ("Weekly", ["weekly-research", "weekly-knowledge", "weekly-exploration"]),
+              ("Monthly", ["monthly-research", "monthly-knowledge", "monthly-exploration"]),
+              ("Quarterly", ["quarterly-research", "quarterly-knowledge", "quarterly-exploration"])]
+    b.append("<h2>RSS feeds</h2>")
+    for label, keys in groups:
+        b.append(f"<h3>{label}</h3><ul class='feeds'>" + "".join(frow(k, feeds[k]) for k in keys if k in feeds) + "</ul>")
     return "".join(b)

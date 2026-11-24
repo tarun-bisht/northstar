@@ -13,16 +13,20 @@
   "dimension_balance_lookback_days": 60,
   "user_intent_overrides_algorithm": true,
   "feeds": {
-    "arxiv": 200,
-    "research_updates": 150,
-    "world": 150,
-    "discovery": 150,
-    "youtube_shorts": 300,
-    "weekly": 52,
-    "monthly": 24,
+    "_doc": "How many items each RSS feed keeps (newest first).",
     "research": 30,
     "news": 30,
-    "exploration": 30
+    "exploration": 30,
+    "reading": 120,
+    "weekly-research": 26,
+    "weekly-knowledge": 26,
+    "weekly-exploration": 26,
+    "monthly-research": 12,
+    "monthly-knowledge": 12,
+    "monthly-exploration": 12,
+    "quarterly-research": 8,
+    "quarterly-knowledge": 8,
+    "quarterly-exploration": 8
   },
   "source_quality": {
     "prefer": [

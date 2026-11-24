@@ -49,7 +49,7 @@
         "$ref": "#/$defs/activity"
       },
       "minItems": 1,
-      "maxItems": 16
+      "maxItems": 18
     },
     "reflection_prompt": {
       "type": "string"
@@ -273,6 +273,15 @@
             "curiosity_making"
           ],
           "description": "Section on the weekly page (prompts/weekly.md). Omit to derive it from category."
+        },
+        "subject": {
+          "enum": [
+            "maths",
+            "probability",
+            "physics",
+            "other_science"
+          ],
+          "description": "For section 'questions': the subject. Every week has at least 2 maths or probability questions and 2 physics questions."
         }
       }
     },

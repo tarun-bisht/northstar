@@ -284,14 +284,27 @@ def arxiv_item(p: dict) -> str:
     ])
 
 
+def _reading_entry(pp: dict) -> str:
+    by = f"<p class='authors'>{esc(', '.join(pp['authors'][:6]))}</p>" if pp.get("authors") else ""
+    note = f"<p>{esc(pp['note'])}</p>" if pp.get("note") else ""
+    votes = ", ".join(x for x in (f"{pp['alphaxiv_votes']} alphaXiv votes" if pp.get("alphaxiv_votes") else "",
+                                  f"{pp['hf_upvotes']} Hugging Face upvotes" if pp.get("hf_upvotes") else "") if x)
+    return (f"<article class='entry'><h3>{a(pp['url'], pp['title'])}</h3>{tags_line(pp['tags'])}{by}{note}"
+            f"<p class='links'>{esc(pp['source'].replace('_', ' '))}, added {nice_date(pp['added'])}"
+            f"{', ' + votes if votes else ''}</p></article>")
+
+
 def reading_list(doc: dict) -> str:
-    out = []
-    for pp in doc["papers"]:
-        by = f"<p class='authors'>{esc(', '.join(pp['authors'][:6]))}</p>" if pp.get("authors") else ""
-        note = f"<p>{esc(pp['note'])}</p>" if pp.get("note") else ""
-        out.append(f"<article class='entry'><h3>{a(pp['url'], pp['title'])}</h3>{tags_line(pp['tags'])}{by}{note}"
-                   f"<p class='links'>{esc(pp['source'].replace('_', ' '))}, added {nice_date(pp['added'])}</p></article>")
-    return "".join(out) or "<p class='empty'>No papers yet.</p>"
+    """Two groups: papers for you, then the week's trending papers."""
+    papers = doc["papers"]
+    if not papers:
+        return "<p class='empty'>No papers yet.</p>"
+    mine = [pp for pp in papers if pp.get("kind") != "trending"]
+    trend = [pp for pp in papers if pp.get("kind") == "trending"]
+    if not trend or not mine:
+        return "".join(_reading_entry(pp) for pp in papers)
+    return ("<h4 class='sub-h'>For you</h4>" + "".join(_reading_entry(pp) for pp in mine)
+            + "<h4 class='sub-h'>Trending this week</h4>" + "".join(_reading_entry(pp) for pp in trend))
 
 
 def update_item(u: dict) -> str:

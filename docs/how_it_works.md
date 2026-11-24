@@ -20,22 +20,25 @@ Every page is split into parts, so research, news and exploration never pile up 
 | Layer | Parts | Pages |
 |---|---|---|
 | Daily | **Research**: arXiv radar, research updates, this week's reading list. **News**: world radar by category. **Exploration**: podcasts, videos and lectures, reads, watch and listen, things to try, shorts, language pack | `daily/<date>/research.html`, `news.html`, `exploration.html`, plus `index.html` overview |
-| Weekly | **Research**: research practice, research reading. **Knowledge**: questions (maths, physics, science), things to know and talk about, understanding the world. **Exploration**: culture, people and self, curiosity and making, language lessons | `weekly/<week>/research.html`, `knowledge.html`, `exploration.html`, plus `index.html` |
-| Monthly | One deep dive per part: **research**, **knowledge**, **exploration** (an artist, a culture, a craft, a personal theme, anything unexpected), plus language plans | `monthly/<month>/<part>.html`, plus `index.html` |
+| Weekly | Touches all six pillars of development every week (vision §4). **Research**: a research exercise, research reading. **Knowledge**: at least 2 maths and 2 physics questions, things to know and talk about, the world explained. **Exploration** (the largest part): culture, people and self, curiosity and making, language lessons | `weekly/<week>/research.html`, `knowledge.html`, `exploration.html`, plus `index.html` |
+| Monthly | One deep dive per part: **research**, **knowledge**, **exploration**. The exploration deep dive rotates through people and self, culture and life, and curiosity and making. Plus language plans | `monthly/<month>/<part>.html`, plus `index.html` |
 | Quarterly | A short summary and the topics covered, per part, plus the numbers | `quarterly/<YYYY-Qn>/<part>.html`, plus `index.html` |
 
 The part maps live in one place, `dsys/render.py` (`DAILY_PARTS`, `PERIOD_PARTS`, `WEEKLY_SECTIONS`, `MONTHLY_SECTIONS`, `WORLD_SECTIONS`, `DISCOVERY_SECTIONS`). The site, the feeds, validation and the quarterly review all read them.
 
 ## 3. RSS feeds
 
+One feed per part, so each can be followed on its own:
+
 | Feed | One item per |
 |---|---|
-| `research.xml`, `news.xml`, `exploration.xml` | day, one part each |
-| `weekly.xml`, `monthly.xml` | part of each week or month |
-| `quarterly.xml` | part of each quarter, plus an overview |
-| `arxiv.xml`, `world.xml`, `discovery.xml`, `youtube-shorts.xml`, `language.xml`, `research-updates.xml`, `reading.xml` | single item, for readers who want one stream |
+| `research.xml`, `news.xml`, `exploration.xml` | day |
+| `reading.xml` | paper on the week's reading list: *For you* and *Trending this week* |
+| `weekly-research.xml`, `weekly-knowledge.xml`, `weekly-exploration.xml` | week |
+| `monthly-research.xml`, `monthly-knowledge.xml`, `monthly-exploration.xml` | month |
+| `quarterly-research.xml`, `quarterly-knowledge.xml`, `quarterly-exploration.xml` | quarter, with the numbers |
 
-Feed HTML is plain and semantic: folded sections are opened, and tags are separated, so it reads well in readers that drop CSS.
+The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config/recommendation_policy.json → feeds`. Feed HTML is plain and semantic: folded sections are opened, and tags are separated, so it reads well in readers that drop CSS.
 
 ## 4. Sources and robustness
 
@@ -61,7 +64,7 @@ Reading thousands of abstracts, or any PDFs, is not possible in a run. So:
 2. **Ranking in code** (`dsys/rank.py`). Each candidate gets a relevance score from the coverage keywords (the title counts double, and a keyword only counts when the paper is in that topic's categories) plus quality signals: Hugging Face upvotes, alphaXiv votes, a notable researcher (`notable_researchers`), released code, a named venue in the arXiv comment.
 3. **Shortlist.** The best 3 papers for every interest, filled up to about 80 by score, plus every trending or notable paper (`candidates arxiv --ranked`).
 4. **Judgement from the abstract.** The run reads those abstracts (`candidates arxiv --ids …`) and rates each against the rubric in `prompts/arxiv.md`: a clear contribution, strong evidence, concrete results and outside signals keep a paper; vague claims, thin evaluation and recombined tricks drop it. Trending papers that pass the bar and touch any interest are kept even when keywords missed them.
-5. **Reading list.** The best one to three papers each weekday join the week's reading list: must-reads for your work plus important trending papers, new models, lab reports and methods.
+5. **Reading list** (`reading.xml`). Two groups: *For you*, the must-reads for your work from the week's radar, and *Trending this week*, the week's most voted papers on alphaXiv and Hugging Face (`candidates arxiv --trending-week`). Daily runs add to it, and the weekly run sets it up.
 
 ## 6. Choosing news
 

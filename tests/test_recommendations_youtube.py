@@ -277,12 +277,10 @@ def test_fetch_youtube_pipeline_with_mocked_api(repo, monkeypatch):
 
 def test_youtube_rss_embed_and_escaping(repo):
     daily(repo, "youtube_shorts", "2026-11-24", [video(title='Fourier & "waves" <fast>')])  # feed only, no validation
-    xml = build_feed(repo, "youtube_shorts")
+    xml = build_feed(repo, "exploration")
     item = ET.fromstring(xml).find("channel/item")
-    assert item.find("title").text == 'Fourier & "waves" <fast>'
     html = item.find("{http://purl.org/rss/1.0/modules/content/}encoded").text
-    assert 'src="https://www.youtube.com/embed/abcDEF12345"' in html and "Watch on YouTube" in html
-    assert "&lt;fast&gt;" in html and 'referrerpolicy="strict-origin-when-cross-origin"' in html
+    assert "abcDEF12345" in html and "&lt;fast&gt;" in html and "<fast>" not in html
 
 
 def test_creator_diversity_warning(repo):
@@ -480,12 +478,10 @@ def test_fetch_youtube_pipeline_with_mocked_api(repo, monkeypatch):
 
 def test_youtube_rss_embed_and_escaping(repo):
     daily(repo, "youtube_shorts", "2026-11-24", [video(title='Fourier & "waves" <fast>')])  # feed only, no validation
-    xml = build_feed(repo, "youtube_shorts")
+    xml = build_feed(repo, "exploration")
     item = ET.fromstring(xml).find("channel/item")
-    assert item.find("title").text == 'Fourier & "waves" <fast>'
     html = item.find("{http://purl.org/rss/1.0/modules/content/}encoded").text
-    assert 'src="https://www.youtube.com/embed/abcDEF12345"' in html and "Watch on YouTube" in html
-    assert "&lt;fast&gt;" in html and 'referrerpolicy="strict-origin-when-cross-origin"' in html
+    assert "abcDEF12345" in html and "&lt;fast&gt;" in html and "<fast>" not in html
 
 
 def test_creator_diversity_warning(repo):
@@ -632,9 +628,9 @@ def test_language_context_and_rendering(repo, tmp_path):
     assert "コーヒーをください" in day and "kōhī o kudasai" in day and "<summary>Answer</summary>" in day
     wk = (out / "weekly" / "2026-W49" / "exploration.html").read_text()
     assert "Languages" in wk and "こんにちは" in wk
-    xml = build_feed(repo, "language")
+    xml = build_feed(repo, "exploration")
     assert "Japanese: At a café" in xml
-    assert "language.xml" in (out / "index.html").read_text()
+    assert "exploration.xml" in (out / "index.html").read_text()
 
 
 def test_learning_languages_only_as_beginner_lessons():

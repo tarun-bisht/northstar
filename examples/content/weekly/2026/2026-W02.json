@@ -66,6 +66,73 @@
       "hints": [
         "Count expected returns.",
         "Compare the sum of 1/n with the sum of n to the minus 3/2."
+      ],
+      "subject": "probability"
+    },
+    {
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "category": "question",
+      "section": "questions",
+      "mode": "practise",
+      "time_estimate": "30-60m",
+      "why": "Example only.",
+      "id": "w-2026-W02-example-maths",
+      "title": "Why is there no largest prime?",
+      "subject": "maths",
+      "topic": "number theory",
+      "dimensions": [
+        "knowledge"
+      ],
+      "description": "Placeholder question. A real package asks a specific question with hints.",
+      "hints": [
+        "Start small.",
+        "Look for a contradiction."
+      ]
+    },
+    {
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "category": "question",
+      "section": "questions",
+      "mode": "practise",
+      "time_estimate": "30-60m",
+      "why": "Example only.",
+      "id": "w-2026-W02-example-physics-1",
+      "title": "Why is the sky blue but sunsets red?",
+      "subject": "physics",
+      "topic": "optics",
+      "dimensions": [
+        "knowledge"
+      ],
+      "description": "Placeholder question. A real package asks a specific question with hints.",
+      "hints": [
+        "Start small.",
+        "Look for a contradiction."
+      ]
+    },
+    {
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "category": "question",
+      "section": "questions",
+      "mode": "practise",
+      "time_estimate": "30-60m",
+      "why": "Example only.",
+      "id": "w-2026-W02-example-physics-2",
+      "title": "How fast would you need to throw a ball to orbit the Moon?",
+      "subject": "physics",
+      "topic": "mechanics",
+      "dimensions": [
+        "knowledge"
+      ],
+      "description": "Placeholder question. A real package asks a specific question with hints.",
+      "hints": [
+        "Start small.",
+        "Look for a contradiction."
       ]
     },
     {
@@ -145,6 +212,23 @@
       "mode": "experience",
       "topic": "world cinema",
       "tier": "exploration"
+    },
+    {
+      "id": "w-2026-W02-example-world",
+      "title": "How the Strait of Hormuz shapes oil prices",
+      "category": "world_understanding",
+      "section": "world",
+      "dimensions": [
+        "world"
+      ],
+      "description": "Placeholder world item.",
+      "why": "Example only.",
+      "time_estimate": "10-30m",
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "mode": "reflect",
+      "topic": "geography of energy"
     }
   ],
   "reflection_prompt": "Optional: what kind of activity gave you energy this week?",

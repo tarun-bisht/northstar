@@ -9,7 +9,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 from . import render
-from .core import DAILY_STREAMS, DIGEST_FEEDS, STREAM_META, Repo, load_json, month_bounds, week_bounds
+from .core import DAILY_STREAMS, DIGEST_FEEDS, FEEDS, STREAM_META, Repo, load_json, month_bounds, week_bounds
 from .validate import guid_for
 
 NS = ('xmlns:atom="http://www.w3.org/2005/Atom" '
@@ -135,113 +135,70 @@ def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None, p
     return entries
 
 
-def collect_items(repo: Repo, stream: str, site: dict, examples: bool = False,
+def collect_items(repo: Repo, feed: str, site: dict, examples: bool = False,
                   limit: int | None = None) -> list[dict]:
-    """Return feed entries (newest first) as plain dicts.
+    """Return feed entries (newest first) as plain dicts, for one feed in FEEDS.
 
-    File names are ISO dates, weeks or months, so a reverse sort reads the newest file first.
-    With a limit, reading stops once enough entries are collected, so feed builds stay fast
-    however long the history grows.
+    research / news / exploration: one item per day. reading: one item per paper.
+    <layer>-<part> (weekly, monthly, quarterly): one item per week, month or quarter, for that part only.
+    File names are ISO dates, weeks or months, so a reverse sort reads the newest file first, and
+    reading stops once the feed's window is full.
     """
-    if stream in DIGEST_FEEDS:
-        return _digest_entries(repo, site, examples, limit, stream)
+    if feed in DIGEST_FEEDS:
+        return _digest_entries(repo, site, examples, limit, feed)
+    stream, _, part = feed.partition("-")
     entries = []
     for f in sorted(repo.iter_stream_files(stream, examples), reverse=True):
         if limit is not None and len(entries) >= limit:
             break
         doc = load_json(f)
-        if stream in DAILY_STREAMS:
-            day = dt.date.fromisoformat(doc["date"])
-            for i, it in enumerate(doc["items"]):
-                entries.append(_daily_entry(stream, doc, it, day, i, site))
-        elif stream == "weekly":
-            start, end = week_bounds(doc["week"])
-            for i, (part, label) in enumerate(render.PERIOD_PARTS):
-                its = [it for it in doc["items"] if render.weekly_part(it) == part]
-                if not its and part != "exploration":
-                    continue
-                entries.append({
-                    "guid": f"{guid_for(stream, doc)}:{part}", "title": f"Week {doc['week']}, {label.lower()}: "
-                    + ", ".join(it["title"] for it in its[:3]) + ("…" if len(its) > 3 else ""),
-                    "link": f"{site['base_url']}/weekly/{doc['week']}/{part}.html",
-                    "description": doc["intro"], "html": render.weekly_package(doc, part),
-                    "pub": pub_datetime(start, site, i), "creator": None, "categories": ["weekly", part], "media": None,
-                })
-        elif stream == "reading":
+        if stream == "reading":
             for i, pp in enumerate(doc["papers"]):
+                group = "Trending" if pp.get("kind") == "trending" else "For you"
                 entries.append({
-                    "guid": f"dsys:reading:{pp['id']}", "title": f"[{pp['tags'][0]}] {pp['title']}", "link": pp["url"],
+                    "guid": f"dsys:reading:{pp['id']}", "title": f"[{group}] {pp['title']}", "link": pp["url"],
                     "description": pp.get("note") or ", ".join(pp["tags"]),
                     "html": render.reading_list({"papers": [pp]}),
                     "pub": pub_datetime(dt.date.fromisoformat(pp["added"]), site, i),
-                    "creator": ", ".join(pp.get("authors", [])[:6]) or None, "categories": pp["tags"], "media": None,
+                    "creator": ", ".join(pp.get("authors", [])[:6]) or None, "categories": [group] + pp["tags"], "media": None,
+                })
+        elif stream == "weekly":
+            start, _ = week_bounds(doc["week"])
+            its = [it for it in doc["items"] if render.weekly_part(it) == part]
+            if its or (part == "exploration" and doc.get("language")):
+                label = dict(render.PERIOD_PARTS)[part]
+                entries.append({
+                    "guid": f"{guid_for(stream, doc)}:{part}",
+                    "title": f"Week of {start.strftime('%-d %b')}, {label.lower()}: "
+                             + ", ".join(it["title"] for it in its[:3]) + ("…" if len(its) > 3 else ""),
+                    "link": f"{site['base_url']}/weekly/{doc['week']}/{part}.html",
+                    "description": doc["intro"], "html": render.weekly_package(doc, part),
+                    "pub": pub_datetime(start, site), "creator": None, "categories": ["weekly", part], "media": None,
                 })
         elif stream == "monthly":
             start, _ = month_bounds(doc["month"])
-            for i, (part, label) in enumerate(render.PERIOD_PARTS):
-                pjs = [pj for pj in doc["items"] if render.monthly_section(pj) == part]
-                if not pjs:
-                    continue
+            pjs = [pj for pj in doc["items"] if render.monthly_section(pj) == part]
+            if pjs:
                 entries.append({
-                    "guid": f"{guid_for(stream, doc)}:{part}", "title": f"{doc['month']}, {label.lower()} deep dive: "
-                    + ", ".join(pj["title"] for pj in pjs),
+                    "guid": f"{guid_for(stream, doc)}:{part}",
+                    "title": f"{start.strftime('%B %Y')} deep dive: " + ", ".join(pj["title"] for pj in pjs),
                     "link": f"{site['base_url']}/monthly/{doc['month']}/{part}.html",
                     "description": doc["intro"], "html": render.monthly_package(doc, part),
-                    "pub": pub_datetime(start, site, i), "creator": None, "categories": ["monthly", part], "media": None,
+                    "pub": pub_datetime(start, site), "creator": None, "categories": ["monthly", part], "media": None,
                 })
         elif stream == "quarterly":
             qend = dt.date.fromisoformat(doc["to"])
-            for i, (part, label) in enumerate([("index", "Overview")] + render.PERIOD_PARTS):
-                summ = "" if part == "index" else doc["parts"][part]["summary"]
-                entries.append({
-                    "guid": f"{guid_for(stream, doc)}:{part}", "title": f"{doc['quarter']} review: {label.lower()}",
-                    "link": f"{site['base_url']}/quarterly/{doc['quarter']}/{part}.html",
-                    "description": summ or "Numbers for the quarter.",
-                    "html": render.quarterly_review(doc, None if part == "index" else part),
-                    "pub": pub_datetime(qend + dt.timedelta(days=1), site, i), "creator": None,
-                    "categories": ["quarterly", part], "media": None,
-                })
+            pt = doc["parts"][part]
+            entries.append({
+                "guid": f"{guid_for(stream, doc)}:{part}", "title": f"{doc['quarter']} review, {part}",
+                "link": f"{site['base_url']}/quarterly/{doc['quarter']}/{part}.html",
+                "description": pt["summary"] or "Nothing in this part this quarter.",
+                "html": render.quarterly_review(doc, part) + render.quarterly_stats(doc),
+                "pub": pub_datetime(qend + dt.timedelta(days=1), site), "creator": None,
+                "categories": ["quarterly", part], "media": None,
+            })
     entries.sort(key=lambda e: (e["pub"], e["guid"]), reverse=True)
     return entries[:limit] if limit is not None else entries
-
-
-def _daily_entry(stream, doc, it, day, order, site):
-    html_body = render.ITEM_RENDERERS[stream](it)
-    link = it.get("url") or (it.get("source") or {}).get("url") or (it.get("sources") or [{}])[0].get("url") \
-        or f"{site['base_url']}/daily/{doc['date']}.html"
-    title = it["title"]
-    creator = None
-    cats = []
-    media = None
-    desc = ""
-    if stream == "arxiv":
-        title = f"[{it['tags'][0]}] {it['title']}"
-        creator = ", ".join(it["authors"][:8]) + (" et al." if len(it["authors"]) > 8 else "")
-        cats = it["categories"]
-        desc = ", ".join(it["tags"])
-    elif stream == "research_updates":
-        desc = it["what_happened"]
-        cats = [it["kind"]]
-    elif stream == "world":
-        desc = it["what_happened"]
-        cats = [it["topic"]] + it["regions"]
-    elif stream == "discovery":
-        creator = it.get("creator")
-        desc = it["description"]
-        cats = [it["category"], it["tier"]]
-    elif stream == "language":
-        title = f"{it['language'].capitalize()}: {it['title']}"
-        desc = it["theme"]
-        cats = [it["language"]]
-        link = f"{site['base_url']}/daily/{doc['date']}.html#language"
-    elif stream == "youtube_shorts":
-        creator = it["channel"]["name"]
-        desc = it["why_it_matches"]
-        cats = [it["category"], it["tier"]]
-        media = {"thumbnail": it["thumbnail"], "player": it["embed_url"], "title": it["title"]}
-    return {"guid": guid_for(stream, doc, it), "title": title, "link": link, "description": desc,
-            "html": html_body, "pub": pub_datetime(day, site, order), "creator": creator,
-            "categories": cats, "media": media}
 
 
 def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
@@ -249,9 +206,9 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
     render.configure(repo)
     policy = repo.config("recommendation_policy")
     window = int(policy.get("feeds", {}).get(stream, 100))
-    meta = STREAM_META[stream]
+    meta = FEEDS[stream]
     entries = collect_items(repo, stream, site, examples, limit=window)
-    self_url = f"{site['base_url']}/feeds/{meta['feed']}"
+    self_url = f"{site['base_url']}/feeds/{meta['file']}"
     last = rfc822(entries[0]["pub"]) if entries else rfc822(dt.datetime(2026, 1, 1, tzinfo=dt.timezone.utc))
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            f'<rss version="2.0" {NS}>', "<channel>",
@@ -286,12 +243,15 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
 
 
 def generate_all(repo: Repo, out_dir: Path | None = None, examples: bool = False) -> dict[str, Path]:
-    from .core import ALL_STREAMS
+    """Write every feed in FEEDS. Returns feed key -> path."""
     out_dir = out_dir or repo.p("feeds")
     out_dir.mkdir(parents=True, exist_ok=True)
+    for old in out_dir.glob("*.xml"):  # feeds that no longer exist must not linger
+        if old.name not in {m["file"] for m in FEEDS.values()}:
+            old.unlink()
     written = {}
-    for stream in DIGEST_FEEDS + ALL_STREAMS:
-        path = out_dir / STREAM_META[stream]["feed"]
-        path.write_text(build_feed(repo, stream, examples), encoding="utf-8")
-        written[stream] = path
+    for feed, meta in FEEDS.items():
+        path = out_dir / meta["file"]
+        path.write_text(build_feed(repo, feed, examples), encoding="utf-8")
+        written[feed] = path
     return written

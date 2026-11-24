@@ -2,18 +2,12 @@
 
 Read `prompts/_shared.md` first.
 
-A short list of papers and works that are **definitely worth reading this week**: 3 to 10, never padding. It is shown every day in the Research part of the daily page, so the daily runs keep it current.
+The week's papers, published as the feed `reading.xml` and shown every day in the Research part. Two groups, set with `kind`:
 
-The test for every entry: *would knowing this make me a better researcher?* (vision §6). Two kinds belong:
-1. **Important to me:** close to or useful for the configured research interests and methods.
-2. **Important for any researcher right now:** a widely discussed or fast-trending paper (high `alphaxiv_votes` or `hf_upvotes`), a new model release or technical report from a major lab, an influential method or methodology, an important negative result or a field-shifting benchmark.
+1. **For you** (`kind: for_you`, 4 to 8): papers closest to the user's research interests and methods, the ones they should definitely read. Mostly from the week's arXiv radar.
+2. **Trending this week** (`kind: trending`, 3 to 6): the week's most discussed papers on alphaXiv and Hugging Face Daily Papers that a researcher should know about, even outside the user's own topics. Find them with `python scripts/dsys.py candidates arxiv --trending-week <YYYY-Www>`, which collects every day's candidates for that week, ranked by votes, with the interests each one touches. Record `alphaxiv_votes` and `hf_upvotes`. New model releases, lab technical reports and influential methods also belong here.
 
-## What belongs
-
-- Papers close to the configured research interests or methods.
-- A new concept, method or architecture worth knowing about.
-- Papers with clear potential to matter in the future.
-- Sources can be anything verified: the arXiv radar, Hugging Face trending papers, alphaXiv trending (https://www.alphaxiv.org, or `alphaxiv_votes` in the arXiv candidates), papers by notable researchers, posts on X or LinkedIn from researchers, technical reports from AI labs (DeepSeek, OpenAI, Anthropic, Google DeepMind, Meta, Qwen, Mistral and others), or award papers at conferences.
+The test for every entry: *would knowing this make me a better researcher?* (vision §6). Never padding. At most 16 entries.
 
 ## Each paper
 
@@ -23,8 +17,8 @@ The test for every entry: *would knowing this make me a better researcher?* (vis
 
 ## When to add
 
-- **Weekly run (Saturday):** create next week's list with at least 3 papers (validation requires this when a weekly package exists).
-- **Daily runs (every weekday):** review the day's candidates, trending signals and lab releases, and add 0 to 3 entries that clearly belong to the current week's list. Keep it selective: a day with nothing worth adding is fine. Never re-add what is already on a list.
+- **Weekly run (Saturday):** create next week's list with at least 3 papers (validation requires this when a weekly package exists): the for-you papers you can already see, and the trending papers of the week just ending.
+- **Daily runs (every weekday):** add 0 to 3 entries to the current week's list: for-you papers from the day's radar, and trending papers as their votes climb. Keep it selective: a day with nothing worth adding is fine. Never re-add what is already on a list.
 
 ```bash
 python scripts/dsys.py reading add --week <YYYY-Www> --json /tmp/papers.json   # skips papers already on any list

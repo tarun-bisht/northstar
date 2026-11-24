@@ -36,7 +36,7 @@
       "items": {
         "$ref": "#/$defs/paper"
       },
-      "maxItems": 12
+      "maxItems": 16
     }
   },
   "$defs": {
@@ -101,6 +101,21 @@
         },
         "added": {
           "$ref": "common.schema.json#/$defs/date"
+        },
+        "kind": {
+          "enum": [
+            "for_you",
+            "trending"
+          ],
+          "description": "for_you: close to the user's interests. trending: the week's most discussed papers on alphaXiv or Hugging Face Daily Papers. Default for_you."
+        },
+        "alphaxiv_votes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "hf_upvotes": {
+          "type": "integer",
+          "minimum": 0
         }
       }
     }

@@ -109,6 +109,9 @@ def categorize(item: dict, cfg: dict) -> str:
         return "explainers"
     title = (item.get("title") or "").lower()
     summary = (item.get("summary") or "").lower()
+    # Local and minor signals (school boards, councils, sport) always win: they never make the radar.
+    if any(_kw(k).search(title) for k in cats.get("keywords", {}).get("other", [])):
+        return "other"
     order = cats.get("order", [])
     best, best_score = None, 0
     for cat in order:
@@ -118,6 +121,7 @@ def categorize(item: dict, cfg: dict) -> str:
         for k in cats.get("keywords", {}).get(cat, []):
             pat = _kw(k)
             score += 2 * bool(pat.search(title)) + bool(pat.search(summary))
+        score *= float(cats.get("weights", {}).get(cat, 1))
         if score > best_score:
             best, best_score = cat, score
     return best or feed_cat

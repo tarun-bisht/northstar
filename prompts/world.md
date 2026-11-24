@@ -12,7 +12,7 @@ Every item gets one `section`. The daily News page groups items by section in th
 |---|---|
 | `india` | national politics, governance, courts, states, Indian policy and society |
 | `geopolitics` | international relations, diplomacy, elections abroad, alliances, sanctions, India's foreign relations |
-| `leadership` | big leadership changes anywhere: new or outgoing heads of state and government, ministers, central bank governors, CEOs of major companies and institutions; resignations, appointments, swearing-ins, election results, ousters, deaths of major figures |
+| `leadership` | leadership changes with national or global impact only (see the rule below) |
 | `conflict_disaster` | wars and armed conflicts, terrorism, natural disasters, humanitarian crises |
 | `economy_markets` | RBI and central banks, inflation, growth and jobs data, Sensex/Nifty, rupee, bonds, crude, global markets, trade and tariffs, SEBI |
 | `business` | major companies, deals, results, banking and corporate news, startups |
@@ -22,6 +22,8 @@ Every item gets one `section`. The daily News page groups items by section in th
 | `climate_energy` | climate, environment, energy transition, oil and gas, power, extreme weather |
 | `society` | demographics, migration, education, urbanisation, inequality, culture and social change |
 | `explainers` | well-argued explainers and expert analysis: The Conversation, Indian Express Explained |
+
+**Leadership changes: only what matters beyond one town.** Include: heads of state and government, and major ministers (finance, foreign, defence, home) in any country; central bank governors; heads of major international bodies (UN agencies, IMF, World Bank, WTO, WHO); military chiefs; CEOs, founders, chairs and top executives of major companies (large listed companies, big tech, AI labs such as OpenAI, Anthropic, Google DeepMind and Meta AI, top Indian groups such as Tata, Reliance, Adani, Infosys, HDFC); well-known people leaving or joining such companies; election results that change a government. Exclude: local officials, mayors of small towns, school boards, councils, clubs, unions, small companies, sports bodies, and court admissions. The test: does this change affect a country, a global market, a major company or a field?
 
 Also set `topic` (the finer subject: `geopolitics`, `trade`, `energy`, `migration`, `policy`, …) and `regions`.
 

@@ -372,4 +372,7 @@ def test_leadership_category():
     cfg = load_json(ROOT / "config" / "sources.json")["world"]
     assert news.categorize({"title": "Japan's new prime minister sworn in after vote", "section": "world"}, cfg) == "leadership"
     assert news.categorize({"title": "Intel CEO steps down", "section": "business"}, cfg) == "leadership"
+    assert news.categorize({"title": "Japan prime minister resigns after election loss", "section": "world"}, cfg) == "leadership"
+    assert news.categorize({"title": "Top OpenAI researcher leaves to join Meta", "section": "technology"}, cfg) == "leadership"
+    assert news.categorize({"title": "Harpswell school board representative resigns", "section": "world"}, cfg) == "other"
     assert render.world_section({"section": "leadership"}) == "leadership"

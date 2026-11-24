@@ -991,7 +991,7 @@
       }
     ],
     "categories": {
-      "_doc": "News categories (the same as prompts/world.md and the daily News page). Each headline gets the category whose keywords it matches most (whole words, title counts double), ties broken by the order here. With no match it takes its feed's default. Explainer feeds always stay explainers. Edit keywords freely. The 'other' bucket (sport, celebrity, local notices, crime blotter) is listed last and is usually skipped.",
+      "_doc": "News categories (the same as prompts/world.md and the daily News page). Each headline gets the category whose keywords it matches most (whole words, title counts double), ties broken by the order here. With no match it takes its feed's default. Explainer feeds always stay explainers. Edit keywords freely. The 'other' bucket (sport, celebrity, local notices, crime blotter) is listed last and is usually skipped. weights multiply a category's score (leadership words count double, so 'prime minister resigns' is a leadership change, not general geopolitics).",
       "order": [
         "other",
         "conflict_disaster",
@@ -1224,7 +1224,22 @@
           "theft",
           "fake",
           "scam alert",
-          "quiz"
+          "quiz",
+          "school board",
+          "city council",
+          "county",
+          "municipal",
+          "municipality",
+          "panchayat",
+          "ward",
+          "alumni association",
+          "club president",
+          "students union",
+          "union president",
+          "bar association",
+          "village",
+          "district collector",
+          "local body"
         ],
         "business": [
           "company",
@@ -1381,8 +1396,20 @@
           "coalition government",
           "cabinet reshuffle",
           "leadership change",
-          "dies at"
+          "dies at",
+          "leaves to join",
+          "quits",
+          "poached",
+          "departs",
+          "exits",
+          "to lead",
+          "named chief",
+          "named head",
+          "new head of"
         ]
+      },
+      "weights": {
+        "leadership": 2
       }
     },
     "google_news": {
@@ -1492,6 +1519,10 @@
         {
           "q": "startup funding OR acquisition OR merger",
           "section": "business"
+        },
+        {
+          "q": "(leaves OR departs OR exits OR quits OR joins OR poached) (OpenAI OR Google OR DeepMind OR Apple OR Microsoft OR Meta OR Nvidia OR Anthropic OR Amazon OR Tesla OR xAI) executive OR researcher OR chief",
+          "section": "leadership"
         }
       ]
     }

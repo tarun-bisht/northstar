@@ -88,3 +88,21 @@ def test_site_uses_configured_focus_names(repo, tmp_path):
     out = build_site(repo, tmp_path / "s")
     html = (out / "index.html").read_text()
     assert "Craft" in html and "Movement" in html and "People &amp; self" not in html
+
+
+def test_feed_reads_only_newest_files(repo, monkeypatch):
+    import datetime as dt
+    import dsys.rss as rss
+    start = dt.date(2026, 1, 1)
+    for d in range(60):
+        day = (start + dt.timedelta(days=d)).isoformat()
+        daily(repo, "arxiv", day, [paper(aid=f"2601.{d:05d}")])
+    site = repo.config("site")
+    full = rss.collect_items(repo, "arxiv", site)
+    loaded = []
+    real = rss.load_json
+    monkeypatch.setattr(rss, "load_json", lambda f: loaded.append(f) or real(f))
+    fast = rss.collect_items(repo, "arxiv", site, limit=5)
+    assert len(loaded) == 5
+    assert [e["guid"] for e in fast] == [e["guid"] for e in full[:5]]
+    assert fast[0]["guid"].endswith("2601.00059")

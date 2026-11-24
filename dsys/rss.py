@@ -41,10 +41,18 @@ def rfc822(d: dt.datetime) -> str:
     return email.utils.format_datetime(d)
 
 
-def collect_items(repo: Repo, stream: str, site: dict, examples: bool = False) -> list[dict]:
-    """Return feed entries (newest first) as plain dicts."""
+def collect_items(repo: Repo, stream: str, site: dict, examples: bool = False,
+                  limit: int | None = None) -> list[dict]:
+    """Return feed entries (newest first) as plain dicts.
+
+    File names are ISO dates, weeks or months, so a reverse sort reads the newest file first.
+    With a limit, reading stops once enough entries are collected, so feed builds stay fast
+    however long the history grows.
+    """
     entries = []
-    for f in repo.iter_stream_files(stream, examples):
+    for f in sorted(repo.iter_stream_files(stream, examples), reverse=True):
+        if limit is not None and len(entries) >= limit:
+            break
         doc = load_json(f)
         if stream in DAILY_STREAMS:
             day = dt.date.fromisoformat(doc["date"])
@@ -76,7 +84,7 @@ def collect_items(repo: Repo, stream: str, site: dict, examples: bool = False) -
                 "pub": pub_datetime(start, site), "creator": None, "categories": ["monthly"], "media": None,
             })
     entries.sort(key=lambda e: (e["pub"], e["guid"]), reverse=True)
-    return entries
+    return entries[:limit] if limit is not None else entries
 
 
 def _daily_entry(stream, doc, it, day, order, site):
@@ -124,7 +132,7 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
     policy = repo.config("recommendation_policy")
     window = int(policy.get("feeds", {}).get(stream, 100))
     meta = STREAM_META[stream]
-    entries = collect_items(repo, stream, site, examples)[:window]
+    entries = collect_items(repo, stream, site, examples, limit=window)
     self_url = f"{site['base_url']}/feeds/{meta['feed']}"
     last = rfc822(entries[0]["pub"]) if entries else rfc822(dt.datetime(2026, 1, 1, tzinfo=dt.timezone.utc))
     out = ['<?xml version="1.0" encoding="UTF-8"?>',

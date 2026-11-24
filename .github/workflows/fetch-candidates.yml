@@ -1,7 +1,7 @@
 name: Fetch candidates
 
 # Collects real metadata from official APIs (no AI calls) so the Claude runs
-# select from verified data. 00:30 UTC = 06:00 IST, before the daily Claude runs.
+# select from verified data. 00:30 UTC is 06:00 IST, before the daily Claude runs.
 on:
   schedule:
     - cron: "30 0 * * *"

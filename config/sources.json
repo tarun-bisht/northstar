@@ -183,16 +183,6 @@
         "section": "economy_markets"
       },
       {
-        "name": "Business Standard Markets",
-        "url": "https://www.business-standard.com/rss/markets-106.rss",
-        "section": "economy_markets"
-      },
-      {
-        "name": "Business Standard Economy",
-        "url": "https://www.business-standard.com/rss/economy-102.rss",
-        "section": "economy_markets"
-      },
-      {
         "name": "CNBC World Markets",
         "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
         "section": "economy_markets"
@@ -236,6 +226,21 @@
         "name": "RBI Press Releases",
         "url": "https://www.rbi.org.in/pressreleases_rss.xml",
         "section": "economy_markets"
+      },
+      {
+        "name": "The Hindu Sci-Tech",
+        "url": "https://www.thehindu.com/sci-tech/feeder/default.rss",
+        "section": "science_tech"
+      },
+      {
+        "name": "The Guardian Science",
+        "url": "https://www.theguardian.com/science/rss",
+        "section": "science_tech"
+      },
+      {
+        "name": "The Guardian Technology",
+        "url": "https://www.theguardian.com/technology/rss",
+        "section": "science_tech"
       }
     ]
   },

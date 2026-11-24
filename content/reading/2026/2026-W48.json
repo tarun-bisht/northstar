@@ -18,7 +18,8 @@
         "benchmark or dataset"
       ],
       "note": "Tests which unlearning diagnostics can tell removal from suppression, using cases where the answer is known.",
-      "added": "2026-11-24"
+      "added": "2026-11-24",
+      "kind": "for_you"
     },
     {
       "id": "rl-grokking-subspace-search",
@@ -36,7 +37,8 @@
         "strong result"
       ],
       "note": "Shows the grokking destination can be computed before training on group tasks.",
-      "added": "2026-11-24"
+      "added": "2026-11-24",
+      "kind": "for_you"
     },
     {
       "id": "rl-predicting-judge-reward-hacking",
@@ -54,7 +56,8 @@
         "strong result"
       ],
       "note": "Predicts which LLM judge loophole a GRPO policy will exploit first, before training.",
-      "added": "2026-11-24"
+      "added": "2026-11-24",
+      "kind": "for_you"
     },
     {
       "id": "rl-neuron-basis-interpretability",
@@ -70,7 +73,8 @@
         "worth knowing"
       ],
       "note": "Anthropic posts arguing that raw neurons support useful safety probes and audits without training an SAE. Part 2 covers applications.",
-      "added": "2026-11-24"
+      "added": "2026-11-24",
+      "kind": "for_you"
     },
     {
       "id": "rl-metr-q4-2026-capability-update",
@@ -82,8 +86,115 @@
         "worth knowing"
       ],
       "note": "METR's new time-horizon task suite and its limits, including LLM judges rating similar models too highly.",
-      "added": "2026-11-24"
+      "added": "2026-11-24",
+      "kind": "for_you"
+    },
+    {
+      "id": "rl-cmhc-hyper-connections",
+      "title": "cmHC: Balancing Stream Mixing in Hyper-Connections via Geometric Contraction",
+      "url": "https://arxiv.org/abs/2611.27193",
+      "arxiv_id": "2611.27193",
+      "authors": [
+        "Haowei He",
+        "Ziwen Zhao",
+        "Chenshuo Pan"
+      ],
+      "source": "arxiv",
+      "tags": [
+        "theory",
+        "new method or architecture"
+      ],
+      "note": "Studies how much residual streams should mix in hyper-connections, with bounds on too little and too much mixing.",
+      "kind": "trending",
+      "alphaxiv_votes": 0,
+      "hf_upvotes": 94,
+      "added": "2026-11-25"
+    },
+    {
+      "id": "rl-embo-harness",
+      "title": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness",
+      "url": "https://arxiv.org/abs/2611.31201",
+      "arxiv_id": "2611.31201",
+      "authors": [
+        "Xiao-Ming Wu",
+        "Kang Liao",
+        "Chen Change Loy"
+      ],
+      "source": "arxiv",
+      "tags": [
+        "worth knowing",
+        "useful for your work"
+      ],
+      "note": "Tests prompting, planning, action and tool-use choices when a frontier model acts directly as a robot policy.",
+      "kind": "trending",
+      "alphaxiv_votes": 0,
+      "hf_upvotes": 83,
+      "added": "2026-11-25"
+    },
+    {
+      "id": "rl-posterior-matching-distillation",
+      "title": "Posterior Matching Distillation",
+      "url": "https://arxiv.org/abs/2611.26629",
+      "arxiv_id": "2611.26629",
+      "authors": [
+        "Hidir Yesiltepe",
+        "Julius Berner",
+        "Arash Vahdat",
+        "Pinar Yanardag"
+      ],
+      "source": "arxiv",
+      "tags": [
+        "new method or architecture",
+        "theory"
+      ],
+      "note": "A diffusion distillation method that covers the teacher's modes instead of collapsing to the dominant ones.",
+      "kind": "trending",
+      "alphaxiv_votes": 0,
+      "hf_upvotes": 45,
+      "added": "2026-11-25"
+    },
+    {
+      "id": "rl-clover-diffusion-lm",
+      "title": "Clover-35B-A3B-Preview Technical Report",
+      "url": "https://arxiv.org/abs/2611.24636",
+      "arxiv_id": "2611.24636",
+      "authors": [
+        "DiffuSpace Technical Team"
+      ],
+      "source": "arxiv",
+      "tags": [
+        "strong result",
+        "worth knowing"
+      ],
+      "note": "A mixture-of-experts diffusion language model with strong reported agent scores and fast single-GPU generation.",
+      "kind": "trending",
+      "alphaxiv_votes": 0,
+      "hf_upvotes": 41,
+      "added": "2026-11-25"
+    },
+    {
+      "id": "rl-memonce-memory-architecture",
+      "title": "MemOnce: A Scalable Memory Architecture for Large Language Models",
+      "url": "https://arxiv.org/abs/2611.27973",
+      "arxiv_id": "2611.27973",
+      "authors": [
+        "Chang Nie",
+        "Chaoyou Fu",
+        "Songlin Liu",
+        "Yiqing Hu",
+        "Caifeng Shan"
+      ],
+      "source": "arxiv",
+      "tags": [
+        "new method or architecture",
+        "worth knowing"
+      ],
+      "note": "Caches a few compact memory states and decodes them back into KV caches, for long interactions with less GPU memory.",
+      "kind": "trending",
+      "alphaxiv_votes": 10,
+      "hf_upvotes": 25,
+      "added": "2026-11-25"
     }
   ],
-  "generated_at": "2026-11-24T12:52:08Z"
+  "generated_at": "2026-11-24T22:02:14Z"
 }

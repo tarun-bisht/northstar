@@ -54,6 +54,35 @@
         "curiosity"
       ]
     },
+    "monthly:m-2026-11-concentration-inequalities-week": {
+      "date": "2026-11-01",
+      "title": "Concentration inequalities, derived by hand",
+      "category": "non_ai_deep_dive",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested"
+    },
+    "monthly:m-2026-11-islamic-geometric-patterns-week": {
+      "date": "2026-11-01",
+      "title": "Draw Islamic geometric patterns with a compass and ruler",
+      "category": "creative_project",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "status": "suggested"
+    },
+    "monthly:m-2026-11-sparse-autoencoders-week": {
+      "date": "2026-11-01",
+      "title": "Superposition and sparse autoencoders in one week",
+      "category": "ai_deep_dive",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested"
+    },
     "weekly:w-2026-W48-after-life-kore-eda": {
       "date": "2026-11-23",
       "title": "After Life: which single memory would you keep?",

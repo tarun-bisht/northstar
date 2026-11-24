@@ -5,6 +5,5 @@ __pycache__/
 .pytest_cache/
 *.tmp
 .env
-# personal notes: never committed
-private/*
-!private/README.md
+# local notes: never committed
+private/

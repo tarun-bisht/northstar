@@ -36,7 +36,7 @@ Growth comes from doing too: **learn, practise, create, experience, reflect, ada
 - **Translate, never record.** A project becomes the general topics its method touches; a trip becomes "<country> documentaries" and similar. See `prompts/update_interests.md`.
 - For arXiv, at most "Closely related to your work."
 - Feedback holds short sanitized paraphrases and generic reasons only. Reflections and syntheses go to chat or the run summary, never into files.
-- `scripts/validate.py` catches obvious patterns (keys, emails, phone numbers, raw feedback, tracked `private/` files), not meaning.
+- `scripts/validate.py` catches obvious patterns (keys, emails, phone numbers, raw feedback), not meaning.
 
 ## Mechanics
 

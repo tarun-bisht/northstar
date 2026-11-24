@@ -214,7 +214,7 @@ def test_feedback_record_never_stores_raw(repo):
 
 def test_private_dir_is_gitignored_and_tracked_files_flagged(tmp_path):
     gi = (ROOT / ".gitignore").read_text()
-    assert "private/*" in gi and "!private/README.md" in gi
+    assert "private/" in gi
     subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
     (tmp_path / "private").mkdir()
     (tmp_path / "private" / "diary.md").write_text("personal")

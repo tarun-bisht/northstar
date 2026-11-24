@@ -2,7 +2,7 @@
 
 Output is lists of things (explored, practised, created, emerged, faded, quiet areas),
 never percentages or rankings. The written synthesis is personal: it is delivered to the
-user (chat / run summary) or saved under private/, never committed.
+user (chat / run summary), never committed.
 """
 
 from __future__ import annotations

@@ -91,10 +91,6 @@ python scripts/build.py
 python scripts/dsys.py -h
 ```
 
-## Privacy
-
-The repo, website and feeds are public. Your interests live in the repo but are not shown on the website. Northstar never stores private things such as project names, unpublished work, other people's names, health, relationships, schedules or travel dates. When you share something private, Claude saves only a general topic. For example, a trip becomes "documentaries about that country". The `private/` folder is ignored by Git and is safe for your own notes. Automatic checks catch obvious leaks like keys and email addresses, but they cannot understand meaning.
-
 ## Folders
 
 | Folder | What is inside |

@@ -17,6 +17,6 @@ Read `prompts/_shared.md` first.
    - What unexpected connections have appeared?
    - What should Northstar recommend differently?
    Say clearly when the evidence is thin (for example, little feedback was given). Don't infer more than is there.
-3. **Privacy:** the synthesis is personal. Give it to the user (chat or the run summary). When running locally, you may also save it to `private/synthesis/<YYYY-Qn>.md` (gitignored). **Never commit it.**
+3. **Privacy:** the synthesis is personal. Give it to the user (chat or the run summary). **Never commit it.**
 4. **System changes** are the only thing that may be committed, and only if they are sanitized and clearly helpful: adjust `config/interests.json` (move topics between tiers, e.g. exploration → established when something stuck), tweak `config/recommendation_policy.json` guidance, or add an idea at interest level. Explain each change in one line in the summary. When unsure, propose the change in the summary instead of making it.
 5. If you changed anything: `python scripts/validate.py`, then commit `quarterly: <YYYY-Qn> system adjustments`.

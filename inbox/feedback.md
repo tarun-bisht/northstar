@@ -1,7 +1,7 @@
 # Feedback inbox
 
 This file is PUBLIC (it lives in a public repo, and Git keeps history). Keep it to what you did and
-liked; put anything personal in private/ on your own computer or just tell Claude in chat.
+liked. Anything personal, just tell Claude in chat.
 Tell the system how the week/month went, in plain words. No forms. Mention item names loosely;
 the next weekly/monthly run matches them, records feedback, and clears this file.
 

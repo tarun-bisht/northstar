@@ -90,6 +90,7 @@ def weekly(repo: Repo, week="2026-W49", items=None, with_reading=True, **kw):
         reading(repo, week)
     s, e = week_bounds(week)
     items = items if items is not None else [activity(f"w-{week.lower()}-a"), activity(f"w-{week.lower()}-b")]
+    items = pad_weekly_sections(week, items, kw.get("load", "normal"))
     doc = {"schema": "weekly", "week": week, "start_date": s.isoformat(), "end_date": e.isoformat(),
            "generated_at": "2026-11-28T01:00:00Z", "load": "normal", "intro": "Optional things.", "items": items,
            "language": {"lessons": [LESSON]}, **kw}
@@ -130,8 +131,37 @@ def activity(aid, **kw):
     return a
 
 
+def pad_weekly_sections(week, items, load="normal"):
+    """A weekly package must cover the required sections; add one filler per missing section."""
+    from dsys.render import weekly_section
+    from dsys.validate import WEEKLY_REQUIRED
+    have = {weekly_section(it) for it in items}
+    fill = [activity(f"w-{week.lower()}-fill-{sec.replace('_', '-')}", section=sec, title=f"Filler {sec}")
+            for sec in sorted(WEEKLY_REQUIRED.get(load, WEEKLY_REQUIRED["normal"]) - have)]
+    return list(items) + fill
+
+
+def fill_sections(repo: Repo) -> None:
+    """Pad weekly and monthly files a test wrote by hand so they meet the section rules."""
+    for f in repo.iter_stream_files("weekly"):
+        doc = load_json(f)
+        doc["items"] = pad_weekly_sections(doc["week"], doc["items"], doc.get("load", "normal"))
+        write_json(f, doc)
+    from dsys.render import monthly_section
+    for f in repo.iter_stream_files("monthly"):
+        doc = load_json(f)
+        have = {monthly_section(pj) for pj in doc["items"]}
+        doc["items"] += [project(f"m-{doc['month']}-fill-{sec}", section=sec, title=f"Filler {sec}", tier="established")
+                         for sec in ("research", "knowledge") if sec not in have]
+        write_json(f, doc)
+
+
 def monthly(repo: Repo, month="2026-12", items=None):
     items = items if items is not None else [project(f"m-{month}-a")]
+    from dsys.render import monthly_section
+    have = {monthly_section(pj) for pj in items}
+    items = list(items) + [project(f"m-{month}-fill-{sec}", section=sec, title=f"Filler {sec}", tier="established")
+                           for sec in ("research", "knowledge") if sec not in have]
     doc = {"schema": "monthly", "month": month, "generated_at": "2026-12-01T01:00:00Z", "load": "normal",
            "intro": "Optional depth.", "items": items, "language": {"plans": [PLAN]}}
     write_json(repo.monthly_path(month), doc)

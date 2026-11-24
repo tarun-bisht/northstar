@@ -3,10 +3,9 @@
   "by_month": {
     "2026-11": {
       "culture": 1,
-      "curiosity": 4,
-      "knowledge": 6,
-      "people": 1,
-      "research": 6
+      "curiosity": 3,
+      "knowledge": 5,
+      "research": 4
     }
   }
 }

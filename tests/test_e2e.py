@@ -8,7 +8,7 @@ arXiv, YouTube, web search or Claude; those integrations are only tested with mo
 import json
 import xml.etree.ElementTree as ET
 
-from conftest import LESSON, PLAN, activity, language_pack, paper, project, shorts_day, video
+from conftest import LESSON, PLAN, activity, fill_sections, language_pack, paper, project, shorts_day, video
 from dsys.cli import main
 from dsys.core import load_json, write_json
 from dsys.site import build_site
@@ -92,6 +92,7 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
                            steps=["Try small n by hand", "Prove the bound"],
                            resources=[{"title": "A probability text", "type": "book", "chapters": "Ch. 2"}])],
         "language": {"lessons": [LESSON]}})
+    fill_sections(repo)
     run("validate")
 
     # 5. feedback: keep going, try again later, let go
@@ -133,6 +134,7 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
 
     # 8. history, validation, RSS, site
     run("history", "rebuild")
+    fill_sections(repo)
     run("validate", "--all")
     run("rss")
     for f in repo.p("feeds").glob("*.xml"):

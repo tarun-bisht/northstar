@@ -113,7 +113,7 @@
       "IMF",
       "World Bank"
     ],
-    "_doc": "World Radar. feeds are fetched by GitHub Actions into candidates/news/<date>.json (headline, link, date, summary). The run picks from them, then cross-checks and adds web search for gaps. Add or remove feeds freely; a failing feed is listed in failed_sources and retried by the 06:50 run.",
+    "_doc": "World Radar. feeds are fetched by GitHub Actions into candidates/news/<date>.json (headline, link, date, summary). The run picks from them, then cross-checks and adds web search for gaps. Add or remove feeds freely; a failing feed is listed in failed_sources and retried by the 06:50 run. A feed's section is only how candidates are grouped for reading; each chosen item gets its own news category (prompts/world.md).",
     "lookback_hours": 36,
     "max_per_feed": 40,
     "feeds": [
@@ -135,12 +135,12 @@
       {
         "name": "BBC Science and Environment",
         "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
-        "section": "science_tech"
+        "section": "science_health"
       },
       {
         "name": "BBC Technology",
         "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
-        "section": "science_tech"
+        "section": "business_tech"
       },
       {
         "name": "The Hindu National",
@@ -230,17 +230,27 @@
       {
         "name": "The Hindu Sci-Tech",
         "url": "https://www.thehindu.com/sci-tech/feeder/default.rss",
-        "section": "science_tech"
+        "section": "science_health"
       },
       {
         "name": "The Guardian Science",
         "url": "https://www.theguardian.com/science/rss",
-        "section": "science_tech"
+        "section": "science_health"
       },
       {
         "name": "The Guardian Technology",
         "url": "https://www.theguardian.com/technology/rss",
-        "section": "science_tech"
+        "section": "business_tech"
+      },
+      {
+        "name": "The Guardian Environment",
+        "url": "https://www.theguardian.com/environment/rss",
+        "section": "climate_energy"
+      },
+      {
+        "name": "BBC Health",
+        "url": "https://feeds.bbci.co.uk/news/health/rss.xml",
+        "section": "science_health"
       }
     ]
   },

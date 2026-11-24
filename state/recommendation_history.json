@@ -74,38 +74,6 @@
         "knowledge"
       ],
       "status": "suggested"
-    },
-    "weekly:w-2026-W48-error-bars-on-a-benchmark": {
-      "date": "2026-11-23",
-      "title": "Put error bars on a benchmark score",
-      "category": "research_fundamentals",
-      "dimensions": [
-        "research",
-        "knowledge"
-      ],
-      "status": "suggested",
-      "url": null
-    },
-    "weekly:w-2026-W48-three-follow-up-questions": {
-      "date": "2026-11-23",
-      "title": "Three follow-up questions before your own view",
-      "category": "people",
-      "dimensions": [
-        "people"
-      ],
-      "status": "suggested",
-      "url": null
-    },
-    "weekly:w-2026-W48-what-forgetting-costs": {
-      "date": "2026-11-23",
-      "title": "What does it cost to forget one bit?",
-      "category": "random_curiosity",
-      "dimensions": [
-        "curiosity",
-        "research"
-      ],
-      "status": "suggested",
-      "url": null
     }
   }
 }

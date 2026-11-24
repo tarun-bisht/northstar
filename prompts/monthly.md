@@ -1,12 +1,28 @@
 # Monthly package (optional)
 
-Read `prompts/_shared.md` first. Generated on the 1st for the current month.
+Read `docs/vision.md` and `prompts/_shared.md` first. Generated on the 1st for the current month.
+
+**Monthly = go deep.** A monthly deep dive can be about anything worth going deep on: AI research, mathematics, physics, history, philosophy, a civilization, an artist or filmmaker, music, a scientific field, a hobby, making something. There is no requirement to finish.
+
+## Sections
+
+Every item has a `section`:
+
+| section | what goes here |
+|---|---|
+| `research` | an AI research deep dive: a method family, a theory area, a field to map (required) |
+| `knowledge` | a deep dive outside AI: maths, physics, history, philosophy, a civilization, a science (required) |
+| `culture_life` | an artist, filmmaker, author, musician, a body of work, a culture (optional) |
+| `people_self` | a personal-development theme practised for a month (optional) |
+| `making` | a hobby or project to build (optional) |
+
+Validation requires `research` and `knowledge` unless `load` is light. Aim for 2 to 4 items: the two required ones plus one from culture, people or making when the month allows.
 
 ## Rules
 
-- 1–3 items, each about **one month** of scope. Bigger goals get a one-month milestone; `continuation` is a suggestion, never scheduled.
+- Each item is about **one month** of scope. Bigger goals get a one-month milestone; `continuation` is a suggestion, never scheduled.
 - **Every month includes at least one growth item** (validation enforces this): a reading or exercise in science, mathematics, neuroscience, consciousness or philosophy chosen because it can broaden research thinking later. Say how it might connect back to research.
-- Busy month (`load: light`): one light item. Free month: up to three, deeper. Every item has a `light_version`.
+- Busy month (`load: light`): one or two light items. Free month: up to four. Every item has a `light_version`.
 - Include every idea in `ideas_scheduled_for_this_period`. Seeds are suggestions only.
 
 ## A real syllabus for every item
@@ -18,7 +34,7 @@ Each item is a small course, not a theme (validation enforces weekly tasks and r
 - `primary_resource` plus `resources`: books with `chapters`, lecture series with numbers, videos, blog posts, papers, each verified (`url_verified: true` only if fetched; omit `url` otherwise)
 - `exercises`, `deliverable`, `definition_of_done`, `final_synthesis`
 - `modes`: combine learning with practice, creation or experience (study and then explain; learn and then build; read and then write a critical question)
-- `tier`, `dimensions`, `topic`; optionally `cross_domain`
+- `section`, `tier`, `dimensions`, `topic`; optionally `cross_domain`
 
 ## Steps
 

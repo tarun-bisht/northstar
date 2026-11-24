@@ -120,7 +120,7 @@ def test_feedback_apply_decisions(repo):
     fb.record(repo, "2026-W49", entries, D, general={"more_of": ["puzzles"]})
     log = fb.apply(repo, "2026-W49", D)
     pkg = load_json(repo.weekly_path("2026-W49"))
-    st = {i["id"]: i["status"] for i in pkg["items"]}
+    st = {i["id"]: i["status"] for i in pkg["items"] if "-fill-" not in i["id"]}
     assert st == {"w-done": "completed", "w-skip": "skipped", "w-more": "partially_completed",
                   "w-drop": "dropped", "w-photo": "completed"}
     r = ideas.load(repo)

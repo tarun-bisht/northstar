@@ -64,6 +64,12 @@
             "politics",
             "environment",
             "health",
+            "trade",
+            "energy",
+            "climate",
+            "migration",
+            "demographics",
+            "policy",
             "other"
           ]
         },
@@ -125,12 +131,16 @@
         "section": {
           "enum": [
             "india",
-            "world",
+            "geopolitics",
+            "conflict_disaster",
             "economy_markets",
-            "science_tech",
+            "business_tech",
+            "science_health",
+            "climate_energy",
+            "society",
             "explainers"
           ],
-          "description": "Where the item appears on the daily page. Omit to derive it from regions and topic."
+          "description": "News category on the daily page (see prompts/world.md). Omit to derive it from topic and regions."
         }
       }
     }

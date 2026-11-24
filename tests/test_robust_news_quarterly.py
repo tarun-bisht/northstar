@@ -210,7 +210,8 @@ def test_for_readers_opens_details_and_tags_have_separators():
 def test_world_sections_derived():
     assert render.world_section({"topic": "finance", "regions": ["India"]}) == "economy_markets"
     assert render.world_section({"topic": "politics", "regions": ["India"]}) == "india"
-    assert render.world_section({"topic": "conflict", "regions": ["Europe"]}) == "world"
+    assert render.world_section({"topic": "conflict", "regions": ["Europe"]}) == "conflict_disaster"
+    assert render.world_section({"topic": "geopolitics", "regions": ["Europe"]}) == "geopolitics"
     assert render.world_section({"section": "explainers", "topic": "science", "regions": []}) == "explainers"
 
 
@@ -241,3 +242,20 @@ def test_quarterly_draft_validate_and_feed(repo):
     # a re-draft keeps the summary
     quarterly.draft(repo, "2026-Q4")
     assert load_json(p)["summary"].startswith("Papers this quarter")
+
+
+def test_discovery_grouped_by_type():
+    items = [{"type": "podcast"}, {"type": "video"}, {"type": "lecture"}, {"type": "article"}, {"type": "anime"}, {"type": "place"}]
+    got = [(k, len(v)) for k, _, v in render.group_discovery(items)]
+    assert got == [("podcasts", 1), ("videos", 2), ("reads", 1), ("culture", 1), ("try", 1)]
+
+
+def test_weekly_and_monthly_section_rules():
+    from dsys.validate import monthly_section_errors, weekly_section_errors
+    doc = {"load": "light", "items": [{"category": "research_fundamentals"}, {"category": "question"}]}
+    assert "culture" in weekly_section_errors(doc)[0]
+    doc["items"].append({"category": "making", "section": "culture"})
+    assert weekly_section_errors(doc) == []
+    assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}]})
+    assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}, {"kind": "non_ai_deep_dive"}]}) == []
+    assert monthly_section_errors({"load": "light", "items": [{"kind": "hobby_skill"}]}) == []

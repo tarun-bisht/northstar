@@ -122,27 +122,102 @@ def cross_domain_line(item) -> str:
 
 
 # --- daily page structure (shared by the site and the daily RSS digest) ---------------
-DAILY_GROUPS = [  # (anchor, heading, streams)
-    ("research", "Research", ["arxiv", "research_updates"]),
-    ("world-news", "World", ["world"]),
-    ("discover", "Discover", ["discovery", "language"]),
-    ("watch", "Shorts", ["youtube_shorts"]),
+DAILY_GROUPS = [  # (anchor, heading, streams). "reading" is this week's reading list, shown daily.
+    ("research", "Research", ["arxiv", "research_updates", "reading"]),
+    ("news", "News", ["world"]),
+    ("discover", "Discover", ["discovery", "youtube_shorts", "language"]),
 ]
-WORLD_SECTIONS = [("india", "India"), ("world", "World"), ("economy_markets", "Economy and markets"),
-                  ("science_tech", "Science and technology"), ("explainers", "Explainers")]
+DISCOVERY_SECTIONS = [  # (key, label, recommendation types)
+    ("podcasts", "Podcasts", {"podcast"}),
+    ("videos", "Videos and lectures", {"video", "lecture", "documentary", "playlist", "course"}),
+    ("reads", "Reads", {"article", "paper", "book", "website"}),
+    ("culture", "Watch and listen", {"film", "series", "anime", "album", "music", "artwork"}),
+    ("try", "Try, make or go", {"place", "experience", "project", "tool", "idea", "person", "other"}),
+]
+
+
+def group_discovery(items: list[dict]) -> list[tuple[str, str, list[dict]]]:
+    out = []
+    for key, label, types in DISCOVERY_SECTIONS:
+        its = [r for r in items if r.get("type") in types]
+        if its:
+            out.append((key, label, its))
+    known = set().union(*(t for _, _, t in DISCOVERY_SECTIONS))
+    rest = [r for r in items if r.get("type") not in known]
+    if rest:
+        out.append(("other", "More", rest))
+    return out
+
+
+WEEKLY_SECTIONS = [  # (key, label, what belongs)
+    ("research_practice", "Research practice", "a fundamentals problem, derivation, critique or experiment-design exercise"),
+    ("research_reading", "Research reading", "a paper or concept worth studying properly"),
+    ("questions", "Questions to think about", "maths, physics, probability or science puzzles with hints"),
+    ("talking_points", "History and philosophy", "stories, ideas and debates worth knowing and talking about"),
+    ("culture", "Culture", "music, art, books, films, anime and the people behind them"),
+    ("people_self", "People and self", "practice with real people: listening, conversation, courage, leadership"),
+    ("curiosity_making", "Curiosity and making", "hobbies, experiments, things to build or try"),
+    ("world", "Understanding the world", "a place, system or long-running story explained"),
+]
+_CATEGORY_SECTION = {"research_fundamentals": "research_practice", "ai_study": "research_reading",
+                     "paper": "research_reading", "question": "questions", "talking_point": "talking_points",
+                     "new_knowledge": "questions", "people": "people_self", "teaching": "people_self",
+                     "reflection": "people_self", "culture": "culture", "making": "curiosity_making",
+                     "random_curiosity": "curiosity_making", "world_understanding": "world"}
+
+
+def weekly_section(it: dict) -> str:
+    return it.get("section") or _CATEGORY_SECTION.get(it.get("category"), "curiosity_making")
+
+
+MONTHLY_SECTIONS = [
+    ("research", "Research deep dive"),
+    ("knowledge", "Knowledge deep dive"),
+    ("culture_life", "Culture and life"),
+    ("people_self", "People and self"),
+    ("making", "Making and hobbies"),
+]
+_KIND_SECTION = {"ai_deep_dive": "research", "research_exploration": "research", "non_ai_deep_dive": "knowledge",
+                 "exploration_theme": "knowledge", "people": "people_self", "teaching": "people_self",
+                 "creative_project": "making", "hobby_skill": "making"}
+
+
+def monthly_section(pj: dict) -> str:
+    if pj.get("section"):
+        return pj["section"]
+    if pj.get("kind") == "user_idea":
+        return "research" if "research" in (pj.get("dimensions") or []) else "knowledge"
+    return _KIND_SECTION.get(pj.get("kind"), "knowledge")
+WORLD_SECTIONS = [  # (key, label): news categories, shown in this order
+    ("india", "India"),
+    ("geopolitics", "Geopolitics and international relations"),
+    ("conflict_disaster", "Conflicts and disasters"),
+    ("economy_markets", "Economy, finance and markets"),
+    ("business_tech", "Business and technology"),
+    ("science_health", "Science and health"),
+    ("climate_energy", "Climate, energy and environment"),
+    ("society", "Society, demographics and migration"),
+    ("explainers", "Explainers and analysis"),
+]
+_TOPIC_SECTION = {"economics": "economy_markets", "finance": "economy_markets", "trade": "economy_markets",
+                  "business": "business_tech", "technology": "business_tech",
+                  "science": "science_health", "health": "science_health",
+                  "environment": "climate_energy", "climate": "climate_energy", "energy": "climate_energy",
+                  "society": "society", "culture": "society", "migration": "society", "demographics": "society",
+                  "conflict": "conflict_disaster", "disaster": "conflict_disaster",
+                  "geopolitics": "geopolitics", "international_relations": "geopolitics"}
+_OLD_SECTION = {"world": "geopolitics", "science_tech": "science_health"}
 
 
 def world_section(w: dict) -> str:
-    """The item's section, or one derived from its regions and topic for older items."""
-    if w.get("section"):
-        return w["section"]
-    if w.get("topic") in ("economics", "finance", "business"):
-        return "economy_markets"
-    if w.get("topic") in ("technology", "science", "environment", "health"):
-        return "science_tech"
-    if any(r.lower() == "india" for r in w.get("regions", [])):
+    """The item's news category, or one derived from its topic and regions for older items."""
+    sec = w.get("section")
+    if sec:
+        return _OLD_SECTION.get(sec, sec)
+    india = any(r.lower() == "india" for r in w.get("regions", []))
+    if india and w.get("topic") in ("politics", "society", "other", None):
         return "india"
-    return "world"
+    return _TOPIC_SECTION.get(w.get("topic"), "india" if india else "geopolitics")
 
 
 def group_world(items: list[dict]) -> list[tuple[str, str, list[dict]]]:
@@ -154,7 +229,7 @@ def group_world(items: list[dict]) -> list[tuple[str, str, list[dict]]]:
 
 # --- daily items ---------------------------------------------------------------
 KIND_LABEL = {"ai_deep_dive": "AI deep dive", "non_ai_deep_dive": "non-AI deep dive", "user_idea": "your idea",
-              "ai_study": "AI study"}
+              "ai_study": "AI study", "question": "question", "talking_point": "talking point"}
 TIER_LABEL = {"established": "established", "growth": "growth", "exploration": "exploration"}
 MODE_LABEL = {"learn": "learn", "practise": "practise", "create": "make something", "experience": "go and experience",
               "reflect": "reflect"}
@@ -353,8 +428,12 @@ def weekly_package(doc: dict) -> str:
     out = [f'<p class="lede">{esc(doc["intro"])}</p>',
            f"<p class='meta'>{nice_date(doc['start_date'])} to {nice_date(doc['end_date'], True)}, "
            f"planned for {LOAD_TEXT.get(doc['load'], doc['load'])}. All optional.</p>"]
-    out += [f'<section class="activity e-{(it.get("dimensions") or ["research"])[0]}">{activity(it)}</section>'
-            for it in doc["items"]]
+    for key, label, _ in WEEKLY_SECTIONS:
+        its = [it for it in doc["items"] if weekly_section(it) == key]
+        if its:
+            out.append(f"<h2 id='{key}'>{esc(label)}</h2>")
+            out += [f'<section class="activity e-{(it.get("dimensions") or ["research"])[0]}">{activity(it)}</section>'
+                    for it in its]
     if doc.get("language"):
         out.append(language_lessons(doc["language"]))
     if doc.get("reflection_prompt"):
@@ -387,8 +466,12 @@ def monthly_package(doc: dict) -> str:
     out = [f'<p class="lede">{esc(doc["intro"])}</p>',
            f"<p class='meta'>Planned for {LOAD_TEXT.get(doc['load'], doc['load']).replace('week', 'month')}. "
            "Pick one, or none.</p>"]
-    out += [f'<section class="activity e-{(pj.get("dimensions") or ["research"])[0]}">{project(pj)}</section>'
-            for pj in doc["items"]]
+    for key, label in MONTHLY_SECTIONS:
+        pjs = [pj for pj in doc["items"] if monthly_section(pj) == key]
+        if pjs:
+            out.append(f"<h2 id='{key}'>{esc(label)}</h2>")
+            out += [f'<section class="activity e-{(pj.get("dimensions") or ["research"])[0]}">{project(pj)}</section>'
+                    for pj in pjs]
     if doc.get("language"):
         out.append(language_plans(doc["language"]))
     if doc.get("reflection_prompts"):

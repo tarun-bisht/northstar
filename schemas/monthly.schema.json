@@ -41,7 +41,7 @@
         "$ref": "#/$defs/project"
       },
       "minItems": 1,
-      "maxItems": 4
+      "maxItems": 5
     },
     "reflection_prompts": {
       "type": "array",
@@ -222,6 +222,16 @@
         },
         "tier": {
           "$ref": "common.schema.json#/$defs/tier"
+        },
+        "section": {
+          "enum": [
+            "research",
+            "knowledge",
+            "culture_life",
+            "people_self",
+            "making"
+          ],
+          "description": "Section on the monthly page (prompts/monthly.md). Omit to derive it from kind."
         }
       }
     },

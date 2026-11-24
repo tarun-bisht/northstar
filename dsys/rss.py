@@ -57,13 +57,14 @@ def _digest_html(site: dict, date: str, streams: dict) -> str:
     """One compact day: headings per part and stream, short entries that link out."""
     out = [f'<p><a href="{x(site["base_url"])}/daily/{date}.html">Open the full day on the site</a></p>']
     for _, label, names in render.DAILY_GROUPS:
-        present = [s for s in names if s in streams and streams[s]["items"]]
+        present = [s for s in names if s in streams and (streams[s].get("papers") or streams[s].get("items"))]
         if not present:
             continue
         out.append(f"<h2>{render.esc(label)}</h2>")
         for s in present:
-            items = streams[s]["items"]
-            out.append(f"<h3>{render.esc(STREAM_META[s]['title'])} ({len(items)})</h3>")
+            items = streams[s]["papers"] if s == "reading" else streams[s]["items"]
+            title = "Reading list this week" if s == "reading" else STREAM_META[s]["title"]
+            out.append(f"<h3>{render.esc(title)} ({len(items)})</h3>")
             if s == "arxiv":
                 out.append("<ul>" + "".join(
                     f"<li><strong>{render.a(p['url'], p['title'])}</strong><br/>{render.esc(', '.join(p['tags']))}. "
@@ -79,9 +80,15 @@ def _digest_html(site: dict, date: str, streams: dict) -> str:
                     f"<li><strong>{render.a(u['source']['url'], u['title'])}</strong><br/>{render.esc(u['what_happened'])}</li>"
                     for u in items) + "</ul>")
             elif s == "discovery":
+                for _, sec, its in render.group_discovery(items):
+                    out.append(f"<h4>{render.esc(sec)}</h4><ul>" + "".join(
+                        f"<li><strong>{render.a(r['url'], r['title']) if r.get('url') else render.esc(r['title'])}</strong>"
+                        f"{' by ' + render.esc(r['creator']) if r.get('creator') else ''}<br/>{render.esc(r['description'])}</li>"
+                        for r in its) + "</ul>")
+            elif s == "reading":
                 out.append("<ul>" + "".join(
-                    f"<li><strong>{render.a(r['url'], r['title']) if r.get('url') else render.esc(r['title'])}</strong>"
-                    f" ({render.esc(r.get('tier', ''))})<br/>{render.esc(r['description'])}</li>" for r in items) + "</ul>")
+                    f"<li><strong>{render.a(pp['url'], pp['title'])}</strong><br/>{render.esc(', '.join(pp['tags']))}"
+                    f"{'. ' + render.esc(pp['note']) if pp.get('note') else ''}</li>" for pp in items) + "</ul>")
             elif s == "language":
                 out += [f"<h4>{render.esc(pk['language'].capitalize())}: {render.esc(pk['title'])}</h4>"
                         + for_readers(render.language_pack(pk)) for pk in items]
@@ -99,9 +106,14 @@ def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None) -
         for f in repo.iter_stream_files(s, examples):
             doc = load_json(f)
             by_date.setdefault(doc["date"], {})[s] = doc
+    from .core import iso_week
+    reading = {load_json(f)["week"]: load_json(f) for f in repo.iter_stream_files("reading", examples)}
     entries = []
     for date in sorted(by_date, reverse=True)[:limit]:
-        streams = by_date[date]
+        streams = dict(by_date[date])
+        rl = reading.get(iso_week(dt.date.fromisoformat(date)))
+        if rl and rl.get("papers"):
+            streams["reading"] = rl
         counts = [f"{len(streams[s]['items'])} {lbl}" for s, lbl in
                   (("arxiv", "papers"), ("world", "news"), ("discovery", "discoveries"), ("youtube_shorts", "shorts"))
                   if s in streams and streams[s]["items"]]

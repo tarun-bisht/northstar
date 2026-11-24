@@ -132,6 +132,29 @@ def learning_item_errors(it: dict) -> list[str]:
     return errs
 
 
+WEEKLY_REQUIRED = {  # sections a weekly package must cover, by load (prompts/weekly.md)
+    "light": {"research_practice", "questions", "culture"},
+    "normal": {"research_practice", "questions", "talking_points", "culture", "people_self"},
+    "free": {"research_practice", "research_reading", "questions", "talking_points", "culture", "people_self",
+             "curiosity_making"},
+}
+
+
+def weekly_section_errors(doc: dict) -> list[str]:
+    from .render import weekly_section
+    have = {weekly_section(it) for it in doc.get("items", [])}
+    missing = WEEKLY_REQUIRED.get(doc.get("load"), WEEKLY_REQUIRED["normal"]) - have
+    return [f"weekly package is missing sections: {', '.join(sorted(missing))} (see prompts/weekly.md)"] if missing else []
+
+
+def monthly_section_errors(doc: dict) -> list[str]:
+    from .render import monthly_section
+    have = {monthly_section(pj) for pj in doc.get("items", [])}
+    if doc.get("load") != "light" and not {"research", "knowledge"} <= have:
+        return ["monthly package needs a research deep dive and a knowledge deep dive (see prompts/monthly.md)"]
+    return []
+
+
 def project_errors(pj: dict) -> list[str]:
     errs = []
     if any(not w.get("tasks") for w in pj.get("weeks", [])):
@@ -402,6 +425,8 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 for it in items:
                     for e in learning_item_errors(it):
                         rep.err(where, e)
+                for e in weekly_section_errors(doc):
+                    rep.err(where, e)
             if stream == "monthly":
                 if not any(it.get("tier") == "growth" for it in items):
                     rep.err(where, "every monthly package needs at least one growth item (a reading or exercise "
@@ -409,6 +434,8 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 for it in items:
                     for e in project_errors(it):
                         rep.err(where, e)
+                for e in monthly_section_errors(doc):
+                    rep.err(where, e)
 
     if not examples:
         lang_days = {f.stem for f in repo.iter_stream_files("language")}

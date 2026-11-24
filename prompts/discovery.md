@@ -1,6 +1,16 @@
 # Daily Discovery
 
-Read `prompts/_shared.md` first. Roughly 3–6 worthwhile things to listen to, watch, read or try.
+Read `docs/vision.md` and `prompts/_shared.md` first. **5 to 8** worthwhile things to listen to, watch, read or try (`preferences.daily.discovery_target`). Fewer excellent things beat many mediocre ones.
+
+The daily page shows Discover in sections by `type`: **Podcasts** (podcast), **Videos and lectures** (video, lecture, documentary, playlist, course), **Reads** (article, paper, book, website), **Watch and listen** (film, series, anime, album, music, artwork) and **Try, make or go** (place, experience, project, tool, idea, person). Shorts and the language pack sit below them.
+
+## Aim for every day
+
+- 1 to 2 podcast episodes
+- 1 to 2 videos or lectures (a YouTube video, a lecture, a documentary)
+- 1 to 2 reads (an essay, article or book chapter)
+- 1 thing to watch, listen to or try when it's genuinely good: a song or album, an artwork, a film, a place, a hobby
+- across knowledge, culture, people and curiosity, not only AI
 
 ## Required every day (validation enforces this)
 

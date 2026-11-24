@@ -8,7 +8,7 @@ Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
 4. **Research updates**: follow `prompts/research_updates.md`.
 5. **World radar**: follow `prompts/world.md`.
 6. **Daily discovery**: follow `prompts/discovery.md`.
-7. **Reading list:** if you found a must read today (arXiv, a lab report, a widely discussed paper), add it with `python scripts/dsys.py reading add` (`prompts/reading_list.md`).
+7. **Reading list (every weekday):** update this week's list with 0 to 3 entries: must-reads close to the user's interests, plus important trending papers, new models, lab technical reports or methods every researcher should know about. Use `python scripts/dsys.py reading add --week <this_week>` (`prompts/reading_list.md`). If this week's list doesn't exist yet, create it.
 8. **Language pack (required)**: follow `prompts/language.md` (5 minutes, current focus language).
 9. `python scripts/dsys.py history rebuild && python scripts/validate.py`, fix any errors, then commit `daily: <today>` and push.
 10. Final message (the run summary): items per stream (world items per section), anything notable (one line each for must-read papers), and any limitations hit: list the `failed_sources` from `candidates/arxiv` and `candidates/news`, and any page you could not open. No praise, no padding.

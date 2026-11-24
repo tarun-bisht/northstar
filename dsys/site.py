@@ -133,7 +133,7 @@ CSS += """
 .daynav{display:flex;justify-content:space-between;gap:1rem;font:400 .9rem var(--sans);margin:.2rem 0 1.4rem}
 .toc{font:400 .92rem/1.5 var(--sans);padding:.6rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .toc p{margin:.25rem 0;display:flex;flex-wrap:wrap;gap:.2rem .9rem;align-items:baseline}
-.toc strong{min-width:5.5rem}.toc span{color:var(--ink-2)}.toc a.minor{color:var(--ink-2)}
+.toc strong{min-width:6rem}.toc span{color:var(--ink-2)}.toc a.minor{color:var(--ink-2)}
 .group{margin-top:2.2rem}.group>h2{margin:0 0 .4rem;padding-bottom:.35rem;border-bottom:2px solid var(--ink)}
 .stream-block{margin:1.4rem 0 0}
 .stream-h,.sub-h{font-family:var(--sans);font-weight:700;letter-spacing:.02em;display:flex;gap:.6rem;align-items:baseline}
@@ -332,46 +332,77 @@ def _short(it: dict) -> str:
             f'<p class="ch">{esc(it["channel"]["name"])}</p></div>')
 
 
-def _stream_block(s: str, doc: dict) -> str:
-    out = [f'<section id="{s}" class="stream-block"><h3 class="stream-h">{esc(STREAM_META[s]["title"])}'
-           f' <span>{len(doc["items"])}</span></h3>']
-    if doc.get("notes"):
+def _stream_title(s: str) -> str:
+    return "Reading list this week" if s == "reading" else STREAM_META[s]["title"]
+
+
+def _sub(anchor: str, label: str, n: int, inner: str) -> str:
+    return (f'<div class="subsec" id="{anchor}"><h4 class="sub-h">{esc(label)} <span>{n}</span></h4>'
+            f'<div class="col">{inner}</div></div>')
+
+
+def _stream_block(s: str, doc: dict, date: str | None = None) -> str:
+    items = doc.get("papers") if s == "reading" else doc["items"]
+    out = [f'<section id="{s}" class="stream-block"><h3 class="stream-h">{esc(_stream_title(s))}'
+           f' <span>{len(items)}</span></h3>']
+    if s == "reading":
+        new = [p for p in items if p.get("added") == date]
+        out.append(f'<p class="stream-note">Papers worth definitely reading this week ({esc(doc["week"])}).'
+                   + (f" {len(new)} added today." if new else "") + "</p>")
+        out.append(f'<div class="col">{render.reading_list({"papers": items})}</div>')
+    elif doc.get("notes"):
         out.append(f'<p class="stream-note">{esc(doc["notes"])}</p>')
-    if not doc["items"]:
+    if s == "reading":
+        pass  # rendered above
+    elif not items:
         out.append('<p class="empty">Nothing worth your time here today.</p>')
     elif s == "youtube_shorts":
-        out.append('<div class="shorts">' + "".join(_short(it) for it in doc["items"]) + "</div>")
+        out.append('<div class="shorts">' + "".join(_short(it) for it in items) + "</div>")
     elif s == "world":
-        for key, label, items in render.group_world(doc["items"]):
-            out.append(f'<div class="subsec" id="world-{key}"><h4 class="sub-h">{esc(label)} <span>{len(items)}</span></h4>'
-                       '<div class="col">' + "".join(_entry(s, it, "h5") for it in items) + "</div></div>")
+        out += [_sub(f"news-{k}", label, len(its), "".join(_entry(s, it, "h5") for it in its))
+                for k, label, its in render.group_world(items)]
+    elif s == "discovery":
+        out += [_sub(f"discover-{k}", label, len(its), "".join(_entry(s, it, "h5") for it in its))
+                for k, label, its in render.group_discovery(items)]
     else:
-        out.append('<div class="col">' + "".join(_entry(s, it, "h4") for it in doc["items"]) + "</div>")
+        out.append('<div class="col">' + "".join(_entry(s, it, "h4") for it in items) + "</div>")
     out.append("</section>")
     return "".join(out)
 
 
-def _daily_page(site, date, streams, depth, prev=None, nxt=None, title=None) -> str:
+def _daily_page(site, date, streams, depth, prev=None, nxt=None, title=None, reading=None) -> str:
     nav = ('<div class="daynav">'
            + (f'<a href="{prev}.html" rel="prev">Earlier: {render.nice_date(prev)}</a>' if prev else "<span></span>")
            + (f'<a href="{nxt}.html" rel="next">Later: {render.nice_date(nxt)}</a>' if nxt else "<span></span>")
            + "</div>")
+    streams = dict(streams)
+    if reading and reading.get("papers"):
+        streams["reading"] = reading
     groups = [(g, label, [s for s in ss if s in streams]) for g, label, ss in render.DAILY_GROUPS]
     groups = [x for x in groups if x[2]]
+
+    def n(s):
+        return len(streams[s]["papers"] if s == "reading" else streams[s]["items"])
     toc = ['<nav class="toc">']
     for g, label, present in groups:
         links = []
         for s in present:
-            links.append(f'<a href="#{s}">{esc(STREAM_META[s]["title"])}</a> <span>{len(streams[s]["items"])}</span>')
             if s == "world":
-                links += [f'<a class="minor" href="#world-{k}">{esc(lab)}</a> <span>{len(its)}</span>'
+                links += [f'<a href="#news-{k}">{esc(lab)}</a> <span>{len(its)}</span>'
                           for k, lab, its in render.group_world(streams[s]["items"])]
+            elif s == "discovery":
+                links += [f'<a href="#discover-{k}">{esc(lab)}</a> <span>{len(its)}</span>'
+                          for k, lab, its in render.group_discovery(streams[s]["items"])]
+            else:
+                short = {"arxiv": "Papers", "research_updates": "Research updates", "reading": "Reading list",
+                         "youtube_shorts": "Shorts", "language": "Language"}.get(s, _stream_title(s))
+                links.append(f'<a href="#{s}">{esc(short)}</a> <span>{n(s)}</span>')
         toc.append(f'<p><strong><a href="#{g}">{esc(label)}</a></strong> ' + " ".join(links) + "</p>")
     toc.append("</nav>")
     body = [f"<h1>{esc(title or long_date(date))}</h1>", nav, "".join(toc)]
     for g, label, present in groups:
         body.append(f'<section id="{g}" class="group"><h2>{esc(label)}</h2>')
-        body += [_stream_block(s, streams[s]) for s in present]
+        body += [_stream_block(s, streams[s], date) for s in present]
         body.append("</section>")
     body.append(nav)
     return page(site, title or date, "".join(body), depth, "archive")
@@ -393,12 +424,14 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
 
     daily = _daily_index(repo, False)
     dates = list(daily)  # newest first
+    readings = sorted((load_json(f) for f in repo.iter_stream_files("reading")), key=lambda d: d["week"], reverse=True)
+    reading_by_week = {r["week"]: r for r in readings}
     for i, (date, streams) in enumerate(daily.items()):
         nxt = dates[i - 1] if i > 0 else None
         prev = dates[i + 1] if i + 1 < len(dates) else None
-        _write(out / "daily" / f"{date}.html", _daily_page(site, date, streams, 1, prev, nxt))
+        rl = reading_by_week.get(iso_week(dt.date.fromisoformat(date)))
+        _write(out / "daily" / f"{date}.html", _daily_page(site, date, streams, 1, prev, nxt, reading=rl))
 
-    readings = sorted((load_json(f) for f in repo.iter_stream_files("reading")), key=lambda d: d["week"], reverse=True)
     for r in readings:
         _write(out / "reading" / f"{r['week']}.html",
                page(site, f"Reading list {r['week']}", f"<div class='col'><h1>Reading list, week of "

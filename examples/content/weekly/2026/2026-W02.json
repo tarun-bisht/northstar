@@ -48,6 +48,44 @@
       ]
     },
     {
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "id": "w-2026-W02-example-question",
+      "title": "Why does a random walk return home in 2D but not 3D?",
+      "category": "question",
+      "section": "questions",
+      "dimensions": [
+        "knowledge"
+      ],
+      "mode": "practise",
+      "topic": "probability",
+      "description": "Placeholder question. A real package asks a specific maths or physics question to think about.",
+      "why": "Example only.",
+      "time_estimate": "30-60m",
+      "hints": [
+        "Count expected returns.",
+        "Compare the sum of 1/n with the sum of n to the minus 3/2."
+      ]
+    },
+    {
+      "origin": "system",
+      "status": "suggested",
+      "tier": "growth",
+      "id": "w-2026-W02-example-talking-point",
+      "title": "The Library of Alexandria: what was really lost?",
+      "category": "talking_point",
+      "section": "talking_points",
+      "dimensions": [
+        "knowledge"
+      ],
+      "mode": "reflect",
+      "topic": "ancient history",
+      "description": "Placeholder talking point. A real package tells a history or philosophy story worth discussing.",
+      "why": "Example only.",
+      "time_estimate": "10-30m"
+    },
+    {
       "id": "w-2026-W02-example-listening",
       "title": "One conversation where you only ask questions",
       "category": "people",

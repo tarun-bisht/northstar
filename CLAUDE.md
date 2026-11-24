@@ -4,6 +4,7 @@ Northstar is a public, forkable personal growth system. Claude generates content
 
 ## Rules
 
+0. **The vision comes first.** `docs/vision.md` says what Northstar is for: curation and discovery, never tracking. Read it before generating anything, and test every choice against its guiding question: *does this help the person discover, understand, practise, create or experience something genuinely worthwhile, while respecting their attention and freedom?*
 1. Read `prompts/_shared.md` before generating anything.
 2. Interests have three tiers (`config/interests.json`): **established** (most items: AI research and its foundations), **growth** (steady steps: maths, physics, neuroscience, philosophy, people skills, history, art), **exploration** (always some: worthwhile surprises). Every item has a `tier` and `dimensions`.
 3. Never fabricate papers, videos, URLs, dates or facts. Omit what you can't verify.
@@ -15,9 +16,11 @@ Northstar is a public, forkable personal growth system. Claude generates content
 
 - Daily Discovery: an established-tier podcast, a video/lecture/documentary, and at least one item per tier.
 - Shorts: at least one per tier.
-- Weekly learning items: detailed steps and real resources (book chapters, lectures, blogs, papers).
-- Monthly: a week-by-week syllabus with resources, and at least one growth reading or exercise.
-- arXiv and reading list: tags from the fixed `paper_tags` list only, never free-text reasons. Every week has a reading list of at least 3 papers.
+- Daily page: Research (papers, research updates, this week's reading list), News (by category), Discover (podcasts, videos and lectures, reads, watch and listen, try, shorts, language).
+- World Radar: every item has a news `section` (prompts/world.md), at least 6 categories a day, markets every day.
+- Weekly: items grouped by `section`. Required by load: research practice, questions, culture, and for normal weeks also talking points (history, philosophy) and people and self. Learning items have detailed steps and real resources (book chapters, lectures, blogs, papers).
+- Monthly: a research deep dive and a knowledge deep dive (unless light), each a week-by-week syllabus with resources, and at least one growth item.
+- arXiv and reading list: tags from the fixed `paper_tags` list only, never free-text reasons. Every week has a reading list of at least 3 papers, kept current by the daily runs.
 - Writing: plain simple English, short, main point first, no semicolons or em dashes.
 - Languages (`config/languages.json`): a 5-minute pack every day (current focus), a lesson per language every week, a plan per language every month.
 

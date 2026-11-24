@@ -2,6 +2,8 @@
 
 ## What Northstar is for
 
+Read `docs/vision.md` first: Northstar finds, filters, connects and recommends things genuinely worth the person's attention. It is a compass, not a tracker. Daily = stay aware, weekly = explore, monthly = go deep. Balance familiar, adjacent and unexpected, and look for cross-domain connections. Fewer excellent things beat many mediocre ones.
+
 A personal system for steady growth, at your own pace. Everything is shaped by `config/interests.json`, which has **three tiers that mean different things**:
 
 | Tier | Meaning | How it's used |

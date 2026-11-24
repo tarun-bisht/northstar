@@ -2,7 +2,9 @@
 
 Northstar runs on five Claude scheduled tasks. To set them up (or recreate them), start a Claude Code session on this repo and say:
 
-> Create the five scheduled tasks in docs/scheduled_tasks.md exactly as written, with automatic approval. Delete any older scheduled tasks with the same names first.
+> Create the five scheduled tasks in docs/scheduled_tasks.md exactly as written, with automatic approval. Delete any older scheduled tasks with the same names first. https://github.com/tarun-bisht/northstar.git. Keep each schedule task in auto mode and add this repo also in each task.
+
+See [setup_prompt.md](setup_prompt.md) for what this prompt does.
 
 All times are in `Asia/Kolkata`. Change the time zone and times to suit you. Every task starts after the 06:00 IST candidate fetch on GitHub Actions.
 

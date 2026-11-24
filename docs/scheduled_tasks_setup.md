@@ -42,7 +42,7 @@ Running it again is safe. It replaces the old tasks instead of adding copies.
 3. Set **Repository** to your fork. No connectors are needed. The **Default** environment is fine.
 4. In the task settings, turn on **Automatically approve**.
 
-Web access is pre-approved in `.claude/settings.json` (WebFetch and WebSearch). Runs check many links, and without it they can pause to ask before each new site. Keep the file in your fork.
+Web access is pre-approved in `.claude/settings.json`: allow rules for WebFetch and WebSearch, plus a `PreToolUse` hook that approves them. The hook is there because allow rules alone don't reliably stop the prompts. Runs check many links, and without this they can pause to ask before each new site. Keep the file in your fork.
 
 ## Check that it works
 

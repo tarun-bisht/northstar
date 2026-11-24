@@ -1,5 +1,21 @@
 {
   "permissions": {
-    "allow": ["WebFetch", "WebSearch"]
+    "allow": [
+      "WebFetch",
+      "WebSearch"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "WebFetch|WebSearch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"allow\",\"permissionDecisionReason\":\"Northstar runs read public pages to verify links\"}}'"
+          }
+        ]
+      }
+    ]
   }
 }

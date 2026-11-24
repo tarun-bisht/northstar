@@ -1,0 +1,42 @@
+== session start dir ==
+/home/claude/northstar
+== git rev-parse --show-toplevel ==
+/home/claude/northstar
+== ls/cat /tmp/northstar-project-settings-loaded ==
+-rw-r--r-- 1 root root 21 Nov 25 02:37 /tmp/northstar-project-settings-loaded
+2026-11-24T21:07:09Z
+== head -5 .claude/settings.json ==
+{
+  "skipWebFetchPreflight": true,
+  "env": {
+    "CLAUDE_CODE_SKIP_WEBFETCH_PREFLIGHT": "true"
+  },
+== SKIP_ENV ==
+SKIP_ENV=true
+== ls -la ~/.claude/ ==
+total 88
+drwxr-xr-x 12 root root 4096 Nov 25 02:37 .
+drwx------ 15 root root 4096 Nov 25 02:37 ..
+-rw-r--r--  1 root root   24 Nov 25 02:37 .last-cleanup
+drwxr-xr-x  2 root root 4096 Nov 25 02:37 backups
+drwxr-xr-x  3 root root 4096 Nov 25 02:37 cache
+drwxr-xr-x  2 root root 4096 Nov 25 02:37 environment-manager
+-rw-------  1 root root 7700 Nov 25 02:37 launcher-settings.json
+drwxr-xr-x  4 root root 4096 Nov 25 02:37 plugins
+-rw-------  1 root root  352 Nov 25 02:37 policy-limits.json
+-rw-------  1 root root 3006 Nov 25 02:37 policy-limits.json.signature.json
+-rw-------  1 root root  223 Nov 25 02:37 policy-limits.json.stamp.json
+drwx------  3 root root 4096 Nov 25 02:37 projects
+drwx------  3 root root 4096 Nov 25 02:37 rm-guard
+drwxr-xr-x  3 root root 4096 Nov 25 02:37 session-env
+drwx------  2 root root 4096 Nov 25 02:37 sessions
+drwxr-xr-x  2 root root 4096 Nov 25 02:37 shell-snapshots
+drwxr-xr-x  4 root root 4096 Nov 25 02:37 skills
+-rwxr-xr-x  1 root root 8987 Nov 25 02:37 stop-hook-git-check.sh
+-rwxr-xr-x  1 root root 3597 Nov 25 02:37 user-prompt-submit-reply-reminder.py
+== head -40 ~/.claude/settings.json ==
+head: cannot open '/root/.claude/settings.json' for reading: No such file or directory
+== ls -la /etc/claude-code ==
+ls: cannot access '/etc/claude-code': No such file or directory
+== claude --version ==
+2.1.331 (Claude Code)

@@ -635,3 +635,17 @@ def test_language_context_and_rendering(repo, tmp_path):
     xml = build_feed(repo, "language")
     assert "Japanese: At a café" in xml
     assert "language.xml" in (out / "index.html").read_text()
+
+
+def test_learning_languages_only_as_beginner_lessons():
+    yt = load_json(ROOT / "config" / "sources.json")["youtube"]
+    langs = load_json(ROOT / "config" / "languages.json")["learning"]
+    not_ready = {"japanese": "ja", "telugu": "te"}
+    for l in langs:
+        if not l.get("native_content_ok"):
+            code = not_ready.get(l["id"])
+            assert code not in yt["languages_accepted"]
+            assert all(g["language"] != code for g in yt["query_groups"])
+    learning = [g for g in yt["query_groups"] if g.get("purpose") == "language_learning"]
+    qs = " ".join(q for g in learning for q in g["queries"]).lower()
+    assert "japanese" in qs and "telugu" in qs and "beginner" in qs

@@ -16,7 +16,8 @@ Read `prompts/_shared.md` first.
 
 1. `python scripts/dsys.py context youtube_shorts --date <today>` shows candidate availability, creators used in the last 7 days, and the per-creator soft limit.
 2. If candidates are available: `python scripts/dsys.py candidates youtube --date <today> --limit 200 --offset 0` (page as needed). They are already filtered: unseen IDs only, near-duplicate titles removed, at most a few per channel, within the accepted languages, with `format` classified.
-3. **Languages:** English and Hindi (`config/sources.json → youtube.languages_accepted`). Include good Hindi videos where they are genuinely informative: science, history, mathematics, explainers. Apply the same quality bar, and don't add Hindi filler to reach a number. Set `language`.
+3. **Languages:** only languages I understand, English and Hindi (`config/sources.json → youtube.languages_accepted`). Include good Hindi videos where they are genuinely informative. Don't add filler to reach a number. Set `language` to the language the video is spoken in.
+   **Languages I am learning** (Japanese, Telugu, see `config/languages.json`): I am a beginner, so never add native videos in these languages. Add a few beginner lesson shorts taught in English or Hindi instead (useful phrases, pronunciation, simple conversation). Tag them `tier: growth`, `category: "language learning"`, and say which language in `topic`. Native videos come only after that language has `native_content_ok: true`.
 4. Select. Reject:
    - clickbait or misleading titles, engagement bait ("wait for it", "you won't believe")
    - reposted or copied clips (channel isn't the creator), compilations of others' work

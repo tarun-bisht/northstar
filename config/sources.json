@@ -140,9 +140,6 @@
           "Africa wildlife short",
           "linguistics short",
           "anthropology short",
-          "Japanese conversation practice short",
-          "useful Japanese phrases short",
-          "Japanese listening practice short",
           "Japanese culture explained short"
         ]
       },
@@ -160,25 +157,31 @@
           "जीव विज्ञान रोचक तथ्य",
           "संवाद कौशल",
           "आविष्कार की कहानी",
-          "विज्ञान प्रयोग"
+          "विज्ञान प्रयोग",
+          "तेलुगु सीखें",
+          "हिंदी से जापानी सीखें"
         ]
       },
       {
-        "language": "ja",
+        "language": "en",
+        "purpose": "language_learning",
         "queries": [
-          "やさしい日本語 会話",
-          "日本語 聞き取り 初心者",
-          "日本の文化"
+          "learn Japanese for beginners short",
+          "basic Japanese phrases for beginners short",
+          "Japanese pronunciation for beginners short",
+          "learn Telugu for beginners short",
+          "basic Telugu phrases short",
+          "spoken Telugu through English short"
         ]
       }
     ],
     "languages_accepted": [
       "en",
-      "hi",
-      "ja"
+      "hi"
     ],
     "shorts_url_check": true,
-    "max_candidates_per_channel": 5
+    "max_candidates_per_channel": 5,
+    "_doc_languages": "Only languages you understand. For languages you are learning, use beginner lessons taught in English or Hindi (purpose language_learning). Native videos in a learning language come only after config/languages.json sets native_content_ok to true for it."
   },
   "paper_tags": {
     "_doc": "The only tags a paper can get, in the arXiv radar and the weekly reading list. Fixed on purpose: reuse these, never invent new ones. Order matters: the first tag is shown first.",

@@ -9,7 +9,8 @@
       "romanization": "romaji",
       "level": "beginner",
       "goal": "conversation: speaking and listening with native speakers",
-      "reading": "later (kana first, then kanji)"
+      "reading": "later (kana first, then kanji)",
+      "native_content_ok": false
     },
     {
       "id": "telugu",
@@ -18,9 +19,11 @@
       "romanization": "ISO 15919-style transliteration",
       "level": "beginner",
       "goal": "conversation: everyday speaking and listening",
-      "reading": "later"
+      "reading": "later",
+      "native_content_ok": false
     }
   ],
   "daily_minutes": 5,
-  "practice_style": "conversation first: useful phrases, short dialogues, listening, speaking out loud; correct gently"
+  "practice_style": "conversation first: useful phrases, short dialogues, listening, speaking out loud; correct gently",
+  "_doc_native": "native_content_ok false means: no native videos, podcasts or shorts in this language yet. Only beginner lessons explained in a language you know. Set it to true when you are ready for native content."
 }

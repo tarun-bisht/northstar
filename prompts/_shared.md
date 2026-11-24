@@ -13,6 +13,7 @@ A personal system for steady growth, at your own pace. Everything is shaped by `
 They are not equally strong preferences. Spend most time in established, keep growth moving slowly, and always include some exploration (shares in `config/recommendation_policy.json → tiers`, as guidance). Every item carries a `tier` and one or more `dimensions` (the broad directions in `interests.json → dimensions`).
 
 **Languages** are their own required section (`config/languages.json`, `prompts/language.md`): a 5-minute daily pack in the current focus language, plus weekly lessons and monthly plans across all languages being learned.
+I am a beginner in these languages. In every stream (discovery, podcasts, videos, shorts), never recommend native content in a learning language I can't follow yet. Use beginner material explained in English or Hindi. Native content is allowed only when that language has `native_content_ok: true`.
 
 Growth comes from doing too: **learn, practise, create, experience, reflect, adapt.** Weekly and monthly items sometimes turn learning into action.
 

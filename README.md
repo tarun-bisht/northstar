@@ -32,7 +32,7 @@ Everything is optional. There are no streaks, no scores and no backlog. Real lif
 | Reading list | Weekly | Papers you should definitely read this week. Daily runs can add to it |
 | Weekly package | Saturday | A few small activities plus a lesson for each language you learn |
 | Monthly package | 1st of the month | One to three projects with a week by week plan, plus a plan for each language |
-| Quarterly review | Every 3 months | Stats, a five or six line summary of research and discovery, and the topics covered. Public |
+| Quarterly review | Every 3 months | Stats, a short summary (5 to 6 lines) of research and discovery, and the topics covered. Public |
 
 Paper tags come from one fixed list: close to your work, useful for your work, new method or architecture, strong result, notable researcher, benchmark or dataset, theory, survey or tutorial, worth knowing.
 

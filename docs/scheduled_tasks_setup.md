@@ -126,7 +126,7 @@ You are running the QUARTERLY REVIEW for my Northstar personal growth system in 
 
 1. Clone or update the repo (git clone https://github.com/tarun-bisht/northstar.git ~/northstar; then cd ~/northstar && git checkout main && git pull --rebase origin main) and install requirements (pip install -r requirements.txt, adding --break-system-packages if needed).
 2. Read CLAUDE.md, then prompts/_shared.md, then follow prompts/runs/quarterly.md and prompts/quarterly.md. Review the quarter that just ended (for example on 1 April, review <year>-Q1): run `python scripts/dsys.py quarterly draft --quarter <YYYY-Qn>`, which fills in all the stats and topics.
-3. Keep it short and cheap. Write only the summary (five or six plain lines, research and discovery only, no news or shorts) and one plain sentence per topic. No percentages, no scores, no judgement. Say so when the evidence is thin.
+3. Keep it short and cheap. Write only the summary (5 or 6 plain lines, research and discovery only, no news or shorts) and one plain sentence per topic. No percentages, no scores, no judgement. Say so when the evidence is thin.
 4. The review is public. Never include private details. Run `python scripts/dsys.py history rebuild` and `python scripts/validate.py`, fix all errors, then commit and push to main as described in prompts/runs/_git.md. Never force-push.
 5. End with the summary, then one line per system change you made or propose.
 ```

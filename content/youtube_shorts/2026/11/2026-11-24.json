@@ -1,0 +1,1827 @@
+{
+  "schema": "youtube_shorts",
+  "date": "2026-11-24",
+  "items": [
+    {
+      "id": "yt-wDaro_TXKIA",
+      "video_id": "wDaro_TXKIA",
+      "title": "Random Forest Explained in 90 Seconds | Machine Learning Intuition with Real Industry Example#shorts",
+      "channel": {
+        "name": "Dyuti Lal",
+        "id": "UCUIviA5Vmr5LaFXJSnjwKzQ"
+      },
+      "url": "https://www.youtube.com/shorts/wDaro_TXKIA",
+      "embed_url": "https://www.youtube.com/embed/wDaro_TXKIA",
+      "thumbnail": "https://i.ytimg.com/vi/wDaro_TXKIA/hqdefault.jpg",
+      "duration_seconds": 146,
+      "published": "2026-09-30",
+      "topic": "random forests and ensembles",
+      "category": "machine learning",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains why averaging many trees beats one, with a loan example.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-acpnShcfY_s",
+      "video_id": "acpnShcfY_s",
+      "title": "Why Bayes' Theorem Is So Powerful",
+      "channel": {
+        "name": "The Synthetic Mind",
+        "id": "UCbQzDyfzx0SFcDSa2LTunnQ"
+      },
+      "url": "https://www.youtube.com/shorts/acpnShcfY_s",
+      "embed_url": "https://www.youtube.com/embed/acpnShcfY_s",
+      "thumbnail": "https://i.ytimg.com/vi/acpnShcfY_s/hqdefault.jpg",
+      "duration_seconds": 180,
+      "published": "2026-10-20",
+      "topic": "Bayes theorem",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Builds intuition for Bayesian updating, a core tool in ML.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-3tDfqoRH1F0",
+      "video_id": "3tDfqoRH1F0",
+      "title": "Is this the most useful math rule? 😮‍💨 #math #shorts",
+      "channel": {
+        "name": "Shihab Gazi",
+        "id": "UCZ9X7sRSBCRfgyXQvbukL1g"
+      },
+      "url": "https://www.youtube.com/shorts/3tDfqoRH1F0",
+      "embed_url": "https://www.youtube.com/embed/3tDfqoRH1F0",
+      "thumbnail": "https://i.ytimg.com/vi/3tDfqoRH1F0/hqdefault.jpg",
+      "duration_seconds": 49,
+      "published": "2026-10-01",
+      "topic": "the empirical rule in statistics",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Quick refresher on the 68-95-99.7 rule for normal data.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-ZpdV-41BNSk",
+      "video_id": "ZpdV-41BNSk",
+      "title": "The Birthday Paradox Will Break Your Intuition #shorts #maths",
+      "channel": {
+        "name": "Anomaly Engine",
+        "id": "UCoDgGJfDT7y0dZ7I66aal5g"
+      },
+      "url": "https://www.youtube.com/shorts/ZpdV-41BNSk",
+      "embed_url": "https://www.youtube.com/embed/ZpdV-41BNSk",
+      "thumbnail": "https://i.ytimg.com/vi/ZpdV-41BNSk/hqdefault.jpg",
+      "duration_seconds": 36,
+      "published": "2026-11-13",
+      "topic": "birthday paradox",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A classic probability result that trips up intuition.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-c4z_PtewoBI",
+      "video_id": "c4z_PtewoBI",
+      "title": "Where Intuition Fails: Gambler's ruin #shorts",
+      "channel": {
+        "name": "Grand Simulations",
+        "id": "UC75p8OAb_6LukTJnLmhI1gQ"
+      },
+      "url": "https://www.youtube.com/shorts/c4z_PtewoBI",
+      "embed_url": "https://www.youtube.com/embed/c4z_PtewoBI",
+      "thumbnail": "https://i.ytimg.com/vi/c4z_PtewoBI/hqdefault.jpg",
+      "duration_seconds": 28,
+      "published": "2026-11-19",
+      "topic": "gamblers ruin",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Shows a random walk result through a simple simulation.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-tIyJiou02fU",
+      "video_id": "tIyJiou02fU",
+      "title": "1000+ PhDs Got This Math Puzzle WRONG! 😱 #shorts",
+      "channel": {
+        "name": "Niko Show",
+        "id": "UCnEUN7uy0JXingRye6R3_0A"
+      },
+      "url": "https://www.youtube.com/shorts/tIyJiou02fU",
+      "embed_url": "https://www.youtube.com/embed/tIyJiou02fU",
+      "thumbnail": "https://i.ytimg.com/vi/tIyJiou02fU/hqdefault.jpg",
+      "duration_seconds": 60,
+      "published": "2026-11-24",
+      "topic": "Monty Hall problem",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "The famous conditional probability puzzle, worked through.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-iqcXZNQbe9c",
+      "video_id": "iqcXZNQbe9c",
+      "title": "Your Bus Hates You. 🚌🧠 #shorts",
+      "channel": {
+        "name": "Intuition Glitch",
+        "id": "UCw5Qwbd9CgJFsG2ymtYqdLQ"
+      },
+      "url": "https://www.youtube.com/shorts/iqcXZNQbe9c",
+      "embed_url": "https://www.youtube.com/embed/iqcXZNQbe9c",
+      "thumbnail": "https://i.ytimg.com/vi/iqcXZNQbe9c/hqdefault.jpg",
+      "duration_seconds": 43,
+      "published": "2026-11-19",
+      "topic": "inspection paradox",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Why you wait longer than expected. Sampling bias in a bus stop.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-A-jKu2wXI7k",
+      "video_id": "A-jKu2wXI7k",
+      "title": "Is This Potato Heavy? 🥔 Math Trap #shorts",
+      "channel": {
+        "name": "Intuition Glitch",
+        "id": "UCw5Qwbd9CgJFsG2ymtYqdLQ"
+      },
+      "url": "https://www.youtube.com/shorts/A-jKu2wXI7k",
+      "embed_url": "https://www.youtube.com/embed/A-jKu2wXI7k",
+      "thumbnail": "https://i.ytimg.com/vi/A-jKu2wXI7k/hqdefault.jpg",
+      "duration_seconds": 43,
+      "published": "2026-11-08",
+      "topic": "potato paradox",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A short trap about percentages and ratios.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-Q3hyP0g8hKE",
+      "video_id": "Q3hyP0g8hKE",
+      "title": "A Bat And A Ball Cost $1.10. You're Wrong. #shorts",
+      "channel": {
+        "name": "Intuition Glitch",
+        "id": "UCw5Qwbd9CgJFsG2ymtYqdLQ"
+      },
+      "url": "https://www.youtube.com/shorts/Q3hyP0g8hKE",
+      "embed_url": "https://www.youtube.com/embed/Q3hyP0g8hKE",
+      "thumbnail": "https://i.ytimg.com/vi/Q3hyP0g8hKE/hqdefault.jpg",
+      "duration_seconds": 43,
+      "published": "2026-11-07",
+      "topic": "bat and ball problem",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "The classic test of fast versus careful reasoning.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-G_zRWJctbmc",
+      "video_id": "G_zRWJctbmc",
+      "title": "3 Math Facts That Break Your Intuition🤯#math",
+      "channel": {
+        "name": "MathSparkCo ",
+        "id": "UC53xWk9EuFhknD_MddSCQlw"
+      },
+      "url": "https://www.youtube.com/shorts/G_zRWJctbmc",
+      "embed_url": "https://www.youtube.com/embed/G_zRWJctbmc",
+      "thumbnail": "https://i.ytimg.com/vi/G_zRWJctbmc/hqdefault.jpg",
+      "duration_seconds": 74,
+      "published": "2026-10-12",
+      "topic": "counterintuitive math facts",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Three results from higher maths that break everyday intuition.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-SqCZhI-XNiU",
+      "video_id": "SqCZhI-XNiU",
+      "title": "The Intuition Behind Differential Equations",
+      "channel": {
+        "name": "The Synthetic Mind",
+        "id": "UCbQzDyfzx0SFcDSa2LTunnQ"
+      },
+      "url": "https://www.youtube.com/shorts/SqCZhI-XNiU",
+      "embed_url": "https://www.youtube.com/embed/SqCZhI-XNiU",
+      "thumbnail": "https://i.ytimg.com/vi/SqCZhI-XNiU/hqdefault.jpg",
+      "duration_seconds": 138,
+      "published": "2026-11-04",
+      "topic": "differential equations",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains what a differential equation says before any formulas.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-CcxvNoKVZPk",
+      "video_id": "CcxvNoKVZPk",
+      "title": "What Is a Derivative, Really? The Puzzle That Invented Calculus #calculus #maths",
+      "channel": {
+        "name": "calculusphile",
+        "id": "UC4ycvZtDfjoi42zpnS-FyXg"
+      },
+      "url": "https://www.youtube.com/shorts/CcxvNoKVZPk",
+      "embed_url": "https://www.youtube.com/embed/CcxvNoKVZPk",
+      "thumbnail": "https://i.ytimg.com/vi/CcxvNoKVZPk/hqdefault.jpg",
+      "duration_seconds": 175,
+      "published": "2026-11-14",
+      "topic": "what a derivative is",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Goes back to the puzzle that led to calculus.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-pS7B2-4TfIM",
+      "video_id": "pS7B2-4TfIM",
+      "title": "Sum vs Integration Explained Visually | Riemann Sum, Area Under Curve & Calculus #integration #area",
+      "channel": {
+        "name": "codematrixvishal",
+        "id": "UC3pDzpjVbCnU-k8YPbcNKWw"
+      },
+      "url": "https://www.youtube.com/shorts/pS7B2-4TfIM",
+      "embed_url": "https://www.youtube.com/embed/pS7B2-4TfIM",
+      "thumbnail": "https://i.ytimg.com/vi/pS7B2-4TfIM/hqdefault.jpg",
+      "duration_seconds": 16,
+      "published": "2026-10-15",
+      "topic": "Riemann sums and integration",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A visual link between sums and integrals.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt--4D1b0lW_dk",
+      "video_id": "-4D1b0lW_dk",
+      "title": "A toxic relationship in Math!| Definition of limits| epsilon- delta| A Math stand- up! #mathtalk",
+      "channel": {
+        "name": "Puruvi",
+        "id": "UC4fmIrCAom9Olv6hS0pSV_g"
+      },
+      "url": "https://www.youtube.com/shorts/-4D1b0lW_dk",
+      "embed_url": "https://www.youtube.com/embed/-4D1b0lW_dk",
+      "thumbnail": "https://i.ytimg.com/vi/-4D1b0lW_dk/hqdefault.jpg",
+      "duration_seconds": 98,
+      "published": "2026-10-02",
+      "topic": "epsilon-delta limits",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A funny take on the formal definition of a limit.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-60A4o-0u6Fs",
+      "video_id": "60A4o-0u6Fs",
+      "title": "Cauchy Mean Value Theorem: The Parametric Intuition",
+      "channel": {
+        "name": "Nimbo",
+        "id": "UCHEC4OVvCtq1FSHl-xrXmHQ"
+      },
+      "url": "https://www.youtube.com/shorts/60A4o-0u6Fs",
+      "embed_url": "https://www.youtube.com/embed/60A4o-0u6Fs",
+      "thumbnail": "https://i.ytimg.com/vi/60A4o-0u6Fs/hqdefault.jpg",
+      "duration_seconds": 21,
+      "published": "2026-10-27",
+      "topic": "Cauchy mean value theorem",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Gives a geometric picture of the theorem using a curve.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-kT_prrXllO8",
+      "video_id": "kT_prrXllO8",
+      "title": "The Monster Function That Broke Calculus. The Curve With Zero Tangent Lines.",
+      "channel": {
+        "name": "MAGPIEHUB",
+        "id": "UC7k18a-lja4LIJdj6cxd0HA"
+      },
+      "url": "https://www.youtube.com/shorts/kT_prrXllO8",
+      "embed_url": "https://www.youtube.com/embed/kT_prrXllO8",
+      "thumbnail": "https://i.ytimg.com/vi/kT_prrXllO8/hqdefault.jpg",
+      "duration_seconds": 13,
+      "published": "2026-10-25",
+      "topic": "Weierstrass function",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A function that is continuous everywhere but smooth nowhere.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-5myFSK8XobA",
+      "video_id": "5myFSK8XobA",
+      "title": "Measure Theory Explained Visually — The Mathematics of Measuring “Almost Anything”",
+      "channel": {
+        "name": "Thinkmath",
+        "id": "UC8aquG88WMf3fuxmR6JbEDQ"
+      },
+      "url": "https://www.youtube.com/watch?v=5myFSK8XobA",
+      "embed_url": "https://www.youtube.com/embed/5myFSK8XobA",
+      "thumbnail": "https://i.ytimg.com/vi/5myFSK8XobA/hqdefault.jpg",
+      "duration_seconds": 177,
+      "published": "2026-09-25",
+      "topic": "measure theory",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Visual intro to measure theory, the base of modern probability.",
+      "discovery_source": "youtube_data_api",
+      "format": "short_form",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-Zc878mTQvrQ",
+      "video_id": "Zc878mTQvrQ",
+      "title": "The math trick that breaks reality 🌀 #math #shorts #geometry",
+      "channel": {
+        "name": "The Oddly Rational Pi",
+        "id": "UCRv4vaYEyJvMHHWpPNWRUuQ"
+      },
+      "url": "https://www.youtube.com/shorts/Zc878mTQvrQ",
+      "embed_url": "https://www.youtube.com/embed/Zc878mTQvrQ",
+      "thumbnail": "https://i.ytimg.com/vi/Zc878mTQvrQ/hqdefault.jpg",
+      "duration_seconds": 52,
+      "published": "2026-11-22",
+      "topic": "Banach-Tarski paradox",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A strange theorem about sets and the axiom of choice.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-XeWLdMJfg1Y",
+      "video_id": "XeWLdMJfg1Y",
+      "title": "Why Math Intuition Disappears—and Returns #substack #shorts",
+      "channel": {
+        "name": "Janna Levin",
+        "id": "UCWTMBUdLV_QD21dZFVC7-vg"
+      },
+      "url": "https://www.youtube.com/shorts/XeWLdMJfg1Y",
+      "embed_url": "https://www.youtube.com/embed/XeWLdMJfg1Y",
+      "thumbnail": "https://i.ytimg.com/vi/XeWLdMJfg1Y/hqdefault.jpg",
+      "duration_seconds": 108,
+      "published": "2026-11-16",
+      "topic": "mathematical intuition",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Janna Levin and Terence Tao on how maths intuition grows.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-Y_J4Sj_QRqs",
+      "video_id": "Y_J4Sj_QRqs",
+      "title": "The One Math Concept Every Game Dev Needs",
+      "channel": {
+        "name": "gr8gdev",
+        "id": "UCRnVbA_tbf-_1QYZWgMgvww"
+      },
+      "url": "https://www.youtube.com/shorts/Y_J4Sj_QRqs",
+      "embed_url": "https://www.youtube.com/embed/Y_J4Sj_QRqs",
+      "thumbnail": "https://i.ytimg.com/vi/Y_J4Sj_QRqs/hqdefault.jpg",
+      "duration_seconds": 37,
+      "published": "2026-10-17",
+      "topic": "vectors",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Shows how one linear algebra idea drives movement in games.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-b1j181SFkQQ",
+      "video_id": "b1j181SFkQQ",
+      "title": "Shoes before socks? | Topological Sort #Shorts",
+      "channel": {
+        "name": "One Algorithm a Day",
+        "id": "UCt1cqAXeDXJ2jNr-nsE0j4g"
+      },
+      "url": "https://www.youtube.com/shorts/b1j181SFkQQ",
+      "embed_url": "https://www.youtube.com/embed/b1j181SFkQQ",
+      "thumbnail": "https://i.ytimg.com/vi/b1j181SFkQQ/hqdefault.jpg",
+      "duration_seconds": 120,
+      "published": "2026-11-22",
+      "topic": "topological sort",
+      "category": "computer science",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains a key graph algorithm with a simple example.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-wQ5gv3tcNug",
+      "video_id": "wQ5gv3tcNug",
+      "title": "3 Python Dictionary Tricks #shorts",
+      "channel": {
+        "name": "Programming With Phil",
+        "id": "UCEvlOYLnOk_lyPw68H2azGg"
+      },
+      "url": "https://www.youtube.com/shorts/wQ5gv3tcNug",
+      "embed_url": "https://www.youtube.com/embed/wQ5gv3tcNug",
+      "thumbnail": "https://i.ytimg.com/vi/wQ5gv3tcNug/hqdefault.jpg",
+      "duration_seconds": 26,
+      "published": "2026-11-19",
+      "topic": "Python dictionaries",
+      "category": "programming",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Three small Python tricks for cleaner code.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-TY7CABK48HQ",
+      "video_id": "TY7CABK48HQ",
+      "title": "3 Coding Tips I Wish I Knew as a Computer Science Freshman 💻🚀 #shorts",
+      "channel": {
+        "name": "Little Paws Planet",
+        "id": "UCbZLYuWqwLFbEOrCuSRWM6Q"
+      },
+      "url": "https://www.youtube.com/shorts/TY7CABK48HQ",
+      "embed_url": "https://www.youtube.com/embed/TY7CABK48HQ",
+      "thumbnail": "https://i.ytimg.com/vi/TY7CABK48HQ/hqdefault.jpg",
+      "duration_seconds": 27,
+      "published": "2026-10-20",
+      "topic": "coding habits",
+      "category": "programming",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Practical habits for learning to code well.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-cdbNqXnR2r0",
+      "video_id": "cdbNqXnR2r0",
+      "title": "Two Pillars of Science Explained 🔬 | Logic & Evidence | Research Methodology #Shorts",
+      "channel": {
+        "name": "Harshita Goyal",
+        "id": "UCpFcAyyKmoiRQZnTTC_JyLQ"
+      },
+      "url": "https://www.youtube.com/shorts/cdbNqXnR2r0",
+      "embed_url": "https://www.youtube.com/embed/cdbNqXnR2r0",
+      "thumbnail": "https://i.ytimg.com/vi/cdbNqXnR2r0/hqdefault.jpg",
+      "duration_seconds": 50,
+      "published": "2026-10-15",
+      "topic": "logic and evidence in science",
+      "category": "research methods",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A short review of how logic and evidence support claims.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-PxQZ8KAeQcA",
+      "video_id": "PxQZ8KAeQcA",
+      "title": "Data Can Lead You Astray—Why Human Judgment Matters #shorts",
+      "channel": {
+        "name": "Julien Allwood",
+        "id": "UCamdXO0PI9N3hHBlGrwJo5Q"
+      },
+      "url": "https://www.youtube.com/shorts/PxQZ8KAeQcA",
+      "embed_url": "https://www.youtube.com/embed/PxQZ8KAeQcA",
+      "thumbnail": "https://i.ytimg.com/vi/PxQZ8KAeQcA/hqdefault.jpg",
+      "duration_seconds": 39,
+      "published": "2026-10-23",
+      "topic": "data and judgment",
+      "category": "research methods",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A professor on why data alone can mislead.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-1cCLzTEP4lU",
+      "video_id": "1cCLzTEP4lU",
+      "title": "What Is Optogenetics? The 2026 Nobel Prize #psychology #neuroscience #nobelprize",
+      "channel": {
+        "name": "The Infinite Room",
+        "id": "UCnfysRYag6syZlyLcmNyNWA"
+      },
+      "url": "https://www.youtube.com/shorts/1cCLzTEP4lU",
+      "embed_url": "https://www.youtube.com/embed/1cCLzTEP4lU",
+      "thumbnail": "https://i.ytimg.com/vi/1cCLzTEP4lU/hqdefault.jpg",
+      "duration_seconds": 79,
+      "published": "2026-10-10",
+      "topic": "optogenetics",
+      "category": "neuroscience",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains the method behind the 2026 Nobel Prize in Medicine.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-7e0O1X3N-EY",
+      "video_id": "7e0O1X3N-EY",
+      "title": "The Split-Brain Experiment That Revealed Two Minds in One Skull #shorts",
+      "channel": {
+        "name": "zeitfield",
+        "id": "UCm9H8BRSJf7DxwdfAJGHZuA"
+      },
+      "url": "https://www.youtube.com/shorts/7e0O1X3N-EY",
+      "embed_url": "https://www.youtube.com/embed/7e0O1X3N-EY",
+      "thumbnail": "https://i.ytimg.com/vi/7e0O1X3N-EY/hqdefault.jpg",
+      "duration_seconds": 72,
+      "published": "2026-10-20",
+      "topic": "split-brain experiments",
+      "category": "neuroscience",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A classic study on two minds in one skull.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-qGG6I9s8MXE",
+      "video_id": "qGG6I9s8MXE",
+      "title": "No Sign of Awareness. So Why Did Scientists Ask Her to Play Tennis?",
+      "channel": {
+        "name": "Abyssora",
+        "id": "UCSfHtnIVbDQUOB_6an2JZKg"
+      },
+      "url": "https://www.youtube.com/shorts/qGG6I9s8MXE",
+      "embed_url": "https://www.youtube.com/embed/qGG6I9s8MXE",
+      "thumbnail": "https://i.ytimg.com/vi/qGG6I9s8MXE/hqdefault.jpg",
+      "duration_seconds": 42,
+      "published": "2026-11-18",
+      "topic": "disorders of consciousness",
+      "category": "neuroscience",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "The 2006 tennis imagery study that found hidden awareness.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-3g5CKwgc3dI",
+      "video_id": "3g5CKwgc3dI",
+      "title": "Most Neuroscientists Put Consciousness in the Cortex. I Don't.",
+      "channel": {
+        "name": "Curt Jaimungal",
+        "id": "UCdWIQh9DGG6uhJk8eyIFl1w"
+      },
+      "url": "https://www.youtube.com/shorts/3g5CKwgc3dI",
+      "embed_url": "https://www.youtube.com/embed/3g5CKwgc3dI",
+      "thumbnail": "https://i.ytimg.com/vi/3g5CKwgc3dI/hqdefault.jpg",
+      "duration_seconds": 60,
+      "published": "2026-11-03",
+      "topic": "where consciousness arises",
+      "category": "philosophy of mind",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Mark Solms argues that consciousness starts in the brain stem.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-inYhvHCwpHM",
+      "video_id": "inYhvHCwpHM",
+      "title": "The Strangest Property of the Electron #physics #quantumphysics",
+      "channel": {
+        "name": "Blazar101",
+        "id": "UCNzTiX_OjwRS0cSinK1Vi-A"
+      },
+      "url": "https://www.youtube.com/shorts/inYhvHCwpHM",
+      "embed_url": "https://www.youtube.com/embed/inYhvHCwpHM",
+      "thumbnail": "https://i.ytimg.com/vi/inYhvHCwpHM/hqdefault.jpg",
+      "duration_seconds": 176,
+      "published": "2026-11-06",
+      "topic": "electron spin",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "The Stern-Gerlach story and why spin needs two full turns.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-nQtVlYN-NVo",
+      "video_id": "nQtVlYN-NVo",
+      "title": "QUANTUM TUNNELING Explained: Why the Sun Works at All. Dr. Colleen Spiegel",
+      "channel": {
+        "name": "The Tesla Institute",
+        "id": "UCPiSTaifocHz0y8rHHEI1dQ"
+      },
+      "url": "https://www.youtube.com/shorts/nQtVlYN-NVo",
+      "embed_url": "https://www.youtube.com/embed/nQtVlYN-NVo",
+      "thumbnail": "https://i.ytimg.com/vi/nQtVlYN-NVo/hqdefault.jpg",
+      "duration_seconds": 138,
+      "published": "2026-11-05",
+      "topic": "quantum tunneling",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains how tunneling lets the Sun shine.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-REeKknAItL0",
+      "video_id": "REeKknAItL0",
+      "title": "How DESI Built the Largest 3D Cosmic Map | Is Dark Energy Weakening?",
+      "channel": {
+        "name": "science and technology ",
+        "id": "UCKTOyIIMORRd097wevDRbnw"
+      },
+      "url": "https://www.youtube.com/shorts/REeKknAItL0",
+      "embed_url": "https://www.youtube.com/embed/REeKknAItL0",
+      "thumbnail": "https://i.ytimg.com/vi/REeKknAItL0/hqdefault.jpg",
+      "duration_seconds": 82,
+      "published": "2026-11-03",
+      "topic": "dark energy and DESI",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "world"
+      ],
+      "language": "en",
+      "why_it_matches": "How the largest 3D map of the universe tests dark energy.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-xp_sGAxLHaQ",
+      "video_id": "xp_sGAxLHaQ",
+      "title": "Why a Coffee Cup and a Donut Are the Same Shape (Topology Explained)",
+      "channel": {
+        "name": "avijit pramanik",
+        "id": "UCbNED_VBNJmiAaMXLXMzfLA"
+      },
+      "url": "https://www.youtube.com/shorts/xp_sGAxLHaQ",
+      "embed_url": "https://www.youtube.com/embed/xp_sGAxLHaQ",
+      "thumbnail": "https://i.ytimg.com/vi/xp_sGAxLHaQ/hqdefault.jpg",
+      "duration_seconds": 78,
+      "published": "2026-11-16",
+      "topic": "topology basics",
+      "category": "mathematics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Why a cup and a donut count as the same shape.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt--cxgEbBLg9Q",
+      "video_id": "-cxgEbBLg9Q",
+      "title": "Is the Exterior of a Set Always Open? | Topology Short",
+      "channel": {
+        "name": "Clear Math with Prof. Muna",
+        "id": "UC5L7ZcFWgHmx7x9SmNs8Xcw"
+      },
+      "url": "https://www.youtube.com/shorts/-cxgEbBLg9Q",
+      "embed_url": "https://www.youtube.com/embed/-cxgEbBLg9Q",
+      "thumbnail": "https://i.ytimg.com/vi/-cxgEbBLg9Q/hqdefault.jpg",
+      "duration_seconds": 47,
+      "published": "2026-10-17",
+      "topic": "open sets in topology",
+      "category": "mathematics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "A short proof style lesson on the exterior of a set.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-wTAkplyFuhc",
+      "video_id": "wTAkplyFuhc",
+      "title": "Paradigm Shift (Kuhn) — Philosophy of Science in 60 Seconds #Shorts",
+      "channel": {
+        "name": "Unseel Philosophy",
+        "id": "UCCRJLHbyQrE2s3zvOJ-c2fw"
+      },
+      "url": "https://www.youtube.com/shorts/wTAkplyFuhc",
+      "embed_url": "https://www.youtube.com/embed/wTAkplyFuhc",
+      "thumbnail": "https://i.ytimg.com/vi/wTAkplyFuhc/hqdefault.jpg",
+      "duration_seconds": 42,
+      "published": "2026-10-20",
+      "topic": "Kuhn and paradigm shifts",
+      "category": "philosophy of science",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Kuhn in a minute, useful for thinking about research change.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-bhu33gyzUlE",
+      "video_id": "bhu33gyzUlE",
+      "title": "The Idea That Changed Science Came From Watching Freudians",
+      "channel": {
+        "name": "The Wisdom Verse",
+        "id": "UCQi5yOlwwXpdVBlQK65PN7g"
+      },
+      "url": "https://www.youtube.com/shorts/bhu33gyzUlE",
+      "embed_url": "https://www.youtube.com/embed/bhu33gyzUlE",
+      "thumbnail": "https://i.ytimg.com/vi/bhu33gyzUlE/hqdefault.jpg",
+      "duration_seconds": 67,
+      "published": "2026-09-25",
+      "topic": "falsifiability",
+      "category": "philosophy of science",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Popper on why a theory that explains everything explains nothing.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-wOlXglxzB58",
+      "video_id": "wOlXglxzB58",
+      "title": "My FAVORITE Public Speaking Tip!",
+      "channel": {
+        "name": "Vanessa Van Edwards",
+        "id": "UCj9QBB4bNTv29f4oFIreNmw"
+      },
+      "url": "https://www.youtube.com/shorts/wOlXglxzB58",
+      "embed_url": "https://www.youtube.com/embed/wOlXglxzB58",
+      "thumbnail": "https://i.ytimg.com/vi/wOlXglxzB58/hqdefault.jpg",
+      "duration_seconds": 40,
+      "published": "2026-11-13",
+      "topic": "public speaking",
+      "category": "people skills",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "One simple trick for using the room when you speak.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-EdJmBxicIUg",
+      "video_id": "EdJmBxicIUg",
+      "title": "How to Be a Better Listener | Before You Give Advice, Ask This #professionalgrowth #winner",
+      "channel": {
+        "name": "shobhit munot",
+        "id": "UC6ktlcmsCLbjOlTd1AGrRVA"
+      },
+      "url": "https://www.youtube.com/shorts/EdJmBxicIUg",
+      "embed_url": "https://www.youtube.com/embed/EdJmBxicIUg",
+      "thumbnail": "https://i.ytimg.com/vi/EdJmBxicIUg/hqdefault.jpg",
+      "duration_seconds": 60,
+      "published": "2026-11-11",
+      "topic": "active listening",
+      "category": "people skills",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Ask what someone needs before giving advice.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-vnJLTwdboq0",
+      "video_id": "vnJLTwdboq0",
+      "title": "This sun is no brighter than the sky around it | Impression, Sunrise #art #history",
+      "channel": {
+        "name": "Beautiful Errors Lab",
+        "id": "UCxB2ZOoSl9GXLXya43UOILQ"
+      },
+      "url": "https://www.youtube.com/shorts/vnJLTwdboq0",
+      "embed_url": "https://www.youtube.com/embed/vnJLTwdboq0",
+      "thumbnail": "https://i.ytimg.com/vi/vnJLTwdboq0/hqdefault.jpg",
+      "duration_seconds": 21,
+      "published": "2026-11-22",
+      "topic": "Impressionism",
+      "category": "art",
+      "tier": "growth",
+      "dimensions": [
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Shows the colour trick in Monet's Impression, Sunrise.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt--a-I2pW8PjI",
+      "video_id": "-a-I2pW8PjI",
+      "title": "If you're a complete beginner learning Japanese, start here #shorts",
+      "channel": {
+        "name": "Hibi - Learn Real Japanese",
+        "id": "UCjlfsWM9dP2xL5R0YzAokxA"
+      },
+      "url": "https://www.youtube.com/shorts/-a-I2pW8PjI",
+      "embed_url": "https://www.youtube.com/embed/-a-I2pW8PjI",
+      "thumbnail": "https://i.ytimg.com/vi/-a-I2pW8PjI/hqdefault.jpg",
+      "duration_seconds": 58,
+      "published": "2026-11-05",
+      "topic": "Japanese: where beginners start",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "A beginner roadmap for Japanese, taught in English.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-GL5oiNScPBw",
+      "video_id": "GL5oiNScPBw",
+      "title": "Japanese Pronunciation for Beginners | How to Say KA KI KU KE KO",
+      "channel": {
+        "name": "Japanese with Uta | 仲里詩",
+        "id": "UCt6VTsS_ROokvI9MatN6tFA"
+      },
+      "url": "https://www.youtube.com/shorts/GL5oiNScPBw",
+      "embed_url": "https://www.youtube.com/embed/GL5oiNScPBw",
+      "thumbnail": "https://i.ytimg.com/vi/GL5oiNScPBw/hqdefault.jpg",
+      "duration_seconds": 71,
+      "published": "2026-10-01",
+      "topic": "Japanese: pronunciation of ka ki ku ke ko",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Practise the K row sounds with a native teacher, in English.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-9BzRXzrewYM",
+      "video_id": "9BzRXzrewYM",
+      "title": "10 Essential Japanese Greetings – Quick Recap (まとめ) 🌸",
+      "channel": {
+        "name": "🌊Japanese Playground🌸",
+        "id": "UCYfjVXy5bSr4g0MUGhY5o5Q"
+      },
+      "url": "https://www.youtube.com/shorts/9BzRXzrewYM",
+      "embed_url": "https://www.youtube.com/embed/9BzRXzrewYM",
+      "thumbnail": "https://i.ytimg.com/vi/9BzRXzrewYM/hqdefault.jpg",
+      "duration_seconds": 36,
+      "published": "2026-11-19",
+      "topic": "Japanese: essential greetings",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "A quick recap of ten everyday Japanese greetings.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-E5TPEQj93rw",
+      "video_id": "E5TPEQj93rw",
+      "title": "5 Japanese Phrases for When Something Goes Wrong — and the Numbers to Call",
+      "channel": {
+        "name": "KODAWARI Sensei",
+        "id": "UCFnavQxSlenrFXmY_3eC37w"
+      },
+      "url": "https://www.youtube.com/shorts/E5TPEQj93rw",
+      "embed_url": "https://www.youtube.com/embed/E5TPEQj93rw",
+      "thumbnail": "https://i.ytimg.com/vi/E5TPEQj93rw/hqdefault.jpg",
+      "duration_seconds": 18,
+      "published": "2026-10-06",
+      "topic": "Japanese: phrases for when something goes wrong",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Five useful Japanese phrases explained in English.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-udNrYwZrsJo",
+      "video_id": "udNrYwZrsJo",
+      "title": "Katakana Part 1: Learn the first 15 katakana letters #japanese #languagelearning #shorts",
+      "channel": {
+        "name": "Japanese Daily By Smit",
+        "id": "UCbMUoGrh7yN_pKTOXG9IZZg"
+      },
+      "url": "https://www.youtube.com/shorts/udNrYwZrsJo",
+      "embed_url": "https://www.youtube.com/embed/udNrYwZrsJo",
+      "thumbnail": "https://i.ytimg.com/vi/udNrYwZrsJo/hqdefault.jpg",
+      "duration_seconds": 24,
+      "published": "2026-11-23",
+      "topic": "Japanese: first 15 katakana",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "hi",
+      "why_it_matches": "Katakana basics explained in Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-lIxdwZ43eQk",
+      "video_id": "lIxdwZ43eQk",
+      "title": "Learn Japanese in Hindi: परिवार के सदस्यों के नाम #shorts",
+      "channel": {
+        "name": "Jangcook@Japanese",
+        "id": "UCQZBtdkceq6rSoeHWCHn0aw"
+      },
+      "url": "https://www.youtube.com/watch?v=lIxdwZ43eQk",
+      "embed_url": "https://www.youtube.com/embed/lIxdwZ43eQk",
+      "thumbnail": "https://i.ytimg.com/vi/lIxdwZ43eQk/hqdefault.jpg",
+      "duration_seconds": 51,
+      "published": "2026-10-14",
+      "topic": "Japanese: family words",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "hi",
+      "why_it_matches": "Japanese words for family members, explained in Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short_form",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-RKd4tP6rmMY",
+      "video_id": "RKd4tP6rmMY",
+      "title": "Hindi से Telugu सीखें l आसानी से",
+      "channel": {
+        "name": "S2 Learn ",
+        "id": "UCV88-A1MQXTpG5wRmHbi_pg"
+      },
+      "url": "https://www.youtube.com/watch?v=RKd4tP6rmMY",
+      "embed_url": "https://www.youtube.com/embed/RKd4tP6rmMY",
+      "thumbnail": "https://i.ytimg.com/vi/RKd4tP6rmMY/hqdefault.jpg",
+      "duration_seconds": 130,
+      "published": "2026-11-18",
+      "topic": "Telugu: everyday sentences",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "hi",
+      "why_it_matches": "Ten daily Telugu sentences taught through Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short_form",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-v_uCIju_6NU",
+      "video_id": "v_uCIju_6NU",
+      "title": "Learn Telugu for beginners #learn Telugu in  seconds #shorts",
+      "channel": {
+        "name": "Vemuri Murty hindi to telugu spoken  classes",
+        "id": "UCGG0EhhRtgHIJcvcUZGNvyg"
+      },
+      "url": "https://www.youtube.com/shorts/v_uCIju_6NU",
+      "embed_url": "https://www.youtube.com/embed/v_uCIju_6NU",
+      "thumbnail": "https://i.ytimg.com/vi/v_uCIju_6NU/hqdefault.jpg",
+      "duration_seconds": 34,
+      "published": "2026-11-23",
+      "topic": "Telugu: beginner sentences",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "hi",
+      "why_it_matches": "Short Telugu sentences for beginners, explained in Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-iGBbHBX6LPg",
+      "video_id": "iGBbHBX6LPg",
+      "title": "तेलुगु बोलना सीखें #10 – Basic Telugu Words | #spokentelugufromhindi #learntelugu #hinditelugu",
+      "channel": {
+        "name": "Nagmani Bongi ",
+        "id": "UCJhk3vNW5_vekViVft-UzAQ"
+      },
+      "url": "https://www.youtube.com/shorts/iGBbHBX6LPg",
+      "embed_url": "https://www.youtube.com/embed/iGBbHBX6LPg",
+      "thumbnail": "https://i.ytimg.com/vi/iGBbHBX6LPg/hqdefault.jpg",
+      "duration_seconds": 7,
+      "published": "2026-09-26",
+      "topic": "Telugu: basic words",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "hi",
+      "why_it_matches": "Basic Telugu words taught through Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-Wg2bVylixGw",
+      "video_id": "Wg2bVylixGw",
+      "title": "Antarctica Has a Glacier That Bleeds",
+      "channel": {
+        "name": "Professaurus Shorts",
+        "id": "UCWVMqOyShj-GI-l41TucD7w"
+      },
+      "url": "https://www.youtube.com/shorts/Wg2bVylixGw",
+      "embed_url": "https://www.youtube.com/embed/Wg2bVylixGw",
+      "thumbnail": "https://i.ytimg.com/vi/Wg2bVylixGw/hqdefault.jpg",
+      "duration_seconds": 66,
+      "published": "2026-11-02",
+      "topic": "Blood Falls in Antarctica",
+      "category": "earth science",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Why an Antarctic glacier pours out red water.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-YGejqY7sbqU",
+      "video_id": "YGejqY7sbqU",
+      "title": "Short-Beaked Echidna: The Mother Who Lays an Egg and Has No Nipples",
+      "channel": {
+        "name": "The Untold Wild",
+        "id": "UCczOO9oND3cErLUT3mWeh2A"
+      },
+      "url": "https://www.youtube.com/shorts/YGejqY7sbqU",
+      "embed_url": "https://www.youtube.com/embed/YGejqY7sbqU",
+      "thumbnail": "https://i.ytimg.com/vi/YGejqY7sbqU/hqdefault.jpg",
+      "duration_seconds": 42,
+      "published": "2026-11-21",
+      "topic": "echidnas",
+      "category": "biology",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "An egg-laying mammal with no nipples.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-psF5D3m2LQk",
+      "video_id": "psF5D3m2LQk",
+      "title": "Cultural Relativism explained in 90 seconds | Boas #shorts",
+      "channel": {
+        "name": "Field Theory",
+        "id": "UCNoDKszEdkS1En3Qtp_hhTw"
+      },
+      "url": "https://www.youtube.com/shorts/psF5D3m2LQk",
+      "embed_url": "https://www.youtube.com/embed/psF5D3m2LQk",
+      "thumbnail": "https://i.ytimg.com/vi/psF5D3m2LQk/hqdefault.jpg",
+      "duration_seconds": 83,
+      "published": "2026-11-04",
+      "topic": "cultural relativism",
+      "category": "anthropology",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "How Franz Boas changed the way we judge other cultures.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-U1RMxbXeUhY",
+      "video_id": "U1RMxbXeUhY",
+      "title": "The 10,000 Steps Rule Came From a Product Name #anthropology #animation #cartoon #motivation #fan",
+      "channel": {
+        "name": "Ancient Receipts",
+        "id": "UC-FtFg9qM9dMmplI5IEDarA"
+      },
+      "url": "https://www.youtube.com/shorts/U1RMxbXeUhY",
+      "embed_url": "https://www.youtube.com/embed/U1RMxbXeUhY",
+      "thumbnail": "https://i.ytimg.com/vi/U1RMxbXeUhY/hqdefault.jpg",
+      "duration_seconds": 47,
+      "published": "2026-11-02",
+      "topic": "origin of the 10,000 steps rule",
+      "category": "history",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "The step goal started as a product name in 1965.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-eYIHBr9LJio",
+      "video_id": "eYIHBr9LJio",
+      "title": "Why do Japanese people call each other with a “-san”at the end?",
+      "channel": {
+        "name": "Kyota Ko",
+        "id": "UCccNFAkYqVkmS9fyT1KvHQg"
+      },
+      "url": "https://www.youtube.com/shorts/eYIHBr9LJio",
+      "embed_url": "https://www.youtube.com/embed/eYIHBr9LJio",
+      "thumbnail": "https://i.ytimg.com/vi/eYIHBr9LJio/hqdefault.jpg",
+      "duration_seconds": 159,
+      "published": "2026-10-17",
+      "topic": "honorific -san",
+      "category": "Japanese culture",
+      "tier": "exploration",
+      "dimensions": [
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Why Japanese people add -san to names, explained in English.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-8ZOab_IaYuQ",
+      "video_id": "8ZOab_IaYuQ",
+      "title": "Rashomon Effect Explained | Rashomon 1950 Film Analysis | Akira Kurosawa | Film Theory |  #shorts",
+      "channel": {
+        "name": "Ryan Type Shi",
+        "id": "UCxx5wGcwUX8SHGvTzZJc3RQ"
+      },
+      "url": "https://www.youtube.com/shorts/8ZOab_IaYuQ",
+      "embed_url": "https://www.youtube.com/embed/8ZOab_IaYuQ",
+      "thumbnail": "https://i.ytimg.com/vi/8ZOab_IaYuQ/hqdefault.jpg",
+      "duration_seconds": 47,
+      "published": "2026-10-12",
+      "topic": "Rashomon",
+      "category": "cinema",
+      "tier": "exploration",
+      "dimensions": [
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Kurosawa's Rashomon and the effect named after it.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-qp06UWWIOJM",
+      "video_id": "qp06UWWIOJM",
+      "title": "Why This Scene in The Shining Feels So Terrifying | Film Analysis",
+      "channel": {
+        "name": "zapscenes",
+        "id": "UC5ykOEg2uil-mXdiJFlMKew"
+      },
+      "url": "https://www.youtube.com/shorts/qp06UWWIOJM",
+      "embed_url": "https://www.youtube.com/embed/qp06UWWIOJM",
+      "thumbnail": "https://i.ytimg.com/vi/qp06UWWIOJM/hqdefault.jpg",
+      "duration_seconds": 27,
+      "published": "2026-09-28",
+      "topic": "The Shining",
+      "category": "cinema",
+      "tier": "exploration",
+      "dimensions": [
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "How one scene in The Shining builds dread.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-fqfRqGrSJCk",
+      "video_id": "fqfRqGrSJCk",
+      "title": "Why this flame turns red, yellow and green 🔥 #chemistry #science",
+      "channel": {
+        "name": "Tommy Technetium",
+        "id": "UC6rrBCCDvrDFcOJHifruL5A"
+      },
+      "url": "https://www.youtube.com/shorts/fqfRqGrSJCk",
+      "embed_url": "https://www.youtube.com/embed/fqfRqGrSJCk",
+      "thumbnail": "https://i.ytimg.com/vi/fqfRqGrSJCk/hqdefault.jpg",
+      "duration_seconds": 93,
+      "published": "2026-11-21",
+      "topic": "flame colours",
+      "category": "chemistry",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Why metals burn in different colours.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-VXqQgRK8Gus",
+      "video_id": "VXqQgRK8Gus",
+      "title": "I Used a Fork to Light These Mushrooms",
+      "channel": {
+        "name": "Daniel Aucoin",
+        "id": "UCY9Nb2N0OeXAmgcPv4oY6xg"
+      },
+      "url": "https://www.youtube.com/shorts/VXqQgRK8Gus",
+      "embed_url": "https://www.youtube.com/embed/VXqQgRK8Gus",
+      "thumbnail": "https://i.ytimg.com/vi/VXqQgRK8Gus/hqdefault.jpg",
+      "duration_seconds": 33,
+      "published": "2026-11-19",
+      "topic": "creative lighting",
+      "category": "photography",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "A simple trick to light small subjects with a fork.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-HBz41yE1enM",
+      "video_id": "HBz41yE1enM",
+      "title": "Why Is This Country Inside Another Country? 🌍 #geography #shorts #facts",
+      "channel": {
+        "name": "WhyHereMaps",
+        "id": "UCpsVFSKYgKQ0R5zc4jXUpqA"
+      },
+      "url": "https://www.youtube.com/shorts/HBz41yE1enM",
+      "embed_url": "https://www.youtube.com/embed/HBz41yE1enM",
+      "thumbnail": "https://i.ytimg.com/vi/HBz41yE1enM/hqdefault.jpg",
+      "duration_seconds": 93,
+      "published": "2026-10-21",
+      "topic": "enclaves",
+      "category": "geography",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "world"
+      ],
+      "language": "en",
+      "why_it_matches": "Why some countries sit inside another country.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-TvcDfSrWq40",
+      "video_id": "TvcDfSrWq40",
+      "title": "आखिर क्यों किंगफिशर को देखकर बदला बुलेट ट्रेन का डिजाइन? 😲#Kingfisher #BulletTrain #NatureScience",
+      "channel": {
+        "name": "Science Behind Nature",
+        "id": "UCrqW9RpR5uObYmvKFQF5BjA"
+      },
+      "url": "https://www.youtube.com/shorts/TvcDfSrWq40",
+      "embed_url": "https://www.youtube.com/embed/TvcDfSrWq40",
+      "thumbnail": "https://i.ytimg.com/vi/TvcDfSrWq40/hqdefault.jpg",
+      "duration_seconds": 152,
+      "published": "2026-11-22",
+      "topic": "biomimicry in bullet trains",
+      "category": "engineering",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "hi",
+      "why_it_matches": "How a kingfisher beak shaped the Shinkansen nose, in Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-l6h9K1m0Cc4",
+      "video_id": "l6h9K1m0Cc4",
+      "title": "बूढ़ी होकर फिर बच्ची बन जाती है! 🪼 अमर जेलीफ़िश का राज़ #shorts",
+      "channel": {
+        "name": "Khoj Pothi | खोज पोथी",
+        "id": "UCN4Osvb7sRve5MTKV89hoPg"
+      },
+      "url": "https://www.youtube.com/shorts/l6h9K1m0Cc4",
+      "embed_url": "https://www.youtube.com/embed/l6h9K1m0Cc4",
+      "thumbnail": "https://i.ytimg.com/vi/l6h9K1m0Cc4/hqdefault.jpg",
+      "duration_seconds": 136,
+      "published": "2026-11-03",
+      "topic": "immortal jellyfish",
+      "category": "biology",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "hi",
+      "why_it_matches": "A jellyfish that turns young again, explained in Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-9bE-xKUC4Qw",
+      "video_id": "9bE-xKUC4Qw",
+      "title": "1. समुद्र के नीचे इंटरनेट केबल कैसे बिछाई जाती है? 🌊🌐 #shorts",
+      "channel": {
+        "name": "Revving Past",
+        "id": "UCc-8q3XgvDtXTi-CsXjWRAw"
+      },
+      "url": "https://www.youtube.com/shorts/9bE-xKUC4Qw",
+      "embed_url": "https://www.youtube.com/embed/9bE-xKUC4Qw",
+      "thumbnail": "https://i.ytimg.com/vi/9bE-xKUC4Qw/hqdefault.jpg",
+      "duration_seconds": 81,
+      "published": "2026-11-21",
+      "topic": "undersea internet cables",
+      "category": "engineering",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "world"
+      ],
+      "language": "hi",
+      "why_it_matches": "How undersea internet cables are laid, explained in Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    }
+  ],
+  "generated_at": "2026-11-24T13:33:17Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Data API mode: picked from 1402 API candidates. Kept 61 and skipped the rest as filler, clickbait, exam prep or off-topic. Established items are mostly maths foundations because few AI research shorts came through today. Japanese and Telugu items are beginner lessons taught in English or Hindi only.",
+  "candidates_considered": 1402
+}

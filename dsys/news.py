@@ -9,6 +9,7 @@ from __future__ import annotations
 import datetime as dt
 import email.utils
 import html
+import functools
 import re
 import xml.etree.ElementTree as ET
 
@@ -76,3 +77,59 @@ def select_recent(items: list[dict], now: dt.datetime, hours: int) -> list[dict]
         if p is None or dt.datetime.fromisoformat(p.replace("Z", "+00:00")) >= cutoff:
             keep.append(x)
     return keep
+
+
+# --- categorizing and merging duplicates (applied when the run reads candidates) -----------
+_WORD = re.compile(r"[a-z0-9]+")
+_STOP = {"the", "a", "an", "of", "in", "on", "to", "for", "and", "as", "at", "by", "with", "is", "are", "after",
+         "from", "over", "says", "say", "new", "its", "his", "her", "their", "be", "will", "has", "have", "amid"}
+
+
+@functools.lru_cache(maxsize=2048)
+def _kw(k: str) -> re.Pattern:
+    return re.compile(rf"(?<![a-z0-9]){re.escape(k.lower().strip())}(?![a-z0-9])")
+
+
+def categorize(item: dict, cfg: dict) -> str:
+    """Pick the news category for a headline (see config/sources.json -> world.categories)."""
+    cats = cfg.get("categories", {})
+    feed_cat = cats.get("feed_default", {}).get(item.get("section", "world"), "geopolitics")
+    if feed_cat == "explainers":
+        return "explainers"
+    title = (item.get("title") or "").lower()
+    summary = (item.get("summary") or "").lower()
+    order = cats.get("order", [])
+    best, best_score = None, 0
+    for cat in order:
+        if cat == "explainers":
+            continue
+        score = 0
+        for k in cats.get("keywords", {}).get(cat, []):
+            pat = _kw(k)
+            score += 2 * bool(pat.search(title)) + bool(pat.search(summary))
+        if score > best_score:
+            best, best_score = cat, score
+    return best or feed_cat
+
+
+def _tokens(title: str) -> set[str]:
+    return {w for w in _WORD.findall(title.lower()) if w not in _STOP and len(w) > 2}
+
+
+def merge_duplicates(items: list[dict], threshold: float = 0.34, min_shared: int = 3) -> list[dict]:
+    """Headlines about the same event become one entry, with the other outlets in `also_in`."""
+    out: list[dict] = []
+    toks: list[set] = []
+    for it in items:
+        t = _tokens(it.get("title", ""))
+        for i, other in enumerate(toks):
+            shared = len(t & other)
+            if t and other and shared >= min_shared and shared / len(t | other) >= threshold:
+                out[i].setdefault("also_in", [])
+                if len(out[i]["also_in"]) < 5:
+                    out[i]["also_in"].append({"source": it.get("source"), "url": it.get("url")})
+                break
+        else:
+            out.append(dict(it))
+            toks.append(t)
+    return out

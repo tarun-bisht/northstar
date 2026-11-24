@@ -1,6 +1,6 @@
 # Northstar: instructions for Claude
 
-Northstar is a public, forkable personal growth system. Claude generates content into JSON; GitHub Actions validates it and publishes RSS feeds and a website. See `README.md`.
+Northstar is a public, forkable personal discovery and growth companion. Claude generates content into JSON; GitHub Actions validates it and publishes RSS feeds and a website. `docs/vision.md` is why it exists, `docs/how_it_works.md` is the map of the whole system, and `prompts/runs/` holds one runbook per scheduled run.
 
 ## Rules
 
@@ -14,21 +14,23 @@ Northstar is a public, forkable personal growth system. Claude generates content
 
 ## Enforced content rules
 
-- Daily Discovery: an established-tier podcast, a video/lecture/documentary, and at least one item per tier.
-- Shorts: at least one per tier.
-- Daily page: Research (papers, research updates, this week's reading list), News (by category), Discover (podcasts, videos and lectures, reads, watch and listen, try, shorts, language).
-- World Radar: every item has a news `section` (prompts/world.md), at least 6 categories a day, markets every day.
-- Weekly: items grouped by `section`. Required by load: research practice, questions, culture, and for normal weeks also talking points (history, philosophy) and people and self. Learning items have detailed steps and real resources (book chapters, lectures, blogs, papers).
-- Monthly: a research deep dive and a knowledge deep dive (unless light), each a week-by-week syllabus with resources, and at least one growth item.
-- arXiv and reading list: tags from the fixed `paper_tags` list only, never free-text reasons. Every week has a reading list of at least 3 papers, kept current by the daily runs.
-- Writing: plain simple English, short, main point first, no semicolons or em dashes.
-- Languages (`config/languages.json`): a 5-minute pack every day (current focus), a lesson per language every week, a plan per language every month.
+- **Parts, each on its own page:** daily = Research (papers, research updates, reading list), News (world radar by category), Exploration (discovery by type, shorts, language). Weekly, monthly and quarterly = Research, Knowledge, Exploration (`docs/how_it_works.md` §2).
+- **Papers:** read the code-ranked shortlist (`candidates arxiv --ranked`), judge each abstract against the rubric in `prompts/arxiv.md`, keep trending and notable papers that pass it. Abstracts copied word for word. Tags from the fixed `paper_tags` list only, never free-text reasons.
+- **Reading list:** at least 3 entries every week, kept current by the daily runs: must-reads for the user plus important trending papers, models, reports and methods.
+- **World Radar:** every item has a news `section`, at least 6 categories a day, markets every day.
+- **Daily Discovery:** an established-tier podcast, a video, lecture or documentary, and at least one item per tier. Shorts: at least one per tier.
+- **Weekly:** items grouped by `section`. Required by load: research practice, questions, culture, and for normal weeks also things to know and people and self. Learning items have detailed steps and real resources (book chapters, lectures, blogs, papers).
+- **Monthly:** a research, a knowledge and an exploration deep dive (unless light), each a week-by-week syllabus with resources, and at least one growth item.
+- **Quarterly:** `quarterly draft` fills the numbers and topics. Write only the short summaries and one-line abouts.
+- **Writing:** plain simple English, short, main point first, no semicolons or em dashes.
+- **Languages** (`config/languages.json`): a 5-minute pack every day (current focus), a lesson per language every week, a plan per language every month.
 
 ## Which prompt
 
 | Situation | Prompt |
 |---|---|
 | Scheduled runs | `prompts/runs/daily.md`, `shorts.md`, `weekly.md`, `monthly.md`, `quarterly.md` |
+| Changing how the system works | `docs/how_it_works.md` (update it too) |
 | "Recommend me…", "I want to try…" | `prompts/on_demand_recommendations.md`, then `prompts/inbox.md` to record it |
 | User shares interests, projects, trips, how busy they are | `prompts/update_interests.md` |
 | Feedback on a week or month | `prompts/feedback.md` |
@@ -46,6 +48,9 @@ python scripts/dsys.py ideas add|list|schedule|defer|drop|resize|replace|remove 
 python scripts/dsys.py interests list|find|add|remove|move ...  # e.g. growth.for_research
 python scripts/dsys.py feedback record|apply --period P ...
 python scripts/dsys.py reading show|add --week W --json papers.json
+python scripts/dsys.py candidates arxiv --ranked | --ids a,b   # ranked shortlist, then full abstracts
+python scripts/dsys.py candidates news --category C --brief    # headlines by news category
+python scripts/dsys.py quarterly draft --quarter YYYY-Qn
 python scripts/validate.py && python scripts/build.py && python -m pytest -q
 ```
 

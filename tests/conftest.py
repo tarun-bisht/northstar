@@ -152,7 +152,7 @@ def fill_sections(repo: Repo) -> None:
         doc = load_json(f)
         have = {monthly_section(pj) for pj in doc["items"]}
         doc["items"] += [project(f"m-{doc['month']}-fill-{sec}", section=sec, title=f"Filler {sec}", tier="established")
-                         for sec in ("research", "knowledge") if sec not in have]
+                         for sec in ("research", "knowledge", "exploration") if sec not in have]
         write_json(f, doc)
 
 
@@ -161,7 +161,7 @@ def monthly(repo: Repo, month="2026-12", items=None):
     from dsys.render import monthly_section
     have = {monthly_section(pj) for pj in items}
     items = list(items) + [project(f"m-{month}-fill-{sec}", section=sec, title=f"Filler {sec}", tier="established")
-                           for sec in ("research", "knowledge") if sec not in have]
+                           for sec in ("research", "knowledge", "exploration") if sec not in have]
     doc = {"schema": "monthly", "month": month, "generated_at": "2026-12-01T01:00:00Z", "load": "normal",
            "intro": "Optional depth.", "items": items, "language": {"plans": [PLAN]}}
     write_json(repo.monthly_path(month), doc)

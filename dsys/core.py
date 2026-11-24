@@ -37,10 +37,14 @@ STREAM_META = {
                 "description": "Optional one-month deep dives, projects and experiences."},
     "quarterly": {"title": "Quarterly review", "feed": "quarterly.xml",
                   "description": "Every three months: stats, a short summary of research and discovery, and the topics covered."},
-    "daily": {"title": "Daily digest", "feed": "daily.xml",
-              "description": "One item per day with every section: papers, research, world news, discovery and language."},
+    "research": {"title": "Research (daily)", "feed": "research.xml",
+                 "description": "One item per day: the papers, research updates and this week's reading list."},
+    "news": {"title": "News (daily)", "feed": "news.xml",
+             "description": "One item per day: the world radar by category."},
+    "exploration": {"title": "Exploration (daily)", "feed": "exploration.xml",
+                    "description": "One item per day: podcasts, videos, reads, things to try, shorts and the language pack."},
 }
-DIGEST_FEEDS = ["daily"]  # feeds built from other streams, not from their own content files
+DIGEST_FEEDS = ["research", "news", "exploration"]  # daily part digests, built from the daily streams
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WEEK_RE = re.compile(r"^(\d{4})-W(\d{2})$")

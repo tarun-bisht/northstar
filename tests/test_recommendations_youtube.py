@@ -628,9 +628,9 @@ def test_language_context_and_rendering(repo, tmp_path):
     assert "languages" in context(repo, "weekly", D, "2026-W49")
     weekly(repo)
     out = build_site(repo, tmp_path / "s")
-    day = (out / "daily" / "2026-11-24.html").read_text()
+    day = (out / "daily" / "2026-11-24" / "exploration.html").read_text()
     assert "コーヒーをください" in day and "kōhī o kudasai" in day and "<summary>Answer</summary>" in day
-    wk = (out / "weekly" / "2026-W49.html").read_text()
+    wk = (out / "weekly" / "2026-W49" / "exploration.html").read_text()
     assert "Languages" in wk and "こんにちは" in wk
     xml = build_feed(repo, "language")
     assert "Japanese: At a café" in xml

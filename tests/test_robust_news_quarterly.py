@@ -215,33 +215,40 @@ def test_world_sections_derived():
     assert render.world_section({"section": "explainers", "topic": "science", "regions": []}) == "explainers"
 
 
-def test_daily_digest_feed(repo):
+def test_daily_part_digest_feeds(repo):
     daily(repo, "arxiv", "2026-11-24", [paper()])
-    root = ET.fromstring(build_feed(repo, "daily"))
+    root = ET.fromstring(build_feed(repo, "research"))
     item = root.find("channel/item")
-    assert item.find("guid").text == "dsys:daily:2026-11-24"
-    assert item.find("title").text.startswith("Tue 24 Nov: 1 papers")
+    assert item.find("guid").text == "dsys:research:2026-11-24"
+    assert item.find("title").text.startswith("Research, Tue 24 Nov: 1 papers")
+    assert item.find("link").text.endswith("/daily/2026-11-24/research.html")
     html = item.find("{http://purl.org/rss/1.0/modules/content/}encoded").text
-    assert "<h2>Research</h2>" in html and "arXiv Paper Radar (1)" in html
+    assert "arXiv Paper Radar (1)" in html
+    assert ET.fromstring(build_feed(repo, "news")).find("channel/item") is None  # no news that day
 
 
 def test_quarterly_draft_validate_and_feed(repo):
+    from conftest import monthly
     daily(repo, "arxiv", "2026-11-24", [paper()])
+    monthly(repo, "2026-11")
     out = quarterly.draft(repo, "2026-Q4")
     p = repo.p(out["path"])
     doc = load_json(p)
-    assert doc["stats"]["counts"]["arxiv"] == 1 and doc["summary"] == ""
+    assert doc["stats"]["counts"]["arxiv"] == 1 and out["topics_to_describe"]["research"] >= 1
+    assert all(t["url"].endswith(f"/monthly/2026-11/{part}.html") for part, pt in doc["parts"].items() for t in pt["topics"])
     rep = validate_repo(repo)
     assert any("2026-Q4" in e and "summary" in e for e in rep.errors)
-    doc["summary"] = "Papers this quarter were mostly about unlearning evaluation."
+    for part in doc["parts"].values():
+        part["summary"] = "Two plain lines about this part." if part["topics"] else ""
+        for t in part["topics"]:
+            t["about"] = "One plain sentence."
     p.write_text(json.dumps(doc))
     rep = validate_repo(repo)
     assert not [e for e in rep.errors if "quarterly" in e], rep.errors
-    root = ET.fromstring(build_feed(repo, "quarterly"))
-    assert root.find("channel/item/guid").text == "dsys:quarterly:2026-Q4"
-    # a re-draft keeps the summary
-    quarterly.draft(repo, "2026-Q4")
-    assert load_json(p)["summary"].startswith("Papers this quarter")
+    guids = {i.find("guid").text for i in ET.fromstring(build_feed(repo, "quarterly")).findall("channel/item")}
+    assert {"dsys:quarterly:2026-Q4:index", "dsys:quarterly:2026-Q4:research"} <= guids
+    quarterly.draft(repo, "2026-Q4")  # a re-draft keeps what was written
+    assert load_json(p)["parts"]["research"]["summary"].startswith("Two plain lines")
 
 
 def test_discovery_grouped_by_type():
@@ -257,5 +264,65 @@ def test_weekly_and_monthly_section_rules():
     doc["items"].append({"category": "making", "section": "culture"})
     assert weekly_section_errors(doc) == []
     assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}]})
-    assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}, {"kind": "non_ai_deep_dive"}]}) == []
+    assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}, {"kind": "non_ai_deep_dive"}]})
+    assert monthly_section_errors({"load": "normal", "items": [{"kind": "ai_deep_dive"}, {"kind": "non_ai_deep_dive"},
+                                                               {"kind": "hobby_skill"}]}) == []
     assert monthly_section_errors({"load": "light", "items": [{"kind": "hobby_skill"}]}) == []
+
+
+# --- paper ranking and news categories -------------------------------------------------
+SRC = {"arxiv": {"coverage": {"topics": [
+    {"interest": "machine unlearning", "categories": ["cs.LG"], "keywords": ["unlearning", "forget set"], "weight": 1.5},
+    {"interest": "world models", "categories": ["cs.LG", "cs.RO"], "keywords": ["world model", "jepa"], "weight": 2},
+    {"interest": "learning stability", "categories": ["cs.LG"], "keywords": ["algorithmic stability"], "weight": 1}]},
+    "ranking": {"shortlist_size": 2, "per_interest": 1, "trending_alphaxiv_votes": 5, "venues": ["ICLR"]}}}
+
+
+def _cand(aid, title, abstract="", cats=("cs.LG",), **kw):
+    return {"arxiv_id": aid, "title": title, "abstract": abstract, "categories": list(cats), **kw}
+
+
+def test_rank_relevance_quality_and_category_gate():
+    from dsys import rank
+    cands = [
+        _cand("2611.00001", "Certified unlearning for LLMs", "We release code at github.com/x.", comment="Accepted at ICLR 2027"),
+        _cand("2611.00002", "A survey", "Mentions unlearning once."),
+        _cand("2611.00003", "Orbital algorithmic stability of asteroids", cats=("astro-ph.EP",)),  # wrong field
+        _cand("2611.00004", "Something trending", cats=(), alphaxiv_votes=12),
+        _cand("2611.00005", "JEPA world models", cats=("cs.RO",)),
+    ]
+    rows = rank.rank(cands, SRC)
+    ids = [r["arxiv_id"] for r in rows]
+    assert "2611.00003" not in ids                       # keywords outside the topic's categories don't count
+    assert ids[0] == "2611.00001"                        # title match + code + venue
+    top = rows[0]
+    assert top["interests"] == ["machine unlearning"] and "code released" in top["signals"] and "venue ICLR" in top["signals"]
+    assert next(r for r in rows if r["arxiv_id"] == "2611.00004")["trending"]
+    sl = rank.shortlist(cands, SRC)
+    got = {r["arxiv_id"] for r in sl["shortlist"]}
+    assert {"2611.00001", "2611.00005"} <= got           # every interest gets a place
+    assert {r["arxiv_id"] for r in sl["also_trending_or_notable"]} <= {"2611.00004"}
+
+
+def test_news_categorize_and_merge():
+    cfg = load_json(ROOT / "config" / "sources.json")["world"]
+    cat = lambda t, sec="world": news.categorize({"title": t, "section": sec}, cfg)  # noqa: E731
+    assert cat("Sensex falls 500 points as rupee hits record low", "india") == "economy_markets"
+    assert cat("Missile strike kills 12 in Kharkiv") == "conflict_disaster"
+    assert cat("India and Japan sign defence pact at bilateral summit") == "geopolitics"
+    assert cat("Gukesh wins game 3 of world chess championship") == "other"
+    assert cat("Anything at all", "explainers") == "explainers"
+    merged = news.merge_duplicates([
+        {"title": "RBI keeps repo rate unchanged at 5.5 per cent", "source": "Mint", "url": "https://a/1"},
+        {"title": "RBI keeps repo rate unchanged, signals pause", "source": "BBC", "url": "https://b/2"},
+        {"title": "Floods hit Kerala", "source": "The Hindu", "url": "https://c/3"}])
+    assert len(merged) == 2 and merged[0]["also_in"] == [{"source": "BBC", "url": "https://b/2"}]
+
+
+def test_config_warns_when_interest_has_no_coverage(repo):
+    from dsys.config import check
+    cfg = load_json(repo.p("config", "interests.json"))
+    cfg["established"]["ai_research"].append("quantum machine learning")
+    repo.p("config", "interests.json").write_text(json.dumps(cfg))
+    _, warnings = check(repo)
+    assert any("quantum machine learning" in w for w in warnings)

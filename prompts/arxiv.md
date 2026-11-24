@@ -2,21 +2,36 @@
 
 Read `prompts/_shared.md` first.
 
-The job is to filter. From hundreds of new papers, keep only the good ones that matter for the configured interests, and drop the rest. Fewer and better is the point.
+The job is to filter. From a few thousand new papers, keep only the high-quality ones that would make the user a better researcher (vision §6), and drop the rest. Fewer and better is the point. A typical day keeps 5 to 12. Zero is fine on a quiet day.
+
+## Where candidates come from
+
+`candidates/arxiv/<today>.json` is fetched at 06:00 IST (gaps refilled at 06:50) from three sources:
+- the **arXiv API**, for every category in `config/sources.json → arxiv.categories`, which together cover every research interest (`arxiv.coverage`). rss.arxiv.org is the fallback.
+- **Hugging Face Daily Papers**: community upvotes (`hf_upvotes`).
+- **alphaXiv trending**: community votes (`alphaxiv_votes`), papers becoming important even if not predicted from static interests.
 
 ## Steps
 
 1. `python scripts/dsys.py context arxiv --date <today>`. If `is_weekday` is false, stop.
-2. Candidates: `python scripts/dsys.py candidates arxiv --date <today> --brief` lists unseen papers from the arXiv API, Hugging Face Daily Papers and alphaXiv trending (fetched at 06:00 IST, gaps refilled at 06:50). Page with `--limit 150 --offset N`. The brief rows carry signals: `hf_upvotes`, `alphaxiv_votes` and `notable_authors`.
-   - If the file is missing, or its `failed_sources` lists categories, read `https://arxiv.org/list/<category>/new` for those categories instead, and say so in `notes`.
-3. **Shortlist by title, then decide by abstract.** Scan titles against `config/interests.json` (`established.ai_research`, `established.foundations`, sometimes `growth.for_research`) and keep a generous shortlist. Then read the full abstract of every shortlisted paper (`candidates arxiv` without `--brief`, or the abs page) and decide on the abstract, never on the title alone.
-4. Interests are broad. Besides the user's core areas, deep learning in general counts, including information retrieval, graph neural networks, diffusion and generative models, world models, deep learning for combinatorial optimization, and AI for science such as protein structure (AlphaFold-style work).
-5. Keep only good papers. Signs of quality: a clear contribution, careful evaluation, code or data released, a strong group or venue, or real community interest (`hf_upvotes`, `alphaxiv_votes`). Drop incremental tweaks, thin benchmark chasing and near duplicates. Zero papers on a quiet day is fine.
-6. **Notable researchers.** A paper with `notable_authors` (list in `config/sources.json → notable_researchers`), or by another widely recognised researcher or lab, is kept when its abstract touches any interest above, even if it would otherwise be borderline. Give it the tag `notable researcher`.
+2. **Ranked shortlist (code, no AI):** `python scripts/dsys.py candidates arxiv --date <today> --ranked`. Every paper is scored in code from its title, abstract and signals (`dsys/rank.py`). The shortlist holds the best 3 papers for every interest, filled up to about 80 by score, plus `also_trending_or_notable`. Each row shows `interests` (which ones it matches), `signals` (votes, upvotes, notable researcher, code released, venue) and `score`.
+   - If the file is missing, or `failed_sources` lists categories, read `https://arxiv.org/list/<category>/new` for those categories and say so in `notes`.
+3. **Read abstracts, in batches:** `python scripts/dsys.py candidates arxiv --date <today> --ids <id1>,<id2>,...` prints full candidates. Read every abstract in the shortlist and in `also_trending_or_notable`. Never decide from a title alone. Never open PDFs. The abstract and the signals are the evidence.
+4. **Judge quality from the abstract.** Rate each paper 1 to 5 in your head:
+   - **5, keep:** a clear, specific contribution; strong evidence (experiments on standard benchmarks against strong baselines, real theory, or a large careful analysis); concrete results stated; plus at least one outside signal (venue, notable group, community votes, released code).
+   - **4, keep:** clear contribution and solid evidence, even without outside signals.
+   - **3, keep only if** it is close to the user's own work or the abstract shows an unusually useful idea, dataset or negative result.
+   - **1 to 2, drop.** Red flags: a "novel framework" with no stated results; one small dataset; a combination of existing tricks; overclaiming without evidence; a prompt wrapper with no evaluation; an application with no transferable insight; a vague abstract.
+5. **What to keep (vision §6).** Both kinds count:
+   - *direct relevance:* close to or useful for the user's research interests
+   - *research development value:* an important method, a challenged assumption, a useful theory, a strong benchmark, an exposed failure mode, a useful methodology, a connection between fields, an important negative result, a field-shifting idea
+   - **Trending is a reason on its own.** A paper in `also_trending_or_notable` that is high quality and touches any interest is kept, even if it scored low on keywords. "This paper is becoming widely discussed" is valuable for a researcher.
+   - **Notable researchers.** A paper with `notable_authors` (or by another widely recognised group) is kept when its abstract touches any interest and passes the quality bar. Tag it `notable researcher`.
+6. Balance the day: don't let one area take every slot. If five good papers are all on one topic, keep the best two or three.
 7. For each kept paper, fill: `id` (`arxiv-<id>`), `arxiv_id`, `title`, `authors`, `url`, `pdf_url`, `submitted`, `categories`, `abstract` (**copied word for word**), `abstract_source`, `research_area` (two or three words), `hf_upvotes` if known, `dimensions`.
-8. **Tags, not reasons.** Give 1 to 3 tags from `paper_tags` in the context, most important first. These are the only tags allowed:
+8. **Tags, not reasons.** Give 1 to 3 tags from `paper_tags`, most important first. These are the only tags allowed:
    close to your work, useful for your work, new method or architecture, strong result, notable researcher, benchmark or dataset, theory, survey or tutorial, worth knowing.
    Never write a reason or explanation. Never mention a project or method of the user's.
-9. Mark the rest as seen: `python scripts/dsys.py papers mark-seen <id> ...`.
-10. If a paper is a must read for the week, also add it to the reading list (`prompts/reading_list.md`).
-11. Merge: `python scripts/dsys.py daily merge arxiv --date <today> --items /tmp/arxiv.json`, then `history rebuild` and `validate`.
+9. Mark every shortlisted paper you read but did not keep as seen: `python scripts/dsys.py papers mark-seen <id> ...`.
+10. **Reading list:** the best one to three papers of the day (yours, or trending and important for any researcher) also go on this week's reading list (`prompts/reading_list.md`).
+11. Merge: `python scripts/dsys.py daily merge arxiv --date <today> --items /tmp/arxiv.json`, then `history rebuild` and `validate`. Put a one-line `notes` on the day: how many candidates, how many shortlisted, how many kept.

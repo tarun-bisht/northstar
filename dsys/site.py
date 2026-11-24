@@ -129,11 +129,17 @@ CSS += """
 .plan ol{list-style:none;padding:0}
 .plan li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
 .plan li .meta{margin:0}
+.plain{list-style:none;padding:0}.plain li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
 /* daily */
 .daynav{display:flex;justify-content:space-between;gap:1rem;font:400 .9rem var(--sans);margin:.2rem 0 1.4rem}
 .toc{font:400 .92rem/1.5 var(--sans);padding:.6rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .toc p{margin:.25rem 0;display:flex;flex-wrap:wrap;gap:.2rem .9rem;align-items:baseline}
-.toc strong{min-width:6rem}.toc span{color:var(--ink-2)}.toc a.minor{color:var(--ink-2)}
+.toc strong{min-width:6rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 1.2rem;font:600 .92rem var(--sans)}
+.tab{padding:.45rem .9rem;border:1px solid var(--rule);border-radius:999px;text-decoration:none;color:var(--ink)}
+.tab span{font-weight:400;color:var(--ink-2)}.tab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tab.on span{color:var(--paper)}a.tab:hover{border-color:var(--ink)}
+h1 .sub{display:block;font:400 1rem var(--sans);color:var(--ink-2);margin-top:.4rem}.toc span{color:var(--ink-2)}.toc a.minor{color:var(--ink-2)}
 .group{margin-top:2.2rem}.group>h2{margin:0 0 .4rem;padding-bottom:.35rem;border-bottom:2px solid var(--ink)}
 .stream-block{margin:1.4rem 0 0}
 .stream-h,.sub-h{font-family:var(--sans);font-weight:700;letter-spacing:.02em;display:flex;gap:.6rem;align-items:baseline}
@@ -370,45 +376,116 @@ def _stream_block(s: str, doc: dict, date: str | None = None) -> str:
     return "".join(out)
 
 
-def _daily_page(site, date, streams, depth, prev=None, nxt=None, title=None, reading=None) -> str:
-    nav = ('<div class="daynav">'
-           + (f'<a href="{prev}.html" rel="prev">Earlier: {render.nice_date(prev)}</a>' if prev else "<span></span>")
-           + (f'<a href="{nxt}.html" rel="next">Later: {render.nice_date(nxt)}</a>' if nxt else "<span></span>")
-           + "</div>")
+def _part_tabs(parts: list[tuple[str, str, int]], current: str | None, prefix: str) -> str:
+    """Tabs linking the overview and each part page. prefix is the path from this page to the part pages."""
+    over = "<span class='tab on'>Overview</span>" if current is None else f"<a class='tab' href='{prefix}index.html'>Overview</a>"
+    tabs = [over] + [f"<span class='tab on'>{esc(label)} <span>{n}</span></span>" if key == current else
+                     f"<a class='tab' href='{prefix}{key}.html'>{esc(label)} <span>{n}</span></a>"
+                     for key, label, n in parts]
+    return "<nav class='tabs'>" + "".join(tabs) + "</nav>"
+
+
+def _with_reading(streams: dict, reading: dict | None) -> dict:
     streams = dict(streams)
     if reading and reading.get("papers"):
         streams["reading"] = reading
-    groups = [(g, label, [s for s in ss if s in streams]) for g, label, ss in render.DAILY_GROUPS]
-    groups = [x for x in groups if x[2]]
-
-    def n(s):
-        return len(streams[s]["papers"] if s == "reading" else streams[s]["items"])
-    toc = ['<nav class="toc">']
-    for g, label, present in groups:
-        links = []
-        for s in present:
-            if s == "world":
-                links += [f'<a href="#news-{k}">{esc(lab)}</a> <span>{len(its)}</span>'
-                          for k, lab, its in render.group_world(streams[s]["items"])]
-            elif s == "discovery":
-                links += [f'<a href="#discover-{k}">{esc(lab)}</a> <span>{len(its)}</span>'
-                          for k, lab, its in render.group_discovery(streams[s]["items"])]
-            else:
-                short = {"arxiv": "Papers", "research_updates": "Research updates", "reading": "Reading list",
-                         "youtube_shorts": "Shorts", "language": "Language"}.get(s, _stream_title(s))
-                links.append(f'<a href="#{s}">{esc(short)}</a> <span>{n(s)}</span>')
-        toc.append(f'<p><strong><a href="#{g}">{esc(label)}</a></strong> ' + " ".join(links) + "</p>")
-    toc.append("</nav>")
-    body = [f"<h1>{esc(title or long_date(date))}</h1>", nav, "".join(toc)]
-    for g, label, present in groups:
-        body.append(f'<section id="{g}" class="group"><h2>{esc(label)}</h2>')
-        body += [_stream_block(s, streams[s], date) for s in present]
-        body.append("</section>")
-    body.append(nav)
-    return page(site, title or date, "".join(body), depth, "archive")
+    return streams
 
 
-# --- build ----------------------------------------------------------------------------
+def _count(streams: dict, s: str) -> int:
+    return len(streams[s]["papers"] if s == "reading" else streams[s]["items"])
+
+
+def _daily_parts(streams: dict) -> list[tuple[str, str, int]]:
+    return [(k, label, sum(_count(streams, s) for s in ss if s in streams))
+            for k, label, ss in render.DAILY_PARTS if any(s in streams for s in ss)]
+
+
+def _daynav(prev, nxt, suffix: str = ".html", up: str = "") -> str:
+    return ('<div class="daynav">'
+            + (f'<a href="{up}{prev}{suffix}" rel="prev">Earlier: {render.nice_date(prev)}</a>' if prev else "<span></span>")
+            + (f'<a href="{up}{nxt}{suffix}" rel="next">Later: {render.nice_date(nxt)}</a>' if nxt else "<span></span>")
+            + "</div>")
+
+
+def _daily_part_page(site, date, streams, part, prev=None, nxt=None) -> str:
+    """daily/<date>/<part>.html: one part of the day (research, news or exploration)."""
+    key, label, names = next(x for x in render.DAILY_PARTS if x[0] == part)
+    present = [s for s in names if s in streams]
+    toc = []
+    for s in present:
+        if s == "world":
+            toc += [f'<a href="#news-{k}">{esc(lab)}</a> <span>{len(its)}</span>' for k, lab, its in render.group_world(streams[s]["items"])]
+        elif s == "discovery":
+            toc += [f'<a href="#discover-{k}">{esc(lab)}</a> <span>{len(its)}</span>' for k, lab, its in render.group_discovery(streams[s]["items"])]
+        else:
+            short = {"arxiv": "Papers", "research_updates": "Research updates", "reading": "Reading list",
+                     "youtube_shorts": "Shorts", "language": "Language"}.get(s, _stream_title(s))
+            toc.append(f'<a href="#{s}">{esc(short)}</a> <span>{_count(streams, s)}</span>')
+    body = [f"<h1>{esc(label)}<span class='sub'>{esc(long_date(date))}</span></h1>",
+            _part_tabs(_daily_parts(streams), part, ""),
+            '<nav class="toc"><p>' + " ".join(toc) + "</p></nav>" if toc else ""]
+    body += [_stream_block(s, streams[s], date) for s in present]
+    body.append(_daynav(prev, nxt, f"/{part}.html", "../"))
+    return page(site, f"{label}, {date}", "".join(body), 2, "archive")
+
+
+def _daily_overview(site, date, streams, prev=None, nxt=None) -> str:
+    """daily/<date>/index.html: the three parts with their first few items."""
+    body = [f"<h1>{esc(long_date(date))}</h1>", _part_tabs(_daily_parts(streams), None, "")]
+    cards = []
+    for key, label, names in render.DAILY_PARTS:
+        lis = []
+        for s in names:
+            if s not in streams:
+                continue
+            items = streams[s]["papers"] if s == "reading" else streams[s]["items"]
+            title = {"reading": "Reading list"}.get(s, STREAM_META.get(s, {}).get("title", s))
+            first = "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>" for it in items[:3])
+            lis.append(f"<h4 class='sub-h'>{esc(title)} <span>{len(items)}</span></h4><ul>{first}</ul>")
+        if lis:
+            cards.append(f"<div class='stream'><h3><a href='{key}.html'>{esc(label)}</a></h3>{''.join(lis)}"
+                         f"<p><a href='{key}.html'>Open {esc(label.lower())}</a></p></div>")
+    body.append("<div class='today'>" + "".join(cards) + "</div>")
+    body.append(_daynav(prev, nxt, "/index.html", "../"))
+    return page(site, date, "".join(body), 2, "archive")
+
+
+def _period_pages(out: Path, site: dict, kind: str, key: str, title: str, overview_html: str,
+                  part_html: dict[str, str], counts: dict[str, int]) -> None:
+    """<kind>/<key>/index.html plus one page per part, all sharing the same tabs."""
+    parts = [(k, label, counts.get(k, 0)) for k, label in render.PERIOD_PARTS]
+    _write(out / kind / key / "index.html",
+           page(site, title, f"<div class='col'><h1>{esc(title)}</h1>{_part_tabs(parts, None, '')}{overview_html}</div>", 2, kind))
+    for k, label in render.PERIOD_PARTS:
+        _write(out / kind / key / f"{k}.html",
+               page(site, f"{label}, {title}", f"<div class='col'><h1>{esc(label)}<span class='sub'>{esc(title)}</span></h1>"
+                    f"{_part_tabs(parts, k, '')}{part_html.get(k) or '<p class=empty>Nothing in this part.</p>'}</div>", 2, kind))
+    # old flat URL keeps working
+    _write(out / kind / f"{key}.html", f'<!doctype html><meta http-equiv="refresh" content="0; url={key}/index.html">'
+           f'<link rel="canonical" href="{key}/index.html"><a href="{key}/index.html">{esc(title)}</a>')
+
+
+def _weekly_overview(w: dict) -> str:
+    out = [f'<p class="lede">{esc(w["intro"])}</p>']
+    for k, label in render.PERIOD_PARTS:
+        its = [it for it in w["items"] if render.weekly_part(it) == k]
+        if its:
+            out.append(f"<h2><a href='{k}.html'>{esc(label)}</a></h2><ul>" + "".join(
+                f"<li><a href='{k}.html#{render.weekly_section(it)}'>{esc(it['title'])}</a></li>" for it in its) + "</ul>")
+    return "".join(out)
+
+
+def _monthly_overview(m: dict) -> str:
+    out = [f'<p class="lede">{esc(m["intro"])}</p>']
+    for k, label in render.PERIOD_PARTS:
+        pjs = [pj for pj in m["items"] if render.monthly_section(pj) == k]
+        if pjs:
+            out.append(f"<h2><a href='{k}.html'>{esc(label)}</a></h2><ul>" + "".join(
+                f"<li><a href='{k}.html'>{esc(pj['title'])}</a></li>" for pj in pjs) + "</ul>")
+    return "".join(out)
+
+
 def build_site(repo: Repo, out: Path | None = None) -> Path:
     out = out or repo.p("_site")
     if out.exists():
@@ -429,8 +506,12 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
     for i, (date, streams) in enumerate(daily.items()):
         nxt = dates[i - 1] if i > 0 else None
         prev = dates[i + 1] if i + 1 < len(dates) else None
-        rl = reading_by_week.get(iso_week(dt.date.fromisoformat(date)))
-        _write(out / "daily" / f"{date}.html", _daily_page(site, date, streams, 1, prev, nxt, reading=rl))
+        st = _with_reading(streams, reading_by_week.get(iso_week(dt.date.fromisoformat(date))))
+        _write(out / "daily" / date / "index.html", _daily_overview(site, date, st, prev, nxt))
+        for key, _, _ in _daily_parts(st):
+            _write(out / "daily" / date / f"{key}.html", _daily_part_page(site, date, st, key, prev, nxt))
+        _write(out / "daily" / f"{date}.html", f'<!doctype html><meta http-equiv="refresh" content="0; url={date}/index.html">'
+               f'<a href="{date}/index.html">{date}</a>')
 
     for r in readings:
         _write(out / "reading" / f"{r['week']}.html",
@@ -443,13 +524,14 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
     weeks = sorted((load_json(f) for f in repo.iter_stream_files("weekly")), key=lambda d: d["week"], reverse=True)
     months = sorted((load_json(f) for f in repo.iter_stream_files("monthly")), key=lambda d: d["month"], reverse=True)
     for w in weeks:
-        _write(out / "weekly" / f"{w['week']}.html",
-               page(site, f"Week {w['week']}", f"<div class='col'><h1>Week of {render.nice_date(w['start_date'])}</h1>"
-                    f"{render.weekly_package(w)}</div>", 1, "weekly"))
+        counts = {k: sum(1 for it in w["items"] if render.weekly_part(it) == k) for k, _ in render.PERIOD_PARTS}
+        _period_pages(out, site, "weekly", w["week"], f"Week of {render.nice_date(w['start_date'], True)}",
+                      _weekly_overview(w), {k: render.weekly_package(w, k) for k, _ in render.PERIOD_PARTS}, counts)
     for m in months:
         label = dt.date.fromisoformat(m["month"] + "-01").strftime("%B %Y")
-        _write(out / "monthly" / f"{m['month']}.html",
-               page(site, label, f"<div class='col'><h1>{label}</h1>{render.monthly_package(m)}</div>", 1, "monthly"))
+        counts = {k: sum(1 for pj in m["items"] if render.monthly_section(pj) == k) for k, _ in render.PERIOD_PARTS}
+        _period_pages(out, site, "monthly", m["month"], label, _monthly_overview(m),
+                      {k: render.monthly_package(m, k) for k, _ in render.PERIOD_PARTS}, counts)
 
     def plist(items, href, label_fn):
         if not items:
@@ -459,21 +541,21 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
             f"{'things' if len(x['items']) != 1 else 'thing'}</span></li>" for x in items) + "</ul>"
 
     _write(out / "weekly" / "index.html", page(site, "Weekly", "<div class='col'><h1>Weekly</h1></div>"
-           + (plist(weeks, lambda w: f"{w['week']}.html", lambda w: f"Week of {render.nice_date(w['start_date'], True)}")
+           + (plist(weeks, lambda w: f"{w['week']}/index.html", lambda w: f"Week of {render.nice_date(w['start_date'], True)}")
               or "<p class='empty'>The first package arrives on Saturday morning.</p>"), 1, "weekly"))
     _write(out / "monthly" / "index.html", page(site, "Monthly", "<div class='col'><h1>Monthly</h1></div>"
-           + (plist(months, lambda m: f"{m['month']}.html",
+           + (plist(months, lambda m: f"{m['month']}/index.html",
                     lambda m: dt.date.fromisoformat(m["month"] + "-01").strftime("%B %Y"))
               or "<p class='empty'>The first package arrives on the 1st.</p>"), 1, "monthly"))
 
     quarters = sorted((load_json(f) for f in repo.iter_stream_files("quarterly")), key=lambda d: d["quarter"], reverse=True)
     for q in quarters:
-        _write(out / "quarterly" / f"{q['quarter']}.html",
-               page(site, f"{q['quarter']} review",
-                    f"<div class='col'><h1>{esc(q['quarter'])} review</h1>{render.quarterly_review(q)}</div>", 1, "quarterly"))
+        counts = {k: len(q["parts"][k]["topics"]) for k, _ in render.PERIOD_PARTS}
+        _period_pages(out, site, "quarterly", q["quarter"], f"{q['quarter']} review", render.quarterly_review(q),
+                      {k: render.quarterly_review(q, k) for k, _ in render.PERIOD_PARTS}, counts)
     _write(out / "quarterly" / "index.html", page(site, "Quarterly", "<div class='col'><h1>Quarterly reviews</h1></div>"
-           + ("<ul class='days'>" + "".join(f"<li>{a(q['quarter'] + '.html', q['quarter'] + ' review')}"
-                                             f"<span class='meta'>{len(q['topics'])} topics</span></li>" for q in quarters) + "</ul>"
+           + ("<ul class='days'>" + "".join(f"<li>{a(q['quarter'] + '/index.html', q['quarter'] + ' review')}"
+                                             f"<span class='meta'>{sum(len(p['topics']) for p in q['parts'].values())} topics</span></li>" for q in quarters) + "</ul>"
               if quarters else "<p class='empty'>The first review arrives on 1 January.</p>"), 1, "quarterly"))
 
     # archive, grouped by month
@@ -488,24 +570,22 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
         arch.append(f"<h3>{dt.date.fromisoformat(m + '-01').strftime('%B %Y')}</h3><ul class='days'>")
         for d in ds:
             counts = ", ".join(f"{STREAM_SHORT[s].lower()} {len(doc['items'])}" for s, doc in daily[d].items())
-            arch.append(f"<li>{a('daily/' + d + '.html', dt.date.fromisoformat(d).strftime('%a %-d %b'))}"
+            arch.append(f"<li>{a('daily/' + d + '/index.html', dt.date.fromisoformat(d).strftime('%a %-d %b'))}"
                         f"<span class='meta'>{esc(counts)}</span></li>")
         arch.append("</ul>")
     arch.append("</div>")
     _write(out / "archive.html", page(site, "Archive", "".join(arch), 0, "archive"))
 
-    # ideas live in state/ideas.json (the repo), not on the website
-    reg = {"ideas": []}
-
-    # docs
-    readme = repo.p("README.md")
-    text = readme.read_text(encoding="utf-8") if readme.exists() else "README.md not found."
+    # docs: the vision and the system map, straight from docs/
     try:
         import markdown  # type: ignore
-        docs_html = markdown.markdown(text, extensions=["tables", "fenced_code"])
+        md = lambda t: markdown.markdown(t, extensions=["tables", "fenced_code"])  # noqa: E731
     except ImportError:
-        docs_html = f"<pre>{esc(text)}</pre>"
-    _write(out / "docs.html", page(site, "How it works", f"<div class='doc'>{docs_html}</div>", 0, "docs"))
+        md = lambda t: f"<pre>{esc(t)}</pre>"  # noqa: E731
+    for src, dest, title in (("docs/how_it_works.md", "docs.html", "How it works"), ("docs/vision.md", "vision.html", "Vision")):
+        f = repo.p(*src.split("/"))
+        text = f.read_text(encoding="utf-8") if f.exists() else f"{src} not found."
+        _write(out / dest, page(site, title, f"<div class='doc'>{md(text)}</div>", 0, "docs"))
 
     _write(out / "index.html", page(site, "Home", _home(repo, site, daily, weeks, months, feeds, readings), 0, "home"))
     (out / ".nojekyll").write_text("", encoding="utf-8")
@@ -524,51 +604,52 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
     quiet = _quiet_dimension(repo, day)
     b = [f'<section class="hero"><div><h1>{esc(site["title"])}</h1><p class="lede">{esc(site["description"])}</p></div>'
          f'<figure style="margin:0">{instrument_svg(counts, quiet)}</figure></section>']
-    buttons = [(f"daily/{latest}.html", "Today")] if latest else []
-    if readings:
-        buttons.append((f"reading/{readings[0]['week']}.html", "Reading list"))
-    buttons += [("archive.html", "Archive"), ("weekly/index.html", "Weekly"), ("monthly/index.html", "Monthly"),
-                ("quarterly/index.html", "Quarterly"), ("docs.html", "How it works")]
+    buttons = [(f"daily/{latest}/{k}.html", label) for k, label, _ in render.DAILY_PARTS] if latest else []
+    buttons += [("weekly/index.html", "Weekly"), ("monthly/index.html", "Monthly"), ("quarterly/index.html", "Quarterly"),
+                ("archive.html", "Archive"), ("vision.html", "Vision"), ("docs.html", "How it works")]
     b.append('<nav class="buttons" aria-label="Sections">' + "".join(
         f'<a class="btn" href="{h}">{t}</a>' for h, t in buttons) + "</nav>")
 
     if latest:
-        b.append(f"<h2>{esc(long_date(latest))}</h2><div class='today'>")
-        for s in DAILY_STREAMS:
-            doc = daily[latest].get(s)
-            if not doc:
-                continue
-            n = len(doc["items"])
-            lis = "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>"
-                          for it in doc["items"][:3])
-            more = f"<li>{a(f'daily/{latest}.html#{s}', f'All {n}')}</li>" if n > 3 else ""
-            b.append(f"<div class='stream'><h3>{esc(STREAM_META[s]['title'])} <span>{n}</span></h3><ul>{lis}{more}</ul></div>")
+        rl = next((r for r in readings if r["week"] == iso_week(day)), None)
+        st = _with_reading(daily[latest], rl)
+        b.append(f"<h2>{a(f'daily/{latest}/index.html', long_date(latest))}</h2><div class='today'>")
+        for key, label, names in render.DAILY_PARTS:
+            blocks = []
+            for s in names:
+                if s not in st:
+                    continue
+                items = st[s]["papers"] if s == "reading" else st[s]["items"]
+                title = "Reading list" if s == "reading" else STREAM_META[s]["title"]
+                lis = "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>" for it in items[:3])
+                blocks.append(f"<h4 class='sub-h'>{esc(title)} <span>{len(items)}</span></h4><ul>{lis}</ul>")
+            if blocks:
+                b.append(f"<div class='stream'><h3>{a(f'daily/{latest}/{key}.html', label)}</h3>{''.join(blocks)}</div>")
         b.append("</div>")
 
-    if readings:
-        r = readings[0]
-        lis = "".join(f"<li>{a(pp['url'], pp['title'])}{render.meta(esc(', '.join(pp['tags'])))}</li>" for pp in r["papers"][:6])
-        b.append(f"<h2>Read this week</h2><div class='plan'><div><ol>{lis}</ol></div></div>")
-
     plan = []
-    if weeks:
-        w = weeks[0]
-        lis = "".join(f"<li>{a('weekly/' + w['week'] + '.html', it['title'])}"
-                      f"{render.meta(TIME_LABEL.get(it['time_estimate']))}</li>" for it in w["items"])
-        plan.append(f"<div><h2>Week of {render.nice_date(w['start_date'])}</h2><ol>{lis}</ol></div>")
-    if months:
-        m = months[0]
-        label = dt.date.fromisoformat(m["month"] + "-01").strftime("%B")
-        lis = "".join(f"<li>{a('monthly/' + m['month'] + '.html', it['title'])}{render.meta(esc(it['time_estimate']))}</li>"
-                      for it in m["items"])
-        plan.append(f"<div><h2>{label}</h2><ol>{lis}</ol></div>")
+    for kind, docs, label_fn, part_fn in (
+            ("weekly", weeks, lambda d: f"Week of {render.nice_date(d['start_date'])}", render.weekly_part),
+            ("monthly", months, lambda d: dt.date.fromisoformat(d["month"] + "-01").strftime("%B"), render.monthly_section)):
+        if not docs:
+            continue
+        d = docs[0]
+        key = d.get("week") or d["month"]
+        lis = "".join(f"<li><strong>{a(f'{kind}/{key}/{k}.html', lab)}</strong>: "
+                      + esc(", ".join(it["title"] for it in d["items"] if part_fn(it) == k) or "nothing this time") + "</li>"
+                      for k, lab in render.PERIOD_PARTS)
+        plan.append(f"<div><h2>{a(f'{kind}/{key}/index.html', label_fn(d))}</h2><ul class='plain'>{lis}</ul></div>")
     if plan:
         b.append("<div class='plan'>" + "".join(plan) + "</div>")
 
-    rows = "".join(
-        f"<li><span class='fname'>{esc(STREAM_META[stream]['title'])}</span>"
-        f"<input readonly value='{esc(site['base_url'])}/feeds/{esc(path.name)}' aria-label='{esc(STREAM_META[stream]['title'])} feed URL' onclick='this.select()'>"
-        f"<button type='button' data-copy='{esc(site['base_url'])}/feeds/{esc(path.name)}'>Copy</button></li>"
-        for stream, path in feeds.items())
-    b.append(f"<h2>RSS feeds</h2><ul class='feeds'>{rows}</ul>")
+    def frow(stream, path):
+        url = f"{site['base_url']}/feeds/{path.name}"
+        return (f"<li><span class='fname'>{esc(STREAM_META[stream]['title'])}</span>"
+                f"<input readonly value='{esc(url)}' aria-label='{esc(STREAM_META[stream]['title'])} feed URL' onclick='this.select()'>"
+                f"<button type='button' data-copy='{esc(url)}'>Copy</button></li>")
+    from .core import DIGEST_FEEDS, PERIODIC_STREAMS
+    main = [s for s in DIGEST_FEEDS + PERIODIC_STREAMS if s in feeds and s != "reading"]
+    rest = [s for s in feeds if s not in main]
+    b.append("<h2>RSS feeds</h2><ul class='feeds'>" + "".join(frow(s, feeds[s]) for s in main) + "</ul>")
+    b.append("<h3>Single streams</h3><ul class='feeds'>" + "".join(frow(s, feeds[s]) for s in rest) + "</ul>")
     return "".join(b)

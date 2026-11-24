@@ -54,27 +54,6 @@
         "curiosity"
       ]
     },
-    "monthly:m-2026-11-feynman-probability-and-random-walks": {
-      "date": "2026-11-01",
-      "title": "Feynman on probability and random walks, read with ML in mind",
-      "category": "non_ai_deep_dive",
-      "dimensions": [
-        "knowledge",
-        "research",
-        "curiosity"
-      ],
-      "status": "suggested"
-    },
-    "monthly:m-2026-11-toy-models-of-superposition": {
-      "date": "2026-11-01",
-      "title": "Toy Models of Superposition: read it and rebuild the core experiment",
-      "category": "ai_deep_dive",
-      "dimensions": [
-        "research",
-        "knowledge"
-      ],
-      "status": "suggested"
-    },
     "weekly:w-2026-W48-after-life-kore-eda": {
       "date": "2026-11-23",
       "title": "After Life: which single memory would you keep?",

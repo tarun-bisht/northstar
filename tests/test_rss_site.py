@@ -66,18 +66,23 @@ def test_weekly_monthly_feeds_and_site(repo, tmp_path):
     monthly(repo)
     daily(repo, "world", "2026-11-24", [])
     assert validate_repo(repo).ok
-    w = ET.fromstring(build_feed(repo, "weekly")).find("channel/item")
-    assert w.find("guid").text == "dsys:weekly:2026-W49"
+    guids = {i.find("guid").text for i in ET.fromstring(build_feed(repo, "weekly")).findall("channel/item")}
+    assert {"dsys:weekly:2026-W49:research", "dsys:weekly:2026-W49:exploration"} <= guids
     out = build_site(repo, tmp_path / "site")
     assert not (out / "ideas.html").exists()  # ideas stay in the repo, not on the website
     feeds_page = (out / "index.html").read_text()
-    for name in ("arxiv", "research-updates", "world", "discovery", "youtube-shorts", "weekly", "monthly"):
+    for name in ("research", "news", "exploration", "arxiv", "research-updates", "world", "discovery", "youtube-shorts",
+                 "weekly", "monthly", "quarterly"):
         assert f"feeds/{name}.xml" in feeds_page
     assert "<nav class=\"main\"" not in feeds_page and not (out / "feeds.html").exists()
-    for f in ["index.html", "archive.html", "docs.html", 
-              "weekly/2026-W49.html", "monthly/2026-12.html", "daily/2026-11-24.html", "feeds/youtube-shorts.xml"]:
+    for f in ["index.html", "archive.html", "docs.html", "vision.html",
+              "weekly/2026-W49.html", "weekly/2026-W49/index.html", "weekly/2026-W49/research.html",
+              "weekly/2026-W49/knowledge.html", "weekly/2026-W49/exploration.html",
+              "monthly/2026-12/index.html", "monthly/2026-12/research.html", "monthly/2026-12/exploration.html",
+              "daily/2026-11-24/index.html", "daily/2026-11-24/news.html", "feeds/youtube-shorts.xml"]:
         assert (out / f).exists(), f
-    assert "Hint 2" in (out / "weekly/2026-W49.html").read_text()
+    assert "Hint 2" in (out / "weekly/2026-W49/research.html").read_text()
+    assert "Hint 2" not in (out / "weekly/2026-W49/exploration.html").read_text()
 
 
 def test_site_uses_configured_focus_names(repo, tmp_path):

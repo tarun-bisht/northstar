@@ -1,9 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://dsys.local/schemas/quarterly.schema.json",
-  "title": "Quarterly review: stats, a short summary and the topics covered",
+  "title": "Quarterly review: stats, and for each part a short summary and the topics covered",
   "type": "object",
-  "required": ["schema", "quarter", "from", "to", "generated_at", "stats", "summary", "topics"],
+  "required": ["schema", "quarter", "from", "to", "generated_at", "stats", "parts"],
   "additionalProperties": false,
   "properties": {
     "schema": {"const": "quarterly"},
@@ -22,32 +22,49 @@
         "days_with_content": {"type": "integer", "minimum": 0},
         "counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
         "discovery_by_tier": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
-        "top_paper_tags": {"type": "array", "items": {"type": "array", "prefixItems": [{"type": "string"}, {"type": "integer"}], "minItems": 2, "maxItems": 2}, "maxItems": 10},
-        "top_research_areas": {"type": "array", "items": {"type": "array", "prefixItems": [{"type": "string"}, {"type": "integer"}], "minItems": 2, "maxItems": 2}, "maxItems": 12}
+        "news_by_category": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+        "top_paper_tags": {"type": "array", "items": {"$ref": "#/$defs/count_pair"}, "maxItems": 10},
+        "top_research_areas": {"type": "array", "items": {"$ref": "#/$defs/count_pair"}, "maxItems": 12}
       }
     },
-    "summary": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 900,
-      "description": "Five or six short lines on research and discovery only: themes in papers and research updates, what weekly and monthly packages covered, what to lean into next. No shorts or news."
-    },
-    "topics": {
-      "type": "array",
-      "maxItems": 60,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["period", "kind", "title", "about"],
-        "properties": {
-          "period": {"type": "string"},
-          "kind": {"enum": ["weekly", "monthly", "reading"]},
-          "title": {"$ref": "common.schema.json#/$defs/nonempty"},
-          "url": {"type": "string"},
-          "about": {"type": "string", "maxLength": 200, "description": "One plain sentence on what the topic is."}
-        }
+    "parts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["research", "knowledge", "exploration"],
+      "properties": {
+        "research": {"$ref": "#/$defs/part"},
+        "knowledge": {"$ref": "#/$defs/part"},
+        "exploration": {"$ref": "#/$defs/part"}
       }
     },
     "notes": {"type": "string"}
+  },
+  "$defs": {
+    "count_pair": {"type": "array", "prefixItems": [{"type": "string"}, {"type": "integer"}], "minItems": 2, "maxItems": 2},
+    "part": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "topics"],
+      "properties": {
+        "summary": {"type": "string", "maxLength": 600,
+                    "description": "Two to four plain lines on this part of the quarter. Empty only when the part had no content."},
+        "topics": {
+          "type": "array",
+          "maxItems": 80,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["period", "kind", "title", "about"],
+            "properties": {
+              "period": {"type": "string"},
+              "kind": {"enum": ["weekly", "monthly"]},
+              "title": {"$ref": "common.schema.json#/$defs/nonempty"},
+              "url": {"type": "string"},
+              "about": {"type": "string", "maxLength": 200, "description": "One plain sentence on what the topic is."}
+            }
+          }
+        }
+      }
+    }
   }
 }

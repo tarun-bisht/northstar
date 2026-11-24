@@ -227,9 +227,7 @@
           "enum": [
             "research",
             "knowledge",
-            "culture_life",
-            "people_self",
-            "making"
+            "exploration"
           ],
           "description": "Section on the monthly page (prompts/monthly.md). Omit to derive it from kind."
         }

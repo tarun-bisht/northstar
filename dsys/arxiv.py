@@ -72,6 +72,8 @@ def parse_feed(xml_text: str) -> list[dict]:
             "submitted": (e.findtext(f"{ATOM}published") or "")[:10],
             "updated": (e.findtext(f"{ATOM}updated") or "")[:10],
             "categories": cats,
+            **({"comment": " ".join(e.findtext(f"{ARXIV}comment").split())} if e.findtext(f"{ARXIV}comment") else {}),
+            **({"journal_ref": " ".join(e.findtext(f"{ARXIV}journal_ref").split())} if e.findtext(f"{ARXIV}journal_ref") else {}),
             "primary_category": (e.find(f"{ARXIV}primary_category").get("term")
                                  if e.find(f"{ARXIV}primary_category") is not None else (cats[0] if cats else None)),
             "url": abs_url(aid),

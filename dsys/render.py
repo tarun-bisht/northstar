@@ -122,11 +122,15 @@ def cross_domain_line(item) -> str:
 
 
 # --- daily page structure (shared by the site and the daily RSS digest) ---------------
-DAILY_GROUPS = [  # (anchor, heading, streams). "reading" is this week's reading list, shown daily.
+# --- the parts every page is split into (each part has its own URL) -------------------
+# Daily: research / news / exploration. Weekly, monthly, quarterly: research / knowledge / exploration.
+DAILY_PARTS = [  # (key, heading, streams). "reading" is this week's reading list, shown every day.
     ("research", "Research", ["arxiv", "research_updates", "reading"]),
     ("news", "News", ["world"]),
-    ("discover", "Discover", ["discovery", "youtube_shorts", "language"]),
+    ("exploration", "Exploration", ["discovery", "youtube_shorts", "language"]),
 ]
+DAILY_GROUPS = DAILY_PARTS  # old name
+PERIOD_PARTS = [("research", "Research"), ("knowledge", "Knowledge"), ("exploration", "Exploration")]
 DISCOVERY_SECTIONS = [  # (key, label, recommendation types)
     ("podcasts", "Podcasts", {"podcast"}),
     ("videos", "Videos and lectures", {"video", "lecture", "documentary", "playlist", "course"}),
@@ -149,42 +153,52 @@ def group_discovery(items: list[dict]) -> list[tuple[str, str, list[dict]]]:
     return out
 
 
-WEEKLY_SECTIONS = [  # (key, label, what belongs)
-    ("research_practice", "Research practice", "a fundamentals problem, derivation, critique or experiment-design exercise"),
-    ("research_reading", "Research reading", "a paper or concept worth studying properly"),
-    ("questions", "Questions to think about", "maths, physics, probability or science puzzles with hints"),
-    ("talking_points", "History and philosophy", "stories, ideas and debates worth knowing and talking about"),
-    ("culture", "Culture", "music, art, books, films, anime and the people behind them"),
-    ("people_self", "People and self", "practice with real people: listening, conversation, courage, leadership"),
-    ("curiosity_making", "Curiosity and making", "hobbies, experiments, things to build or try"),
-    ("world", "Understanding the world", "a place, system or long-running story explained"),
+WEEKLY_SECTIONS = [  # (key, label, what belongs, part)
+    ("research_practice", "Research practice", "a fundamentals problem, derivation, critique or experiment-design exercise", "research"),
+    ("research_reading", "Research reading", "a paper or concept worth studying properly", "research"),
+    ("questions", "Questions to think about", "maths, probability, physics or science puzzles with hints", "knowledge"),
+    ("things_to_know", "Things to know and talk about", "anything worth knowing and bringing up in conversation", "knowledge"),
+    ("world", "Understanding the world", "a place, system or long-running story explained", "knowledge"),
+    ("culture", "Culture", "music, art, books, films, anime and the people behind them", "exploration"),
+    ("people_self", "People and self", "practice with real people: listening, conversation, courage, leadership", "exploration"),
+    ("curiosity_making", "Curiosity and making", "hobbies, experiments, things to build or try", "exploration"),
 ]
 _CATEGORY_SECTION = {"research_fundamentals": "research_practice", "ai_study": "research_reading",
-                     "paper": "research_reading", "question": "questions", "talking_point": "talking_points",
-                     "new_knowledge": "questions", "people": "people_self", "teaching": "people_self",
+                     "paper": "research_reading", "question": "questions", "talking_point": "things_to_know",
+                     "new_knowledge": "things_to_know", "people": "people_self", "teaching": "people_self",
                      "reflection": "people_self", "culture": "culture", "making": "curiosity_making",
                      "random_curiosity": "curiosity_making", "world_understanding": "world"}
+_OLD_WEEKLY = {"talking_points": "things_to_know"}
+SECTION_PART = {k: part for k, _, _, part in WEEKLY_SECTIONS}
 
 
 def weekly_section(it: dict) -> str:
-    return it.get("section") or _CATEGORY_SECTION.get(it.get("category"), "curiosity_making")
+    sec = it.get("section")
+    if sec:
+        return _OLD_WEEKLY.get(sec, sec)
+    if it.get("category") == "user_idea":
+        return "research_reading" if "research" in (it.get("dimensions") or []) else "curiosity_making"
+    return _CATEGORY_SECTION.get(it.get("category"), "curiosity_making")
+
+
+def weekly_part(it: dict) -> str:
+    return SECTION_PART[weekly_section(it)]
 
 
 MONTHLY_SECTIONS = [
     ("research", "Research deep dive"),
     ("knowledge", "Knowledge deep dive"),
-    ("culture_life", "Culture and life"),
-    ("people_self", "People and self"),
-    ("making", "Making and hobbies"),
+    ("exploration", "Exploration deep dive"),
 ]
 _KIND_SECTION = {"ai_deep_dive": "research", "research_exploration": "research", "non_ai_deep_dive": "knowledge",
-                 "exploration_theme": "knowledge", "people": "people_self", "teaching": "people_self",
-                 "creative_project": "making", "hobby_skill": "making"}
+                 "exploration_theme": "exploration", "people": "exploration", "teaching": "exploration",
+                 "creative_project": "exploration", "hobby_skill": "exploration"}
+_OLD_MONTHLY = {"culture_life": "exploration", "people_self": "exploration", "making": "exploration"}
 
 
 def monthly_section(pj: dict) -> str:
     if pj.get("section"):
-        return pj["section"]
+        return _OLD_MONTHLY.get(pj["section"], pj["section"])
     if pj.get("kind") == "user_idea":
         return "research" if "research" in (pj.get("dimensions") or []) else "knowledge"
     return _KIND_SECTION.get(pj.get("kind"), "knowledge")
@@ -424,19 +438,21 @@ LOAD_TEXT = {"light": "a busy stretch, so it's kept light", "normal": "an ordina
              "free": "some free time, so there's room to go deeper"}
 
 
-def weekly_package(doc: dict) -> str:
+def weekly_package(doc: dict, part: str | None = None) -> str:
     out = [f'<p class="lede">{esc(doc["intro"])}</p>',
            f"<p class='meta'>{nice_date(doc['start_date'])} to {nice_date(doc['end_date'], True)}, "
            f"planned for {LOAD_TEXT.get(doc['load'], doc['load'])}. All optional.</p>"]
-    for key, label, _ in WEEKLY_SECTIONS:
+    for key, label, _, sec_part in WEEKLY_SECTIONS:
+        if part and sec_part != part:
+            continue
         its = [it for it in doc["items"] if weekly_section(it) == key]
         if its:
             out.append(f"<h2 id='{key}'>{esc(label)}</h2>")
             out += [f'<section class="activity e-{(it.get("dimensions") or ["research"])[0]}">{activity(it)}</section>'
                     for it in its]
-    if doc.get("language"):
+    if doc.get("language") and part in (None, "exploration"):
         out.append(language_lessons(doc["language"]))
-    if doc.get("reflection_prompt"):
+    if doc.get("reflection_prompt") and part in (None, "exploration"):
         out.append(f"<h3>If you feel like reflecting</h3><p>{esc(doc['reflection_prompt'])}</p>")
     return "".join(out)
 
@@ -462,19 +478,21 @@ def project(pj: dict, heading: str = "h3") -> str:
     return "".join(out)
 
 
-def monthly_package(doc: dict) -> str:
+def monthly_package(doc: dict, part: str | None = None) -> str:
     out = [f'<p class="lede">{esc(doc["intro"])}</p>',
            f"<p class='meta'>Planned for {LOAD_TEXT.get(doc['load'], doc['load']).replace('week', 'month')}. "
            "Pick one, or none.</p>"]
     for key, label in MONTHLY_SECTIONS:
+        if part and key != part:
+            continue
         pjs = [pj for pj in doc["items"] if monthly_section(pj) == key]
         if pjs:
             out.append(f"<h2 id='{key}'>{esc(label)}</h2>")
             out += [f'<section class="activity e-{(pj.get("dimensions") or ["research"])[0]}">{project(pj)}</section>'
                     for pj in pjs]
-    if doc.get("language"):
+    if doc.get("language") and part in (None, "exploration"):
         out.append(language_plans(doc["language"]))
-    if doc.get("reflection_prompts"):
+    if doc.get("reflection_prompts") and part in (None, "exploration"):
         out.append(_list("If you feel like reflecting", doc["reflection_prompts"]))
     return "".join(out)
 
@@ -485,25 +503,42 @@ STAT_LABEL = {"arxiv": "papers on the radar", "reading_list_papers": "reading-li
               "weekly_items": "weekly items", "monthly_packages": "monthly packages", "monthly_items": "monthly items"}
 
 
-def quarterly_review(doc: dict) -> str:
+def quarterly_stats(doc: dict) -> str:
     st = doc["stats"]
     counts = st["counts"]
     order = ["arxiv", "reading_list_papers", "research_updates", "discovery", "weekly_items", "monthly_items",
              "language", "world", "youtube_shorts"]
     rows = "".join(f"<li><strong>{counts[k]}</strong> {esc(STAT_LABEL.get(k, human(k)))}</li>" for k in order if counts.get(k))
     tiers = ", ".join(f"{n} {t}" for t, n in st["discovery_by_tier"].items())
+    news = ", ".join(f"{human(k)} ({n})" for k, n in (st.get("news_by_category") or {}).items())
     tags = ", ".join(f"{t} ({n})" for t, n in st["top_paper_tags"])
     areas = ", ".join(f"{t} ({n})" for t, n in st["top_research_areas"])
-    out = [f'<p class="lede">{esc(doc["summary"])}</p>',
-           f"<p class='meta'>{nice_date(doc['from'], True)} to {nice_date(doc['to'], True)}, "
-           f"{st['days_with_content']} days with content</p>",
-           "<h2>In numbers</h2>", f"<ul class='stats'>{rows}</ul>" if rows else "<p class='empty'>No content yet.</p>",
-           _field("Discovery by tier", tiers), _field("Paper tags", tags), _field("Research areas", areas)]
-    tps = doc.get("topics") or []
-    for kind, label in (("monthly", "Monthly topics"), ("weekly", "Weekly topics")):
-        group = [t for t in tps if t["kind"] == kind]
+    return "".join([f"<p class='meta'>{nice_date(doc['from'], True)} to {nice_date(doc['to'], True)}, "
+                    f"{st['days_with_content']} days with content</p>",
+                    "<h2>In numbers</h2>", f"<ul class='stats'>{rows}</ul>" if rows else "<p class='empty'>No content yet.</p>",
+                    _field("Paper tags", tags), _field("Research areas", areas),
+                    _field("News by category", news), _field("Discovery by tier", tiers)])
+
+
+def quarterly_part(doc: dict, part: str) -> str:
+    pt = doc["parts"][part]
+    out = [f'<p class="lede">{esc(pt["summary"])}</p>' if pt["summary"] else "<p class='empty'>Nothing in this part this quarter.</p>"]
+    for kind, label in (("monthly", "Monthly deep dives"), ("weekly", "Weekly topics")):
+        group = [t for t in pt["topics"] if t["kind"] == kind]
         if group:
             out.append(f"<h2>{label}</h2><ul class='topics'>" + "".join(
                 f"<li><strong>{a(t['url'], t['title']) if t.get('url') else esc(t['title'])}</strong>"
                 f" <span class='meta'>({esc(t['period'])})</span><br/>{esc(t['about'])}</li>" for t in group) + "</ul>")
     return "".join(out)
+
+
+def quarterly_review(doc: dict, part: str | None = None) -> str:
+    """One part, or (part=None) the overview: every part's summary plus the numbers."""
+    if part:
+        return quarterly_part(doc, part)
+    out = []
+    for key, label in PERIOD_PARTS:
+        summ = doc["parts"][key]["summary"]
+        if summ:
+            out.append(f"<h2>{esc(label)}</h2><p>{esc(summ)}</p>")
+    return "".join(out) + quarterly_stats(doc)

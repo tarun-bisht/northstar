@@ -123,23 +123,35 @@ def unseen_youtube_candidates(repo: Repo, day: dt.date) -> dict:
             "total": len(cand.get("candidates", [])), "unseen": len(fresh), "candidates": fresh}
 
 
-def news_candidates(repo: Repo, day: dt.date, section: str | None = None, brief: bool = False) -> dict:
-    """Fetched headlines grouped by section. Missing file -> available False (fall back to search)."""
+def news_candidates(repo: Repo, day: dt.date, category: str | None = None, brief: bool = False) -> dict:
+    """Fetched headlines, each with a news category, duplicates merged, grouped by category.
+    Missing file -> available False (fall back to search)."""
+    from . import news
     path = repo.p("candidates", "news", f"{day.isoformat()}.json")
     if not path.exists():
-        return {"date": day.isoformat(), "available": False, "sections": {}}
+        return {"date": day.isoformat(), "available": False, "categories": {}}
     cand = load_json(path)
+    cfg = repo.config("sources").get("world", {})
     groups: dict[str, list] = {}
     for c in cand.get("candidates", []):
-        if section and c.get("section") != section:
+        groups.setdefault(news.categorize(c, cfg), []).append(c)
+    order = [c for c in cfg.get("categories", {}).get("order", list(groups)) if c != "other"] + ["other"]
+    out = {}
+    for cat in order:
+        if cat not in groups or (category and cat != category):
             continue
-        row = {k: c.get(k) for k in ("title", "source", "published", "url")}
-        if not brief:
-            row["summary"] = c.get("summary")
-        groups.setdefault(c.get("section", "world"), []).append(row)
+        rows = []
+        for c in news.merge_duplicates(groups[cat]):
+            row = {k: c.get(k) for k in ("title", "source", "published", "url")}
+            if c.get("also_in"):
+                row["also_in"] = [x["source"] for x in c["also_in"]] if brief else c["also_in"]
+            if not brief:
+                row["summary"] = c.get("summary")
+            rows.append(row)
+        out[cat] = rows
     return {"date": day.isoformat(), "available": True, "fetched_at": cand.get("fetched_at"),
             "failed_sources": cand.get("failed_sources", []),
-            "counts": {k: len(v) for k, v in groups.items()}, "sections": groups}
+            "counts": {k: len(v) for k, v in out.items()}, "categories": out}
 
 
 def _recent(repo: Repo, stream: str, day: dt.date, days: int, fields: tuple[str, ...]):

@@ -23,4 +23,6 @@ Read `prompts/_shared.md` first. Use this whenever the user says something about
 
 Before saving, ask yourself: *could a stranger reading this line learn something private about the user or anyone else?* If yes, generalise it further or don't save it.
 
+**New research interest?** When you add a topic to `established.ai_research`, also add an entry to `config/sources.json → arxiv.coverage.topics` with its arXiv categories and 4 to 10 specific keywords (not generic words like 'evaluation'), and add any new category to `arxiv.categories`. Validation warns when an interest has no coverage. Without it, papers on that topic are never fetched or ranked.
+
 After editing: `python scripts/validate.py`, then commit with a neutral message, e.g. `interests: update research and world topics`. Don't put the private reason in the commit message. Tell the user in one line what you added.

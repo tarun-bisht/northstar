@@ -62,6 +62,22 @@
       {
         "id": "q-bio.QM",
         "covers": "quantitative methods: AI for biology and drug discovery"
+      },
+      {
+        "id": "cs.AR",
+        "covers": "hardware architecture, accelerators, hardware-aware ML"
+      },
+      {
+        "id": "cs.IT",
+        "covers": "information theory"
+      },
+      {
+        "id": "stat.ME",
+        "covers": "statistical methodology, causal inference"
+      },
+      {
+        "id": "cs.CY",
+        "covers": "AI and society, safety and policy"
       }
     ],
     "max_results_per_category": 400,
@@ -71,7 +87,701 @@
       "cs.CL": 800,
       "cs.AI": 800
     },
-    "lookback_days": 4
+    "lookback_days": 4,
+    "coverage": {
+      "_doc": "Every topic in config/interests.json -> established.ai_research has an entry here: where its papers appear (categories) and phrases that identify it (keywords). A keyword counts only when the paper is in one of the topic's categories (or has no categories, as with trending papers). Keywords of up to 4 characters match whole words (llm, rag); longer ones match word starts (agentic matches agentic, retriev matches retrieval). Keep keywords specific: generic words such as 'evaluation' or 'stability' match half of arXiv. weight scales relevance (0.5 broad, 2 boosted). Used by dsys/rank.py and checked by validation.",
+      "topics": [
+        {
+          "interest": "machine learning and deep learning",
+          "categories": [
+            "cs.LG",
+            "stat.ML"
+          ],
+          "keywords": [
+            "deep learning",
+            "neural network",
+            "transformer",
+            "self-supervised",
+            "foundation model",
+            "scaling law"
+          ],
+          "weight": 0.5
+        },
+        {
+          "interest": "large language models",
+          "categories": [
+            "cs.CL",
+            "cs.LG",
+            "cs.AI"
+          ],
+          "keywords": [
+            "large language model",
+            "llm",
+            "language model",
+            "pretraining",
+            "instruction tuning",
+            "in-context learning",
+            "chain-of-thought",
+            "reasoning model",
+            "rlhf",
+            "post-training"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "trustworthy AI and AI safety",
+          "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CY",
+            "cs.CR"
+          ],
+          "keywords": [
+            "ai safety",
+            "jailbreak",
+            "red teaming",
+            "refusal",
+            "deceptive",
+            "reward hacking",
+            "scalable oversight",
+            "safety evaluation",
+            "trustworthy",
+            "misalignment",
+            "value alignment",
+            "harmful content"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "interpretability",
+          "categories": [
+            "cs.LG",
+            "cs.CL"
+          ],
+          "keywords": [
+            "interpretability",
+            "mechanistic",
+            "sparse autoencoder",
+            "probing",
+            "feature attribution",
+            "steering vector",
+            "activation patching",
+            "logit lens",
+            "superposition",
+            "explainab",
+            "circuit discovery",
+            "attribution graph",
+            "attribution method"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "evaluation methodology",
+          "categories": [
+            "cs.CL",
+            "cs.LG",
+            "cs.AI"
+          ],
+          "keywords": [
+            "llm-as-a-judge",
+            "llm judge",
+            "benchmark contamination",
+            "evaluation protocol",
+            "human evaluation",
+            "meta-evaluation",
+            "evaluation methodology",
+            "evaluating llm"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "machine unlearning",
+          "categories": [
+            "cs.LG",
+            "cs.CR"
+          ],
+          "keywords": [
+            "unlearning",
+            "machine unlearning",
+            "forget set",
+            "right to be forgotten",
+            "knowledge removal",
+            "data deletion"
+          ],
+          "weight": 1.5
+        },
+        {
+          "interest": "privacy",
+          "categories": [
+            "cs.CR",
+            "cs.LG"
+          ],
+          "keywords": [
+            "differential privacy",
+            "membership inference",
+            "data extraction",
+            "privacy-preserving",
+            "privacy attack",
+            "training data extraction",
+            "federated learning"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "robustness",
+          "categories": [
+            "cs.LG",
+            "cs.CR",
+            "cs.CV"
+          ],
+          "keywords": [
+            "adversarial",
+            "adversarial example",
+            "certified",
+            "backdoor",
+            "poisoning",
+            "distribution shift",
+            "out-of-distribution",
+            "adversarial robustness",
+            "robust training"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "NLP",
+          "categories": [
+            "cs.CL"
+          ],
+          "keywords": [
+            "natural language",
+            "nlp",
+            "machine translation",
+            "tokeniz",
+            "summarization",
+            "question answering"
+          ],
+          "weight": 0.5
+        },
+        {
+          "interest": "agents",
+          "categories": [
+            "cs.AI",
+            "cs.MA",
+            "cs.CL"
+          ],
+          "keywords": [
+            "agentic",
+            "tool use",
+            "tool-use",
+            "web agent",
+            "computer use",
+            "multi-agent",
+            "llm agent",
+            "language agent",
+            "ai agent"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "AI systems",
+          "categories": [
+            "cs.DC",
+            "cs.LG",
+            "cs.AR"
+          ],
+          "keywords": [
+            "inference system",
+            "kv cache",
+            "gpu kernel",
+            "mlsys",
+            "llm serving",
+            "serving system",
+            "inference engine"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "optimization",
+          "categories": [
+            "math.OC",
+            "cs.LG",
+            "stat.ML"
+          ],
+          "keywords": [
+            "optimizer",
+            "sgd",
+            "second-order",
+            "non-convex",
+            "stochastic optimization",
+            "adam optimizer",
+            "learning-rate schedule",
+            "optimization algorithm"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "learning theory",
+          "categories": [
+            "stat.ML",
+            "cs.LG"
+          ],
+          "keywords": [
+            "generalization bound",
+            "sample complexity",
+            "pac-bayes",
+            "learning theory",
+            "minimax",
+            "regret bound",
+            "statistical learning"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "representation learning",
+          "categories": [
+            "cs.LG",
+            "cs.CV"
+          ],
+          "keywords": [
+            "representation learning",
+            "contrastive",
+            "self-supervised"
+          ],
+          "weight": 0.7
+        },
+        {
+          "interest": "efficient AI",
+          "categories": [
+            "cs.LG",
+            "cs.CL",
+            "cs.AR"
+          ],
+          "keywords": [
+            "pruning",
+            "mixture of experts",
+            "mixture-of-experts",
+            "low-rank",
+            "lora",
+            "efficient inference",
+            "efficient training",
+            "model compression",
+            "knowledge distillation",
+            "structured sparsity"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "inference",
+          "categories": [
+            "cs.LG",
+            "cs.CL",
+            "cs.DC"
+          ],
+          "keywords": [
+            "speculative decoding",
+            "test-time compute",
+            "inference-time",
+            "inference cost",
+            "decoding strategy"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "quantization",
+          "categories": [
+            "cs.LG",
+            "cs.AR"
+          ],
+          "keywords": [
+            "quantization",
+            "quantized",
+            "low-bit",
+            "4-bit",
+            "fp8",
+            "int8"
+          ],
+          "weight": 1.5
+        },
+        {
+          "interest": "generative models",
+          "categories": [
+            "cs.LG",
+            "cs.CV",
+            "stat.ML"
+          ],
+          "keywords": [
+            "generative model",
+            "variational autoencoder",
+            "vae",
+            "gan",
+            "autoregressive",
+            "normalizing flow",
+            "energy-based"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "multimodal AI",
+          "categories": [
+            "cs.CV",
+            "cs.CL",
+            "cs.LG"
+          ],
+          "keywords": [
+            "multimodal",
+            "vision-language",
+            "vlm",
+            "image-text",
+            "audio-language",
+            "video understanding"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "research methodology",
+          "categories": [
+            "cs.LG",
+            "stat.ML",
+            "stat.ME"
+          ],
+          "keywords": [
+            "reproducibility",
+            "negative result",
+            "statistical significance",
+            "experimental design",
+            "ablation study",
+            "research methodology"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "generalization and learning dynamics",
+          "categories": [
+            "cs.LG",
+            "stat.ML"
+          ],
+          "keywords": [
+            "learning dynamics",
+            "training dynamics",
+            "grokking",
+            "double descent",
+            "loss landscape",
+            "implicit bias",
+            "emergent abilit",
+            "emergent capabilit"
+          ],
+          "weight": 1.5
+        },
+        {
+          "interest": "stability of learning algorithms",
+          "categories": [
+            "cs.LG",
+            "stat.ML",
+            "math.OC"
+          ],
+          "keywords": [
+            "algorithmic stability",
+            "training instability",
+            "loss spike",
+            "uniform stability"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "deep learning theory",
+          "categories": [
+            "cs.LG",
+            "stat.ML"
+          ],
+          "keywords": [
+            "neural tangent",
+            "infinite width",
+            "mean-field",
+            "feature learning",
+            "theory of deep learning",
+            "in-context learning theory"
+          ],
+          "weight": 1.5
+        },
+        {
+          "interest": "continual and lifelong learning",
+          "categories": [
+            "cs.LG"
+          ],
+          "keywords": [
+            "continual learning",
+            "catastrophic forgetting",
+            "lifelong learning",
+            "incremental learning"
+          ],
+          "weight": 1.5
+        },
+        {
+          "interest": "causal machine learning",
+          "categories": [
+            "stat.ML",
+            "stat.ME",
+            "cs.LG"
+          ],
+          "keywords": [
+            "counterfactual",
+            "causal inference",
+            "causal discovery",
+            "treatment effect",
+            "instrumental variable",
+            "causal effect",
+            "causal representation",
+            "causal model"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "data-centric AI and dataset quality",
+          "categories": [
+            "cs.LG",
+            "cs.CL"
+          ],
+          "keywords": [
+            "data quality",
+            "data selection",
+            "data curation",
+            "synthetic data",
+            "data filtering",
+            "label noise",
+            "dataset quality",
+            "dataset construction"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "distributed training and inference systems",
+          "categories": [
+            "cs.DC",
+            "cs.LG"
+          ],
+          "keywords": [
+            "distributed training",
+            "pipeline parallel",
+            "tensor parallel",
+            "data parallel",
+            "communication-efficient",
+            "zero redundancy"
+          ],
+          "weight": 1.5
+        },
+        {
+          "interest": "AI infrastructure and hardware-aware ML",
+          "categories": [
+            "cs.AR",
+            "cs.DC",
+            "cs.LG"
+          ],
+          "keywords": [
+            "accelerator",
+            "fpga",
+            "tpu",
+            "memory bandwidth",
+            "hardware-aware",
+            "energy efficiency",
+            "hardware-efficient",
+            "ml accelerator"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "AI agents: planning, memory, tool use and multi-agent systems",
+          "categories": [
+            "cs.AI",
+            "cs.MA"
+          ],
+          "keywords": [
+            "agent memory",
+            "long-term memory",
+            "multi-agent",
+            "tool calling",
+            "agent planning",
+            "task planning",
+            "memory-augmented",
+            "agent orchestration"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "benchmark design and scientific reproducibility",
+          "categories": [
+            "cs.LG",
+            "cs.CL",
+            "cs.AI"
+          ],
+          "keywords": [
+            "leaderboard",
+            "reproducib",
+            "new benchmark",
+            "benchmark design",
+            "benchmarking"
+          ],
+          "weight": 1
+        },
+        {
+          "interest": "diffusion and flow-based generative models",
+          "categories": [
+            "cs.LG",
+            "cs.CV",
+            "stat.ML"
+          ],
+          "keywords": [
+            "score-based",
+            "score matching",
+            "flow matching",
+            "rectified flow",
+            "consistency model",
+            "diffusion model",
+            "diffusion transformer",
+            "denoising diffusion",
+            "latent diffusion",
+            "video diffusion"
+          ],
+          "weight": 1.5
+        },
+        {
+          "interest": "world models (JEPA, latent dynamics, video and interactive world models)",
+          "categories": [
+            "cs.LG",
+            "cs.CV",
+            "cs.RO",
+            "cs.AI"
+          ],
+          "keywords": [
+            "world model",
+            "jepa",
+            "latent dynamics",
+            "dreamer",
+            "model-based reinforcement",
+            "video prediction",
+            "interactive environment"
+          ],
+          "weight": 2
+        },
+        {
+          "interest": "graph neural networks and geometric deep learning",
+          "categories": [
+            "cs.LG",
+            "stat.ML"
+          ],
+          "keywords": [
+            "graph neural",
+            "gnn",
+            "message passing",
+            "geometric deep learning",
+            "equivariant",
+            "graph transformer"
+          ],
+          "weight": 1.5
+        },
+        {
+          "interest": "information retrieval, search and recommender systems",
+          "categories": [
+            "cs.IR",
+            "cs.CL"
+          ],
+          "keywords": [
+            "information retrieval",
+            "retrieval-augmented",
+            "rag",
+            "dense retrieval",
+            "reranking",
+            "recommender",
+            "dense retriev",
+            "sparse retriev",
+            "retrieval model",
+            "recommender system",
+            "sequential recommendation",
+            "learning to rank"
+          ],
+          "weight": 1.5
+        },
+        {
+          "interest": "deep learning for combinatorial optimization",
+          "categories": [
+            "cs.LG",
+            "cs.NE",
+            "cs.DS",
+            "math.OC"
+          ],
+          "keywords": [
+            "combinatorial optimization",
+            "neural combinatorial",
+            "traveling salesman",
+            "tsp",
+            "vehicle routing",
+            "mixed-integer",
+            "integer programming",
+            "learning to optimize",
+            "job shop scheduling"
+          ],
+          "weight": 2
+        },
+        {
+          "interest": "AI for science (protein structure, AlphaFold-style models)",
+          "categories": [
+            "q-bio.BM",
+            "q-bio.QM",
+            "cs.LG"
+          ],
+          "keywords": [
+            "alphafold",
+            "drug discovery",
+            "structure prediction",
+            "ai for science",
+            "materials discovery",
+            "protein structure",
+            "protein design",
+            "protein language model",
+            "molecular generation",
+            "molecular property"
+          ],
+          "weight": 1.5
+        }
+      ]
+    },
+    "ranking": {
+      "_doc": "Pre-ranking in code, before Claude reads any abstract (dsys/rank.py). Relevance comes from the coverage keywords, quality signals add to it. The shortlist takes the best per_interest papers for every interest first, then fills up to shortlist_size by score. Claude reads those abstracts plus every trending or notable paper.",
+      "shortlist_size": 80,
+      "trending_alphaxiv_votes": 5,
+      "trending_hf_upvotes": 10,
+      "venues": [
+        "NeurIPS",
+        "ICML",
+        "ICLR",
+        "COLT",
+        "AISTATS",
+        "UAI",
+        "ACL",
+        "EMNLP",
+        "NAACL",
+        "COLM",
+        "CVPR",
+        "ICCV",
+        "ECCV",
+        "AAAI",
+        "IJCAI",
+        "KDD",
+        "SIGIR",
+        "WWW",
+        "TMLR",
+        "JMLR",
+        "Nature",
+        "Science",
+        "USENIX Security",
+        "IEEE S&P",
+        "CCS",
+        "NDSS",
+        "MLSys",
+        "OSDI",
+        "SOSP"
+      ],
+      "per_interest": 3
+    }
   },
   "research_updates": {
     "lab_blogs": [
@@ -252,7 +962,289 @@
         "url": "https://feeds.bbci.co.uk/news/health/rss.xml",
         "section": "science_health"
       }
-    ]
+    ],
+    "categories": {
+      "_doc": "News categories (the same as prompts/world.md and the daily News page). Each headline gets the category whose keywords it matches most (whole words, title counts double), ties broken by the order here. With no match it takes its feed's default. Explainer feeds always stay explainers. Edit keywords freely. The 'other' bucket (sport, celebrity, local notices, crime blotter) is listed last and is usually skipped.",
+      "order": [
+        "other",
+        "conflict_disaster",
+        "economy_markets",
+        "geopolitics",
+        "climate_energy",
+        "science_health",
+        "business_tech",
+        "society",
+        "india",
+        "explainers"
+      ],
+      "feed_default": {
+        "india": "india",
+        "world": "geopolitics",
+        "economy_markets": "economy_markets",
+        "business_tech": "business_tech",
+        "science_health": "science_health",
+        "climate_energy": "climate_energy",
+        "explainers": "explainers"
+      },
+      "keywords": {
+        "conflict_disaster": [
+          "war",
+          "airstrike",
+          "missile",
+          "drone strike",
+          "ceasefire",
+          "troops",
+          "shelling",
+          "insurgent",
+          "militant",
+          "terror",
+          "attack",
+          "killed",
+          "earthquake",
+          "flood",
+          "cyclone",
+          "hurricane",
+          "typhoon",
+          "landslide",
+          "wildfire",
+          "tsunami",
+          "famine",
+          "refugee camp",
+          "humanitarian",
+          "hostage",
+          "gaza",
+          "ukraine",
+          "sudan",
+          "myanmar",
+          "bomb",
+          "blast",
+          "explosion",
+          "shooting",
+          "gunmen",
+          "clashes",
+          "casualties"
+        ],
+        "economy_markets": [
+          "sensex",
+          "nifty",
+          "stock",
+          "shares",
+          "markets",
+          "market cap",
+          "rupee",
+          "dollar",
+          "bond yield",
+          "yields",
+          "inflation",
+          "gdp",
+          "growth rate",
+          "repo rate",
+          "interest rate",
+          "rbi",
+          "federal reserve",
+          "fed",
+          "central bank",
+          "ecb",
+          "imf",
+          "world bank",
+          "tariff",
+          "trade deal",
+          "exports",
+          "imports",
+          "fiscal",
+          "budget",
+          "deficit",
+          "crude",
+          "brent",
+          "oil price",
+          "gold price",
+          "sebi",
+          "ipo",
+          "recession",
+          "jobs report",
+          "unemployment",
+          "bank"
+        ],
+        "geopolitics": [
+          "summit",
+          "bilateral",
+          "talks",
+          "foreign minister",
+          "external affairs",
+          "diplomat",
+          "embassy",
+          "sanction",
+          "nato",
+          "united nations",
+          "un security council",
+          "g20",
+          "brics",
+          "quad",
+          "election",
+          "prime minister",
+          "president",
+          "treaty",
+          "alliance",
+          "border dispute",
+          "visit"
+        ],
+        "climate_energy": [
+          "climate",
+          "emissions",
+          "carbon",
+          "net zero",
+          "cop31",
+          "renewable",
+          "solar",
+          "wind power",
+          "coal",
+          "energy",
+          "power grid",
+          "electricity",
+          "heatwave",
+          "pollution",
+          "air quality",
+          "biodiversity",
+          "deforestation",
+          "glacier",
+          "monsoon",
+          "environment"
+        ],
+        "science_health": [
+          "scientists",
+          "study finds",
+          "researchers",
+          "space",
+          "isro",
+          "nasa",
+          "rocket",
+          "satellite",
+          "telescope",
+          "vaccine",
+          "virus",
+          "disease",
+          "outbreak",
+          "health",
+          "hospital",
+          "cancer",
+          "medicine",
+          "dengue",
+          "covid",
+          "genome",
+          "fossil",
+          "physics"
+        ],
+        "business_tech": [
+          "company",
+          "startup",
+          "acquisition",
+          "merger",
+          "deal",
+          "revenue",
+          "profit",
+          "layoffs",
+          "ceo",
+          "tech",
+          "ai",
+          "artificial intelligence",
+          "openai",
+          "google",
+          "apple",
+          "microsoft",
+          "nvidia",
+          "semiconductor",
+          "chip",
+          "telecom",
+          "5g",
+          "smartphone",
+          "app",
+          "cyber",
+          "data centre",
+          "data center"
+        ],
+        "society": [
+          "migration",
+          "migrants",
+          "population",
+          "census",
+          "education",
+          "school",
+          "university",
+          "students",
+          "exam",
+          "women",
+          "gender",
+          "caste",
+          "religion",
+          "protest",
+          "inequality",
+          "poverty",
+          "housing",
+          "urban",
+          "culture",
+          "language"
+        ],
+        "india": [
+          "lok sabha",
+          "rajya sabha",
+          "parliament",
+          "supreme court",
+          "high court",
+          "chief minister",
+          "bjp",
+          "congress party",
+          "election commission",
+          "state government",
+          "union government",
+          "centre",
+          "modi",
+          "delhi",
+          "mumbai",
+          "kerala",
+          "tamil nadu",
+          "bihar",
+          "uttar pradesh",
+          "maharashtra",
+          "karnataka",
+          "bengal"
+        ],
+        "explainers": [
+          "explained",
+          "explainer",
+          "what is"
+        ],
+        "other": [
+          "cricket",
+          "football",
+          "chess",
+          "tennis",
+          "hockey",
+          "match",
+          "tournament",
+          "championship",
+          "ipl",
+          "olympic",
+          "box office",
+          "celebrity",
+          "actor",
+          "actress",
+          "bollywood",
+          "horoscope",
+          "recipe",
+          "seminar",
+          "recruitment drive",
+          "alumni",
+          "jail",
+          "arrested",
+          "detained",
+          "murder",
+          "theft",
+          "fake",
+          "scam alert",
+          "quiz"
+        ]
+      }
+    }
   },
   "youtube": {
     "max_results_per_query": 25,

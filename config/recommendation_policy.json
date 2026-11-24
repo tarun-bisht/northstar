@@ -20,7 +20,9 @@
     "youtube_shorts": 300,
     "weekly": 52,
     "monthly": 24,
-    "daily": 30
+    "research": 30,
+    "news": 30,
+    "exploration": 30
   },
   "source_quality": {
     "prefer": [

@@ -75,6 +75,19 @@ def check(repo: Repo) -> tuple[list[str], list[str]]:
                 errors.append(f"config/sources.json: invalid arXiv category {c!r}")
         if len(set(cats)) != len(cats):
             errors.append("config/sources.json: duplicate arXiv categories")
+        topics = s.get("arxiv", {}).get("coverage", {}).get("topics", [])
+        covered = {t.get("interest") for t in topics}
+        for topic in (i.get("established", {}) or {}).get("ai_research", []):
+            if topic not in covered:
+                warnings.append(f"config/sources.json: arxiv.coverage has no entry for interest {topic!r}; "
+                                "add its categories and keywords so papers on it are fetched and ranked")
+        for t in topics:
+            for c in t.get("categories", []):
+                if c not in cats:
+                    warnings.append(f"config/sources.json: coverage for {t.get('interest')!r} uses {c!r}, "
+                                    "which is not in arxiv.categories, so it is never fetched")
+            if not t.get("keywords"):
+                errors.append(f"config/sources.json: coverage for {t.get('interest')!r} has no keywords")
         for c in s.get("arxiv", {}).get("max_results_overrides", {}):
             if c not in cats:
                 warnings.append(f"config/sources.json: max_results_overrides has {c!r}, which is not in categories")

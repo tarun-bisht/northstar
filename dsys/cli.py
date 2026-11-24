@@ -109,9 +109,19 @@ def cmd_papers(repo: Repo, args) -> int:
 def cmd_candidates(repo: Repo, args) -> int:
     day = _day(args.date)
     if args.kind == "news":
-        _print(history.news_candidates(repo, day, args.section, args.brief))
+        _print(history.news_candidates(repo, day, args.category or args.section, args.brief))
         return 0
     data = (history.unseen_arxiv_candidates if args.kind == "arxiv" else history.unseen_youtube_candidates)(repo, day)
+    if args.kind == "arxiv" and args.ids:
+        want = {i.strip() for i in args.ids.split(",") if i.strip()}
+        data["candidates"] = [c for c in data["candidates"] if c["arxiv_id"] in want]
+        _print(data)
+        return 0
+    if args.kind == "arxiv" and args.ranked:
+        from . import rank
+        sl = rank.shortlist(data["candidates"], repo.config("sources"), args.limit)
+        _print({k: v for k, v in data.items() if k != "candidates"} | sl)
+        return 0
     if args.limit:
         data["candidates"] = data["candidates"][args.offset:args.offset + args.limit]
     if args.brief and args.kind == "arxiv":
@@ -321,21 +331,9 @@ def cmd_reading(repo: Repo, args) -> int:
 
 def cmd_quarterly(repo: Repo, args) -> int:
     from . import quarterly
-    from .synthesis import quarter_of
-    q = args.quarter or quarter_of(_day(args.date))
+    q = args.quarter or quarterly.quarter_of(_day(args.date))
     try:
         _print(quarterly.draft(repo, q))
-    except ValueError as e:
-        print(f"error: {e}")
-        return 1
-    return 0
-
-
-def cmd_synthesis(repo: Repo, args) -> int:
-    from .synthesis import evidence, quarter_of
-    q = args.quarter or quarter_of(_day(args.date))
-    try:
-        _print(evidence(repo, q))
     except ValueError as e:
         print(f"error: {e}")
         return 1
@@ -383,8 +381,12 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--date")
     s.add_argument("--limit", type=int)
     s.add_argument("--offset", type=int, default=0)
-    s.add_argument("--section", help="news: only this section (india, world, economy_markets, science_tech, explainers)")
+    s.add_argument("--category", help="news: only this category (india, geopolitics, conflict_disaster, economy_markets, "
+                                      "business_tech, science_health, climate_energy, society, explainers)")
+    s.add_argument("--section", help=argparse.SUPPRESS)
     s.add_argument("--brief", action="store_true", help="arxiv: id/title/categories/signals only; news: no summaries")
+    s.add_argument("--ranked", action="store_true", help="arxiv: code-ranked shortlist with interests and quality signals")
+    s.add_argument("--ids", help="arxiv: comma-separated ids to print in full (abstracts)")
     s.set_defaults(fn=cmd_candidates)
 
     s = sub.add_parser("context", help="planning/dedup context for a generator prompt")
@@ -469,9 +471,6 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--date")
     s.set_defaults(fn=cmd_reading)
 
-    s = sub.add_parser("synthesis", help="qualitative evidence for the optional quarterly synthesis")
-    s.add_argument("--quarter", help="YYYY-Qn (default: current quarter)"); s.add_argument("--date")
-    s.set_defaults(fn=cmd_synthesis)
 
     s = sub.add_parser("quarterly", help="write the public quarterly review file with stats and topics filled in")
     s.add_argument("action", choices=["draft"])

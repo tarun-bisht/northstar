@@ -1,7 +1,7 @@
 """End-to-end run of the whole workflow on SYNTHETIC data, through the CLI.
 
 This exercises the local pipeline (candidates -> daily streams -> ideas -> weekly/monthly ->
-feedback -> synthesis -> history -> validation -> RSS -> site). It does not call
+feedback -> quarterly draft -> history -> validation -> RSS -> site). It does not call
 arXiv, YouTube, web search or Claude; those integrations are only tested with mocks.
 """
 
@@ -125,12 +125,12 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
         "language": {"plans": [PLAN]}})
     run("ideas", "drop", "idea-seed-tides", "--note", "not now", "--date", "2026-12-01")
 
-    # 7. synthesis evidence is qualitative
+    # 7. quarterly draft: stats and topics by part, no percentages
     capsys.readouterr()
-    run("synthesis", "--quarter", "2026-Q4")
+    run("quarterly", "draft", "--quarter", "2026-Q4")
     ev = json.loads(capsys.readouterr().out)
-    assert "Photo walk" in [e["title"] for e in ev["engaged_with"]] and ev["tiers_engaged"]
-    assert "%" not in json.dumps(ev)
+    assert ev["topics_to_describe"]["exploration"] >= 1 and "%" not in json.dumps(ev)
+    repo.p("content", "quarterly", "2026", "2026-Q4.json").unlink()  # drafts are filled in by the run
 
     # 8. history, validation, RSS, site
     run("history", "rebuild")
@@ -140,9 +140,9 @@ def test_full_workflow(repo, monkeypatch, tmp_path, capsys):
     for f in repo.p("feeds").glob("*.xml"):
         ET.parse(f)
     out = build_site(repo, tmp_path / "site")
-    for page in ("index.html", f"daily/{day}.html", "weekly/2026-W49.html", "monthly/2026-12.html",
-                 "reading/2026-W49.html"):
+    for page in ("index.html", f"daily/{day}/index.html", f"daily/{day}/research.html", f"daily/{day}/exploration.html",
+                 "weekly/2026-W49/index.html", "monthly/2026-12/index.html", "reading/2026-W49.html"):
         assert (out / page).exists(), page
     assert not (out / "ideas.html").exists()
-    assert "Connects cinema and psychology" in (out / f"daily/{day}.html").read_text()
-    assert "Then." in (out / "weekly/2026-W49.html").read_text()
+    assert "Connects cinema and psychology" in (out / f"daily/{day}/exploration.html").read_text()
+    assert "Then." in "".join((out / f"weekly/2026-W49/{p}.html").read_text() for p in ("research", "knowledge", "exploration"))

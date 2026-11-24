@@ -5,4 +5,4 @@ Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
 1. `python scripts/dsys.py period` gives `<today>`.
 2. Follow `prompts/youtube_shorts.md`.
 3. `python scripts/dsys.py history rebuild && python scripts/validate.py`, then commit `youtube_shorts: <today> (<n> videos)` and push.
-4. Final message: number of videos, the mode used (Data API candidates or oEmbed fallback), and the dimension spread in one line.
+4. Final message: number of videos, the mode used (Data API candidates or oEmbed fallback), the language split, the tier split, and the language-learning shorts added.

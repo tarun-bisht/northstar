@@ -32,9 +32,9 @@ Also set `topic` (the finer subject: `geopolitics`, `trade`, `energy`, `migratio
 ## Steps
 
 1. `python scripts/dsys.py context world --date <today>` shows recent items. Include an ongoing story only when something materially changed, and set `follows_up` to the earlier item's id.
-2. Read the fetched headlines, one feed group at a time: `python scripts/dsys.py candidates news --date <today> --section <group> --brief` for `india`, `world`, `economy_markets`, `business_tech`, `science_health`, `climate_energy` and `explainers`. These are the publisher feeds in `config/sources.json → world.feeds`, fetched at 06:00 IST. Drop `--brief` for a group when you need summaries. A feed group is only where a headline came from. Assign each chosen item its own news category from the table.
-   - Many headlines about one event make one item. Cluster first, then choose.
-   - If `available` is false, or `failed_sources` covers a group, use web search for it (`world.prefer` sources) and say so in `notes`.
+2. **Read every headline, by category.** `python scripts/dsys.py candidates news --date <today> --brief` lists every headline fetched at 06:00 IST from the publisher feeds (`config/sources.json → world.feeds`). In code, each headline gets a news category (`world.categories`), and headlines about the same event are merged into one row with `also_in` listing the other outlets. Read the categories one at a time with `--category <name>`, and drop `--brief` when you need summaries. The code category is a hint: assign each chosen item its own `section`. The `other` bucket (sport, celebrity, local notices, crime) is usually skipped.
+   - A story many outlets carry (long `also_in`) is often the day's big story, but judge importance yourself.
+   - If `available` is false, or `failed_sources` leaves a category empty, use web search for it (`world.prefer` sources) and say so in `notes`.
 3. Filter hard. Keep what will still matter in a month, changes something for India or for many people, or shows how the world works. Drop crime blotter, celebrity, sport results and minor politics.
 4. **Markets item, every day:** how Indian markets (Sensex, Nifty), the rupee and crude moved and why, plus a global move if significant. Use only figures stated in a source, with that source's date. On weekends and market holidays, cover the week's market story or a major data release instead.
 5. Open the article for each chosen item (WebFetch), or search for a second report, before writing. Cross-check significant claims across two independent sources when possible.

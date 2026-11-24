@@ -134,8 +134,8 @@ def learning_item_errors(it: dict) -> list[str]:
 
 WEEKLY_REQUIRED = {  # sections a weekly package must cover, by load (prompts/weekly.md)
     "light": {"research_practice", "questions", "culture"},
-    "normal": {"research_practice", "questions", "talking_points", "culture", "people_self"},
-    "free": {"research_practice", "research_reading", "questions", "talking_points", "culture", "people_self",
+    "normal": {"research_practice", "questions", "things_to_know", "culture", "people_self"},
+    "free": {"research_practice", "research_reading", "questions", "things_to_know", "culture", "people_self",
              "curiosity_making"},
 }
 
@@ -150,8 +150,9 @@ def weekly_section_errors(doc: dict) -> list[str]:
 def monthly_section_errors(doc: dict) -> list[str]:
     from .render import monthly_section
     have = {monthly_section(pj) for pj in doc.get("items", [])}
-    if doc.get("load") != "light" and not {"research", "knowledge"} <= have:
-        return ["monthly package needs a research deep dive and a knowledge deep dive (see prompts/monthly.md)"]
+    missing = {"research", "knowledge", "exploration"} - have
+    if doc.get("load") != "light" and missing:
+        return [f"monthly package needs a deep dive in every part; missing: {', '.join(sorted(missing))} (see prompts/monthly.md)"]
     return []
 
 
@@ -310,11 +311,12 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 q = doc["quarter"]
                 if f.name != f"{q}.json" or f.parent.name != q[:4]:
                     rep.err(where, f"path must be quarterly/{q[:4]}/{q}.json")
-                if not doc["summary"].strip():
-                    rep.err(where, "summary is empty: write the five or six line summary")
-                for t in doc["topics"]:
-                    if not t["about"].strip():
-                        rep.err(where, f"topic {t['title']!r} has no 'about' line")
+                for name, part in doc["parts"].items():
+                    if part["topics"] and not part["summary"].strip():
+                        rep.err(where, f"parts/{name}: summary is empty: write two to four plain lines")
+                    for t in part["topics"]:
+                        if not t["about"].strip():
+                            rep.err(where, f"parts/{name}: topic {t['title']!r} has no 'about' line")
 
             if stream == "reading":
                 w = doc["week"]

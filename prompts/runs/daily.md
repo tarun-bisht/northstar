@@ -13,4 +13,6 @@ Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
 9. `python scripts/dsys.py history rebuild && python scripts/validate.py`, fix any errors, then commit `daily: <today>` and push.
 10. Final message (the run summary): items per stream (world items per section), anything notable (one line each for must-read papers), and any limitations hit: list the `failed_sources` from `candidates/arxiv` and `candidates/news`, and any page you could not open. No praise, no padding.
 
+The site shows the day as three pages: `daily/<date>/research.html` (arXiv, research updates, reading list), `news.html` (world radar) and `exploration.html` (discovery, shorts, language).
+
 Budget: keep the whole run focused. Prefer fewer well-verified items over broad but shallow coverage.

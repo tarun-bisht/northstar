@@ -266,11 +266,11 @@
             "research_practice",
             "research_reading",
             "questions",
-            "talking_points",
+            "things_to_know",
+            "world",
             "culture",
             "people_self",
-            "curiosity_making",
-            "world"
+            "curiosity_making"
           ],
           "description": "Section on the weekly page (prompts/weekly.md). Omit to derive it from category."
         }

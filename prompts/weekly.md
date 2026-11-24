@@ -4,24 +4,26 @@ Read `docs/vision.md` and `prompts/_shared.md` first. Generated on Saturday for 
 
 **Weekly = explore.** The question is: *what would make this week intellectually, creatively or experientially richer?* Everything is optional. Nothing is tracked. Items are small, specific and genuinely worth the time. Never generic.
 
-## Sections
+## Three parts, each on its own page
 
-Every item has a `section`. The page shows items under these headings, in this order:
+The site shows the week as three pages: `weekly/<week>/research.html`, `knowledge.html` and `exploration.html`. Every item has a `section`, and the section decides the part.
 
-| section | what goes here | per week |
-|---|---|---|
-| `research_practice` | an active research exercise: an ML or deep learning fundamentals problem, a derivation, a paper-critique exercise, an experiment-design or ablation question, "what would you test?", interpreting a plot, a small implementation idea. Vary the form week to week. Hints, never the solution | 1 to 2 |
-| `research_reading` | one paper or concept worth studying properly (`paper` or `ai_study` with `explain`) | 0 to 1 |
-| `questions` | questions to think about: maths, probability, physics, other sciences. Puzzles and thought experiments with 2 to 4 progressive hints (`category: question`) | 2 to 3 |
-| `talking_points` | history and philosophy: a story, an idea, a debate or a person worth knowing, the kind of thing you could bring up in conversation (`category: talking_point`). Say what it is, why it's interesting and one question to discuss | 1 to 2 |
-| `culture` | music, art, books, films, series, anime, architecture, and the people behind them. For example: the life of a musician plus three songs to listen to, an artist and two works to look at, a film connected to an idea, a book or one chapter, an anime | 2 to 3 |
-| `people_self` | one real-world practice: listening, a better conversation, articulation, courage, feedback, leadership. Understanding, then practice, then a real interaction | 1 |
-| `curiosity_making` | something to try or make: a hobby, an experiment, a small build, something weird worth discovering | 1 |
-| `world` | optional: a place, system or long-running story explained | 0 to 1 |
+| part | section | what goes here | per week |
+|---|---|---|---|
+| **Research** | `research_practice` | an active research exercise: an ML or deep learning fundamentals problem, a derivation, a paper-critique exercise, an experiment-design or ablation question, "what would you test?", interpreting a plot, a small implementation idea. Vary the form week to week. Hints, never the solution | 1 to 2 |
+| | `research_reading` | one paper or concept worth studying properly (`paper` or `ai_study` with `explain`) | 0 to 1 |
+| **Knowledge** | `questions` | questions to think about: maths, probability, physics, other sciences. Puzzles and thought experiments with 2 to 4 progressive hints (`category: question`) | 2 to 3 |
+| | `things_to_know` | **anything worth knowing and talking about**: a historical story, an idea, a scientific mystery, how something works, a remarkable person, a place, a word's origin, an economic puzzle, a philosophical question. The test: would this make a good conversation starter or a "did you know"? Say what it is, why it's interesting, and one question to discuss (`category: talking_point`). Vary the subjects freely | 2 to 3 |
+| | `world` | optional: a place, system or long-running story explained | 0 to 1 |
+| **Exploration** | `culture` | music, art, books, films, series, anime, architecture, and the people behind them. For example: the life of a musician plus three songs to listen to, an artist and two works to look at, a film connected to an idea, a book or one chapter | 2 to 3 |
+| | `people_self` | one real-world practice: listening, a better conversation, articulation, courage, feedback, leadership. Understanding, then practice, then a real interaction | 1 |
+| | `curiosity_making` | something to try or make: a hobby, an experiment, a small build, something weird worth discovering | 1 |
+
+Language lessons appear on the Exploration page.
 
 Validation requires these sections, by `load`:
 - light: `research_practice`, `questions`, `culture`
-- normal: `research_practice`, `questions`, `talking_points`, `culture`, `people_self`
+- normal: `research_practice`, `questions`, `things_to_know`, `culture`, `people_self`
 - free: all of the above, plus `research_reading` and `curiosity_making`
 
 Typical size is 8 to 14 small items (`preferences.weekly.typical_item_count`). Most take 10 to 60 minutes.

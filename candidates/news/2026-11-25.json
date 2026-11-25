@@ -1,16 +1,10 @@
 {
   "kind": "news",
   "date": "2026-11-25",
-  "fetched_at": "2026-11-25T09:06:40Z",
+  "fetched_at": "2026-11-25T09:56:44Z",
   "source": "publisher RSS/Atom feeds",
-  "failed_sources": [
-    "Indian Express Explained",
-    "Indian Express India"
-  ],
-  "errors": [
-    "Indian Express India: HTTP Error 403: Forbidden",
-    "Indian Express Explained: HTTP Error 403: Forbidden"
-  ],
+  "failed_sources": [],
+  "errors": [],
   "per_feed": {
     "BBC World": 32,
     "BBC India": 5,
@@ -20,8 +14,8 @@
     "The Hindu National": 40,
     "The Hindu International": 40,
     "The Hindu Business": 28,
-    "Indian Express India": 37,
-    "Indian Express Explained": 36,
+    "Indian Express India": 40,
+    "Indian Express Explained": 38,
     "Mint Markets": 35,
     "Mint Economy": 5,
     "Economic Times Markets": 34,
@@ -742,6 +736,15 @@
       "section": "india"
     },
     {
+      "title": "In Ranchi, a protest against tree felling ends in detentions",
+      "url": "https://indianexpress.com/article/india/ranchi-protest-tree-felling-detentions-10977816/",
+      "published": "2026-11-25T08:21:14Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
       "title": "Is Russia really aiming for a new European security architecture?",
       "url": "https://www.aljazeera.com/opinions/2026/11/25/is-russia-really-aiming-for-a-new-european-security-architecture?traffic_source=rss",
       "published": "2026-11-25T08:20:55Z",
@@ -779,6 +782,15 @@
       "source": "t2ONLINE",
       "feed": "Google News: summit OR sanctions OR \"foreign minister\"",
       "section": "geopolitics"
+    },
+    {
+      "title": "CJP’s Saurav Das moves Delhi HC over being stopped from flying to London",
+      "url": "https://indianexpress.com/article/india/cjps-saurav-das-moves-delhi-hc-after-being-stopped-from-flying-to-london-10977820/",
+      "published": "2026-11-25T08:18:58Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
     },
     {
       "title": "Things are going to end badly for you: Anthropic engineer who claimed AI helped solve Riemann problem faces backlash",
@@ -828,6 +840,15 @@
       "source": "The Indian Express",
       "feed": "Google News: climate change",
       "section": "climate_energy"
+    },
+    {
+      "title": "COP31 failed to deliver. How climate negotiations can move forward from here",
+      "url": "https://indianexpress.com/article/explained/explained-climate/cop31-climate-summit-fossil-fuels-finance-negotiations-explained-10977769/",
+      "published": "2026-11-25T08:17:20Z",
+      "summary": "",
+      "source": "Indian Express Explained",
+      "feed": "Indian Express Explained",
+      "section": "explainers"
     },
     {
       "title": "Walmart-owned Flipkart's Kalyan Krishnamurthy steps down as CEO",
@@ -1535,6 +1556,15 @@
       "section": "economy_markets"
     },
     {
+      "title": "‘We aren’t begging’: Congress hits out at SP over UP poll picks amid seat-sharing talks",
+      "url": "https://indianexpress.com/article/india/we-are-not-begging-imran-masood-congress-sp-seat-sharing-up-polls-10977724/",
+      "published": "2026-11-25T07:37:48Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
       "title": "Workers in high-risk jobs to receive shots against rabies in Tamil Nadu",
       "url": "https://www.thehindu.com/news/national/tamil-nadu/workers-in-high-risk-jobs-to-receive-shots-against-rabies-in-tamil-nadu/article71738738.ece",
       "published": "2026-11-25T07:37:08Z",
@@ -2012,6 +2042,15 @@
       "section": "conflict_disaster"
     },
     {
+      "title": "‘Contempt of Indian culture’: BJP targets Vijay government over unlit lamp",
+      "url": "https://indianexpress.com/article/india/thirupparankundram-deepam-row-bjp-congress-tamil-nadu-10977711/",
+      "published": "2026-11-25T07:05:01Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
       "title": "Energy bills in Great Britain to rise 26% in January, lifting annual bills over £2,000",
       "url": "https://www.theguardian.com/money/2026/nov/25/energy-bills-in-great-britain-to-rise-ofgem-price-cap",
       "published": "2026-11-25T07:03:21Z",
@@ -2404,6 +2443,15 @@
       "section": "economy_markets"
     },
     {
+      "title": "Sensex surges 2,000 points intraday: Why is the stock market rallying?",
+      "url": "https://indianexpress.com/article/explained/explained-economics/sensex-today-market-rally-fii-buying-global-cues-10977645/",
+      "published": "2026-11-25T06:41:02Z",
+      "summary": "",
+      "source": "Indian Express Explained",
+      "feed": "Indian Express Explained",
+      "section": "explainers"
+    },
+    {
       "title": "HFCL vs Sterlite Technologies: Both multibagger stocks hit 5% lower circuit again - Which one should you buy?",
       "url": "https://www.livemint.com/market/stock-market-news/hfcl-vs-sterlite-technologies-both-multibagger-stocks-hit-5-lower-circuit-again-which-one-should-you-buy-11795587553516.html",
       "published": "2026-11-25T06:40:45Z",
@@ -2529,6 +2577,15 @@
       "source": "Business Standard",
       "feed": "Google News: Sensex Nifty",
       "section": "economy_markets"
+    },
+    {
+      "title": "Man objects to Ayyappa song at Kerala church festival; parishioners intervene, ask troupe to sing more",
+      "url": "https://indianexpress.com/article/india/keralam-church-ayyappa-song-chorus-10977638/",
+      "published": "2026-11-25T06:29:56Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
     },
     {
       "title": "AI debt worries grow as Nvidia rebound masks Big Tech spending squeeze",
@@ -3957,6 +4014,15 @@
       "section": "geopolitics"
     },
     {
+      "title": "India news Live Updates, 25 November 2026: Supreme Court remits petition alleging disproportionate assets against Rahul Gandhi to Allahabad HC",
+      "url": "https://indianexpress.com/article/india/today-india-breaking-news-live-updates-25-november-2026-india-unsc-ai-conflict-congress-sad-bjp-reunion-miss-universe-10977499/",
+      "published": "2026-11-25T04:53:49Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
       "title": "Flood watch issued for Eastern North Carolina for Wednesday and Thursday",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9jZFlLRmluWHhSTTlWMF9qR3o0ajYyQTVDRGNrc2dWNEF6RXpBVzNrTWtydHk5WXpOR2RVamI1V3V1Vl9fdkRScHBtMWU2RHNwazFBVklvSFViYkMwTVBNT3c5Q2dGN3JLaUlqS1hpRTlDYW45eThTaFF2RnJqQQ?oc=5",
       "published": "2026-11-25T04:53:06Z",
@@ -4052,6 +4118,15 @@
       "section": "world"
     },
     {
+      "title": "India condemns Houthi attack on Riyadh tower that injured two Indians",
+      "url": "https://indianexpress.com/article/india/india-condemns-houthi-attack-on-riyadh-tower-that-injured-two-indians-saudi-arabia-10977518/",
+      "published": "2026-11-25T04:41:22Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
       "title": "China's Shenzhou-24 carrying first Pakistani astronaut docks with space station",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRkRzRUM2U1JTR0JHeGpUUDVUc28wLU5QWENsbG9wVmlMV2hLQTduY1dzaktpVXpfbjFMN21nOVZLYjBtaUJEMVVuUU5PQzdyYVM4SzNPQ196UmdBVTlBRG5qdUVzeW9za2JXZDhsWmY2ZlZMeFd3S09uNW9Ea2hUd1lRTEtLQXZWNUEwa2l4RWxHVXR4OWVNdUE0b1FaNFI1OW52VlBTWmFiUk5YQTh3aFZ3MUsyZEnSAbwBQVVfeXFMTzFhRUNLSktfY3BQNDZZV2JfTXF2T3RSQ0FrazcwMC1BQk5lQTVPcExGSW1YUFNnLXJ4LTM2bDJWU0FKTVRmSzlTeGQ2QjlNQW1ZTjJzWGJiY0diWGs2VS1NSkZYLWFTQi0xV0FFczNiMExQZkZ0NllXNEZ5SHBsald2MzJPaExmN0RWY0dDQXZnMUM0YURINmdnY2x5UVJnNTZiU0lXTWIxRGs3SFBXbEY2SjB5ZVhySFRla2E?oc=5",
       "published": "2026-11-25T04:41:00Z",
@@ -4070,6 +4145,15 @@
       "source": "Bioengineer.org",
       "feed": "Google News: Nobel OR \"Fields Medal\" OR \"Turing Award\" OR \"Breakthrough Prize\"",
       "section": "science_space"
+    },
+    {
+      "title": "Gold Rate Today, November 25: Check 18, 22 and 24 carat gold prices in Chennai, Mumbai, Delhi, Kolkata and other cities",
+      "url": "https://indianexpress.com/article/india/gold-rate-today-november-25-check-18-22-and-24-carat-gold-prices-in-chennai-mumbai-delhi-kolkata-and-other-cities-10977490/",
+      "published": "2026-11-25T04:38:22Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
     },
     {
       "title": "HPE shares crash 17%, stock suffers its worst-ever single-day fall. Here's why",
@@ -4438,6 +4522,15 @@
       "section": "world"
     },
     {
+      "title": "What turtle survey says about Olive Ridley nesting, Leatherback presence in Nicobar",
+      "url": "https://indianexpress.com/article/india/olive-ridley-turtle-nesting-india-wii-report-10977494/",
+      "published": "2026-11-25T04:13:57Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
       "title": "TSMC's Texas Semiconductor Plant Challenges Samsung",
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOFBfRHZkMzhVTklzd2ZxZ2l6NHNRakhZb3BrS2VYRUFMYkkxbDRCTktCb0lubjYwZ0stV2ExRTV3OVB6dk4yVlhZUGtUYjBNNUJRb1Q4VnFUVDlITHdDOW5aci1BU01XQm9sNVpzNm5IcDVhcmZOdUlzRWhEYkdhSHBua3B0NEdR?oc=5",
       "published": "2026-11-25T04:13:37Z",
@@ -4738,6 +4831,15 @@
       "source": "Kotak Neo",
       "feed": "Google News: RBI",
       "section": "economy_markets"
+    },
+    {
+      "title": "Puerto Rico wins Miss Universe 2026: 5 problems plaguing the beauty pageant in its 75th edition",
+      "url": "https://indianexpress.com/article/explained/explained-culture/miss-universe-2026-controversies-ownership-judging-five-problems-10977410/",
+      "published": "2026-11-25T03:45:52Z",
+      "summary": "",
+      "source": "Indian Express Explained",
+      "feed": "Indian Express Explained",
+      "section": "explainers"
     },
     {
       "title": "The iron question: anaemia and more",
@@ -5694,6 +5796,15 @@
       "section": "geopolitics"
     },
     {
+      "title": "The civilisational state: How the SCO forum reflects a shift in global politics",
+      "url": "https://indianexpress.com/article/explained/explained-global/civilisational-state-sco-dialogue-forum-history-culture-foreign-policy-10976798/",
+      "published": "2026-11-25T02:14:59Z",
+      "summary": "",
+      "source": "Indian Express Explained",
+      "feed": "Indian Express Explained",
+      "section": "explainers"
+    },
+    {
       "title": "Japan agency finds over 80% of X posts flagged by government AI system infringed copyright",
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNM1ktYUhCVzV3bDl0Sl9QUS1QM0pyTkJoeHBfUEU5N2xMak1uYllrblpVSWFTZlpOVXdHN0poR25EMUhCZXkycmtwNmN6bDVweWZWcWp5UEM1ajRjT0E1NlA3c3FydWZDSFlpOFBiUDQtVk15T0JiaE5BeENYUDRMbUtPVmZjLWZiendvRTFvUHIxT2R0YzhsbmZOWlI5emh1TlgwM1hvclEwd2xCRll3ajYzYUE?oc=5",
       "published": "2026-11-25T02:14:23Z",
@@ -6188,6 +6299,15 @@
       "section": "world"
     },
     {
+      "title": "Why government has advised against using WhatsApp Web for sensitive work",
+      "url": "https://indianexpress.com/article/explained/explained-sci-tech/whatsapp-web-security-risks-mha-advisory-safety-guidelines-10976949/",
+      "published": "2026-11-25T01:31:04Z",
+      "summary": "",
+      "source": "Indian Express Explained",
+      "feed": "Indian Express Explained",
+      "section": "explainers"
+    },
+    {
       "title": "Pledged gold worth less after gold prices crash 30% from peak, while gold loan NPAs nearly double in six",
       "url": "https://news.google.com/rss/articles/CBMi6gJBVV95cUxQRUlqRUJ5czVMT1AxQkcycElXc0tockV5VVFoeW1DemZFQ0FTRklRdm9hUUtZdUdseFhpSnpSRzRKLTRvNUY4OG9VamVGVF9vbUdjS3hRZ1JRRFhKbkVJWHgtbmFZeTJjRGpZT3BYdlBZT0FKZFJOT3h3MU9GUG9kWkNJVWhYbkJFWHZybjNnSThLMm94V210LXFVXzdIZHVRSFdWY284QjljaV85OGV5XzZNNE5CY1UwNERDRUZUU0p0eVJ1TzVubmVRMHlOdGJEdEpHbXFVajBJQmhaVXNFeXVSM2FSRzI5cnZJVklxa3psT0xMZkMzbWZKOFVMYjFMXzVYZUdvaWVlSmIwdm9ncEpSRUptR1ZQQUFKakEtQk9UbHRaai1VQmVwRElHSkNWTnpuQm8ybDZRaE1rQWp1b05Jdm9DR0JhUUlXUTRSUGphQ28xZ1B0cGVlLTJhdktmSFJLT080bU96UdIB7wJBVV95cUxQek5KVHBFdWM1ck5hYUxzNTNwUUF0VExqUGJ3Y3hoeWtwVzBsa1d1bXk0NnpsM3ZmQU5tbnFhN1lZQ2FkemdoZE5jblEzTzY4TG1raFRPTEZEdW9DOS1uamVxc2kzNUs5azFLbzR0NV9qM01ZUXdLUjhKc0JSVWRvRm8tNmlDV1NNWVROYmxPeW9pZDFtbzBmYnJVRkpMbDg2RmpISGt3SmFUMTdaUkxNdDlkTDFsWmhiNmtDLUpaXzB0cms4TUp5NjM2RWhMMlV4RnBEOUhVZ2NmOUVMMV9mWHdPaHZQRURlallOTWtxaTlnTWdEbXNPOVcyc0hzNzFCa0RaTmg3LW9ldUpXZ1BYZ2E0Qzk0Zml1NmpIcG5JWkVYRnJCVWRlcnBwdjhDR241OE9jTnBHUmhxbTRLUnA3NE81SElVVHduaDlhcW1ENlVCWU1lWEk1SHJiZHhHMjhWTm1MU2ZidC1WcW1NNzEw?oc=5",
       "published": "2026-11-25T01:31:00Z",
@@ -6243,6 +6363,15 @@
       "source": "Economic Times Markets",
       "feed": "Economic Times Markets",
       "section": "economy_markets"
+    },
+    {
+      "title": "A stir and an assurance: Protesting staff get impromptu hearing from new J&K chief secretary",
+      "url": "https://indianexpress.com/article/india/jammu-kashmir-government-medical-college-employees-service-rules-protest-10977236/",
+      "published": "2026-11-25T01:25:35Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
     },
     {
       "title": "Unclassified CIA system was breached in cyberattack: Report",
@@ -6446,6 +6575,15 @@
       "section": "world"
     },
     {
+      "title": "Contempt of court: Why defying a judge’s order is not always contempt",
+      "url": "https://indianexpress.com/article/explained/explained-law/contempt-of-court-india-bnss-section-384-explained-10976971/",
+      "published": "2026-11-25T01:00:25Z",
+      "summary": "",
+      "source": "Indian Express Explained",
+      "feed": "Indian Express Explained",
+      "section": "explainers"
+    },
+    {
       "title": "Middle-aged women in England least likely to successfully quit smoking, study finds",
       "url": "https://www.theguardian.com/society/2026/nov/25/middle-aged-women-quit-smoking-england-study",
       "published": "2026-11-25T01:00:01Z",
@@ -6586,6 +6724,15 @@
       "source": "The Conversation (Australia)",
       "feed": "The Conversation (Australia)",
       "section": "explainers"
+    },
+    {
+      "title": "Violinist H N Bhaskar in custody in US over alleged sexual abuse of minor",
+      "url": "https://indianexpress.com/article/india/violinist-h-n-bhaskar-in-custody-in-us-over-alleged-sexual-abuse-of-minor-10977338/",
+      "published": "2026-11-25T00:50:56Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
     },
     {
       "title": "From Quincy to Mecca: How War Is Reshaping the Gulf’s Security Order",
@@ -6903,6 +7050,15 @@
       "section": "climate_energy"
     },
     {
+      "title": "Tamil Nadu runs Supreme Court contempt risk: Lamp lit, but not at pillar on Madurai hill",
+      "url": "https://indianexpress.com/article/india/tamil-nadu-supreme-court-contempt-risk-lamp-lit-pillar-madurai-hill-10977227/",
+      "published": "2026-11-25T00:05:53Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
       "title": "Alpha and Omega Semiconductor Limited (AOSL) stock price, news, quote and history",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBHRnJMV2h3dW44d2F4eE51UmhKVWlORmFvRV9sVTdmcy1oeDZUSWNoLW1iRXljM3NQNGo1dWdaYk9YdjlFZEZlQWV3a0ZFLWNXZlE?oc=5",
       "published": "2026-11-25T00:05:33Z",
@@ -7059,6 +7215,42 @@
       "section": "science_space"
     },
     {
+      "title": "‘Family church’ vandalised, Odisha man approaches police. Next day, excavator shows up",
+      "url": "https://indianexpress.com/article/india/family-church-vandalised-odisha-man-approaches-police-next-day-excavator-shows-up-10977215/",
+      "published": "2026-11-24T23:50:50Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
+      "title": "‘Papa’s security removed on purpose to get him killed,’ says Rahul Gandhi",
+      "url": "https://indianexpress.com/article/india/rahul-gandhi-rajiv-assassination-spg-security-cover-10977256/",
+      "published": "2026-11-24T23:50:48Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
+      "title": "From Dancing Girl to Nizam jewels, what to expect at Yuge Yugeen museum",
+      "url": "https://indianexpress.com/article/india/yuge-yugeen-museum-dancing-girl-nizam-jewels-10977255/",
+      "published": "2026-11-24T23:50:43Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
+      "title": "Personal attack, veiled dig: Rift between two Kerala Congress MPs plays out in open",
+      "url": "https://indianexpress.com/article/india/kerala-congress-infighting-unnithan-shafi-parambil-10977171/",
+      "published": "2026-11-24T23:50:33Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
+    },
+    {
       "title": "Kilmar Ábrego García, man at center of Trump deportation battle, leaves US",
       "url": "https://www.theguardian.com/us-news/2026/nov/24/kilmar-abrego-garcia-leaves-us",
       "published": "2026-11-24T23:50:31Z",
@@ -7066,6 +7258,15 @@
       "source": "The Guardian World",
       "feed": "The Guardian World",
       "section": "world"
+    },
+    {
+      "title": "From Instagram reel to political corridors, how row over excavator at Sheshnag has snowballed",
+      "url": "https://indianexpress.com/article/india/sheshnag-lake-excavation-kashmir-environmental-damage-bro-mehbooba-mufti-10977281/",
+      "published": "2026-11-24T23:50:27Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
     },
     {
       "title": "Hackers breach CIA intelligence network in latest US cyberattack",
@@ -7125,6 +7326,15 @@
       "source": "Bioengineer.org",
       "feed": "Google News: physics discovery OR \"particle physics\" OR \"dark matter\"",
       "section": "science_space"
+    },
+    {
+      "title": "Family of ailing Navy veteran jailed in Qatar seeks Indian mission’s help for his release",
+      "url": "https://indianexpress.com/article/india/family-of-ailing-navy-veteran-jailed-in-qatar-seeks-indian-missions-help-for-his-release-10977118/",
+      "published": "2026-11-24T23:33:29Z",
+      "summary": "",
+      "source": "Indian Express India",
+      "feed": "Indian Express India",
+      "section": "india"
     },
     {
       "title": "A 13,000-year-old skeleton named Yotzin was discovered alongside mammoth fossils at an airport excavation",

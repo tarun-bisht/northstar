@@ -1,7 +1,7 @@
 {
   "kind": "arxiv",
   "date": "2026-11-25",
-  "fetched_at": "2026-11-25T09:04:47Z",
+  "fetched_at": "2026-11-25T09:56:43Z",
   "source": "export.arxiv.org API (rss.arxiv.org fallback) + Hugging Face Daily Papers + alphaXiv trending and search",
   "failed_sources": [
     "alphaxiv:Twitter (X)"

@@ -58,7 +58,9 @@ The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config
 
 Google News also runs searches built from your interests (AI security, quantum computing, neuroscience, physics, mathematics, archaeology, Japan and anime, art, prizes, robotics), marked `interest: true`. X and LinkedIn have no open feed (alphaXiv's X list is rejected by its API), so their discussion reaches the radar through Hacker News, newsletters and web search, never invented.
 
-Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 07:07 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them. Runs fall back to web search for anything still missing and say so in `notes`.
+Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 07:07 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them.
+
+**Runs never fall back to web search for candidates.** GitHub can start scheduled workflows hours late, so the daily and shorts runs begin with `dsys.py candidates ensure` (`dsys/ensure.py`). It checks today's files. If a fetch is already queued or running, it waits for it to finish. Otherwise it starts the workflow itself (workflow_dispatch) for the missing kinds, or in retry mode for failed sources, and waits for that run to finish. It repeats this for up to four rounds and 90 minutes. A missing file is never accepted: the run skips that stream and posts the failure to Slack. A source that keeps failing inside a file that exists is listed, and the rest of the file is used.
 
 arXiv allows one request every three seconds on a single connection. The fetcher spaces its calls to match.
 

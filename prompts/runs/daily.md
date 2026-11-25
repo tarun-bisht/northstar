@@ -3,7 +3,7 @@
 Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
 
 1. Get dates: `python scripts/dsys.py period`. `<today>` is its `date` (Asia/Kolkata).
-   Then make sure today's fetched files exist: `python scripts/dsys.py candidates ensure --kinds arxiv,news,podcasts,videos,updates`. GitHub's scheduled fetch can start hours late, so if a file is missing this starts the fetch itself and waits up to 15 minutes. If it still reports `ok: false`, carry on with the fallbacks in each prompt and list what was missing in the final message.
+   Then make sure today's fetched files are complete: `python scripts/dsys.py candidates ensure --kinds arxiv,news,podcasts,videos,updates`. GitHub's scheduled fetch can start hours late or not at all, so this waits for a fetch that is already running, or starts one itself, waits until it has finished, and retries failed sources, for up to 90 minutes. Wait for it: never replace fetched candidates with web search. If it reports `ok: false`, skip the streams whose files are missing, post the failure to Slack (`prompts/runs/_git.md`) and finish the rest. If it reports `failed_sources`, use the files as they are and list those sources in the final message.
 2. Inbox: follow `prompts/inbox.md` (quick no-op when empty).
 3. **arXiv**, Monday–Friday only: follow `prompts/arxiv.md`.
 4. **Research updates**: follow `prompts/research_updates.md`.

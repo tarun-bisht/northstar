@@ -98,19 +98,64 @@ def test_library_page(repo):
     assert "weekly/2026-W49/knowledge.html#history" in html and "challenge, 2026-12" in html
 
 
-def test_ensure_dispatches_and_waits(repo):
-    from dsys.ensure import ensure
-    calls = []
+class _R:
+    def __init__(self, out="", code=0):
+        self.stdout, self.stderr, self.returncode = out, "", code
+
+
+def _fake_github(repo, land_on_pull=1, fail_sources=False):
+    """A fake gh/git: a dispatched run shows up, completes on the next poll, and its files land on a pull."""
+    st = {"runs": [], "pulls": 0, "dispatches": []}
 
     def run(cmd):
-        calls.append(cmd[:2])
-        if cmd[0] == "git":  # the workflow's commit lands on the second pull
-            if sum(c[0] == "git" for c in calls) == 2:
-                write_json(repo.p("candidates", "arxiv", f"{D}.json"), {"candidates": []})
+        if cmd[:2] == ["gh", "api"] and "-X" in cmd:
+            st["dispatches"].append(cmd)
+            st["runs"].append({"id": len(st["runs"]) + 1, "event": "workflow_dispatch", "status": "queued",
+                               "created_at": "2999-01-01T00:00:00Z"})
+            return _R()
+        if cmd[:2] == ["gh", "api"]:
+            q = cmd[2]
+            for r in st["runs"]:
+                if "status=" not in q and r["status"] != "completed":
+                    r["status"] = "completed"  # finishes once we look at it
+                    return _R(json.dumps({"workflow_runs": [dict(r, status="in_progress")]}))
+            want = q.split("status=")[1] if "status=" in q else None
+            return _R(json.dumps({"workflow_runs": [r for r in st["runs"] if want in (None, r["status"])]}))
+        if cmd[0] == "git":
+            st["pulls"] += 1
+            if st["pulls"] >= land_on_pull:
+                write_json(repo.p("candidates", "arxiv", f"{D}.json"),
+                           {"candidates": [1], "failed_sources": ["alphaxiv:Hot"] if fail_sources else []})
+        return _R()
+    return run, st
 
-        class R:
-            returncode, stdout, stderr = 0, "", ""
-        return R()
-    assert ensure(repo, D, ["arxiv"], wait=300, run=run, sleep=lambda s: None) == 0
-    assert calls[0] == ["gh", "api"] and sum(c[0] == "git" for c in calls) == 2
-    assert ensure(repo, D, ["arxiv"], run=run, sleep=lambda s: None) == 0 and len(calls) == 3  # already there
+
+def test_ensure_waits_for_the_whole_fetch(repo):
+    from dsys.ensure import ensure
+    run, st = _fake_github(repo, land_on_pull=2)
+    assert ensure(repo, D, ["arxiv"], run=run, sleep=lambda s: None) == 0
+    assert len(st["dispatches"]) == 2 and "inputs[retry_only]=false" in st["dispatches"][0]
+    # already complete: nothing is started
+    assert ensure(repo, D, ["arxiv"], run=run, sleep=lambda s: None) == 0 and len(st["dispatches"]) == 2
+
+
+def test_ensure_retries_failed_sources_then_accepts_real_data(repo, capsys):
+    from dsys.ensure import ensure
+    run, st = _fake_github(repo, fail_sources=True)
+    assert ensure(repo, D, ["arxiv"], attempts=3, run=run, sleep=lambda s: None) == 0
+    assert any("inputs[retry_only]=true" in d for d in st["dispatches"])
+    out = json.loads(capsys.readouterr().out.strip().splitlines()[-1])
+    assert out["failed_sources"] == {"arxiv": ["alphaxiv:Hot"]}
+
+
+def test_ensure_never_accepts_missing_files(repo, capsys):
+    from dsys.ensure import ensure
+    run, _ = _fake_github(repo, land_on_pull=99)
+    assert ensure(repo, D, ["arxiv"], attempts=2, run=run, sleep=lambda s: None) == 1
+    assert "do not search" in capsys.readouterr().out
+
+
+def test_ensure_skips_arxiv_at_weekends(repo):
+    from dsys.ensure import ensure
+    sat = D + dt.timedelta(days=(5 - D.weekday()) % 7)
+    assert ensure(repo, sat, ["arxiv"], run=lambda c: _R(), sleep=lambda s: None) == 0

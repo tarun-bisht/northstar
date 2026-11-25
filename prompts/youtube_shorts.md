@@ -7,9 +7,7 @@ Read `prompts/_shared.md` first.
 ## Legitimate access only
 
 - **Preferred:** candidates fetched by GitHub Actions via the YouTube Data API v3 (`candidates/youtube/<date>.json`, needs the `YOUTUBE_API_KEY` repository secret). These have real IDs, titles, channels, durations and dates.
-- **Fallback (no API key):** use web search to find specific Shorts, then verify each id through oEmbed:
-  `https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=<ID>`.
-  oEmbed confirms the video exists and gives title and channel name; it does **not** give duration, date or Shorts status. Leave those fields out, and use `format: "unknown"`. Expect fewer than 30 videos per day in fallback mode, and say so in `notes`.
+- **No fallback.** Videos come only from the candidates file. If it is missing after `candidates ensure`, make no shorts today and report it.
 - Never scrape YouTube HTML, and never construct or guess video ids.
 
 ## Steps
@@ -26,6 +24,6 @@ Read `prompts/_shared.md` first.
    - more than ~3 videos per creator per day (the soft limit; spread creators across days)
 5. **Tiers (validation enforces this):** tag every video `tier` = established (AI, research, maths/physics for research), growth (maths, physics, neuroscience, consciousness, philosophy, people skills, history, art) or exploration (places, cultures, crafts, unusual science). Include **at least one per tier**, with most in established, a steady share of growth, and some exploration.
 6. Aim for breadth across dimensions and topics (science, math, AI, history, philosophy, psychology, communication and EQ, books, cinema and anime, music, art, architecture, photography, DIY, electronics, game dev, inventions, places, people, experiments). Within a topic, prefer creators known for accuracy. Don't let any one topic dominate.
-7. **Shorts vs other short videos.** Never assert that a video is a Short from its duration. Use the candidate's `format` and `format_evidence` as given: `short` only when `format_evidence` is `shorts_url_check`; otherwise `short_form` (known not to be a Short) or `unknown`. In fallback mode, use `unknown` with `format_evidence: "none"`.
+7. **Shorts vs other short videos.** Never assert that a video is a Short from its duration. Use the candidate's `format` and `format_evidence` as given: `short` only when `format_evidence` is `shorts_url_check`; otherwise `short_form` (known not to be a Short) or `unknown`.
 8. Item fields (`schemas/youtube_shorts.schema.json`): `id` = `yt-<video_id>`; `url` = `https://www.youtube.com/shorts/<id>` **only** if `format` is `short`, otherwise `https://www.youtube.com/watch?v=<id>`; `embed_url` = `https://www.youtube.com/embed/<id>`; `thumbnail` = `https://i.ytimg.com/vi/<id>/hqdefault.jpg`; `channel.name` (and `channel.id` from the API); `duration_seconds` and `published` only from the API; `topic`, `category`, `tier`, `dimensions`, `language`; `why_it_matches` (one line, concrete); `discovery_source`; `format`, `format_evidence`; `verification.method` (`youtube_data_api` or `oembed`) and `verification.verified_at`.
 9. Write `/tmp/yt.json` with `candidates_considered`, merge with `python scripts/dsys.py daily merge youtube_shorts --date <today> --items /tmp/yt.json`, then `history rebuild` and `validate`. Validation rejects malformed IDs, mismatched URLs, "short" claims without evidence and repeated videos. It warns about creator over-representation and near-duplicate titles.

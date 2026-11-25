@@ -113,7 +113,7 @@ def cmd_candidates(repo: Repo, args) -> int:
         return 0
     if args.kind == "ensure":
         from .ensure import ensure
-        return ensure(repo, day, [k.strip() for k in (args.kinds or "arxiv,news").split(",")], int(args.wait))
+        return ensure(repo, day, [k.strip() for k in (args.kinds or "arxiv,news").split(",")], timeout=int(args.wait))
     if args.kind in ("podcasts", "videos", "updates", "hf"):
         _print(history.latest_candidates(repo, args.kind, day))
         return 0
@@ -425,7 +425,7 @@ def build_parser() -> argparse.ArgumentParser:
     s = sub.add_parser("candidates", help="print unseen fetched candidates")
     s.add_argument("kind", choices=["arxiv", "news", "youtube", "videos", "podcasts", "updates", "hf", "ensure"])
     s.add_argument("--kinds", help="ensure: comma list of candidate kinds today's run needs (default arxiv,news)")
-    s.add_argument("--wait", default=900, help="ensure: seconds to wait for the fetch workflow (default 900)")
+    s.add_argument("--wait", default=5400, help="ensure: most seconds to keep fetching and retrying (default 5400)")
     s.add_argument("--date")
     s.add_argument("--limit", type=int)
     s.add_argument("--offset", type=int, default=0)

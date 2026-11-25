@@ -36,10 +36,15 @@ def status(repo: Repo, day: dt.date) -> dict:
     if day.day == 1:
         m = month_of(day)
         out["this_month"] = {"month": m, "package": repo.monthly_path(m).exists()}
+    if day.day == 1 and day.month in (1, 4, 7, 10):
+        q = f"{day.year}-Q{(day.month - 1) // 3}" if day.month > 1 else f"{day.year - 1}-Q4"
+        f = repo.p("content", "quarterly", q[:4], f"{q[5:]}.json")
+        out["quarterly"] = {"quarter": q, "review": f.exists()}
     out["validation_errors"] = validate_repo(repo).errors[:20]
     out["ok"] = not (out["missing"] or out["validation_errors"]
                      or (day.weekday() == 5 and not out["next_week"]["package"])
-                     or (day.day == 1 and not out["this_month"]["package"]))
+                     or (day.day == 1 and not out["this_month"]["package"])
+                     or ("quarterly" in out and not out["quarterly"]["review"]))
     return out
 
 

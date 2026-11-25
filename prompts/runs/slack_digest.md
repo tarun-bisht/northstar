@@ -12,7 +12,7 @@ Follow `prompts/runs/_git.md` for setup (clone or update). This run commits noth
 4. Post one message with `slack_send_message` to the channel. Keep it short, plain text, links on their own lines:
    - first line: `Northstar, <weekday> <d Mon>` and, if anything failed, ` (needs a look)`
    - today's pages: Research, News, Exploration, Languages (`<site>/daily/<today>/<part>.html`, site from `config/site.json → base_url`). Skip a part that has no content today.
-   - on Saturday: next week's pages (`<site>/weekly/<next_week>/index.html`). On the 1st: this month's (`<site>/monthly/<this_month>/index.html`).
+   - on Saturday: next week's pages (`<site>/weekly/<next_week>/index.html`). On the 1st: this month's (`<site>/monthly/<this_month>/index.html`), and at a quarter start the quarterly review.
    - one line per problem, from steps 1 to 3, with a link when there is one. If nothing failed, say nothing about failures.
 5. Final message: the text you posted, or why you could not post.
 

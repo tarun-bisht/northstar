@@ -9,6 +9,10 @@ schedule. This command:
    missing kinds, or in retry mode for sources that failed, and waits for that run to finish;
 4. pulls the repo and checks again, up to `attempts` rounds.
 
+One call waits about 9 minutes at most (a run's shell commands time out at 10), checking every
+60 seconds. Waiting costs nothing: the check is a free GitHub API call and no model works while
+the command sleeps. If files are still missing, the run calls it again, up to 10 times.
+
 Missing files are never accepted: if they still can't be fetched when the time runs out, it
 exits 1 and the run reports the failure instead of searching. Sources that keep failing
 inside a file that exists (one feed out of thirty, say) are retried every round and then
@@ -74,7 +78,7 @@ def _wait_done(run, run_ids: set, sleep, pause: int, deadline: float, clock) -> 
         run_ids -= done
 
 
-def ensure(repo, day: dt.date, kinds: list[str], timeout: int = 5400, attempts: int = 4, pause: int = 30,
+def ensure(repo, day: dt.date, kinds: list[str], timeout: int = 540, attempts: int = 4, pause: int = 60,
            run=None, sleep=time.sleep, clock=time.monotonic) -> int:
     run = run or _run
     kinds = needed(day, kinds)
@@ -116,6 +120,7 @@ def ensure(repo, day: dt.date, kinds: list[str], timeout: int = 5400, attempts: 
     ok = not missing
     print(json.dumps({"ok": ok, "missing": missing, "failed_sources": failed, "log": log,
                       "next": ("use the fetched files; list failed_sources in the final message" if ok else
-                               "do not search instead: skip the streams that need the missing files, "
-                               "post the failure to Slack (prompts/runs/_git.md) and say so in the final message")}))
+                               "run the same command again (each call waits about 9 minutes; up to 10 calls). "
+                               "Never search instead. After 10 calls, skip the streams that need the missing files "
+                               "and post the failure to Slack (prompts/runs/_git.md)")}))
     return 0 if ok else 1

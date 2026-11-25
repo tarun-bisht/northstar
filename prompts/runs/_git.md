@@ -23,3 +23,7 @@ git push origin main || (git pull --rebase origin main && git push origin main)
 - If validation keeps failing, fix the content. If you can't, remove only the offending items, note it in `notes`, and commit what is valid.
 - If pushing is refused because of missing permissions, stop and report it in the run summary. Don't try other routes.
 - Never commit secrets. There are none in this repo; the YouTube key lives only in GitHub Actions secrets.
+
+## If the run fails
+
+If the run cannot finish (it could not push, validation failed and could not be fixed, a required part is missing), post **one** short message in the Slack channel from `config/notifications.json` with `slack_send_message`: `Northstar <run> run on <date> failed: <one line why>. <what is still missing>`. Post nothing when the run succeeds: the daily digest (`prompts/runs/slack_digest.md`) reports success. If the Slack tools are not available, put the failure in the final message instead.

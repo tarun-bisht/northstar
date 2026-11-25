@@ -11,7 +11,7 @@
 | Monthly | go deep | 1st of the month, 06:15 | Monthly run |
 | Quarterly | look back | 1 Jan, Apr, Jul, Oct, 06:41 | Quarterly run |
 
-Before the runs, GitHub Actions fetches candidates at 06:00 and refills any gaps at 06:50 (section 4). No AI runs in that step.
+Before the runs, GitHub Actions fetches candidates at 06:37 and refills any gaps at 07:07 (section 4). GitHub can start these hours late, so the daily and shorts runs start the fetch themselves if today's files are missing. No AI runs in that step.
 
 ## 2. Parts, each with its own URL
 
@@ -58,7 +58,7 @@ The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config
 
 Google News also runs searches built from your interests (AI security, quantum computing, neuroscience, physics, mathematics, archaeology, Japan and anime, art, prizes, robotics), marked `interest: true`. X and LinkedIn are reached through alphaXiv's Twitter (X) list and web search, never invented.
 
-Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 06:50 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them. Runs fall back to web search for anything still missing and say so in `notes`.
+Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 07:07 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them. Runs fall back to web search for anything still missing and say so in `notes`.
 
 arXiv allows one request every three seconds on a single connection. The fetcher spaces its calls to match.
 
@@ -125,6 +125,6 @@ No streaks, scores, completion tracking, backlogs or guilt. Items carry a status
 - **News feeds or categories:** `config/sources.json → world.feeds` and `world.categories`.
 - **Notable researchers:** `config/sources.json → notable_researchers`.
 - **Sizes and required sections:** `config/preferences.json` and `WEEKLY_REQUIRED` in `dsys/validate.py`.
-- **Times:** the cron lines in the scheduled tasks and in `.github/workflows/fetch-candidates.yml`. Keep the runs after the 06:00 and 06:50 fetches.
+- **Times:** the cron lines in the scheduled tasks and in `.github/workflows/fetch-candidates.yml`. Keep the runs after the 06:37 and 07:07 fetches.
 
 Finish every change with `python scripts/validate.py && python -m pytest -q`.

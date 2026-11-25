@@ -129,7 +129,16 @@ def fetch_arxiv(repo, day: dt.date, retry_failed: bool = False) -> int:
                     _merge(by_id, {**p, "categories": [], "source": "huggingface_daily"})
             elif kind == "alphaxiv":
                 f = next(f for f in alphaxiv_feeds(axv) if f["sort"] == arg)
-                for p in ax.fetch_alphaxiv(int(f.get("limit", 50)), f["sort"], f.get("interval", "7 Days")):
+                got, err = None, None
+                for sort in [f["sort"]] + f.get("alternates", []):  # the API's name for a list can change
+                    try:
+                        got = ax.fetch_alphaxiv(int(f.get("limit", 50)), sort, f.get("interval", "7 Days"))
+                        break
+                    except Exception as e:
+                        err = e
+                if got is None:
+                    raise err
+                for p in got:
                     _merge(by_id, {**p, "categories": [], "source": "alphaxiv_trending", "alphaxiv_lists": [f["sort"]]})
             elif kind == "alphaxiv_search":
                 interest_search, misses = alphaxiv_interest_search(sources, axv.get("search", {}))

@@ -142,7 +142,7 @@ def test_fetch_arxiv_rss_fallback_failed_sources_and_retry(repo, monkeypatch):
     doc = load_json(repo.p("candidates", "arxiv", f"{D}.json"))
     ids = {c["arxiv_id"] for c in doc["candidates"]}
     assert ids == {"2611.00001", "2611.00002"}  # cs.CL came from RSS
-    assert doc["failed_sources"] == ["alphaxiv:GitHub", "alphaxiv:Hot", "alphaxiv:Likes", "alphaxiv:Twitter (X)"]
+    assert doc["failed_sources"] == ["alphaxiv:Comments", "alphaxiv:GitHub", "alphaxiv:Hot", "alphaxiv:Likes", "alphaxiv:Twitter (X)"]
     assert any("cs.CL" in n for n in doc["notes"])
     assert next(c for c in doc["candidates"] if c["arxiv_id"] == "2611.00001")["notable_authors"] == ["Yoshua Bengio"]
 
@@ -155,7 +155,7 @@ def test_fetch_arxiv_rss_fallback_failed_sources_and_retry(repo, monkeypatch):
     assert calls == [] and doc["failed_sources"] == []
     assert {c["arxiv_id"] for c in doc["candidates"]} == {"2611.00001", "2611.00002", "2611.00003"}
     assert next(c for c in doc["candidates"] if c["arxiv_id"] == "2611.00003")["alphaxiv_lists"] == [
-        "GitHub", "Hot", "Likes", "Twitter (X)"]
+        "Comments", "GitHub", "Hot", "Likes", "Twitter (X)"]
 
 
 def test_alphaxiv_search_per_interest(repo, monkeypatch):

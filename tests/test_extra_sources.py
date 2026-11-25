@@ -96,3 +96,21 @@ def test_library_page(repo):
         [{"month": "2026-12", "items": [], "challenges": [{"id": "c", "subject": "maths", "title": "Sum"}]}])
     assert html.index("Mathematics") < html.index("Physics") < html.index("History")
     assert "weekly/2026-W49/knowledge.html#history" in html and "challenge, 2026-12" in html
+
+
+def test_ensure_dispatches_and_waits(repo):
+    from dsys.ensure import ensure
+    calls = []
+
+    def run(cmd):
+        calls.append(cmd[:2])
+        if cmd[0] == "git":  # the workflow's commit lands on the second pull
+            if sum(c[0] == "git" for c in calls) == 2:
+                write_json(repo.p("candidates", "arxiv", f"{D}.json"), {"candidates": []})
+
+        class R:
+            returncode, stdout, stderr = 0, "", ""
+        return R()
+    assert ensure(repo, D, ["arxiv"], wait=300, run=run, sleep=lambda s: None) == 0
+    assert calls[0] == ["gh", "api"] and sum(c[0] == "git" for c in calls) == 2
+    assert ensure(repo, D, ["arxiv"], run=run, sleep=lambda s: None) == 0 and len(calls) == 3  # already there

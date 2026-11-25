@@ -1878,10 +1878,20 @@
       {
         "sort": "Twitter (X)",
         "interval": "7 Days",
-        "limit": 50
+        "limit": 50,
+        "alternates": [
+          "Twitter",
+          "X",
+          "Tweets"
+        ]
       },
       {
         "sort": "GitHub",
+        "interval": "7 Days",
+        "limit": 30
+      },
+      {
+        "sort": "Comments",
         "interval": "7 Days",
         "limit": 30
       }

@@ -15,7 +15,7 @@ Northstar runs on eight Claude scheduled tasks: five that make content and three
 
 **Notifications.** Slack is the only channel. Turn off mobile push and email for all eight tasks. The three Slack tasks need the Slack connector. Content runs post one line on failure if they have it, and the daily digest reports their failures either way; the channel is in `config/notifications.json`.
 
-Every task runs after the 06:00 IST candidate fetch on GitHub Actions and its 06:50 gap-filling run.
+Every task runs after the 06:37 IST candidate fetch on GitHub Actions and its 07:07 gap-filling run. GitHub can start scheduled runs hours late, so the daily and shorts runs start the fetch themselves when today's files are missing (`dsys.py candidates ensure`).
 
 ## Before you start
 
@@ -57,7 +57,7 @@ Running it again is safe. It replaces the old tasks instead of adding copies.
 
 ## Change the times
 
-All times use `CRON_TZ=Asia/Kolkata`. For your own time zone, change the zone name (for example `CRON_TZ=Europe/London`) and the hour. Keep every task after the 06:00 and 06:50 IST fetches, or move those in `.github/workflows/fetch-candidates.yml` too.
+All times use `CRON_TZ=Asia/Kolkata`. For your own time zone, change the zone name (for example `CRON_TZ=Europe/London`) and the hour. Keep every task after the 06:37 and 07:07 IST fetches, or move those in `.github/workflows/fetch-candidates.yml` too.
 
 ## The tasks
 

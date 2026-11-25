@@ -6,7 +6,7 @@ The job is to filter. From a few thousand new papers, keep only the high-quality
 
 ## Where candidates come from
 
-`candidates/arxiv/<today>.json` is fetched at 06:00 IST (gaps refilled at 06:50) from three sources:
+`candidates/arxiv/<today>.json` is fetched at 06:37 IST (gaps refilled at 07:07; the daily run starts the fetch itself if it is missing) from three sources:
 - the **arXiv API**, for every category in `config/sources.json → arxiv.categories`, which together cover every research interest (`arxiv.coverage`). rss.arxiv.org is the fallback.
 - **Hugging Face Daily Papers**: community upvotes (`hf_upvotes`).
 - **alphaXiv**: four community lists over 7 days, Hot, Likes, Twitter (X) and GitHub (`alphaxiv_votes`, `alphaxiv_lists`). The Twitter (X) list is how research discussion on X reaches the radar (signal `discussed on X`). Plus one **alphaXiv search per interest** (`alphaxiv_interests`, signal `alphaXiv search: ...`), which also catches papers the keywords miss. All of these feed the ranking.

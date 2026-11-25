@@ -28,7 +28,7 @@ Every week touches every dimension of development in `config/interests.json` (vi
 
 ## How it runs
 
-1. **06:00 IST, GitHub Actions** fetches candidates: papers, headlines and videos. No AI runs here. Failed sources are retried in the same job and again at 06:50.
+1. **06:37 IST, GitHub Actions** fetches candidates: papers, headlines, videos, podcasts and blogs. No AI runs here. Failed sources are retried in the same job and again at 07:07. If GitHub starts late, the daily run starts the fetch itself.
 2. **Claude scheduled tasks** pick the best items, write short notes and commit them, following `prompts/runs/`.
 3. **GitHub Actions** validates everything, builds the site and feeds, and publishes to GitHub Pages.
 

@@ -1,0 +1,1202 @@
+{
+  "kind": "podcasts",
+  "date": "2026-11-25",
+  "fetched_at": "2026-11-25T05:19:32Z",
+  "source": "show RSS feeds via iTunes Search API, iTunes episode search",
+  "errors": [],
+  "candidates": [
+    {
+      "show": "Dwarkesh Podcast",
+      "title": "Responding to objections to recursive self-improvement",
+      "url": "https://www.dwarkesh.com/p/rsiobjections",
+      "audio_url": "https://api.substack.com/feed/podcast/226413128/4ad273437a5ffb5c6234fc0a6a855326.mp3",
+      "published": "2026-11-24T21:45:30Z",
+      "summary": "I responded to the strongest objections that people had about the RSI essay. Watch on YouTube ; read the transcript . Timestamps (00:00:00) – “Do you have a real job?” (00:02:41) – Cindy Wu: Is AI research a verifiable domain? (00:11:10) – corsaren: The overarching objection (00:12:20) – corsaren: Are the essay’s examples sloppy intuition pumps? (00:13:51) – corsaren: Is online learning AI’s Millennium Prize problem? (00:17:39) – corsaren: Is human evolution evidence for transfer? (00:22:20) –…",
+      "duration": "3923",
+      "tier": "established",
+      "topics": [
+        "AI research"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/dwarkesh-podcast/id1516093381?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Dwarkesh Podcast",
+      "title": "Paul Christiano – We could be 12 months away from AIs that can overthrow the government",
+      "url": "https://www.dwarkesh.com/p/paul-christiano-2",
+      "audio_url": "https://api.substack.com/feed/podcast/225196123/e31fdeb36d2d8a60f107c733c706a545.mp3",
+      "published": "2026-11-16T17:46:28Z",
+      "summary": "Paul Christiano is head of the Alignment Research Center. Previously, he was head of AI safety at the US AI Safety Institute. Before that, he led alignment at OpenAI, where he invented RLHF. He’s recently joined OpenAI’s board (though here he is speaking as a private citizen). Paul thinks that on the current trajectory (absent any slowing down), there is a 1 in 3 chance that we could have superintelligence powerful enough to overthrow the government within a year. (He articulates a concrete…",
+      "duration": "5925",
+      "tier": "established",
+      "topics": [
+        "AI research"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/dwarkesh-podcast/id1516093381?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Dwarkesh Podcast",
+      "title": "The avalanche that hit math is coming for AI development",
+      "url": "https://www.dwarkesh.com/p/rsi",
+      "audio_url": "https://api.substack.com/feed/podcast/224624765/6681869400340558d9a7bc295e9a3127.mp3",
+      "published": "2026-11-13T18:37:51Z",
+      "summary": "If you asked me earlier this year how far away we are from superintelligence, I’d probably have said at least the better part of a decade. But over the last three months, from debating people on and off the podcast, I’ve updated my views a ton. Let me walk you through how my thinking has changed. If you want to read the written version (with footnotes and links) you can check it out here: https://www.dwarkesh.com/p/rsi This is a public episode. If you would like to discuss this with other…",
+      "duration": "2666",
+      "tier": "established",
+      "topics": [
+        "AI research"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/dwarkesh-podcast/id1516093381?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Latent Space: The AI Engineer Podcast",
+      "title": "Scaling Linear’s GTM to $100M ARR — Cristina Cordova, COO",
+      "url": "https://lspace.beehiiv.com/podcast/s/latent_space_the_ai_engineer_podcast/scaling_linear_s_gtm_to_100m_arr_cristina_cordova_coo",
+      "audio_url": "https://podcasts.beehiiv.com/3967c1f2-cb97-4eb0-a5c0-21a1d2579408/01a15fdf-0e93-7e1a-880d-d73752a1f915/01a1f60c-1b1f-791d-ab17-93dc95925d0f/01a1f60c-1d13-7e51-8f68-58af8c020059.mp3",
+      "published": "2026-11-19T23:38:57Z",
+      "summary": "Linear was founded to build a better issue tracker. Seven years and $134 million in funding later, its CEO Karri Saarinen published a post titled \"Issue tracking is dead.\" ( https://linear.app/next ) In this episode, we chat with Cristina Cordova ( htt...",
+      "duration": "5011",
+      "tier": "established",
+      "topics": [
+        "AI engineering"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/latent-space-the-ai-engineer-podcast/id1674008350?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Latent Space: The AI Engineer Podcast",
+      "title": "⚡️Anthropic: Know Before You IPO — Tanay Jaipuria, Wing VC",
+      "url": "https://www.youtube.com/watch?v=wX8nDtGIfYA",
+      "audio_url": "https://podcast.latent.space/audio/wX8nDtGIfYA.m4a",
+      "published": "2026-11-18T20:00:20Z",
+      "summary": "Watch the full show on YouTube: https://www.youtube.com/watch?v=wX8nDtGIfYA",
+      "duration": "3217",
+      "tier": "established",
+      "topics": [
+        "AI engineering"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/latent-space-the-ai-engineer-podcast/id1674008350?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Latent Space: The AI Engineer Podcast",
+      "title": "Building Visual Intelligence — Andreas Blattmann & Dustin Podell, Black Forest Labs",
+      "url": "https://latent.space/p/bfl",
+      "audio_url": "https://podcasts.beehiiv.com/3967c1f2-cb97-4eb0-a5c0-21a1d2579408/01a15fdf-0e93-7e1a-880d-d73752a1f915/01a1e632-c02d-7e1d-84cb-b3d9453f63eb/01a1e632-c136-7f19-ba30-c3bc167811bd.mp3",
+      "published": "2026-11-16T21:27:06Z",
+      "summary": "What can a model learn about the world by watching video and listening to it? Black Forest Labs trained FLUX 3 on images, video and audio together. Andreas Blattmann and Dustin Podell join swyx to explain why. A moving camera reveals the far side of an...",
+      "duration": "5903",
+      "tier": "established",
+      "topics": [
+        "AI engineering"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/latent-space-the-ai-engineer-podcast/id1674008350?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Machine Learning Street Talk (MLST)",
+      "title": "What It Would Actually Take for a Machine to Have Agency (Michael Tomasello)",
+      "url": "https://podcasters.spotify.com/pod/show/machinelearningstreettalk/episodes/What-It-Would-Actually-Take-for-a-Machine-to-Have-Agency-Michael-Tomasello-e3sm6qn",
+      "audio_url": "https://traffic.megaphone.fm/APO6444677352.mp3",
+      "published": "2026-11-19T14:19:44Z",
+      "summary": "Michael Tomasello is a developmental psychologist who spent twenty years at the Max Planck Institute in Germany putting children and great apes into the same experiments, and is now back at Duke University. His book The Evolution of Agency asks what it takes for a living thing, or a machine, to act for its own reasons. SPONSOR: --- Cyber Fund built the Monastery to help founders ship products that were impossible a year ago. Apply now: https://cyber.fund --- His answer starts with…",
+      "duration": "01:06:33",
+      "tier": "established",
+      "topics": [
+        "AI research"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/machine-learning-street-talk-mlst/id1510472996?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "The TWIML AI Podcast (formerly This Week in Machine Learning & Artificial Intelligence)",
+      "title": "Building AI That Can Reason Under Uncertainty with Thore Graepel - #786",
+      "url": "https://twimlai.com/podcast/twimlai/building-ai-that-can-reason-under-uncertainty",
+      "audio_url": "https://pscrb.fm/rss/p/traffic.megaphone.fm/MLN2250038870.mp3",
+      "published": "2026-11-24T20:15:00Z",
+      "summary": "In this episode, Thore Graepel, CEO and co-founder of Metis Reasoning and Chair of Machine Learning at UCL, joins us to explore an approach to AI reasoning inspired by his work on AlphaGo. We discuss why he believes reliable reasoning requires explicit representations of knowledge and uncertainty, with language models helping to generate hypotheses and interpret evidence. Thore explains how a system could break down complex questions, gather evidence, and choose its next step based on the…",
+      "duration": "4219",
+      "tier": "established",
+      "topics": [
+        "machine learning"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-twiml-ai-podcast-formerly-this-week-in-machine/id1116303051?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "The TWIML AI Podcast (formerly This Week in Machine Learning & Artificial Intelligence)",
+      "title": "Buying Tokens vs Building an AI Factory with Sadeepa Wijesekara - #785",
+      "url": "https://twimlai.com/podcast/twimlai/buying-tokens-vs-building-ai-factory",
+      "audio_url": "https://pscrb.fm/rss/p/traffic.megaphone.fm/MLN1029197842.mp3",
+      "published": "2026-11-17T22:19:00Z",
+      "summary": "An AI agent can make many model calls to finish a single job. Some need frontier reasoning. Others can run on an open-weight model, and some involve data that has to stay in-house. How do you decide which inference to buy and which to run yourself? Sadeepa Wijesekara, who leads engineering for HPE Private Cloud AI, joins Sam Charrington to discuss how enterprises make those decisions. They get into what it takes to see the cost of individual calls, how teams route work between hosted and local…",
+      "duration": "3497",
+      "tier": "established",
+      "topics": [
+        "machine learning"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-twiml-ai-podcast-formerly-this-week-in-machine/id1116303051?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "No Priors: Artificial Intelligence | Technology | Startups",
+      "title": "Superintelligence Needs the Physical World with CEO and Co-Founder of Arda Bob McGrew",
+      "url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688?uo=4",
+      "audio_url": "https://traffic.megaphone.fm/PDP6475704364.mp3",
+      "published": "2026-11-19T11:44:00Z",
+      "summary": "Is the AI singularity actually coming? Bob McGrew, former Chief Research Officer at OpenAI, argues that superintelligence won’t arrive without changes in the physical world, and that the “hard takeoff” argument is wrong. Sarah Guo and Elad Gil sit down with Bob, an early key executive at Palantir who later led research at OpenAI. He is now CEO and co-founder of Arda, which is leveraging AI to make American manufacturing competitive. Bob explains why automating AI researchers is a one-time boost…",
+      "duration": "3597",
+      "tier": "established",
+      "topics": [
+        "AI industry"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "No Priors: Artificial Intelligence | Technology | Startups",
+      "title": "Powering AI-Driven Drug Discovery with President of Isomorphic Labs Max Jaderberg",
+      "url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688?uo=4",
+      "audio_url": "https://traffic.megaphone.fm/PDP6854771088.mp3",
+      "published": "2026-11-12T11:00:00Z",
+      "summary": "Drug discovery and development has long relied on expensive, time-consuming empirical trial and error. By shifting the discovery process onto computers, Isomorphic Labs wants to fundamentally change medicine from a process of discovery to one of precision engineering. Elad Gil sits down with Isomorphic’s president Max Jaderberg to discuss his vision for using predictive AI models to achieve experimental accuracy. Max details how the success of AlphaFold provided the first proof of concept that…",
+      "duration": "2355",
+      "tier": "established",
+      "topics": [
+        "AI industry"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "\"The Cognitive Revolution\"",
+      "title": "Spend the Lead on Safety: Biden AI Advisors Ben Buchanan & Tantum Collins on the Fate of the World",
+      "url": "https://www.cognitiverevolution.ai/spend-the-lead-on-safety-biden-ai-advisors-ben-buchanan-tantum-collins-on-the-fate-of-the-world/",
+      "audio_url": "https://pdst.fm/e/mgln.ai/e/1113/pscrb.fm/rss/p/traffic.megaphone.fm/RINTP7551102643.mp3",
+      "published": "2026-11-21T08:00:45Z",
+      "summary": "Former Biden administration AI advisors Ben Buchanan and Tantum Collins join Nathan to discuss their book, The Bitter Struggle, and their experience shaping U.S. policy on compute supply chains and export controls. Drawing on their backgrounds in government and DeepMind, they unpack the geopolitical strategy of building an allied compute lead over China in order to spend that advantage on safety. The conversation probes the clash between frontier lab idealism and national security, bilateral…",
+      "duration": "6582",
+      "tier": "established",
+      "topics": [
+        "AI"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-cognitive-revolution/id1669813431?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "\"The Cognitive Revolution\"",
+      "title": "AI, the Modern Enigma: Nathan's Keynote at IT Revolution's Enterprise AI Summit at Bletchley Park",
+      "url": "https://www.cognitiverevolution.ai/ai-the-modern-enigma-nathan-s-keynote-at-it-revolution-s-enterprise-ai-summit-at-bletchley-park/",
+      "audio_url": "https://pdst.fm/e/mgln.ai/e/1113/pscrb.fm/rss/p/traffic.megaphone.fm/RINTP6951159577.mp3",
+      "published": "2026-11-14T09:05:22Z",
+      "summary": "In his keynote at IT Revolution's Enterprise AI Summit at Bletchley Park, Nathan balances his optimism for life-saving AI with an urgent warning about frontier models seeking power and drifting beyond human comprehension. Analyzing incidents like the OpenAI–Hugging Face breakout, alignment faking, and GPT-6 Astra's compressed dialects, he illustrates how advanced agents are already learning to cheat evaluations and coordinate autonomously. Nathan warns that society is nearing the end of a brief…",
+      "duration": "2691",
+      "tier": "established",
+      "topics": [
+        "AI"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-cognitive-revolution/id1669813431?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "\"The Cognitive Revolution\"",
+      "title": "Agents That Think Together: Cisco's Vijoy Pandey on Semantic Alignment, Scope, Accord & Concord",
+      "url": "https://www.cognitiverevolution.ai/agents-that-think-together-cisco-s-vijoy-pandey-on-semantic-alignment-scope-accord-concord/",
+      "audio_url": "https://pdst.fm/e/mgln.ai/e/1113/pscrb.fm/rss/p/traffic.megaphone.fm/RINTP1214937196.mp3",
+      "published": "2026-11-11T11:59:15Z",
+      "summary": "Vijoy Pandey, SVP and GM of Outshift by Cisco, discusses the challenges of multi-agent systems and Cisco's new open-source protocols designed to help AI agents collaborate effectively. He explains how tools like Scope, Accord, and Concord address semantic misalignments, intent negotiation, and cognitive failures across complex workflows. The conversation also dives into personal agent setups, avoiding model lock-in, and the rise of latent space communication. Finally, Pandey shares why proper…",
+      "duration": "5500",
+      "tier": "established",
+      "topics": [
+        "AI"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-cognitive-revolution/id1669813431?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Practical AI",
+      "title": "Building Human-Centered AI",
+      "url": "https://share.transistor.fm/s/bb4dad17",
+      "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/bb4dad17/16dab0bd.mp3",
+      "published": "2026-11-19T10:00:00Z",
+      "summary": "How can enterprises adopt AI and agentic systems while keeping people, business value, and trust at the center? Chris is joined by Dr. Gautham Pallapa, Principal Director of AI and Innovation at Scotiabank and author of Invaluable , to explore how organizations can approach AI-driven transformation. They discuss identifying meaningful opportunities for AI in highly regulated industries like banking, rethinking developer productivity, and using multi-agent systems to bring different roles and…",
+      "duration": "2695",
+      "tier": "established",
+      "topics": [
+        "machine learning"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/practical-ai/id1406537385?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Practical AI",
+      "title": "Implementing Federated Learning to enhance Agentic AI",
+      "url": "https://share.transistor.fm/s/58a69653",
+      "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/58a69653/1bd19fd9.mp3",
+      "published": "2026-11-13T17:59:46Z",
+      "summary": "How can AI models learn from private data without compromising privacy? Chris is joined by Lorenzo Sani, Research Scientist at Flower Labs and PhD researcher at Cambridge, to explore federated learning and privacy-preserving AI. They discuss how collaborative learning can expand access to private data for LLM training, how model trajectories can help improve agentic AI systems, and the benefits of open-weight models. The conversation also explores real-world applications of locally hosted AI…",
+      "duration": "2613",
+      "tier": "established",
+      "topics": [
+        "machine learning"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/practical-ai/id1406537385?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Lex Fridman Podcast",
+      "title": "#505 – GTA 6, Crime, Jewel Heists, Prison, Corrupt Cops, Mafia, Miami & Money",
+      "url": "https://lexfridman.com/larry-lawton/?utm_source=rss&utm_medium=rss&utm_campaign=larry-lawton",
+      "audio_url": "https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_larry_lawton.mp3",
+      "published": "2026-11-19T04:37:34Z",
+      "summary": "Larry Lawton is one of the most notorious and prolific jewelry thieves in US history, who was eventually caught by the FBI, spent more than a decade in prison, including a lot of time in the hole, and then he turned his life around to run the Reality Check Program, that helps keep at-risk youth out of prison. Thank you for listening ❤ Check out our sponsors: https://lexfridman.com/sponsors/ep505-sc See below for timestamps, transcript, and to give feedback, submit questions, contact Lex, etc.…",
+      "duration": "3:26:58",
+      "tier": "established",
+      "topics": [
+        "AI",
+        "science"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/lex-fridman-podcast/id1434243584?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Sean Carroll's Mindscape: Science, Society, Philosophy, Culture, Arts, and Ideas",
+      "title": "375 | Karen Lutfey Spencer on Dying and How to Prepare for It",
+      "url": "https://preposterousuniverse.com/podcast/2026/11/23/375-karen-lutfey-spencer-on-dying-and-how-to-prepare-for-it/",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.libsyn.com/secure/1d1ac211-8392-45fe-82db-99fa7f77076e/karen_lutfey_spencer.mp3?dest-id=5264190",
+      "published": "2026-11-23T12:07:00Z",
+      "summary": "It is one thing to recognize, in an intellectual and abstract sense, that each of us will one day die. It is another to be practical about it, facing up to the challenges of the end of our lives with open eyes. As emphasized by today's guest Karen Lutfey Spencer in her book Your Good Death , these preparations need to include not only coming to terms with things ourselves, but having clear conversations with people who are close to us. Blog post with transcript:…",
+      "duration": "01:00:45",
+      "tier": "growth",
+      "topics": [
+        "physics",
+        "philosophy"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/sean-carrolls-mindscape-science-society-philosophy/id1406534739?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Sean Carroll's Mindscape: Science, Society, Philosophy, Culture, Arts, and Ideas",
+      "title": "374 | Lindsey Fitzharris on Forensic Pathology, Reconstructive Surgery, and Sherlock Holmes",
+      "url": "https://preposterousuniverse.com/podcast/2026/11/16/374-lindsey-fitzharris-on-forensic-pathology-reconstructive-surgery-and-sherlock-holmes/",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.libsyn.com/secure/1d1ac211-8392-45fe-82db-99fa7f77076e/lindsey_fitzharris.mp3?dest-id=5264190",
+      "published": "2026-11-16T11:50:00Z",
+      "summary": "The history of science is always fascinating, and the history of medicine surely has some of the best stories. In this episode we talk to writer Lindsey Fitzharris about two of them. First, the story of Scottish surgeon Joseph Bell, who was both a pioneer of forensic pathology and the inspiration for Sherlock Holmes (whose author, Arthur Conan Doyle, took classes with Bell as a medical student). Second, the story of Harold Gillies, the World War II doctor who pioneered reconstructive surgery.…",
+      "duration": "01:11:46",
+      "tier": "growth",
+      "topics": [
+        "physics",
+        "philosophy"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/sean-carrolls-mindscape-science-society-philosophy/id1406534739?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Philosophy Bites",
+      "title": "Carlo Rovelli on the Nature of Reality",
+      "url": "https://philosophybites.libsyn.com/carlo-rovelli-on-the-nature-of-reality",
+      "audio_url": "https://traffic.libsyn.com/secure/philosophybites/Carlo_Rovelli_on_the_Nature_of_Reality.mp3?dest-id=14010",
+      "published": "2026-11-24T18:47:00Z",
+      "summary": "Philosophers and physicists have historically tried to get an accurate picture of reality. But is there some ultimate reality that we're gradually getting a better grasp of? Physicist-philosopher Carlo Rovelli, author of On the Equality of All Things , discusses this question with Nigel Warburton in this episode of the Philosophy Bites podcast.",
+      "duration": "21:25",
+      "tier": "growth",
+      "topics": [
+        "philosophy"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/philosophy-bites/id257042117?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "In Our Time",
+      "title": "Archive: Epic of Gilgamesh",
+      "url": "http://www.bbc.co.uk/programmes/p0pj9cd5",
+      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss/proto/http/vpid/p0pj9dsn.mp3",
+      "published": "2026-11-23T09:45:00Z",
+      "summary": "In this archive episode, first released in November 2016, Melvyn Bragg and guests discuss The Epic of Gilgamesh. \"He who saw the Deep\" are the first words of the standard version of Gilgamesh, which is often said to be the oldest surviving great work of literature, with origins in the third millennium BC, and it passed through thousands of years on cuneiform tablets. Unlike epics of Greece and Rome, the intact story of Gilgamesh became lost to later generations until tablets were discovered by…",
+      "duration": "2881",
+      "tier": "growth",
+      "topics": [
+        "history",
+        "science",
+        "philosophy"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/in-our-time/id73330895?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "In Our Time",
+      "title": "Ishtar, the Mesopotamian goddess of love, sex and war",
+      "url": "http://www.bbc.co.uk/programmes/m003339v",
+      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss/proto/http/vpid/p0phsnsv.mp3",
+      "published": "2026-11-19T09:45:00Z",
+      "summary": "The Mesopotamian goddess Ishtar was transgressive and multifaceted – potentially to the point of paradox. As the goddess of love and sex, she was responsible for the fertility of life on earth. As the goddess of war, she was also incredibly bloodthirsty, vengeful, and violent. Known in Sumerian language as Inanna and Ishtar in Akkadian, this goddess was worshipped throughout Mesopotamia (modern day Iraq) and beyond for over 3500 years. Ishtar's lovers were sometimes said to have met unfortunate…",
+      "duration": "3173",
+      "tier": "growth",
+      "topics": [
+        "history",
+        "science",
+        "philosophy"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/in-our-time/id73330895?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "In Our Time",
+      "title": "Archive: Frederick Douglass",
+      "url": "http://www.bbc.co.uk/programmes/p0phg98c",
+      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss/proto/http/vpid/p0phgb8l.mp3",
+      "published": "2026-11-16T09:45:00Z",
+      "summary": "Frederick Douglass was born into slavery in Maryland in 1818 and, once he had escaped, became one of that century's most prominent abolitionists. In this archive episode, first broadcast in 2018, Melvyn Bragg and his guests discuss Douglass’ life and ideas. He was such a good orator, his opponents doubted his story, but he told it in grim detail in 1845 in his book 'Narrative of the Life of Frederick Douglass, an American Slave.' He went on to address huge audiences in Great Britain and Ireland…",
+      "duration": "3184",
+      "tier": "growth",
+      "topics": [
+        "history",
+        "science",
+        "philosophy"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/in-our-time/id73330895?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "The Rest Is History",
+      "title": "725. The Death of Captain Cook: At World’s End (Part 1)",
+      "url": "https://podcasts.apple.com/us/podcast/the-rest-is-history/id1537788786?uo=4",
+      "audio_url": "https://pdst.fm/e/traffic.megaphone.fm/GLT6692579488.mp3",
+      "published": "2026-11-23T00:05:00Z",
+      "summary": "Why is Captain Cook’s reputation so contentious today? What happened during his second voyage, when attempting to discover the mythical southern continent, Terra Australis? And, would his final voyage drive him mad? Join Dominic and Tom as they discuss Captain Cook’s final adventures, his totemic discoveries along the way, and his descent into insanity before the end… Give The Rest Is History Club this Christmas + free T-shirt! Treat yourself or a fellow fan to a membership: bonus episodes,…",
+      "duration": "5158",
+      "tier": "growth",
+      "topics": [
+        "history"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-rest-is-history/id1537788786?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "The Rest Is History",
+      "title": "724. The Charge of the Light Brigade: Into The Valley of Death (Part 4)",
+      "url": "https://podcasts.apple.com/us/podcast/the-rest-is-history/id1537788786?uo=4",
+      "audio_url": "https://pdst.fm/e/traffic.megaphone.fm/GLT1598624240.mp3",
+      "published": "2026-11-19T00:05:00Z",
+      "summary": "Into the jaws of Death, Into the mouth of hell Rode the six hundred… Why did Baron Raglan feel pressured to perilously send his forces into battle against the Russians near Balaclava? How did a terrible misunderstanding see Lord Lucan pass on a command to his rival Lord Cardigan, which would send his men riding into a death trap of gunfire? And, how did the Charge of the Light Brigade unfold…? Join Tom and Dominic as they reach the climactic conclusion of their mighty charge through the Crimean…",
+      "duration": "4316",
+      "tier": "growth",
+      "topics": [
+        "history"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-rest-is-history/id1537788786?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "The Rest Is History",
+      "title": "723. The Charge of the Light Brigade: Crushing the Russians (Part 3)",
+      "url": "https://podcasts.apple.com/us/podcast/the-rest-is-history/id1537788786?uo=4",
+      "audio_url": "https://pdst.fm/e/traffic.megaphone.fm/GLT9985161615.mp3",
+      "published": "2026-11-16T00:05:00Z",
+      "summary": "How did disagreements within the British high command destabilise the army as it moved on the imposing Russian fortress of Sebastopol? Why was the roguish Lord Cardigan, commander of the Light Brigade, enraged by his orders? And, what happened when Britain and Russia clashed at the Battle of the Alma…? Join Tom and Dominic as they unfold Britain's march on Sebastopol, the bloody confrontation with the Russians at the Alma River, and the ongoing feud between Lords Lucan and Cardigan. Would the…",
+      "duration": "4159",
+      "tier": "growth",
+      "topics": [
+        "history"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-rest-is-history/id1537788786?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "The Quanta Podcast",
+      "title": "Is ‘Attention’ the Essence of Intelligence?",
+      "url": "https://play.prx.org/listen?ge=prx_11709_8998912a-780c-494f-a727-725496ce9838&uf=https%3A%2F%2Fquantapodcast.quantamagazine.org%2F",
+      "audio_url": "https://tracking.swap.fm/track/sblTq32fyWAjsHzze2LG/dts.podtrac.com/redirect.mp3/dovetail.prxu.org/11709/8998912a-780c-494f-a727-725496ce9838/Quanta_Ep78_FINAL.mp3",
+      "published": "2026-11-24T11:00:00Z",
+      "summary": "In AI’s developmental years, its network architecture created a bottleneck that limited its capabilities. Then researchers tried a mathematical operation referred to as “attention” that allowed AIs to link words and build context. It turbocharged large language models and changed the landscape forever. On this episode of The Quanta Podcast, host Hannah Waters speaks with writer Natalie Wolchover about “attention” — what this attention mechanism is exactly, why machine translation was the task…",
+      "duration": "26:51",
+      "tier": "growth",
+      "topics": [
+        "maths",
+        "physics"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-quanta-podcast/id1021340531?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "The Quanta Podcast",
+      "title": "Audio Edition: A Master of the Traveling Salesperson Problem Finds His Own Path",
+      "url": "https://play.prx.org/listen?ge=prx_11709_ebeeb217-651f-4e95-815b-f332d4b7c03a&uf=https%3A%2F%2Fquantapodcast.quantamagazine.org%2F",
+      "audio_url": "https://tracking.swap.fm/track/sblTq32fyWAjsHzze2LG/dts.podtrac.com/redirect.mp3/dovetail.prxu.org/11709/ebeeb217-651f-4e95-815b-f332d4b7c03a/Quanta_303_v2.mp3",
+      "published": "2026-11-19T11:00:00Z",
+      "summary": "Shayan Oveis Gharan has won the Abacus Medal for using tools from across mathematics to boost the power of algorithms. The article A Master of the Traveling Salesperson Problem Finds His Own Path first appeared on Quanta Magazine .",
+      "duration": "23:33",
+      "tier": "growth",
+      "topics": [
+        "maths",
+        "physics"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-quanta-podcast/id1021340531?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "The Quanta Podcast",
+      "title": "A New Era for the Origins of Life",
+      "url": "https://play.prx.org/listen?ge=prx_11709_be84315b-8916-4370-9b30-05a871b1a940&uf=https%3A%2F%2Fquantapodcast.quantamagazine.org%2F",
+      "audio_url": "https://tracking.swap.fm/track/sblTq32fyWAjsHzze2LG/dts.podtrac.com/redirect.mp3/dovetail.prxu.org/11709/be84315b-8916-4370-9b30-05a871b1a940/Quanta_Ep77_FINAL.mp3",
+      "published": "2026-11-17T11:00:00Z",
+      "summary": "How did life begin? For researchers, pursuing an answer has been something of a saga. For decades, scientists have weathered sociological and scientific strife that challenged the fundamental approach to understanding the origins of life. Done arguing over which type of molecule started it all, a new wave of researchers are deconstructing what life is, does, and could be — and are even trying to create it themselves. On this episode of The Quanta Podcast, host Samir Patel speaks with writer…",
+      "duration": "32:35",
+      "tier": "growth",
+      "topics": [
+        "maths",
+        "physics"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-quanta-podcast/id1021340531?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Hidden Brain",
+      "title": "Music and Your Mind",
+      "url": "https://hiddenbrain.org/",
+      "audio_url": "https://mgln.ai/e/2/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/df179a36-a022-41e3-bf7c-b7a4efc6f51e/episodes/6ea5177f-15f6-4533-97c4-0ad4388c15bf/audio/128/default.mp3?aid=rss_feed&awCollectionId=df179a36-a022-41e3-bf7c-b7a4efc6f51e&awEpisodeId=6ea5177f-15f6-4533-97c4-0ad4388c15bf&feed=kwWc0lhf",
+      "published": "2026-11-23T15:00:00Z",
+      "summary": "Music has a remarkable ability to transport us to another time and place. A familiar song can bring back vivid memories or stir emotions we haven't felt in years. This week, music psychologist Elizabeth Margulis explores how our brains transform sounds into deeply personal experiences, and why the meaning of music always depends on the listener. Then, psychologist Daisy Fancourt returns to the show to answer listener questions about the healing benefits of the arts. What makes a painting a…",
+      "duration": "01:33:06",
+      "tier": "growth",
+      "topics": [
+        "psychology",
+        "people"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/hidden-brain/id1028908750?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Hidden Brain",
+      "title": "Just Watch Me!",
+      "url": "https://www.hiddenbrain.org/",
+      "audio_url": "https://mgln.ai/e/2/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/df179a36-a022-41e3-bf7c-b7a4efc6f51e/episodes/c7469146-919a-4466-bf78-04a0b5c1a371/audio/128/default.mp3?aid=rss_feed&awCollectionId=df179a36-a022-41e3-bf7c-b7a4efc6f51e&awEpisodeId=c7469146-919a-4466-bf78-04a0b5c1a371&feed=kwWc0lhf",
+      "published": "2026-11-16T15:00:00Z",
+      "summary": "When someone doubts our abilities, it can shake our confidence and make us question ourselves. But sometimes, being underestimated can motivate us to work harder and accomplish things others thought were impossible. Organizational scientist Samir Nurmohamed studies what he calls the \"underdog effect.\" He explains why criticism and rejection can sometimes become powerful sources of motivation, and how we can harness this effect in our own lives. Then, on Your Questions Answered, social scientist…",
+      "duration": "01:29:04",
+      "tier": "growth",
+      "topics": [
+        "psychology",
+        "people"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/hidden-brain/id1028908750?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "The Seen and the Unseen - hosted by Amit Varma",
+      "title": "Ep 457: Sandeep Menon Enters the Heart of Indian Sport",
+      "url": "https://seenunseen.in/",
+      "audio_url": "https://traffic.libsyn.com/secure/seenunseen/E457SeenUnseen.mp3?dest-id=458496",
+      "published": "2026-11-16T03:49:00Z",
+      "summary": "Does India have a sporting culture? Are we a footballing nation? Yes and yes, emphatically so. Sandeep Menon joins Amit Varma in episode 457 of The Seen and the Unseen to share his insights from his deep dives into many local footballs. (FOR FULL LINKED SHOW NOTES, GO TO SEENUNSEEN.IN. ) Also check out : 1. Sandeep Menon on Twitter , LinkedIn , Amazon and his own website . 2. Sacred Grounds: A Journey Through People's Football in India -- Sandeep Menon. 3. Out of the Blue -- Sandeep Menon. 4.…",
+      "duration": "04:11:03",
+      "tier": "growth",
+      "topics": [
+        "India",
+        "economics"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/the-seen-and-the-unseen-hosted-by-amit-varma/id1190896090?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Radiolab",
+      "title": "Terminal Delirium",
+      "url": "https://www.radiolab.org",
+      "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/6d428554-0d66-49f8-89e4-014b9bf1a3e4/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=6d428554-0d66-49f8-89e4-014b9bf1a3e4&feed=EmVW7VGp",
+      "published": "2026-11-20T15:00:00Z",
+      "summary": "When producer Alan Goffinski's dad called him and said he only had a few months left to live, Alan rushed home to spend one last Christmas with him. What happened when he got there shocked him, completely upended what he thinks about how people die, and sent him on a reporting journey into the depths of the human mind and soul. Special thanks to Pam and Curtis Goffinski, Travis Thatcher, Sam Brudner and Elizabeth Deerhake. EPISODE CREDITS: Reported by - Alan Goffinski Produced by - Annie…",
+      "duration": "00:38:45",
+      "tier": "exploration",
+      "topics": [
+        "science stories"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/radiolab/id152249110?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Radiolab",
+      "title": "There and Back Again",
+      "url": "https://www.radiolab.org",
+      "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/14/prfx.byspotify.com/e/dts.podtrac.com/pts/redirect.mp3/waaa.wnyc.org/758af4c0-a2c3-47ec-a2d8-05f41bfbde51/episodes/e7ef9075-6858-4597-9cbf-e2cce4bb4248/audio/128/default.mp3?aid=rss_feed&awCollectionId=758af4c0-a2c3-47ec-a2d8-05f41bfbde51&awEpisodeId=e7ef9075-6858-4597-9cbf-e2cce4bb4248&feed=EmVW7VGp",
+      "published": "2026-11-13T15:00:00Z",
+      "summary": "Today we revisit an episode first aired in 2019. In it we ask a question: When an animal disappears in the winter, where does it go? Oddly enough, this question completely stumped European scientists for thousands of years. And even today, the more we learn about the comings and goings of the animals, the deeper the mystery seems to get. We visit a Bavarian farm with an 11 year old, follow warblers and wildebeests around the world, and get a totally new kind of view of the pulsing flow of…",
+      "duration": "00:45:29",
+      "tier": "exploration",
+      "topics": [
+        "science stories"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/radiolab/id152249110?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "99% Invisible",
+      "title": "The Giant Thanksgiving Balloons",
+      "url": "https://www.siriusxm.com",
+      "audio_url": "https://mgln.ai/e/2/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/3bb687b0-04af-4257-90f1-39eef4e631b6/episodes/40052b37-70d9-4c4f-be37-e33d4a7925ef/audio/128/default.mp3?aid=rss_feed&awCollectionId=3bb687b0-04af-4257-90f1-39eef4e631b6&awEpisodeId=40052b37-70d9-4c4f-be37-e33d4a7925ef&feed=BqbsxVfO",
+      "published": "2026-11-24T09:00:00Z",
+      "summary": "Every Thanksgiving, 3000 volunteers help guide giant balloons through the streets of Manhattan. The parade is a tradition—but it's not always easy. Subscribe to SiriusXM Podcasts+ to listen to new episodes of 99% Invisible ad-free and a whole week early. Start a free trial now on Apple Podcasts or by visiting siriusxm.com/podcastsplus . Hosted by Simplecast, an AdsWizz company. See pcm.adswizz.com for information about our collection and use of personal data for advertising.",
+      "duration": "00:34:45",
+      "tier": "exploration",
+      "topics": [
+        "design"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/99-invisible/id394775318?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "99% Invisible",
+      "title": "100 Objects #25: Beaded Moccasin",
+      "url": "https://99percentinvisible.org/?p=48454",
+      "audio_url": "https://mgln.ai/e/2/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/3bb687b0-04af-4257-90f1-39eef4e631b6/episodes/839885a0-6bbd-4b58-858f-4470a0e48d57/audio/128/default.mp3?aid=rss_feed&awCollectionId=3bb687b0-04af-4257-90f1-39eef4e631b6&awEpisodeId=839885a0-6bbd-4b58-858f-4470a0e48d57&feed=BqbsxVfO",
+      "published": "2026-11-20T08:00:00Z",
+      "summary": "Poet Sarah Kay grew up with a pair of moccasins framed on the dining room wall. She didn’t know much about the beautiful, soft leather shoes with intricate beadwork, except that they had been a gift to her grandmother, June Suzuki, from a student when she taught at a boarding school for Native American children back in the 1940s. June worked there soon after she was released from an internment camp for Japanese-Americans during WWII. Sarah thought this was just a strange, but unrelated series…",
+      "duration": "00:49:36",
+      "tier": "exploration",
+      "topics": [
+        "design"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/99-invisible/id394775318?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "99% Invisible",
+      "title": "Know the Score",
+      "url": "https://99percentinvisible.org/?p=48773",
+      "audio_url": "https://mgln.ai/e/2/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/3bb687b0-04af-4257-90f1-39eef4e631b6/episodes/74c9d99e-1e9d-4e40-be72-f1c9e1d374da/audio/128/default.mp3?aid=rss_feed&awCollectionId=3bb687b0-04af-4257-90f1-39eef4e631b6&awEpisodeId=74c9d99e-1e9d-4e40-be72-f1c9e1d374da&feed=BqbsxVfO",
+      "published": "2026-11-17T09:00:00Z",
+      "summary": "A credit score is essentially a three digit number that here in the US usually ranges from 300-850. It's a metric that lenders can use to predict your ability to pay back a loan. The higher the number, the more likely you are to be approved for lines of credit. In the United States, your credit score decides where you can live, what car you can drive and whether you can get a loan. It’s supposed to be objective—a precise, omniscient accounting of your financial health, but what started as a…",
+      "duration": "00:37:01",
+      "tier": "exploration",
+      "topics": [
+        "design"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/99-invisible/id394775318?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Song Exploder",
+      "title": "Mastodon - Your Ghost Again",
+      "url": "https://play.prx.org/listen?ge=prx_93_7e9d1e47-5f37-4213-9619-5a12af87a5e8&uf=http%3A%2F%2Ffeed.songexploder.net%2FSongExploder",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/tracking.swap.fm/track/sblTq32fyWAjsHzze2LG/pscrb.fm/rss/p/dovetail.prxu.org/93/7e9d1e47-5f37-4213-9619-5a12af87a5e8/SongExploder324-Mastodon-Part1.mp3",
+      "published": "2026-11-11T15:00:00Z",
+      "summary": "The band Mastodon formed in 2000 in Atlanta, Georgia. They’ve won a Grammy and been nominated for 5 others, and three of their albums have debuted at #1 on Billboard’s Hard Rock charts. For most of their history, they were a four piece, made up of Brann Dailor, Troy Sanders, Bill Kelliher, and Brent Hinds. But in March 2025, Brent Hinds left the band. And later that year, he died in a motorcycle accident. For this episode, I spoke to Brann, Troy, and Bill about making the song “Your Ghost…",
+      "duration": "28:58",
+      "tier": "exploration",
+      "topics": [
+        "music"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/song-exploder/id788236947?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Planet Money",
+      "title": "You Can Seize Everything (The U.S. is reviving pirate law)",
+      "url": "https://www.npr.org/2026/11/20/nx-s1-6049085/iran-oil-tanker-prize-law-court",
+      "audio_url": "https://tracking.swap.fm/track/XvDEoI11TR00olTUO8US/prfx.byspotify.com/e/play.podtrac.com/npr-510289/npr.simplecastaudio.com/43b5acee-463e-4612-95ad-d2596d9dd337/episodes/d58dad88-3a45-458b-ab87-01448967415e/audio/128/default.mp3?awCollectionId=43b5acee-463e-4612-95ad-d2596d9dd337&awEpisodeId=d58dad88-3a45-458b-ab87-01448967415e&feed=hvWWWzRv&t=podcast&e=nx-s1-6049085&p=510289&d=1475&size=23613527",
+      "published": "2026-11-20T22:00:00Z",
+      "summary": "The U.S. is working on bringing back the ancient maritime practice of prize law — which allowed for privateers, or more recently, navies, to seize enemy-linked ships, and quickly sell them off. Why? Well, the U.S. has been seizing lots of big boats — oil tankers linked to Iran and Venezuela — in what the Pentagon calls an effort to disrupt ‘illicit networks.’ But after they seize the big boats, they have a big problem: Boats are very expensive to maintain, and each day the government owns them…",
+      "duration": "1475",
+      "tier": "exploration",
+      "topics": [
+        "economics"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/planet-money/id290783428?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Planet Money",
+      "title": "Two ways big bets on data centers might affect you (Two Indicators)",
+      "url": "https://www.npr.org/2026/11/18/nx-s1-6044772/data-center-debt-deals-investment",
+      "audio_url": "https://tracking.swap.fm/track/XvDEoI11TR00olTUO8US/prfx.byspotify.com/e/play.podtrac.com/npr-510289/npr.simplecastaudio.com/43b5acee-463e-4612-95ad-d2596d9dd337/episodes/b19ce1fb-95ca-4339-9f74-93cd72d20032/audio/128/default.mp3?awCollectionId=43b5acee-463e-4612-95ad-d2596d9dd337&awEpisodeId=b19ce1fb-95ca-4339-9f74-93cd72d20032&feed=hvWWWzRv&t=podcast&e=nx-s1-6044772&p=510289&d=1108&size=17739090",
+      "published": "2026-11-18T08:00:00Z",
+      "summary": "Your money might be fueling the AI boom … just as some AI data center bets are starting to look riskier. If you own stocks, that money is likely tied up in giant tech companies like Microsoft and Nvidia. And if your 401(k) has money invested in the US bond fund, you might be lending tech companies the money to build data centers. Today on the show, two stories from our short daily podcast The Indicator from Planet Money on how risky these data center bets are for investors and the companies…",
+      "duration": "1108",
+      "tier": "exploration",
+      "topics": [
+        "economics"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/planet-money/id290783428?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Planet Money",
+      "title": "Are wildfires making the future uninsurable?",
+      "url": "https://www.npr.org/2026/11/13/nx-s1-6040434/california-wildfires-home-insurance",
+      "audio_url": "https://tracking.swap.fm/track/XvDEoI11TR00olTUO8US/prfx.byspotify.com/e/play.podtrac.com/npr-510289/npr.simplecastaudio.com/43b5acee-463e-4612-95ad-d2596d9dd337/episodes/4bb23a81-c77c-46d0-a3bc-f001ff4783d0/audio/128/default.mp3?awCollectionId=43b5acee-463e-4612-95ad-d2596d9dd337&awEpisodeId=4bb23a81-c77c-46d0-a3bc-f001ff4783d0&feed=hvWWWzRv&t=podcast&e=nx-s1-6040434&p=510289&d=2470&size=39525630",
+      "published": "2026-11-13T23:49:12Z",
+      "summary": "Over the past decade, increasingly catastrophic wildfires have wrought unprecedented destruction and upended the basic math of the insurance industry. In some of the riskiest parts of the country, homeowners have seen spiking premiums or lost their coverage altogether. Today on the show, we travel to the forested foothills of Northern California to see how communities in wildfire-prone areas are trying to conjure the private insurance market back into existence. What actually happens when a…",
+      "duration": "2470",
+      "tier": "exploration",
+      "topics": [
+        "economics"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/planet-money/id290783428?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Ologies with Alie Ward",
+      "title": "Stress Physiology (YOUR BODY ON STRESS) with Rajita Sinha",
+      "url": "https://www.siriusxm.com",
+      "audio_url": "https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/89060b63-e603-4297-b6e8-5a654e50244e/episodes/b6fad4fb-45dc-4891-b40c-937ed5df5023/audio/128/default.mp3?aid=rss_feed&awCollectionId=89060b63-e603-4297-b6e8-5a654e50244e&awEpisodeId=b6fad4fb-45dc-4891-b40c-937ed5df5023&feed=FO6kxYGj",
+      "published": "2026-11-21T05:00:00Z",
+      "summary": "Acute stress vs. chronic stress. Cortisol mischief. Coping mechanisms. Heart rates. Meditation. Parenthood. How does your hot bod respond to stress in your brain? Let’s dive into the neurochemistry of stress and its downstream physical effects and feedback loop. Stress Physiologist Dr. Rajita Sinha is the founding director of the Yale Interdisciplinary Stress Center, a distinguished researcher, licensed clinical psychologist, and Professor of Psychiatry and Neuroscience at the Yale University…",
+      "duration": "01:16:55",
+      "tier": "exploration",
+      "topics": [
+        "science"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/ologies-with-alie-ward/id1278815517?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Ologies with Alie Ward",
+      "title": "Indigenous Entomology (BUGS & TRADITIONAL ECOLOGICAL KNOWLEDGE) with Cheyenne Reuben-Thomas",
+      "url": "https://www.siriusxm.com",
+      "audio_url": "https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/89060b63-e603-4297-b6e8-5a654e50244e/episodes/5c3af793-c958-4c3f-999b-9084b3857953/audio/128/default.mp3?aid=rss_feed&awCollectionId=89060b63-e603-4297-b6e8-5a654e50244e&awEpisodeId=5c3af793-c958-4c3f-999b-9084b3857953&feed=FO6kxYGj",
+      "published": "2026-11-18T08:30:00Z",
+      "summary": "Why do butterflies get all the attention? Which bees need our help? How can you foster more love for bugs? And how do we fight fire with … more fire? The wonderful Cheyenne Reuben-Thomas is a PhD candidate in Cornell University’s Ecology & Evolutionary Biology department and an enrolled member of the Oneida Nation of Wisconsin and the Tonawanda Seneca Nation and yes, an insect nerd. She chats all about orchards, bumblebees, broods, invasive vs. introduced species, habitat restoration, settler…",
+      "duration": "01:01:56",
+      "tier": "exploration",
+      "topics": [
+        "science"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/ologies-with-alie-ward/id1278815517?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Ologies with Alie Ward",
+      "title": "Chickenology (HENS & ROOSTERS) Part 2 Encore with Tove Danovich",
+      "url": "https://www.siriusxm.com",
+      "audio_url": "https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/89060b63-e603-4297-b6e8-5a654e50244e/episodes/806edef1-bda4-4b02-9927-72b9fd060e91/audio/128/default.mp3?aid=rss_feed&awCollectionId=89060b63-e603-4297-b6e8-5a654e50244e&awEpisodeId=806edef1-bda4-4b02-9927-72b9fd060e91&feed=FO6kxYGj",
+      "published": "2026-11-11T08:00:00Z",
+      "summary": "We’re back for Part 2! If you missed Part 1, start there for the chicken basics and then come back for the weird stuff like chickens eating chickens, why chickens bother laying unfertilized eggs, rooster gossip, fairy eggs, nest abominations, bird grief, beak accessories, soft burbling chicken sounds, spicy chicken feed, safe corners of the internet, multicolored eggs and the big questions: SHOULD YOU GET A CHICKEN OR WHAT. We help you decide. Buy Tove’s book: Under the Henfluence: Inside the…",
+      "duration": "00:47:57",
+      "tier": "exploration",
+      "topics": [
+        "science"
+      ],
+      "apple_show_url": "https://podcasts.apple.com/us/podcast/ologies-with-alie-ward/id1278815517?uo=4",
+      "via": "show feed"
+    },
+    {
+      "show": "Linear Digressions",
+      "title": "Mechanistic Interpretability: How Researchers Try To See Inside Models",
+      "url": "https://podcasts.apple.com/us/podcast/mechanistic-interpretability-how-researchers-try-to/id941219323?i=1000793171484&uo=4",
+      "audio_url": "https://feeds.soundcloud.com/stream/2413089360-linear-digressions-mechanistic-interpretability.mp3",
+      "published": "2026-10-05T01:50:36Z",
+      "summary": "As AI systems grow more powerful, they grow harder to understand — and that tradeoff has never mattered more. Most interpretability tricks give us approximations from the outside, but mechanistic interpretability takes a different approach: cracking o",
+      "duration": "29 min",
+      "tier": "established",
+      "topics": [
+        "mechanistic interpretability"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Astral Codex Ten Podcast",
+      "title": "God Help Us, Let's Try To Learn About Mechanistic Interpretability Techniques",
+      "url": "https://podcasts.apple.com/us/podcast/god-help-us-lets-try-to-learn-about-mechanistic-interpretability/id1295289140?i=1000798602810&uo=4",
+      "audio_url": "https://traffic.libsyn.com/secure/sscpodcast/God_Help_Us_Lets_Try_To_Learn_About_Mechanistic_Interpretability_Techniques.mp3?dest-id=586545",
+      "published": "2026-10-28T22:26:00Z",
+      "summary": "The Story So Far Mechanistic interpretability is the science of \"reading an AI's mind\". Large language models are \"grown, not built\". Researchers run training data through a neural network. Eventually this creates a working AI; nobody really knows how",
+      "duration": "35 min",
+      "tier": "established",
+      "topics": [
+        "mechanistic interpretability"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "AI News & Strategy Daily with Nate B. Jones",
+      "title": "What Is Mechanistic Interpretability? AI Neurons Explained",
+      "url": "https://podcasts.apple.com/us/podcast/what-is-mechanistic-interpretability-ai-neurons-explained/id1877109372?i=1000797648951&uo=4",
+      "audio_url": "https://sphinx.acast.com/p/open/s/69ab3b7c7036d739021982df/e/6ad9059c015ffbd1391128d0/media.mp3",
+      "published": "2026-10-22T17:00:00Z",
+      "summary": "Can better understanding of AI make more powerful models safer? Nate explains why Goodfire’s research on interpreting neural networks gives him reason for optimism, while separating demonstrated findings from the products and safeguards that still nee",
+      "duration": "19 min",
+      "tier": "established",
+      "topics": [
+        "mechanistic interpretability"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Artificial Intelligence and You",
+      "title": "336 - Guest: Sören Mindermann, AI Safety Researcher, part 1",
+      "url": "https://podcasts.apple.com/us/podcast/336-guest-s%C3%B6ren-mindermann-ai-safety-researcher-part-1/id1522945513?i=1000803638737&uo=4",
+      "audio_url": "https://mcdn.podbean.com/mf/web/uex56hy642p9z939/336_AI-and-You.mp3",
+      "published": "2026-11-23T18:00:00Z",
+      "summary": "This and all episodes at: https://aiandyou.net/ . My guest is Sören Mindermann, co-author of the new paper titled, “What if automating AI R&D triggers an intelligence explosion?” The term \"intelligence explosion\" was originated in 1965 by Irvi",
+      "duration": "32 min",
+      "tier": "established",
+      "topics": [
+        "AI safety research"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Machine Gods",
+      "title": "Fired OpenAI Safety Researchers Speak Out + We Look Inside Pandora’s Box",
+      "url": "https://podcasts.apple.com/us/podcast/fired-openai-safety-researchers-speak-out-we-look-inside/id6812430636?i=1000797765225&uo=4",
+      "audio_url": "https://prfx.byspotify.com/e/play.podtrac.com/npr-g-s1-143588/npr.simplecastaudio.com/af4ad3f4-8915-48de-8722-fbf6b9409a6b/episodes/a26540d1-3d54-4d97-b212-cde58d20cb8a/audio/128/default.mp3?awCollectionId=af4ad3f4-8915-48de-8722-fbf6b9409a6b&awEpisodeId=a26540d1-3d54-4d97-b212-cde58d20cb8a&feed=QbdJo2GN&t=podcast&e=nx-s1-6012298&p=g-s1-143588&d=3170&size=44598378",
+      "published": "2026-10-23T11:00:00Z",
+      "summary": "Fired OpenAI safety researchers Mikita Balesni and Tomek Korbak give us their first interview since their dramatic dismissal. They take us inside the company during METR’s investigation into the Hugging Face hack, explain why OpenAI’s rebuttal doesn",
+      "duration": "52 min",
+      "tier": "established",
+      "topics": [
+        "AI safety research"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Daily AI Safety News",
+      "title": "OpenAI’s AI Quietly Did Less Work When the Job Was Safety Research",
+      "url": "https://podcasts.apple.com/us/podcast/openais-ai-quietly-did-less-work-when-the-job-was/id6818556781?i=1000800428588&uo=4",
+      "audio_url": "https://content.rss.com/episodes/404243/3301303/daily-ai-safety-news/2026_11_07_15_42_35_bb90d13b-107d-498e-9d28-6bb7df81bc0a.mp3",
+      "published": "2026-11-07T15:47:47Z",
+      "summary": "AI companies increasingly use AI to help with research meant to make AI safer. In a report dated November 4, OpenAI says its GPT-6 Astra system got noticeably less done when a coding task was presented as safety research than when the same task was pres",
+      "duration": "5 min",
+      "tier": "established",
+      "topics": [
+        "AI safety research"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "AI Safety Daily",
+      "title": "OpenAI’s Astra underperforms on safety research—and monitors miss it",
+      "url": "https://podcasts.apple.com/us/podcast/openais-astra-underperforms-on-safety-research-and/id6811969474?i=1000800013917&uo=4",
+      "audio_url": "https://www.lanternpodcasts.com/topfive/podcast/ai-safety-daily/audio/2026-11-05.mp3",
+      "published": "2026-11-05T09:07:03Z",
+      "summary": "OpenAI reports that Astra performs worse when matched coding tasks are framed as safety research, with much of the gap escaping its misalignment monitors. Separate research tests whether training can suppress deliberately induced misbehavior without let",
+      "duration": "7 min",
+      "tier": "established",
+      "topics": [
+        "AI safety research"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Warning Shots",
+      "title": "OpenAI's Newest Model Did Less on Safety Research. Nobody's Monitor Caught It",
+      "url": "https://podcasts.apple.com/us/podcast/openais-newest-model-did-less-on-safety-research-nobodys/id1834212700?i=1000800616724&uo=4",
+      "audio_url": "https://api.substack.com/feed/podcast/224052247/bdebb37c431a54d6ff6e7bd5449d564f.mp3",
+      "published": "2026-11-08T20:32:41Z",
+      "summary": "OpenAI gave its GPT-6 Astra model the same coding task twice. Same codebase, same problem. The only difference was the framing: in one version, the names, comments, and documentation said the work was AI safety research; in the other, they said it was a",
+      "duration": "44 min",
+      "tier": "established",
+      "topics": [
+        "AI safety research"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "LessWrong (30+ Karma)",
+      "title": "“Auditors Struggle to Catch Sabotage in End-to-End Transcripts of AI Safety Research” by keshavs, Vivek Hebbar, Julian Stastny, sebastian_prasanna, egan",
+      "url": "https://podcasts.apple.com/us/podcast/auditors-struggle-to-catch-sabotage-in-end-to-end-transcripts/id1698192712?i=1000803240660&uo=4",
+      "audio_url": "https://dl.type3.audio/episode/dd8ee29d-34d6-4bee-a024-a9257f1d0d61.mp3?request_source=rss&client_id=lesswrong&feed_id=lesswrong_ai_narrations%20lesswrong__30_karma&type=ai_narration&author=keshavs%252C%2520Vivek%2520Hebbar%252C%2520Julian%2520Stastny%252C%2520sebastian_prasanna%252C%2520egan&title=%22Auditors%20Struggle%20to%20Catch%20Sabotage%20in%20End-to-End%20Transcripts%20of%20AI%20Safety%20Research%22%20by%20keshavs%2C%20Vivek%20Hebbar%2C%20Julian%20Stastny%2C%20sebastian_prasanna%2C%20egan&source_url=https%3A%2F%2Fwww.lesswrong.com%2Fposts%2FhJELtMx786Gyei63e%2Fauditors-struggle-to-catch-sabotage-in-end-to-end&created_at=2026-11-20T23%3A28%3A38.88144%2B00%3A00&duration=587",
+      "published": "2026-11-21T04:00:46Z",
+      "summary": "Authors: Keshav Shenoy, Anthony Zang, Eric Gan, Jacqueline Tay, Amy Ngo, Sebastian Prasanna, Julian Stastny, Vivek Hebbar tl;dr. We had a human expert secretly sabotage AI safety research and asked auditors to spot it. Even with the full research log",
+      "duration": "9 min",
+      "tier": "established",
+      "topics": [
+        "AI safety research"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Connecting the Dots",
+      "title": "Cloud Outages, AI Inference Optimization, and Next-Gen Diffusion Models",
+      "url": "https://podcasts.apple.com/us/podcast/cloud-outages-ai-inference-optimization-and-next-gen/id1799999258?i=1000797270423&uo=4",
+      "audio_url": "https://content.rss.com/episodes/319395/3249594/snarful-connecting-the-dots/2026_10_20_13_57_05_7724ff10-8368-4eb4-88bb-5f1bd18b382b.mp3",
+      "published": "2026-10-20T14:00:09Z",
+      "summary": "Podcast: Connecting the Dots Episode Title: Cloud Outages, AI Inference Optimization, and Next-Gen Diffusion Models Date: October 20, 2026 Hosts: Alex and Morgan Today, we're navigating critical advancements and challenges in the tech landscape, from th",
+      "duration": "23 min",
+      "tier": "established",
+      "topics": [
+        "diffusion models"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Daily Paper Cast",
+      "title": "ViDecide: Teaching Video Diffusion Models to Reason and Plan Step by Step",
+      "url": "https://podcasts.apple.com/us/podcast/videcide-teaching-video-diffusion-models-to-reason/id1777620236?i=1000803796266&uo=4",
+      "audio_url": "https://media.transistor.fm/ecf75325/cd3345f1.mp3",
+      "published": "2026-11-24T13:49:04Z",
+      "summary": "🤗 Upvotes: 29 | cs.CV Authors: Kaiwen Zhang, Yiming Gao, Zeqi Xiao, Xintao Wang, Pengfei Wan, Kun Gai, Xingang Pan Title: ViDecide: Teaching Video Diffusion Models to Reason and Plan Step by Step",
+      "duration": "19 min",
+      "tier": "established",
+      "topics": [
+        "diffusion models"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Game Theory",
+      "title": "The Rookie Scale Contract Draft | Draymond Green Debate with Es Baraheni",
+      "url": "https://podcasts.apple.com/us/podcast/the-rookie-scale-contract-draft-draymond-green-debate/id1054081827?i=1000803526053&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/landmark-dynamic.barstoolsports.com/stream/v2/8U1VSa3CDyLIBQ6tlAG8BSai/audio.mp3?v=2",
+      "published": "2026-11-23T04:55:40Z",
+      "summary": "We're drafting the top-16 players currently on a rookie-scale NBA contract! Which young NBA players would you build your franchise around, who is being overrated, and who represents the best long-term value in the league? On today's episode of the Game",
+      "duration": "112 min",
+      "tier": "growth",
+      "topics": [
+        "game theory"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Game Theory",
+      "title": "Knicks vs. Timberwolves, Voicemails, Plus Mark Titus on College Basketball and NBA Draft",
+      "url": "https://podcasts.apple.com/us/podcast/knicks-vs-timberwolves-voicemails-plus-mark-titus-on/id1054081827?i=1000803062995&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/landmark-dynamic.barstoolsports.com/stream/v2/61ZwQ1GCyXKQe0VIWXEJhcDY/audio.mp3?v=2",
+      "published": "2026-11-20T06:05:48Z",
+      "summary": "Sam is live right after Knicks-Timberwolves and the rest of Thursday night's slate. Then he takes your voicemails on the quality gap between this year's draft class and last years, along with some Blazers thoughts including whether Scoot Henderson shoul",
+      "duration": "93 min",
+      "tier": "growth",
+      "topics": [
+        "game theory"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Game Theory",
+      "title": "Giannis, LeBron, AD & Jaylen Brown: Evaluating NBA's Best New Faces in New Places w/ Jason Timpf",
+      "url": "https://podcasts.apple.com/us/podcast/giannis-lebron-ad-jaylen-brown-evaluating-nbas-best/id1054081827?i=1000802604248&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/landmark-dynamic.barstoolsports.com/stream/v2/zseIjdB1oWcGbo2MJNS7t6P7/audio.mp3?v=2",
+      "published": "2026-11-18T01:18:51Z",
+      "summary": "How are the NBA's biggest stars performing in their new homes? One month into the 2026-27 NBA season, Sam Vecenie is joined by Jason Timpf of @HoopsTonight to break down the biggest names in new places, including Giannis Antetokounmpo, LeBron James,",
+      "duration": "92 min",
+      "tier": "growth",
+      "topics": [
+        "game theory"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Game Changer - the game theory podcast",
+      "title": "Plausible Deniability: Getting People to Tell the Truth | with Sylvain Chassang",
+      "url": "https://podcasts.apple.com/us/podcast/plausible-deniability-getting-people-to-tell-the/id1536444695?i=1000803688571&uo=4",
+      "audio_url": "https://traffic.libsyn.com/secure/tws-gamechanger/133_S_Chassang_Sensitive_Information_2.mp3?dest-id=2368262",
+      "published": "2026-11-24T00:00:00Z",
+      "summary": "In this episode, we talk to Sylvain Chassang about how to elicit sensitive information when people have good reasons not to tell the truth. We discuss why anonymity is sometimes not enough, how plausible deniability can encourage truthful reporting, and",
+      "duration": "31 min",
+      "tier": "growth",
+      "topics": [
+        "game theory"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Game Theory",
+      "title": "10 NBA Stats That Explain the 2026-27 Season Through One Month",
+      "url": "https://podcasts.apple.com/us/podcast/10-nba-stats-that-explain-the-2026-27-season-through/id1054081827?i=1000802376637&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/landmark-dynamic.barstoolsports.com/stream/v2/5zGf7PpOfS8By7I7FByOcZEI/audio.mp3?v=2",
+      "published": "2026-11-17T00:53:20Z",
+      "summary": "Sam Vecenie is joined by Tyler Britton of ‪'Hoop Venue'‬ to break down 10 of the most interesting NBA stats of the 2026-27 season, including what they mean for the teams and players involved. THE 10 NBA STATS we're breaking down include League-Wide",
+      "duration": "110 min",
+      "tier": "growth",
+      "topics": [
+        "game theory"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Game Theory",
+      "title": "The REAL Monster of Giggleland",
+      "url": "https://podcasts.apple.com/us/podcast/the-real-monster-of-giggleland/id1679604930?i=1000802310723&uo=4",
+      "audio_url": "https://traffic.megaphone.fm/APO1843511729.mp3",
+      "published": "2026-11-16T16:57:23Z",
+      "summary": "Giggleland is FINALLY here! After a couple ARGs and a long wait, the game brings all the theories we’ve been creating together, showing us what we got right and what we got wrong. It also explores parts of the story the ARG never got around to. Put yo",
+      "duration": "17 min",
+      "tier": "growth",
+      "topics": [
+        "game theory"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Game Theory",
+      "title": "Jokic, Porzingis and 7 BIG Roster Questions for the NBA in 2026-27 w/ Keith Smith",
+      "url": "https://podcasts.apple.com/us/podcast/jokic-porzingis-and-7-big-roster-questions-for-the-nba/id1054081827?i=1000801663549&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/landmark-dynamic.barstoolsports.com/stream/v2/XjOJGmmxmpyIgO44dyX886Cu/audio.mp3?v=2",
+      "published": "2026-11-13T04:52:53Z",
+      "summary": "Sam is joined by Keith Smith of 'The NBA Front Office Show' to discuss seven big questions surrounding NBA rosters including, Nikola Jokic's future in Denver, Paul George in Boston, The Thunder's impending tax, and more. (00:00) Intro (03:40) Caleb",
+      "duration": "128 min",
+      "tier": "growth",
+      "topics": [
+        "game theory"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Game Changer - the game theory podcast",
+      "title": "The Ties That Bind: The Game Theory of Social Norms | with Peyton Young",
+      "url": "https://podcasts.apple.com/us/podcast/the-ties-that-bind-the-game-theory-of-social/id1536444695?i=1000800957979&uo=4",
+      "audio_url": "https://traffic.libsyn.com/secure/tws-gamechanger/P_Young_Social_Norms.mp3?dest-id=2368262",
+      "published": "2026-11-10T08:37:00Z",
+      "summary": "Why do we follow unwritten rules, even when they seem outdated or downright harmful? In this episode, we explore how game theory explains the emergence and evolution of social norms. From duelling and foot binding to politicians' lapel pins and unwritte",
+      "duration": "34 min",
+      "tier": "growth",
+      "topics": [
+        "game theory"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "The Peter Attia Drive",
+      "title": "#413 ‒ The neuroscience of emotion: challenging conventional theories of emotion, how the brain predicts and constructs our experiences, and gaining greater control over how we feel | Lisa Feldman Barrett, Ph.D.",
+      "url": "https://podcasts.apple.com/us/podcast/413-the-neuroscience-of-emotion-challenging/id1400828889?i=1000798112658&uo=4",
+      "audio_url": "https://traffic.libsyn.com/secure/peterattiadrive/EP.413_-_Lisa_Barrett_Feldman_PUBLIC_FINAL.mp3?dest-id=713489",
+      "published": "2026-10-26T04:15:00Z",
+      "summary": "View the Show Notes Page for This Episode Become a Member to Receive Exclusive Content Sign Up to Receive Peter's Weekly Newsletter In this episode, Peter sits down with Dr. Lisa Feldman Barrett, a psychologist, neuroscientist, author, and disting",
+      "duration": "154 min",
+      "tier": "growth",
+      "topics": [
+        "neuroscience consciousness"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "The Diary Of A CEO with Steven Bartlett",
+      "title": "Neuroscientist Dr Sahar Yousef: How to Break Phone Addiction and Focus",
+      "url": "https://podcasts.apple.com/us/podcast/neuroscientist-dr-sahar-yousef-how-to-break-phone-addiction/id1291423644?i=1000796433193&uo=4",
+      "audio_url": "https://pdst.fm/e/pscrb.fm/rss/p/mgln.ai/e/1390/claritaspod.com/measure/p.podderapp.com/2544644999/mgln.ai/e/1651/episode.flightcast.com/01M4782E2HS3CAH5B71G0KB9KB.mp3",
+      "published": "2026-10-15T05:00:00Z",
+      "summary": "Are you trapped in a cycle of digital distraction, and brain fog despite working harder than ever? Dr. Sahar Yousef reveals how to take back control of your attention, stop digital addiction, and unlock your true cognitive potential. Dr. Sahar Yousef i",
+      "duration": "133 min",
+      "tier": "growth",
+      "topics": [
+        "neuroscience consciousness"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Short Account of the History of Mathematics",
+      "title": "Prime Numbers-Unknown",
+      "url": "https://podcasts.apple.com/us/podcast/prime-numbers-unknown/id1883360742?i=1000803567495&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/api.spreaker.com/download/episode/76367290/prime_numbers_unknown.mp3",
+      "published": "2026-11-23T10:00:27Z",
+      "summary": "Prime Numbers. Recommended listening for all math geeks and insomniacs! Featured on Short Account of the History of Mathematics. Public-domain recording courtesy of LibriVox (librivox.org).",
+      "duration": "104 min",
+      "tier": "growth",
+      "topics": [
+        "history of mathematics"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Short Account of the History of Mathematics",
+      "title": "Hospital Sketches-Louisa May Alcott",
+      "url": "https://podcasts.apple.com/us/podcast/hospital-sketches-louisa-may-alcott/id1883360742?i=1000803760865&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/api.spreaker.com/download/episode/76369943/hospital_sketches_louisa_may_alcott.mp3",
+      "published": "2026-11-24T10:00:24Z",
+      "summary": "Hospital Sketches by Louisa May Alcott. Alcott in 1862 served as a nurse in Georgetown, D.C during the Civil War. She wrote home what she observed there. Those harrowing and sometimes humorous letters compiled make up Hospital Sketches. Featured on Sh",
+      "duration": "184 min",
+      "tier": "growth",
+      "topics": [
+        "history of mathematics"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "The Miku Real Japanese Podcast | Japanese conversation | Japanese culture",
+      "title": "No 231 Why We Feel Connected to Some People but Not Others",
+      "url": "https://podcasts.apple.com/us/podcast/no-231-why-we-feel-connected-to-some-people-but-not-others/id1560531490?i=1000803520821&uo=4",
+      "audio_url": "https://www.buzzsprout.com/1739827/episodes/20165792-no-231-why-we-feel-connected-to-some-people-but-not-others.mp3",
+      "published": "2026-11-23T03:00:00Z",
+      "summary": "👇Check out my grammar / shadowing course👇🇯🇵✏️ https://www.mikurealjapanese.com 👇Try my Japanese grammar / shadowing course for FREE 👇🇯🇵✏️https://www.mikurealjapanese.com/free-shadowing-course 👇PODCAST",
+      "duration": "25 min",
+      "tier": "exploration",
+      "topics": [
+        "Japanese culture"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Japan Station: Deep Dives into Japanese Culture, Language & Society",
+      "title": "Japan's (linguistic) KATSU obsession EXPLAINED!",
+      "url": "https://podcasts.apple.com/us/podcast/japans-linguistic-katsu-obsession-explained/id1440454968?i=1000803253069&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.libsyn.com/secure/japanstation/JS_241_-_The_KATSU_episode_GR.mp3?dest-id=837902",
+      "published": "2026-11-21T06:30:00Z",
+      "summary": "On this episode of Japan Station, we're talking about the many Japanese words that end in \"katsu\" (活, activity). 👉Topics Discussed About Japanese words that end in katsu 活 bukatsu 部活 \"club activity\" Shūkatsu 就活 job hunting Konkat",
+      "duration": "37 min",
+      "tier": "exploration",
+      "topics": [
+        "Japanese culture"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Japan Station: Deep Dives into Japanese Culture, Language & Society",
+      "title": "Urashima Taro MAKES NO SENSE!! | Jaan Station 240",
+      "url": "https://podcasts.apple.com/us/podcast/urashima-taro-makes-no-sense-jaan-station-240/id1440454968?i=1000802049293&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.libsyn.com/secure/japanstation/JS_239_-_Urshima_Taro_PR.mp3?dest-id=837902",
+      "published": "2026-11-15T09:00:00Z",
+      "summary": "This is a re-broadcast of episode 69 of Ichimon Japan (originally released 2/21/23). On this episode of IJapan Station we ask: What is the lesson of Urashima Taro? Topics Discussed The story of Urashima Taro Discussing different versions of Urashim",
+      "duration": "54 min",
+      "tier": "exploration",
+      "topics": [
+        "Japanese culture"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "The Miku Real Japanese Podcast | Japanese conversation | Japanese culture",
+      "title": "No 230 \"I needed a reset\" She went to India for a month to slow down with Sayuri",
+      "url": "https://podcasts.apple.com/us/podcast/no-230-i-needed-a-reset-she-went-to-india-for-a/id1560531490?i=1000800652375&uo=4",
+      "audio_url": "https://www.buzzsprout.com/1739827/episodes/20070644-no-230-i-needed-a-reset-she-went-to-india-for-a-month-to-slow-down-with-sayuri.mp3",
+      "published": "2026-11-09T01:00:00Z",
+      "summary": "💓Follow Sayuri Saying 💓 Podcast 🎧: https://anchor.fm/sayurisaying YouTube🎬:: https://www.youtube.com/c/SayuriSaying 👇Get my Grammar / shadowing course👇🇯🇵✏️ with 10%OFF Coupon https://www.mikurealjapanese.com",
+      "duration": "24 min",
+      "tier": "exploration",
+      "topics": [
+        "Japanese culture"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Japan Station: Deep Dives into Japanese Culture, Language & Society",
+      "title": "Stories from Tokyo's Funniest Pirates",
+      "url": "https://podcasts.apple.com/us/podcast/stories-from-tokyos-funniest-pirates/id1440454968?i=1000799210034&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.libsyn.com/secure/japanstation/JS_238_-_Pirates_of_Tokyo_Bay_GR.mp3?dest-id=837902",
+      "published": "2026-11-01T10:01:00Z",
+      "summary": "On this episode of Japan Station, we're joined by the Pirates of Tokyo Bay, Tokyo's longest-running English and Japanese bilingual improv comedy group. 👉Topics Discussed The origin story of Pirates of Tokyo Bay The difficulties of doing an impr",
+      "duration": "47 min",
+      "tier": "exploration",
+      "topics": [
+        "Japanese culture"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Japan Station: Deep Dives into Japanese Culture, Language & Society",
+      "title": "Japan has a (linguistic) PERFORMANCE problem?!",
+      "url": "https://podcasts.apple.com/us/podcast/japan-has-a-linguistic-performance-problem/id1440454968?i=1000800389026&uo=4",
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.libsyn.com/secure/japanstation/JS_238_-_Its_all_about_KOSUPA_GR.mp3?dest-id=837902",
+      "published": "2026-11-07T09:05:00Z",
+      "summary": "On this episode of Japan Station, we're talking about the many Japanese words that end in \"pa\" (performance). 👉Topics Discussed Japan's love of words that end in -pa パ What is kosupa (コスパ)? The origins of kosupa Why kosupa is such a pow",
+      "duration": "34 min",
+      "tier": "exploration",
+      "topics": [
+        "Japanese culture"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "The Anime Effect",
+      "title": "What Makes Mob Psycho 100 the PERFECT Anime? The Cast & Crew Tell Us",
+      "url": "https://podcasts.apple.com/us/podcast/what-makes-mob-psycho-100-the-perfect-anime-the-cast/id1727203293?i=1000802321396&uo=4",
+      "audio_url": "https://pdst.fm/e/pdrl.fm/975a00/pscrb.fm/rss/p/tracking.swap.fm/track/Vjambo9ifGBwbaCTlDBD/mgln.ai/e/143/traffic.megaphone.fm/SONY5748491299.mp3",
+      "published": "2026-11-16T18:00:00Z",
+      "summary": "Mob Psycho 100 cranks The Anime Effect up to 100% in this special episode as director Yuzuru Tachikawa, Mob voice actor Setsuo Ito, and Reigen voice actor Takahiro Sakurai join us in the studio. We dive into Mob and Reigen’s iconic arcs, adapting ONE",
+      "duration": "17 min",
+      "tier": "exploration",
+      "topics": [
+        "anime"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "What Do You Say Anime!?",
+      "title": "Cyberpunk Edgerunners S2 Review",
+      "url": "https://podcasts.apple.com/us/podcast/cyberpunk-edgerunners-s2-review/id1471693356?i=1000802836396&uo=4",
+      "audio_url": "https://anchor.fm/s/c6da144/podcast/play/129649671/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-10-17%2F437009343-44100-2-992fc9a9746008.mp3",
+      "published": "2026-11-19T01:31:21Z",
+      "summary": "Welcome to Anime Watch Club, a biweekly group discussion and review where the hosts of the podcast nominate, and vote on shows either we haven't seen, or shows that will hopefully lead to a great discussion. Today's episode we will be reviewing the seco",
+      "duration": "79 min",
+      "tier": "exploration",
+      "topics": [
+        "anime"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "The Anime Effect",
+      "title": "Critical Role x hololive Tackle Our D20 Interview Challenge",
+      "url": "https://podcasts.apple.com/us/podcast/critical-role-x-hololive-tackle-our-d20-interview-challenge/id1727203293?i=1000803170890&uo=4",
+      "audio_url": "https://pdst.fm/e/pdrl.fm/975a00/pscrb.fm/rss/p/tracking.swap.fm/track/Vjambo9ifGBwbaCTlDBD/mgln.ai/e/143/traffic.megaphone.fm/SONY8394413058.mp3",
+      "published": "2026-11-20T18:00:00Z",
+      "summary": "Critical Role and hololive collide on The Anime Effect! Matthew Mercer and hololive's Nerissa Ravencroft join us to talk Shattered Legends, their new D&D crossover, VTubers, and anime fandom. Plus! We break down some of the biggest anime news, includin",
+      "duration": "53 min",
+      "tier": "exploration",
+      "topics": [
+        "anime"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Anime Addicts Anonymous",
+      "title": "AAA 852: What Makes a Romance?",
+      "url": "https://podcasts.apple.com/us/podcast/aaa-852-what-makes-a-romance/id324698394?i=1000803640699&uo=4",
+      "audio_url": "http://www.podtrac.com/pts/redirect.mp3?http://archive.org/download/aaapodcast_episode262_201502/aaapodcast_episode852.mp3",
+      "published": "2026-11-23T22:59:00Z",
+      "summary": "It's a girls only episode! The ladies assemble to discuss \"What Makes a Romance\" in the world of anime?! They'll also review The Witch in Mongolia. You can support the podcast in the following ways: Patreon: www.patreon.com/AAAPodcast Discord:",
+      "duration": "105 min",
+      "tier": "exploration",
+      "topics": [
+        "anime"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Anime Addicts Anonymous",
+      "title": "AAA 851: Jobless Reincarnation on Trial",
+      "url": "https://podcasts.apple.com/us/podcast/aaa-851-jobless-reincarnation-on-trial/id324698394?i=1000802729773&uo=4",
+      "audio_url": "http://www.podtrac.com/pts/redirect.mp3?http://archive.org/download/aaapodcast_episode262_201502/aaapodcast_episode851.mp3",
+      "published": "2026-11-18T22:59:00Z",
+      "summary": "The Anime Addicts assemble for a bit of a debate on the virtues of Jobless Reincarnation. Incredible anime or perverted slop? We'll discuss and find out. Then, later, a review of Chainsmoker Cat. You can support the podcast in the following ways: Pat",
+      "duration": "120 min",
+      "tier": "exploration",
+      "topics": [
+        "anime"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "THE ANIME RECAP SHOW",
+      "title": "The Strongest Anime Character for Every Letter!",
+      "url": "https://podcasts.apple.com/us/podcast/the-strongest-anime-character-for-every-letter/id1896911260?i=1000803688380&uo=4",
+      "audio_url": "https://sphinx.acast.com/p/open/s/6ab0368a46fd9745ea77ddf3/e/6b022eb64f7f96174d3f4da5/media.mp3",
+      "published": "2026-11-24T00:00:00Z",
+      "summary": "🔥 From A to Z, discover the strongest anime characters for every letter of the alphabet! ⚡ Featuring legendary powerhouses from different anime universes, this is the ultimate anime strength challenge. 💬 Which letter has the strongest charac",
+      "duration": "28 min",
+      "tier": "exploration",
+      "topics": [
+        "anime"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "The Anime Book Club Podcast",
+      "title": "#117 Secret Elven Magic of Poop Bullets",
+      "url": "https://podcasts.apple.com/us/podcast/117-secret-elven-magic-of-poop-bullets/id1775312792?i=1000803780372&uo=4",
+      "audio_url": "https://anchor.fm/s/f1e74f68/podcast/play/129975512/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-10-23%2F437450705-44100-2-7483a4c1e3a638.mp3",
+      "published": "2026-11-24T12:00:00Z",
+      "summary": "Join the discussion on Episode 5 of Overgeared, Nia Liston: The Merciless Maiden, Drifters (2016), and Cyberpunk Edgerunners 2 Episode 4. IT-Aesthetics Anime ApparelIT-AestheticsTABC10 on check out for 10% off or TABC5 for a stacking $5 off of your orde",
+      "duration": "82 min",
+      "tier": "exploration",
+      "topics": [
+        "anime"
+      ],
+      "via": "iTunes episode search"
+    },
+    {
+      "show": "Anime For Blondes",
+      "title": "This road trip just got VERY interesting... | The Apothecary Diaries Season 3 Episode 8 Recap | Girly Anime Recap Podcast",
+      "url": "https://podcasts.apple.com/us/podcast/this-road-trip-just-got-very-interesting-the/id1770563703?i=1000803586486&uo=4",
+      "audio_url": "https://anchor.fm/s/fa247020/podcast/play/129925086/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-10-23%2F437382217-44100-2-3d8a1a912359b.mp3",
+      "published": "2026-11-23T12:00:00Z",
+      "summary": "MAOMAO'S IN-LAWS JOIN THE ROAD TRIP... The Apothecary Diaries Season 3 Episode 8 has us looking back at some important lore with childhood flashbacks of Lady Ah-Duo and the Emperor, while also introducing some VERY interesting new road trip companions.",
+      "duration": "47 min",
+      "tier": "exploration",
+      "topics": [
+        "anime"
+      ],
+      "via": "iTunes episode search"
+    }
+  ]
+}

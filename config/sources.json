@@ -809,7 +809,7 @@
       },
       {
         "name": "Google DeepMind Blog",
-        "url": "https://deepmind.google/blog/rss.xml",
+        "url": "https://deepmind.google/blog/feed",
         "kind": "lab"
       },
       {
@@ -887,7 +887,7 @@
       },
       {
         "name": "r/MachineLearning",
-        "url": "https://www.reddit.com/r/MachineLearning/top/.rss?t=day",
+        "url": "https://www.reddit.com/r/MachineLearning/top.rss?t=day",
         "kind": "discussion",
         "lookback_days": 2
       }

@@ -53,6 +53,133 @@
         "knowledge",
         "curiosity"
       ]
+    },
+    "discovery:disc-2026-11-25-aeon-what-we-cant-measure-ai": {
+      "date": "2026-11-25",
+      "title": "What we can't measure about AI, yet",
+      "url": "https://aeon.co/essays/what-we-cant-measure-about-ai-yet",
+      "category": "history of technology",
+      "type": "article",
+      "dimensions": [
+        "knowledge",
+        "world"
+      ]
+    },
+    "discovery:disc-2026-11-25-circuits-october-jpp-lens": {
+      "date": "2026-11-25",
+      "title": "Circuits Updates: October 2026 (The J++ Lens)",
+      "url": "https://transformer-circuits.pub/2026/october-update/",
+      "category": "AI research",
+      "type": "article",
+      "dimensions": [
+        "research"
+      ]
+    },
+    "discovery:disc-2026-11-25-dwarkesh-karpathy-decade-of-agents": {
+      "date": "2026-11-25",
+      "title": "Andrej Karpathy: AGI is still a decade away",
+      "url": "https://dwarkesh.com/p/andrej-karpathy",
+      "category": "AI research",
+      "type": "podcast",
+      "dimensions": [
+        "research"
+      ]
+    },
+    "discovery:disc-2026-11-25-geminids-2026": {
+      "date": "2026-11-25",
+      "title": "Watch the Geminid meteor shower (peak 13 to 14 December)",
+      "url": "https://earthsky.org/astronomy-essentials/everything-you-need-to-know-geminid-meteor-shower",
+      "category": "astronomy",
+      "type": "experience",
+      "dimensions": [
+        "curiosity"
+      ]
+    },
+    "discovery:disc-2026-11-25-hbr-surprising-power-of-questions": {
+      "date": "2026-11-25",
+      "title": "The Surprising Power of Questions",
+      "url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=54500",
+      "category": "people skills",
+      "type": "article",
+      "dimensions": [
+        "people"
+      ]
+    },
+    "discovery:disc-2026-11-25-mindscape-ned-block-consciousness": {
+      "date": "2026-11-25",
+      "title": "339 | Ned Block on Whether Consciousness Requires Biology",
+      "url": "https://preposterousuniverse.com/podcast/2026/01/05/339-ned-block-on-whether-consciousness-requires-biology/",
+      "category": "philosophy of mind",
+      "type": "podcast",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ]
+    },
+    "discovery:disc-2026-11-25-npr-tristan-da-cunha": {
+      "date": "2026-11-25",
+      "title": "Tristan da Cunha: The busiest place you've never seen",
+      "url": "https://apps.npr.org/life-on-tristan-da-cunha",
+      "category": "places",
+      "type": "article",
+      "dimensions": [
+        "world",
+        "curiosity"
+      ]
+    },
+    "discovery:disc-2026-11-25-ozu-tokyo-story": {
+      "date": "2026-11-25",
+      "title": "Tokyo Story (1953)",
+      "url": "https://www.bfi.org.uk/features/tokyo-story-anatomy-classic",
+      "category": "world cinema",
+      "type": "film",
+      "dimensions": [
+        "culture"
+      ]
+    },
+    "discovery:disc-2026-11-25-quanta-escher-maths": {
+      "date": "2026-11-25",
+      "title": "How M.C. Escher's Art Creates Bizarre Mathematical Worlds",
+      "url": "https://www.quantamagazine.org/how-m-c-eschers-art-creates-bizarre-mathematical-worlds-20261118/",
+      "category": "art and mathematics",
+      "type": "article",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ]
+    },
+    "discovery:disc-2026-11-25-quanta-quasi-riemann-ai-proof": {
+      "date": "2026-11-25",
+      "title": "AI Proved the Quasi-Riemann Hypothesis. What Happens Now?",
+      "url": "https://www.quantamagazine.org/ai-proved-the-quasi-riemann-hypothesis-what-happens-now-20261019/",
+      "category": "AI and mathematics",
+      "type": "article",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ]
+    },
+    "discovery:disc-2026-11-25-rhs-janaki-ammal": {
+      "date": "2026-11-25",
+      "title": "The female botanist who sweetened a nation",
+      "url": "https://rhs.org.uk/education-learning/libraries-at-rhs/articles/janaki-ammal",
+      "category": "fascinating people",
+      "type": "article",
+      "dimensions": [
+        "people",
+        "knowledge"
+      ]
+    },
+    "discovery:disc-2026-11-25-welch-labs-diffusion-video": {
+      "date": "2026-11-25",
+      "title": "But how do AI images and videos actually work? | Guest video by Welch Labs",
+      "url": "https://www.youtube.com/watch?v=iv-5mZ_9CPY",
+      "category": "AI research",
+      "type": "video",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ]
     }
   }
 }

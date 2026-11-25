@@ -1,0 +1,86 @@
+{
+  "schema": "language",
+  "date": "2026-11-25",
+  "items": [
+    {
+      "id": "lang-2026-11-25",
+      "language": "japanese",
+      "title": "Introducing yourself",
+      "theme": "self-introduction: name, where you are from, nice to meet you",
+      "minutes": 5,
+      "phrases": [
+        {
+          "text": "はじめまして",
+          "romanization": "hajimemashite",
+          "meaning": "nice to meet you (said when meeting for the first time)"
+        },
+        {
+          "text": "わたしは ラヴィです",
+          "romanization": "watashi wa Ravi desu",
+          "meaning": "I am Ravi (swap in your own name)"
+        },
+        {
+          "text": "インドから きました",
+          "romanization": "Indo kara kimashita",
+          "meaning": "I came from India"
+        },
+        {
+          "text": "どうぞ よろしく おねがいします",
+          "romanization": "dōzo yoroshiku onegai shimasu",
+          "meaning": "pleased to meet you, I look forward to knowing you"
+        },
+        {
+          "text": "おなまえは？",
+          "romanization": "o-namae wa?",
+          "meaning": "and your name is? (polite)"
+        }
+      ],
+      "dialogue": [
+        {
+          "text": "はじめまして。わたしは ラヴィです。",
+          "romanization": "Hajimemashite. Watashi wa Ravi desu.",
+          "meaning": "Nice to meet you. I am Ravi."
+        },
+        {
+          "text": "はじめまして。ゆきです。おくには どちらですか。",
+          "romanization": "Hajimemashite. Yuki desu. O-kuni wa dochira desu ka.",
+          "meaning": "Nice to meet you. I'm Yuki. Which country are you from?"
+        },
+        {
+          "text": "インドから きました。どうぞ よろしく おねがいします。",
+          "romanization": "Indo kara kimashita. Dōzo yoroshiku onegai shimasu.",
+          "meaning": "I came from India. Pleased to meet you."
+        },
+        {
+          "text": "こちらこそ、よろしく おねがいします。",
+          "romanization": "Kochira koso, yoroshiku onegai shimasu.",
+          "meaning": "The pleasure is mine. Pleased to meet you too."
+        }
+      ],
+      "practice": [
+        {
+          "question": "How do you start when you meet someone for the very first time?",
+          "answer": "はじめまして (hajimemashite)"
+        },
+        {
+          "question": "Say: I came from India.",
+          "answer": "インドから きました (Indo kara kimashita)",
+          "hint": "country + kara kimashita"
+        },
+        {
+          "question": "Someone says よろしく おねがいします to you. How can you reply?",
+          "answer": "こちらこそ、よろしく おねがいします (kochira koso, yoroshiku onegai shimasu)"
+        }
+      ],
+      "say_aloud": "Give your full three-line introduction out loud with your own name: hajimemashite, watashi wa ___ desu, Indo kara kimashita, dōzo yoroshiku onegai shimasu.",
+      "tier": "growth",
+      "dimensions": [
+        "people",
+        "culture"
+      ]
+    }
+  ],
+  "generated_at": "2026-11-25T02:10:12Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Builds on yesterday's greetings with a first self-introduction. The name in the phrases is a placeholder to swap for your own."
+}

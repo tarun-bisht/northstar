@@ -1,0 +1,8 @@
+{
+  "schema": "arxiv",
+  "date": "2026-11-25",
+  "items": [],
+  "generated_at": "2026-11-25T02:21:24Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Today's candidates file was missing (scheduled fetch had not run and arXiv is blocked from the run sandbox). Fallback via arXiv listing pages: 262 titles scanned, most already judged on 24 Nov, 0 kept because no abstract could be copied word for word."
+}

@@ -194,7 +194,23 @@
       "alphaxiv_votes": 10,
       "hf_upvotes": 25,
       "added": "2026-11-25"
+    },
+    {
+      "id": "rl-deepmind-verified-quantum-algorithms",
+      "title": "Finding faster quantum algorithms with agents and formal verification",
+      "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+      "arxiv_id": "2611.09822",
+      "source": "blog",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "worth knowing"
+      ],
+      "note": "Gemini agents improve quantum algorithms and every result is proved in Lean, with the library open source.",
+      "kind": "lab",
+      "group": "Google DeepMind and Google Quantum AI",
+      "added": "2026-11-25"
     }
   ],
-  "generated_at": "2026-11-24T22:02:14Z"
+  "generated_at": "2026-11-25T02:22:03Z"
 }

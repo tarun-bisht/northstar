@@ -1,0 +1,1201 @@
+{
+  "schema": "youtube_shorts",
+  "date": "2026-11-25",
+  "items": [
+    {
+      "id": "yt-4Zt5auJuaTA",
+      "video_id": "4Zt5auJuaTA",
+      "title": "What is a Derivative? Simple Visual Intuition #shorts",
+      "channel": {
+        "name": "viz(x)",
+        "id": "UCV9JLbEMWd14vw0i0YNQn_A"
+      },
+      "url": "https://www.youtube.com/shorts/4Zt5auJuaTA",
+      "embed_url": "https://www.youtube.com/embed/4Zt5auJuaTA",
+      "thumbnail": "https://i.ytimg.com/vi/4Zt5auJuaTA/hqdefault.jpg",
+      "duration_seconds": 17,
+      "published": "2026-11-09",
+      "topic": "derivatives",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Shows the derivative as the tangent slope moving along a curve, zero at every peak and valley.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-uayUk1kpf0c",
+      "video_id": "uayUk1kpf0c",
+      "title": "Is the Boundary of a Set Always Closed? | Topology Short",
+      "channel": {
+        "name": "Clear Math with Prof. Muna",
+        "id": "UC5L7ZcFWgHmx7x9SmNs8Xcw"
+      },
+      "url": "https://www.youtube.com/shorts/uayUk1kpf0c",
+      "embed_url": "https://www.youtube.com/embed/uayUk1kpf0c",
+      "thumbnail": "https://i.ytimg.com/vi/uayUk1kpf0c/hqdefault.jpg",
+      "duration_seconds": 53,
+      "published": "2026-10-17",
+      "topic": "topology: boundary of a set",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "A clean proof sketch that a set's boundary is always closed, with (0,1) as the example.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt--S8ZES8cGdQ",
+      "video_id": "-S8ZES8cGdQ",
+      "title": "The Co-finite Topology Explained: Topology for Beginners",
+      "channel": {
+        "name": "Dr.Flora Runji",
+        "id": "UCeJvTXNMVWDyMrAFrHjR6AA"
+      },
+      "url": "https://www.youtube.com/watch?v=-S8ZES8cGdQ",
+      "embed_url": "https://www.youtube.com/embed/-S8ZES8cGdQ",
+      "thumbnail": "https://i.ytimg.com/vi/-S8ZES8cGdQ/hqdefault.jpg",
+      "duration_seconds": 145,
+      "published": "2026-10-14",
+      "topic": "topology: cofinite topology",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Checks the topology axioms on the cofinite topology, a classic first counterexample.",
+      "discovery_source": "youtube_data_api",
+      "format": "short_form",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-96KQ47Or15Q",
+      "video_id": "96KQ47Or15Q",
+      "title": "Riemann Sum vs Integration Explained Visually | Area Under the Sine Curve #riemann #integration",
+      "channel": {
+        "name": "codematrixvishal",
+        "id": "UC3pDzpjVbCnU-k8YPbcNKWw"
+      },
+      "url": "https://www.youtube.com/shorts/96KQ47Or15Q",
+      "embed_url": "https://www.youtube.com/embed/96KQ47Or15Q",
+      "thumbnail": "https://i.ytimg.com/vi/96KQ47Or15Q/hqdefault.jpg",
+      "duration_seconds": 12,
+      "published": "2026-10-24",
+      "topic": "Riemann sums and integrals",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Watch rectangles under a sine curve shrink until the sum becomes the integral.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-H260UiPxrlA",
+      "video_id": "H260UiPxrlA",
+      "title": "Geometric Resonance Lissajous Figure with 5:4 Frequency Ratio | Beautiful Math Visualization #maths",
+      "channel": {
+        "name": "codematrixvishal",
+        "id": "UC3pDzpjVbCnU-k8YPbcNKWw"
+      },
+      "url": "https://www.youtube.com/shorts/H260UiPxrlA",
+      "embed_url": "https://www.youtube.com/embed/H260UiPxrlA",
+      "thumbnail": "https://i.ytimg.com/vi/H260UiPxrlA/hqdefault.jpg",
+      "duration_seconds": 23,
+      "published": "2026-09-27",
+      "topic": "Lissajous figures and frequency ratios",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Two perpendicular sine waves at a 5:4 ratio trace a figure you can read the ratio from.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-ME6KHgGNVlE",
+      "video_id": "ME6KHgGNVlE",
+      "title": "What actually is machine learning, explained in 60 seconds",
+      "channel": {
+        "name": "harsh thakkar",
+        "id": "UCBcSaqGlrbcheXiBmF9U5aw"
+      },
+      "url": "https://www.youtube.com/shorts/ME6KHgGNVlE",
+      "embed_url": "https://www.youtube.com/embed/ME6KHgGNVlE",
+      "thumbnail": "https://i.ytimg.com/vi/ME6KHgGNVlE/hqdefault.jpg",
+      "duration_seconds": 54,
+      "published": "2026-11-13",
+      "topic": "what machine learning is",
+      "category": "machine learning",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Frames ML as code grown from examples rather than written rules, a good one-line mental model.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-ibYf0yTxVtw",
+      "video_id": "ibYf0yTxVtw",
+      "title": "Machine Learning Explained in 1 Minute: How AI Learns Without Rules #shorts",
+      "channel": {
+        "name": "Traceless Dev",
+        "id": "UC9IXxBfPW4Ys5AyklcsKznQ"
+      },
+      "url": "https://www.youtube.com/shorts/ibYf0yTxVtw",
+      "embed_url": "https://www.youtube.com/embed/ibYf0yTxVtw",
+      "thumbnail": "https://i.ytimg.com/vi/ibYf0yTxVtw/hqdefault.jpg",
+      "duration_seconds": 64,
+      "published": "2026-10-30",
+      "topic": "learning from examples vs rules",
+      "category": "machine learning",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Contrasts rules-in answers-out with examples-in rules-out, the core idea behind training.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-fPHpPFG9dQ4",
+      "video_id": "fPHpPFG9dQ4",
+      "title": "these spinning circles are drawing a bass clef 🎼",
+      "channel": {
+        "name": "The Overtone Series",
+        "id": "UCQVjp_JW5RqbwQpTuSXjuUA"
+      },
+      "url": "https://www.youtube.com/shorts/fPHpPFG9dQ4",
+      "embed_url": "https://www.youtube.com/embed/fPHpPFG9dQ4",
+      "thumbnail": "https://i.ytimg.com/vi/fPHpPFG9dQ4/hqdefault.jpg",
+      "duration_seconds": 16,
+      "published": "2026-11-23",
+      "topic": "Fourier series as spinning circles",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "A bass clef drawn by circles whose sizes come from its discrete Fourier transform.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-hjszCfy1wBM",
+      "video_id": "hjszCfy1wBM",
+      "title": "Why the Shortest Path Takes the Longest Time    #Physics #Einstein #SpecialRelativity",
+      "channel": {
+        "name": "Physics Explained",
+        "id": "UCIZ5ZOeiXYbmKTl_85ghNPw"
+      },
+      "url": "https://www.youtube.com/shorts/hjszCfy1wBM",
+      "embed_url": "https://www.youtube.com/embed/hjszCfy1wBM",
+      "thumbnail": "https://i.ytimg.com/vi/hjszCfy1wBM/hqdefault.jpg",
+      "duration_seconds": 168,
+      "published": "2026-11-02",
+      "topic": "special relativity and time dilation",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Why two observers moving relative to each other disagree about elapsed time.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-YVJt80GV7XY",
+      "video_id": "YVJt80GV7XY",
+      "title": "Quantum Model of the Atom: Why Atoms Don't Collapse",
+      "channel": {
+        "name": "SoYa Science",
+        "id": "UCDWA84SVLyPdKIYVI3UC-Sg"
+      },
+      "url": "https://www.youtube.com/shorts/YVJt80GV7XY",
+      "embed_url": "https://www.youtube.com/embed/YVJt80GV7XY",
+      "thumbnail": "https://i.ytimg.com/vi/YVJt80GV7XY/hqdefault.jpg",
+      "duration_seconds": 54,
+      "published": "2026-11-01",
+      "topic": "quantum model of the atom",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Why classical orbits would collapse in a fraction of a nanosecond and quantum states do not.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-Ckyk2fjLqiw",
+      "video_id": "Ckyk2fjLqiw",
+      "title": "How Do Magnets Actually Work? (It's Quantum Physics)",
+      "channel": {
+        "name": "Sidequest Science",
+        "id": "UCdy3c2XNemcSjau75J4ngBw"
+      },
+      "url": "https://www.youtube.com/shorts/Ckyk2fjLqiw",
+      "embed_url": "https://www.youtube.com/embed/Ckyk2fjLqiw",
+      "thumbnail": "https://i.ytimg.com/vi/Ckyk2fjLqiw/hqdefault.jpg",
+      "duration_seconds": 146,
+      "published": "2026-10-31",
+      "topic": "magnetism and electron spin",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Goes from electron spin to magnetic domains to why a magnet sticks to the fridge.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-xCg26AUpQiw",
+      "video_id": "xCg26AUpQiw",
+      "title": "How Your Brain's Predictions Shape What You See #Shorts",
+      "channel": {
+        "name": "Cognitive Paradox",
+        "id": "UCwWw8tWKQDPhTfTtBypT43Q"
+      },
+      "url": "https://www.youtube.com/shorts/xCg26AUpQiw",
+      "embed_url": "https://www.youtube.com/embed/xCg26AUpQiw",
+      "thumbnail": "https://i.ytimg.com/vi/xCg26AUpQiw/hqdefault.jpg",
+      "duration_seconds": 47,
+      "published": "2026-11-16",
+      "topic": "predictive processing in the brain",
+      "category": "neuroscience",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "The brain drops what it predicted and attends to surprises, an idea close to predictive coding in ML.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-WM0Kvz60k2s",
+      "video_id": "WM0Kvz60k2s",
+      "title": "60,000 Neurons: The BRAIN COMPASS Inside Your Head #Shorts",
+      "channel": {
+        "name": "🧠 Brain Decode",
+        "id": "UCPkWO1qdHfLAvPwhj91_TFA"
+      },
+      "url": "https://www.youtube.com/shorts/WM0Kvz60k2s",
+      "embed_url": "https://www.youtube.com/embed/WM0Kvz60k2s",
+      "thumbnail": "https://i.ytimg.com/vi/WM0Kvz60k2s/hqdefault.jpg",
+      "duration_seconds": 49,
+      "published": "2026-11-21",
+      "topic": "head direction cells",
+      "category": "neuroscience",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Cells in the thalamus act as an internal compass that tracks which way your head faces.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-_H7MvP_OdYk",
+      "video_id": "_H7MvP_OdYk",
+      "title": "General Anesthesia: Why Does Consciousness Switch Off? #shorts",
+      "channel": {
+        "name": "Neural Feed",
+        "id": "UC_0Wv6f5dz1GifUHYqhpSfA"
+      },
+      "url": "https://www.youtube.com/shorts/_H7MvP_OdYk",
+      "embed_url": "https://www.youtube.com/embed/_H7MvP_OdYk",
+      "thumbnail": "https://i.ytimg.com/vi/_H7MvP_OdYk/hqdefault.jpg",
+      "duration_seconds": 51,
+      "published": "2026-10-23",
+      "topic": "anaesthesia and consciousness",
+      "category": "consciousness",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Anaesthesia switches consciousness off reliably, yet science still cannot fully say how.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-Pd87ngy3-lk",
+      "video_id": "Pd87ngy3-lk",
+      "title": "Ockham’s Razor — The Power of Simplicity",
+      "channel": {
+        "name": "Undying Truths And Facts of Life",
+        "id": "UCA6sunf7YIeuu7KGyw1ZMZw"
+      },
+      "url": "https://www.youtube.com/shorts/Pd87ngy3-lk",
+      "embed_url": "https://www.youtube.com/embed/Pd87ngy3-lk",
+      "thumbnail": "https://i.ytimg.com/vi/Pd87ngy3-lk/hqdefault.jpg",
+      "duration_seconds": 113,
+      "published": "2026-10-27",
+      "topic": "Ockham's razor",
+      "category": "philosophy of science",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Why good science often means knowing which explanations you can do without.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-_7eaMKL4lAk",
+      "video_id": "_7eaMKL4lAk",
+      "title": "The “This-ness” That Makes You Unrepeatable- Scotus Philosophy Explained",
+      "channel": {
+        "name": "PhiloWhisp",
+        "id": "UCYjBDQ2w1Ugy9TqYIoTGceg"
+      },
+      "url": "https://www.youtube.com/shorts/_7eaMKL4lAk",
+      "embed_url": "https://www.youtube.com/embed/_7eaMKL4lAk",
+      "thumbnail": "https://i.ytimg.com/vi/_7eaMKL4lAk/hqdefault.jpg",
+      "duration_seconds": 102,
+      "published": "2026-10-01",
+      "topic": "Duns Scotus and haecceity",
+      "category": "philosophy",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Scotus' idea of 'this-ness': what makes an individual more than a list of traits.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-xNS9eRhmZNQ",
+      "video_id": "xNS9eRhmZNQ",
+      "title": "हिंदू दर्शन के 6 स्कूल: षड्दर्शन आसान भाषा में",
+      "channel": {
+        "name": "Pratibha Videos",
+        "id": "UCMLvTO9WI6u2yuARTAKW2_Q"
+      },
+      "url": "https://www.youtube.com/shorts/xNS9eRhmZNQ",
+      "embed_url": "https://www.youtube.com/embed/xNS9eRhmZNQ",
+      "thumbnail": "https://i.ytimg.com/vi/xNS9eRhmZNQ/hqdefault.jpg",
+      "duration_seconds": 56,
+      "published": "2026-10-17",
+      "topic": "the six schools of Indian philosophy",
+      "category": "philosophy",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "hi",
+      "why_it_matches": "A quick map of Nyaya, Vaisheshika, Samkhya, Yoga, Mimamsa and Vedanta in Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-k5Xrq4yZvVw",
+      "video_id": "k5Xrq4yZvVw",
+      "title": "लोहे का टुकड़ा डूबा, पर जहाज नहीं—क्यों? 🤔🚢 #ScienceFacts #AmazingFacts #Shorts",
+      "channel": {
+        "name": "NextGen Facts 2.0",
+        "id": "UCYz4PF8x4rphs8--L5OZY-g"
+      },
+      "url": "https://www.youtube.com/shorts/k5Xrq4yZvVw",
+      "embed_url": "https://www.youtube.com/embed/k5Xrq4yZvVw",
+      "thumbnail": "https://i.ytimg.com/vi/k5Xrq4yZvVw/hqdefault.jpg",
+      "duration_seconds": 159,
+      "published": "2026-11-24",
+      "topic": "buoyancy",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "hi",
+      "why_it_matches": "Why a small iron piece sinks while a thousand-ton ship floats, explained in Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-jECa_H30kaI",
+      "video_id": "jECa_H30kaI",
+      "title": "एक मुर्गी के अंडे से समझिए अर्थव्यवस्था 🐔🥚 चोरी, बर्बादी या युद्ध, किससे बढ़ती है? #shorts #economy",
+      "channel": {
+        "name": "शौर्य की कहानियां – Hindi Kids Stories",
+        "id": "UCWnXt9M7IY7oHil9ae67W8g"
+      },
+      "url": "https://www.youtube.com/shorts/jECa_H30kaI",
+      "embed_url": "https://www.youtube.com/embed/jECa_H30kaI",
+      "thumbnail": "https://i.ytimg.com/vi/jECa_H30kaI/hqdefault.jpg",
+      "duration_seconds": 152,
+      "published": "2026-10-26",
+      "topic": "broken window fallacy",
+      "category": "economics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "hi",
+      "why_it_matches": "A hen and egg story in Hindi on why theft, waste or war do not make a country richer.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-joMjXmQpliU",
+      "video_id": "joMjXmQpliU",
+      "title": "Look closely at the painting of this silk | Carolus-Duran 🔍 #arthistory",
+      "channel": {
+        "name": "Simon Claridge: Look Closely ",
+        "id": "UCIck5bk4paXjmznf5z2-xoQ"
+      },
+      "url": "https://www.youtube.com/shorts/joMjXmQpliU",
+      "embed_url": "https://www.youtube.com/embed/joMjXmQpliU",
+      "thumbnail": "https://i.ytimg.com/vi/joMjXmQpliU/hqdefault.jpg",
+      "duration_seconds": 20,
+      "published": "2026-11-18",
+      "topic": "Carolus-Duran's painting technique",
+      "category": "art",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Up close the satin is a few fast white strokes, the style Sargent learned in Paris.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-pdL3nDhtZo8",
+      "video_id": "pdL3nDhtZo8",
+      "title": "Was Napoleon Really That Short? British and French Portrayals #history #napoleon",
+      "channel": {
+        "name": "artloris",
+        "id": "UCZVohmoW-NRAwK02xJYA__A"
+      },
+      "url": "https://www.youtube.com/shorts/pdL3nDhtZo8",
+      "embed_url": "https://www.youtube.com/embed/pdL3nDhtZo8",
+      "thumbnail": "https://i.ytimg.com/vi/pdL3nDhtZo8/hqdefault.jpg",
+      "duration_seconds": 18,
+      "published": "2026-11-20",
+      "topic": "Napoleon in British and French art",
+      "category": "art history",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "How the same man was drawn tiny by British cartoonists and towering by French painters.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-USAKoCqn6tA",
+      "video_id": "USAKoCqn6tA",
+      "title": "Public Speaking Secret: How to Make Statistics Interesting",
+      "channel": {
+        "name": "Peter Andrei | Public Speaking Coach",
+        "id": "UCtVE-nujHfk2JZE7HUIQTzg"
+      },
+      "url": "https://www.youtube.com/shorts/USAKoCqn6tA",
+      "embed_url": "https://www.youtube.com/embed/USAKoCqn6tA",
+      "thumbnail": "https://i.ytimg.com/vi/USAKoCqn6tA/hqdefault.jpg",
+      "duration_seconds": 24,
+      "published": "2026-11-05",
+      "topic": "presenting numbers well",
+      "category": "people skills",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "A two-step move for making a statistic land in a talk, something you can try next time.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-nHhOrerlkh0",
+      "video_id": "nHhOrerlkh0",
+      "title": "How to Handle Emotions When Feedback Stings | Emotional Intelligence",
+      "channel": {
+        "name": "ShareYrHeart",
+        "id": "UCCrcos6enTgtimPrwjL46jA"
+      },
+      "url": "https://www.youtube.com/shorts/nHhOrerlkh0",
+      "embed_url": "https://www.youtube.com/embed/nHhOrerlkh0",
+      "thumbnail": "https://i.ytimg.com/vi/nHhOrerlkh0/hqdefault.jpg",
+      "duration_seconds": 32,
+      "published": "2026-09-29",
+      "topic": "handling stinging feedback",
+      "category": "people skills",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Notice, name, then respond: a simple three-step way to take blunt feedback calmly.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-046ZoVcWSZs",
+      "video_id": "046ZoVcWSZs",
+      "title": "This Japanese pronunciation trick trips up almost every beginner 🤏",
+      "channel": {
+        "name": "Yomikai",
+        "id": "UCk9VQK_OXwo-b7SCVn4spPQ"
+      },
+      "url": "https://www.youtube.com/shorts/046ZoVcWSZs",
+      "embed_url": "https://www.youtube.com/embed/046ZoVcWSZs",
+      "thumbnail": "https://i.ytimg.com/vi/046ZoVcWSZs/hqdefault.jpg",
+      "duration_seconds": 16,
+      "published": "2026-11-16",
+      "topic": "Japanese: small tsu (sokuon)",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "The small っ is a short pause that doubles the next consonant, a common beginner trap.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-ljvOqvtHaQE",
+      "video_id": "ljvOqvtHaQE",
+      "title": "Learn Japanese in Hindi | Hiragana A I U E O + KA KI KU KE KO #learnjapanese  #hiragana #shorts",
+      "channel": {
+        "name": "Learn in Leisure Time",
+        "id": "UCpbz4qe5_OnTvI_SRSDCbuQ"
+      },
+      "url": "https://www.youtube.com/shorts/ljvOqvtHaQE",
+      "embed_url": "https://www.youtube.com/embed/ljvOqvtHaQE",
+      "thumbnail": "https://i.ytimg.com/vi/ljvOqvtHaQE/hqdefault.jpg",
+      "duration_seconds": 62,
+      "published": "2026-11-10",
+      "topic": "Japanese: hiragana a-i-u-e-o and ka row, taught in Hindi",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "hi",
+      "why_it_matches": "Day 1 hiragana with Hindi sound matches like あ = अ, an easy start in a language you know.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-UxlRexftb7g",
+      "video_id": "UxlRexftb7g",
+      "title": "How to Say Hello in Japanese 🇯🇵 | Konnichiwa Explained! #kaiwa #japanese #shorts",
+      "channel": {
+        "name": "Tanro",
+        "id": "UCCKP8a6VK2uHte9Fl35sGyA"
+      },
+      "url": "https://www.youtube.com/shorts/UxlRexftb7g",
+      "embed_url": "https://www.youtube.com/embed/UxlRexftb7g",
+      "thumbnail": "https://i.ytimg.com/vi/UxlRexftb7g/hqdefault.jpg",
+      "duration_seconds": 28,
+      "published": "2026-11-20",
+      "topic": "Japanese: konnichiwa and the は sound",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains konnichiwa and why the final は is read as 'wa', a useful early rule.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-h58dlfrWhcI",
+      "video_id": "h58dlfrWhcI",
+      "title": "तेलुगु सीखें हिंदी में | रोज़ बोले जाने वाले तेलुगु वाक्य | Telugu Speaking Course Day 2",
+      "channel": {
+        "name": "S2 Learn ",
+        "id": "UCV88-A1MQXTpG5wRmHbi_pg"
+      },
+      "url": "https://www.youtube.com/shorts/h58dlfrWhcI",
+      "embed_url": "https://www.youtube.com/embed/h58dlfrWhcI",
+      "thumbnail": "https://i.ytimg.com/vi/h58dlfrWhcI/hqdefault.jpg",
+      "duration_seconds": 12,
+      "published": "2026-10-14",
+      "topic": "Telugu: everyday sentences, taught in Hindi",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "hi",
+      "why_it_matches": "Daily-use Telugu words and sentences with Hindi pronunciation, beginner level.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt--CpjPYOFewg",
+      "video_id": "-CpjPYOFewg",
+      "title": "Which country has the most neighbors? (Not just Russia) #facts #shorts",
+      "channel": {
+        "name": "Factlas HQ",
+        "id": "UCbA1oCh0_qSh6VJ1nJRRLnQ"
+      },
+      "url": "https://www.youtube.com/shorts/-CpjPYOFewg",
+      "embed_url": "https://www.youtube.com/embed/-CpjPYOFewg",
+      "thumbnail": "https://i.ytimg.com/vi/-CpjPYOFewg/hqdefault.jpg",
+      "duration_seconds": 38,
+      "published": "2026-11-22",
+      "topic": "countries with the most neighbours",
+      "category": "geography",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "China and Russia tie at 14, and France beats Brazil thanks to French Guiana.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-qw2Q5T2_0xA",
+      "video_id": "qw2Q5T2_0xA",
+      "title": "Why Is This Country Stuck Inside Senegal? 🌍 #geography #facts #shorts",
+      "channel": {
+        "name": "Mapstory",
+        "id": "UCG1iyJ3CtpBTd-sjvJQUpLw"
+      },
+      "url": "https://www.youtube.com/shorts/qw2Q5T2_0xA",
+      "embed_url": "https://www.youtube.com/embed/qw2Q5T2_0xA",
+      "thumbnail": "https://i.ytimg.com/vi/qw2Q5T2_0xA/hqdefault.jpg",
+      "duration_seconds": 70,
+      "published": "2026-11-22",
+      "topic": "Gambia inside Senegal",
+      "category": "geography",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "How a river and a colonial rivalry carved a country inside another country.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-kcY092S_hgE",
+      "video_id": "kcY092S_hgE",
+      "title": "This Land Is Free and No Country Wants It",
+      "channel": {
+        "name": "GeoAtlas",
+        "id": "UCuvHuanY3678NiQEA5rjSJA"
+      },
+      "url": "https://www.youtube.com/shorts/kcY092S_hgE",
+      "embed_url": "https://www.youtube.com/embed/kcY092S_hgE",
+      "thumbnail": "https://i.ytimg.com/vi/kcY092S_hgE/hqdefault.jpg",
+      "duration_seconds": 59,
+      "published": "2026-10-27",
+      "topic": "Bir Tawil and unclaimed land",
+      "category": "geography",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "A piece of land no country claims, left behind by colonial-era borders.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-SQa1aycpy0w",
+      "video_id": "SQa1aycpy0w",
+      "title": "How 🚄 Maglev Trains cruise at 375 MPH without Touching the Track",
+      "channel": {
+        "name": "HowThingsWork",
+        "id": "UCic-0oxlac0KPdWwggTdQEQ"
+      },
+      "url": "https://www.youtube.com/shorts/SQa1aycpy0w",
+      "embed_url": "https://www.youtube.com/embed/SQa1aycpy0w",
+      "thumbnail": "https://i.ytimg.com/vi/SQa1aycpy0w/hqdefault.jpg",
+      "duration_seconds": 82,
+      "published": "2026-11-23",
+      "topic": "maglev trains",
+      "category": "engineering",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "How superconducting magnets lift a train a few inches and let it reach 375 mph.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-dlrvNKatKao",
+      "video_id": "dlrvNKatKao",
+      "title": "There’s a 660-Ton Ball Hiding Inside This Skyscraper?! 🏗️🎱#engineering #physics #shorts",
+      "channel": {
+        "name": "Quiriosa",
+        "id": "UC1xGztdasr8tYiORyxN1v_Q"
+      },
+      "url": "https://www.youtube.com/shorts/dlrvNKatKao",
+      "embed_url": "https://www.youtube.com/embed/dlrvNKatKao",
+      "thumbnail": "https://i.ytimg.com/vi/dlrvNKatKao/hqdefault.jpg",
+      "duration_seconds": 55,
+      "published": "2026-11-24",
+      "topic": "Taipei 101's tuned mass damper",
+      "category": "engineering",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "A 660-ton steel ball near the top keeps the tower steady in typhoons and quakes.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-war5eReK8nk",
+      "video_id": "war5eReK8nk",
+      "title": "Ancient vs Modern Inuit Life | How Arctic Survival Has Changed",
+      "channel": {
+        "name": "Sun Sea LV",
+        "id": "UC6Hb4E2OsPv9PcAYjaCqppg"
+      },
+      "url": "https://www.youtube.com/shorts/war5eReK8nk",
+      "embed_url": "https://www.youtube.com/embed/war5eReK8nk",
+      "thumbnail": "https://i.ytimg.com/vi/war5eReK8nk/hqdefault.jpg",
+      "duration_seconds": 104,
+      "published": "2026-10-16",
+      "topic": "Inuit life then and now",
+      "category": "cultures",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Contrasts dog sleds and skin clothing with how Arctic life works today.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-3P2E5alK3ZU",
+      "video_id": "3P2E5alK3ZU",
+      "title": "The Man Who Cut His Own Elevator Rope... #shorts",
+      "channel": {
+        "name": "Ricky Animates",
+        "id": "UC3Z9Oc3ThgqNLVzHOSxG5Eg"
+      },
+      "url": "https://www.youtube.com/shorts/3P2E5alK3ZU",
+      "embed_url": "https://www.youtube.com/embed/3P2E5alK3ZU",
+      "thumbnail": "https://i.ytimg.com/vi/3P2E5alK3ZU/hqdefault.jpg",
+      "duration_seconds": 55,
+      "published": "2026-11-24",
+      "topic": "Elisha Otis and the safety elevator",
+      "category": "invention history",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "In 1854 Otis had his own hoist rope cut in public to prove his safety brake worked.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-HAw4HHkZa7c",
+      "video_id": "HAw4HHkZa7c",
+      "title": "भारत का एडिसन कौन था? | शंकर आबाजी भिसे की अनसुनी कहानी 🇮🇳",
+      "channel": {
+        "name": "ItihasVerse247",
+        "id": "UCZ_Ah6m2thy5mi01OWK-fyA"
+      },
+      "url": "https://www.youtube.com/shorts/HAw4HHkZa7c",
+      "embed_url": "https://www.youtube.com/embed/HAw4HHkZa7c",
+      "thumbnail": "https://i.ytimg.com/vi/HAw4HHkZa7c/hqdefault.jpg",
+      "duration_seconds": 129,
+      "published": "2026-11-23",
+      "topic": "Shankar Abaji Bhise, inventor",
+      "category": "invention history",
+      "tier": "exploration",
+      "dimensions": [
+        "people",
+        "knowledge"
+      ],
+      "language": "hi",
+      "why_it_matches": "A Hindi short on the Indian inventor once called 'India's Edison' and his type-casting machine.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-OVfkNb87M38",
+      "video_id": "OVfkNb87M38",
+      "title": "आंसू आंख से निकलते हैं, तो नाक क्यों बहती है? 😭👃 | Science of Crying in 3D #shorts",
+      "channel": {
+        "name": "Planet X",
+        "id": "UCXT5algOnbiJAOhOMVGRxVg"
+      },
+      "url": "https://www.youtube.com/shorts/OVfkNb87M38",
+      "embed_url": "https://www.youtube.com/embed/OVfkNb87M38",
+      "thumbnail": "https://i.ytimg.com/vi/OVfkNb87M38/hqdefault.jpg",
+      "duration_seconds": 51,
+      "published": "2026-11-24",
+      "topic": "why your nose runs when you cry",
+      "category": "biology",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "hi",
+      "why_it_matches": "A 3D Hindi explainer on the tear duct that drains into the nose.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-yWP7NGvm6Ng",
+      "video_id": "yWP7NGvm6Ng",
+      "title": "7th Chords Explained in 30 Seconds! 🎹 | Music Theory",
+      "channel": {
+        "name": "DailyMusicTheory",
+        "id": "UCfO2H1BTcJdJE0rFtvS9YSw"
+      },
+      "url": "https://www.youtube.com/shorts/yWP7NGvm6Ng",
+      "embed_url": "https://www.youtube.com/embed/yWP7NGvm6Ng",
+      "thumbnail": "https://i.ytimg.com/vi/yWP7NGvm6Ng/hqdefault.jpg",
+      "duration_seconds": 30,
+      "published": "2026-11-15",
+      "topic": "seventh chords",
+      "category": "music",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Seventh chords in 30 seconds, an easy entry into why some chords sound richer.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-PepUZwJE0Mw",
+      "video_id": "PepUZwJE0Mw",
+      "title": "The Watch in Interstellar Means More Than You Think | Film Analysis",
+      "channel": {
+        "name": "zapscenes",
+        "id": "UC5ykOEg2uil-mXdiJFlMKew"
+      },
+      "url": "https://www.youtube.com/shorts/PepUZwJE0Mw",
+      "embed_url": "https://www.youtube.com/embed/PepUZwJE0Mw",
+      "thumbnail": "https://i.ytimg.com/vi/PepUZwJE0Mw/hqdefault.jpg",
+      "duration_seconds": 23,
+      "published": "2026-10-12",
+      "topic": "the watch in Interstellar",
+      "category": "cinema",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "How one gift becomes the film's way to talk across time, a neat lesson in story objects.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-zEYQ0AokYJQ",
+      "video_id": "zEYQ0AokYJQ",
+      "title": "I Built a Mini 18650 Charger for Under ₹100 😮 TP4056 + Level Indicator #diyelectronic #quickcharger",
+      "channel": {
+        "name": "Nikola Tech",
+        "id": "UCr0-choNUCCgXLtihKbdDwg"
+      },
+      "url": "https://www.youtube.com/shorts/zEYQ0AokYJQ",
+      "embed_url": "https://www.youtube.com/embed/zEYQ0AokYJQ",
+      "thumbnail": "https://i.ytimg.com/vi/zEYQ0AokYJQ/hqdefault.jpg",
+      "duration_seconds": 15,
+      "published": "2026-11-24",
+      "topic": "DIY 18650 battery charger",
+      "category": "electronics",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "A TP4056 module and a level display make a cheap USB-C cell charger you could build.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    },
+    {
+      "id": "yt-_FJvcvlEcB0",
+      "video_id": "_FJvcvlEcB0",
+      "title": "Japanese hints that hint you to leave",
+      "channel": {
+        "name": "Kyota Ko",
+        "id": "UCccNFAkYqVkmS9fyT1KvHQg"
+      },
+      "url": "https://www.youtube.com/shorts/_FJvcvlEcB0",
+      "embed_url": "https://www.youtube.com/embed/_FJvcvlEcB0",
+      "thumbnail": "https://i.ytimg.com/vi/_FJvcvlEcB0/hqdefault.jpg",
+      "duration_seconds": 146,
+      "published": "2026-10-11",
+      "topic": "Japanese hints that mean 'time to go'",
+      "category": "cultures",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Indirect phrases Japanese hosts use to signal a visit is over, explained in English.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-24T12:52:18Z"
+      }
+    }
+  ],
+  "generated_at": "2026-11-25T02:48:25Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Data API mode, using the 2026-11-24 candidate pool because today's fetch had not run yet. Picked 40 from 1341 unseen candidates. AI research shorts were scarce, so established items are mostly maths foundations plus two ML basics. Japanese and Telugu items are beginner lessons taught in English or Hindi only.",
+  "candidates_considered": 1341
+}

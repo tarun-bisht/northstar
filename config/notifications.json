@@ -1,0 +1,7 @@
+{
+  "_doc": "Where Northstar sends its one notification channel. Mobile and email notifications are off for every scheduled task; the Slack digest, topic poll and poll collect runs post here (prompts/runs/slack_digest.md, topic_poll.md, poll_collect.md). Replace channel_id with your own channel if you fork.",
+  "slack": {
+    "channel_name": "#northstar",
+    "channel_id": "C0CLK5WGKE1"
+  }
+}

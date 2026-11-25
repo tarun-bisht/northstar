@@ -41,6 +41,8 @@ Validation requires, by `load`:
 
 A normal week has about 16 to 22 small items. Most take 10 to 60 minutes. Nobody does all of it: it is a menu.
 
+**Threads.** `context weekly` gives `poll_choices` (the user's Slack poll pick for New in AI: use it), `trending_this_week` (what New in AI can come from), `recent_subjects` (rotate: prefer subjects that are missing) and `recent_questions` (build on them, a step harder, never repeat). When a language is the current focus (`config/languages.json`), let one culture or curiosity item connect to that culture now and then (for Japanese: a film, an artist, a craft, a place).
+
 ## Quality
 
 - **Specific, never generic.** Not "listen to some jazz", but "Bill Evans: Peace Piece, Waltz for Debby, My Foolish Heart, and what to listen for in each". Not "practise listening", but a concrete exercise with a time and a person.

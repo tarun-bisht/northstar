@@ -472,6 +472,36 @@ def _period_pages(out: Path, site: dict, kind: str, key: str, title: str, overvi
            f'<link rel="canonical" href="{key}/index.html"><a href="{key}/index.html">{esc(title)}</a>')
 
 
+def library_html(weeks: list[dict], months: list[dict]) -> str:
+    """Everything studied, grouped by subject: weekly topics and questions, monthly deep dives and challenges."""
+    by: dict[str, list[str]] = defaultdict(list)
+
+    def li(href: str, title: str, note: str) -> str:
+        return f"<li>{a(href, title)} <span class='meta'>{esc(note)}</span></li>"
+    for w in weeks:
+        wk = w["week"]
+        for it in w["items"]:
+            if render.weekly_part(it) == "knowledge":
+                sub = render.item_subject(it)
+                kind = "question" if render.weekly_section(it) == "questions" else "topic"
+                by[sub].append(li(f"weekly/{wk}/knowledge.html#{sub}", it["title"], f"{kind}, {wk}"))
+    for m in months:
+        mo = m["month"]
+        for pj in m["items"]:
+            if pj.get("subject") or render.monthly_section(pj) == "knowledge":
+                by[pj.get("subject") or "other"].append(
+                    li(f"monthly/{mo}/{render.monthly_part(pj)}.html", pj["title"], f"deep dive, {mo}"))
+        for c in m.get("challenges", []):
+            by[c["subject"]].append(li(f"monthly/{mo}/knowledge.html#challenges", c["title"], f"challenge, {mo}"))
+    order = [k for k, _ in render.SUBJECTS]
+    out = ["<div class='col'><h1>Library</h1><p class='lede'>Everything studied so far, by subject.</p>"]
+    if not by:
+        out.append("<p class='empty'>Nothing yet.</p>")
+    for sub in sorted(by, key=lambda k: order.index(k) if k in order else len(order)):
+        out.append(f"<h2 id='{esc(sub)}'>{esc(render.SUBJECT_LABEL.get(sub, sub))}</h2><ul>" + "".join(by[sub]) + "</ul>")
+    return "".join(out) + "</div>"
+
+
 def _weekly_counts(w: dict | None, r: dict | None) -> dict[str, int]:
     c = {k: sum(1 for it in (w or {}).get("items", []) if render.weekly_part(it) == k) for k, _ in render.WEEKLY_PARTS}
     c["papers"] = len((r or {}).get("papers", []))
@@ -610,6 +640,7 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
         arch.append("</ul>")
     arch.append("</div>")
     _write(out / "archive.html", page(site, "Archive", "".join(arch), 0, "archive"))
+    _write(out / "library.html", page(site, "Library", library_html(weeks, months), 0, "library"))
 
     # docs: the vision and the system map, straight from docs/
     try:
@@ -641,7 +672,7 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
          f'<figure style="margin:0">{instrument_svg(counts, quiet)}</figure></section>']
     buttons = [(f"daily/{latest}/{k}.html", label) for k, label, _ in render.DAILY_PARTS] if latest else []
     buttons += [("weekly/index.html", "Weekly"), ("monthly/index.html", "Monthly"), ("quarterly/index.html", "Quarterly"),
-                ("archive.html", "Archive"), ("docs.html", "How it works")]
+                ("library.html", "Library"), ("archive.html", "Archive"), ("docs.html", "How it works")]
     b.append('<nav class="buttons" aria-label="Sections">' + "".join(
         f'<a class="btn" href="{h}">{t}</a>' for h, t in buttons) + "</nav>")
 

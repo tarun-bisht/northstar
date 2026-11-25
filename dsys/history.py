@@ -295,6 +295,11 @@ def context(repo: Repo, stream: str, day: dt.date, period: str | None = None) ->
         ctx["paper_tags"] = repo.config("sources").get("paper_tags", {}).get("tags", [])
         ctx["reading_list"] = _reading(repo, start)
         ctx["languages"] = _languages(repo)
+        from .status import choices_for
+        ctx["poll_choices"] = choices_for(repo, stream, period)
+        ctx["poll_rule"] = ("poll_choices are the user's picks from the Slack poll: use them for New in AI "
+                            "(weekly) or the research and fundamentals deep dives (monthly). Empty means pick as usual.")
+        ctx.update(_knowledge_threads(repo, stream, period))
         ctx["recent_language_themes"] = _recent(repo, "language", day, 60, ("language", "theme"))
         ctx["seed_rule"] = ("ideas_open_pool may include seeds (origin seed): they are suggestions, not intentions. "
                             "You may offer one as an optional item, but never mark it planned or schedule it. "
@@ -329,3 +334,35 @@ def interest_search(repo: Repo, day: dt.date, which: str = "all", max_age_days: 
                 res = {i: v for i, v in res.items() if which.lower() in i.lower()}
             return {"date": f.stem, "interest_search": res}
     return {"date": None, "interest_search": {}, "note": "no alphaXiv search results yet"}
+
+
+def _knowledge_threads(repo: Repo, stream: str, period: str, lookback: int = 6) -> dict:
+    """What recent packages covered, so subjects rotate, questions build on earlier ones and never
+    repeat, and New in AI follows what was trending."""
+    files = sorted(repo.iter_stream_files(stream), key=lambda f: f.stem)
+    past = [load_json(f) for f in files if f.stem < period][-lookback:]
+    subjects, questions, topics = Counter(), [], []
+    for d in past:
+        for it in d.get("items", []):
+            if it.get("subject"):
+                subjects[it["subject"]] += 1
+            if it.get("category") == "question":
+                questions.append({"period": d.get("week") or d.get("month"), "subject": it.get("subject"), "title": it["title"]})
+            topics.append(it["title"])
+        for c in d.get("challenges", []):
+            subjects[c["subject"]] += 1
+            questions.append({"period": d.get("month"), "subject": c["subject"], "title": c["title"], "source": c.get("source")})
+    out = {"recent_subjects": dict(subjects.most_common()), "recent_questions": questions[-60:],
+           "recent_topics": topics[-80:],
+           "threads_rule": ("Rotate the non-core subjects: prefer subjects missing from recent_subjects. Questions may "
+                            "build on recent_questions (a step harder) but never repeat one.")}
+    if stream == "weekly":
+        out["trending_this_week"] = week_trending(repo, next_week(period, -1), 15)
+    else:  # monthly: a few good things from two to six months ago, worth a second look
+        older = [load_json(f) for f in sorted(repo.iter_stream_files("weekly"), key=lambda f: f.stem)]
+        start = period_bounds(period)[0]
+        pool = [{"week": d["week"], "title": it["title"], "subject": it.get("subject"), "section": it.get("section")}
+                for d in older if 56 <= (start - dt.date.fromisoformat(d["start_date"])).days <= 180
+                for it in d.get("items", []) if it.get("section") in ("knowledge", "research_practice", "research_reading", "culture")]
+        out["worth_revisiting"] = pool[:: max(1, len(pool) // 5)][:5]
+    return out

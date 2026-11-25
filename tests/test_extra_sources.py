@@ -74,3 +74,25 @@ def test_cli_interest_search(repo):
                "interest_search": {"diffusion": [{"arxiv_id": "2301.1", "title": "t"}], "world models": []}})
     res = history.interest_search(repo, D, "diff")
     assert list(res["interest_search"]) == ["diffusion"]
+
+
+def test_status_and_polls(repo):
+    from dsys import status
+    st = status.status(repo, D)
+    assert "world" in st["missing"] and st["ok"] is False
+    status.open_poll(repo, "weekly", "2026-W49", "123.45", [{"key": "1", "topic": "test-time compute"}])
+    assert [p["period"] for p in status.list_polls(repo, True)] == ["2026-W49"]
+    status.close_poll(repo, "weekly", "2026-W49", ["test-time compute"])
+    assert status.list_polls(repo, True) == [] and status.choices_for(repo, "weekly", "2026-W49") == ["test-time compute"]
+    ctx = history.context(repo, "weekly", D, "2026-W49")
+    assert ctx["poll_choices"] == ["test-time compute"] and "recent_subjects" in ctx
+
+
+def test_library_page(repo):
+    from dsys import site
+    html = site.library_html([{"week": "2026-W49", "items": [
+        {"id": "a", "title": "Rome", "section": "knowledge", "subject": "history"},
+        {"id": "b", "title": "Spring", "section": "questions", "subject": "physics", "category": "question"}]}],
+        [{"month": "2026-12", "items": [], "challenges": [{"id": "c", "subject": "maths", "title": "Sum"}]}])
+    assert html.index("Mathematics") < html.index("Physics") < html.index("History")
+    assert "weekly/2026-W49/knowledge.html#history" in html and "challenge, 2026-12" in html

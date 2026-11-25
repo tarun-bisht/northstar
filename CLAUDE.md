@@ -23,6 +23,7 @@ Northstar is a public, forkable personal discovery and growth companion. Claude 
 - **Monthly:** New in AI, Fundamentals, knowledge and exploration deep dives (unless light), the exploration one rotating through people, culture and making; each a week-by-week syllabus with resources, at least one growth item, and hard `challenges` (at least 2 maths, 2 physics, 4 other subjects) with real sources.
 - **Quarterly:** `quarterly draft` fills the numbers and topics. Write only the short summaries and one-line abouts.
 - **Links:** never add a URL you haven't seen in a search result or fetched page. External links open in a new tab.
+- **Notifications:** Slack only, one channel (`config/notifications.json`). No mobile or email notifications.
 - **Writing:** plain simple English, short, main point first, no semicolons or em dashes.
 - **Languages** (`config/languages.json`): a 5-minute pack every day (current focus), a lesson per language every week, a plan per language every month.
 
@@ -30,7 +31,7 @@ Northstar is a public, forkable personal discovery and growth companion. Claude 
 
 | Situation | Prompt |
 |---|---|
-| Scheduled runs | `prompts/runs/daily.md`, `shorts.md`, `weekly.md`, `monthly.md`, `quarterly.md` |
+| Scheduled runs | `prompts/runs/daily.md`, `shorts.md`, `weekly.md`, `monthly.md`, `quarterly.md`, and the Slack runs `slack_digest.md`, `topic_poll.md`, `poll_collect.md` |
 | Changing how the system works | `docs/how_it_works.md` (update it too) |
 | "Recommend me…", "I want to try…" | `prompts/on_demand_recommendations.md`, then `prompts/inbox.md` to record it |
 | User shares interests, projects, trips, how busy they are | `prompts/update_interests.md` |
@@ -51,6 +52,10 @@ python scripts/dsys.py feedback record|apply --period P ...
 python scripts/dsys.py reading show|add --week W --json papers.json
 python scripts/dsys.py candidates arxiv --ranked | --ids a,b   # ranked shortlist, then full abstracts
 python scripts/dsys.py candidates news --category C --brief    # headlines by news category
+python scripts/dsys.py candidates podcasts|videos|updates|hf    # episodes, long videos, blogs, HF trending
+python scripts/dsys.py candidates arxiv --search all            # alphaXiv search hits per interest
+python scripts/dsys.py status                                   # what exists today, what failed
+python scripts/dsys.py polls list|open|close ...                # Slack topic polls
 python scripts/dsys.py quarterly draft --quarter YYYY-Qn
 python scripts/validate.py && python scripts/build.py && python -m pytest -q
 ```

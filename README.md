@@ -15,6 +15,8 @@ This repo is one person's real setup. Fork it and make it your own.
 | **Monthly** | A New in AI deep dive and a Fundamentals deep dive | A deep dive outside AI, and hard challenge problems by subject | An exploration deep dive | A plan per language |
 | **Quarterly** | Numbers, a short summary and the topics covered, for each part | | | |
 
+Slack is the only notification: a daily message with today's links and anything that failed, and polls on Thursdays and the 25th where you pick what to go deep on next.
+
 Every week touches every dimension of development in `config/interests.json` (vision §4). Every part has its own page and its own RSS feed. Everything is optional.
 
 ## How to use it

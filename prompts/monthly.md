@@ -19,6 +19,8 @@ Read `docs/vision.md` (especially §4 and §15) and `prompts/_shared.md` first. 
 
 Validation enforces `research`, `fundamentals`, `knowledge` and `exploration` deep dives and the challenge rules (light months: a `research` deep dive and 1 maths and 1 physics challenge).
 
+**Worth revisiting.** `context monthly` lists `worth_revisiting`: a few weekly topics from two to six months ago. If one connects to this month's deep dives, mention it in that item's `why` as a second look. Never as homework.
+
 **Depth, not breadth.** The weekly packages explore widely. The month picks a few subjects and goes deep: a real syllabus, real exercises, something made at the end.
 
 ## Rules

@@ -83,17 +83,25 @@ Every headline is categorized in code (`dsys/news.py`, keywords in `config/sourc
 
 Markets, technology and explainers appear every day, with at least one explainer from The Conversation when its feeds have something relevant.
 
-## 7. What is never done (vision §2 and §17)
+## 7. Slack: the one notification channel
+
+Mobile and email notifications are off for every task. Three scheduled tasks use the Slack connector, in the channel set in `config/notifications.json`:
+
+- **Daily digest** (09:07 IST, `prompts/runs/slack_digest.md`): one short message with links to today's pages and one line per problem. Problems come from `dsys.py status` (missing streams, failed sources, validation errors, a missing weekly or monthly package), failed GitHub Actions runs, and failed scheduled runs.
+- **Topic polls** (Thursdays and the 25th, 20:07 IST, `prompts/runs/topic_poll.md`): four options for next week's New in AI topic, and four research plus four fundamentals options for next month. Reply in the thread with numbers or your own topic. No reply is fine.
+- **Poll collect** (Saturdays and the 1st, 05:53 IST, `prompts/runs/poll_collect.md`): saves the answers to `state/polls.json` (`dsys.py polls`). The weekly and monthly runs read them as `poll_choices` in `context`.
+
+## 8. What is never done (vision §2 and §17)
 
 No streaks, scores, completion tracking, backlogs or guilt. Items carry a status only as an internal detail of the feedback step. Feedback is optional and natural ("more like this", "too basic"). Nothing is carried forward unless you ask. The repo is public, so nothing private is stored (CLAUDE.md rule 5).
 
-## 8. Where things live
+## 9. Where things live
 
 | Path | What |
 |---|---|
 | `docs/vision.md` | why Northstar exists. Read first |
 | `docs/how_it_works.md` | this map |
-| `docs/scheduled_tasks_setup.md` | the five scheduled tasks and how to create them |
+| `docs/scheduled_tasks_setup.md` | the eight scheduled tasks and how to create them |
 | `CLAUDE.md` | rules every Claude run follows |
 | `prompts/runs/*.md` | what each scheduled run does, step by step |
 | `prompts/*.md` | how to make each kind of content |
@@ -111,7 +119,7 @@ No streaks, scores, completion tracking, backlogs or guilt. Items carry a status
 | `state/` | histories and ideas, so nothing repeats |
 | `inbox/` | ideas and feedback you write (public) |
 
-## 9. Changing things
+## 10. Changing things
 
 - **Interests:** edit `config/interests.json`, or tell Claude (`prompts/update_interests.md`). A new research interest also needs an `arxiv.coverage` entry.
 - **News feeds or categories:** `config/sources.json → world.feeds` and `world.categories`.

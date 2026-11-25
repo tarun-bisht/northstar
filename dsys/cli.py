@@ -141,6 +141,23 @@ def cmd_candidates(repo: Repo, args) -> int:
     return 0
 
 
+def cmd_status(repo: Repo, args) -> int:
+    from . import status
+    _print(status.status(repo, _day(args.date)))
+    return 0
+
+
+def cmd_polls(repo: Repo, args) -> int:
+    from . import status
+    if args.action == "open":
+        _print(status.open_poll(repo, args.kind, args.period, args.ts, load_json(args.options)))
+    elif args.action == "close":
+        _print(status.close_poll(repo, args.kind, args.period, json.loads(args.choices or "[]")))
+    else:
+        _print(status.list_polls(repo, args.open))
+    return 0
+
+
 def cmd_context(repo: Repo, args) -> int:
     _print(history.context(repo, args.stream, _day(args.date), args.period))
     return 0
@@ -387,6 +404,20 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("ids", nargs="+")
     s.add_argument("--date")
     s.set_defaults(fn=cmd_papers)
+
+    s = sub.add_parser("status", help="what exists today and what failed (for the Slack digest)")
+    s.add_argument("--date")
+    s.set_defaults(fn=cmd_status)
+
+    s = sub.add_parser("polls", help="topic polls posted in Slack: open, close, list")
+    s.add_argument("action", choices=["open", "close", "list"])
+    s.add_argument("--kind", choices=["weekly", "monthly"])
+    s.add_argument("--period")
+    s.add_argument("--ts", help="open: the Slack message ts")
+    s.add_argument("--options", help="open: JSON file with a list of {key, topic}")
+    s.add_argument("--choices", help="close: JSON list of chosen topics")
+    s.add_argument("--open", action="store_true", help="list: only open polls")
+    s.set_defaults(fn=cmd_polls)
 
     s = sub.add_parser("candidates", help="print unseen fetched candidates")
     s.add_argument("kind", choices=["arxiv", "news", "youtube", "videos", "podcasts", "updates", "hf"])

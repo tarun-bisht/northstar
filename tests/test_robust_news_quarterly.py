@@ -142,7 +142,7 @@ def test_fetch_arxiv_rss_fallback_failed_sources_and_retry(repo, monkeypatch):
     doc = load_json(repo.p("candidates", "arxiv", f"{D}.json"))
     ids = {c["arxiv_id"] for c in doc["candidates"]}
     assert ids == {"2611.00001", "2611.00002"}  # cs.CL came from RSS
-    assert doc["failed_sources"] == ["alphaxiv:trending"]
+    assert doc["failed_sources"] == ["alphaxiv:GitHub", "alphaxiv:Hot", "alphaxiv:Likes", "alphaxiv:Twitter (X)"]
     assert any("cs.CL" in n for n in doc["notes"])
     assert next(c for c in doc["candidates"] if c["arxiv_id"] == "2611.00001")["notable_authors"] == ["Yoshua Bengio"]
 
@@ -154,6 +154,35 @@ def test_fetch_arxiv_rss_fallback_failed_sources_and_retry(repo, monkeypatch):
     doc = load_json(repo.p("candidates", "arxiv", f"{D}.json"))
     assert calls == [] and doc["failed_sources"] == []
     assert {c["arxiv_id"] for c in doc["candidates"]} == {"2611.00001", "2611.00002", "2611.00003"}
+    assert next(c for c in doc["candidates"] if c["arxiv_id"] == "2611.00003")["alphaxiv_lists"] == [
+        "GitHub", "Hot", "Likes", "Twitter (X)"]
+
+
+def test_alphaxiv_search_per_interest(repo, monkeypatch):
+    fc = _fc()
+    cfg = load_json(repo.p("config", "sources.json"))
+    cfg["arxiv"]["categories"] = [{"id": "cs.LG"}]
+    cfg["arxiv"]["coverage"]["topics"] = [{"interest": "world models", "categories": ["cs.LG"], "keywords": ["world model"]},
+                                          {"interest": "diffusion", "search": "diffusion models", "categories": ["cs.LG"],
+                                           "keywords": ["diffusion"]}]
+    (repo.p("config", "sources.json")).write_text(json.dumps(cfg))
+    monkeypatch.setattr(fc.ax, "fetch_recent", lambda cat, n: [_paper("2611.00001")])
+    monkeypatch.setattr(fc.ax, "fetch_hf_daily", lambda d, api: [])
+    monkeypatch.setattr(fc.ax, "fetch_alphaxiv", lambda *a: [])
+    queries = []
+    monkeypatch.setattr(fc.ax, "search_alphaxiv", lambda q, limit=10: queries.append(q) or [
+        {"arxiv_id": "2611.00001", "title": "t", "url": ax.abs_url("2611.00001")}, {"arxiv_id": "2301.00009", "title": "old", "url": ax.abs_url("2301.00009")}])
+    fc.fetch_arxiv(repo, D)
+    doc = load_json(repo.p("candidates", "arxiv", f"{D}.json"))
+    assert queries == ["world models", "diffusion models"]
+    assert [r["arxiv_id"] for r in doc["interest_search"]["diffusion"]] == ["2611.00001", "2301.00009"]
+    assert doc["candidates"][0]["alphaxiv_interests"] == ["diffusion", "world models"]
+
+
+def test_parse_alphaxiv_search():
+    got = ax.parse_alphaxiv_search({"papers": [{"paperId": "2501.01234v2", "title": "A  paper"},
+                                               {"link": "https://alphaxiv.org/abs/2502.00001"}, {"paperId": "junk"}]})
+    assert [g["arxiv_id"] for g in got] == ["2501.01234", "2502.00001"] and got[0]["title"] == "A paper"
 
 
 # --- news ------------------------------------------------------------------------------

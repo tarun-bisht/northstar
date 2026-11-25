@@ -16,11 +16,15 @@ The daily Exploration page (`daily/<date>/exploration.html`) shows discoveries i
 ## Steps
 
 1. `python scripts/dsys.py context discovery --date <today>`: `recent_items` (never repeat a title or URL), `preferences` (explicit signals win; never pick anything in `avoid`; `ignored_hint` means change format or timing, not dislike), `interests_hint` (the tiers) and `variety`.
-2. Pick by tier:
+2. Start from the fetched candidates (real episodes and videos, fetched by Actions):
+   - `python scripts/dsys.py candidates podcasts --date <today>`: recent episodes of good shows (AI, science, philosophy, history, culture) and episode searches on the user's interests, each with `audio_url` so it plays on the page. Copy `url`, `audio_url` and the show name as they are.
+   - `python scripts/dsys.py candidates videos --date <today>`: long-form lectures, talks and documentaries with durations.
+   - Web search for anything else (films, books, music, places). Only URLs you saw in a search result or fetched page.
+3. Pick by tier:
    - **established:** AI research and its foundations; go beyond the basics.
    - **growth:** maths, physics, neuroscience, consciousness and philosophy of science that can feed research ideas; people skills, history, art and culture.
    - **exploration:** something genuinely unfamiliar and excellent, e.g. a place in `world.regions`, a subject or craft in `exploration`.
-3. Most days, make one item **cross-domain** (`cross_domain: {fields, connection}`), e.g. AI and cognitive science, physics and philosophy, cinema and human behaviour.
-4. Culture is chosen for quality, beauty, historical significance or emotional depth (`interests.json → culture_guidance`), not popularity.
-5. Fill the fields in `schemas/recommendation.schema.json`, including `tier` and `type` (`podcast`, `video`, `lecture`, `documentary`, `article`, `book`, …). Verify every URL.
-6. Merge with `python scripts/dsys.py daily merge discovery --date <today> --items /tmp/disc.json`, then `history rebuild` and `validate`.
+4. Most days, make one item **cross-domain** (`cross_domain: {fields, connection}`), e.g. AI and cognitive science, physics and philosophy, cinema and human behaviour.
+5. Culture is chosen for quality, beauty, historical significance or emotional depth (`interests.json → culture_guidance`), not popularity.
+6. Fill the fields in `schemas/recommendation.schema.json`, including `tier` and `type` (`podcast`, `video`, `lecture`, `documentary`, `article`, `book`, …). Verify every URL.
+7. Merge with `python scripts/dsys.py daily merge discovery --date <today> --items /tmp/disc.json`, then `history rebuild` and `validate`.

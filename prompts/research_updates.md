@@ -7,8 +7,10 @@ Read `prompts/_shared.md` first.
 ## Steps
 
 1. `python scripts/dsys.py context research_updates --date <today>`. Avoid anything in `recent_items` (same story) unless there is a genuine new development; then set a new id and mention the earlier one in `what_happened`.
-2. Search (last ~48h), focused on their areas (`config/interests.json → research`):
-   - lab and researcher blogs in `config/sources.json → research_updates.lab_blogs`
+2. Start from the fetched files, then search (last ~48h), focused on their areas (`config/interests.json → research`):
+   - `python scripts/dsys.py candidates updates --date <today>`: lab blogs, researcher blogs and newsletters (Interconnects, Ahead of AI, Import AI, Lil'Log and others), Hacker News AI stories with points and comments, r/MachineLearning top posts. These URLs were fetched by Actions, so they are real, but open or search for one before you cite it in a run (web access rules in `prompts/_shared.md`)
+   - `python scripts/dsys.py candidates hf --date <today>`: trending models, datasets and spaces on Hugging Face (a new open model or benchmark dataset is often the update)
+   - papers with the signal `discussed on X` in `candidates arxiv --ranked`
    - web search for e.g. "unlearning", "jailbreak", "interpretability", "agent security", "LLM judge", "prompt injection" plus "new", "release", "benchmark", restricted to recent results
    - X/Twitter and LinkedIn posts **only** if reachable via search results or the post page. Never fabricate or reconstruct posts; if you cannot open it, do not include it.
    - conference sites (NeurIPS, ICML, ICLR, ACL/ARR, EMNLP, USENIX Security, IEEE S&P, SaTML) for deadline or policy news

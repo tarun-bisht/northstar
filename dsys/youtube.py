@@ -107,10 +107,11 @@ def _get(endpoint: str, params: dict, timeout: int = 20) -> dict:
     return json.loads(net.get(API + endpoint + "?" + q, timeout=timeout))  # 403 quota errors are not retried
 
 
-def api_search(query: str, max_results: int, published_after: str, region: str, lang: str) -> list[str]:
+def api_search(query: str, max_results: int, published_after: str, region: str, lang: str,
+               duration: str = "short") -> list[str]:
     """search.list (100 quota units). relevanceLanguage biases, it does not filter."""
     data = _get("search", {
-        "part": "id", "q": query, "type": "video", "videoDuration": "short",
+        "part": "id", "q": query, "type": "video", "videoDuration": duration,
         "maxResults": min(max_results, 50), "publishedAfter": published_after,
         "regionCode": region, "relevanceLanguage": lang, "safeSearch": "moderate",
         "order": "relevance",

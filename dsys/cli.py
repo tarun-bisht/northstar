@@ -111,6 +111,12 @@ def cmd_candidates(repo: Repo, args) -> int:
     if args.kind == "news":
         _print(history.news_candidates(repo, day, args.category or args.section, args.brief))
         return 0
+    if args.kind in ("podcasts", "videos", "updates", "hf"):
+        _print(history.latest_candidates(repo, args.kind, day))
+        return 0
+    if args.kind == "arxiv" and args.search:
+        _print(history.interest_search(repo, day, args.search))
+        return 0
     data = (history.unseen_arxiv_candidates if args.kind == "arxiv" else history.unseen_youtube_candidates)(repo, day)
     if args.kind == "arxiv" and args.ids:
         want = {i.strip() for i in args.ids.split(",") if i.strip()}
@@ -123,7 +129,7 @@ def cmd_candidates(repo: Repo, args) -> int:
     if args.kind == "arxiv" and args.ranked:
         from . import rank
         sl = rank.shortlist(data["candidates"], repo.config("sources"), args.limit)
-        _print({k: v for k, v in data.items() if k != "candidates"} | sl)
+        _print({k: v for k, v in data.items() if k not in ("candidates", "interest_search")} | sl)
         return 0
     if args.limit:
         data["candidates"] = data["candidates"][args.offset:args.offset + args.limit]
@@ -383,7 +389,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.set_defaults(fn=cmd_papers)
 
     s = sub.add_parser("candidates", help="print unseen fetched candidates")
-    s.add_argument("kind", choices=["arxiv", "news", "youtube"])
+    s.add_argument("kind", choices=["arxiv", "news", "youtube", "videos", "podcasts", "updates", "hf"])
     s.add_argument("--date")
     s.add_argument("--limit", type=int)
     s.add_argument("--offset", type=int, default=0)
@@ -393,6 +399,8 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--brief", action="store_true", help="arxiv: id/title/categories/signals only; news: no summaries")
     s.add_argument("--ranked", action="store_true", help="arxiv: code-ranked shortlist with interests and quality signals")
     s.add_argument("--ids", help="arxiv: comma-separated ids to print in full (abstracts)")
+    s.add_argument("--search", help="arxiv: alphaXiv search results per interest ('all' or an interest name), "
+                                    "for papers of the week and study resources")
     s.add_argument("--trending-week", help="arxiv: the week's most voted papers (alphaXiv, Hugging Face), e.g. 2026-W48")
     s.set_defaults(fn=cmd_candidates)
 

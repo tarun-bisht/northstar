@@ -48,9 +48,15 @@ The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config
 |---|---|---|
 | arXiv API, one call per category (rss.arxiv.org fallback) | new papers, with comments (venue, code) | `candidates/arxiv/<date>.json` |
 | Hugging Face Daily Papers | community upvotes | same file (`hf_upvotes`) |
-| alphaXiv trending | papers becoming widely discussed (`alphaxiv_votes`) | same file |
+| alphaXiv: Hot, Likes, Twitter (X) and GitHub lists, plus one search per interest | papers becoming widely discussed, papers discussed on X, papers alphaXiv's search ties to each interest (`alphaxiv_votes`, `alphaxiv_lists`, `alphaxiv_interests`, `interest_search`) | same file |
 | about 30 publisher RSS feeds (BBC, The Hindu, Indian Express, Mint, The Economic Times, CNBC, The Guardian, Al Jazeera, NPR, The Conversation in five editions, RBI and more) plus Google News (top stories by section, and searches such as Nvidia, AI, chips, ISRO, SpaceX) | headlines with summaries | `candidates/news/<date>.json` |
-| YouTube Data API (needs the `YOUTUBE_API_KEY` secret) | short videos | `candidates/youtube/<date>.json` |
+| YouTube Data API (needs the `YOUTUBE_API_KEY` secret) | short videos, a rotating slice of the queries each day | `candidates/youtube/<date>.json` |
+| YouTube Data API, long form | lectures, talks and documentaries over 10 minutes | `candidates/videos/<date>.json` |
+| podcast show feeds (found by name with the iTunes Search API) and iTunes episode search | recent episodes with their audio files, so they play on the page | `candidates/podcasts/<date>.json` |
+| lab and researcher blogs, newsletters (Interconnects, Ahead of AI, Import AI, Lil'Log), Quanta, Alignment Forum, Hacker News (Algolia API), r/MachineLearning | research updates and discussion | `candidates/updates/<date>.json` |
+| Hugging Face API | trending models, datasets and spaces | `candidates/hf/<date>.json` |
+
+Google News also runs searches built from your interests (AI security, quantum computing, neuroscience, physics, mathematics, archaeology, Japan and anime, art, prizes, robotics), marked `interest: true`. X and LinkedIn are reached through alphaXiv's Twitter (X) list and web search, never invented.
 
 Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 06:50 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them. Runs fall back to web search for anything still missing and say so in `notes`.
 
@@ -63,7 +69,7 @@ arXiv allows one request every three seconds on a single connection. The fetcher
 Reading thousands of abstracts, or any PDFs, is not possible in a run. So:
 
 1. **Coverage.** Every research interest in `config/interests.json → established.ai_research` has an entry in `config/sources.json → arxiv.coverage`: its arXiv categories and specific keywords. Validation warns when an interest has no entry. The fetched categories are the union, so every interest is gathered.
-2. **Ranking in code** (`dsys/rank.py`). Each candidate gets a relevance score from the coverage keywords (the title counts double, and a keyword only counts when the paper is in that topic's categories) plus quality signals: Hugging Face upvotes, alphaXiv votes, a notable researcher (`notable_researchers`), released code, a named venue in the arXiv comment.
+2. **Ranking in code** (`dsys/rank.py`). Each candidate gets a relevance score from the coverage keywords (the title counts double, and a keyword only counts when the paper is in that topic's categories) plus quality signals: Hugging Face upvotes, alphaXiv votes, discussed on X, an alphaXiv search match, a notable researcher (`notable_researchers`), released code, a named venue in the arXiv comment.
 3. **Shortlist.** The best 3 papers for every interest, filled up to about 80 by score, plus every trending or notable paper (`candidates arxiv --ranked`).
 4. **Judgement from the abstract.** The run reads those abstracts (`candidates arxiv --ids …`) and rates each against the rubric in `prompts/arxiv.md`: a clear contribution, strong evidence, concrete results and outside signals keep a paper; vague claims, thin evaluation and recombined tricks drop it. Trending papers that pass the bar and touch any interest are kept even when keywords missed them.
 5. **Papers of the week** (`reading.xml`, `weekly/<week>/papers.html`). Three groups: *For you*, the must-reads for your work from the week's radar; *Trending this week*, the week's most voted papers on alphaXiv and Hugging Face (`candidates arxiv --trending-week`); and *From leading groups*, strong work from top labs related to AI or your research. Daily runs add to it, and the weekly run sets it up. It is a weekly part, not shown in daily.

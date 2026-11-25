@@ -26,6 +26,8 @@ def no_network(monkeypatch):
         raise OSError(f"network disabled in tests: {url}")
     monkeypatch.setattr(net, "get", _blocked)
     monkeypatch.setattr(net, "_sleep", lambda s: None)
+    from dsys import arxiv
+    monkeypatch.setattr(arxiv, "search_alphaxiv", lambda q, limit=10: [])  # tests that need it patch it again
 
 
 @pytest.fixture
@@ -35,6 +37,9 @@ def repo(tmp_path) -> Repo:
         shutil.copytree(ROOT / d, tmp_path / d)
     (tmp_path / "state").mkdir()
     (tmp_path / "README.md").write_text("# test\n")
+    src = json.loads((tmp_path / "config" / "sources.json").read_text())
+    src.setdefault("alphaxiv", {}).setdefault("search", {})["pause_seconds"] = 0
+    (tmp_path / "config" / "sources.json").write_text(json.dumps(src))
     return Repo(tmp_path)
 
 

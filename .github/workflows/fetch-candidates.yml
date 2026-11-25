@@ -15,7 +15,7 @@ on:
         type: boolean
         default: false
       kinds:
-        description: "Which sources to fetch: all, or a comma list of arxiv,news,youtube"
+        description: "Which sources to fetch: all, or a comma list of arxiv,news,youtube,videos,podcasts,updates,hf"
         type: string
         default: "all"
 
@@ -66,6 +66,24 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python scripts/fetch_candidates.py youtube ${{ steps.mode.outputs.flag }}
+      - name: Long-form YouTube (lectures, documentaries, talks)
+        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'videos') }}
+        continue-on-error: true
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python scripts/fetch_candidates.py videos ${{ steps.mode.outputs.flag }}
+      - name: Podcasts (show feeds and episode search)
+        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'podcasts') }}
+        continue-on-error: true
+        run: python scripts/fetch_candidates.py podcasts ${{ steps.mode.outputs.flag }}
+      - name: Research updates (blogs, newsletters, Hacker News, r/MachineLearning)
+        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'updates') }}
+        continue-on-error: true
+        run: python scripts/fetch_candidates.py updates ${{ steps.mode.outputs.flag }}
+      - name: Hugging Face trending models, datasets, spaces
+        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'hf') }}
+        continue-on-error: true
+        run: python scripts/fetch_candidates.py hf ${{ steps.mode.outputs.flag }}
       - name: Prune old candidates
         run: python scripts/fetch_candidates.py prune --keep-days 14
       - name: Commit

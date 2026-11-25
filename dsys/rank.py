@@ -60,6 +60,10 @@ def signals(paper: dict, venue_re: re.Pattern | None = None) -> list[str]:
         out.append(f"alphaXiv {paper['alphaxiv_votes']} votes")
     if paper.get("hf_upvotes"):
         out.append(f"HF {paper['hf_upvotes']} upvotes")
+    if "Twitter (X)" in (paper.get("alphaxiv_lists") or []):
+        out.append("discussed on X")
+    if paper.get("alphaxiv_interests"):
+        out.append("alphaXiv search: " + ", ".join(paper["alphaxiv_interests"][:2]))
     text = f"{paper.get('abstract', '')} {paper.get('comment', '')}"
     if CODE_RE.search(text):
         out.append("code released")
@@ -73,6 +77,7 @@ def quality(paper: dict, venue_re: re.Pattern | None = None) -> float:
     q = 1.5 * math.log2(1 + paper.get("hf_upvotes", 0)) + 1.5 * math.log2(1 + paper.get("alphaxiv_votes", 0))
     sig = signals(paper, venue_re)
     q += 3 * bool(paper.get("notable_authors")) + 1.5 * ("code released" in sig) + 2 * any(s.startswith("venue") for s in sig)
+    q += 1.5 * ("discussed on X" in sig) + 1.0 * bool(paper.get("alphaxiv_interests"))
     return q
 
 
@@ -90,6 +95,10 @@ def rank(candidates: list[dict], sources: dict) -> list[dict]:
     rows = []
     for p in candidates:
         rel, interests = relevance(p, topics)
+        for i in p.get("alphaxiv_interests") or []:  # alphaXiv's own search agrees it is about this interest
+            if i not in interests:
+                interests.append(i)
+                rel += 1
         trend = is_trending(p, cfg)
         notable = bool(p.get("notable_authors"))
         if rel == 0 and not trend and not notable:

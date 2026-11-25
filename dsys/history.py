@@ -307,3 +307,25 @@ def context(repo: Repo, stream: str, day: dt.date, period: str | None = None) ->
         ctx["existing_item_ids"] = sorted(k.split(":", 1)[1] for k in (load_json(rh)["items"] if rh.exists() else {})
                                           if k.startswith(("weekly:", "monthly:")))
     return ctx
+
+
+def latest_candidates(repo: Repo, kind: str, day: dt.date, max_age_days: int = 3) -> dict:
+    """The newest candidates/<kind>/<date>.json on or before `day` (podcasts, videos, updates, hf)."""
+    for k in range(max_age_days + 1):
+        f = repo.p("candidates", kind, f"{(day - dt.timedelta(days=k)).isoformat()}.json")
+        if f.exists():
+            return load_json(f)
+    return {"kind": kind, "date": day.isoformat(), "candidates": [],
+            "note": f"no {kind} candidates in the last {max_age_days} days; use web search"}
+
+
+def interest_search(repo: Repo, day: dt.date, which: str = "all", max_age_days: int = 7) -> dict:
+    """alphaXiv search hits per interest from the newest arXiv candidates file that has them."""
+    for k in range(max_age_days + 1):
+        f = repo.p("candidates", "arxiv", f"{(day - dt.timedelta(days=k)).isoformat()}.json")
+        if f.exists() and load_json(f).get("interest_search"):
+            res = load_json(f)["interest_search"]
+            if which != "all":
+                res = {i: v for i, v in res.items() if which.lower() in i.lower()}
+            return {"date": f.stem, "interest_search": res}
+    return {"date": None, "interest_search": {}, "note": "no alphaXiv search results yet"}

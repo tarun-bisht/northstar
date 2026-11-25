@@ -165,6 +165,7 @@ def fetch_hf_daily(date: str, api: str = "https://huggingface.co/api/daily_paper
 
 # --- alphaXiv trending ---------------------------------------------------------------
 ALPHAXIV_FEED = "https://api.alphaxiv.org/papers/v3/feed"
+ALPHAXIV_SEARCH = "https://api.alphaxiv.org/search/v2/paper/fast"
 
 
 def _first(d: dict, *keys):
@@ -217,3 +218,27 @@ def fetch_alphaxiv(limit: int = 50, sort: str = "Hot", interval: str = "7 Days",
     q = urllib.parse.urlencode({"pageNum": 1, "pageSize": limit, "sort": sort, "interval": interval})
     return parse_alphaxiv(json.loads(net.get(f"{ALPHAXIV_FEED}?{q}", timeout=timeout,
                                              headers={"Accept": "application/json"})))
+
+
+def parse_alphaxiv_search(data) -> list[dict]:
+    """alphaXiv search results: arXiv id and title (sometimes abstract and authors). Read defensively."""
+    rows = data if isinstance(data, list) else (_first(data or {}, "papers", "results", "data", "hits") or [])
+    out, seen = [], set()
+    for row in rows if isinstance(rows, list) else []:
+        if not isinstance(row, dict):
+            continue
+        p = row.get("paper") if isinstance(row.get("paper"), dict) else row
+        raw = str(_first(p, "paperId", "universal_paper_id", "arxivId", "arxiv_id", "upid", "link", "id") or "")
+        raw = raw.rstrip("/").split("/")[-1]
+        aid, _ = split_id(raw)
+        if not is_valid_id(aid) or aid in seen:
+            continue
+        seen.add(aid)
+        out.append({"arxiv_id": aid, "title": " ".join(str(_first(p, "title", "name") or "").split()), "url": abs_url(aid)})
+    return out
+
+
+def search_alphaxiv(query: str, limit: int = 10, timeout: int = 30) -> list[dict]:
+    q = urllib.parse.urlencode({"q": query, "includePrivate": "false"})
+    data = json.loads(net.get(f"{ALPHAXIV_SEARCH}?{q}", timeout=timeout, headers={"Accept": "application/json"}))
+    return parse_alphaxiv_search(data)[:limit]

@@ -798,7 +798,119 @@
       "https://news.ycombinator.com/",
       "https://www.reddit.com/r/MachineLearning/"
     ],
-    "note": "X/Twitter and LinkedIn posts are only included when reachable and quotable through legitimate access (search results or the post page). Never invent posts."
+    "note": "X/Twitter and LinkedIn posts are only included when reachable and quotable through legitimate access (search results or the post page). Never invent posts.",
+    "_doc": "Fetched daily by GitHub Actions into candidates/updates/<date>.json: blog and newsletter feeds (RSS or Atom), Hacker News stories (Algolia API) and r/MachineLearning. A feed that fails is listed in errors and the rest still work. X and LinkedIn are reached through alphaXiv's 'Twitter (X)' list and web search, never invented.",
+    "lookback_days": 7,
+    "feeds": [
+      {
+        "name": "OpenAI News",
+        "url": "https://openai.com/news/rss.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "Google DeepMind Blog",
+        "url": "https://deepmind.google/blog/rss.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "Google Research Blog",
+        "url": "https://research.google/blog/rss/",
+        "kind": "lab"
+      },
+      {
+        "name": "Microsoft Research",
+        "url": "https://www.microsoft.com/en-us/research/feed/",
+        "kind": "lab"
+      },
+      {
+        "name": "BAIR Blog",
+        "url": "https://bair.berkeley.edu/blog/feed.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "CMU ML Blog",
+        "url": "https://blog.ml.cmu.edu/feed/",
+        "kind": "lab"
+      },
+      {
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog/feed.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "MIT News: AI",
+        "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
+        "kind": "news"
+      },
+      {
+        "name": "AI Alignment Forum",
+        "url": "https://www.alignmentforum.org/feed.xml",
+        "kind": "forum"
+      },
+      {
+        "name": "Lil'Log (Lilian Weng)",
+        "url": "https://lilianweng.github.io/index.xml",
+        "kind": "researcher",
+        "lookback_days": 30
+      },
+      {
+        "name": "Interconnects (Nathan Lambert)",
+        "url": "https://www.interconnects.ai/feed",
+        "kind": "newsletter"
+      },
+      {
+        "name": "Ahead of AI (Sebastian Raschka)",
+        "url": "https://magazine.sebastianraschka.com/feed",
+        "kind": "newsletter"
+      },
+      {
+        "name": "Import AI (Jack Clark)",
+        "url": "https://jack-clark.net/feed/",
+        "kind": "newsletter"
+      },
+      {
+        "name": "Simon Willison",
+        "url": "https://simonwillison.net/atom/everything/",
+        "kind": "researcher",
+        "lookback_days": 2
+      },
+      {
+        "name": "The Gradient",
+        "url": "https://thegradient.pub/rss/",
+        "kind": "magazine",
+        "lookback_days": 30
+      },
+      {
+        "name": "Quanta Magazine",
+        "url": "https://www.quantamagazine.org/feed/",
+        "kind": "magazine"
+      },
+      {
+        "name": "r/MachineLearning",
+        "url": "https://www.reddit.com/r/MachineLearning/top/.rss?t=day",
+        "kind": "discussion",
+        "lookback_days": 2
+      }
+    ],
+    "hacker_news": {
+      "enabled": true,
+      "lookback_days": 2,
+      "min_points": 80,
+      "queries": [
+        "AI",
+        "LLM",
+        "machine learning",
+        "neural network",
+        "OpenAI",
+        "Anthropic",
+        "DeepMind",
+        "interpretability",
+        "AI safety",
+        "transformer",
+        "diffusion",
+        "GPU"
+      ]
+    }
   },
   "world": {
     "prefer": [
@@ -1413,7 +1525,7 @@
       }
     },
     "google_news": {
-      "_doc": "Google News RSS, fetched by GitHub Actions alongside the publisher feeds. topics are Google's top-story sections. queries are searches for subjects you want covered every day. Links point to news.google.com and redirect to the publisher.",
+      "_doc": "Google News RSS, fetched by GitHub Actions alongside the publisher feeds. topics are Google's top-story sections. queries are searches for subjects you want covered every day. Links point to news.google.com and redirect to the publisher. Queries marked interest:true come from your interests (config/interests.json), so the news covers what you care about, not only the headlines.",
       "enabled": true,
       "edition": {
         "hl": "en-IN",
@@ -1523,6 +1635,66 @@
         {
           "q": "(leaves OR departs OR exits OR quits OR joins OR poached) (OpenAI OR Google OR DeepMind OR Apple OR Microsoft OR Meta OR Nvidia OR Anthropic OR Amazon OR Tesla OR xAI) executive OR researcher OR chief",
           "section": "leadership"
+        },
+        {
+          "q": "AI safety OR \"AI security\" OR jailbreak OR deepfake",
+          "section": "technology",
+          "interest": true
+        },
+        {
+          "q": "cyberattack OR \"data breach\" OR ransomware",
+          "section": "technology",
+          "interest": true
+        },
+        {
+          "q": "quantum computing",
+          "section": "technology",
+          "interest": true
+        },
+        {
+          "q": "neuroscience study OR brain research",
+          "section": "science_space",
+          "interest": true
+        },
+        {
+          "q": "physics discovery OR \"particle physics\" OR \"dark matter\"",
+          "section": "science_space",
+          "interest": true
+        },
+        {
+          "q": "mathematician OR \"maths prize\" OR \"proof\" mathematics",
+          "section": "science_space",
+          "interest": true
+        },
+        {
+          "q": "archaeology discovery OR \"ancient\" excavation",
+          "section": "society",
+          "interest": true
+        },
+        {
+          "q": "Japan culture OR anime industry OR manga",
+          "section": "society",
+          "interest": true
+        },
+        {
+          "q": "museum exhibition OR art auction OR artist",
+          "section": "society",
+          "interest": true
+        },
+        {
+          "q": "Nobel OR \"Fields Medal\" OR \"Turing Award\" OR \"Breakthrough Prize\"",
+          "section": "science_space",
+          "interest": true
+        },
+        {
+          "q": "India science research OR \"higher education\" India",
+          "section": "india",
+          "interest": true
+        },
+        {
+          "q": "robotics OR humanoid robot",
+          "section": "technology",
+          "interest": true
         }
       ]
     }
@@ -1532,7 +1704,7 @@
     "published_within_days": 60,
     "max_duration_seconds": 180,
     "region_code": "IN",
-    "_doc": "Queries are grouped by language. Each group sets relevanceLanguage for the API. Quota: each query costs 100 units of the default 10,000/day.",
+    "_doc": "Shorts: queries are grouped by language and rotated, queries_per_day of them each day (100 quota units each, 10,000 a day). long_form: lectures, documentaries and talks for Daily Discovery, also rotated.",
     "query_groups": [
       {
         "language": "en",
@@ -1625,7 +1797,41 @@
     ],
     "shorts_url_check": true,
     "max_candidates_per_channel": 5,
-    "_doc_languages": "Only languages you understand. For languages you are learning, use beginner lessons taught in English or Hindi (purpose language_learning). Native videos in a learning language come only after config/languages.json sets native_content_ok to true for it."
+    "_doc_languages": "Only languages you understand. For languages you are learning, use beginner lessons taught in English or Hindi (purpose language_learning). Native videos in a learning language come only after config/languages.json sets native_content_ok to true for it.",
+    "queries_per_day": 40,
+    "long_form": {
+      "enabled": true,
+      "queries_per_day": 12,
+      "max_results_per_query": 10,
+      "published_within_days": 365,
+      "min_duration_seconds": 600,
+      "queries": [
+        "machine learning lecture",
+        "deep learning lecture series",
+        "AI research talk",
+        "mechanistic interpretability talk",
+        "diffusion models explained",
+        "reinforcement learning lecture",
+        "mathematics lecture",
+        "physics lecture",
+        "history documentary",
+        "science documentary",
+        "philosophy lecture",
+        "neuroscience lecture",
+        "economics explained documentary",
+        "space documentary",
+        "art history documentary",
+        "music documentary",
+        "Japan documentary",
+        "nature documentary",
+        "engineering documentary",
+        "psychology lecture",
+        "game theory lecture",
+        "India history documentary",
+        "architecture documentary",
+        "biography documentary"
+      ]
+    }
   },
   "paper_tags": {
     "_doc": "The only tags a paper can get, in the arXiv radar and the weekly reading list. Fixed on purpose: reuse these, never invent new ones. Order matters: the first tag is shown first.",
@@ -1644,14 +1850,47 @@
   "huggingface": {
     "_doc": "Hugging Face Daily Papers (successor to Papers with Code). Used as a quality signal (community upvotes) and an extra source of arXiv papers.",
     "daily_papers_api": "https://huggingface.co/api/daily_papers",
-    "enabled": true
+    "enabled": true,
+    "trending": {
+      "_doc": "Trending models, datasets and spaces (sort=trendingScore) into candidates/hf/<date>.json, for research updates.",
+      "kinds": [
+        "model",
+        "dataset",
+        "space"
+      ],
+      "limit": 20
+    }
   },
   "alphaxiv": {
-    "_doc": "alphaXiv community trending (votes and views). Undocumented endpoint, read defensively; if it fails the day still works and the gap-filling run retries it.",
+    "_doc": "alphaXiv (undocumented API, read defensively). feeds: community lists over the last 7 days; 'Twitter (X)' is the papers most discussed on X, so X research chatter reaches the radar. search: one search per interest in arxiv.coverage (the topic's 'search' text or its interest name); results land in candidates/arxiv/<date>.json -> interest_search and flag matching candidates with alphaxiv_interests.",
     "enabled": true,
-    "sort": "Hot",
-    "interval": "7 Days",
-    "limit": 50
+    "feeds": [
+      {
+        "sort": "Hot",
+        "interval": "7 Days",
+        "limit": 100
+      },
+      {
+        "sort": "Likes",
+        "interval": "7 Days",
+        "limit": 50
+      },
+      {
+        "sort": "Twitter (X)",
+        "interval": "7 Days",
+        "limit": 50
+      },
+      {
+        "sort": "GitHub",
+        "interval": "7 Days",
+        "limit": 30
+      }
+    ],
+    "search": {
+      "enabled": true,
+      "limit_per_interest": 10,
+      "pause_seconds": 1
+    }
   },
   "notable_researchers": {
     "_doc": "Papers with one of these authors are flagged (notable_authors) in candidates so they are never missed. Keep a paper only if it also touches your interests. Edit freely.",
@@ -1712,6 +1951,201 @@
       "Richard S. Sutton",
       "Andrew Gordon Wilson",
       "Durk Kingma"
+    ]
+  },
+  "podcasts": {
+    "_doc": "Fetched daily by GitHub Actions into candidates/podcasts/<date>.json. Shows are looked up by name with the iTunes Search API (no feed URLs to maintain); each episode keeps its audio file so it plays on the page. episode_searches find single episodes on your interests. Edit freely.",
+    "lookback_days": 14,
+    "per_show": 3,
+    "per_search": 8,
+    "pause_seconds": 0.5,
+    "shows": [
+      {
+        "name": "Dwarkesh Podcast",
+        "tier": "established",
+        "topics": [
+          "AI research"
+        ]
+      },
+      {
+        "name": "Latent Space: The AI Engineer Podcast",
+        "tier": "established",
+        "topics": [
+          "AI engineering"
+        ]
+      },
+      {
+        "name": "Machine Learning Street Talk (MLST)",
+        "tier": "established",
+        "topics": [
+          "AI research"
+        ]
+      },
+      {
+        "name": "The TWIML AI Podcast",
+        "tier": "established",
+        "topics": [
+          "machine learning"
+        ]
+      },
+      {
+        "name": "No Priors: Artificial Intelligence | Technology | Startups",
+        "tier": "established",
+        "topics": [
+          "AI industry"
+        ]
+      },
+      {
+        "name": "The Cognitive Revolution",
+        "tier": "established",
+        "topics": [
+          "AI"
+        ]
+      },
+      {
+        "name": "Practical AI",
+        "tier": "established",
+        "topics": [
+          "machine learning"
+        ]
+      },
+      {
+        "name": "Lex Fridman Podcast",
+        "tier": "established",
+        "topics": [
+          "AI",
+          "science"
+        ]
+      },
+      {
+        "name": "Sean Carroll's Mindscape: Science, Society, Philosophy, Culture, Arts, and Ideas",
+        "tier": "growth",
+        "topics": [
+          "physics",
+          "philosophy"
+        ]
+      },
+      {
+        "name": "Philosophy Bites",
+        "tier": "growth",
+        "topics": [
+          "philosophy"
+        ]
+      },
+      {
+        "name": "In Our Time",
+        "tier": "growth",
+        "topics": [
+          "history",
+          "science",
+          "philosophy"
+        ]
+      },
+      {
+        "name": "The Rest Is History",
+        "tier": "growth",
+        "topics": [
+          "history"
+        ]
+      },
+      {
+        "name": "Quanta Podcast",
+        "tier": "growth",
+        "topics": [
+          "maths",
+          "physics"
+        ]
+      },
+      {
+        "name": "Hidden Brain",
+        "tier": "growth",
+        "topics": [
+          "psychology",
+          "people"
+        ]
+      },
+      {
+        "name": "The Seen and the Unseen",
+        "tier": "growth",
+        "topics": [
+          "India",
+          "economics"
+        ]
+      },
+      {
+        "name": "Radiolab",
+        "tier": "exploration",
+        "topics": [
+          "science stories"
+        ]
+      },
+      {
+        "name": "99% Invisible",
+        "tier": "exploration",
+        "topics": [
+          "design"
+        ]
+      },
+      {
+        "name": "Song Exploder",
+        "tier": "exploration",
+        "topics": [
+          "music"
+        ]
+      },
+      {
+        "name": "Planet Money",
+        "tier": "exploration",
+        "topics": [
+          "economics"
+        ]
+      },
+      {
+        "name": "Ologies with Alie Ward",
+        "tier": "exploration",
+        "topics": [
+          "science"
+        ]
+      }
+    ],
+    "episode_searches": [
+      {
+        "term": "mechanistic interpretability",
+        "tier": "established"
+      },
+      {
+        "term": "AI safety research",
+        "tier": "established"
+      },
+      {
+        "term": "diffusion models",
+        "tier": "established"
+      },
+      {
+        "term": "world models AI",
+        "tier": "established"
+      },
+      {
+        "term": "game theory",
+        "tier": "growth"
+      },
+      {
+        "term": "neuroscience consciousness",
+        "tier": "growth"
+      },
+      {
+        "term": "history of mathematics",
+        "tier": "growth"
+      },
+      {
+        "term": "Japanese culture",
+        "tier": "exploration"
+      },
+      {
+        "term": "anime",
+        "tier": "exploration",
+        "days": 30
+      }
     ]
   }
 }

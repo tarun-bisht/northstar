@@ -799,7 +799,7 @@
       "https://www.reddit.com/r/MachineLearning/"
     ],
     "note": "X/Twitter and LinkedIn posts are only included when reachable and quotable through legitimate access (search results or the post page). Never invent posts.",
-    "_doc": "Fetched daily by GitHub Actions into candidates/updates/<date>.json: blog and newsletter feeds (RSS or Atom), Hacker News stories (Algolia API) and r/MachineLearning. A feed that fails is listed in errors and the rest still work. X and LinkedIn are reached through alphaXiv's 'Twitter (X)' list and web search, never invented.",
+    "_doc": "Fetched daily by GitHub Actions into candidates/updates/<date>.json: blog and newsletter feeds (RSS or Atom), Hacker News stories (Algolia API) and r/MachineLearning. A feed that fails is listed in errors and the rest still work. X and LinkedIn have no open feed, so their discussion comes through Hacker News, newsletters and web search, never invented.",
     "lookback_days": 7,
     "feeds": [
       {
@@ -1862,7 +1862,7 @@
     }
   },
   "alphaxiv": {
-    "_doc": "alphaXiv (undocumented API, read defensively). feeds: community lists over the last 7 days; 'Twitter (X)' is the papers most discussed on X, so X research chatter reaches the radar. search: one search per interest in arxiv.coverage (the topic's 'search' text or its interest name); results land in candidates/arxiv/<date>.json -> interest_search and flag matching candidates with alphaxiv_interests.",
+    "_doc": "alphaXiv (undocumented API, read defensively). feeds: community lists over the last 7 days (Hot, Likes, Comments, GitHub). The API rejects the 'Twitter (X)' list (HTTP 400, Nov 2026), so X discussion comes through Hacker News, newsletters and web search. search: one search per interest in arxiv.coverage (the topic's 'search' text or its interest name); results land in candidates/arxiv/<date>.json -> interest_search and flag matching candidates with alphaxiv_interests.",
     "enabled": true,
     "feeds": [
       {
@@ -1874,16 +1874,6 @@
         "sort": "Likes",
         "interval": "7 Days",
         "limit": 50
-      },
-      {
-        "sort": "Twitter (X)",
-        "interval": "7 Days",
-        "limit": 50,
-        "alternates": [
-          "Twitter",
-          "X",
-          "Tweets"
-        ]
       },
       {
         "sort": "GitHub",

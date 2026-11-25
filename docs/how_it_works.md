@@ -48,7 +48,7 @@ The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config
 |---|---|---|
 | arXiv API, one call per category (rss.arxiv.org fallback) | new papers, with comments (venue, code) | `candidates/arxiv/<date>.json` |
 | Hugging Face Daily Papers | community upvotes | same file (`hf_upvotes`) |
-| alphaXiv: Hot, Likes, Twitter (X) and GitHub lists, plus one search per interest | papers becoming widely discussed, papers discussed on X, papers alphaXiv's search ties to each interest (`alphaxiv_votes`, `alphaxiv_lists`, `alphaxiv_interests`, `interest_search`) | same file |
+| alphaXiv: Hot, Likes, Comments and GitHub lists, plus one search per interest | papers becoming widely discussed, papers alphaXiv's search ties to each interest (`alphaxiv_votes`, `alphaxiv_lists`, `alphaxiv_interests`, `interest_search`) | same file |
 | about 30 publisher RSS feeds (BBC, The Hindu, Indian Express, Mint, The Economic Times, CNBC, The Guardian, Al Jazeera, NPR, The Conversation in five editions, RBI and more) plus Google News (top stories by section, and searches such as Nvidia, AI, chips, ISRO, SpaceX) | headlines with summaries | `candidates/news/<date>.json` |
 | YouTube Data API (needs the `YOUTUBE_API_KEY` secret) | short videos, a rotating slice of the queries each day | `candidates/youtube/<date>.json` |
 | YouTube Data API, long form | lectures, talks and documentaries over 10 minutes | `candidates/videos/<date>.json` |
@@ -56,7 +56,7 @@ The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config
 | lab and researcher blogs, newsletters (Interconnects, Ahead of AI, Import AI, Lil'Log), Quanta, Alignment Forum, Hacker News (Algolia API), r/MachineLearning | research updates and discussion | `candidates/updates/<date>.json` |
 | Hugging Face API | trending models, datasets and spaces | `candidates/hf/<date>.json` |
 
-Google News also runs searches built from your interests (AI security, quantum computing, neuroscience, physics, mathematics, archaeology, Japan and anime, art, prizes, robotics), marked `interest: true`. X and LinkedIn are reached through alphaXiv's Twitter (X) list and web search, never invented.
+Google News also runs searches built from your interests (AI security, quantum computing, neuroscience, physics, mathematics, archaeology, Japan and anime, art, prizes, robotics), marked `interest: true`. X and LinkedIn have no open feed (alphaXiv's X list is rejected by its API), so their discussion reaches the radar through Hacker News, newsletters and web search, never invented.
 
 Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 07:07 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them. Runs fall back to web search for anything still missing and say so in `notes`.
 

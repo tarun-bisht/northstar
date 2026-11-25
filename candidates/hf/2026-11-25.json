@@ -1,7 +1,7 @@
 {
   "kind": "hf",
   "date": "2026-11-25",
-  "fetched_at": "2026-11-25T05:19:41Z",
+  "fetched_at": "2026-11-25T09:27:45Z",
   "source": "Hugging Face API (trendingScore)",
   "errors": [],
   "models": [
@@ -9,9 +9,9 @@
       "kind": "model",
       "id": "thinkingmachines/Inkling-2-Mini",
       "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
-      "likes": 5821,
+      "likes": 5862,
       "downloads": 69042,
-      "trendingScore": 1257,
+      "trendingScore": 1273.5,
       "pipeline_tag": "image-text-to-text",
       "createdAt": "2026-11-17T00:26:57.000Z"
     },
@@ -19,9 +19,9 @@
       "kind": "model",
       "id": "unsloth/Inkling-2-Mini-GGUF",
       "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF",
-      "likes": 1272,
+      "likes": 1293,
       "downloads": 1913407,
-      "trendingScore": 1109,
+      "trendingScore": 1127,
       "pipeline_tag": "image-text-to-text",
       "createdAt": "2026-11-20T13:09:48.000Z"
     },
@@ -29,9 +29,9 @@
       "kind": "model",
       "id": "inworld/voice-isolator",
       "url": "https://huggingface.co/inworld/voice-isolator",
-      "likes": 824,
+      "likes": 840,
       "downloads": 12733,
-      "trendingScore": 636,
+      "trendingScore": 650,
       "pipeline_tag": "audio-to-audio",
       "createdAt": "2026-11-14T02:14:35.000Z"
     },
@@ -39,9 +39,9 @@
       "kind": "model",
       "id": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
       "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
-      "likes": 762,
+      "likes": 776,
       "downloads": 573775,
-      "trendingScore": 444.5,
+      "trendingScore": 451.49999999999994,
       "pipeline_tag": "image-text-to-text",
       "createdAt": "2026-11-20T20:42:23.000Z"
     },
@@ -49,18 +49,18 @@
       "kind": "model",
       "id": "SulphurAI/Sulphur-3",
       "url": "https://huggingface.co/SulphurAI/Sulphur-3",
-      "likes": 949,
+      "likes": 959,
       "downloads": 160965,
-      "trendingScore": 284,
+      "trendingScore": 294,
       "createdAt": "2026-10-31T20:31:01.000Z"
     },
     {
       "kind": "model",
       "id": "harness-hub/Qwen3.8-27B-pi-adapted",
       "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted",
-      "likes": 1079,
+      "likes": 1081,
       "downloads": 3529,
-      "trendingScore": 279,
+      "trendingScore": 259.5,
       "pipeline_tag": "image-text-to-text",
       "createdAt": "2026-11-16T06:52:31.000Z"
     },
@@ -68,117 +68,107 @@
       "kind": "model",
       "id": "higurashi-ai/Haru-4B",
       "url": "https://huggingface.co/higurashi-ai/Haru-4B",
-      "likes": 979,
+      "likes": 982,
       "downloads": 9575,
-      "trendingScore": 222.5,
+      "trendingScore": 217,
       "pipeline_tag": "audio-to-audio",
       "createdAt": "2026-11-12T11:05:59.000Z"
     },
     {
       "kind": "model",
-      "id": "tencent/Hy4-flash",
-      "url": "https://huggingface.co/tencent/Hy4-flash",
-      "likes": 683,
-      "downloads": 9167,
-      "trendingScore": 222,
-      "pipeline_tag": "image-text-to-text",
-      "createdAt": "2026-11-17T03:44:46.000Z"
-    },
-    {
-      "kind": "model",
       "id": "apple/DepthPro2",
       "url": "https://huggingface.co/apple/DepthPro2",
-      "likes": 1200,
+      "likes": 1209,
       "downloads": 0,
-      "trendingScore": 193,
+      "trendingScore": 197,
       "pipeline_tag": "depth-estimation",
       "createdAt": "2026-11-03T16:55:03.000Z"
     },
     {
       "kind": "model",
-      "id": "Lightricks/LTX-2.5",
-      "url": "https://huggingface.co/Lightricks/LTX-2.5",
-      "likes": 13332,
-      "downloads": 3024745,
-      "trendingScore": 162.5,
-      "pipeline_tag": "image-to-video",
-      "createdAt": "2026-07-23T07:55:24.000Z"
-    },
-    {
-      "kind": "model",
-      "id": "inclusionAI/Ling-3.2-air",
-      "url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
-      "likes": 184,
-      "downloads": 733,
-      "trendingScore": 159,
-      "createdAt": "2026-11-23T03:55:12.000Z"
-    },
-    {
-      "kind": "model",
-      "id": "apple/FastFrames-L",
-      "url": "https://huggingface.co/apple/FastFrames-L",
-      "likes": 598,
-      "downloads": 0,
-      "trendingScore": 153.5,
-      "pipeline_tag": "text-to-video",
-      "createdAt": "2026-11-16T17:21:04.000Z"
-    },
-    {
-      "kind": "model",
-      "id": "Qwen/Qwen3.8-27B",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-      "likes": 21740,
-      "downloads": 6122057,
-      "trendingScore": 150.5,
+      "id": "tencent/Hy4-flash",
+      "url": "https://huggingface.co/tencent/Hy4-flash",
+      "likes": 684,
+      "downloads": 9167,
+      "trendingScore": 178.5,
       "pipeline_tag": "image-text-to-text",
-      "createdAt": "2026-08-05T08:22:59.000Z"
-    },
-    {
-      "kind": "model",
-      "id": "llamaindex/OCRia-nano-1",
-      "url": "https://huggingface.co/llamaindex/OCRia-nano-1",
-      "likes": 170,
-      "downloads": 0,
-      "trendingScore": 149,
-      "pipeline_tag": "image-to-text",
-      "createdAt": "2026-11-03T21:44:40.000Z"
+      "createdAt": "2026-11-17T03:44:46.000Z"
     },
     {
       "kind": "model",
       "id": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
       "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
-      "likes": 143,
+      "likes": 186,
       "downloads": 0,
-      "trendingScore": 136,
+      "trendingScore": 178,
       "pipeline_tag": "text-generation",
       "createdAt": "2026-11-24T16:32:20.000Z"
     },
     {
       "kind": "model",
-      "id": "Sentinel7/h3",
-      "url": "https://huggingface.co/Sentinel7/h3",
-      "likes": 1844,
+      "id": "llamaindex/OCRia-nano-1",
+      "url": "https://huggingface.co/llamaindex/OCRia-nano-1",
+      "likes": 187,
       "downloads": 0,
-      "trendingScore": 127.5,
-      "createdAt": "2026-08-06T04:13:52.000Z"
+      "trendingScore": 165,
+      "pipeline_tag": "image-to-text",
+      "createdAt": "2026-11-03T21:44:40.000Z"
     },
     {
       "kind": "model",
-      "id": "sensenova/SenseNova-Loop-9B",
-      "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
-      "likes": 693,
-      "downloads": 2696,
-      "trendingScore": 121,
+      "id": "inclusionAI/Ling-3.2-air",
+      "url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "likes": 192,
+      "downloads": 733,
+      "trendingScore": 165,
+      "createdAt": "2026-11-23T03:55:12.000Z"
+    },
+    {
+      "kind": "model",
+      "id": "Lightricks/LTX-2.5",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5",
+      "likes": 13350,
+      "downloads": 3024745,
+      "trendingScore": 160,
+      "pipeline_tag": "image-to-video",
+      "createdAt": "2026-07-23T07:55:24.000Z"
+    },
+    {
+      "kind": "model",
+      "id": "Qwen/Qwen3.8-27B",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "likes": 21745,
+      "downloads": 6122057,
+      "trendingScore": 146,
       "pipeline_tag": "image-text-to-text",
-      "createdAt": "2026-11-17T10:16:41.000Z"
+      "createdAt": "2026-08-05T08:22:59.000Z"
+    },
+    {
+      "kind": "model",
+      "id": "apple/FastFrames-L",
+      "url": "https://huggingface.co/apple/FastFrames-L",
+      "likes": 600,
+      "downloads": 0,
+      "trendingScore": 140.5,
+      "pipeline_tag": "text-to-video",
+      "createdAt": "2026-11-16T17:21:04.000Z"
+    },
+    {
+      "kind": "model",
+      "id": "Sentinel7/h3",
+      "url": "https://huggingface.co/Sentinel7/h3",
+      "likes": 1879,
+      "downloads": 0,
+      "trendingScore": 129.1,
+      "createdAt": "2026-08-06T04:13:52.000Z"
     },
     {
       "kind": "model",
       "id": "inclusionAI/LingSante-3.1-flash",
       "url": "https://huggingface.co/inclusionAI/LingSante-3.1-flash",
-      "likes": 166,
+      "likes": 168,
       "downloads": 1070,
-      "trendingScore": 121,
+      "trendingScore": 123,
       "pipeline_tag": "text-generation",
       "createdAt": "2026-11-19T04:30:30.000Z"
     },
@@ -186,18 +176,28 @@
       "kind": "model",
       "id": "facebook/sam-3d-body-dinov3",
       "url": "https://huggingface.co/facebook/sam-3d-body-dinov3",
-      "likes": 1927,
+      "likes": 1943,
       "downloads": 20355,
-      "trendingScore": 118.5,
+      "trendingScore": 119,
       "createdAt": "2025-11-17T18:44:24.000Z"
+    },
+    {
+      "kind": "model",
+      "id": "nari-labs/Qwen3.8-27B-NariQ-GGUF",
+      "url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+      "likes": 126,
+      "downloads": 8795,
+      "trendingScore": 117,
+      "pipeline_tag": "image-text-to-text",
+      "createdAt": "2026-11-20T01:27:15.000Z"
     },
     {
       "kind": "model",
       "id": "RadixArk/DaisyRose-27B",
       "url": "https://huggingface.co/RadixArk/DaisyRose-27B",
-      "likes": 360,
+      "likes": 361,
       "downloads": 2475,
-      "trendingScore": 114.5,
+      "trendingScore": 115,
       "pipeline_tag": "image-text-to-text",
       "createdAt": "2026-11-18T05:31:35.000Z"
     }
@@ -207,34 +207,34 @@
       "kind": "dataset",
       "id": "Vyber07/cyber-security",
       "url": "https://huggingface.co/datasets/Vyber07/cyber-security",
-      "likes": 1726,
+      "likes": 1755,
       "downloads": 35278,
-      "trendingScore": 390,
+      "trendingScore": 412,
       "createdAt": "2026-05-30T16:41:46.000Z"
     },
     {
       "kind": "dataset",
       "id": "Angais/pixel-art-atlas-1.4m",
       "url": "https://huggingface.co/datasets/Angais/pixel-art-atlas-1.4m",
-      "likes": 736,
+      "likes": 737,
       "downloads": 78012,
-      "trendingScore": 39,
+      "trendingScore": 37.5,
       "createdAt": "2026-11-06T12:37:24.000Z"
     },
     {
       "kind": "dataset",
       "id": "nvidia/USDCraft-10K",
       "url": "https://huggingface.co/datasets/nvidia/USDCraft-10K",
-      "likes": 188,
+      "likes": 189,
       "downloads": 111907,
-      "trendingScore": 30,
+      "trendingScore": 28.5,
       "createdAt": "2026-10-28T13:26:28.000Z"
     },
     {
       "kind": "dataset",
       "id": "nvidia/simready-assets",
       "url": "https://huggingface.co/datasets/nvidia/simready-assets",
-      "likes": 1785,
+      "likes": 1786,
       "downloads": 1747533,
       "trendingScore": 28,
       "createdAt": "2026-06-29T15:38:26.000Z"
@@ -243,18 +243,18 @@
       "kind": "dataset",
       "id": "google/physical-engineerings-last-exam",
       "url": "https://huggingface.co/datasets/google/physical-engineerings-last-exam",
-      "likes": 270,
+      "likes": 274,
       "downloads": 474942,
-      "trendingScore": 27,
+      "trendingScore": 28,
       "createdAt": "2026-10-18T08:54:22.000Z"
     },
     {
       "kind": "dataset",
       "id": "Digitaluz/uzbek-language-corpus",
       "url": "https://huggingface.co/datasets/Digitaluz/uzbek-language-corpus",
-      "likes": 156,
+      "likes": 157,
       "downloads": 2665,
-      "trendingScore": 25.5,
+      "trendingScore": 26,
       "createdAt": "2026-11-18T14:02:31.000Z"
     },
     {
@@ -272,26 +272,17 @@
       "url": "https://huggingface.co/datasets/ccore/ThreeJS-3D-Scenes-v2",
       "likes": 95,
       "downloads": 2472,
-      "trendingScore": 12.5,
+      "trendingScore": 12,
       "createdAt": "2026-11-17T22:46:50.000Z"
     },
     {
       "kind": "dataset",
       "id": "alphaXiv/AgentAlphaXiv",
       "url": "https://huggingface.co/datasets/alphaXiv/AgentAlphaXiv",
-      "likes": 89,
+      "likes": 90,
       "downloads": 1290,
       "trendingScore": 11.5,
       "createdAt": "2026-11-17T23:56:27.000Z"
-    },
-    {
-      "kind": "dataset",
-      "id": "nvidia/PhysicalAI-Human-1M-100K",
-      "url": "https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K",
-      "likes": 178,
-      "downloads": 27253,
-      "trendingScore": 10,
-      "createdAt": "2026-11-04T22:32:05.000Z"
     },
     {
       "kind": "dataset",
@@ -304,12 +295,12 @@
     },
     {
       "kind": "dataset",
-      "id": "TheAgenticDataCompany/open-yap-1k",
-      "url": "https://huggingface.co/datasets/TheAgenticDataCompany/open-yap-1k",
-      "likes": 313,
-      "downloads": 8484,
-      "trendingScore": 9,
-      "createdAt": "2026-09-02T09:13:14.000Z"
+      "id": "inclusionAI/LingSante-MedGuard",
+      "url": "https://huggingface.co/datasets/inclusionAI/LingSante-MedGuard",
+      "likes": 32,
+      "downloads": 159,
+      "trendingScore": 9.5,
+      "createdAt": "2026-11-18T07:02:22.000Z"
     },
     {
       "kind": "dataset",
@@ -322,11 +313,56 @@
     },
     {
       "kind": "dataset",
+      "id": "hyperbots-inc/synthetic-logo-vendor-names",
+      "url": "https://huggingface.co/datasets/hyperbots-inc/synthetic-logo-vendor-names",
+      "likes": 12,
+      "downloads": 169,
+      "trendingScore": 9,
+      "createdAt": "2026-11-23T07:28:57.000Z"
+    },
+    {
+      "kind": "dataset",
+      "id": "Sandflow/sand3d-nature",
+      "url": "https://huggingface.co/datasets/Sandflow/sand3d-nature",
+      "likes": 9,
+      "downloads": 0,
+      "trendingScore": 9,
+      "createdAt": "2026-11-24T07:53:40.000Z"
+    },
+    {
+      "kind": "dataset",
+      "id": "TheAgenticDataCompany/open-yap-1k",
+      "url": "https://huggingface.co/datasets/TheAgenticDataCompany/open-yap-1k",
+      "likes": 314,
+      "downloads": 8484,
+      "trendingScore": 8.5,
+      "createdAt": "2026-09-02T09:13:14.000Z"
+    },
+    {
+      "kind": "dataset",
+      "id": "nvidia/PhysicalAI-Human-1M-100K",
+      "url": "https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K",
+      "likes": 178,
+      "downloads": 27253,
+      "trendingScore": 8.5,
+      "createdAt": "2026-11-04T22:32:05.000Z"
+    },
+    {
+      "kind": "dataset",
+      "id": "ILSVRC/imagenet-1k",
+      "url": "https://huggingface.co/datasets/ILSVRC/imagenet-1k",
+      "likes": 1270,
+      "downloads": 92661,
+      "trendingScore": 8,
+      "createdAt": "2022-05-02T16:33:23.000Z"
+    },
+    {
+      "kind": "dataset",
       "id": "bones-studio/seed",
       "url": "https://huggingface.co/datasets/bones-studio/seed",
-      "likes": 566,
+      "likes": 567,
       "downloads": 18065,
-      "trendingScore": 8.5,
+      "trendingScore": 8,
       "createdAt": "2026-03-10T23:17:48.000Z"
     },
     {
@@ -342,46 +378,10 @@
       "kind": "dataset",
       "id": "HubLabs/HubEgo-100K",
       "url": "https://huggingface.co/datasets/HubLabs/HubEgo-100K",
-      "likes": 140,
+      "likes": 141,
       "downloads": 318018,
       "trendingScore": 8,
       "createdAt": "2026-11-12T16:49:09.000Z"
-    },
-    {
-      "kind": "dataset",
-      "id": "Sandflow/sand3d-nature",
-      "url": "https://huggingface.co/datasets/Sandflow/sand3d-nature",
-      "likes": 8,
-      "downloads": 0,
-      "trendingScore": 8,
-      "createdAt": "2026-11-24T07:53:40.000Z"
-    },
-    {
-      "kind": "dataset",
-      "id": "ILSVRC/imagenet-1k",
-      "url": "https://huggingface.co/datasets/ILSVRC/imagenet-1k",
-      "likes": 1266,
-      "downloads": 92661,
-      "trendingScore": 7,
-      "createdAt": "2022-05-02T16:33:23.000Z"
-    },
-    {
-      "kind": "dataset",
-      "id": "HuggingFaceFW/fineweb",
-      "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb",
-      "likes": 3839,
-      "downloads": 370217,
-      "trendingScore": 6.5,
-      "createdAt": "2024-04-18T14:33:13.000Z"
-    },
-    {
-      "kind": "dataset",
-      "id": "facebook/sam-3d-body-dataset",
-      "url": "https://huggingface.co/datasets/facebook/sam-3d-body-dataset",
-      "likes": 183,
-      "downloads": 1447,
-      "trendingScore": 6.5,
-      "createdAt": "2025-10-08T21:41:09.000Z"
     }
   ],
   "spaces": [
@@ -389,79 +389,79 @@
       "kind": "space",
       "id": "JCisHERE/wan2-2-i2v-v3",
       "url": "https://huggingface.co/spaces/JCisHERE/wan2-2-i2v-v3",
-      "likes": 727,
-      "trendingScore": 200,
+      "likes": 735,
+      "trendingScore": 202,
       "createdAt": "2026-09-28T17:30:26.000Z"
     },
     {
       "kind": "space",
       "id": "MiniMaxAI/minimax-h3-image",
       "url": "https://huggingface.co/spaces/MiniMaxAI/minimax-h3-image",
-      "likes": 328,
-      "trendingScore": 121,
+      "likes": 333,
+      "trendingScore": 120,
       "createdAt": "2026-11-09T13:26:35.000Z"
-    },
-    {
-      "kind": "space",
-      "id": "huggingface/moe-blogpost",
-      "url": "https://huggingface.co/spaces/huggingface/moe-blogpost",
-      "likes": 846,
-      "trendingScore": 106,
-      "createdAt": "2026-10-09T15:24:25.000Z"
     },
     {
       "kind": "space",
       "id": "Lakonik/pi-H3",
       "url": "https://huggingface.co/spaces/Lakonik/pi-H3",
-      "likes": 163,
-      "trendingScore": 105,
+      "likes": 165,
+      "trendingScore": 106,
       "createdAt": "2026-11-09T04:59:51.000Z"
+    },
+    {
+      "kind": "space",
+      "id": "huggingface/moe-blogpost",
+      "url": "https://huggingface.co/spaces/huggingface/moe-blogpost",
+      "likes": 849,
+      "trendingScore": 105,
+      "createdAt": "2026-10-09T15:24:25.000Z"
     },
     {
       "kind": "space",
       "id": "joelniklaus/harness-leaderboard",
       "url": "https://huggingface.co/spaces/joelniklaus/harness-leaderboard",
       "likes": 549,
-      "trendingScore": 92,
+      "trendingScore": 89,
       "createdAt": "2026-10-15T06:00:13.000Z"
     },
     {
       "kind": "space",
       "id": "waitinghere/Krea2T-Revamped",
       "url": "https://huggingface.co/spaces/waitinghere/Krea2T-Revamped",
-      "likes": 170,
-      "trendingScore": 87,
+      "likes": 173,
+      "trendingScore": 89,
       "createdAt": "2026-10-19T03:38:31.000Z"
     },
     {
       "kind": "space",
       "id": "hugging-apps/bfs-best-face-swap",
       "url": "https://huggingface.co/spaces/hugging-apps/bfs-best-face-swap",
-      "likes": 1072,
-      "trendingScore": 69,
+      "likes": 1076,
+      "trendingScore": 72,
       "createdAt": "2026-09-27T18:26:19.000Z"
     },
     {
       "kind": "space",
       "id": "cfahlgren1/slack-moji",
       "url": "https://huggingface.co/spaces/cfahlgren1/slack-moji",
-      "likes": 112,
-      "trendingScore": 66,
+      "likes": 114,
+      "trendingScore": 59,
       "createdAt": "2026-11-16T16:52:00.000Z"
     },
     {
       "kind": "space",
       "id": "rdata92/LTX-2.3-10Eros",
       "url": "https://huggingface.co/spaces/rdata92/LTX-2.3-10Eros",
-      "likes": 271,
-      "trendingScore": 53,
+      "likes": 273,
+      "trendingScore": 54,
       "createdAt": "2026-10-15T12:54:41.000Z"
     },
     {
       "kind": "space",
       "id": "amisima/Qwen-2.1-Turbo-Qwen-Face-Swap-MOSS-Image-Edit-Outpaint-Qwen-Detail-Enhancer",
       "url": "https://huggingface.co/spaces/amisima/Qwen-2.1-Turbo-Qwen-Face-Swap-MOSS-Image-Edit-Outpaint-Qwen-Detail-Enhancer",
-      "likes": 150,
+      "likes": 152,
       "trendingScore": 51,
       "createdAt": "2026-09-25T09:54:39.000Z"
     },
@@ -477,17 +477,33 @@
       "kind": "space",
       "id": "aet256/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental",
       "url": "https://huggingface.co/spaces/aet256/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental",
-      "likes": 640,
-      "trendingScore": 43,
+      "likes": 642,
+      "trendingScore": 44,
       "createdAt": "2026-02-27T11:06:16.000Z"
+    },
+    {
+      "kind": "space",
+      "id": "xyzanonimous5/Qwen-Image-2.1-Studio",
+      "url": "https://huggingface.co/spaces/xyzanonimous5/Qwen-Image-2.1-Studio",
+      "likes": 69,
+      "trendingScore": 40,
+      "createdAt": "2026-11-06T18:41:50.000Z"
     },
     {
       "kind": "space",
       "id": "microsoft/TRELLIS.2",
       "url": "https://huggingface.co/spaces/microsoft/TRELLIS.2",
       "likes": 2470,
-      "trendingScore": 39,
+      "trendingScore": 38,
       "createdAt": "2025-12-10T03:50:25.000Z"
+    },
+    {
+      "kind": "space",
+      "id": "johnnysnowblind/wan2-2-fp8da-aoti-preview-2c-finishing",
+      "url": "https://huggingface.co/spaces/johnnysnowblind/wan2-2-fp8da-aoti-preview-2c-finishing",
+      "likes": 57,
+      "trendingScore": 38,
+      "createdAt": "2026-10-24T16:39:41.000Z"
     },
     {
       "kind": "space",
@@ -499,11 +515,11 @@
     },
     {
       "kind": "space",
-      "id": "johnnysnowblind/wan2-2-fp8da-aoti-preview-2c-finishing",
-      "url": "https://huggingface.co/spaces/johnnysnowblind/wan2-2-fp8da-aoti-preview-2c-finishing",
-      "likes": 55,
-      "trendingScore": 37,
-      "createdAt": "2026-10-24T16:39:41.000Z"
+      "id": "Guaryn/qwen-image-2.1-uncensored-aio-loras",
+      "url": "https://huggingface.co/spaces/Guaryn/qwen-image-2.1-uncensored-aio-loras",
+      "likes": 271,
+      "trendingScore": 36.4,
+      "createdAt": "2026-10-20T11:23:06.000Z"
     },
     {
       "kind": "space",
@@ -515,11 +531,11 @@
     },
     {
       "kind": "space",
-      "id": "Guaryn/qwen-image-2.1-uncensored-aio-loras",
-      "url": "https://huggingface.co/spaces/Guaryn/qwen-image-2.1-uncensored-aio-loras",
-      "likes": 265,
-      "trendingScore": 32.9,
-      "createdAt": "2026-10-20T11:23:06.000Z"
+      "id": "waitinghere/MINIMAX-H3-Ref2VA-Revamped",
+      "url": "https://huggingface.co/spaces/waitinghere/MINIMAX-H3-Ref2VA-Revamped",
+      "likes": 43,
+      "trendingScore": 35,
+      "createdAt": "2026-11-18T21:15:10.000Z"
     },
     {
       "kind": "space",
@@ -528,22 +544,6 @@
       "likes": 439,
       "trendingScore": 32,
       "createdAt": "2026-09-13T08:58:49.000Z"
-    },
-    {
-      "kind": "space",
-      "id": "waitinghere/MINIMAX-H3-Ref2VA-Revamped",
-      "url": "https://huggingface.co/spaces/waitinghere/MINIMAX-H3-Ref2VA-Revamped",
-      "likes": 40,
-      "trendingScore": 32,
-      "createdAt": "2026-11-18T21:15:10.000Z"
-    },
-    {
-      "kind": "space",
-      "id": "kulkas2pintu/wan222",
-      "url": "https://huggingface.co/spaces/kulkas2pintu/wan222",
-      "likes": 297,
-      "trendingScore": 31,
-      "createdAt": "2026-03-27T08:57:40.000Z"
     }
   ]
 }

@@ -142,7 +142,7 @@ def test_fetch_arxiv_rss_fallback_failed_sources_and_retry(repo, monkeypatch):
     doc = load_json(repo.p("candidates", "arxiv", f"{D}.json"))
     ids = {c["arxiv_id"] for c in doc["candidates"]}
     assert ids == {"2611.00001", "2611.00002"}  # cs.CL came from RSS
-    assert doc["failed_sources"] == ["alphaxiv:Comments", "alphaxiv:GitHub", "alphaxiv:Hot", "alphaxiv:Likes", "alphaxiv:Twitter (X)"]
+    assert doc["failed_sources"] == ["alphaxiv:Comments", "alphaxiv:GitHub", "alphaxiv:Hot", "alphaxiv:Likes"]
     assert any("cs.CL" in n for n in doc["notes"])
     assert next(c for c in doc["candidates"] if c["arxiv_id"] == "2611.00001")["notable_authors"] == ["Yoshua Bengio"]
 

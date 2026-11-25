@@ -152,7 +152,7 @@ def test_ensure_never_accepts_missing_files(repo, capsys):
     from dsys.ensure import ensure
     run, _ = _fake_github(repo, land_on_pull=99)
     assert ensure(repo, D, ["arxiv"], attempts=2, run=run, sleep=lambda s: None) == 1
-    assert "do not search" in capsys.readouterr().out
+    assert "Never search" in capsys.readouterr().out
 
 
 def test_ensure_skips_arxiv_at_weekends(repo):

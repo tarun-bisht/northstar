@@ -7,7 +7,7 @@ The channel is set in `config/notifications.json` (`slack.channel_id`). Post onl
 Follow `prompts/runs/_git.md` for setup (clone or update). This run commits nothing.
 
 1. `python scripts/dsys.py period` gives `<today>`. `python scripts/dsys.py status --date <today>` prints what exists today and what went wrong: missing daily streams, sources that failed in `candidates/*/<today>.json`, validation errors, and on Saturdays and the 1st whether next week's package or this month's package exists.
-2. Check GitHub Actions (read only): `gh api repos/tarun-bisht/northstar/actions/runs?per_page=20` and note any run from the last 24 hours with `conclusion: failure`, with its name and `html_url`.
+2. Check GitHub Actions (read only): `gh api repos/tarun-bisht/northstar/actions/runs?per_page=20` and note a workflow only if its most recent run failed (`conclusion: failure`), with its name and `html_url`. A failure followed by a later success of the same workflow is fixed: skip it.
 3. If the `list_triggers` tool is available, check the Northstar scheduled tasks and note any whose last run failed.
 4. Post one message with `slack_send_message` to the channel. Keep it short, plain text, links on their own lines:
    - first line: `Northstar, <weekday> <d Mon>` and, if anything failed, ` (needs a look)`

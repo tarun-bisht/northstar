@@ -219,6 +219,231 @@
         "research"
       ],
       "status": "suggested"
+    },
+    "weekly:w-2026-W48-arrival-and-story-of-your-life": {
+      "date": "2026-11-23",
+      "title": "Arrival and Story of Your Life: language, time and choice",
+      "category": "culture",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-eigenvectors-long-run": {
+      "date": "2026-11-23",
+      "title": "Eigenvectors tell you where a system ends up",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-endosymbiosis": {
+      "date": "2026-11-23",
+      "title": "Cells inside cells: where mitochondria came from",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-hammershoi-light": {
+      "date": "2026-11-23",
+      "title": "Hammershøi: two quiet rooms to look at slowly",
+      "category": "culture",
+      "dimensions": [
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-invention-of-writing": {
+      "date": "2026-11-23",
+      "title": "Writing was invented more than once",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-meiji-restoration": {
+      "date": "2026-11-23",
+      "title": "The Meiji Restoration: how Japan rebuilt itself in one generation",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "culture",
+        "world"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-mpemba-effect": {
+      "date": "2026-11-23",
+      "title": "Can hot water freeze faster than cold?",
+      "category": "talking_point",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-new-in-ai-hyper-connections": {
+      "date": "2026-11-23",
+      "title": "Hyper-connections: rethinking the residual stream",
+      "category": "ai_study",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-oil-chokepoints": {
+      "date": "2026-11-23",
+      "title": "Chokepoints: the narrow straits the world economy runs through",
+      "category": "new_knowledge",
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-polynesian-wayfinding": {
+      "date": "2026-11-23",
+      "title": "Crossing the Pacific without instruments",
+      "category": "talking_point",
+      "dimensions": [
+        "curiosity",
+        "culture",
+        "world"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-popper-vs-kuhn": {
+      "date": "2026-11-23",
+      "title": "Popper versus Kuhn: how does science really change?",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-q-coupon-collector": {
+      "date": "2026-11-23",
+      "title": "How many boxes until you have all 50 stickers?",
+      "category": "question",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-q-landauer-bit": {
+      "date": "2026-11-23",
+      "title": "What is the least energy needed to erase one bit?",
+      "category": "question",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-q-markov-long-run": {
+      "date": "2026-11-23",
+      "title": "Where does the two-state weather chain settle?",
+      "category": "question",
+      "dimensions": [
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-q-spinning-skater": {
+      "date": "2026-11-23",
+      "title": "A skater pulls in her arms. Where does the extra energy come from?",
+      "category": "question",
+      "dimensions": [
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-residual-signal-propagation": {
+      "date": "2026-11-23",
+      "title": "Why residual stacks do not forget their input: a derivation",
+      "category": "research_fundamentals",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-room-camera-obscura": {
+      "date": "2026-11-23",
+      "title": "Turn a room into a camera",
+      "category": "making",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-ryuichi-sakamoto": {
+      "date": "2026-11-23",
+      "title": "Ryuichi Sakamoto: three pieces and a farewell documentary",
+      "category": "culture",
+      "dimensions": [
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-three-follow-ups": {
+      "date": "2026-11-23",
+      "title": "Three follow-up questions before your own view",
+      "category": "people",
+      "dimensions": [
+        "people"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-unlearning-removal-or-suppression": {
+      "date": "2026-11-23",
+      "title": "Removal or suppression? Design the test for an unlearned model",
+      "category": "research_fundamentals",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W48-what-entropy-counts": {
+      "date": "2026-11-23",
+      "title": "What entropy actually counts",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
     }
   }
 }

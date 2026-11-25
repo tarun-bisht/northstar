@@ -1,0 +1,45 @@
+{
+  "polls": [
+    {
+      "kind": "monthly",
+      "period": "2026-12",
+      "ts": "1795617522.097119",
+      "options": [
+        {
+          "key": "R1",
+          "topic": "Diffusion and flow models in depth"
+        },
+        {
+          "key": "R2",
+          "topic": "Agent harnesses: loop, tools and memory around a frontier model"
+        },
+        {
+          "key": "R3",
+          "topic": "World models for agents and robots"
+        },
+        {
+          "key": "R4",
+          "topic": "RL for LLM reasoning: PPO, GRPO and GSPO"
+        },
+        {
+          "key": "F1",
+          "topic": "Stochastic differential equations"
+        },
+        {
+          "key": "F2",
+          "topic": "Convex optimisation and duality"
+        },
+        {
+          "key": "F3",
+          "topic": "Information theory"
+        },
+        {
+          "key": "F4",
+          "topic": "Markov decision processes and policy gradients"
+        }
+      ],
+      "status": "open",
+      "choices": []
+    }
+  ]
+}

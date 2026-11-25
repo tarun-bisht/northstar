@@ -1,16 +1,16 @@
 name: Fetch candidates
 
 # Collects real metadata from official APIs (no AI calls) so the Claude runs
-# select from verified data. 01:07 UTC is 06:37 IST, just after arXiv's announcement.
-# 01:37 UTC (07:07 IST) is a gap-filling run: it refetches only sources that failed
-# earlier, so a rate limit or outage is repaired before the 07:19 Daily run.
+# select from verified data. 01:47 UTC is 07:17 IST, after arXiv's new papers are out (20:00 New York time, 01:00 UTC in winter, 00:00 in summer).
+# 02:23 UTC (07:53 IST) is a gap-filling run: it refetches only sources that failed
+# earlier, so a rate limit or outage is repaired before the 08:13 Daily run.
 on:
   schedule:
     # arXiv announces new papers at 20:00 New York time (01:00 UTC in winter). GitHub can start
     # scheduled runs hours late, so the daily run also starts this workflow itself when files are
     # missing (dsys.py candidates ensure). Odd minutes avoid the busy top of the hour.
-    - cron: "7 1 * * *"
-    - cron: "37 1 * * *"
+    - cron: "47 1 * * *"
+    - cron: "23 2 * * *"
   workflow_dispatch:
     inputs:
       retry_only:
@@ -41,7 +41,7 @@ jobs:
       - name: Mode
         id: mode
         run: |
-          if [ "${{ github.event.schedule }}" = "37 1 * * *" ] || [ "${{ inputs.retry_only }}" = "true" ]; then
+          if [ "${{ github.event.schedule }}" = "23 2 * * *" ] || [ "${{ inputs.retry_only }}" = "true" ]; then
             echo "flag=--retry-failed" >> "$GITHUB_OUTPUT"
           else
             echo "flag=" >> "$GITHUB_OUTPUT"

@@ -6,12 +6,12 @@
 
 | Layer | Purpose (vision §15) | When (IST) | Made by |
 |---|---|---|---|
-| Daily | stay aware | papers on weekdays, everything else every day | Daily run 07:19, Shorts run 08:15 |
+| Daily | stay aware | papers on weekdays, everything else every day | Daily run 08:13, Shorts run 08:41 |
 | Weekly | explore | Saturday 06:46, for the week starting Monday | Weekly run |
 | Monthly | go deep | 1st of the month, 06:15 | Monthly run |
 | Quarterly | look back | 1 Jan, Apr, Jul, Oct, 06:41 | Quarterly run |
 
-Before the runs, GitHub Actions fetches candidates at 06:37 and refills any gaps at 07:07 (section 4). GitHub can start these hours late, so the daily and shorts runs start the fetch themselves if today's files are missing. No AI runs in that step.
+Before the runs, GitHub Actions fetches candidates at 07:17 and refills any gaps at 07:53 (section 4). GitHub can start these hours late, so the daily and shorts runs start the fetch themselves if today's files are missing. No AI runs in that step.
 
 ## 2. Parts, each with its own URL
 
@@ -58,7 +58,7 @@ The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config
 
 Google News also runs searches built from your interests (AI security, quantum computing, neuroscience, physics, mathematics, archaeology, Japan and anime, art, prizes, robotics), marked `interest: true`. X and LinkedIn have no open feed (alphaXiv's X list is rejected by its API), so their discussion reaches the radar through Hacker News, newsletters and web search, never invented.
 
-Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 07:07 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them.
+Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 07:53 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them.
 
 **Runs never fall back to web search for candidates.** GitHub can start scheduled workflows hours late, so the daily and shorts runs begin with `dsys.py candidates ensure` (`dsys/ensure.py`). It checks today's files. If a fetch is already queued or running, it waits for it to finish. Otherwise it starts the workflow itself (workflow_dispatch) for the missing kinds, or in retry mode for failed sources, and waits for that run to finish. It repeats this for up to four rounds and 90 minutes. A missing file is never accepted: the run skips that stream and posts the failure to Slack. A source that keeps failing inside a file that exists is listed, and the rest of the file is used.
 
@@ -89,7 +89,7 @@ Markets, technology and explainers appear every day, with at least one explainer
 
 Mobile and email notifications are off for every task. Three scheduled tasks use the Slack connector, in the channel set in `config/notifications.json`:
 
-- **Daily digest** (09:07 IST, `prompts/runs/slack_digest.md`): one short message with links to today's pages and one line per problem. Problems come from `dsys.py status` (missing streams, failed sources, validation errors, a missing weekly or monthly package), failed GitHub Actions runs, and failed scheduled runs.
+- **Daily digest** (09:43 IST, `prompts/runs/slack_digest.md`): one short message with links to today's pages and one line per problem. Problems come from `dsys.py status` (missing streams, failed sources, validation errors, a missing weekly or monthly package), failed GitHub Actions runs, and failed scheduled runs.
 - **Topic polls** (Thursdays and the 25th, 20:07 IST, `prompts/runs/topic_poll.md`): four options for next week's New in AI topic, and four research plus four fundamentals options for next month. Reply in the thread with numbers or your own topic. No reply is fine.
 - **Poll collect** (Saturdays and the 1st, 05:53 IST, `prompts/runs/poll_collect.md`): saves the answers to `state/polls.json` (`dsys.py polls`). The weekly and monthly runs read them as `poll_choices` in `context`.
 
@@ -127,6 +127,6 @@ No streaks, scores, completion tracking, backlogs or guilt. Items carry a status
 - **News feeds or categories:** `config/sources.json → world.feeds` and `world.categories`.
 - **Notable researchers:** `config/sources.json → notable_researchers`.
 - **Sizes and required sections:** `config/preferences.json` and `WEEKLY_REQUIRED` in `dsys/validate.py`.
-- **Times:** the cron lines in the scheduled tasks and in `.github/workflows/fetch-candidates.yml`. Keep the runs after the 06:37 and 07:07 fetches.
+- **Times:** the cron lines in the scheduled tasks and in `.github/workflows/fetch-candidates.yml`. Keep the runs after the 07:17 and 07:53 fetches.
 
 Finish every change with `python scripts/validate.py && python -m pytest -q`.

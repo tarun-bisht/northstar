@@ -4,18 +4,18 @@ Northstar runs on eight Claude scheduled tasks: five that make content and three
 
 | Task | When (IST) | Runbook | What it makes |
 |---|---|---|---|
-| Daily northstar schedule | Every day, 07:19 | `prompts/runs/daily.md` | Research (papers, updates), News, Exploration (discoveries), Languages (language pack) |
-| Shorts northstar schedule | Every day, 08:15 | `prompts/runs/shorts.md` | YouTube shorts for the Exploration page |
+| Daily northstar schedule | Every day, 08:13 | `prompts/runs/daily.md` | Research (papers, updates), News, Exploration (discoveries), Languages (language pack) |
+| Shorts northstar schedule | Every day, 08:41 | `prompts/runs/shorts.md` | YouTube shorts for the Exploration page |
 | Weekly northstar schedule | Saturday, 06:46 | `prompts/runs/weekly.md` | Next week's Papers of the week, Research, Knowledge, Exploration and Languages |
 | Monthly northstar schedule | 1st of the month, 06:15 | `prompts/runs/monthly.md` | One deep dive per part, plus language plans |
 | Quarterly northstar schedule | 1 Jan, Apr, Jul, Oct, 06:41 | `prompts/runs/quarterly.md` | A short public review per part, with numbers |
-| Northstar Slack digest | Every day, 09:07 | `prompts/runs/slack_digest.md` | One Slack message: today's links, and anything that failed |
+| Northstar Slack digest | Every day, 09:43 | `prompts/runs/slack_digest.md` | One Slack message: today's links, and anything that failed |
 | Northstar topic poll | Thursdays and the 25th, 20:07 | `prompts/runs/topic_poll.md` | Slack polls: next week's New in AI topic, next month's research and fundamentals deep dives |
 | Northstar poll collect | Saturdays and the 1st, 05:53 | `prompts/runs/poll_collect.md` | Saves your poll answers to `state/polls.json` before the weekly and monthly runs |
 
 **Notifications.** Slack is the only channel. Turn off mobile push and email for all eight tasks. The three Slack tasks need the Slack connector. Content runs post one line on failure if they have it, and the daily digest reports their failures either way; the channel is in `config/notifications.json`.
 
-Every task runs after the 06:37 IST candidate fetch on GitHub Actions and its 07:07 gap-filling run. GitHub can start scheduled runs hours late, so the daily and shorts runs start the fetch themselves when today's files are missing (`dsys.py candidates ensure`).
+Every task runs after the 07:17 IST candidate fetch on GitHub Actions and its 07:53 gap-filling run. GitHub can start scheduled runs hours late, so the daily and shorts runs start the fetch themselves when today's files are missing (`dsys.py candidates ensure`).
 
 ## Before you start
 
@@ -57,7 +57,7 @@ Running it again is safe. It replaces the old tasks instead of adding copies.
 
 ## Change the times
 
-All times use `CRON_TZ=Asia/Kolkata`. For your own time zone, change the zone name (for example `CRON_TZ=Europe/London`) and the hour. Keep every task after the 06:37 and 07:07 IST fetches, or move those in `.github/workflows/fetch-candidates.yml` too.
+All times use `CRON_TZ=Asia/Kolkata`. For your own time zone, change the zone name (for example `CRON_TZ=Europe/London`) and the hour. Keep every task after the 07:17 and 07:53 IST fetches, or move those in `.github/workflows/fetch-candidates.yml` too.
 
 ## The tasks
 
@@ -65,7 +65,7 @@ Every prompt has the same shape: get the repo, read the rules and the vision, fo
 
 ### Daily northstar schedule
 
-Cron: `CRON_TZ=Asia/Kolkata 19 7 * * *`
+Cron: `CRON_TZ=Asia/Kolkata 13 8 * * *`
 
 ```
 You are running the DAILY run of Northstar, a personal discovery system, in the GitHub repo tarun-bisht/northstar.
@@ -77,7 +77,7 @@ You are running the DAILY run of Northstar, a personal discovery system, in the 
 
 ### Shorts northstar schedule
 
-Cron: `CRON_TZ=Asia/Kolkata 15 8 * * *`
+Cron: `CRON_TZ=Asia/Kolkata 41 8 * * *`
 
 ```
 You are running the SHORTS run of Northstar, a personal discovery system, in the GitHub repo tarun-bisht/northstar.
@@ -125,7 +125,7 @@ You are running the QUARTERLY run of Northstar, a personal discovery system, in 
 
 ### Northstar Slack digest
 
-Cron: `CRON_TZ=Asia/Kolkata 7 9 * * *`
+Cron: `CRON_TZ=Asia/Kolkata 43 9 * * *`
 
 ```
 You are running the SLACK DIGEST run of Northstar, a personal discovery system, in the GitHub repo tarun-bisht/northstar.

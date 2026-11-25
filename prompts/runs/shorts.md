@@ -1,4 +1,4 @@
-# YouTube Shorts run (every day, 08:15 IST)
+# YouTube Shorts run (every day, 08:41 IST)
 
 Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
 

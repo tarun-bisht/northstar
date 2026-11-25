@@ -1,4 +1,4 @@
-# Slack digest run (every day, 09:07 IST)
+# Slack digest run (every day, 09:43 IST)
 
 The only notification Northstar sends: one short Slack message a day with links to today's pages, and any failure. Mobile and email notifications are off for every task.
 

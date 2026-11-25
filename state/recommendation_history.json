@@ -180,6 +180,45 @@
         "research",
         "knowledge"
       ]
+    },
+    "monthly:m-2026-11-concentration-inequalities": {
+      "date": "2026-11-01",
+      "title": "Concentration inequalities, derived from scratch",
+      "category": "research_exploration",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "status": "suggested"
+    },
+    "monthly:m-2026-11-looped-transformers": {
+      "date": "2026-11-01",
+      "title": "Looped transformers: thinking by running the same layers again",
+      "category": "ai_deep_dive",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested"
+    },
+    "monthly:m-2026-11-questions-and-stories": {
+      "date": "2026-11-01",
+      "title": "Conversation craft: better questions and short true stories",
+      "category": "people",
+      "dimensions": [
+        "people",
+        "culture"
+      ],
+      "status": "suggested"
+    },
+    "monthly:m-2026-11-statistical-mechanics-ml": {
+      "date": "2026-11-01",
+      "title": "Statistical mechanics for an ML researcher",
+      "category": "non_ai_deep_dive",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested"
     }
   }
 }

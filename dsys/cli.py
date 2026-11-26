@@ -164,8 +164,7 @@ def cmd_papers(repo: Repo, args) -> int:
         _print(stages.merge_verdicts(repo, day, [f for f in args.files.split(",") if f]))
     elif args.action == "enrich":
         import json as _j
-        ids = sorted(_j.loads((stages.WORK / day.isoformat() / "stage1_passed.json").read_text()))
-        return enrich(repo, day, ids)
+        return enrich(repo, day, stages.enrich_ids(repo, day))
     elif args.action == "stage2":
         _print(stages.stage2(repo, day))
     elif args.action == "add":

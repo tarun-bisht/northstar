@@ -169,3 +169,16 @@ def test_reputation_add_appends_with_evidence_and_skips_known(repo):
     assert doc["added"][-1]["evidence"] == ["2611.00001", "2611.00002"]
     assert reputation.add(repo, "lab", "tiny frontier lab", ["2611.00003"])["added"] is False
     assert reputation.add(repo, "lab", "TFL", ["2611.00003"])["added"] is False
+
+
+def test_enrich_ids_strong_first_capped(repo):
+    import json as _j
+    from dsys import stages
+    day = D
+    write_json(repo.p("candidates", "arxiv", f"{day}.json"),
+               {"candidates": [_paper(f"2611.000{i:02d}", f"P{i}", "x", hf_upvotes=i) for i in range(10)]})
+    (stages.WORK / day.isoformat()).mkdir(parents=True, exist_ok=True)
+    (stages.WORK / day.isoformat() / "stage1_passed.json").write_text(
+        _j.dumps({f"2611.000{i:02d}": ("strong" if i < 3 else "field") for i in range(10)}))
+    ids = stages.enrich_ids(repo, day, limit=5)
+    assert ids[:3] == ["2611.00002", "2611.00001", "2611.00000"] and len(ids) == 5 and ids[3] == "2611.00009"

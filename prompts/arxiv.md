@@ -2,7 +2,7 @@
 
 Read `prompts/_shared.md` first.
 
-The job is to filter, and never to lose quality work. Keep the papers that are high quality **and** on the user's interests, and the high-quality papers that matter for the field even with little overlap. There is no fixed number. Order them: the best picks first (`priority: top`), everything else that passes the bar as `priority: more`, shown folded on the page.
+The job is to filter, and never to lose quality work. Keep the papers that are high quality **and** on the user's interests, and the high-quality papers that matter for the field even with little overlap. There is no fixed number, but the bar is real: on a normal day that means roughly 10 to 40 papers, with 5 to 15 of them `top`. A much bigger list usually means the bar slipped. Order them: the best picks first (`priority: top`), everything else that passes the bar as `priority: more`, shown folded on the page.
 
 ## Where candidates come from
 
@@ -13,7 +13,7 @@ Papers come only from these files, never from web search.
 ## The stages (the daily run does 1 to 3, you do 4)
 
 1. **Python** (`dsys.py papers stage1`): drops papers already seen, keeps every paper that matches an interest or has a quality signal, and writes compact batches.
-2. **Cheap model** (`prompts/paper_triage.md`): reads every abstract in the batches and sorts each into strong, field or no. Generous: when unsure it keeps.
+2. **Cheap model** (`prompts/paper_triage.md`): reads every abstract in the batches and sorts each into strong, field or no. Calibrated: usually 15 to 30% pass, and only a true doubt is kept.
 3. **Page 1** (`dsys.py papers enrich`): GitHub Actions reads page 1 of each passing paper for affiliations and email domains, and sets the trust flag (`config/reputation.json`).
 4. **You** (`dsys.py papers stage2`): the passing papers in full, with lane, affiliations, `trusted`, `trust_matches`, interests, signals and buzz.
 
@@ -24,7 +24,7 @@ Papers come only from these files, never from web search.
 3. **Judge quality.** Rate each paper 1 to 5 in your head:
    - **5, keep as top:** a clear, specific contribution; strong evidence (experiments on standard benchmarks against strong baselines, real theory, or a large careful analysis); concrete results stated; plus at least one outside signal (trusted group, venue, community votes, discussion, released code).
    - **4, keep:** clear contribution and solid evidence, even without outside signals.
-   - **3, keep only if** it is close to the user's own work or the abstract shows an unusually useful idea, dataset or negative result.
+   - **3, drop**, unless it is very close to the user's own research topics. A 3 that only touches an interest is not kept.
    - **1 to 2, drop.** Red flags: a "novel framework" with no stated results; one small dataset; a combination of existing tricks; overclaiming without evidence; a prompt wrapper with no evaluation; an application with no transferable insight; a vague abstract.
 4. **What to keep (vision §6).** Both kinds count, matching the two lanes:
    - *direct relevance:* close to or useful for the user's research interests

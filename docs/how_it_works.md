@@ -87,8 +87,8 @@ All of these are fetched by `.github/workflows/fetch-candidates.yml` (`scripts/f
 ## 5. Choosing papers
 
 1. **Python** (`dsys.py papers stage1`): drops papers already seen and the ones that match no interest and have no quality signal (votes, discussion, notable author, venue, code). Writes compact batches: id, title, full abstract, matched interests, signals, trust flag, buzz. Coverage keywords per interest live in `arxiv.coverage`.
-2. **Haiku** (`prompts/paper_triage.md`), in parallel batches: reads every abstract and sorts each paper into *strong* (on your interests, good), *field* (important for the field with little overlap) or *no*. Generous: when unsure, it keeps.
-3. **Page 1** (`dsys.py papers enrich`): affiliations and emails for the passing papers, then the trust flag.
+2. **Haiku** (`prompts/paper_triage.md`), in parallel batches: reads every abstract and sorts each paper into *strong* (on your interests, good), *field* (important for the field with little overlap) or *no*. Calibrated: usually 15 to 30% pass, and only a true doubt is kept. `papers merge` warns when more than half pass.
+3. **Page 1** (`dsys.py papers enrich`): affiliations and emails for up to 200 passing papers (strong first, then by buzz; about 10 minutes), then the trust flag.
 4. **Sonnet** (`prompts/arxiv.md`): reads the passing papers in full and decides. No fixed number: the best picks are `priority: top`, everything else that passes is `priority: more`, folded on the page. Trust and buzz raise confidence but never rescue an empty abstract. alphaXiv summaries are never used to judge.
 5. **Every paper link goes to alphaXiv** (`alphaxiv.org/abs/<id>`), on the site and in the feeds, so you can read the paper and its summary there.
 6. **Papers of the week** (`reading.xml`, `weekly/<week>/papers.html`): *For you*, *Trending this week* and *From leading groups*. Daily runs add to it; it is a weekly part.

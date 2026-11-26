@@ -96,6 +96,17 @@ def stage1(repo: Repo, day: dt.date, batch_size: int = 40) -> dict:
             "batches": batches, "verdict_format": '[{"id": "2611.01234", "lane": "strong|field|no"}]'}
 
 
+ENRICH_MAX = 200  # page 1 is read at one paper every 3 s: 200 papers take about 10 minutes
+
+
+def enrich_ids(repo: Repo, day: dt.date, limit: int = ENRICH_MAX) -> list[str]:
+    """Papers whose page 1 is worth reading: strong lane first, then by buzz, at most limit."""
+    passed = json.loads((WORK / day.isoformat() / "stage1_passed.json").read_text())
+    by_id = {p["arxiv_id"]: p for p in _cands(repo, day)}
+    order = sorted(passed, key=lambda i: (passed[i] != "strong", -buzz(by_id.get(i, {})), i))
+    return order[:limit]
+
+
 def merge_verdicts(repo: Repo, day: dt.date, files: list[str]) -> dict:
     verdicts: dict[str, str] = {}
     for f in files:
@@ -108,7 +119,13 @@ def merge_verdicts(repo: Repo, day: dt.date, files: list[str]) -> dict:
     out.write_text(json.dumps(verdicts))
     strong = sum(1 for v in verdicts.values() if v == "strong")
     record(repo, day, "papers", passed_stage1=len(verdicts), strong=strong, field=len(verdicts) - strong)
-    return {"passed": len(verdicts), "strong": strong, "field": len(verdicts) - strong, "ids": ",".join(sorted(verdicts))}
+    rate = len(verdicts) / max(1, sum(len(json.loads(Path(f).read_text())) for f in files))
+    out_doc = {"passed": len(verdicts), "strong": strong, "field": len(verdicts) - strong,
+               "pass_rate": round(rate, 2), "ids": ",".join(sorted(verdicts))}
+    if rate > 0.5:
+        out_doc["warning"] = ("More than half passed the first reading: the batches were judged too generously. "
+                              "That is fine for today, but the final choice must hold the quality bar.")
+    return out_doc
 
 
 def stage2(repo: Repo, day: dt.date) -> list[dict]:

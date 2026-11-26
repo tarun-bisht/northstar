@@ -1,0 +1,7 @@
+{"t": "2026-11-26T07:46:47+00:00", "run": "monthly", "event": "start"}
+{"t": "2026-11-26T07:46:47+00:00", "run": "monthly", "read": "runbook and prompts", "chars": 102530}
+{"t": "2026-11-26T07:46:55+00:00", "run": "monthly", "read": "polls list --open", "chars": 1462}
+{"t": "2026-11-26T07:47:00+00:00", "run": "monthly", "read": "context monthly --period", "chars": 18969}
+{"t": "2026-11-26T07:51:21+00:00", "run": "monthly", "read": "history rebuild", "chars": 93}
+{"t": "2026-11-26T07:51:32+00:00", "run": "monthly", "read": "reputation suggest", "chars": 34}
+{"t": "2026-11-26T07:51:38+00:00", "run": "monthly", "event": "end"}

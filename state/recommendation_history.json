@@ -150,6 +150,45 @@
         "knowledge"
       ]
     },
+    "monthly:m-2026-11-concentration-generalization": {
+      "date": "2026-11-01",
+      "title": "Fundamentals: concentration inequalities and your first generalization bound",
+      "category": "research_exploration",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "status": "suggested"
+    },
+    "monthly:m-2026-11-interactive-explainer": {
+      "date": "2026-11-01",
+      "title": "Make something: build a tiny interactive explainer",
+      "category": "creative_project",
+      "dimensions": [
+        "curiosity",
+        "research"
+      ],
+      "status": "suggested"
+    },
+    "monthly:m-2026-11-low-precision-llms": {
+      "date": "2026-11-01",
+      "title": "New in AI: low-precision LLMs, from GPTQ to FP4 training",
+      "category": "ai_deep_dive",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested"
+    },
+    "monthly:m-2026-11-problem-of-consciousness": {
+      "date": "2026-11-01",
+      "title": "The problem of consciousness: Nagel, Chalmers and the global workspace",
+      "category": "non_ai_deep_dive",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested"
+    },
     "weekly:w-2026-W49-banach-fixed-point": {
       "date": "2026-11-30",
       "title": "The Banach fixed-point theorem: why contractions always converge",

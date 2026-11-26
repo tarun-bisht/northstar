@@ -1,0 +1,360 @@
+{
+  "schema": "monthly",
+  "month": "2026-11",
+  "generated_at": "2026-11-26T08:10:00Z",
+  "generator": "claude-monthly-run",
+  "load": "normal",
+  "intro": "Four deep dives for going deep: low-precision LLMs, concentration inequalities, the problem of consciousness, and building an interactive explainer. Plus ten hard problems and a plan for each language. This package came late in the month, so treat it as a menu. Start whatever pulls you, whenever it suits you. Nothing needs finishing.",
+  "items": [
+    {
+      "id": "m-2026-11-low-precision-llms",
+      "title": "New in AI: low-precision LLMs, from GPTQ to FP4 training",
+      "kind": "ai_deep_dive",
+      "section": "research",
+      "topic": "quantization and low-precision formats for LLMs",
+      "dimensions": ["research"],
+      "tier": "established",
+      "why": "Quantization is one of the busiest topics in this month's papers. Models now ship in 4-bit, and labs pretrain in FP4 on new hardware. Knowing why outliers break naive rounding, and how block scaling fixes it, explains a lot of what makes inference cheap today.",
+      "objective": "Explain and implement the core ideas behind modern LLM quantization: rounding error, outliers, second-order weight updates (GPTQ), activation-aware scaling (AWQ, SmoothQuant) and block-scaled formats (MX, NVFP4).",
+      "prerequisites": ["linear algebra (least squares, Hessians)", "PyTorch basics", "how a transformer layer works"],
+      "weeks": [
+        {"week": 1, "focus": "Number formats and rounding error", "tasks": ["Read the Visual Guide to Quantization up to the end of post-training quantization", "In a notebook, quantize a random weight matrix to INT8 and INT4 with absmax and zero-point schemes and plot the error", "Add a few large outlier values and watch the error explode"]},
+        {"week": 2, "focus": "GPTQ: quantize one column, fix the rest", "tasks": ["Read GPTQ Sections 1 to 3 and the Optimal Brain Quantization background", "Derive the GPTQ update for one weight from the layer-wise least-squares objective", "Implement a simple GPTQ for one linear layer on calibration data and compare with round-to-nearest"]},
+        {"week": 3, "focus": "Outliers in activations: SmoothQuant and AWQ", "tasks": ["Read SmoothQuant Sections 3 and 4 and AWQ Section 3", "Explain in your own words why moving scale from activations to weights is mathematically free", "Measure per-channel activation magnitudes in a small open model and find the outlier channels"]},
+        {"week": 4, "focus": "Block scaling and FP4 training", "tasks": ["Read the Microscaling (MX) formats paper Sections 1 to 3", "Read the NVFP4 pretraining paper introduction and method sections", "Implement block-scaled FP4 fake quantization for a weight matrix and compare it with per-tensor INT4"]}
+      ],
+      "primary_resource": {"title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers", "creator": "Frantar, Ashkboos, Hoefler, Alistarh", "type": "paper", "year": 2022, "url": "https://arxiv.org/abs/2210.17323", "url_verified": false, "chapters": "Sections 1-3"},
+      "resources": [
+        {"title": "A Visual Guide to Quantization", "creator": "Maarten Grootendorst", "type": "blog", "url": "https://maartengrootendorst.com/blog/quantization/", "url_verified": false},
+        {"title": "SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models", "type": "paper", "year": 2022, "url": "https://arxiv.org/abs/2211.10438", "url_verified": false, "chapters": "Sections 3-4"},
+        {"title": "AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration", "type": "paper", "year": 2023, "url": "https://arxiv.org/abs/2306.00978", "url_verified": false, "chapters": "Section 3"},
+        {"title": "Microscaling Data Formats for Deep Learning", "type": "paper", "year": 2023, "url": "https://arxiv.org/abs/2310.10537v1", "url_verified": false, "chapters": "Sections 1-3"},
+        {"title": "Pretraining Large Language Models with NVFP4", "type": "paper", "year": 2025, "url": "https://arxiv.org/abs/2509.25149v1", "url_verified": false}
+      ],
+      "exercises": [
+        "Show that for absmax INT8 quantization the worst-case error grows with the largest value in the tensor. Why do outliers hurt?",
+        "Derive the optimal update to the remaining weights after quantizing one weight, given the layer Hessian H = 2XX^T",
+        "SmoothQuant divides activations by s and multiplies weights by s. Prove the layer output is unchanged, then explain what changes for quantization",
+        "Compute the effective bits per value of a block-scaled format with 4-bit elements, block size 16 and an 8-bit scale"
+      ],
+      "deliverable": "A notebook that quantizes one real linear layer four ways (round-to-nearest, GPTQ, AWQ-style scaling, block-scaled FP4) with an error table and a short explanation of each.",
+      "definition_of_done": "The notebook runs end to end and you can explain to a colleague, without notes, why block scaling handles outliers better than one scale per tensor.",
+      "final_synthesis": "Write half a page: where does the remaining error come from after all these tricks, and what would you test next?",
+      "time_estimate": "3-4 h/week",
+      "light_version": "Weeks 1 and 4 only: the visual guide, the outlier experiment and block-scaled FP4.",
+      "continuation": "Possible later milestone: quantization-aware training, or KV-cache quantization for long context. Not scheduled.",
+      "modes": ["learn", "practise", "create"],
+      "origin": "system",
+      "status": "suggested"
+    },
+    {
+      "id": "m-2026-11-concentration-generalization",
+      "title": "Fundamentals: concentration inequalities and your first generalization bound",
+      "kind": "research_exploration",
+      "section": "fundamentals",
+      "topic": "concentration inequalities and PAC generalization bounds",
+      "dimensions": ["research", "knowledge"],
+      "tier": "established",
+      "why": "Every claim that a model generalizes, and every confidence interval on a benchmark score, rests on concentration. Deriving Markov, Chebyshev, Hoeffding and the union bound yourself turns them from facts you recall into tools you can bend. It also makes evaluation papers easier to judge.",
+      "objective": "Derive the main concentration inequalities from scratch and use them to prove a generalization bound for a finite hypothesis class, then apply it to a real question about benchmark sample sizes.",
+      "prerequisites": ["probability: expectation, variance, independence", "basic calculus"],
+      "weeks": [
+        {"week": 1, "focus": "Markov, Chebyshev and the Chernoff method", "tasks": ["Read Vershynin, High-Dimensional Probability, Ch. 2, Sec. 2.1-2.2", "Prove Markov and Chebyshev from one line each", "Derive the Chernoff bound for a sum of coin flips using the moment generating function"]},
+        {"week": 2, "focus": "Hoeffding and sub-Gaussian variables", "tasks": ["Prove Hoeffding's lemma, then Hoeffding's inequality, with hints from Vershynin Sec. 2.2", "Read Wainwright, High-Dimensional Statistics, Ch. 2, Sec. 2.1", "Simulate sums of bounded variables and plot the true tail against the Hoeffding bound"]},
+        {"week": 3, "focus": "PAC learning and the union bound", "tasks": ["Read Shalev-Shwartz and Ben-David, Understanding Machine Learning, Ch. 2-4", "Prove that finite hypothesis classes are agnostic PAC learnable using Hoeffding plus the union bound", "Do exercises 4.1 and 4.2 from Understanding Machine Learning"]},
+        {"week": 4, "focus": "Use it on a real question", "tasks": ["Work out how many test examples you need to tell apart two models whose accuracies differ by 1 point, at 95 percent confidence", "Read Understanding Machine Learning Ch. 6 on VC dimension (skim the proofs)", "Write a one-page note: what concentration does and does not guarantee about a benchmark result"]}
+      ],
+      "primary_resource": {"title": "High-Dimensional Probability", "creator": "Roman Vershynin", "type": "book", "url": "https://www.math.uci.edu/~rvershyn/papers/HDP-book/HDP-book.html", "url_verified": false, "chapters": "Ch. 2"},
+      "resources": [
+        {"title": "Understanding Machine Learning: From Theory to Algorithms", "creator": "Shai Shalev-Shwartz and Shai Ben-David", "type": "book", "year": 2014, "url": "https://cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf", "url_verified": false, "chapters": "Ch. 2-4 and 6"},
+        {"title": "High-Dimensional Statistics: A Non-Asymptotic Viewpoint", "creator": "Martin J. Wainwright", "type": "book", "year": 2019, "chapters": "Ch. 2, Sec. 2.1"}
+      ],
+      "exercises": [
+        "Prove Markov's inequality, then get Chebyshev from it in one line",
+        "Prove Hoeffding's lemma: for X in [a, b] with mean 0, E[exp(tX)] <= exp(t^2 (b-a)^2 / 8)",
+        "With n test examples, how wide is a 95 percent Hoeffding interval on accuracy? Compare with the normal approximation",
+        "Show that a finite class H needs about log(|H|/delta)/epsilon^2 samples for agnostic learning"
+      ],
+      "deliverable": "A short note with your own derivations of Chebyshev, Chernoff and Hoeffding, the finite-class bound, and the benchmark sample-size calculation.",
+      "definition_of_done": "You can derive Hoeffding's inequality on a blank page and say how many test examples a 1-point accuracy gap needs.",
+      "final_synthesis": "Where do these bounds break for modern deep networks, and what does that say about how we should report evaluation results?",
+      "time_estimate": "2-3 h/week",
+      "light_version": "Weeks 1 and 4: the Chernoff method and the benchmark sample-size question.",
+      "continuation": "Possible later milestone: Rademacher complexity and PAC-Bayes bounds. Not scheduled.",
+      "modes": ["learn", "practise", "create"],
+      "idea_id": "idea-mathematics-for-ml-research-rebuilt-from-first-pri",
+      "origin": "system",
+      "status": "suggested"
+    },
+    {
+      "id": "m-2026-11-problem-of-consciousness",
+      "title": "The problem of consciousness: Nagel, Chalmers and the global workspace",
+      "kind": "non_ai_deep_dive",
+      "section": "knowledge",
+      "subject": "philosophy",
+      "topic": "philosophy of mind and consciousness",
+      "dimensions": ["knowledge", "research"],
+      "tier": "growth",
+      "why": "This goes one step deeper than this week's predictive processing item. What would it mean to understand a mind? The same question sits under interpretability: we can describe what a model computes, but is that understanding? Reading the classic arguments sharpens how you think about explanation itself.",
+      "objective": "Understand the hard problem of consciousness, the main responses to it, and one leading scientific theory, and be able to argue both sides of whether current AI systems could be conscious.",
+      "prerequisites": ["none: curiosity and patience with careful arguments"],
+      "weeks": [
+        {"week": 1, "focus": "What is it like? Nagel's bat", "tasks": ["Read Nagel, What Is It Like to Be a Bat? (1974), slowly, twice", "Write five sentences: what exactly does Nagel think physical science leaves out?", "Read the Stanford Encyclopedia entry on consciousness, Sections 1-2"]},
+        {"week": 2, "focus": "The hard problem", "tasks": ["Read Chalmers, Facing Up to the Problem of Consciousness (1995), Sections 1-4", "List his easy problems and say why each is a problem about function", "Write the strongest objection to Chalmers you can, in one paragraph"]},
+        {"week": 3, "focus": "A scientific theory: the global workspace", "tasks": ["Read Dehaene, Consciousness and the Brain, Ch. 5 on the global neuronal workspace", "Draw the workspace model as a diagram and compare it with a transformer's residual stream", "Read the Stanford Encyclopedia entry on consciousness, the section on theories"]},
+        {"week": 4, "focus": "Could an AI be conscious?", "tasks": ["Read Butlin, Long and colleagues, Consciousness in Artificial Intelligence (2023), Sections 1-2 and the indicator list", "Pick two indicator properties and say whether a current LLM agent has them", "Write a one-page essay arguing both sides, ending with the question you find hardest"]}
+      ],
+      "primary_resource": {"title": "Facing Up to the Problem of Consciousness", "creator": "David Chalmers", "type": "paper", "year": 1995, "url": "https://personal.lse.ac.uk/robert49/teaching/ph103/pdf/chalmers1995.pdf", "url_verified": false},
+      "resources": [
+        {"title": "What Is It Like to Be a Bat?", "creator": "Thomas Nagel", "type": "article", "year": 1974, "url": "https://en.wikipedia.org/wiki/What_Is_It_Like_to_Be_a_Bat%3F", "url_verified": false, "note": "Overview page. The essay itself is in The Philosophical Review, 1974"},
+        {"title": "Consciousness (Stanford Encyclopedia of Philosophy)", "type": "website", "url": "https://plato.stanford.edu/archives/sum2026/entries/consciousness/", "url_verified": false},
+        {"title": "Consciousness and the Brain", "creator": "Stanislas Dehaene", "type": "book", "year": 2014, "chapters": "Ch. 5"},
+        {"title": "Consciousness in Artificial Intelligence: Insights from the Science of Consciousness", "creator": "Butlin, Long and others", "type": "paper", "year": 2023, "url": "https://arxiv.org/abs/2308.08708v1", "url_verified": false}
+      ],
+      "exercises": [
+        "State the hard problem in one sentence a non-philosopher would understand",
+        "Explain the difference between access consciousness and phenomenal consciousness with an example",
+        "Which of Chalmers' easy problems does interpretability research already work on?"
+      ],
+      "deliverable": "A one-page essay: could a system like a current LLM agent be conscious? Arguments on both sides and the question you cannot settle.",
+      "definition_of_done": "The essay exists and you can explain the hard problem and the global workspace theory in two minutes each.",
+      "final_synthesis": "What would count as understanding a model's internal states, and is that the same kind of understanding Nagel says we lack for the bat?",
+      "time_estimate": "2-3 h/week",
+      "light_version": "Read only Nagel and Chalmers Sections 1-3, and write the five-sentence summary.",
+      "continuation": "Possible later milestone: Dennett's Consciousness Explained as the strongest reply to Chalmers. Not scheduled.",
+      "modes": ["learn", "reflect", "create"],
+      "cross_domain": {"fields": ["philosophy of mind", "neuroscience", "interpretability"], "connection": "The question of what it means to explain a mind is the same question interpretability asks about models."},
+      "idea_id": "idea-philosophy-of-mind-and-consciousness",
+      "origin": "system",
+      "status": "suggested"
+    },
+    {
+      "id": "m-2026-11-interactive-explainer",
+      "title": "Make something: build a tiny interactive explainer",
+      "kind": "creative_project",
+      "section": "exploration",
+      "topic": "explorable explanations and creative coding",
+      "dimensions": ["curiosity", "research"],
+      "tier": "exploration",
+      "why": "Building a small interactive page about something you know well is one of the best ways to find the gaps in your own understanding. It is also a craft with its own beauty, from Bret Victor's essays to Distill. And you end the month with something you made and can share.",
+      "objective": "Design and build one small interactive web page that explains a single idea through something the reader can drag, slide or play with.",
+      "prerequisites": ["basic JavaScript, or willingness to learn it with p5.js or plain HTML sliders"],
+      "weeks": [
+        {"week": 1, "focus": "Study the craft", "tasks": ["Read Bret Victor's essay Explorable Explanations and play with every example", "Read Distill's Why Momentum Really Works and note which interactions taught you the most", "Read Nicky Case's How I make an explorable explanation"]},
+        {"week": 2, "focus": "Pick one idea and sketch", "tasks": ["Choose one idea you understand deeply, for example gradient descent with momentum, a random walk, or quantization error", "Sketch on paper the one interaction that carries the idea", "Write the three sentences of text that will sit next to it"]},
+        {"week": 3, "focus": "Build the core interaction", "tasks": ["Build the main interactive piece in a single HTML file with one slider or draggable point", "Test it on one friend without explaining it and watch where they get stuck"]},
+        {"week": 4, "focus": "Polish and share", "tasks": ["Fix the confusing parts from the test", "Add a short intro and one surprising case the reader can discover", "Share it with one person and ask what they now understand"]}
+      ],
+      "primary_resource": {"title": "Explorable Explanations", "creator": "Bret Victor", "type": "article", "year": 2011, "url": "https://worrydream.com/ExplorableExplanations/", "url_verified": false},
+      "resources": [
+        {"title": "Why Momentum Really Works", "creator": "Gabriel Goh (Distill)", "type": "article", "year": 2017, "url": "https://distill.pub/2017/momentum/", "url_verified": false},
+        {"title": "How I make an explorable explanation", "creator": "Nicky Case", "type": "blog", "url": "https://blog.ncase.me/how-i-make-an-explorable-explanation/", "url_verified": false},
+        {"title": "Awesome explorables (a curated list)", "type": "website", "url": "https://github.com/blob42/awesome-explorables", "url_verified": false}
+      ],
+      "exercises": [
+        "For three explorables you liked, name the single interaction that does the teaching",
+        "Write your idea's explanation in 50 words with no interaction. What is missing?"
+      ],
+      "deliverable": "One single-file interactive web page explaining one idea.",
+      "definition_of_done": "A friend used it without help and could tell you the idea afterwards.",
+      "final_synthesis": "What did building it reveal that you did not understand before?",
+      "time_estimate": "2-3 h/week",
+      "light_version": "Weeks 1 and 2 only: study three explorables and sketch your own on paper.",
+      "continuation": "Possible later milestone: a small series of explainers. Not scheduled.",
+      "modes": ["learn", "create", "experience"],
+      "idea_id": "idea-build-a-tiny-interactive-explainer",
+      "origin": "system",
+      "status": "suggested"
+    }
+  ],
+  "reflection_prompts": [
+    "Which of these pulled at me, and why?",
+    "What did I understand better by making or explaining it?"
+  ],
+  "notes": "Generated on 26 November from a manually started run, so the month is nearly over. There was no Slack poll for November, so the deep dives were picked as usual. The December poll is still open and was left untouched. Resource URLs come from web search results in this run and were not fetched.",
+  "language": {
+    "plans": [
+      {
+        "language": "japanese",
+        "goal": "Give a 1-minute self-introduction and ask three simple questions back: name, where someone is from, and what they like.",
+        "weeks": [
+          {"week": 1, "focus": "Self-introduction", "tasks": ["Daily packs", "Learn はじめまして、〜です、よろしくお願いします (hajimemashite, ... desu, yoroshiku onegaishimasu) and say them aloud each day", "Listen to the first two NHK Easy Japanese conversation lessons"]},
+          {"week": 2, "focus": "Where are you from? 〜から来ました", "tasks": ["Learn どこから来ましたか (doko kara kimashita ka, where are you from?) and インドから来ました (Indo kara kimashita, I am from India)", "Role-play the question and answer with Claude three times"]},
+          {"week": 3, "focus": "Likes: 〜が好きです", "tasks": ["Learn 〜が好きです (... ga suki desu, I like ...) with five of your own interests", "Ask and answer 何が好きですか (nani ga suki desu ka, what do you like?) out loud"]},
+          {"week": 4, "focus": "Put it together", "tasks": ["Record a 1-minute self-introduction that ends with one question to the listener", "Do one 5-minute role-play with Claude where you meet someone new"]}
+        ],
+        "resources": [
+          {"title": "Easy Japanese: Conversation Lessons (NHK World-Japan)", "type": "podcast", "url": "https://podcasts.apple.com/us/podcast/easy-japanese-nhk-world-japan/id1482221142", "url_verified": false, "chapters": "Lessons 1-4"},
+          {"title": "Genki I: An Integrated Course in Elementary Japanese", "type": "book", "chapters": "Greetings and Lesson 1"},
+          {"title": "Irasshai: Japanese I (GPB)", "type": "course", "url": "https://www.gpb.org/irasshai/japanese-i", "url_verified": false}
+        ]
+      },
+      {
+        "language": "telugu",
+        "goal": "Greet someone, give your name, ask how they are and say where you are from.",
+        "weeks": [
+          {"week": 1, "focus": "Greetings", "tasks": ["Learn నమస్కారం (namaskāram, hello) and బాగున్నారా? (bāgunnārā?, how are you?) with the reply బాగున్నాను (bāgunnānu, I am fine)", "Say them aloud each morning"]},
+          {"week": 2, "focus": "Names", "tasks": ["Practise నా పేరు ... (nā pēru ..., my name is ...) and మీ పేరు ఏమిటి? (mī pēru ēmiṭi?, what is your name?)", "Watch the first two lessons of Spoken Telugu Through English and shadow them"]},
+          {"week": 3, "focus": "Where you are from", "tasks": ["Learn మీది ఏ ఊరు? (mīdi ē ūru?, which place are you from?) and మాది ... (mādi ..., I am from ...)", "Role-play a first meeting with Claude"]},
+          {"week": 4, "focus": "Put it together", "tasks": ["Hold a 1-minute greeting conversation with Claude: hello, names, how are you, where from, goodbye", "Record it once and listen back"]}
+        ],
+        "resources": [
+          {"title": "Spoken Telugu Through English (YouTube series)", "type": "course", "url": "https://classcentral.com/course/youtube-spoken-telugu-through-english-53731", "url_verified": false, "chapters": "Lessons 1-4"},
+          {"title": "Basic Telugu: An Introductory Language Course", "type": "book", "chapters": "Units 1-2"}
+        ]
+      }
+    ]
+  },
+  "challenges": [
+    {
+      "id": "c-2026-11-imo-1988-p6",
+      "subject": "maths",
+      "title": "The famous IMO 1988 Problem 6",
+      "question": "Let a and b be positive integers such that ab + 1 divides a^2 + b^2. Show that (a^2 + b^2)/(ab + 1) is a perfect square.",
+      "source": "IMO 1988, Problem 6",
+      "level": "olympiad",
+      "tests": "number theory, infinite descent, Vieta jumping",
+      "hints": [
+        "Fix the value k of the quotient and suppose it is not a square.",
+        "Among all pairs (a, b) giving this k, pick the one with the smallest a + b, with a >= b.",
+        "Treat a^2 - k b a + b^2 - k = 0 as a quadratic in a. What is the other root?"
+      ],
+      "solution": "Suppose k is not a square. Take a solution with a >= b > 0 and a + b minimal. The quadratic x^2 - kbx + b^2 - k = 0 has root a, so the other root is a' = kb - a = (b^2 - k)/a, an integer. If a' = 0 then k = b^2, a square. If a' < 0 then a'^2 - kba' + b^2 - k > 0, a contradiction. So a' > 0. Also a' = (b^2 - k)/a < b^2/a <= a. So (a', b) is a smaller solution, a contradiction. Hence k is a perfect square."
+    },
+    {
+      "id": "c-2026-11-putnam-1992-a6",
+      "subject": "probability",
+      "title": "Four random points on a sphere",
+      "question": "Four points are chosen independently and uniformly at random on the surface of a sphere. What is the probability that the tetrahedron they form contains the centre of the sphere?",
+      "source": "Putnam 1992, A6",
+      "level": "university",
+      "tests": "geometric probability, symmetry arguments",
+      "hints": [
+        "Solve the 2D version first: three random points on a circle and the triangle containing the centre.",
+        "Choosing a random point is the same as choosing a random line through the centre and then one of its two endpoints.",
+        "For three random lines and a fourth point, how many of the 8 endpoint choices give a tetrahedron that contains the centre?"
+      ],
+      "solution": "1/8. Pick three random lines through the centre and a fourth random point P. Each of the three lines contributes one of its two endpoints, each choice equally likely. With probability 1, exactly one of the 8 choices gives a tetrahedron with P that contains the centre. So the probability is 1/8. The 2D analogue gives 1/4."
+    },
+    {
+      "id": "c-2026-11-kapitza-pendulum",
+      "subject": "physics",
+      "title": "Balancing a pendulum upside down by shaking it",
+      "question": "A pendulum of length l hangs from a pivot that oscillates vertically as a cos(wt), with w much larger than sqrt(g/l). Show that the inverted position can be stable, and find the condition on a and w.",
+      "source": "Landau and Lifshitz, Mechanics, §30, Problem 1 (the Kapitza pendulum)",
+      "level": "graduate",
+      "tests": "motion in a rapidly oscillating field, effective potentials",
+      "hints": [
+        "Split the motion into a slow part and a small fast wiggle.",
+        "The fast force averages to zero, but its effect on the slow motion does not. It adds an effective potential proportional to the mean square of the fast force.",
+        "With angle theta from the downward vertical, the extra term is (m a^2 w^2 / 4) sin^2(theta)."
+      ],
+      "solution": "The effective potential is U_eff = -mgl cos(theta) + (m a^2 w^2 / 4) sin^2(theta), with theta measured from the downward vertical. Near theta = pi, write theta = pi + phi. Then U_eff is about const + (m a^2 w^2 / 4 - mgl / 2) phi^2. The inverted position is stable when a^2 w^2 > 2 g l."
+    },
+    {
+      "id": "c-2026-11-rayleigh-blue-sky",
+      "subject": "physics",
+      "title": "Why the sky is blue, from dimensions alone",
+      "question": "Sunlight scatters off molecules much smaller than its wavelength. Using only dimensional analysis, show that the scattered intensity goes as 1/wavelength^4. How much more strongly is blue light (450 nm) scattered than red (700 nm)? Then explain why the sky is not violet.",
+      "source": "Lord Rayleigh, On the light from the sky, its polarization and colour (Philosophical Magazine, 1871)",
+      "level": "classic",
+      "tests": "dimensional analysis, scattering, physical reasoning",
+      "hints": [
+        "The scattered amplitude is proportional to the particle's volume V.",
+        "Intensity falls as 1/r^2 with distance r from the particle.",
+        "The ratio of scattered to incoming intensity must be dimensionless."
+      ],
+      "solution": "The scattered amplitude grows with V, so the intensity ratio goes as V^2. It falls as 1/r^2. V^2 / r^2 has dimensions of length^4, so a dimensionless ratio needs 1/wavelength^4. Blue versus red: (700/450)^4 is about 5.9. The sky is not violet because sunlight has less violet than blue, our eyes are less sensitive to violet, and some violet is absorbed high in the atmosphere."
+    },
+    {
+      "id": "c-2026-11-majority-vote",
+      "subject": "computer_science",
+      "title": "Find the majority in one pass with almost no memory",
+      "question": "A stream of n votes is guaranteed to contain one candidate with more than n/2 votes. Find that candidate in a single pass using only a constant amount of extra memory, and prove your method is correct. What changes if there might be no majority?",
+      "source": "Boyer and Moore, MJRTY: A Fast Majority Vote Algorithm (1981)",
+      "level": "university",
+      "tests": "streaming algorithms, invariants, proofs of correctness",
+      "hints": [
+        "Keep one candidate and one counter.",
+        "Think of each vote for someone else as cancelling one vote for the current candidate.",
+        "Can the majority candidate be cancelled completely?"
+      ],
+      "solution": "Keep a candidate c and count k = 0. For each vote x: if k = 0, set c = x and k = 1. Else if x = c, k += 1, otherwise k -= 1. Each decrement pairs one vote for c with one vote for someone else, and these pairs are discarded. The majority has more than half of all votes, so it cannot be fully cancelled by pairs, and it must be the survivor. If a majority is not guaranteed, do a second pass to count c's votes and check."
+    },
+    {
+      "id": "c-2026-11-fisher-sex-ratio",
+      "subject": "biology",
+      "title": "Why are there about as many males as females?",
+      "question": "In many species, one male could fertilise many females, so a population with far fewer males seems more efficient. Yet most species have a sex ratio near 1:1. Explain why natural selection pushes the ratio towards 1:1. Then predict what happens if sons cost parents twice as much to raise as daughters.",
+      "source": "R. A. Fisher, The Genetical Theory of Natural Selection (1930)",
+      "level": "university",
+      "tests": "evolutionary reasoning, frequency-dependent selection",
+      "hints": [
+        "Every offspring has exactly one mother and one father.",
+        "If males are rare, what is the average number of offspring a son will have?",
+        "Think about what parents spend, not only what they produce."
+      ],
+      "solution": "Every offspring has one father and one mother, so males as a group and females as a group have the same total number of offspring. If males are rarer, each son has more offspring on average than each daughter. Genes for producing sons then spread until the advantage disappears at 1:1. The balance is really in parental investment. If sons cost twice as much, selection balances total spending, so parents produce about twice as many daughters as sons."
+    },
+    {
+      "id": "c-2026-11-braess-paradox",
+      "subject": "economics",
+      "title": "A free new road that makes everyone slower",
+      "question": "4000 drivers go from S to E. Route 1 is S to A, taking T/100 minutes where T is the number of cars on that road, then A to E, taking 45 minutes. Route 2 is S to B, 45 minutes, then B to E, T/100 minutes. Each driver picks the fastest route. Find the equilibrium travel time. Then a new road from A to B taking zero minutes opens. Find the new equilibrium. Why does this happen?",
+      "source": "Dietrich Braess, Über ein Paradoxon aus der Verkehrsplanung (1968)",
+      "level": "university",
+      "tests": "Nash equilibrium, selfish routing, price of anarchy",
+      "hints": [
+        "Before the new road, symmetry splits the drivers evenly.",
+        "After it opens, compare S to A against S to B for one driver, even if everyone takes S to A.",
+        "Check that no single driver wants to switch in your new answer."
+      ],
+      "solution": "Before: 2000 cars on each route, time 20 + 45 = 65 minutes. After: S to A costs at most 40 minutes, which beats 45, and B to E likewise beats A to E. So everyone drives S, A, B, E and takes 40 + 0 + 40 = 80 minutes. Switching to S, A, E or S, B, E would take 85 minutes, so 80 is an equilibrium. Each driver acts in their own interest, but they ignore the delay they add for others, so the shared outcome gets worse."
+    },
+    {
+      "id": "c-2026-11-olbers-paradox",
+      "subject": "astronomy",
+      "title": "Why is the night sky dark?",
+      "question": "Assume the universe is infinite, static, eternal and evenly filled with stars like the Sun. Show that the night sky would be as bright as the surface of a star. Then give two reasons the real sky is dark, and say which one matters most.",
+      "source": "Olbers' paradox (Heinrich Olbers, 1823)",
+      "level": "classic",
+      "tests": "scaling arguments, cosmology",
+      "hints": [
+        "Divide space into thin shells around Earth of radius r and thickness dr.",
+        "The number of stars in a shell grows as r^2. The light from each falls as 1/r^2.",
+        "If you look in any direction, where does your line of sight end?"
+      ],
+      "solution": "Each shell holds n 4 pi r^2 dr stars, each sending flux L/(4 pi r^2), so every shell contributes the same n L dr and the total diverges. Allowing for stars blocking each other, every line of sight ends on a star's surface, so the whole sky would be as bright as a star. The real sky is dark mainly because the universe has a finite age, so light reaches us only from a finite distance, and stars do not live long enough to fill the sky with light. Cosmic expansion also redshifts distant light and lowers its energy."
+    },
+    {
+      "id": "c-2026-11-newcomb-problem",
+      "subject": "philosophy",
+      "title": "Newcomb's problem: one box or two?",
+      "question": "A very reliable predictor has put either 1,000,000 or nothing in an opaque box B, and 1,000 in a transparent box A. It put the million in B only if it predicted you would take B alone. You may take B alone or both boxes. Give the strongest argument for each choice, name the decision principle behind each, and say what you would do and why.",
+      "source": "Robert Nozick, Newcomb's Problem and Two Principles of Choice (1969)",
+      "level": "university",
+      "tests": "decision theory, causal versus evidential reasoning",
+      "hints": [
+        "Compute expected value if the predictor is right 99 percent of the time.",
+        "Now note that the money is already in the boxes when you choose.",
+        "What if box B were also transparent?"
+      ],
+      "solution": "There is no agreed answer. One-boxing follows expected value conditional on your choice, often called evidential decision theory: one-boxers almost always get rich. Two-boxing follows dominance and causal decision theory: your choice cannot change what is already in B, and taking both always gives 1,000 more. A good answer explains which principle you trust and why the other one fails here."
+    },
+    {
+      "id": "c-2026-11-bronze-age-collapse",
+      "subject": "history",
+      "title": "Why did the Late Bronze Age world fall apart?",
+      "question": "Around 1200 to 1150 BCE, the Mycenaean palaces, the Hittite empire and many cities of the eastern Mediterranean collapsed within a few decades, and Egypt was badly weakened. Weigh the main explanations: drought, earthquakes, the Sea Peoples, internal revolt and broken trade. Why might no single cause be enough?",
+      "source": "Eric H. Cline, 1177 B.C.: The Year Civilization Collapsed (2014)",
+      "level": "university",
+      "tests": "historical reasoning, weighing evidence, complex systems",
+      "hints": [
+        "For each cause, ask what evidence supports it and why it struggles to explain everything alone.",
+        "These kingdoms depended on long-distance trade, for example tin and copper for bronze.",
+        "Think of a tightly connected network: what happens when several shocks arrive together?"
+      ],
+      "solution": "Each cause has evidence but fails alone. Drought is supported by climate records but societies had survived droughts before. The Sea Peoples appear in Egyptian records, but they may be a symptom as well as a cause. Earthquakes hit some sites but not all. Cline argues for a systems collapse. The kingdoms were tightly linked by trade and diplomacy, so several shocks together cascaded through the network faster than any one state could adapt."
+    }
+  ]
+}

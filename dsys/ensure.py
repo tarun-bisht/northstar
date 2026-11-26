@@ -27,7 +27,7 @@ import subprocess
 import time
 from pathlib import Path
 
-REPO_SLUG = "tarun-bisht/northstar"
+REPO_SLUG = "tarun-bisht/northstar"  # default; forks use their own origin (repo_slug)
 WORKFLOW = "fetch-candidates.yml"
 WEEKDAY_ONLY: set = set()  # papers are fetched every day (arXiv plus other sources)
 
@@ -38,6 +38,42 @@ def _root() -> Path:
 
 def _run(cmd: list[str]) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, cwd=str(_root()), capture_output=True, text=True, timeout=120)
+
+
+def repo_slug(run=None) -> str:
+    """owner/repo of this clone's origin, so a fork dispatches its own workflow."""
+    import re
+    r = (run or _run)(["git", "remote", "get-url", "origin"])
+    m = re.search(r"github\.com[:/]([^/\s]+/[^/\s]+?)(?:\.git)?/?$", (r.stdout or "").strip())
+    return m.group(1) if r.returncode == 0 and m else REPO_SLUG
+
+
+def pull(run) -> str | None:
+    """Pull main, keeping the run's uncommitted work (--autostash). Returns an error or None."""
+    r = run(["git", "pull", "-q", "--rebase", "--autostash", "origin", "main"])
+    return None if r.returncode == 0 else (r.stderr or r.stdout or "git pull failed")[-300:]
+
+
+def _dispatch(run, inputs: dict, sleep, pause: int, deadline: float, clock) -> set:
+    """Start the fetch workflow and return the id of the run it created, waiting the few
+    seconds GitHub takes to show it. Raises RuntimeError if GitHub refuses."""
+    started = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    cmd = ["gh", "api", "-X", "POST", f"repos/{repo_slug(run)}/actions/workflows/{WORKFLOW}/dispatches", "-f", "ref=main"]
+    for k, v in inputs.items():
+        cmd += ["-f", f"inputs[{k}]={v}"]
+    r = run(cmd)
+    if r.returncode != 0:
+        raise RuntimeError((r.stderr or r.stdout)[-300:])
+    mine: set = set()
+    while not mine and clock() < deadline:
+        sleep(min(pause, 10))
+        mine = {x["id"] for x in _runs(run) if x.get("event") == "workflow_dispatch"
+                and x.get("created_at", "") >= started}
+    return mine
+
+
+def _retried_marker(repo, day: dt.date) -> Path:
+    return repo.p(".cache", f"retried-{day.isoformat()}")  # gitignored, local to this run
 
 
 def needed(day: dt.date, kinds: list[str]) -> list[str]:
@@ -60,7 +96,7 @@ def check(repo, day: dt.date, kinds: list[str]) -> tuple[list[str], dict[str, li
 
 
 def _runs(run, status: str | None = None) -> list[dict]:
-    q = f"repos/{REPO_SLUG}/actions/workflows/{WORKFLOW}/runs?per_page=20" + (f"&status={status}" if status else "")
+    q = f"repos/{repo_slug(run)}/actions/workflows/{WORKFLOW}/runs?per_page=20" + (f"&status={status}" if status else "")
     r = run(["gh", "api", q])
     if r.returncode != 0:
         raise RuntimeError((r.stderr or r.stdout)[-300:])
@@ -86,8 +122,10 @@ def ensure(repo, day: dt.date, kinds: list[str], timeout: int = 540, attempts: i
     log = []
     for attempt in range(1, attempts + 1):
         missing, failed = check(repo, day, kinds)
-        if not missing and not failed:
-            print(json.dumps({"ok": True, "missing": [], "failed_sources": {}, "log": log}))
+        if not missing and (not failed or _retried_marker(repo, day).exists()):
+            # failed sources get one retry per run; after that the fetched data is used as it is
+            print(json.dumps({"ok": True, "missing": [], "failed_sources": failed, "log": log,
+                              "next": "use the fetched files; list failed_sources in the final message"}))
             return 0
         if clock() >= deadline:
             break
@@ -97,25 +135,21 @@ def ensure(repo, day: dt.date, kinds: list[str], timeout: int = 540, attempts: i
                 log.append(f"round {attempt}: waiting for running fetch {[r['id'] for r in active]}")
                 _wait_done(run, {r["id"] for r in active}, sleep, pause, deadline, clock)
             else:
-                retry = not missing  # files exist, only some sources failed: refetch just those
+                retry = not missing  # files exist, only some sources failed: refetch just those, once
                 todo = missing or list(failed)
-                started = dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)
-                r = run(["gh", "api", "-X", "POST", f"repos/{REPO_SLUG}/actions/workflows/{WORKFLOW}/dispatches",
-                         "-f", "ref=main", "-f", f"inputs[kinds]={','.join(todo)}",
-                         "-f", f"inputs[retry_only]={'true' if retry else 'false'}"])
-                if r.returncode != 0:
-                    raise RuntimeError((r.stderr or r.stdout)[-300:])
+                if retry:
+                    _retried_marker(repo, day).parent.mkdir(parents=True, exist_ok=True)
+                    _retried_marker(repo, day).touch()
+                mine = _dispatch(run, {"kinds": ",".join(todo), "retry_only": "true" if retry else "false"},
+                                 sleep, pause, deadline, clock)
                 log.append(f"round {attempt}: started fetch for {','.join(todo)}{' (retry failed sources)' if retry else ''}")
-                mine: set = set()
-                while not mine and clock() < deadline:  # the new run takes a few seconds to appear
-                    sleep(min(pause, 10))
-                    mine = {x["id"] for x in _runs(run) if x.get("event") == "workflow_dispatch"
-                            and x.get("created_at", "") >= started.strftime("%Y-%m-%dT%H:%M:%SZ")}
                 _wait_done(run, mine, sleep, pause, deadline, clock)
         except RuntimeError as e:
             log.append(f"round {attempt}: GitHub API error: {e}")
             sleep(pause)
-        run(["git", "pull", "-q", "--rebase", "origin", "main"])
+        err = pull(run)
+        if err:
+            log.append(f"round {attempt}: git pull failed: {err}")
     missing, failed = check(repo, day, kinds)
     ok = not missing
     print(json.dumps({"ok": ok, "missing": missing, "failed_sources": failed, "log": log,
@@ -131,18 +165,16 @@ def add_papers(repo, day: dt.date, ids: list[str], tag: str, timeout: int = 540,
     """Start the fetch workflow in addpapers mode (alphaXiv feed papers) and wait for it to finish."""
     run = run or _run
     deadline = clock() + timeout
-    if not _active(run):
-        r = run(["gh", "api", "-X", "POST", f"repos/{REPO_SLUG}/actions/workflows/{WORKFLOW}/dispatches",
-                 "-f", "ref=main", "-f", "inputs[kinds]=addpapers", "-f", f"inputs[ids]={','.join(ids)}",
-                 "-f", f"inputs[tag]={tag}"])
-        if r.returncode != 0:
-            print(json.dumps({"ok": False, "error": (r.stderr or r.stdout)[-300:], "next": "go on without them"}))
-            return 1
-        sleep(min(pause, 10))
-    _wait_done(run, {x["id"] for x in _active(run)}, sleep, pause, deadline, clock)
-    run(["git", "pull", "-q", "--rebase", "origin", "main"])
-    print(json.dumps({"ok": True, "added": len(ids), "tag": tag}))
-    return 0
+    try:
+        _wait_done(run, {x["id"] for x in _active(run)}, sleep, pause, deadline, clock)  # one fetch at a time
+        mine = _dispatch(run, {"kinds": "addpapers", "ids": ",".join(ids), "tag": tag}, sleep, pause, deadline, clock)
+    except RuntimeError as e:
+        print(json.dumps({"ok": False, "error": str(e), "next": "go on without them"}))
+        return 1
+    _wait_done(run, mine, sleep, pause, deadline, clock)
+    err = pull(run)
+    print(json.dumps({"ok": not err, "added": len(ids), "tag": tag, **({"error": err} if err else {})}))
+    return 0 if not err else 1
 
 
 def enrich(repo, day: dt.date, ids: list[str], timeout: int = 540, pause: int = 60, run=None, sleep=time.sleep,
@@ -157,16 +189,16 @@ def enrich(repo, day: dt.date, ids: list[str], timeout: int = 540, pause: int = 
         print(json.dumps({"ok": True, "enriched": len(ids), "missing": 0}))
         return 0
     deadline = clock() + timeout
-    if not _active(run):
-        started = dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)
-        r = run(["gh", "api", "-X", "POST", f"repos/{REPO_SLUG}/actions/workflows/{WORKFLOW}/dispatches",
-                 "-f", "ref=main", "-f", "inputs[kinds]=enrich", "-f", f"inputs[ids]={','.join(todo)}"])
-        if r.returncode != 0:
-            print(json.dumps({"ok": False, "error": (r.stderr or r.stdout)[-300:],
-                              "next": "go on without affiliations; the trust flag then comes from names only"}))
-            return 1
-    _wait_done(run, {x["id"] for x in _active(run)}, sleep, pause, deadline, clock)
-    run(["git", "pull", "-q", "--rebase", "origin", "main"])
+    try:
+        active = {x["id"] for x in _active(run)}
+        # a still-running enrich from the last call is waited for, not started twice
+        mine = active or _dispatch(run, {"kinds": "enrich", "ids": ",".join(todo)}, sleep, pause, deadline, clock)
+    except RuntimeError as e:
+        print(json.dumps({"ok": False, "error": str(e),
+                          "next": "go on without affiliations; the trust flag then comes from names only"}))
+        return 1
+    _wait_done(run, mine, sleep, pause, deadline, clock)
+    pull(run)
     have = set(json.loads(path.read_text()).get("papers", {})) if path.exists() else set()
     left = [i for i in ids if i not in have]
     print(json.dumps({"ok": not left, "enriched": len(ids) - len(left), "missing": len(left),

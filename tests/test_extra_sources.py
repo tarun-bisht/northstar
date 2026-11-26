@@ -121,7 +121,7 @@ def _fake_github(repo, land_on_pull=1, fail_sources=False):
                     return _R(json.dumps({"workflow_runs": [dict(r, status="in_progress")]}))
             want = q.split("status=")[1] if "status=" in q else None
             return _R(json.dumps({"workflow_runs": [r for r in st["runs"] if want in (None, r["status"])]}))
-        if cmd[0] == "git":
+        if cmd[:2] == ["git", "pull"]:
             st["pulls"] += 1
             if st["pulls"] >= land_on_pull:
                 write_json(repo.p("candidates", "arxiv", f"{D}.json"),
@@ -170,7 +170,7 @@ def test_enrich_dispatches_once_and_reads_results(repo):
 
     def run2(cmd):
         r = orig(cmd)
-        if cmd[0] == "git":
+        if cmd[:2] == ["git", "pull"]:
             write_json(repo.p("candidates", "affil", f"{D}.json"), {"papers": {"2611.00001": {"affiliations": ["MIT"]}}})
         return r
     assert enrich(repo, D, ["2611.00001"], run=run2, sleep=lambda s: None) == 0
@@ -186,3 +186,22 @@ def test_no_youtube_key_writes_empty_files_so_ensure_does_not_refetch(repo, monk
     assert fc.fetch_youtube(repo, day) == 0 and fc.fetch_long_videos(repo, day) == 0
     missing, failed = ensure.check(repo, day, ["youtube", "videos"])
     assert missing == [] and failed == {}
+
+
+def test_ensure_retries_failed_sources_only_once(repo):
+    from dsys.ensure import ensure
+    run, st = _fake_github(repo, fail_sources=True)
+    assert ensure(repo, D, ["arxiv"], attempts=4, run=run, sleep=lambda s: None) == 0
+    n = len(st["dispatches"])
+    assert ensure(repo, D, ["arxiv"], attempts=4, run=run, sleep=lambda s: None) == 0
+    assert len(st["dispatches"]) == n  # a second call does not retry the same failures again
+
+
+def test_pull_keeps_uncommitted_work_and_slug_follows_origin():
+    from dsys.ensure import pull, repo_slug
+    seen = []
+    assert pull(lambda c: seen.append(c) or _R()) is None and "--autostash" in seen[0]
+    assert pull(lambda c: _R(code=1)) == "git pull failed"
+    assert repo_slug(lambda c: _R("git@github.com:someone/my-north.git\n")) == "someone/my-north"
+    assert repo_slug(lambda c: _R("https://github.com/a/b\n")) == "a/b"
+    assert repo_slug(lambda c: _R(code=1)) == "tarun-bisht/northstar"

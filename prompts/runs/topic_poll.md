@@ -4,7 +4,7 @@ Ask the user in Slack what to go deep on next. Their answer steers the next week
 
 Channel: **#northstar-polls** (`config/notifications.json → slack.polls.id`). If the Slack tools are not available, stop and say so.
 
-1. `python scripts/dsys.py period` gives `<today>`, `next_week` and `next_month`. On a Thursday post the weekly poll. On the 25th post the monthly poll. On a day that is both, post both. On any other day, skip this.
+1. `python scripts/dsys.py period` gives `<today>`, `next_week` and `next_month`. On a Thursday post the weekly poll. On the 25th post the monthly poll. On a day that is both, post both. On any other day, skip this. Skip any poll that `python scripts/dsys.py polls list --open` already shows for that period (a second run the same day must not post it twice).
 2. **Weekly poll (Thursday): the New in AI topic for next week.** Pick 4 options, mostly AI research concepts that are trending now and worth learning properly: use `python scripts/dsys.py candidates arxiv --trending-week <this_week>`, `candidates arxiv --search all`, and `context weekly --period <next_week>` (skip anything covered recently). Post, formatted like this:
    ```
    🗳️ **Weekly poll · <next_week>**

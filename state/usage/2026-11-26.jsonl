@@ -18,3 +18,7 @@
 {"t": "2026-11-26T07:53:18+00:00", "run": "quarterly", "read": "reading show --week", "chars": 2063}
 {"t": "2026-11-26T07:53:18+00:00", "run": "quarterly", "read": "reading show --week", "chars": 7379}
 {"t": "2026-11-26T07:53:18+00:00", "run": "quarterly", "event": "end"}
+{"t": "2026-11-26T07:54:12+00:00", "run": "quarterly", "event": "start"}
+{"t": "2026-11-26T07:54:12+00:00", "run": "quarterly", "read": "runbook and prompts", "chars": 76658}
+{"t": "2026-11-26T07:54:12+00:00", "run": "quarterly", "read": "quarterly draft --quarter", "chars": 2109}
+{"t": "2026-11-26T07:54:17+00:00", "run": "quarterly", "event": "end"}

@@ -373,6 +373,13 @@ def _stream_block(s: str, doc: dict, date: str | None = None) -> str:
     elif s == "discovery":
         out += [_sub(f"discover-{k}", label, len(its), "".join(_entry(s, it, "h5") for it in its))
                 for k, label, its in render.group_discovery(items)]
+    elif s in ("arxiv", "research_updates") and any(it.get("priority") == "more" for it in items):
+        top = [it for it in items if it.get("priority", "top") != "more"]
+        more = [it for it in items if it.get("priority") == "more"]
+        out.append('<div class="col">' + "".join(_entry(s, it, "h4") for it in top) + "</div>")
+        label = "More papers" if s == "arxiv" else "More updates"
+        out.append(f'<details class="more"><summary>{label} ({len(more)})</summary><div class="col">'
+                   + "".join(_entry(s, it, "h4") for it in more) + "</div></details>")
     else:
         out.append('<div class="col">' + "".join(_entry(s, it, "h4") for it in items) + "</div>")
     out.append("</section>")

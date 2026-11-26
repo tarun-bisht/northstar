@@ -20,7 +20,7 @@
       30,
       40
     ],
-    "max_research_updates": 8,
+    "max_research_updates": 20,
     "max_world_items": 20,
     "discovery_formats": {
       "_doc": "Rules for Daily Discovery and Shorts (validation enforces the 'required' ones).",

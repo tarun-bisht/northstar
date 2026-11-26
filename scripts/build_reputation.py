@@ -106,7 +106,7 @@ def add_openalex(doc: dict, hipo: list, top: int) -> int:
             if norm(name) in have or set(domains) & have_domains:
                 continue
             aliases = [x for x in (r.get("display_name_acronyms") or []) + (r.get("display_name_alternatives") or [])
-                       if 2 <= len(x) <= 80][:6]
+                       if 3 <= len(x) <= 80][:6]
             doc["universities"].append({"name": name, "aliases": aliases, "domains": domains,
                                         "country": r.get("country_code"), "openalex_rank": page * 200 - 200 + rows.index(r) + 1})
             have.add(norm(name))

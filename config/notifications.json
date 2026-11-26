@@ -1,7 +1,10 @@
 {
-  "_doc": "Where Northstar sends its one notification channel. Mobile and email notifications are off for every scheduled task; the Slack digest, topic poll and poll collect runs post here (prompts/runs/slack_digest.md, topic_poll.md, poll_collect.md). Replace channel_id with your own channel if you fork.",
+  "_doc": "Slack is Northstar's only notification channel. All channels are public. Mobile and email notifications are off for every scheduled task. Replace the ids with your own channels if you fork.",
   "slack": {
-    "channel_name": "#northstar",
-    "channel_id": "C0CLK5WGKE1"
+    "daily": {"name": "#northstar-daily", "id": "C0CLWS7EHD3", "use": "Daily, weekly and monthly 'ready' messages with stats, and one line when a part is missing"},
+    "polls": {"name": "#northstar-polls", "id": "C0CM1VBAK26", "use": "Weekly New in AI poll (Thursdays) and monthly research and fundamentals poll (the 25th)"},
+    "ask": {"name": "#northstar-ask", "id": "C0CM5S2CY04", "use": "Occasional questions to the user, only when the answer changes what gets made"},
+    "general": {"name": "#general", "id": "C0CLU147SR2", "use": "Announcements: changes to Northstar itself, the quarterly review"},
+    "random": {"name": "#random", "id": "C0CLK19CEUD", "use": "One light thing a day: an xkcd link or an original joke"}
   }
 }

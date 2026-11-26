@@ -50,8 +50,19 @@ def esc(s) -> str:
     return html.escape(_CTRL.sub("", str(s if s is not None else "")), quote=True)
 
 
+_ARXIV_ABS = re.compile(r"https?://(?:www\.)?arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})(?:v\d+)?")
+
+
+def paper_link(url: str) -> str:
+    """Every arXiv paper link goes to alphaXiv, where the paper, its summary and discussion live."""
+    m = _ARXIV_ABS.match(url or "")
+    return f"https://www.alphaxiv.org/abs/{m.group(1)}" if m else url
+
+
 def a(url: str, text: str | None = None) -> str:
-    """A link. Links that leave the site open in a new tab, on the site and in RSS."""
+    """A link. Links that leave the site open in a new tab, on the site and in RSS. arXiv paper
+    links go to alphaXiv."""
+    url = paper_link(url)
     ext = ' target="_blank" rel="noopener noreferrer"' if str(url).startswith(("http://", "https://")) else ""
     return f'<a href="{esc(url)}"{ext}>{esc(text or url)}</a>'
 
@@ -331,11 +342,13 @@ def tags_line(tags) -> str:
 
 
 def arxiv_item(p: dict) -> str:
-    links = a(p["url"], f"arXiv:{p['arxiv_id']}") + (f", {a(p['pdf_url'], 'PDF')}" if p.get("pdf_url") else "")
+    links = a(paper_link(p["url"]), f"Read on alphaXiv (arXiv:{p['arxiv_id']})")
+    affs = f"<p class='meta'>{esc('; '.join(p['affiliations'][:4]))}</p>" if p.get("affiliations") else ""
     hf = f", {p['hf_upvotes']} upvotes on Hugging Face" if p.get("hf_upvotes") else ""
     return "".join([
         tags_line(p["tags"]),
         f'<p class="authors">{esc(", ".join(p["authors"][:8]))}{" et al." if len(p["authors"]) > 8 else ""}</p>',
+        affs,
         f'<blockquote class="abstract">{esc(p["abstract"])}</blockquote>',
         f'<p class="links">{links}. {esc(p["research_area"])}, {esc(" ".join(p["categories"]))}, '
         f'submitted {nice_date(p["submitted"])}{hf}</p>',
@@ -347,7 +360,7 @@ def _reading_entry(pp: dict) -> str:
     note = f"<p>{esc(pp['note'])}</p>" if pp.get("note") else ""
     votes = ", ".join(x for x in (f"{pp['alphaxiv_votes']} alphaXiv votes" if pp.get("alphaxiv_votes") else "",
                                   f"{pp['hf_upvotes']} Hugging Face upvotes" if pp.get("hf_upvotes") else "") if x)
-    return (f"<article class='entry'><h3>{a(pp['url'], pp['title'])}</h3>{tags_line(pp['tags'])}{by}{note}"
+    return (f"<article class='entry'><h3>{a(paper_link(pp['url']), pp['title'])}</h3>{tags_line(pp['tags'])}{by}{note}"
             f"<p class='links'>{esc(pp['source'].replace('_', ' '))}, added {nice_date(pp['added'])}"
             f"{', ' + votes if votes else ''}</p></article>")
 

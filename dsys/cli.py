@@ -100,12 +100,6 @@ def cmd_history(repo: Repo, args) -> int:
     return 0
 
 
-def cmd_papers(repo: Repo, args) -> int:
-    n = history.mark_papers_seen(repo, args.ids, _day(args.date))
-    print(f"marked {n} papers as seen")
-    return 0
-
-
 def cmd_candidates(repo: Repo, args) -> int:
     day = _day(args.date)
     if args.kind == "news":
@@ -114,8 +108,16 @@ def cmd_candidates(repo: Repo, args) -> int:
     if args.kind == "ensure":
         from .ensure import ensure
         return ensure(repo, day, [k.strip() for k in (args.kinds or "arxiv,news").split(",")], timeout=int(args.wait))
+    if args.kind == "updates" and args.compact:
+        from . import stages
+        _print(stages.compact_updates(repo, day))
+        return 0
     if args.kind in ("podcasts", "videos", "updates", "hf"):
-        _print(history.latest_candidates(repo, args.kind, day))
+        doc = history.latest_candidates(repo, args.kind, day)
+        if args.kind in ("podcasts", "videos"):
+            from . import stages
+            stages.record(repo, day, "discovery", **{f"{args.kind}_fetched": len(doc.get("candidates", []))})
+        _print(doc)
         return 0
     if args.kind == "arxiv" and args.search:
         _print(history.interest_search(repo, day, args.search))
@@ -141,6 +143,48 @@ def cmd_candidates(repo: Repo, args) -> int:
                                **{k: c[k] for k in ("hf_upvotes", "alphaxiv_votes", "notable_authors") if c.get(k)}}
                               for c in data["candidates"]]
     _print(data)
+    return 0
+
+
+def cmd_papers(repo: Repo, args) -> int:
+    from . import stages
+    from .ensure import enrich
+    day = _day(args.date)
+    if args.action == "mark-seen":
+        n = history.mark_papers_seen(repo, args.ids, day)
+        print(f"marked {n} papers as seen")
+    elif args.action == "stage1":
+        _print(stages.stage1(repo, day, int(args.batch_size)))
+    elif args.action == "merge":
+        _print(stages.merge_verdicts(repo, day, [f for f in args.files.split(",") if f]))
+    elif args.action == "enrich":
+        import json as _j
+        ids = sorted(_j.loads((stages.WORK / day.isoformat() / "stage1_passed.json").read_text()))
+        return enrich(repo, day, ids)
+    elif args.action == "stage2":
+        _print(stages.stage2(repo, day))
+    return 0
+
+
+def cmd_reputation(repo: Repo, args) -> int:
+    from . import reputation
+    if args.action == "suggest":
+        _print(reputation.suggestions(repo, int(args.min_papers)))
+    else:
+        reg = reputation.load(repo)
+        _print({"universities": len(reg.data.get("universities", [])), "labs": len(reg.data.get("labs", [])),
+                "researchers": len(reg.data.get("researchers", [])), "added": reg.data.get("added", [])[-10:]})
+    return 0
+
+
+def cmd_stats(repo: Repo, args) -> int:
+    from . import stages
+    day = _day(args.date)
+    if args.action == "record":
+        counts = dict(kv.split("=", 1) for kv in args.counts)
+        _print(stages.record(repo, day, args.stream, **{k: (int(v) if v.isdigit() else v) for k, v in counts.items()}))
+    else:
+        _print(stages.stats(repo, day))
     return 0
 
 
@@ -203,8 +247,23 @@ def cmd_daily(repo: Repo, args) -> int:
     if args.notes:
         doc["notes"] = args.notes
     write_json(path, doc)
+    from . import stages
+    stages.record(repo, day, args.stream, picked=len(doc["items"]),
+                  **({"briefs": len(doc.get("briefs", []))} if doc.get("briefs") else {}))
+    if args.stream == "arxiv" and added:
+        _log_reputation(repo, day, [it for it in incoming if it["id"] in have])
     print(f"{path.relative_to(repo.root)}: +{added} items ({len(doc['items'])} total)")
     return 0
+
+
+def _log_reputation(repo: Repo, day: dt.date, items: list[dict]) -> None:
+    """Remember authors and affiliations of picked papers that the registry doesn't cover yet."""
+    from . import reputation
+    affil_p = repo.p("candidates", "affil", f"{day.isoformat()}.json")
+    affil = load_json(affil_p).get("papers", {}) if affil_p.exists() else {}
+    papers = [{"arxiv_id": it.get("arxiv_id"), "authors": it.get("authors", []),
+               "affiliations": affil.get(it.get("arxiv_id"), {}).get("affiliations", [])} for it in items]
+    reputation.log_papers(repo, day, papers, "picked")
 
 
 def cmd_ideas(repo: Repo, args) -> int:
@@ -402,11 +461,25 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("action", choices=["rebuild"])
     s.set_defaults(fn=cmd_history)
 
-    s = sub.add_parser("papers", help="mark arXiv candidates as seen (reviewed, not selected)")
-    s.add_argument("action", choices=["mark-seen"])
-    s.add_argument("ids", nargs="+")
+    s = sub.add_parser("papers", help="staged paper reading: stage1 batches, merge verdicts, enrich, stage2")
+    s.add_argument("action", choices=["stage1", "merge", "enrich", "stage2", "mark-seen"])
+    s.add_argument("ids", nargs="*", help="mark-seen: arXiv ids reviewed but not selected")
     s.add_argument("--date")
+    s.add_argument("--batch-size", default=100)
+    s.add_argument("--files", default="", help="merge: comma-separated verdict files")
     s.set_defaults(fn=cmd_papers)
+
+    s = sub.add_parser("reputation", help="trust registry: summary, or recurring authors and groups to consider adding")
+    s.add_argument("action", choices=["show", "suggest"])
+    s.add_argument("--min-papers", default=3)
+    s.set_defaults(fn=cmd_reputation)
+
+    s = sub.add_parser("stats", help="processed and passed counts per stream (state/stats/<date>.json)")
+    s.add_argument("action", choices=["record", "show"])
+    s.add_argument("--date")
+    s.add_argument("--stream")
+    s.add_argument("counts", nargs="*", help="record: key=value pairs")
+    s.set_defaults(fn=cmd_stats)
 
     s = sub.add_parser("status", help="what exists today and what failed (for the Slack digest)")
     s.add_argument("--date")
@@ -414,7 +487,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     s = sub.add_parser("polls", help="topic polls posted in Slack: open, close, list")
     s.add_argument("action", choices=["open", "close", "list"])
-    s.add_argument("--kind", choices=["weekly", "monthly"])
+    s.add_argument("--kind", choices=["weekly", "monthly", "question"])
     s.add_argument("--period")
     s.add_argument("--ts", help="open: the Slack message ts")
     s.add_argument("--options", help="open: JSON file with a list of {key, topic}")
@@ -424,6 +497,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     s = sub.add_parser("candidates", help="print unseen fetched candidates")
     s.add_argument("kind", choices=["arxiv", "news", "youtube", "videos", "podcasts", "updates", "hf", "ensure"])
+    s.add_argument("--compact", action="store_true", help="updates: short keys, last 3 days' items removed")
     s.add_argument("--kinds", help="ensure: comma list of candidate kinds today's run needs (default arxiv,news)")
     s.add_argument("--wait", default=540, help="ensure: most seconds this call waits (default 540; call again if needed)")
     s.add_argument("--date")

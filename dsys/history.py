@@ -160,8 +160,11 @@ def news_candidates(repo: Repo, day: dt.date, category: str | None = None, brief
         return {"date": day.isoformat(), "available": False, "categories": {}}
     cand = load_json(path)
     cfg = repo.config("sources").get("world", {})
+    from .stages import headline_key, recent_published, record
+    urls, heads = recent_published(repo, "world", day)  # drop what was published in the last 3 days
+    fresh = [c for c in cand.get("candidates", []) if c.get("url") not in urls and headline_key(c.get("title")) not in heads]
     groups: dict[str, list] = {}
-    for c in cand.get("candidates", []):
+    for c in fresh:
         groups.setdefault(news.categorize(c, cfg), []).append(c)
     order = [c for c in cfg.get("categories", {}).get("order", list(groups)) if c != "other"] + ["other"]
     out = {}
@@ -171,14 +174,19 @@ def news_candidates(repo: Repo, day: dt.date, category: str | None = None, brief
         rows = []
         for c in news.merge_duplicates(groups[cat]):
             row = {k: c.get(k) for k in ("title", "source", "published", "url")}
+            if c.get("depth") or any(x.get("depth") for x in c.get("also_in", []) if isinstance(x, dict)):
+                row["depth"] = True
             if c.get("also_in"):
                 row["also_in"] = [x["source"] for x in c["also_in"]] if brief else c["also_in"]
             if not brief:
                 row["summary"] = c.get("summary")
             rows.append(row)
         out[cat] = rows
+    if not category:
+        record(repo, day, "world", headlines=len(cand.get("candidates", [])), dropped_recent=len(cand.get("candidates", [])) - len(fresh),
+               stories=sum(len(v) for v in out.values()))
     return {"date": day.isoformat(), "available": True, "fetched_at": cand.get("fetched_at"),
-            "failed_sources": cand.get("failed_sources", []),
+            "failed_sources": cand.get("failed_sources", []), "dropped_published_last_3_days": len(cand.get("candidates", [])) - len(fresh),
             "counts": {k: len(v) for k, v in out.items()}, "categories": out}
 
 

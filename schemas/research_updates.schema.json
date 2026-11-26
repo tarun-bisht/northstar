@@ -89,6 +89,13 @@
         },
         "dimensions": {
           "$ref": "common.schema.json#/$defs/dimensions"
+        },
+        "priority": {
+          "enum": [
+            "top",
+            "more"
+          ],
+          "description": "top: shown first. more: folded under 'More updates'."
         }
       }
     }

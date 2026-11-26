@@ -152,7 +152,7 @@ def collect_items(repo: Repo, feed: str, site: dict, examples: bool = False,
             for i, pp in enumerate(doc["papers"]):
                 group = {"trending": "Trending", "lab": pp.get("group") or "Leading group"}.get(pp.get("kind"), "For you")
                 entries.append({
-                    "guid": f"dsys:reading:{pp['id']}", "title": f"[{group}] {pp['title']}", "link": pp["url"],
+                    "guid": f"dsys:reading:{pp['id']}", "title": f"[{group}] {pp['title']}", "link": render.paper_link(pp["url"]),
                     "description": pp.get("note") or ", ".join(pp["tags"]),
                     "html": render.reading_list({"papers": [pp]}),
                     "pub": pub_datetime(dt.date.fromisoformat(pp["added"]), site, i),

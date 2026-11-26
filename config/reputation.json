@@ -843,7 +843,6 @@
   {
    "name": "University of Wisconsin–Madison",
    "aliases": [
-    "UW",
     "UW–Madison",
     "Universidad de Wisconsin-Madison",
     "University of Wisconsin - Madison",
@@ -859,7 +858,6 @@
   {
    "name": "Northwestern University",
    "aliases": [
-    "NU",
     "Northwestern University"
    ],
    "domains": [
@@ -1004,7 +1002,6 @@
   {
    "name": "University of Florida",
    "aliases": [
-    "UF",
     "Universidad de la Florida",
     "University of Florida",
     "University of the State of Florida",
@@ -1053,7 +1050,6 @@
    "name": "The University of Queensland",
    "aliases": [
     "The University of Queensland",
-    "UQ",
     "University of Queensland"
    ],
    "domains": [
@@ -1066,7 +1062,6 @@
   {
    "name": "Karolinska Institutet",
    "aliases": [
-    "KI",
     "Karoliininen instituutti",
     "Karolinska Institute",
     "Karolinska Institutet",
@@ -1081,7 +1076,6 @@
   {
    "name": "Boston University",
    "aliases": [
-    "BU",
     "Boston U",
     "Boston University",
     "Universidad de Boston",
@@ -1097,7 +1091,6 @@
   {
    "name": "University of Arizona",
    "aliases": [
-    "UA",
     "Universidad de Arizona",
     "University of Arizona"
    ],
@@ -1189,7 +1182,6 @@
   {
    "name": "Rutgers, The State University of New Jersey",
    "aliases": [
-    "RU",
     "Rutgers",
     "Rutgers University",
     "Rutgers, The State University of New Jersey"
@@ -1311,7 +1303,6 @@
   {
    "name": "University of Utah",
    "aliases": [
-    "UU",
     "Universidad de Utah",
     "University of Deseret",
     "University of Utah"
@@ -1356,7 +1347,6 @@
   {
    "name": "University of Helsinki",
    "aliases": [
-    "UH",
     "Helsingfors Universitet",
     "Helsingin Yliopisto",
     "University of Helsinki"
@@ -1427,7 +1417,6 @@
   {
    "name": "University of Iowa",
    "aliases": [
-    "UI",
     "Universidad de Iowa",
     "University of Iowa",
     "Université de l'iowa"
@@ -1763,7 +1752,6 @@
   {
    "name": "Universitat de Barcelona",
    "aliases": [
-    "UB",
     "Bartzelonako Unibertsitatea",
     "Universidad de Barcelona",
     "Universitat de Barcelona",
@@ -1779,7 +1767,6 @@
   {
    "name": "Indiana University",
    "aliases": [
-    "IU",
     "Indiana University",
     "Université de l'Indiana"
    ],
@@ -1808,7 +1795,6 @@
   {
    "name": "Aarhus University",
    "aliases": [
-    "AU",
     "Aarhus Universitet",
     "Aarhus University"
    ],
@@ -1895,7 +1881,6 @@
    "name": "University of Miami",
    "aliases": [
     "U Miami",
-    "UM",
     "Universidad de Miami",
     "University of Miami",
     "Université de miami"
@@ -1983,7 +1968,6 @@
   {
    "name": "Vrije Universiteit Amsterdam",
    "aliases": [
-    "VU",
     "VU Amsterdam",
     "Vrije Universiteit Amsterdam"
    ],
@@ -1996,7 +1980,6 @@
   {
    "name": "University of Bern",
    "aliases": [
-    "UB",
     "University of Bern",
     "Università di Berna",
     "Universität Bern",
@@ -2121,7 +2104,6 @@
   {
    "name": "University of Cincinnati",
    "aliases": [
-    "UC",
     "Universidad de Cincinnati",
     "University of Cincinnati",
     "Université de cincinnati"
@@ -2221,7 +2203,6 @@
   {
    "name": "Indiana University Bloomington",
    "aliases": [
-    "IU",
     "Indiana University Bloomington",
     "Universidad de Indiana Bloomington",
     "Université de l'Indiana à Bloomington"
@@ -2386,7 +2367,6 @@
    "name": "Nanjing University",
    "aliases": [
     "NJU",
-    "NU",
     "Nanjing University",
     "Nanking University",
     "南京大学"
@@ -2509,7 +2489,6 @@
   {
    "name": "University at Buffalo, State University of New York",
    "aliases": [
-    "UB",
     "SUNY Buffalo",
     "Universidad de Búfalo",
     "University at Buffalo",
@@ -2755,7 +2734,6 @@
   {
    "name": "University of Missouri",
    "aliases": [
-    "MU",
     "Universidad de Misuri",
     "University of Missouri",
     "University of Missouri–Columbia",
@@ -2842,7 +2820,6 @@
   {
    "name": "University of Tennessee at Knoxville",
    "aliases": [
-    "UT",
     "UTK",
     "University of Tennessee",
     "University of Tennessee at Knoxville"
@@ -2870,7 +2847,6 @@
   {
    "name": "University of Hawaiʻi at Mānoa",
    "aliases": [
-    "UH",
     "UH Mānoa",
     "University of Hawai'i",
     "University of Hawaii at Manoa",
@@ -2886,7 +2862,6 @@
   {
    "name": "Maastricht University",
    "aliases": [
-    "UM",
     "Maastricht University",
     "Universiteit Maastricht"
    ],
@@ -3066,7 +3041,6 @@
   {
    "name": "Humboldt-Universität zu Berlin",
    "aliases": [
-    "HU",
     "HU Berlin",
     "Humboldt University Berlin",
     "Humboldt University of Berlin",
@@ -3219,7 +3193,6 @@
   {
    "name": "University of Münster",
    "aliases": [
-    "UM",
     "Muenster University",
     "Münster University",
     "Universitaet Muenster",
@@ -3464,7 +3437,6 @@
   {
    "name": "Universitat de València",
    "aliases": [
-    "UV",
     "Universidad de Valencia",
     "Universidade de Valencia",
     "Universitat de València",
@@ -3559,7 +3531,6 @@
   {
    "name": "George Washington University",
    "aliases": [
-    "GW",
     "GWU",
     "George Washington University",
     "Universidad George Washington"
@@ -3702,7 +3673,6 @@
   {
    "name": "University of Nebraska–Lincoln",
    "aliases": [
-    "NU",
     "UNL ",
     "Universidad de Nebraska-Lincoln",
     "University of Nebraska–Lincoln",
@@ -3731,7 +3701,6 @@
   {
    "name": "University of Delaware",
    "aliases": [
-    "UD",
     "Universidad de Delaware",
     "University of Delaware",
     "Université du Delaware"
@@ -3772,7 +3741,6 @@
   {
    "name": "University of Kansas",
    "aliases": [
-    "KU",
     "Universidad de Kansas",
     "University of Kansas",
     "Université du kansas"
@@ -4165,7 +4133,6 @@
   {
    "name": "University of Oregon",
    "aliases": [
-    "UO",
     "Universidad de Oregón",
     "University of Oregon"
    ],
@@ -4221,7 +4188,6 @@
    "name": "Northeastern University",
    "aliases": [
     "NEU",
-    "NU",
     "Northeastern University"
    ],
    "domains": [
@@ -4581,7 +4547,6 @@
   {
    "name": "University of Houston",
    "aliases": [
-    "UH",
     "Universidad de Houston",
     "University of Houston",
     "Université de houston"
@@ -4647,7 +4612,6 @@
   {
    "name": "University of Oklahoma",
    "aliases": [
-    "UO",
     "Universidad de Oklahoma",
     "University of Oklahoma"
    ],
@@ -4674,7 +4638,6 @@
   {
    "name": "University of Hawaii System",
    "aliases": [
-    "UH",
     "Universidad de Hawái",
     "University of Hawaii",
     "University of Hawaii System",
@@ -5227,7 +5190,6 @@
   {
    "name": "University of Malaya",
    "aliases": [
-    "UM",
     "Universiti Malaya",
     "University of Malaya",
     "மலாயா பல்கலைக்கழகம்",
@@ -5535,7 +5497,6 @@
   {
    "name": "University of Ljubljana",
    "aliases": [
-    "UL",
     "University of Ljubljana",
     "Univerza v Ljubljani"
    ],
@@ -5599,7 +5560,6 @@
   {
    "name": "Syracuse University",
    "aliases": [
-    "SU",
     "Syracuse University",
     "Universidad de Siracusa",
     "Université de syracuse"
@@ -5664,7 +5624,6 @@
   {
    "name": "University of Tehran",
    "aliases": [
-    "UT",
     "Tehran University",
     "University of Tehran",
     "université de Téhéran",
@@ -5707,7 +5666,6 @@
   {
    "name": "Universidad de Sevilla",
    "aliases": [
-    "US",
     "Universidad de Sevilla",
     "University of Seville"
    ],
@@ -5774,7 +5732,6 @@
   {
    "name": "Stellenbosch University",
    "aliases": [
-    "SU",
     "Stellenbosch University",
     "Universiteit Stellenbosch",
     "Universiteit van Stellenbosch",
@@ -5885,7 +5842,6 @@
   {
    "name": "University of California System",
    "aliases": [
-    "UC",
     "Universidad de California",
     "University of California",
     "University of California System",
@@ -6019,7 +5975,6 @@
   {
    "name": "University of Warsaw",
    "aliases": [
-    "UW",
     "University of Warsaw",
     "Uniwersytet Warszawski"
    ],
@@ -6046,7 +6001,6 @@
    "name": "Pontificia Universidad Católica de Chile",
    "aliases": [
     "PUC",
-    "UC",
     "Pontifical Catholic University of Chile",
     "Pontificia Universidad Católica de Chile",
     "Universidad Católica"
@@ -6060,7 +6014,6 @@
   {
    "name": "Auburn University",
    "aliases": [
-    "AU",
     "Auburn University",
     "Universidad de Auburn"
    ],
@@ -6571,7 +6524,6 @@
   {
    "name": "Boston College",
    "aliases": [
-    "BC",
     "Boston College"
    ],
    "domains": [
@@ -6733,7 +6685,6 @@
   {
    "name": "University of Pretoria",
    "aliases": [
-    "UP",
     "Universiteit van Pretoria",
     "University of Pretoria"
    ],
@@ -6892,7 +6843,6 @@
   {
    "name": "Mahidol University",
    "aliases": [
-    "MU",
     "Mahidol University",
     "มหาวิทยาลัยมหิดล"
    ],
@@ -7207,7 +7157,6 @@
   {
    "name": "Université de Lorraine",
    "aliases": [
-    "UL",
     "University of Lorraine",
     "Université de Lorraine"
    ],
@@ -7220,7 +7169,6 @@
   {
    "name": "University of Potsdam",
    "aliases": [
-    "UP",
     "Potsdam University",
     "Universitaet Potsdam",
     "University of Potsdam",
@@ -7462,7 +7410,6 @@
   {
    "name": "University of Tartu",
    "aliases": [
-    "UT",
     "Tartu Ülikool",
     "University of Tartu",
     "Тартуский университет"
@@ -7476,7 +7423,6 @@
   {
    "name": "Universidad de Oviedo",
    "aliases": [
-    "UO",
     "Universidad de Oviedo",
     "Universidá d'Uviéu",
     "University of Oviedo"
@@ -7531,7 +7477,6 @@
   {
    "name": "The Open University",
    "aliases": [
-    "OU",
     "The Open University",
     "Y Brifysgol Agored"
    ],
@@ -7819,7 +7764,6 @@
   {
    "name": "Chulalongkorn University",
    "aliases": [
-    "CU",
     "Chulalongkorn University",
     "จุฬาลงกรณ์มหาวิทยาลัย"
    ],
@@ -7859,7 +7803,6 @@
   {
    "name": "University of Wyoming",
    "aliases": [
-    "UW",
     "Universidad de Wyoming",
     "University of Wyoming",
     "Université du wyoming"
@@ -8008,7 +7951,6 @@
   {
    "name": "Jiangnan University",
    "aliases": [
-    "JU",
     "Jiangnan University",
     "Jiāngnán Dàxué",
     "Southern Yangtze University",
@@ -8037,7 +7979,6 @@
   {
    "name": "Bangor University",
    "aliases": [
-    "BU",
     "Bangor University",
     "Prifysgol Bangor",
     "University College of North Wales",
@@ -8428,7 +8369,6 @@
   {
    "name": "University of Johannesburg",
    "aliases": [
-    "UJ",
     "University of Johannesburg"
    ],
    "domains": [
@@ -8766,7 +8706,6 @@
   {
    "name": "Université de Bourgogne",
    "aliases": [
-    "uB",
     "University of Burgundy",
     "University of Dijon",
     "Université de Bourgogne"
@@ -8888,7 +8827,6 @@
   {
    "name": "University of Ulster",
    "aliases": [
-    "UU",
     "Prifysgol Ulster",
     "University of Ulster"
    ],
@@ -9242,7 +9180,6 @@
   {
    "name": "University of Idaho",
    "aliases": [
-    "UI",
     "Universidad de Idaho",
     "University of Idaho"
    ],
@@ -9295,7 +9232,6 @@
   {
    "name": "University of Macau",
    "aliases": [
-    "UM",
     "Universidade de Macau",
     "University of East Asia",
     "University of Macau"
@@ -9704,7 +9640,6 @@
   {
    "name": "Masaryk University",
    "aliases": [
-    "MU",
     "Masaryk University",
     "Masarykova univerzita"
    ],
@@ -9717,7 +9652,6 @@
   {
    "name": "Binghamton University",
    "aliases": [
-    "BU",
     "Binghamton University",
     "SUNY Binghamton",
     "State University of New York, Binghamton",
@@ -9936,7 +9870,6 @@
   {
    "name": "University of Alicante",
    "aliases": [
-    "UA",
     "Universidad de Alicante",
     "Universitat d'Alacant",
     "University of Alicante"
@@ -10031,7 +9964,6 @@
   {
    "name": "University of Montana",
    "aliases": [
-    "UM",
     "Universidad de Montana",
     "University of Montana",
     "Université du montana"
@@ -10045,7 +9977,6 @@
   {
    "name": "Universidad de Cantabria",
    "aliases": [
-    "UC",
     "Universidad de Cantabria",
     "University of Cantabria"
    ],
@@ -10097,7 +10028,6 @@
   {
    "name": "Alexandria University",
    "aliases": [
-    "AU",
     "Alexandria University",
     "Université d'Alexandrie",
     "جامعة الإسكندرية"
@@ -10222,7 +10152,6 @@
   {
    "name": "Yeshiva University",
    "aliases": [
-    "YU",
     "Yeshiva University"
    ],
    "domains": [
@@ -10234,7 +10163,6 @@
   {
    "name": "University of Colorado System",
    "aliases": [
-    "CU",
     "Universidad de Colorado",
     "University of Colorado",
     "University of Colorado System",
@@ -10754,7 +10682,6 @@
   {
    "name": "Yeungnam University",
    "aliases": [
-    "YU",
     "Yeungnam University",
     "영남대학교"
    ],
@@ -11793,7 +11720,6 @@
   {
    "name": "University of Limerick",
    "aliases": [
-    "UL",
     "Ollscoil Luimnigh",
     "University of Limerick"
    ],
@@ -11968,7 +11894,6 @@
   {
    "name": "University of Indonesia",
    "aliases": [
-    "UI",
     "School of Medicine for Javanese",
     "Universitas Indonesia",
     "University of Indonesia"
@@ -12058,7 +11983,6 @@
   {
    "name": "American University",
    "aliases": [
-    "AU",
     "American University",
     "Universidad Americana"
    ],
@@ -12222,7 +12146,6 @@
   {
    "name": "University of Ibadan",
    "aliases": [
-    "UI",
     "University College Ibadan",
     "University of Ibadan",
     "Yunifásítì ìlú Ìbàdàn"
@@ -12782,7 +12705,6 @@
   {
    "name": "Marmara University",
    "aliases": [
-    "MU",
     "Marmara University",
     "Marmara Üniversitesi",
     "Mərmərə Universiteti"
@@ -13023,7 +12945,6 @@
   {
    "name": "Victoria University",
    "aliases": [
-    "VU",
     "Victoria University"
    ],
    "domains": [
@@ -13935,7 +13856,6 @@
   {
    "name": "University of Jordan",
    "aliases": [
-    "UJ",
     "Jordan University",
     "University of Jordan",
     "الجامعة الأردنية"
@@ -14279,7 +14199,6 @@
   {
    "name": "Oakland University",
    "aliases": [
-    "OU",
     "Oakland University"
    ],
    "domains": [
@@ -14336,7 +14255,6 @@
   {
    "name": "Kuwait University",
    "aliases": [
-    "KU",
     "Kuniv",
     "Kuwait University",
     "جامعة الكويت"

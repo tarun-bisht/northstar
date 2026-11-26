@@ -18,8 +18,10 @@ The daily Exploration page (`daily/<date>/exploration.html`) shows discoveries i
 1. `python scripts/dsys.py context discovery --date <today>`: `recent_items` (never repeat a title or URL), `preferences` (explicit signals win; never pick anything in `avoid`; `ignored_hint` means change format or timing, not dislike), `interests_hint` (the tiers) and `variety`.
 2. Podcasts and videos come only from the fetched candidates, never from search (the daily run has already waited for them):
    - `python scripts/dsys.py candidates podcasts --date <today>`: recent episodes of good shows (AI, science, philosophy, history, culture) and episode searches on the user's interests, each with `audio_url` so it plays on the page. Copy `url`, `audio_url` and the show name as they are.
-   - `python scripts/dsys.py candidates videos --date <today>`: long-form lectures, talks and documentaries with durations.
-   - Films, books, music and places have no fetched source yet, so only for these use web search, and only URLs you saw in a search result or fetched page.
+   - `python scripts/dsys.py candidates videos --date <today>`: new uploads from curated channels (3Blue1Brown, Welch Labs, Two Minute Papers and others) plus long-form search results, each with `views`, `likes`, `comments`, `like_rate`, `comment_rate`, `views_per_subscriber`, duration, the full description and the channel.
+   - **Choose videos from data, never by watching:** strong engagement for the channel's size (`views_per_subscriber`, `like_rate`, `comment_rate`), a description that shows substance, a duration that fits, and a match with the interests. Skip clickbait titles with thin descriptions, reuploads and compilations.
+   - **Several a day is fine:** more than one video and more than one read when they're good. Not only lectures: a mix of learning, curiosity and things worth watching in free time (a great documentary, a video essay, a well-made explainer, something fun and useful).
+   - Films, books, music, places and reads (essays, articles, book chapters) have no fetched source, so for these use web search, guided by the theme, the interests and some randomness. Only URLs you saw in a search result or fetched page.
 3. Pick by tier:
    - **established:** AI research and its foundations; go beyond the basics.
    - **growth:** maths, physics, neuroscience, consciousness and philosophy of science that can feed research ideas; people skills, history, art and culture.

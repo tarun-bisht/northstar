@@ -24,6 +24,10 @@ git push origin main || (git pull --rebase origin main && git push origin main)
 - If pushing is refused because of missing permissions, stop and report it in the run summary. Don't try other routes.
 - Never commit secrets. There are none in this repo; the YouTube key lives only in GitHub Actions secrets.
 
+## Questions to the user
+
+If a choice truly needs the user (the answer changes what gets made, and no file says it), post one short question in **#northstar-ask** (`config/notifications.json → slack.ask.id`), formatted with the question in bold and two to four numbered options plus "Other". Record it: `python scripts/dsys.py polls open --kind question --period q-<today>-<n> --ts <ts> --options /tmp/options.json`. Then go on with the most reasonable choice; the daily run reads the answer later. Rarely: at most one question a week.
+
 ## If the run fails
 
-If the run cannot finish (it could not push, validation failed and could not be fixed, a required part is missing), post **one** short message in the Slack channel from `config/notifications.json` with `slack_send_message`: `Northstar <run> run on <date> failed: <one line why>. <what is still missing>`. Post nothing when the run succeeds: the daily digest (`prompts/runs/slack_digest.md`) reports success. If the Slack tools are not available, put the failure in the final message instead.
+If a part couldn't be made, don't post about it: the Slack digest reports missing parts in its daily message. Put what went wrong in the final message.

@@ -6,12 +6,14 @@
 
 | Layer | Purpose (vision §15) | When (IST) | Made by |
 |---|---|---|---|
-| Daily | stay aware | papers on weekdays, everything else every day | Daily run 08:13, Shorts run 08:41 |
+| Daily | stay aware | every day (papers too: other sources fill days when arXiv is quiet) | Daily run 08:13 (Sonnet with Haiku and Opus helpers), Shorts run 08:41 (Sonnet), Slack digest 09:43 (Haiku) |
 | Weekly | explore | Saturday 06:46, for the week starting Monday | Weekly run |
 | Monthly | go deep | 1st of the month, 06:15 | Monthly run |
 | Quarterly | look back | 1 Jan, Apr, Jul, Oct, 06:41 | Quarterly run |
 
-Before the runs, GitHub Actions fetches candidates at 07:17 and refills any gaps at 07:53 (section 4). GitHub can start these hours late, so the daily and shorts runs start the fetch themselves if today's files are missing. No AI runs in that step.
+Before the runs, GitHub Actions scrapes everything at 07:17 and refetches failed sources at 07:53 (section 4). No AI runs in that step. GitHub can start these hours late, so the daily and shorts runs start the fetch themselves if today's files are missing, and a late scheduled run that finds today's files exits without fetching again.
+
+**Who does what.** GitHub Actions scrapes. Python cleans, removes duplicates (across sources and against the last 3 days) and compacts. Cheap models read in bulk (Haiku reads every candidate abstract), and Opus makes the judgement calls: the final paper choice, discovery picks, the language pack, and the weekly and monthly packages. Web search is used only where nothing can be scraped: discovery (films, books, reads, places, by theme and some randomness), targeted X and LinkedIn searches for research updates, and study resources in the weekly and monthly plans.
 
 ## 2. Parts, each with its own URL
 
@@ -44,54 +46,61 @@ The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config
 
 ## 4. Sources and robustness
 
-| Source | What | File |
-|---|---|---|
-| arXiv API, one call per category (rss.arxiv.org fallback) | new papers, with comments (venue, code) | `candidates/arxiv/<date>.json` |
-| Hugging Face Daily Papers | community upvotes | same file (`hf_upvotes`) |
-| alphaXiv: Hot, Likes, Comments and GitHub lists, plus one search per interest | papers becoming widely discussed, papers alphaXiv's search ties to each interest (`alphaxiv_votes`, `alphaxiv_lists`, `alphaxiv_interests`, `interest_search`) | same file |
-| about 30 publisher RSS feeds (BBC, The Hindu, Indian Express, Mint, The Economic Times, CNBC, The Guardian, Al Jazeera, NPR, The Conversation in five editions, RBI and more) plus Google News (top stories by section, and searches such as Nvidia, AI, chips, ISRO, SpaceX) | headlines with summaries | `candidates/news/<date>.json` |
-| YouTube Data API (needs the `YOUTUBE_API_KEY` secret) | short videos, a rotating slice of the queries each day | `candidates/youtube/<date>.json` |
-| YouTube Data API, long form | lectures, talks and documentaries over 10 minutes | `candidates/videos/<date>.json` |
-| podcast show feeds (found by name with the iTunes Search API) and iTunes episode search | recent episodes with their audio files, so they play on the page | `candidates/podcasts/<date>.json` |
-| lab and researcher blogs, newsletters (Interconnects, Ahead of AI, Import AI, Lil'Log), Quanta, Alignment Forum, Hacker News (Algolia API), r/MachineLearning | research updates and discussion | `candidates/updates/<date>.json` |
-| Hugging Face API | trending models, datasets and spaces | `candidates/hf/<date>.json` |
+All of these are fetched by `.github/workflows/fetch-candidates.yml` (`scripts/fetch_candidates.py`, helpers in `dsys/feeds.py`) into `candidates/<kind>/<date>.json`, written compactly.
 
-Google News also runs searches built from your interests (AI security, quantum computing, neuroscience, physics, mathematics, archaeology, Japan and anime, art, prizes, robotics), marked `interest: true`. X and LinkedIn have no open feed (alphaXiv's X list is rejected by its API), so their discussion reaches the radar through Hacker News, newsletters and web search, never invented.
+| Kind | Sources |
+|---|---|
+| `arxiv` (every day) | arXiv API for every category in `arxiv.categories` (rss.arxiv.org fallback), Hugging Face Daily Papers, alphaXiv lists (Hot, Likes, Comments, GitHub) and one alphaXiv search per interest, and papers discussed on Reddit (ML research subreddits) and Bluesky (posts linking arXiv, alphaXiv or Hugging Face papers), fetched from the arXiv API when new. Authors, affiliations (arXiv), organizations (Hugging Face, alphaXiv), signals and the trust flag. |
+| `affil` (on demand) | page 1 of the papers that passed the first reading (arXiv HTML, else the PDF's first page): affiliations and email domains. One request every 3 seconds, no retries. |
+| `news` | about 33 publisher feeds, Google News for India and the US (topic sections, fixed searches, and searches built from `config/interests.json`), depth sources (The Conversation in five editions, Nature News, Quanta), the Hacker News front page, and Reddit (world news, geopolitics, science, economics). |
+| `updates` | lab feeds (OpenAI, Google DeepMind, Google Research, Microsoft Research, NVIDIA, Hugging Face, Databricks, W&B, LangChain, BAIR, Stanford CRFM, CMU, EleutherAI), the Alan Turing Institute's generated feeds for labs without RSS (Anthropic, Claude, Mistral, Cohere, Ai2, Mila, xAI, the AI Security Institute, TLDR AI), researcher blogs and newsletters (Lil'Log, Carlini, Chip Huyen, Eugene Yan, Simon Willison, Interconnects, Ahead of AI, Import AI, Latent Space, Last Week in AI), Google News bridges (Meta, xAI, DeepSeek, Qwen, Anthropic, X and LinkedIn posts), Reddit, Bluesky and Hacker News. One row per canonical URL and headline. |
+| `podcasts` | AI podcast feeds read directly, shows found by name through the iTunes Search API, and episode searches on your interests. Each episode keeps its audio file so it plays on the page. |
+| `videos` | new uploads from curated YouTube channels (free RSS feeds) plus a rotating long-form search, with views, likes, comments, engagement rates and views per subscriber. |
+| `youtube` | Shorts from a rotating slice of searches, with the same statistics. |
+| `hf` | Hugging Face trending models, datasets and spaces. |
+| `fun` | the latest xkcd and a random one, for #random. |
 
-Every request goes through `dsys/net.py`, which retries timeouts, HTTP 429 and 5xx with growing pauses and honours `Retry-After`. A source that still fails is listed in the day's `failed_sources`. It is retried two minutes later in the same job, and again by the 07:53 gap-filling run (`fetch_candidates.py <kind> --retry-failed`). A re-run only adds candidates, never removes them.
+**Resilience.** Feeds are fetched in parallel (10 at a time; arXiv stays at one request every 3 seconds). `dsys/net.py` retries timeouts, 429 and 5xx three times (2, 5, 12 seconds plus jitter) and never retries 401, 403, 404 or 410. Every feed's last result is logged in `state/feed_health.json`; a feed that answered 404 or 410 is skipped for a week, then tried again. A feed can list `alternates`. One broken source never stops the rest. A re-run only adds candidates, never removes them. Real text is kept whole: only HTML, tracking parameters and extra whitespace are stripped.
 
-**Runs never fall back to web search for candidates.** GitHub can start scheduled workflows hours late, so the daily and shorts runs begin with `dsys.py candidates ensure` (`dsys/ensure.py`). It checks today's files. If a fetch is already queued or running, it waits for it to finish. Otherwise it starts the workflow itself (workflow_dispatch) for the missing kinds, or in retry mode for failed sources, and waits for that run to finish. It checks once a minute. One call waits up to 9 minutes (a run's shell commands time out at 10), and the run calls it again, up to 10 times (about 90 minutes). A missing file is never accepted: the run skips that stream and posts the failure to Slack. A source that keeps failing inside a file that exists is listed, and the rest of the file is used.
+**Runs never search for candidates.** The daily and shorts runs begin with `dsys.py candidates ensure` (`dsys/ensure.py`): if a fetch is running it waits for it, otherwise it starts one and waits until it finishes, then retries failed sources. It checks once a minute; one call waits up to 9 minutes (a run's shell commands time out at 10) and the run calls it again up to 10 times. A missing file is never replaced by search: the part is skipped and the Slack message names it.
 
-arXiv allows one request every three seconds on a single connection. The fetcher spaces its calls to match.
+**Trust registry** (`config/reputation.json`, `dsys/reputation.py`). A binary flag: 1 when an author, an organization or affiliation, or an author email domain matches a listed researcher, lab or university. Universities: the top 1000 research universities by citations (OpenAlex) with QS ranks for the top 100 (QS gates its full table), plus hand-added groups, built by `.github/workflows/build-reputation.yml`. Labs: big tech, frontier and regional labs worldwide (Sakana, Prior Labs, Sarvam, BharatGen, Mistral, DeepSeek and many more) and public institutes. The daily run logs authors and affiliations of picked and trending papers (`state/reputation_log.json`); the monthly run adds recurring strong ones with the papers that justify them.
 
-**Web access in runs.** Cloud runs fetch a page without asking only when its URL came from the session (a web search result or a page already fetched). So runs search first and then fetch, and never fetch URLs straight from candidate files, which Actions already checked (`prompts/_shared.md`). This keeps scheduled runs from stalling on approval.
+**Web access in runs.** Cloud runs fetch a page without asking only when its URL came from the session (a web search result or a page already fetched). So runs never fetch URLs straight from candidate files; the scraped titles, links and summaries are used as they are (`prompts/_shared.md`).
 
-## 5. Choosing papers (quality from abstracts)
+## 5. Choosing papers
 
-Reading thousands of abstracts, or any PDFs, is not possible in a run. So:
-
-1. **Coverage.** Every research interest in `config/interests.json → established.ai_research` has an entry in `config/sources.json → arxiv.coverage`: its arXiv categories and specific keywords. Validation warns when an interest has no entry. The fetched categories are the union, so every interest is gathered.
-2. **Ranking in code** (`dsys/rank.py`). Each candidate gets a relevance score from the coverage keywords (the title counts double, and a keyword only counts when the paper is in that topic's categories) plus quality signals: Hugging Face upvotes, alphaXiv votes, discussed on X, an alphaXiv search match, a notable researcher (`notable_researchers`), released code, a named venue in the arXiv comment.
-3. **Shortlist.** The best 3 papers for every interest, filled up to about 80 by score, plus every trending or notable paper (`candidates arxiv --ranked`).
-4. **Judgement from the abstract.** The run reads those abstracts (`candidates arxiv --ids …`) and rates each against the rubric in `prompts/arxiv.md`: a clear contribution, strong evidence, concrete results and outside signals keep a paper; vague claims, thin evaluation and recombined tricks drop it. Trending papers that pass the bar and touch any interest are kept even when keywords missed them.
-5. **Papers of the week** (`reading.xml`, `weekly/<week>/papers.html`). Three groups: *For you*, the must-reads for your work from the week's radar; *Trending this week*, the week's most voted papers on alphaXiv and Hugging Face (`candidates arxiv --trending-week`); and *From leading groups*, strong work from top labs related to AI or your research. Daily runs add to it, and the weekly run sets it up. It is a weekly part, not shown in daily.
+1. **Python** (`dsys.py papers stage1`): drops papers already seen and the ones that match no interest and have no quality signal (votes, discussion, notable author, venue, code). Writes compact batches: id, title, full abstract, matched interests, signals, trust flag, buzz. Coverage keywords per interest live in `arxiv.coverage`.
+2. **Haiku** (`prompts/paper_triage.md`), in parallel batches: reads every abstract and sorts each paper into *strong* (on your interests, good), *field* (important for the field with little overlap) or *no*. Generous: when unsure, it keeps.
+3. **Page 1** (`dsys.py papers enrich`): affiliations and emails for the passing papers, then the trust flag.
+4. **Opus** (`prompts/arxiv.md`): reads the passing papers in full and decides. No fixed number: the best picks are `priority: top`, everything else that passes is `priority: more`, folded on the page. Trust and buzz raise confidence but never rescue an empty abstract. alphaXiv summaries are never used to judge.
+5. **Every paper link goes to alphaXiv** (`alphaxiv.org/abs/<id>`), on the site and in the feeds, so you can read the paper and its summary there.
+6. **Papers of the week** (`reading.xml`, `weekly/<week>/papers.html`): *For you*, *Trending this week* and *From leading groups*. Daily runs add to it; it is a weekly part.
 
 ## 6. Choosing news
 
-Every headline is categorized in code (`dsys/news.py`, keywords in `config/sources.json → world.categories`) into 12 categories: India, geopolitics, leadership changes, conflicts and disasters, economy and markets, business, technology and AI, science and space, health, climate and energy, society, and explainers. Sport, celebrity and local notices go to "other". Headlines about the same event are merged, with the other outlets in `also_in`. The run reads every category and writes two layers (`prompts/world.md`):
+Every headline is categorized in code (`dsys/news.py`) into 12 categories, duplicates are merged (`also_in`), and anything published in the last 3 days is dropped. News has two roles, both every day: **awareness** across all categories, and **interest-matched** stories from searches built from your interests. Depth sources (The Conversation, Nature News, Quanta, marked `depth`) are paired with the events they explain, so a story says *why*. Two layers (`prompts/world.md`):
 
-- **Explained items:** 12 to 20 stories worth understanding, across at least 7 categories, each with what happened, why it matters, context and what to watch.
-- **Briefs:** 15 to 30 one-line headlines linking straight to the article, so other notable stories are not missed.
+- **Explained items:** 12 to 20 stories across at least 7 categories, with what happened, why it matters, context and what to watch.
+- **Briefs:** 15 to 30 one-line headlines linking to the article.
 
-Markets, technology and explainers appear every day, with at least one explainer from The Conversation when its feeds have something relevant.
+Research updates are read the same way: one compact pass (`candidates updates --compact`), last 3 days removed, plus 5 to 8 targeted X and LinkedIn searches across all interest keywords. No cap: the best are `priority: top`, the rest folded.
+
+**Counts.** Every stage records how many items it read and passed in `state/stats/<date>.json` (`dsys.py stats show`); the Slack message shows them.
 
 ## 7. Slack: the one notification channel
 
-Mobile and email notifications are off for every task. Three scheduled tasks use the Slack connector, in the channel set in `config/notifications.json`:
+Mobile and email notifications are off for every task. All channels are public (`config/notifications.json`):
 
-- **Daily digest** (09:43 IST, `prompts/runs/slack_digest.md`): one short message with links to today's pages and one line per problem. Problems come from `dsys.py status` (missing streams, failed sources, validation errors, a missing weekly or monthly package), failed GitHub Actions runs, and failed scheduled runs.
-- **Topic polls** (Thursdays and the 25th, 20:07 IST, `prompts/runs/topic_poll.md`): four options for next week's New in AI topic, and four research plus four fundamentals options for next month. Reply in the thread with numbers or your own topic. No reply is fine.
-- **Poll collect** (Saturdays and the 1st, 05:53 IST, `prompts/runs/poll_collect.md`): saves the answers to `state/polls.json` (`dsys.py polls`). The weekly and monthly runs read them as `poll_choices` in `context`.
+| Channel | What |
+|---|---|
+| #northstar-daily | "Daily is ready" with links and counts (09:43, `prompts/runs/slack_digest.md`); "Week is ready" on Saturdays; "Month is ready" on the 1st; one line if a part is missing. Never messages about failed sources. |
+| #northstar-polls | Thursdays: next week's New in AI topic. The 25th: next month's research and fundamentals deep dives. Every poll ends with "Other: reply with your own topic" (`prompts/runs/topic_poll.md`). |
+| #northstar-ask | Rare questions from a run, only when the answer changes what gets made (`prompts/runs/_git.md`). |
+| #general | Announcements: changes to Northstar, the quarterly review. |
+| #random | One light thing a day: an xkcd link or an original joke. |
+
+**Replies.** Reply in Slack, in the thread under a poll or question. A run reads the whole thread and your own messages in the channel after the poll, nothing before it. Polls are read on Saturdays and the 1st before the weekly and monthly runs (`prompts/runs/poll_collect.md`); questions at the start of each daily run. Only the general topic is saved (`state/polls.json`), never private details.
 
 ## 8. What is never done (vision §2 and §17)
 

@@ -4,14 +4,14 @@ Northstar runs on eight Claude scheduled tasks: five that make content and three
 
 | Task | When (IST) | Runbook | What it makes |
 |---|---|---|---|
-| Daily northstar schedule | Every day, 08:13 | `prompts/runs/daily.md` | Research (papers, updates), News, Exploration (discoveries), Languages (language pack) |
-| Shorts northstar schedule | Every day, 08:41 | `prompts/runs/shorts.md` | YouTube shorts for the Exploration page |
+| Daily northstar schedule (Sonnet, starts Haiku and Opus helpers; Slack and alphaXiv connectors) | Every day, 08:13 | `prompts/runs/daily.md` | Research (papers, updates), News, Exploration (discoveries), Languages (language pack) |
+| Shorts northstar schedule (Sonnet) | Every day, 08:41 | `prompts/runs/shorts.md` | YouTube shorts for the Exploration page |
 | Weekly northstar schedule | Saturday, 06:46 | `prompts/runs/weekly.md` | Next week's Papers of the week, Research, Knowledge, Exploration and Languages |
 | Monthly northstar schedule | 1st of the month, 06:15 | `prompts/runs/monthly.md` | One deep dive per part, plus language plans |
 | Quarterly northstar schedule | 1 Jan, Apr, Jul, Oct, 06:41 | `prompts/runs/quarterly.md` | A short public review per part, with numbers |
-| Northstar Slack digest | Every day, 09:43 | `prompts/runs/slack_digest.md` | One Slack message: today's links, and anything that failed |
-| Northstar topic poll | Thursdays and the 25th, 20:07 | `prompts/runs/topic_poll.md` | Slack polls: next week's New in AI topic, next month's research and fundamentals deep dives |
-| Northstar poll collect | Saturdays and the 1st, 05:53 | `prompts/runs/poll_collect.md` | Saves your poll answers to `state/polls.json` before the weekly and monthly runs |
+| Northstar Slack digest (Haiku) | Every day, 09:43 | `prompts/runs/slack_digest.md` | One Slack message: today's links, and anything that failed |
+| Northstar topic poll (Sonnet) | Thursdays and the 25th, 20:07 | `prompts/runs/topic_poll.md` | Slack polls: next week's New in AI topic, next month's research and fundamentals deep dives |
+| Northstar poll collect (Haiku) | Saturdays and the 1st, 05:53 | `prompts/runs/poll_collect.md` | Saves your poll answers to `state/polls.json` before the weekly and monthly runs |
 
 **Notifications.** Slack is the only channel. Turn off mobile push and email for all eight tasks. The three Slack tasks need the Slack connector. Content runs post one line on failure if they have it, and the daily digest reports their failures either way; the channel is in `config/notifications.json`.
 
@@ -158,3 +158,5 @@ You are running the POLL COLLECT run of Northstar, a personal discovery system, 
 2. Read CLAUDE.md and docs/vision.md, then follow prompts/runs/poll_collect.md exactly. It says what to do, how to validate, how to commit and push to main, and what to put in your final message. Post to Slack only in the channel set in config/notifications.json.
 3. Never force-push. Never store private information.
 ```
+
+**Models.** Weekly, monthly and quarterly runs use Opus. Set the model per task in its settings as in the table.

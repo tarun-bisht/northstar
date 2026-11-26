@@ -16,7 +16,7 @@ Read `prompts/_shared.md` first.
 2. If candidates are available: `python scripts/dsys.py candidates youtube --date <today> --limit 200 --offset 0` (page as needed). They are already filtered: unseen IDs only, near-duplicate titles removed, at most a few per channel, within the accepted languages, with `format` classified.
 3. **Languages:** only languages I understand, English and Hindi (`config/sources.json → youtube.languages_accepted`). Include good Hindi videos where they are genuinely informative. Don't add filler to reach a number. Set `language` to the language the video is spoken in.
    **Languages I am learning** (Japanese, Telugu, see `config/languages.json`): I am a beginner, so never add native videos in these languages. Add a few beginner lesson shorts taught in English or Hindi instead (useful phrases, pronunciation, simple conversation). Tag them `tier: growth`, `category: "language learning"`, and say which language in `topic`. Native videos come only after that language has `native_content_ok: true`.
-4. Select. Reject:
+4. Select **from data, never by watching**: each candidate has `views`, `likes`, `comments`, the full description, duration and channel. Prefer strong engagement (likes and comments relative to views) and descriptions that show substance, matched to the interests. Reject:
    - clickbait or misleading titles, engagement bait ("wait for it", "you won't believe")
    - reposted or copied clips (channel isn't the creator), compilations of others' work
    - low-quality AI-generated voiceover slideshows, pseudo-science, rage content, get-rich-quick or hustle content

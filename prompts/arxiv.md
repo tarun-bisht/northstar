@@ -1,37 +1,41 @@
-# arXiv Paper Radar (Monday to Friday)
+# Paper Radar (every day): final choice
 
 Read `prompts/_shared.md` first.
 
-The job is to filter. From a few thousand new papers, keep only the high-quality ones that would make the user a better researcher (vision §6), and drop the rest. Fewer and better is the point. A typical day keeps 5 to 12. Zero is fine on a quiet day.
+The job is to filter, and never to lose quality work. Keep the papers that are high quality **and** on the user's interests, and the high-quality papers that matter for the field even with little overlap. There is no fixed number. Order them: the best picks first (`priority: top`), everything else that passes the bar as `priority: more`, shown folded on the page.
 
 ## Where candidates come from
 
-`candidates/arxiv/<today>.json` is fetched at 07:17 IST (gaps refilled at 07:53; the daily run starts the fetch itself if it is missing) from three sources:
-- the **arXiv API**, for every category in `config/sources.json → arxiv.categories`, which together cover every research interest (`arxiv.coverage`). rss.arxiv.org is the fallback.
-- **Hugging Face Daily Papers**: community upvotes (`hf_upvotes`).
-- **alphaXiv**: community lists over 7 days, Hot, Likes, Comments and GitHub (`alphaxiv_votes`, `alphaxiv_lists`). Plus one **alphaXiv search per interest** (`alphaxiv_interests`, signal `alphaXiv search: ...`), which also catches papers the keywords miss. All of these feed the ranking.
+`candidates/arxiv/<today>.json`, fetched by GitHub Actions every day (the daily run waits for it with `candidates ensure`): the arXiv API for every category in `config/sources.json → arxiv.categories`, Hugging Face Daily Papers, alphaXiv lists and one alphaXiv search per interest, and papers discussed on Reddit and Bluesky (`reddit_mentions`, `bluesky_mentions`, `bluesky_likes`). arXiv publishes nothing on Saturday and Sunday mornings in India and on some holidays. Those days the other sources still bring papers, so the radar runs every day.
+
+Papers come only from these files, never from web search.
+
+## The stages (the daily run does 1 to 3, you do 4)
+
+1. **Python** (`dsys.py papers stage1`): drops papers already seen, keeps every paper that matches an interest or has a quality signal, and writes compact batches.
+2. **Cheap model** (`prompts/paper_triage.md`): reads every abstract in the batches and sorts each into strong, field or no. Generous: when unsure it keeps.
+3. **Page 1** (`dsys.py papers enrich`): GitHub Actions reads page 1 of each passing paper for affiliations and email domains, and sets the trust flag (`config/reputation.json`).
+4. **You** (`dsys.py papers stage2`): the passing papers in full, with lane, affiliations, `trusted`, `trust_matches`, interests, signals and buzz.
 
 ## Steps
 
-1. `python scripts/dsys.py context arxiv --date <today>`. If `is_weekday` is false, stop.
-2. **Ranked shortlist (code, no AI):** `python scripts/dsys.py candidates arxiv --date <today> --ranked`. Every paper is scored in code from its title, abstract and signals (`dsys/rank.py`). The shortlist holds the best 3 papers for every interest, filled up to about 80 by score, plus `also_trending_or_notable`. Each row shows `interests` (which ones it matches), `signals` (votes, upvotes, notable researcher, code released, venue) and `score`.
-   - Papers come only from this file, never from web search. The daily run has already waited for the fetch (`candidates ensure`). If `failed_sources` lists categories, say so in `notes`. If the file is missing, publish no arXiv file today and report it.
-3. **Read abstracts, in batches:** `python scripts/dsys.py candidates arxiv --date <today> --ids <id1>,<id2>,...` prints full candidates. Read every abstract in the shortlist and in `also_trending_or_notable`. Never decide from a title alone. Never open PDFs. The abstract and the signals are the evidence.
-4. **Judge quality from the abstract.** Rate each paper 1 to 5 in your head:
-   - **5, keep:** a clear, specific contribution; strong evidence (experiments on standard benchmarks against strong baselines, real theory, or a large careful analysis); concrete results stated; plus at least one outside signal (venue, notable group, community votes, released code).
+1. `python scripts/dsys.py papers stage2 --date <today>` prints the papers that passed the first reading. Read every one. Never decide from a title alone. Never open PDFs. The abstract, affiliations and signals are the evidence.
+2. `python scripts/dsys.py context arxiv --date <today>` for recent picks (don't repeat a paper).
+3. **Judge quality.** Rate each paper 1 to 5 in your head:
+   - **5, keep as top:** a clear, specific contribution; strong evidence (experiments on standard benchmarks against strong baselines, real theory, or a large careful analysis); concrete results stated; plus at least one outside signal (trusted group, venue, community votes, discussion, released code).
    - **4, keep:** clear contribution and solid evidence, even without outside signals.
    - **3, keep only if** it is close to the user's own work or the abstract shows an unusually useful idea, dataset or negative result.
    - **1 to 2, drop.** Red flags: a "novel framework" with no stated results; one small dataset; a combination of existing tricks; overclaiming without evidence; a prompt wrapper with no evaluation; an application with no transferable insight; a vague abstract.
-5. **What to keep (vision §6).** Both kinds count:
+4. **What to keep (vision §6).** Both kinds count, matching the two lanes:
    - *direct relevance:* close to or useful for the user's research interests
    - *research development value:* an important method, a challenged assumption, a useful theory, a strong benchmark, an exposed failure mode, a useful methodology, a connection between fields, an important negative result, a field-shifting idea
-   - **Trending is a reason on its own.** A paper in `also_trending_or_notable` that is high quality and touches any interest is kept, even if it scored low on keywords. "This paper is becoming widely discussed" is valuable for a researcher.
-   - **Notable researchers.** A paper with `notable_authors` (or by another widely recognised group) is kept when its abstract touches any interest and passes the quality bar. Tag it `notable researcher`.
-6. Balance the day: don't let one area take every slot. If five good papers are all on one topic, keep the best two or three.
-7. For each kept paper, fill: `id` (`arxiv-<id>`), `arxiv_id`, `title`, `authors`, `url`, `pdf_url`, `submitted`, `categories`, `abstract` (**copied word for word**), `abstract_source`, `research_area` (two or three words), `hf_upvotes` if known, `dimensions`.
-8. **Tags, not reasons.** Give 1 to 3 tags from `paper_tags`, most important first. These are the only tags allowed:
+   - **Trending is a reason on its own.** A high-quality paper with high buzz is kept even with little overlap: "this is becoming widely discussed" is valuable for a researcher.
+   - **Trust is a hint, not a verdict.** `trusted: 1` (a known university, lab, researcher or email domain) raises confidence. It never rescues an empty abstract, and `trusted: 0` never sinks a strong one. Tag notable groups `notable researcher`.
+5. **Order, never cap.** `priority: top` for the papers you'd tell a friend to read today (usually 5 to 12, balanced across areas). Everything else that passes the bar is `priority: more`. Nothing good is dropped to keep the list short.
+6. For each kept paper, fill: `id` (`arxiv-<id>`), `arxiv_id`, `title`, `authors`, `url` (the arxiv.org abs URL: the site turns every arXiv link into an alphaXiv link, where the user reads the paper and its summary), `submitted`, `categories`, `abstract` (**copied word for word**), `abstract_source`, `research_area` (two or three words), `affiliations` when known, `trusted`, `lane`, `priority`, `hf_upvotes` if known, `dimensions`. Never use alphaXiv summaries to judge a paper.
+7. **Tags, not reasons.** Give 1 to 3 tags from `paper_tags`, most important first. These are the only tags allowed:
    close to your work, useful for your work, new method or architecture, strong result, notable researcher, benchmark or dataset, theory, survey or tutorial, worth knowing.
    Never write a reason or explanation. Never mention a project or method of the user's.
-9. Mark every shortlisted paper you read but did not keep as seen: `python scripts/dsys.py papers mark-seen <id> ...`.
-10. **Reading list:** the best one to three papers of the day (yours, or trending and important for any researcher) also go on this week's papers of the week list (`prompts/reading_list.md`).
-11. Merge: `python scripts/dsys.py daily merge arxiv --date <today> --items /tmp/arxiv.json`, then `history rebuild` and `validate`. Put a one-line `notes` on the day: how many candidates, how many shortlisted, how many kept.
+8. Mark every paper you read but did not keep as seen: `python scripts/dsys.py papers mark-seen <id> ...`.
+9. **Papers of the week:** the best one to three papers of the day (yours, or trending and important for any researcher) also go on this week's papers of the week list (`prompts/reading_list.md`).
+10. Merge: `python scripts/dsys.py daily merge arxiv --date <today> --items /tmp/arxiv.json` (it records the counts for the Slack message), then `history rebuild` and `validate`. Put a one-line `notes` on the day: how many fetched, read, passed and kept.

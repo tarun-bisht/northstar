@@ -10,12 +10,14 @@ This repo is one person's real setup. Fork it and make it your own.
 
 | | Research | Knowledge / News | Exploration | Languages |
 |---|---|---|---|---|
-| **Daily** | High-quality new papers (arXiv, Hugging Face, alphaXiv), research updates | **News:** 12 to 20 explained stories plus 15 to 30 one-line briefs, from about 30 publisher feeds and Google News, in 12 categories | At least one podcast and one video that play on the page, the rest free, 30 to 40 shorts | A 5-minute pack |
+| **Daily** | High-quality new papers every day (arXiv, Hugging Face, alphaXiv, Reddit, Bluesky), research updates from labs, researchers and newsletters | **News:** 12 to 20 explained stories plus 15 to 30 one-line briefs, from about 30 publisher feeds and Google News, in 12 categories | At least one podcast and one video that play on the page, the rest free, 30 to 40 shorts | A 5-minute pack |
 | **Weekly** | Papers of the week (for you, trending, leading groups), Fundamentals, New in AI | Topics by subject (maths and physics always, plus 5 to 6 rotating subjects), each with a study plan and resources, and maths and physics questions | Curiosities, culture, people and self, curiosity and making | A lesson per language |
 | **Monthly** | A New in AI deep dive and a Fundamentals deep dive | A deep dive outside AI, and hard challenge problems by subject | An exploration deep dive | A plan per language |
 | **Quarterly** | Numbers, a short summary and the topics covered, for each part | | | |
 
-Slack is the only notification: a daily message with today's links and anything that failed, and polls on Thursdays and the 25th where you pick what to go deep on next.
+Slack is the only notification: a daily "ready" message with links and how many items were read and picked, polls on Thursdays and the 25th where you pick what to go deep on next, and something light in #random.
+
+GitHub Actions scrapes everything (papers, news, research updates, podcasts, videos). Claude only reads and filters: Haiku reads every candidate paper abstract, Opus makes the final choices. Every paper link opens on alphaXiv.
 
 Every week touches every dimension of development in `config/interests.json` (vision §4). Every part has its own page and its own RSS feed. Everything is optional.
 

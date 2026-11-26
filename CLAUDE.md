@@ -15,15 +15,17 @@ Northstar is a public, forkable personal discovery and growth companion. Claude 
 ## Enforced content rules
 
 - **Parts, each on its own page and feed:** daily = Research, News, Exploration, Languages. Weekly = Papers of the week, Research, Knowledge, Exploration, Languages. Monthly = Research, Knowledge, Exploration, Languages. Quarterly = Research, Knowledge, Exploration (`docs/how_it_works.md` §2).
-- **Papers:** read the code-ranked shortlist (`candidates arxiv --ranked`), judge each abstract against the rubric in `prompts/arxiv.md`, keep trending and notable papers that pass it. Abstracts copied word for word. Tags from the fixed `paper_tags` list only, never free-text reasons.
+- **Papers (every day):** staged reading (`prompts/runs/daily.md`): Python narrows, Haiku reads every remaining abstract (`prompts/paper_triage.md`), page 1 gives affiliations and trust (`config/reputation.json`), Opus decides (`prompts/arxiv.md`). No cap: best picks `priority: top`, the rest `more`. Abstracts copied word for word. Tags from `paper_tags` only. Paper links go to alphaXiv.
 - **Papers of the week** (`reading.xml`, a weekly part): at least 3 entries every week in up to three groups, *For you*, *Trending this week* (`candidates arxiv --trending-week`) and *From leading groups*, kept current by the daily runs.
-- **World Radar:** 12 to 20 explained items across at least 7 of 12 categories (including leadership changes) plus 15 to 30 one-line briefs. Markets, technology and explainers every day, with a Conversation explainer when available (`prompts/world.md`).
+- **World Radar:** awareness plus interest-matched news: 12 to 20 explained items across at least 7 of 12 categories (including leadership changes) plus 15 to 30 one-line briefs, depth pieces paired with events, nothing from the last 3 days (`prompts/world.md`).
+- **Scraped, not searched:** papers, news, research updates, podcasts and videos come only from the fetched files. Search only for discovery (films, books, reads, places), targeted X and LinkedIn posts, and study resources.
+- **Models:** Haiku for bulk reading and simple runs, Sonnet for news, updates and shorts, Opus for judgement (paper choice, recommendations, language packs, weekly and monthly packages).
 - **Daily Discovery:** at least one podcast and one video, lecture or documentary, at least one item per tier, the rest free. Shorts: 30 to 40, at least one per tier.
 - **Weekly:** all six pillars every normal week. Research = Fundamentals + New in AI. Knowledge grouped by `subject`: maths and physics always plus topics in 5 to 6 rotating subjects, each with a study plan (`steps`) and real resources, and approachable questions (at least 2 maths and 2 physics). Curiosities live in Exploration, the largest part.
 - **Monthly:** New in AI, Fundamentals, knowledge and exploration deep dives (unless light), the exploration one rotating through people, culture and making; each a week-by-week syllabus with resources, at least one growth item, and hard `challenges` (at least 2 maths, 2 physics, 4 other subjects) with real sources.
 - **Quarterly:** `quarterly draft` fills the numbers and topics. Write only the short summaries and one-line abouts.
 - **Links:** never add a URL you haven't seen in a search result or fetched page. External links open in a new tab.
-- **Notifications:** Slack only, one channel (`config/notifications.json`). No mobile or email notifications.
+- **Notifications:** Slack only (`config/notifications.json`): ready messages and missing parts in #northstar-daily, polls in #northstar-polls, rare questions in #northstar-ask, announcements in #general, fun in #random. Never messages about failed sources.
 - **Writing:** plain simple English, short, main point first, no semicolons or em dashes.
 - **Languages** (`config/languages.json`): a 5-minute pack every day (current focus), a lesson per language every week, a plan per language every month.
 
@@ -50,7 +52,10 @@ python scripts/dsys.py ideas add|list|schedule|defer|drop|resize|replace|remove 
 python scripts/dsys.py interests list|find|add|remove|move ...  # e.g. growth.for_research
 python scripts/dsys.py feedback record|apply --period P ...
 python scripts/dsys.py reading show|add --week W --json papers.json
-python scripts/dsys.py candidates arxiv --ranked | --ids a,b   # ranked shortlist, then full abstracts
+python scripts/dsys.py papers stage1|merge|enrich|stage2 --date D  # staged paper reading
+python scripts/dsys.py candidates updates --compact             # research updates, last 3 days removed
+python scripts/dsys.py reputation show|suggest                  # trust registry
+python scripts/dsys.py stats show --date D                      # counts for the Slack message
 python scripts/dsys.py candidates news --category C --brief    # headlines by news category
 python scripts/dsys.py candidates podcasts|videos|updates|hf    # episodes, long videos, blogs, HF trending
 python scripts/dsys.py candidates arxiv --search all            # alphaXiv search hits per interest

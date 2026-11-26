@@ -11,7 +11,7 @@ import datetime as dt
 from .core import Repo, iso_week, load_json, month_of, next_week, write_json
 
 DAILY_EXPECTED = {  # stream -> which days it should exist
-    "arxiv": "weekdays", "research_updates": "every", "world": "every", "discovery": "every",
+    "arxiv": "every", "research_updates": "every", "world": "every", "discovery": "every",
     "language": "every", "youtube_shorts": "every",
 }
 

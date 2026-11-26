@@ -222,3 +222,17 @@ def test_ensure_refetches_papers_fetched_before_arxiv_published(repo):
     assert check(repo, D, ["arxiv"])[0] == ["arxiv"]
     write_json(repo.p("candidates", "arxiv", f"{D}.json"), {"candidates": [1], "fetched_at": f"{D}T01:48:00Z"})
     assert check(repo, D, ["arxiv"])[0] == []
+
+
+def test_candidate_merge_driver_unites_records_by_id():
+    import importlib.util
+    from conftest import ROOT
+    spec = importlib.util.spec_from_file_location("mc", ROOT / "scripts" / "merge_candidates.py")
+    mc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mc)
+    a = {"candidates": [{"arxiv_id": "1", "t": "x"}, {"arxiv_id": "2"}], "papers": {"1": {"aff": ["MIT"]}}, "n": 1}
+    b = {"candidates": [{"arxiv_id": "1", "tags": ["Hot"]}, {"arxiv_id": "3"}], "papers": {"3": {"aff": []}}, "n": 2}
+    m = mc.merge(a, b)
+    assert [c["arxiv_id"] for c in m["candidates"]] == ["1", "2", "3"]
+    assert m["candidates"][0] == {"arxiv_id": "1", "t": "x", "tags": ["Hot"]}
+    assert set(m["papers"]) == {"1", "3"} and m["n"] == 2

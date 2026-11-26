@@ -1,0 +1,3 @@
+candidates/**/*.json merge=candidates
+state/feed_health.json merge=candidates
+state/youtube_channels.json merge=candidates

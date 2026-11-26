@@ -149,6 +149,242 @@
         "research",
         "knowledge"
       ]
+    },
+    "weekly:w-2026-W49-banach-fixed-point": {
+      "date": "2026-11-30",
+      "title": "The Banach fixed-point theorem: why contractions always converge",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-camera-obscura-room": {
+      "date": "2026-11-30",
+      "title": "Turn a room into a camera obscura",
+      "category": "making",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-chiang-exhalation": {
+      "date": "2026-11-30",
+      "title": "Ted Chiang, Exhalation: a scientist dissects his own brain",
+      "category": "culture",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-doubly-stochastic-sinkhorn": {
+      "date": "2026-11-30",
+      "title": "Why doubly stochastic mixing is stable: prove it, then build Sinkhorn",
+      "category": "research_fundamentals",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-explain-three-levels": {
+      "date": "2026-11-30",
+      "title": "Explain one idea from this week at three levels",
+      "category": "people",
+      "dimensions": [
+        "people",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-ghost-in-the-shell": {
+      "date": "2026-11-30",
+      "title": "Ghost in the Shell (1995): what is left of you if your body is replaceable?",
+      "category": "culture",
+      "dimensions": [
+        "culture",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-hyper-connections": {
+      "date": "2026-11-30",
+      "title": "New in AI: rethinking the residual connection with hyper-connections",
+      "category": "ai_study",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-kuhn-paradigms": {
+      "date": "2026-11-30",
+      "title": "Thomas Kuhn and how science really changes",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-landauer-principle": {
+      "date": "2026-11-30",
+      "title": "Landauer's principle: forgetting has a physical cost",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-meiji-restoration": {
+      "date": "2026-11-30",
+      "title": "The Meiji Restoration: how Japan rebuilt itself in one generation",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-mpemba-effect": {
+      "date": "2026-11-30",
+      "title": "The Mpemba effect: can hot water freeze faster than cold?",
+      "category": "talking_point",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-predictive-processing": {
+      "date": "2026-11-30",
+      "title": "Predictive processing: is the brain a world model?",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-q-coin-hh-ht": {
+      "date": "2026-11-30",
+      "title": "Which takes longer to appear: HH or HT?",
+      "category": "question",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-q-landauer-gigabyte": {
+      "date": "2026-11-30",
+      "title": "The minimum energy to erase a gigabyte",
+      "category": "question",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-q-pigeonhole-square": {
+      "date": "2026-11-30",
+      "title": "Five points in a square: two must be close",
+      "category": "question",
+      "dimensions": [
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-q-spinning-skater": {
+      "date": "2026-11-30",
+      "title": "The spinning skater: where does the extra energy come from?",
+      "category": "question",
+      "dimensions": [
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-ramanujan-1729": {
+      "date": "2026-11-30",
+      "title": "1729 and the notebook found 100 years later",
+      "category": "talking_point",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-sakamoto-three-pieces": {
+      "date": "2026-11-30",
+      "title": "Ryuichi Sakamoto: a life in three pieces",
+      "category": "culture",
+      "dimensions": [
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-semiconductor-chokepoints": {
+      "date": "2026-11-30",
+      "title": "How the chip supply chain works, and why a few places control it",
+      "category": "world_understanding",
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-three-follow-ups": {
+      "date": "2026-11-30",
+      "title": "Three follow-up questions before your own view",
+      "category": "people",
+      "dimensions": [
+        "people"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-word-order-telugu-japanese": {
+      "date": "2026-11-30",
+      "title": "Word order: why Japanese and Telugu put the verb last",
+      "category": "new_knowledge",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-world-models-map": {
+      "date": "2026-11-30",
+      "title": "World models: a one-week map of the field",
+      "category": "ai_study",
+      "dimensions": [
+        "research"
+      ],
+      "status": "suggested",
+      "url": null
     }
   }
 }

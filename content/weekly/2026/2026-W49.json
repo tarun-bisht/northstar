@@ -1,0 +1,1088 @@
+{
+  "schema": "weekly",
+  "week": "2026-W49",
+  "start_date": "2026-11-30",
+  "end_date": "2026-12-06",
+  "generated_at": "2026-11-26T07:44:33Z",
+  "generator": "claude-weekly",
+  "load": "normal",
+  "intro": "Your world-models map leads the week, with hyper-connections from the trending papers, the physics of forgetting, Sakamoto in December, and a room that becomes a camera. Pick anything, or nothing.",
+  "items": [
+    {
+      "id": "w-2026-W49-world-models-map",
+      "origin": "user_idea",
+      "status": "suggested",
+      "title": "World models: a one-week map of the field",
+      "category": "ai_study",
+      "section": "research_reading",
+      "dimensions": [
+        "research"
+      ],
+      "tier": "established",
+      "mode": "learn",
+      "idea_id": "idea-world-models-a-one-week-map-of-the-field",
+      "topic": "world models",
+      "time_estimate": "few_hours",
+      "description": "Your idea, as one week across the three main families of world models. Latent-dynamics models that agents plan in (World Models, Dreamer, MuZero). JEPA-style predictors that predict in embedding space (I-JEPA, V-JEPA 2). Generative and interactive video worlds (Sora, Cosmos, Genie 3, World Labs Atlas). A recent survey is the spine.",
+      "why": "The word world model now covers very different things. A map helps you read new papers and see which family a claim belongs to.",
+      "explain": {
+        "what": "A world model is a learned model that predicts how an environment changes, often given an action. Agents can use it to imagine outcomes before acting.",
+        "why": "It is one of the most active areas this year. It links reinforcement learning, self-supervised learning, video generation and robotics.",
+        "how": "Encode observations into a state, learn a dynamics model that predicts the next state, then plan or train a policy inside the model. The families differ in what they predict: compact latents, embeddings, or full pixels.",
+        "components": [
+          "an encoder from observations to state",
+          "a dynamics or transition model",
+          "a decoder or prediction target (pixels, latents or embeddings)",
+          "a way to use it: planning, policy learning or simulation"
+        ],
+        "limitations": "Pixel-perfect video can still break physics. A recent benchmark finds open interactive world models let objects pass through obstacles. Evaluation is unsettled, and there is a live debate on whether visual quality says anything about usefulness for decisions.",
+        "research_relevance": "Useful for agents, robotics, evaluation and representation learning. Good questions: what is the right prediction target, and how do you test that a model understands dynamics rather than appearance?"
+      },
+      "steps": [
+        "Read the taxonomy sections of the comprehensive survey and sketch its axes on one page",
+        "Read the World Models paper by Ha and Schmidhuber (the interactive article is short) and DreamerV3's method section. Note what the latent state is and how the agent learns inside it",
+        "Read the V-JEPA 2 abstract and planning section. Write down why predicting embeddings instead of pixels might help",
+        "Look at Genie 3 and World Labs Atlas. Atlas (World Labs, September 2026) is a blog-only release with no paper: it generates camera-controlled video, reconstructs 3D scenes from photos and simulates them",
+        "Sort ten models you know into the survey's taxonomy. Then read the Non-penetrating World Models abstract and name one failure each family would have"
+      ],
+      "resources": [
+        {
+          "title": "World Models: A Comprehensive Survey of Architectures, Methodologies, Reasoning Paradigms, and Applications",
+          "type": "paper",
+          "url": "https://arxiv.org/pdf/2606.00133",
+          "year": 2026,
+          "note": "the spine: taxonomy by architecture, method family, reasoning and application"
+        },
+        {
+          "title": "World Models",
+          "type": "paper",
+          "url": "https://arxiv.org/pdf/1803.10122v3",
+          "creator": "David Ha and Jürgen Schmidhuber",
+          "year": 2018
+        },
+        {
+          "title": "Mastering Diverse Domains through World Models (DreamerV3)",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2301.04104",
+          "creator": "Danijar Hafner et al.",
+          "year": 2023
+        },
+        {
+          "title": "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2506.09985",
+          "creator": "Meta FAIR",
+          "year": 2025
+        },
+        {
+          "title": "Genie 3: A new frontier for world models",
+          "type": "blog",
+          "url": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+          "creator": "Google DeepMind",
+          "year": 2025
+        },
+        {
+          "title": "Atlas: a world model for spatial intelligence",
+          "type": "blog",
+          "url": "https://worldlabs.ai/blog/atlas",
+          "creator": "World Labs",
+          "year": 2026,
+          "note": "this is the ATLAS you mentioned. Verified: a World Labs release, no arXiv paper"
+        },
+        {
+          "title": "How Should World Models Be Evaluated? A Decision-Making-Centric Position",
+          "type": "paper",
+          "url": "https://arxiv.org/html/2606.15032v1",
+          "year": 2026,
+          "note": "optional: the evaluation debate in one paper"
+        }
+      ],
+      "then": "Explain the three families to a friend in two minutes, with one example each."
+    },
+    {
+      "id": "w-2026-W49-hyper-connections",
+      "origin": "system",
+      "status": "suggested",
+      "title": "New in AI: rethinking the residual connection with hyper-connections",
+      "category": "ai_study",
+      "section": "research_reading",
+      "dimensions": [
+        "research"
+      ],
+      "tier": "established",
+      "mode": "learn",
+      "topic": "residual connections and hyper-connections",
+      "time_estimate": "1-2h",
+      "description": "The residual stream has been fixed since ResNet. Hyper-connections widen it into several parallel streams with learned mixing. DeepSeek's mHC made this stable by keeping the mixing matrices doubly stochastic. This week's trending papers on cmHC and loom attention push the idea further.",
+      "why": "Two of the week's most upvoted papers are about how information flows between layers. It is a rare change to a part of the transformer most people never question.",
+      "explain": {
+        "what": "A residual connection adds a layer's input to its output. Hyper-connections keep n copies of the residual stream and learn how to mix them at every layer.",
+        "why": "Plain residuals trade off gradient flow against representation collapse. Learned mixing can do better, but unconstrained mixing can blow up or vanish over many layers.",
+        "how": "mHC projects each mixing matrix onto the Birkhoff polytope, the set of doubly stochastic matrices, using Sinkhorn iterations. Products of such matrices stay bounded, so the signal neither explodes nor dies.",
+        "components": [
+          "n parallel residual streams",
+          "learned stream-mixing matrices",
+          "a doubly stochastic constraint via Sinkhorn",
+          "width and depth connection weights"
+        ],
+        "limitations": "Extra memory for n streams. cmHC reports a trade-off: too little mixing wastes the streams, too much mixing makes them all the same.",
+        "research_relevance": "A clean case of a geometric constraint making training stable. The same idea shows up in optimal transport and Markov chains."
+      },
+      "steps": [
+        "Read the Hyper-Connections abstract and its main figure. Draw one layer with n = 2 streams",
+        "Read the mHC method section. Find where Sinkhorn is used and why",
+        "Read the cmHC and loom attention abstracts from this week. Write one sentence on what each changes",
+        "Do the doubly stochastic exercise in Research practice to see the maths behind the stability"
+      ],
+      "resources": [
+        {
+          "title": "Hyper-Connections",
+          "type": "paper",
+          "url": "https://arxiv.org/pdf/2409.19606",
+          "creator": "ByteDance Seed",
+          "year": 2024
+        },
+        {
+          "title": "mHC: Manifold-Constrained Hyper-Connections",
+          "type": "paper",
+          "url": "https://arxiv.org/html/2512.24880v2",
+          "creator": "DeepSeek",
+          "year": 2025
+        },
+        {
+          "title": "mHC in the LLM Architecture Gallery",
+          "type": "blog",
+          "url": "https://www.sebastianraschka.com/llm-architecture-gallery/mhc/",
+          "creator": "Sebastian Raschka",
+          "note": "a visual overview"
+        },
+        {
+          "title": "cmHC: Balancing Stream Mixing in Hyper-Connections via Geometric Contraction",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2611.27193",
+          "year": 2026
+        },
+        {
+          "title": "Rewirable Circuits in Transformers with Loom Attention",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2611.30634",
+          "year": 2026
+        }
+      ],
+      "then": "Explain to a colleague why a doubly stochastic matrix cannot blow up a signal."
+    },
+    {
+      "id": "w-2026-W49-doubly-stochastic-sinkhorn",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Why doubly stochastic mixing is stable: prove it, then build Sinkhorn",
+      "category": "research_fundamentals",
+      "section": "research_practice",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "tier": "established",
+      "mode": "practise",
+      "topic": "linear algebra and optimal transport",
+      "time_estimate": "1-2h",
+      "difficulty": "medium",
+      "description": "A small proof plus a 20-line implementation. Show that doubly stochastic matrices are closed under products and never increase the norm of a vector. Then write Sinkhorn-Knopp and watch what repeated mixing does.",
+      "why": "This is the maths behind mHC, and the same tool behind entropic optimal transport. Proving and building it beats reading about it.",
+      "steps": [
+        "Prove that the product of two doubly stochastic matrices is doubly stochastic",
+        "Prove that a doubly stochastic matrix has spectral norm at most 1",
+        "Write Sinkhorn-Knopp in NumPy: start from exp(M) for a random M and alternate row and column normalisation. Plot the error against iterations",
+        "Multiply 50 random doubly stochastic 4x4 matrices. What does the product converge to? Connect this to the over-mixing problem in cmHC"
+      ],
+      "hints": [
+        "For closure, use the all-ones vector 1. A matrix A is doubly stochastic when A1 = 1 and 1ᵀA = 1ᵀ, with non-negative entries.",
+        "For the norm, the Birkhoff-von Neumann theorem says A is a convex combination of permutation matrices. Each permutation has norm 1, and a norm is convex.",
+        "For the product, think of a Markov chain whose stationary distribution is uniform. Where does every row end up?"
+      ],
+      "solution_available_on_request": true,
+      "resources": [
+        {
+          "title": "Sinkhorn Distances: Lightspeed Computation of Optimal Transportation Distances",
+          "type": "paper",
+          "url": "https://arxiv.org/pdf/1306.0895",
+          "creator": "Marco Cuturi",
+          "year": 2013
+        },
+        {
+          "title": "mHC: Manifold-Constrained Hyper-Connections",
+          "type": "paper",
+          "url": "https://arxiv.org/html/2512.24880v2",
+          "chapters": "method section on the Birkhoff polytope"
+        }
+      ],
+      "then": "Write three sentences on what over-mixing means for the residual streams."
+    },
+    {
+      "id": "w-2026-W49-banach-fixed-point",
+      "origin": "system",
+      "status": "suggested",
+      "title": "The Banach fixed-point theorem: why contractions always converge",
+      "category": "new_knowledge",
+      "section": "knowledge",
+      "subject": "maths",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "tier": "established",
+      "mode": "learn",
+      "topic": "analysis: contraction mappings",
+      "time_estimate": "1-2h",
+      "description": "If a map pulls every pair of points closer by a fixed factor, repeating it always lands on one unique point. This one theorem explains why value iteration in RL converges, why many iterative solvers work, and why Picard's method solves differential equations.",
+      "why": "Analysis is a growth area for you, and this theorem shows up all over ML theory. It is also the geometric idea behind contraction in cmHC.",
+      "steps": [
+        "Read the definitions of a metric space, a complete space and a contraction",
+        "Follow the proof: show the iterates form a Cauchy sequence, then use completeness",
+        "Prove that the Bellman operator is a γ-contraction in the max norm",
+        "Find one map that pulls points closer but is not a contraction, and see why it can fail"
+      ],
+      "resources": [
+        {
+          "title": "MIT 18.S190 Introduction to Metric Spaces, Lecture 5",
+          "type": "lecture",
+          "url": "https://www.ocw.mit.edu/courses/18-s190-introduction-to-metric-spaces-january-iap-2023/mit18_s190iap23_lec5.pdf",
+          "creator": "MIT OpenCourseWare",
+          "year": 2023
+        },
+        {
+          "title": "Principles of Mathematical Analysis",
+          "type": "book",
+          "creator": "Walter Rudin",
+          "chapters": "Ch. 9, the contraction principle (Thm 9.23)"
+        },
+        {
+          "title": "Lecture notes on contraction mappings",
+          "type": "article",
+          "url": "https://www.math.mcgill.ca/labute/courses/325b.02/lecture9.pdf",
+          "creator": "McGill University"
+        }
+      ],
+      "then": "Explain to a friend why value iteration cannot loop forever."
+    },
+    {
+      "id": "w-2026-W49-landauer-principle",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Landauer's principle: forgetting has a physical cost",
+      "category": "new_knowledge",
+      "section": "knowledge",
+      "subject": "physics",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "tier": "growth",
+      "mode": "learn",
+      "topic": "thermodynamics of information",
+      "time_estimate": "1-2h",
+      "cross_domain": {
+        "fields": [
+          "statistical physics",
+          "information theory",
+          "machine unlearning"
+        ],
+        "connection": "Erasing one bit must release at least kT ln 2 of heat. Physics puts a floor under the cost of forgetting, a fun mirror of the question of what it costs a model to truly forget."
+      },
+      "description": "Erasing one bit of information must dissipate at least kT ln 2 of heat. This resolved the puzzle of Maxwell's demon, and it was measured directly in 2012 with a single bead in a laser trap.",
+      "why": "It is where information theory meets thermodynamics. It also changes how you think about the word forget.",
+      "steps": [
+        "Read Bennett's notes, sections on Maxwell's demon and on why erasure, not measurement, costs energy",
+        "Read the 2012 experiment's abstract and look at how a bead in a double-well potential stores one bit",
+        "Compute kT ln 2 at room temperature in joules and in electronvolts",
+        "Try the Landauer question in this week's physics questions"
+      ],
+      "resources": [
+        {
+          "title": "Notes on Landauer's principle, reversible computation, and Maxwell's Demon",
+          "type": "paper",
+          "url": "https://arxiv.org/pdf/physics/0210005",
+          "creator": "Charles H. Bennett",
+          "year": 2003
+        },
+        {
+          "title": "Experimental verification of Landauer's principle linking information and thermodynamics",
+          "type": "paper",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22398556/",
+          "creator": "Bérut et al., Nature",
+          "year": 2012
+        },
+        {
+          "title": "Feynman Lectures on Computation",
+          "type": "book",
+          "creator": "Richard Feynman",
+          "chapters": "Ch. 5, Reversible computation and the thermodynamics of computing"
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W49-semiconductor-chokepoints",
+      "origin": "system",
+      "status": "suggested",
+      "title": "How the chip supply chain works, and why a few places control it",
+      "category": "world_understanding",
+      "section": "knowledge",
+      "subject": "world",
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "tier": "established",
+      "mode": "learn",
+      "topic": "semiconductor geopolitics",
+      "time_estimate": "1-2h",
+      "description": "Advanced AI chips pass through a handful of chokepoints: design software from a few US firms, lithography machines from ASML in the Netherlands, and leading-edge fabrication mostly at TSMC in Taiwan. Export controls now target exactly these points.",
+      "why": "AI infrastructure is one of your established interests. Knowing the chain makes news about export controls, new fabs and GPU shortages make sense.",
+      "steps": [
+        "Draw the chain: design, design software, equipment, fabrication, packaging",
+        "For each step, name the main companies and countries",
+        "Read or listen to Chris Miller on why the chain became so concentrated",
+        "Pick one recent piece of chip news and place it on your drawing"
+      ],
+      "resources": [
+        {
+          "title": "Chip War: The Fight for the World's Most Critical Technology",
+          "type": "book",
+          "creator": "Chris Miller",
+          "year": 2022,
+          "chapters": "Introduction and the chapters on TSMC and ASML"
+        },
+        {
+          "title": "The global chip industry's complicated contours were decades in the making",
+          "type": "article",
+          "url": "https://www.weforum.org/stories/trade-and-investment/the-global-chip-industrys-complicated-contours-were-decades-in-the-making/",
+          "creator": "World Economic Forum"
+        },
+        {
+          "title": "Chip War with Chris Miller",
+          "type": "podcast",
+          "url": "https://carnegiecouncil.org/media/series/the-doorstep/chip-war-chris-miller",
+          "creator": "Carnegie Council, The Doorstep"
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W49-meiji-restoration",
+      "origin": "system",
+      "status": "suggested",
+      "title": "The Meiji Restoration: how Japan rebuilt itself in one generation",
+      "category": "new_knowledge",
+      "section": "knowledge",
+      "subject": "history",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "tier": "growth",
+      "mode": "learn",
+      "topic": "modern Japanese history",
+      "time_estimate": "1-2h",
+      "description": "In 1853 American warships forced Japan open. By 1905 Japan had a constitution, railways, mass schooling and had beaten Russia in a war. The Meiji era is one of history's fastest deliberate transformations of a society.",
+      "why": "History is a growth area, and it gives depth to your Japanese study. It is also a case study in how a society adopts a new technology on purpose.",
+      "steps": [
+        "Watch the lecture and list five reforms with their dates",
+        "Read about the Iwakura Mission, when leaders toured the West for almost two years to choose what to copy",
+        "Ask what was lost, not only what was gained, for example the samurai class and the Satsuma Rebellion",
+        "Write a short comparison with another country that modernised fast"
+      ],
+      "resources": [
+        {
+          "title": "HIS 194C Lecture 2: Meiji Restoration and constitutional government",
+          "type": "lecture",
+          "url": "https://video.ucdavis.edu/media/HIS+194C+PRERECORDED+LECTURE+2-+MEIJI+RESTORATION-CONSTITUTONAL+GOV+FOR+WEEK+23+9.19.20/1_texa1rz6",
+          "creator": "UC Davis"
+        },
+        {
+          "title": "A Modern History of Japan: From Tokugawa Times to the Present",
+          "type": "book",
+          "creator": "Andrew Gordon",
+          "chapters": "the chapters on the fall of the Tokugawa and the Meiji revolution"
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W49-kuhn-paradigms",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Thomas Kuhn and how science really changes",
+      "category": "new_knowledge",
+      "section": "knowledge",
+      "subject": "philosophy",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "tier": "growth",
+      "mode": "learn",
+      "topic": "philosophy of science",
+      "time_estimate": "1-2h",
+      "description": "Kuhn argued that science moves through long periods of normal puzzle-solving, broken by revolutions that change what counts as a good question. His ideas of paradigm and incommensurability are still argued about.",
+      "why": "Philosophy of science feeds research taste. It helps you notice when a field is in normal science and when its assumptions are cracking.",
+      "steps": [
+        "Read the SEP entry sections on normal science and on revolutions",
+        "Read Structure chapters 9 and 10",
+        "Pick one shift in AI, for example from feature engineering to deep learning, and test Kuhn's story against it",
+        "Write down one way Popper would disagree"
+      ],
+      "resources": [
+        {
+          "title": "Thomas Kuhn",
+          "type": "website",
+          "url": "https://plato.stanford.edu/ENTRIES/thomas-kuhn/",
+          "creator": "Stanford Encyclopedia of Philosophy"
+        },
+        {
+          "title": "The Structure of Scientific Revolutions",
+          "type": "book",
+          "creator": "Thomas S. Kuhn",
+          "year": 1962,
+          "chapters": "Ch. IX-X"
+        }
+      ],
+      "then": "Bring up the AI example in a conversation and see if the other person agrees."
+    },
+    {
+      "id": "w-2026-W49-predictive-processing",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Predictive processing: is the brain a world model?",
+      "category": "new_knowledge",
+      "section": "knowledge",
+      "subject": "neuroscience",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "tier": "growth",
+      "mode": "learn",
+      "topic": "predictive processing",
+      "time_estimate": "1-2h",
+      "cross_domain": {
+        "fields": [
+          "neuroscience",
+          "machine learning"
+        ],
+        "connection": "Predictive processing says the brain constantly predicts its senses and learns from errors. It pairs directly with this week's world-models map and the JEPA idea of predicting in a latent space."
+      },
+      "description": "A major theory in cognitive science says perception is mostly prediction. The brain guesses what comes next and only passes up the errors. Andy Clark's 2013 paper is the classic overview.",
+      "why": "Neuroscience is a growth area. Reading it next to world models shows how far the analogy goes and where it breaks.",
+      "steps": [
+        "Read sections 1 and 2 of Clark's paper on hierarchical prediction",
+        "List three claims and match each to an idea in ML world models or JEPA",
+        "Read one critical commentary in the same issue",
+        "Write down where you think the analogy fails"
+      ],
+      "resources": [
+        {
+          "title": "Whatever next? Predictive brains, situated agents, and the future of cognitive science",
+          "type": "paper",
+          "url": "https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf",
+          "creator": "Andy Clark, Behavioral and Brain Sciences",
+          "year": 2013
+        },
+        {
+          "title": "Surfing Uncertainty: Prediction, Action, and the Embodied Mind",
+          "type": "book",
+          "creator": "Andy Clark",
+          "year": 2016,
+          "chapters": "Ch. 1"
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W49-word-order-telugu-japanese",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Word order: why Japanese and Telugu put the verb last",
+      "category": "new_knowledge",
+      "section": "knowledge",
+      "subject": "linguistics",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "tier": "exploration",
+      "mode": "learn",
+      "topic": "linguistic typology",
+      "time_estimate": "30-60m",
+      "description": "Japanese and Telugu are unrelated, yet both say I rice ate, with the verb at the end, and both stack suffixes onto words. Subject-object-verb is in fact the most common word order among the world's languages.",
+      "why": "You are learning both languages. Seeing their shared shape makes each one easier and opens up linguistic typology.",
+      "steps": [
+        "Open the WALS map for feature 81A and find Japanese and Telugu",
+        "Read the WALS chapter on how common each order is",
+        "Write one sentence in English, then reorder it into Japanese and Telugu order",
+        "Read the Telugu grammar overview on suffixes and compare with Japanese particles"
+      ],
+      "resources": [
+        {
+          "title": "WALS Feature 81A: Order of Subject, Object and Verb",
+          "type": "website",
+          "url": "https://wals.info/feature/81A",
+          "creator": "World Atlas of Language Structures"
+        },
+        {
+          "title": "WALS Chapter 81: Order of Subject, Object and Verb",
+          "type": "article",
+          "url": "https://wals.info/chapter/81",
+          "creator": "Matthew Dryer"
+        },
+        {
+          "title": "Telugu grammar",
+          "type": "article",
+          "url": "https://en.wikipedia.com/wiki/Telugu_grammar",
+          "creator": "Wikipedia"
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W49-q-coin-hh-ht",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Which takes longer to appear: HH or HT?",
+      "category": "question",
+      "section": "questions",
+      "subject": "probability",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "tier": "established",
+      "mode": "practise",
+      "topic": "expected waiting times",
+      "time_estimate": "10-30m",
+      "difficulty": "easy",
+      "description": "Toss a fair coin until you see two heads in a row (HH). Separately, toss until you see a head followed by a tail (HT). What is the expected number of tosses for each? Most people guess they are equal.",
+      "why": "A classic that trains you to set up states and expectations instead of trusting intuition.",
+      "hints": [
+        "Define states by the last toss that matters.",
+        "For HT, once you have an H you can never lose progress. For HH, a T sends you back to the start.",
+        "Write E = 1 + (average of the next states) for each state and solve."
+      ],
+      "solution": "For HT: from the start you wait 2 tosses on average for an H, then 2 more for a T, so 4. For HH: let E be the start and E_H the state after one H. E = 1 + (E_H + E)/2 and E_H = 1 + E/2. Solving gives E = 6. HH takes longer because a failure throws away your progress.",
+      "source": "Classic probability puzzle"
+    },
+    {
+      "id": "w-2026-W49-q-pigeonhole-square",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Five points in a square: two must be close",
+      "category": "question",
+      "section": "questions",
+      "subject": "maths",
+      "dimensions": [
+        "knowledge"
+      ],
+      "tier": "established",
+      "mode": "practise",
+      "topic": "pigeonhole principle",
+      "time_estimate": "10-30m",
+      "difficulty": "easy",
+      "description": "Place any five points inside a unit square. Show that two of them are at most √2/2 apart.",
+      "why": "The pigeonhole principle is a small tool that solves surprisingly hard problems. It is good practice in looking for the right boxes.",
+      "hints": [
+        "Split the square into four equal pieces.",
+        "Five points, four pieces.",
+        "What is the longest distance inside one small square?"
+      ],
+      "solution": "Cut the square into four squares of side 1/2. With five points, one small square holds two of them. The largest distance inside a square of side 1/2 is its diagonal, √2/2.",
+      "source": "Classic olympiad exercise"
+    },
+    {
+      "id": "w-2026-W49-q-spinning-skater",
+      "origin": "system",
+      "status": "suggested",
+      "title": "The spinning skater: where does the extra energy come from?",
+      "category": "question",
+      "section": "questions",
+      "subject": "physics",
+      "dimensions": [
+        "knowledge"
+      ],
+      "tier": "growth",
+      "mode": "practise",
+      "topic": "angular momentum",
+      "time_estimate": "10-30m",
+      "difficulty": "easy",
+      "description": "A skater spins with arms out, then pulls them in so her moment of inertia halves. Her angular speed doubles. What happens to her kinetic energy, and where does the difference come from?",
+      "why": "Conservation laws are the backbone of physics. This one has a twist that many people miss.",
+      "hints": [
+        "Angular momentum L = Iω is conserved because there is no outside torque.",
+        "Write kinetic energy as L²/(2I).",
+        "Pulling the arms in takes force along the arms. Is any work done?"
+      ],
+      "solution": "L stays the same, so KE = L²/(2I) doubles when I halves. The extra energy comes from the work her muscles do pulling the arms inward against the outward pull of the rotation.",
+      "source": "Feynman Lectures on Physics, Vol. I, Ch. 18 (Rotation in two dimensions)"
+    },
+    {
+      "id": "w-2026-W49-q-landauer-gigabyte",
+      "origin": "system",
+      "status": "suggested",
+      "title": "The minimum energy to erase a gigabyte",
+      "category": "question",
+      "section": "questions",
+      "subject": "physics",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "tier": "growth",
+      "mode": "practise",
+      "topic": "thermodynamics of information",
+      "time_estimate": "10-30m",
+      "difficulty": "easy",
+      "description": "Using Landauer's bound, what is the least energy needed to erase 1 gigabyte at room temperature, 300 K? Compare it with the energy of lifting a grain of sand one millimetre.",
+      "why": "A quick Fermi-style calculation that makes the knowledge topic on Landauer's principle concrete.",
+      "hints": [
+        "Each bit costs at least kT ln 2, with k = 1.38 × 10⁻²³ J/K.",
+        "1 GB is 8 × 10⁹ bits.",
+        "A grain of sand weighs about 10⁻⁶ kg."
+      ],
+      "solution": "kT ln 2 at 300 K is about 2.9 × 10⁻²¹ J. Times 8 × 10⁹ bits gives about 2.3 × 10⁻¹¹ J. Lifting 10⁻⁶ kg by 10⁻³ m takes about 10⁻⁸ J, roughly a thousand times more. Real chips use far more than the Landauer bound.",
+      "source": "Based on Landauer (1961) and Bennett (2003)"
+    },
+    {
+      "id": "w-2026-W49-mpemba-effect",
+      "origin": "system",
+      "status": "suggested",
+      "title": "The Mpemba effect: can hot water freeze faster than cold?",
+      "category": "talking_point",
+      "section": "curiosities",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "tier": "exploration",
+      "mode": "reflect",
+      "topic": "unsolved everyday physics",
+      "time_estimate": "10-30m",
+      "description": "In 1963 a Tanzanian schoolboy, Erasto Mpemba, noticed his hot ice cream mix froze before the cold ones. Physicists laughed, then published with him in 1969. Experiments still disagree, though related effects have now been shown in carefully controlled systems.",
+      "why": "It is a true scientific mystery about something in your kitchen, and a story about taking a student's observation seriously.",
+      "steps": [
+        "Read the Quanta article",
+        "Ask: what would a clean experiment need to control?"
+      ],
+      "resources": [
+        {
+          "title": "Does Hot Water Freeze Faster Than Cold? Physicists Keep Asking",
+          "type": "article",
+          "url": "https://www.quantamagazine.org/does-hot-water-freeze-faster-than-cold-physicists-keep-asking-20220629/",
+          "creator": "Quanta Magazine",
+          "year": 2022
+        },
+        {
+          "title": "The ice cream that changed physics",
+          "type": "article",
+          "url": "https://www.pbs.org/wgbh/nova/article/why-hot-water-freezes-faster",
+          "creator": "PBS NOVA"
+        }
+      ],
+      "then": "Discuss: why can a simple question stay unresolved for sixty years?"
+    },
+    {
+      "id": "w-2026-W49-ramanujan-1729",
+      "origin": "system",
+      "status": "suggested",
+      "title": "1729 and the notebook found 100 years later",
+      "category": "talking_point",
+      "section": "curiosities",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ],
+      "tier": "exploration",
+      "mode": "reflect",
+      "topic": "history of mathematics",
+      "time_estimate": "10-30m",
+      "description": "Hardy said his taxi number, 1729, was dull. Ramanujan replied it is the smallest number that is a sum of two cubes in two ways. In 2015 mathematicians found that a page of Ramanujan's notes about such numbers anticipated ideas about K3 surfaces developed decades later.",
+      "why": "A famous anecdote with a real mathematical sequel, and a story about intuition far ahead of its time.",
+      "steps": [
+        "Read the Plus magazine piece on Ramanujan",
+        "Read the Emory news story on the 2015 discovery"
+      ],
+      "resources": [
+        {
+          "title": "Ramanujan",
+          "type": "article",
+          "url": "https://plus.maths.org/content/ramanujan",
+          "creator": "Plus Magazine"
+        },
+        {
+          "title": "Mathematicians find 'magic key' to drive Ramanujan's taxi-cab number",
+          "type": "article",
+          "url": "https://news.emory.edu/stories/2015/10/esc_taxi_cab_numbers/campus.html",
+          "creator": "Emory University",
+          "year": 2015
+        }
+      ],
+      "then": "Discuss: can intuition be trained, or only checked?"
+    },
+    {
+      "id": "w-2026-W49-sakamoto-three-pieces",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Ryuichi Sakamoto: a life in three pieces",
+      "category": "culture",
+      "section": "culture",
+      "dimensions": [
+        "culture"
+      ],
+      "tier": "exploration",
+      "mode": "experience",
+      "topic": "Japanese music",
+      "time_estimate": "1-2h",
+      "description": "Sakamoto went from synth-pop pioneer in Yellow Magic Orchestra to film composer and quiet ambient artist. Listen to Merry Christmas Mr. Lawrence (1983), with its bright bell-like melody. Then Rain from The Last Emperor (1987), which won an Oscar he shared with David Byrne and Cong Su. Then Energy Flow (1999), a short piano piece that became a surprise hit in Japan. Then watch Coda, filmed while he was ill and rebuilding his music from field recordings.",
+      "why": "A December-friendly entry into Japanese culture, and a life that keeps reinventing itself.",
+      "steps": [
+        "Listen to the three pieces in order, once without doing anything else",
+        "For each, note what instrument carries the melody",
+        "Watch Coda if you have an evening"
+      ],
+      "resources": [
+        {
+          "title": "Ryuichi Sakamoto: Coda",
+          "type": "documentary",
+          "url": "https://en.wikipedia.org/wiki/Ryuichi_Sakamoto:_Coda",
+          "creator": "Stephen Nomura Schible",
+          "year": 2017
+        },
+        {
+          "title": "Merry Christmas Mr. Lawrence (soundtrack)",
+          "type": "album",
+          "creator": "Ryuichi Sakamoto",
+          "year": 1983
+        },
+        {
+          "title": "Ura BTTB",
+          "type": "album",
+          "creator": "Ryuichi Sakamoto",
+          "year": 1999,
+          "note": "the EP with Energy Flow"
+        }
+      ],
+      "then": "Play Merry Christmas Mr. Lawrence for someone and ask what it makes them think of."
+    },
+    {
+      "id": "w-2026-W49-ghost-in-the-shell",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Ghost in the Shell (1995): what is left of you if your body is replaceable?",
+      "category": "culture",
+      "section": "culture",
+      "dimensions": [
+        "culture",
+        "research"
+      ],
+      "tier": "exploration",
+      "mode": "experience",
+      "topic": "anime and philosophy of mind",
+      "time_estimate": "few_hours",
+      "cross_domain": {
+        "fields": [
+          "anime",
+          "philosophy of mind",
+          "AI"
+        ],
+        "connection": "Mamoru Oshii's film asks whether an intelligence born in a network can be a person, and what identity means when memory can be edited. These are live questions in AI and philosophy of mind."
+      },
+      "description": "Mamoru Oshii's 83-minute film follows Major Kusanagi, whose body is almost all machine, as she hunts a hacker called the Puppet Master. Slow city scenes with Kenji Kawai's choral score sit between action, giving the film space to think.",
+      "why": "One of the most influential anime ever made, and it pairs with your interest in AI and minds.",
+      "steps": [
+        "Watch the film",
+        "Read one of the essays below",
+        "Note the one line of dialogue you would want to argue about"
+      ],
+      "resources": [
+        {
+          "title": "Ghost in the Shell",
+          "type": "film",
+          "creator": "Mamoru Oshii",
+          "year": 1995
+        },
+        {
+          "title": "Ghost in the Shell: Exploring the boundary between mind and machine",
+          "type": "article",
+          "url": "https://reactormag.com/ghost-in-the-shell-exploring-the-boundary-between-mind-and-machine/",
+          "creator": "Reactor"
+        },
+        {
+          "title": "Why Ghost in the Shell is the greatest and most philosophical anime ever made",
+          "type": "article",
+          "url": "https://www.scmp.com/print/magazines/post-magazine/arts-music/article/3040516/why-ghost-shell-greatest-and-most-philosophical",
+          "creator": "South China Morning Post"
+        }
+      ]
+    },
+    {
+      "id": "w-2026-W49-chiang-exhalation",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Ted Chiang, Exhalation: a scientist dissects his own brain",
+      "category": "culture",
+      "section": "culture",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "tier": "growth",
+      "mode": "experience",
+      "topic": "literary science fiction",
+      "time_estimate": "30-60m",
+      "cross_domain": {
+        "fields": [
+          "literature",
+          "thermodynamics"
+        ],
+        "connection": "A mechanical being discovers that thought runs on air pressure differences, and that the universe is slowly running down. It is the second law of thermodynamics told as a quiet, moving story, and it pairs with this week's Landauer topic."
+      },
+      "description": "A short story of about 30 pages. A narrator made of metal opens his own head to learn how memory works and discovers that his whole world is slowly reaching equilibrium. It won the Hugo Award.",
+      "why": "Literary fiction is a growth area. This story is short, beautiful and full of real physics.",
+      "steps": [
+        "Read the story in one sitting",
+        "Read the Scientific American post on its neuroscience"
+      ],
+      "resources": [
+        {
+          "title": "Exhalation: Stories",
+          "type": "book",
+          "creator": "Ted Chiang",
+          "year": 2019,
+          "chapters": "the title story"
+        },
+        {
+          "title": "Neuroscience in Fiction: Exhalation, by Ted Chiang",
+          "type": "blog",
+          "url": "https://www.scientificamerican.com/blog/illusion-chasers/neuroscience-in-fiction-exhalation-by-ted-chiang/",
+          "creator": "Scientific American"
+        },
+        {
+          "title": "Exhalation (short story)",
+          "type": "article",
+          "url": "https://en.wikipedia.com/wiki/Exhalation_(short_story)",
+          "creator": "Wikipedia"
+        }
+      ],
+      "then": "Tell someone the premise in three sentences and ask what they would do in the narrator's place."
+    },
+    {
+      "id": "w-2026-W49-three-follow-ups",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Three follow-up questions before your own view",
+      "category": "people",
+      "section": "people_self",
+      "dimensions": [
+        "people"
+      ],
+      "tier": "growth",
+      "mode": "practise",
+      "topic": "active listening and asking better questions",
+      "time_estimate": "real_world_practice",
+      "description": "In one real conversation this week, when someone tells you about something they care about, ask three follow-up questions before you share your own opinion or story.",
+      "why": "Follow-up questions are one of the simplest ways to make someone feel heard. Holding back your view for a moment also shows you what you would have missed.",
+      "steps": [
+        "Pick a relaxed conversation, a meal or a walk",
+        "Ask three follow-ups that build on their last answer, for example: what happened next, how did that feel, what surprised you",
+        "Only then share your view",
+        "Afterwards, note one thing you learned that you would not have heard otherwise"
+      ],
+      "then": "Notice whether the other person talked longer or more openly than usual."
+    },
+    {
+      "id": "w-2026-W49-explain-three-levels",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Explain one idea from this week at three levels",
+      "category": "people",
+      "section": "people_self",
+      "dimensions": [
+        "people",
+        "research"
+      ],
+      "tier": "growth",
+      "mode": "practise",
+      "topic": "explaining research clearly",
+      "time_estimate": "real_world_practice",
+      "description": "Take one idea from this week, such as world models or Landauer's principle. Explain it to one real person in three sentences, then with one good analogy, then ask them to explain it back.",
+      "why": "Explaining clearly is a research skill and a people skill. Their explanation back shows you exactly what landed.",
+      "steps": [
+        "Write your three sentences first",
+        "Find one everyday analogy",
+        "Explain it to a friend or family member who is not in your field",
+        "Ask them to say it back in their own words and listen for gaps"
+      ],
+      "then": "Rewrite your three sentences using what you learned."
+    },
+    {
+      "id": "w-2026-W49-camera-obscura-room",
+      "origin": "system",
+      "status": "suggested",
+      "title": "Turn a room into a camera obscura",
+      "category": "making",
+      "section": "curiosity_making",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ],
+      "tier": "exploration",
+      "mode": "create",
+      "topic": "optics and photography",
+      "time_estimate": "1-2h",
+      "cross_domain": {
+        "fields": [
+          "optics",
+          "art history"
+        ],
+        "connection": "A dark room with a small hole projects an upside-down image of the world outside. Artists from the Renaissance onward used this effect, and some argue painters like Vermeer did too."
+      },
+      "description": "Black out a window on a sunny day, leave one small hole, and the street outside appears upside down on your wall, in colour and in motion. It takes some cardboard, tape and patience.",
+      "why": "Something weird and beautiful that you can make in an afternoon. It shows the physics of every camera and every eye.",
+      "steps": [
+        "Pick a room with a window facing a bright outdoor scene",
+        "Cover the window fully with cardboard or foil",
+        "Cut a hole about 1 cm wide and wait 10 minutes for your eyes to adapt",
+        "Try a smaller hole and compare sharpness and brightness"
+      ],
+      "resources": [
+        {
+          "title": "How to turn a room into a camera",
+          "type": "article",
+          "url": "https://www.eastman.org/sites/default/files/2020_GEM-CameraObscura_HowTo.pdf",
+          "creator": "George Eastman Museum",
+          "year": 2020
+        },
+        {
+          "title": "How to Turn Your Bedroom Into a Giant Camera and Use it to Make Pictures",
+          "type": "article",
+          "url": "https://petapixel.com/2020/03/24/how-to-turn-your-bedroom-into-a-giant-camera-and-use-it-to-make-pictures",
+          "creator": "PetaPixel",
+          "year": 2020
+        }
+      ],
+      "then": "Take a phone photo of the projection and share it with someone."
+    }
+  ],
+  "reflection_prompt": "Optional: which item this week made you curious enough to look further?",
+  "notes": "No poll reply for W49, so New in AI follows the week's trending papers (cmHC, loom attention). ATLAS in the world-models idea is World Labs' Atlas (blog post of 1 September 2026, no paper), verified on worldlabs.ai.",
+  "language": {
+    "lessons": [
+      {
+        "language": "japanese",
+        "title": "Introducing yourself: はじめまして and 〜です",
+        "explanation": "A Japanese self-introduction has three parts. Start with はじめまして (nice to meet you, said the first time only). Give your name with 〜です (I am …). End with よろしくおねがいします, which asks for a good relationship. You can drop わたしは (I) because it is clear from context.",
+        "examples": [
+          {
+            "text": "はじめまして。",
+            "romanization": "hajimemashite.",
+            "meaning": "Nice to meet you."
+          },
+          {
+            "text": "ケンです。",
+            "romanization": "Ken desu.",
+            "meaning": "I'm Ken."
+          },
+          {
+            "text": "エンジニアです。",
+            "romanization": "enjinia desu.",
+            "meaning": "I'm an engineer."
+          },
+          {
+            "text": "よろしくおねがいします。",
+            "romanization": "yoroshiku onegaishimasu.",
+            "meaning": "Pleased to meet you. (literally: please treat me well)"
+          },
+          {
+            "text": "こちらこそ、よろしくおねがいします。",
+            "romanization": "kochira koso, yoroshiku onegaishimasu.",
+            "meaning": "Likewise, pleased to meet you."
+          }
+        ],
+        "questions": [
+          {
+            "question": "Say: Nice to meet you. I'm Aya.",
+            "answer": "はじめまして。アヤです。(hajimemashite. Aya desu.)"
+          },
+          {
+            "question": "Someone says はじめまして。たなかです。よろしくおねがいします。 How do you reply politely?",
+            "answer": "こちらこそ、よろしくおねがいします。(kochira koso, yoroshiku onegaishimasu.)"
+          },
+          {
+            "question": "Do you say はじめまして to someone you met last week?",
+            "answer": "No. It is only for the first meeting."
+          },
+          {
+            "question": "Say: I'm a student. (student = がくせい, gakusei)",
+            "answer": "がくせいです。(gakusei desu.)"
+          }
+        ],
+        "practice": [
+          "Say a three-line self-introduction aloud five times: はじめまして, your name with です, よろしくおねがいします",
+          "Role-play a first meeting with Claude, then switch roles",
+          "Record yourself once and listen back for the long お in おねがい"
+        ],
+        "resources": [
+          {
+            "title": "Jikoshoukai: how to introduce yourself in Japanese",
+            "type": "article",
+            "url": "https://tofugu.com/japanese/jikoshoukai",
+            "creator": "Tofugu"
+          }
+        ]
+      },
+      {
+        "language": "telugu",
+        "title": "Asking and giving names: నా పేరు …",
+        "explanation": "In Telugu you do not need a word for is to say your name. నా పేరు (nā pēru) means my name, and you simply add the name: నా పేరు రవి (nā pēru Ravi). To ask politely, use మీ (mī, your, polite). Use నీ (nī) only with close friends or children.",
+        "examples": [
+          {
+            "text": "మీ పేరు ఏమిటి?",
+            "romanization": "mī pēru ēmiṭi?",
+            "meaning": "What is your name? (polite)"
+          },
+          {
+            "text": "నా పేరు రవి.",
+            "romanization": "nā pēru Ravi.",
+            "meaning": "My name is Ravi."
+          },
+          {
+            "text": "నీ పేరు ఏమిటి?",
+            "romanization": "nī pēru ēmiṭi?",
+            "meaning": "What is your name? (informal)"
+          },
+          {
+            "text": "మిమ్మల్ని కలవడం సంతోషం.",
+            "romanization": "mimmalni kalavaḍaṁ santōṣaṁ.",
+            "meaning": "Happy to meet you."
+          }
+        ],
+        "questions": [
+          {
+            "question": "Ask an older person their name.",
+            "answer": "మీ పేరు ఏమిటి? (mī pēru ēmiṭi?)"
+          },
+          {
+            "question": "Say: My name is Lakshmi.",
+            "answer": "నా పేరు లక్ష్మి. (nā pēru Lakṣmi.)"
+          },
+          {
+            "question": "Which word for your is polite: మీ or నీ?",
+            "answer": "మీ (mī)"
+          },
+          {
+            "question": "Say: Happy to meet you.",
+            "answer": "మిమ్మల్ని కలవడం సంతోషం. (mimmalni kalavaḍaṁ santōṣaṁ.)"
+          }
+        ],
+        "practice": [
+          "Say the four lines aloud three times each, slowly, then at normal speed",
+          "Role-play meeting someone new with Claude: greet with నమస్కారం, ask their name, give yours",
+          "If you meet a Telugu speaker this week, ask their name in Telugu"
+        ]
+      }
+    ]
+  }
+}

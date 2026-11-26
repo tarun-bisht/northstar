@@ -1,0 +1,251 @@
+{
+  "schema": "reading",
+  "week": "2026-W49",
+  "start_date": "2026-11-30",
+  "end_date": "2026-12-06",
+  "papers": [
+    {
+      "id": "rl-rl-recovered-from-rollouts",
+      "title": "Reinforcement Learning Can Be Recovered From Its Own Rollouts",
+      "url": "https://arxiv.org/abs/2611.33102",
+      "authors": [
+        "Jiayi Sheng",
+        "Jingwen Gu",
+        "Guanning Zeng",
+        "Zhaoyi Zhou",
+        "Stefano Viel",
+        "Qianqian Wang",
+        "Fahim Tajwar",
+        "Andrea Zanette"
+      ],
+      "arxiv_id": "2611.33102",
+      "source": "arxiv",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "note": "Asks how much of what RL post-training learns can be recovered from the rollouts alone, without the trained weights.",
+      "kind": "for_you",
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-verifiable-on-policy-distillation",
+      "title": "Verifiable On-Policy Distillation",
+      "url": "https://arxiv.org/abs/2611.30325",
+      "authors": [
+        "Juntong Shi",
+        "Stefano Ermon",
+        "Jure Leskovec",
+        "Minkai Xu"
+      ],
+      "arxiv_id": "2611.30325",
+      "source": "arxiv",
+      "tags": [
+        "new method or architecture",
+        "notable researcher"
+      ],
+      "note": "Combines verifiable rewards with on-policy distillation to give denser training signal for reasoning.",
+      "kind": "for_you",
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-regularized-score-centering",
+      "title": "Regularized Score Centering",
+      "url": "https://arxiv.org/abs/2611.21791",
+      "authors": [
+        "Hao Bai",
+        "Chenlu Ye",
+        "Xuanchang Zhang",
+        "Aviral Kumar",
+        "Tong Zhang"
+      ],
+      "arxiv_id": "2611.21791",
+      "source": "arxiv",
+      "tags": [
+        "theory",
+        "useful for your work"
+      ],
+      "note": "A way to keep asynchronous, off-policy RL training stable when data comes from stale policies.",
+      "kind": "for_you",
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-non-penetrating-world-models",
+      "title": "Non-penetrating World Models",
+      "url": "https://arxiv.org/abs/2611.27963",
+      "authors": [
+        "Yuhang Dai",
+        "Yinwei Wu",
+        "Ziyue Lin",
+        "Han Ji",
+        "Xingyi Yang"
+      ],
+      "arxiv_id": "2611.27963",
+      "source": "arxiv",
+      "tags": [
+        "benchmark or dataset",
+        "new method or architecture"
+      ],
+      "note": "A benchmark showing interactive video world models let objects pass through obstacles, and a fix that uses what the models already encode.",
+      "kind": "for_you",
+      "alphaxiv_votes": 10,
+      "hf_upvotes": 57,
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-global-workspace-vlms",
+      "title": "Probing the \"Conscious\" Mind: Selective Access and Global Workspace in Vision-Language Models",
+      "url": "https://arxiv.org/abs/2611.26590",
+      "authors": [
+        "Jiahao Huang",
+        "Jun Wang"
+      ],
+      "arxiv_id": "2611.26590",
+      "source": "arxiv",
+      "tags": [
+        "worth knowing"
+      ],
+      "note": "Uses ideas from global workspace theory to probe how vision-language models select and share concepts.",
+      "kind": "for_you",
+      "alphaxiv_votes": 0,
+      "hf_upvotes": 36,
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-harnesses-compositional",
+      "title": "Language Model Harnesses can be Compositional Generalizers",
+      "url": "https://arxiv.org/abs/2611.28298",
+      "authors": [
+        "Alex L. Zhang",
+        "Souradip Chakraborty",
+        "Omar Khattab"
+      ],
+      "arxiv_id": "2611.28298",
+      "source": "arxiv",
+      "tags": [
+        "new method or architecture",
+        "notable researcher"
+      ],
+      "note": "Trains language-model harnesses that manage context in code, so agents generalise to longer tasks.",
+      "kind": "trending",
+      "alphaxiv_votes": 75,
+      "hf_upvotes": 0,
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-cmhc-hyper-connections",
+      "title": "cmHC: Balancing Stream Mixing in Hyper-Connections via Geometric Contraction",
+      "url": "https://arxiv.org/abs/2611.27193",
+      "authors": [
+        "Haowei He",
+        "Ziwen Zhao",
+        "Chenshuo Pan",
+        "Gang Lin",
+        "Zhihao Yang",
+        "Chao Wang",
+        "Xinzhang Liu",
+        "Kaidong Yu",
+        "Han Gao",
+        "Dongfang Li",
+        "Menglin Yang",
+        "Shuangyong Song",
+        "Yongxiang Li"
+      ],
+      "arxiv_id": "2611.27193",
+      "source": "arxiv",
+      "tags": [
+        "new method or architecture",
+        "theory"
+      ],
+      "note": "Studies how to mix residual streams in manifold-constrained hyper-connections without under- or over-mixing.",
+      "kind": "trending",
+      "alphaxiv_votes": 6,
+      "hf_upvotes": 94,
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-loom-attention",
+      "title": "Rewirable Circuits in Transformers with Loom Attention",
+      "url": "https://arxiv.org/abs/2611.30634",
+      "authors": [
+        "Da Xiao",
+        "Qingye Meng",
+        "Shengping Li",
+        "Xingyuan Yuan"
+      ],
+      "arxiv_id": "2611.30634",
+      "source": "arxiv",
+      "tags": [
+        "new method or architecture"
+      ],
+      "note": "Lets a transformer rewire its circuits per token by letting heads attend over earlier heads' outputs.",
+      "kind": "trending",
+      "alphaxiv_votes": 0,
+      "hf_upvotes": 86,
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-embo-harness",
+      "title": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness",
+      "url": "https://arxiv.org/abs/2611.31201",
+      "authors": [
+        "Xiao-Ming Wu",
+        "Kang Liao",
+        "Yuexiao Ma",
+        "Taolin Zhang",
+        "Mingqian Zhou",
+        "Nuo Chen",
+        "Ziming Li",
+        "Yihang Luo",
+        "Rui Li",
+        "Zhonghua Wu",
+        "Tianyu Xie",
+        "Xiawu Zheng",
+        "Zhongang Cai",
+        "Zhi Hou",
+        "Chen Change Loy"
+      ],
+      "arxiv_id": "2611.31201",
+      "source": "arxiv",
+      "tags": [
+        "benchmark or dataset",
+        "worth knowing"
+      ],
+      "note": "A framework for studying what makes frontier multimodal models work well as robot policies inside a harness.",
+      "kind": "trending",
+      "alphaxiv_votes": 6,
+      "hf_upvotes": 98,
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-recursive-collective-intelligence",
+      "title": "Recursive Collective Intelligence: Emergence on an Equal-Budget Ladder in Multi-Agent LLM Systems",
+      "url": "https://arxiv.org/abs/2611.32606",
+      "authors": [
+        "Lixuan He",
+        "Shengqu Cai",
+        "Fang Wu",
+        "Shikang Zheng",
+        "Liwei Jiang",
+        "Manling Li",
+        "Yi Ma",
+        "Li Fei-Fei",
+        "Leonidas Guibas",
+        "Gordon Wetzstein",
+        "Yejin Choi",
+        "Yining Hong"
+      ],
+      "arxiv_id": "2611.32606",
+      "source": "arxiv",
+      "tags": [
+        "benchmark or dataset",
+        "worth knowing"
+      ],
+      "note": "Compares agent teams with single agents at equal token budgets, to see when a team truly adds something.",
+      "kind": "lab",
+      "group": "Stanford and UC Berkeley",
+      "added": "2026-11-26"
+    }
+  ],
+  "generated_at": "2026-11-26T07:39:38Z"
+}

@@ -810,7 +810,11 @@
       {
         "name": "Google DeepMind Blog",
         "url": "https://deepmind.google/blog/feed",
-        "kind": "lab"
+        "kind": "lab",
+        "alternates": [
+          "https://deepmind.google/blog/rss.xml",
+          "https://deepmind.com/blog/feed/basic/"
+        ]
       },
       {
         "name": "Google Research Blog",
@@ -850,7 +854,10 @@
       {
         "name": "LangChain Blog",
         "url": "https://blog.langchain.dev/rss/",
-        "kind": "lab"
+        "kind": "lab",
+        "alternates": [
+          "https://blog.langchain.com/rss/"
+        ]
       },
       {
         "name": "Anthropic News",
@@ -927,7 +934,10 @@
         "name": "EleutherAI Blog",
         "url": "https://blog.eleuther.ai/index.xml",
         "kind": "lab",
-        "lookback_days": 30
+        "lookback_days": 30,
+        "alternates": [
+          "https://blog.eleuther.ai/rss.xml"
+        ]
       },
       {
         "name": "AI Alignment Forum",
@@ -2097,7 +2107,6 @@
       "lookback_days": 7,
       "handles": [
         "@3blue1brown",
-        "@WelchLabsVideo",
         "@TwoMinutePapers",
         "@YannicKilcher",
         "@AndrejKarpathy",
@@ -2132,7 +2141,8 @@
         "@SmarterEveryDay",
         "@minutephysics",
         "@ZachStar",
-        "@NileRed"
+        "@NileRed",
+        "@welchlabs"
       ]
     }
   },

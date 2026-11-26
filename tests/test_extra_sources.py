@@ -48,7 +48,7 @@ def test_fetch_podcasts(repo, monkeypatch):
     fc = _fc()
     s = load_json(repo.p("config", "sources.json"))
     s["podcasts"].update(shows=[{"name": "Show", "tier": "growth"}, {"name": "Missing"}],
-                         episode_searches=[{"term": "games", "tier": "growth"}], pause_seconds=0)
+                         episode_searches=[{"term": "games", "tier": "growth"}], pause_seconds=0, feeds=[])
     write_json(repo.p("config", "sources.json"), s)
     monkeypatch.setattr(fc.xs, "itunes_show", lambda n: {"show": n, "feed_url": "https://f", "apple_url": "https://a"} if n == "Show" else None)
     monkeypatch.setattr(fc, "net_get", lambda u: POD.replace("23 Nov 2026", dt.date.today().strftime("%d %b %Y")))
@@ -155,7 +155,24 @@ def test_ensure_never_accepts_missing_files(repo, capsys):
     assert "Never search" in capsys.readouterr().out
 
 
-def test_ensure_skips_arxiv_at_weekends(repo):
-    from dsys.ensure import ensure
+
+
+def test_ensure_papers_every_day(repo):
+    from dsys.ensure import needed
     sat = D + dt.timedelta(days=(5 - D.weekday()) % 7)
-    assert ensure(repo, sat, ["arxiv"], run=lambda c: _R(), sleep=lambda s: None) == 0
+    assert needed(sat, ["arxiv", "news"]) == ["arxiv", "news"]
+
+
+def test_enrich_dispatches_once_and_reads_results(repo):
+    from dsys.ensure import enrich
+    run, st = _fake_github(repo)
+    orig = run
+
+    def run2(cmd):
+        r = orig(cmd)
+        if cmd[0] == "git":
+            write_json(repo.p("candidates", "affil", f"{D}.json"), {"papers": {"2611.00001": {"affiliations": ["MIT"]}}})
+        return r
+    assert enrich(repo, D, ["2611.00001"], run=run2, sleep=lambda s: None) == 0
+    assert len(st["dispatches"]) == 1 and "inputs[kinds]=enrich" in st["dispatches"][0]
+    assert enrich(repo, D, ["2611.00001"], run=run2, sleep=lambda s: None) == 0 and len(st["dispatches"]) == 1

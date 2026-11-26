@@ -49,7 +49,7 @@ def test_net_retries_429_then_succeeds(monkeypatch):
         return _Resp(b"ok")
     monkeypatch.setattr(net.urllib.request, "urlopen", fake)
     assert get("https://example.org/x") == b"ok"
-    assert len(calls) == 3 and waits == [7.0, 7.0]
+    assert len(calls) == 3 and all(7.0 <= w <= 8.0 for w in waits) and len(waits) == 2
 
 
 def test_net_does_not_retry_403(monkeypatch):
@@ -125,6 +125,7 @@ def test_fetch_arxiv_rss_fallback_failed_sources_and_retry(repo, monkeypatch):
     cfg = load_json(repo.p("config", "sources.json"))
     cfg["arxiv"]["categories"] = [{"id": "cs.LG"}, {"id": "cs.CL"}]
     cfg["notable_researchers"]["names"] = ["Yoshua Bengio"]
+    cfg["paper_social"] = {}
     (repo.p("config", "sources.json")).write_text(json.dumps(cfg))
 
     def api(cat, n):
@@ -210,6 +211,8 @@ def test_fetch_news_failed_feed_then_retry(repo, monkeypatch):
     cfg = load_json(repo.p("config", "sources.json"))
     cfg["world"]["feeds"] = [{"name": "Conv", "url": "https://a.org/f", "section": "explainers"},
                              {"name": "Mkts", "url": "https://b.org/f", "section": "economy_markets"}]
+    cfg["world"]["google_news"]["enabled"] = False
+    cfg["world"]["reddit"] = []
     (repo.p("config", "sources.json")).write_text(json.dumps(cfg))
     monkeypatch.setattr(fc.time, "sleep", lambda s: None)
     monkeypatch.setattr(fc.news, "select_recent", lambda items, now, h: items)

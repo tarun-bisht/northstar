@@ -1,14 +1,16 @@
 name: Fetch candidates
 
-# Collects real metadata from official APIs (no AI calls) so the Claude runs
-# select from verified data. 01:47 UTC is 07:17 IST, after arXiv's new papers are out (20:00 New York time, 01:00 UTC in winter, 00:00 in summer).
-# 02:23 UTC (07:53 IST) is a gap-filling run: it refetches only sources that failed
-# earlier, so a rate limit or outage is repaired before the 08:13 Daily run.
+# Collects real data from official APIs and feeds (no AI calls) so the Claude runs filter
+# verified candidates and never search for them.
+# - 01:47 UTC (07:17 IST): the main fetch, after arXiv's new papers are out
+#   (20:00 New York time, 01:00 UTC in winter, 00:00 in summer).
+# - 02:23 UTC (07:53 IST): the retry run, which refetches only sources that failed.
+# GitHub can start scheduled runs hours late. A late main run finds today's files already
+# there (the daily run starts this workflow itself when they are missing, via
+# `dsys.py candidates ensure`) and exits without fetching again. Runs started by hand or by
+# `ensure` always fetch. `enrich` reads page 1 of given papers for affiliations and emails.
 on:
   schedule:
-    # arXiv announces new papers at 20:00 New York time (01:00 UTC in winter). GitHub can start
-    # scheduled runs hours late, so the daily run also starts this workflow itself when files are
-    # missing (dsys.py candidates ensure). Odd minutes avoid the busy top of the hour.
     - cron: "47 1 * * *"
     - cron: "23 2 * * *"
   workflow_dispatch:
@@ -18,9 +20,13 @@ on:
         type: boolean
         default: false
       kinds:
-        description: "Which sources to fetch: all, or a comma list of arxiv,news,youtube,videos,podcasts,updates,hf"
+        description: "Which sources: all, or a comma list of arxiv,news,youtube,videos,podcasts,updates,hf,fun,enrich"
         type: string
         default: "all"
+      ids:
+        description: "enrich: comma-separated arXiv ids to read page 1 of"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -41,59 +47,83 @@ jobs:
       - name: Mode
         id: mode
         run: |
+          today=$(TZ=Asia/Kolkata date +%F)
           if [ "${{ github.event.schedule }}" = "23 2 * * *" ] || [ "${{ inputs.retry_only }}" = "true" ]; then
             echo "flag=--retry-failed" >> "$GITHUB_OUTPUT"
           else
             echo "flag=" >> "$GITHUB_OUTPUT"
           fi
-      - name: arXiv, Hugging Face, alphaXiv (weekdays)
-        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'arxiv') }}
+          skip=false
+          if [ "${{ github.event.schedule }}" = "47 1 * * *" ]; then
+            have=0
+            for k in arxiv news youtube videos podcasts updates hf; do
+              [ -f "candidates/$k/$today.json" ] && have=$((have+1))
+            done
+            if [ "$have" -ge 7 ]; then
+              echo "late scheduled run: today's files already exist, nothing to do"; skip=true
+            fi
+          fi
+          echo "skip=$skip" >> "$GITHUB_OUTPUT"
+      - name: Papers (arXiv, Hugging Face, alphaXiv, Reddit, Bluesky), every day
+        if: ${{ steps.mode.outputs.skip != 'true' && (!inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'arxiv')) }}
+        continue-on-error: true
         run: |
-          if [ "$(TZ=Asia/Kolkata date +%u)" -gt 5 ]; then echo "weekend: skip arXiv"; exit 0; fi
           python scripts/fetch_candidates.py arxiv ${{ steps.mode.outputs.flag }}
           # In-job second chance: wait, then refetch only what failed.
           if python -c "import json,sys,datetime as d,zoneinfo as z;f='candidates/arxiv/'+d.datetime.now(z.ZoneInfo('Asia/Kolkata')).date().isoformat()+'.json';sys.exit(0 if json.load(open(f)).get('failed_sources') else 1)"; then
             echo "some sources failed; retrying them in 120 s"; sleep 120
             python scripts/fetch_candidates.py arxiv --retry-failed
           fi
-      - name: News headlines (every day)
-        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'news') }}
+      - name: News headlines
+        if: ${{ steps.mode.outputs.skip != 'true' && (!inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'news')) }}
+        continue-on-error: true
         run: |
           python scripts/fetch_candidates.py news ${{ steps.mode.outputs.flag }}
           if python -c "import json,sys,datetime as d,zoneinfo as z;f='candidates/news/'+d.datetime.now(z.ZoneInfo('Asia/Kolkata')).date().isoformat()+'.json';sys.exit(0 if json.load(open(f)).get('failed_sources') else 1)"; then
             echo "some feeds failed; retrying them in 60 s"; sleep 60
             python scripts/fetch_candidates.py news --retry-failed
           fi
-      - name: YouTube (only if YOUTUBE_API_KEY secret is set)
-        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'youtube') }}
+      - name: YouTube Shorts
+        if: ${{ steps.mode.outputs.skip != 'true' && (!inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'youtube')) }}
+        continue-on-error: true
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python scripts/fetch_candidates.py youtube ${{ steps.mode.outputs.flag }}
-      - name: Long-form YouTube (lectures, documentaries, talks)
-        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'videos') }}
+      - name: Videos (curated channel feeds and long-form search)
+        if: ${{ steps.mode.outputs.skip != 'true' && (!inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'videos')) }}
         continue-on-error: true
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python scripts/fetch_candidates.py videos ${{ steps.mode.outputs.flag }}
-      - name: Podcasts (show feeds and episode search)
-        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'podcasts') }}
+      - name: Podcasts
+        if: ${{ steps.mode.outputs.skip != 'true' && (!inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'podcasts')) }}
         continue-on-error: true
         run: python scripts/fetch_candidates.py podcasts ${{ steps.mode.outputs.flag }}
-      - name: Research updates (blogs, newsletters, Hacker News, r/MachineLearning)
-        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'updates') }}
+      - name: Research updates (labs, blogs, newsletters, Hacker News, Reddit, Bluesky, Google News bridges)
+        if: ${{ steps.mode.outputs.skip != 'true' && (!inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'updates')) }}
         continue-on-error: true
         run: python scripts/fetch_candidates.py updates ${{ steps.mode.outputs.flag }}
       - name: Hugging Face trending models, datasets, spaces
-        if: ${{ !inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'hf') }}
+        if: ${{ steps.mode.outputs.skip != 'true' && (!inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'hf')) }}
         continue-on-error: true
         run: python scripts/fetch_candidates.py hf ${{ steps.mode.outputs.flag }}
+      - name: Fun (xkcd) for #random
+        if: ${{ steps.mode.outputs.skip != 'true' && (!inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'fun')) }}
+        continue-on-error: true
+        run: python scripts/fetch_candidates.py fun
+      - name: Enrich papers with affiliations and emails (page 1)
+        if: ${{ contains(inputs.kinds, 'enrich') && inputs.ids != '' }}
+        continue-on-error: true
+        run: |
+          pip install -q pypdf
+          python scripts/fetch_candidates.py enrich --ids "${{ inputs.ids }}"
       - name: Prune old candidates
         run: python scripts/fetch_candidates.py prune --keep-days 14
       - name: Commit
         run: |
           git config user.name "dsys-bot"
           git config user.email "dsys-bot@users.noreply.github.com"
-          git add candidates
+          git add candidates state/feed_health.json 2>/dev/null || git add candidates
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
           git commit -m "candidates: $(TZ=Asia/Kolkata date +%F)"
           for i in 1 2 3; do

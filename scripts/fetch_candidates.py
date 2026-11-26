@@ -17,14 +17,31 @@ import os
 import sys
 import time
 import unicodedata
+import urllib.parse
 
 import _bootstrap  # noqa: F401
 from dsys import arxiv as ax
 from dsys.config import arxiv_categories
 from dsys import news
 from dsys import extra_sources as xs
+from dsys import feeds as fd
+from dsys import reputation as rep
 from dsys import youtube as yt
 from dsys.core import load_json, repo_from_env, today, write_json
+
+
+def write_candidates(path, data) -> None:
+    """Candidate files are written compactly (no indentation): they are read by code, not people."""
+    import json
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    tmp.replace(path)
+
+
+def net_status(e: Exception) -> str:
+    from dsys import net
+    return net.status_of(e)
 
 
 def now_utc() -> str:
@@ -44,7 +61,10 @@ def _merge(by_id: dict, p: dict) -> None:
     for k in ("hf_upvotes", "alphaxiv_votes", "alphaxiv_visits"):
         if p.get(k):
             old[k] = max(old.get(k, 0), p[k])
-    for k in ("alphaxiv_lists", "alphaxiv_interests"):
+    for k in ("reddit_mentions", "bluesky_mentions", "bluesky_likes"):
+        if p.get(k):
+            old[k] = max(old.get(k, 0), p[k])
+    for k in ("alphaxiv_lists", "alphaxiv_interests", "organizations", "affiliations", "social_links"):
         if p.get(k):
             old[k] = sorted(set(old.get(k, [])) | set(p[k]))
     if len(p.get("abstract", "")) > len(old.get("abstract", "")) and old.get("source") != "arxiv_api":
@@ -98,6 +118,11 @@ def fetch_arxiv(repo, day: dt.date, retry_failed: bool = False) -> int:
         wanted += [f"alphaxiv:{f['sort']}" for f in alphaxiv_feeds(axv)]
     if axv.get("search", {}).get("enabled", True):
         wanted.append("alphaxiv_search:interests")
+    social = sources.get("paper_social", {})
+    if social.get("reddit", {}).get("subreddits"):
+        wanted.append("reddit:papers")
+    if social.get("bluesky", {}).get("queries"):
+        wanted.append("bluesky:papers")
     if retry_failed:
         if not prev:
             print("arxiv --retry-failed: no file for today yet, doing a full fetch")
@@ -110,6 +135,8 @@ def fetch_arxiv(repo, day: dt.date, retry_failed: bool = False) -> int:
     by_id: dict[str, dict] = {}
     interest_search: dict[str, list] = dict(prev.get("interest_search", {}))
     errors, failed, notes = [], [], []
+    social_hits: dict[str, dict] = {}
+    health = fd.FeedHealth(repo.p("state", "feed_health.json"), day)
     for src in wanted:
         kind, arg = src.split(":", 1)
         try:
@@ -140,6 +167,36 @@ def fetch_arxiv(repo, day: dt.date, retry_failed: bool = False) -> int:
                     raise err
                 for p in got:
                     _merge(by_id, {**p, "categories": [], "source": "alphaxiv_trending", "alphaxiv_lists": [f["sort"]]})
+            elif kind == "reddit":
+                rc = social["reddit"]
+                f = {"name": "reddit papers", **fd.reddit_feed(rc["subreddits"], rc.get("sort", "top"), rc.get("t", "day"))}
+                (posts, err), = fd.fetch_many([f], fd.fetch_rss, health).values()
+                if err:
+                    raise err
+                for post in posts:
+                    for aid in fd.arxiv_ids(" ".join([post["title"], post.get("summary", ""), post["url"]])):
+                        social_hits.setdefault(aid, {"reddit_mentions": 0, "social_links": set()})
+                        social_hits[aid]["reddit_mentions"] = social_hits[aid].get("reddit_mentions", 0) + 1
+                        social_hits[aid]["social_links"].add(post["url"])
+            elif kind == "bluesky":
+                bc = social["bluesky"]
+                since = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=int(bc.get("days", 2)))).strftime("%Y-%m-%dT%H:%M:%SZ")
+                ok = 0
+                for q in bc["queries"]:
+                    try:
+                        posts = fd.bluesky_search(q, 100, bc.get("sort", "top"), since)
+                        ok += 1
+                    except Exception as e:
+                        notes.append(f"Bluesky search '{q}' failed ({net_status(e)})")
+                        continue
+                    for post in posts:
+                        for aid in fd.arxiv_ids(" ".join([post["text"]] + post["links"])):
+                            h = social_hits.setdefault(aid, {"social_links": set()})
+                            h["bluesky_mentions"] = h.get("bluesky_mentions", 0) + 1
+                            h["bluesky_likes"] = h.get("bluesky_likes", 0) + post["likes"]
+                            h["social_links"].add(post["url"])
+                if not ok:
+                    raise RuntimeError("every Bluesky search failed")
             elif kind == "alphaxiv_search":
                 interest_search, misses = alphaxiv_interest_search(sources, axv.get("search", {}))
                 if misses and len(misses) == len(sources["arxiv"].get("coverage", {}).get("topics", [])):
@@ -149,9 +206,21 @@ def fetch_arxiv(repo, day: dt.date, retry_failed: bool = False) -> int:
             errors.append(f"{src}: {e}")
             failed.append(src)
 
+    # Papers people are talking about on Reddit and Bluesky: fetch the ones we don't have yet.
+    missing = [a for a in social_hits if a not in by_id]
+    if missing:
+        try:
+            for p in ax.fetch_ids(missing[:300]):
+                _merge(by_id, {**p, "source": "social"})
+        except Exception as e:
+            notes.append(f"could not fetch {len(missing)} papers found on Reddit or Bluesky ({net_status(e)})")
+    for aid, h in social_hits.items():
+        if aid in by_id:
+            _merge(by_id, {"arxiv_id": aid, **{k: (sorted(v)[:5] if isinstance(v, set) else v) for k, v in h.items()}})
     # Merge with the earlier file of the day: a re-run can only add, never shrink.
     for p in prev.get("candidates", []):
         _merge(by_id, p)
+    registry = rep.load(repo)
     hits_by_id: dict[str, set] = {}
     for interest, rows in interest_search.items():
         for r in rows:
@@ -165,22 +234,49 @@ def fetch_arxiv(repo, day: dt.date, retry_failed: bool = False) -> int:
             p["notable_authors"] = hits
         else:
             p.pop("notable_authors", None)
+        rep.apply(registry, p)
     still_failed = failed + ([s for s in prev.get("failed_sources", []) if s not in wanted] if prev else [])
     out = {"kind": "arxiv", "date": day.isoformat(), "fetched_at": now_utc(),
-           "source": "export.arxiv.org API (rss.arxiv.org fallback) + Hugging Face Daily Papers + alphaXiv trending and search",
+           "source": "arXiv API (rss.arxiv.org fallback), Hugging Face Daily Papers, alphaXiv lists and search, Reddit, Bluesky",
            "failed_sources": sorted(set(still_failed)), "errors": errors,
            "notes": (prev.get("notes", []) if retry_failed else []) + notes,
            "candidates": sorted(by_id.values(), key=lambda p: p["arxiv_id"], reverse=True),
            "interest_search": interest_search}
-    write_json(path, out)
+    write_candidates(path, out)
+    health.save()
     print(f"arxiv: {len(by_id)} candidates, {len(failed)} sources failed {failed or ''}, {len(notes)} RSS fallbacks")
     return 0 if by_id or not errors else 1
 
 
+def _hn_front(url: str) -> list[dict]:
+    import json as _json
+    from dsys import net as _net
+    data = _json.loads(_net.get(url, timeout=20, headers={"Accept": "application/json"}))
+    return [{"title": h["title"], "url": h.get("url") or f"https://news.ycombinator.com/item?id={h['objectID']}",
+             "published": h.get("created_at"), "summary": "",
+             "points": int(h.get("points") or 0), "comments": int(h.get("num_comments") or 0),
+             "discussion_url": f"https://news.ycombinator.com/item?id={h['objectID']}"}
+            for h in data.get("hits", []) if h.get("title")]
+
+
+def _feed_fn(f: dict):
+    """How to read a feed: RSS/Atom by default, or a JSON API named in `type`."""
+    if f.get("type") == "hn_front":
+        return _hn_front
+    if f.get("only_url_contains"):
+        part = f["only_url_contains"]
+        return lambda u: [x for x in fd.fetch_rss(u) if part in x["url"]]
+    return fd.fetch_rss
+
+
 def fetch_news(repo, day: dt.date, retry_failed: bool = False) -> int:
-    """Headlines from config/sources.json -> world.feeds into candidates/news/<date>.json."""
+    """Headlines from publisher feeds, Google News (India and US, topics, fixed and interest
+    searches), depth sources (The Conversation, Nature, Quanta), Hacker News and Reddit, fetched
+    in parallel into candidates/news/<date>.json."""
     cfg = repo.config("sources").get("world", {})
-    feeds = cfg.get("feeds", []) + news.google_news_feeds(cfg)
+    feeds = cfg.get("feeds", []) + news.google_news_feeds(cfg, repo.config("interests"))
+    for r in cfg.get("reddit", []):
+        feeds.append({"name": r["name"], "section": r.get("section", "world"), **fd.reddit_feed(r["subreddits"], r.get("sort", "top"), r.get("t", "day"))})
     path = repo.p("candidates", "news", f"{day.isoformat()}.json")
     prev = load_json(path) if path.exists() else {}
     if retry_failed and prev:
@@ -190,28 +286,39 @@ def fetch_news(repo, day: dt.date, retry_failed: bool = False) -> int:
             print("news --retry-failed: nothing failed today, nothing to do")
             return 0
     now = dt.datetime.now(dt.timezone.utc)
+    health = fd.FeedHealth(repo.p("state", "feed_health.json"), day)
     by_url = {c["url"]: c for c in prev.get("candidates", [])}
     errors, failed, counts = [], [], {}
-    for f in feeds:
-        try:
-            got = news.select_recent(news.fetch(f["url"]), now, int(f.get("lookback_hours", cfg.get("lookback_hours", 36))))
-            got = got[: int(f.get("max_items", cfg.get("max_per_feed", 40)))]
-            counts[f["name"]] = len(got)
-            for x in got:
-                by_url.setdefault(x["url"], {**x, "source": x.pop("publisher", None) or f["name"], "feed": f["name"],
-                                             "section": f.get("section", "world")})
-        except Exception as e:  # keep going; record the failure for --retry-failed
-            errors.append(f"{f['name']}: {e}")
-            failed.append(f["name"])
-        time.sleep(0.5)
+    by_feed = {f["name"]: f for f in feeds}
+    results = {}
+    for f in feeds:  # feeds with a special reader are fetched one by one, the rest in parallel
+        if f.get("type") or f.get("only_url_contains"):
+            results.update(fd.fetch_many([f], _feed_fn(f), health))
+    results.update(fd.fetch_many([f for f in feeds if not (f.get("type") or f.get("only_url_contains"))], fd.fetch_rss, health))
+    for name, (items, err) in results.items():
+        f = by_feed[name]
+        if err is not None:
+            errors.append(f"{name}: {net_status(err)}")
+            failed.append(name)
+            continue
+        got = news.select_recent(items, now, int(f.get("lookback_hours", cfg.get("lookback_hours", 36))))
+        got = got[: int(f.get("max_items", cfg.get("max_per_feed", 40)))]
+        counts[name] = len(got)
+        for x in got:
+            row = {**x, "source": x.pop("publisher", None) or f["name"], "feed": name, "section": f.get("section", "world")}
+            if f.get("depth"):
+                row["depth"] = True
+            by_url.setdefault(x["url"], row)
     tried = {f["name"] for f in feeds}
     still_failed = failed + [s for s in prev.get("failed_sources", []) if s not in tried]
     cands = sorted(by_url.values(), key=lambda c: (c.get("published") or "", c["url"]), reverse=True)
-    out = {"kind": "news", "date": day.isoformat(), "fetched_at": now_utc(), "source": "publisher RSS/Atom feeds",
+    out = {"kind": "news", "date": day.isoformat(), "fetched_at": now_utc(),
+           "source": "publisher feeds, Google News (India and US), The Conversation, Nature, Quanta, Hacker News, Reddit",
            "failed_sources": sorted(set(still_failed)), "errors": errors,
            "per_feed": {**prev.get("per_feed", {}), **counts}, "candidates": cands}
-    write_json(path, out)
-    print(f"news: {len(cands)} headlines from {len(counts)} feeds, {len(failed)} feeds failed {failed or ''}")
+    write_candidates(path, out)
+    health.save()
+    print(f"news: {len(cands)} headlines from {len(counts)} feeds, {len(failed)} feeds failed")
     return 0 if cands or not errors else 1
 
 
@@ -278,7 +385,7 @@ def fetch_youtube(repo, day: dt.date) -> int:
 
     out = {"kind": "youtube", "date": day.isoformat(), "fetched_at": now_utc(), "source": "YouTube Data API v3",
            "errors": errors, "dropped": dropped, "candidates": sorted(kept, key=lambda v: v["video_id"])}
-    write_json(repo.p("candidates", "youtube", f"{day.isoformat()}.json"), out)
+    write_candidates(repo.p("candidates", "youtube", f"{day.isoformat()}.json"), out)
     print(f"youtube: {len(kept)} candidates kept of {len(vids)} ({dropped}), {len(errors)} errors")
     return 0
 
@@ -306,6 +413,22 @@ def fetch_podcasts(repo, day: dt.date) -> int:
         except Exception as e:
             errors.append(f"{sh['name']}: {e}")
         time.sleep(float(cfg.get("pause_seconds", 0.5)))
+    for f in cfg.get("feeds", []):  # shows whose feed URL we know: no iTunes lookup
+        try:
+            urls = [f["url"]] + f.get("alternates", [])
+            got, last = None, None
+            for u in urls:
+                try:
+                    got = xs.parse_podcast_feed(net_get(u), f["name"])
+                    break
+                except Exception as e:
+                    last = e
+            if got is None:
+                raise last
+            for e in _recent(got, now, days)[: int(cfg.get("per_show", 3))]:
+                eps.append({**e, "tier": f.get("tier"), "topics": f.get("topics", []), "via": "show feed"})
+        except Exception as e:
+            errors.append(f"{f['name']}: {net_status(e)}")
     for t in cfg.get("episode_searches", []):
         try:
             for e in _recent(xs.search_episodes(t["term"], int(cfg.get("per_search", 8))), now, int(t.get("days", 60))):
@@ -319,7 +442,7 @@ def fetch_podcasts(repo, day: dt.date) -> int:
         if k not in seen:
             seen.add(k)
             out.append(e)
-    write_json(repo.p("candidates", "podcasts", f"{day.isoformat()}.json"),
+    write_candidates(repo.p("candidates", "podcasts", f"{day.isoformat()}.json"),
                {"kind": "podcasts", "date": day.isoformat(), "fetched_at": now_utc(),
                 "source": "show RSS feeds via iTunes Search API, iTunes episode search", "errors": errors, "candidates": out})
     print(f"podcasts: {len(out)} episodes, {len(errors)} errors")
@@ -332,34 +455,101 @@ def net_get(url: str) -> bytes:
 
 
 def fetch_updates(repo, day: dt.date) -> int:
-    """Research blogs and newsletters, Hacker News AI stories, r/MachineLearning top posts."""
-    cfg = repo.config("sources").get("research_updates", {})
+    """Research updates: lab and researcher feeds (with the Alan Turing Institute feeds for labs
+    without one), Google News bridges (labs without feeds, X and LinkedIn posts), Substacks,
+    Hacker News, Reddit and Bluesky, in parallel, into candidates/updates/<date>.json."""
+    sources = repo.config("sources")
+    cfg = sources.get("research_updates", {})
     now = dt.datetime.now(dt.timezone.utc)
+    health = fd.FeedHealth(repo.p("state", "feed_health.json"), day)
+    feeds = list(cfg.get("feeds", []))
+    ed = urllib.parse.urlencode(cfg.get("google_news_edition", {"hl": "en-US", "gl": "US", "ceid": "US:en"}))
+    for q in cfg.get("google_news_bridges", []):
+        feeds.append({"name": f"Google News: {q['name']}", "kind": q.get("kind", "news"), "lookback_days": 1,
+                      "url": f"https://news.google.com/rss/search?q={urllib.parse.quote(q['q'] + ' when:1d')}&{ed}"})
+    for r in cfg.get("reddit", []):
+        feeds.append({"name": r["name"], "kind": "discussion", "lookback_days": 2,
+                      **fd.reddit_feed(r["subreddits"], r.get("sort", "top"), r.get("t", "day"))})
     items, errors = [], []
-    for f in cfg.get("feeds", []):
+    for name, (got, err) in fd.fetch_many(feeds, fd.fetch_rss, health).items():
+        f = next(x for x in feeds if x["name"] == name)
+        if err is not None:
+            errors.append(f"{name}: {net_status(err)}")
+            continue
+        for x in _recent(got, now, int(f.get("lookback_days", cfg.get("lookback_days", 7))))[:15]:
+            items.append({**x, "source": x.pop("publisher", None) or f["name"], "feed": name, "kind": f.get("kind", "blog")})
+    bs = cfg.get("bluesky", {})
+    since = (now - dt.timedelta(days=int(bs.get("days", 1)))).strftime("%Y-%m-%dT%H:%M:%SZ")
+    for q in bs.get("queries", []):
         try:
-            for x in _recent(news.fetch(f["url"]), now, int(f.get("lookback_days", cfg.get("lookback_days", 7))))[:15]:
-                items.append({**x, "source": f["name"], "kind": f.get("kind", "blog")})
+            for post in fd.bluesky_search(q, 50, "top", since):
+                if post["likes"] >= int(bs.get("min_likes", 20)):
+                    items.append({"title": post["text"][:300], "summary": post["text"], "url": post["url"], "source": "Bluesky",
+                                  "author": post["author"], "links": post["links"][:3], "likes": post["likes"],
+                                  "published": post["published"], "kind": "social", "feed": f"Bluesky: {q}"})
         except Exception as e:
-            errors.append(f"{f['name']}: {e}")
+            errors.append(f"Bluesky {q}: {net_status(e)}")
     hn = cfg.get("hacker_news", {})
     if hn.get("enabled", True):
-        since = now - dt.timedelta(days=int(hn.get("lookback_days", 2)))
-        seen = set()
+        hsince = now - dt.timedelta(days=int(hn.get("lookback_days", 2)))
         for q in hn.get("queries", []):
             try:
-                for x in xs.fetch_hn(q, since, int(hn.get("min_points", 80))):
-                    if x["url"] not in seen:
-                        seen.add(x["url"])
-                        items.append({**x, "kind": "discussion"})
+                for x in xs.fetch_hn(q, hsince, int(hn.get("min_points", 80))):
+                    items.append({**x, "kind": "discussion", "feed": "Hacker News"})
             except Exception as e:
-                errors.append(f"Hacker News {q}: {e}")
+                errors.append(f"Hacker News {q}: {net_status(e)}")
+    seen, out_items = set(), []
+    for x in items:  # one row per canonical URL and per headline
+        key_u, key_t = news.canonical_url(x["url"]), " ".join(news._WORD.findall(x["title"].lower()))[:120]
+        if key_u in seen or key_t in seen:
+            continue
+        seen |= {key_u, key_t}
+        out_items.append(x)
     out = {"kind": "updates", "date": day.isoformat(), "fetched_at": now_utc(),
-           "source": "research blog and newsletter feeds, Hacker News (Algolia), r/MachineLearning", "errors": errors,
-           "candidates": items}
-    write_json(repo.p("candidates", "updates", f"{day.isoformat()}.json"), out)
-    print(f"updates: {len(items)} items, {len(errors)} feeds failed")
-    return 0 if items or not errors else 1
+           "source": "lab and researcher feeds, Alan Turing Institute feeds, Google News bridges, Substacks, Hacker News, Reddit, Bluesky",
+           "errors": errors, "candidates": out_items}
+    write_candidates(repo.p("candidates", "updates", f"{day.isoformat()}.json"), out)
+    health.save()
+    print(f"updates: {len(out_items)} items, {len(errors)} sources failed")
+    return 0 if out_items or not errors else 1
+
+
+def fetch_enrich(repo, day: dt.date, ids: list[str]) -> int:
+    """Page 1 of the given papers (arXiv HTML, else the PDF's first page): affiliations and email
+    domains, then the trust flag. One request every 3 seconds, as arXiv asks. No retries."""
+    path = repo.p("candidates", "affil", f"{day.isoformat()}.json")
+    doc = load_json(path) if path.exists() else {"kind": "affil", "date": day.isoformat(), "papers": {}}
+    registry = rep.load(repo)
+    done = 0
+    for aid in ids:
+        if aid in doc["papers"]:
+            continue
+        info = fd.front_matter(aid)
+        paper = {"authors": [], "affiliations": info["affiliations"], "email_domains": info["email_domains"]}
+        rep.apply(registry, paper)
+        doc["papers"][aid] = {**info, "trusted": paper["trusted"], **({"trust_matches": paper["trust_matches"]} if paper.get("trust_matches") else {})}
+        done += 1
+        time.sleep(3)
+    doc["fetched_at"] = now_utc()
+    write_candidates(path, doc)
+    found = sum(1 for v in doc["papers"].values() if v["affiliations"] or v["email_domains"])
+    print(f"enrich: {done} papers read, {found} of {len(doc['papers'])} with affiliations or emails")
+    return 0
+
+
+def fetch_fun(repo, day: dt.date) -> int:
+    """Today's latest xkcd and one random older one, for the #random channel."""
+    import random as _r
+    try:
+        latest = fd.xkcd()
+        old = fd.xkcd(_r.Random(day.toordinal()).randint(1, max(1, latest["num"] - 1)))
+    except Exception as e:
+        print(f"fun: xkcd failed ({net_status(e)})")
+        return 0
+    write_candidates(repo.p("candidates", "fun", f"{day.isoformat()}.json"),
+                     {"kind": "fun", "date": day.isoformat(), "fetched_at": now_utc(), "xkcd_latest": latest, "xkcd_random": old})
+    print(f"fun: xkcd {latest['num']} and {old['num']}")
+    return 0
 
 
 def fetch_hf(repo, day: dt.date) -> int:
@@ -370,7 +560,7 @@ def fetch_hf(repo, day: dt.date) -> int:
             out[kind + "s"] = xs.fetch_hf_trending(kind, int(cfg.get("limit", 20)))
         except Exception as e:
             errors.append(f"{kind}s: {e}")
-    write_json(repo.p("candidates", "hf", f"{day.isoformat()}.json"),
+    write_candidates(repo.p("candidates", "hf", f"{day.isoformat()}.json"),
                {"kind": "hf", "date": day.isoformat(), "fetched_at": now_utc(), "source": "Hugging Face API (trendingScore)",
                 "errors": errors, **out})
     print(f"hf: {sum(len(v) for v in out.values())} trending, {len(errors)} errors")
@@ -385,41 +575,77 @@ def rotate(queries: list[str], n: int | None, day: dt.date) -> list[str]:
     return (queries + queries)[start:start + n]
 
 
+def _channel_ids(repo, handles: list[str], errors: list) -> dict[str, str]:
+    """Handle -> channel id, cached in state/youtube_channels.json (1 quota unit per new handle)."""
+    import json as _json
+    path = repo.p("state", "youtube_channels.json")
+    cache = _json.loads(path.read_text()) if path.exists() else {}
+    for h in handles:
+        if h in cache:
+            continue
+        try:
+            cid = yt.channel_id_for_handle(h)
+            if cid:
+                cache[h] = cid
+            else:
+                errors.append(f"channel {h}: not found")
+        except Exception as e:
+            errors.append(f"channel {h}: {net_status(e)}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(_json.dumps(cache, indent=1, sort_keys=True) + "\n")
+    return {h: cache[h] for h in handles if h in cache}
+
+
 def fetch_long_videos(repo, day: dt.date) -> int:
-    """Long-form YouTube (lectures, documentaries, talks) for Daily Discovery: at least one video every day."""
+    """Videos for Daily Discovery: new uploads from curated channels (free RSS feeds) plus a
+    rotating long-form search. Each video carries views, likes, comments, engagement rates and
+    reach against its channel's size, so the run chooses from data without watching."""
     if not os.environ.get("YOUTUBE_API_KEY"):
         print("videos: YOUTUBE_API_KEY not set, skipping")
         return 0
-    cfg = repo.config("sources")["youtube"].get("long_form", {})
-    if not cfg.get("enabled", True):
-        return 0
-    after = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=int(cfg.get("published_within_days", 365))))
-    after_s = after.replace(microsecond=0).isoformat().replace("+00:00", "Z")
-    ids, origin, errors = [], {}, []
-    for q in rotate(cfg.get("queries", []), cfg.get("queries_per_day"), day):
+    yc = repo.config("sources")["youtube"]
+    cfg = yc.get("long_form", {})
+    ch = yc.get("channels", {})
+    errors, origin, ids = [], {}, []
+    since = (day - dt.timedelta(days=int(ch.get("lookback_days", 7)))).isoformat()
+    for h, cid in _channel_ids(repo, ch.get("handles", []), errors).items():
         try:
-            for vid in yt.api_search(q, int(cfg.get("max_results_per_query", 10)), after_s, "IN", "en", duration="long"):
-                if vid not in origin:
-                    origin[vid] = q
+            for vid, pub in yt.channel_feed_ids(cid):
+                if pub >= since and vid not in origin:
+                    origin[vid] = f"channel {h}"
                     ids.append(vid)
         except Exception as e:
-            errors.append(f"{q}: {e}")
-            if "quota" in str(e).lower() or "403" in str(e):
-                break
+            errors.append(f"feed {h}: {net_status(e)}")
+    if cfg.get("enabled", True):
+        after = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=int(cfg.get("published_within_days", 365))))
+        after_s = after.replace(microsecond=0).isoformat().replace("+00:00", "Z")
+        for q in rotate(cfg.get("queries", []), cfg.get("queries_per_day"), day):
+            try:
+                for vid in yt.api_search(q, int(cfg.get("max_results_per_query", 10)), after_s, "IN", "en", duration="long"):
+                    if vid not in origin:
+                        origin[vid] = q
+                        ids.append(vid)
+            except Exception as e:
+                errors.append(f"{q}: {net_status(e)}")
+                if "403" in str(e):
+                    break
     vids = []
     try:
-        for v in yt.api_videos(ids):
-            if (v.get("duration_seconds") or 0) < int(cfg.get("min_duration_seconds", 600)):
+        raw = yt.api_videos(ids)
+        subs = yt.api_channels(sorted({v["channel"]["id"] for v in raw if v["channel"].get("id")}))
+        for v in raw:
+            if (v.get("duration_seconds") or 0) < int(cfg.get("min_duration_seconds", 240)):
                 continue
-            v.update(query=origin.get(v["video_id"]), url=yt.watch_url(v["video_id"]),
-                     embed_url=yt.embed_url(v["video_id"]), thumbnail=yt.thumbnail_url(v["video_id"]))
+            s = subs.get(v["channel"].get("id"), {}).get("subscribers")
+            v.update(query=origin.get(v["video_id"]), url=yt.watch_url(v["video_id"]), embed_url=yt.embed_url(v["video_id"]),
+                     thumbnail=yt.thumbnail_url(v["video_id"]), channel_subscribers=s, **yt.quality(v, s))
             vids.append(v)
     except Exception as e:
-        errors.append(f"videos.list: {e}")
-    write_json(repo.p("candidates", "videos", f"{day.isoformat()}.json"),
-               {"kind": "videos", "date": day.isoformat(), "fetched_at": now_utc(), "source": "YouTube Data API v3 (long form)",
-                "errors": errors, "candidates": vids})
-    print(f"videos: {len(vids)} long-form candidates, {len(errors)} errors")
+        errors.append(f"videos.list: {net_status(e)}")
+    write_candidates(repo.p("candidates", "videos", f"{day.isoformat()}.json"),
+                     {"kind": "videos", "date": day.isoformat(), "fetched_at": now_utc(),
+                      "source": "YouTube channel RSS feeds and Data API v3", "errors": errors, "candidates": vids})
+    print(f"videos: {len(vids)} candidates, {len(errors)} errors")
     return 0
 
 
@@ -436,7 +662,8 @@ def prune(repo, keep_days: int, day: dt.date) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("kind", choices=["arxiv", "news", "youtube", "videos", "podcasts", "updates", "hf", "prune"])
+    ap.add_argument("kind", choices=["arxiv", "news", "youtube", "videos", "podcasts", "updates", "hf", "fun", "enrich", "prune"])
+    ap.add_argument("--ids", default="", help="enrich: comma-separated arXiv ids")
     ap.add_argument("--date")
     ap.add_argument("--keep-days", type=int, default=14)
     ap.add_argument("--retry-failed", action="store_true",
@@ -454,6 +681,10 @@ def main() -> int:
             print("youtube --retry-failed: today's candidates already exist, nothing to do")
             return 0
         return fetch_youtube(repo, day)
+    if a.kind == "enrich":
+        return fetch_enrich(repo, day, [x.strip() for x in a.ids.split(",") if x.strip()])
+    if a.kind == "fun":
+        return fetch_fun(repo, day)
     simple = {"videos": fetch_long_videos, "podcasts": fetch_podcasts, "updates": fetch_updates, "hf": fetch_hf}
     if a.kind in simple:
         f = repo.p("candidates", a.kind, f"{day.isoformat()}.json")

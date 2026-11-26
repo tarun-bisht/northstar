@@ -1,0 +1,46 @@
+name: Build reputation (universities)
+
+# Fills config/reputation.json -> universities from the published QS World University
+# Rankings table (top 1000) and the open university-domains list. Run it by hand once a year.
+on:
+  workflow_dispatch:
+    inputs:
+      pdf_url:
+        description: "URL of the QS World University Rankings results table (PDF)"
+        type: string
+        default: "https://sps.utm.my/wp-content/uploads/2026/04/2026-QS-World-University-Rankings-1.3-For-qs.com_.pdf"
+      top:
+        description: "How many ranks to include"
+        type: string
+        default: "1000"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: candidates
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt pypdf
+      - run: python scripts/build_reputation.py --pdf-url "${{ inputs.pdf_url }}" --top "${{ inputs.top }}"
+      - run: python scripts/validate.py
+      - name: Commit
+        run: |
+          git config user.name "dsys-bot"
+          git config user.email "dsys-bot@users.noreply.github.com"
+          git add config/reputation.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "reputation: universities from the QS top ${{ inputs.top }}"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && exit 0
+            sleep 15
+          done
+          exit 1

@@ -3,7 +3,7 @@
 GitHub's scheduled workflows can start hours late or not at all, so a run never trusts the
 schedule. This command:
 
-1. checks today's files for the kinds the run needs (arXiv only on weekdays);
+1. checks today's files for the kinds the run needs;
 2. if a fetch workflow is already queued or running (a late scheduled run), waits for it to finish;
 3. otherwise starts the fetch workflow itself (workflow_dispatch through the gh CLI) for the
    missing kinds, or in retry mode for sources that failed, and waits for that run to finish;
@@ -29,7 +29,7 @@ from pathlib import Path
 
 REPO_SLUG = "tarun-bisht/northstar"
 WORKFLOW = "fetch-candidates.yml"
-WEEKDAY_ONLY = {"arxiv"}  # the workflow skips arXiv at weekends: there are no new papers
+WEEKDAY_ONLY: set = set()  # papers are fetched every day (arXiv plus other sources)
 
 
 def _root() -> Path:
@@ -124,3 +124,33 @@ def ensure(repo, day: dt.date, kinds: list[str], timeout: int = 540, attempts: i
                                "Never search instead. After 10 calls, skip the streams that need the missing files "
                                "and post the failure to Slack (prompts/runs/_git.md)")}))
     return 0 if ok else 1
+
+
+def enrich(repo, day: dt.date, ids: list[str], timeout: int = 540, pause: int = 60, run=None, sleep=time.sleep,
+           clock=time.monotonic) -> int:
+    """Start the fetch workflow in enrich mode for these papers and wait for it to finish (page 1:
+    affiliations and emails). Call again if it says so; papers it could not read are skipped."""
+    run = run or _run
+    path = repo.p("candidates", "affil", f"{day.isoformat()}.json")
+    have = set(json.loads(path.read_text()).get("papers", {})) if path.exists() else set()
+    todo = [i for i in ids if i not in have]
+    if not todo:
+        print(json.dumps({"ok": True, "enriched": len(ids), "missing": 0}))
+        return 0
+    deadline = clock() + timeout
+    if not _active(run):
+        started = dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)
+        r = run(["gh", "api", "-X", "POST", f"repos/{REPO_SLUG}/actions/workflows/{WORKFLOW}/dispatches",
+                 "-f", "ref=main", "-f", "inputs[kinds]=enrich", "-f", f"inputs[ids]={','.join(todo)}"])
+        if r.returncode != 0:
+            print(json.dumps({"ok": False, "error": (r.stderr or r.stdout)[-300:],
+                              "next": "go on without affiliations; the trust flag then comes from names only"}))
+            return 1
+    _wait_done(run, {x["id"] for x in _active(run)}, sleep, pause, deadline, clock)
+    run(["git", "pull", "-q", "--rebase", "origin", "main"])
+    have = set(json.loads(path.read_text()).get("papers", {})) if path.exists() else set()
+    left = [i for i in ids if i not in have]
+    print(json.dumps({"ok": not left, "enriched": len(ids) - len(left), "missing": len(left),
+                      "next": "use candidates papers --stage2" if not left else
+                              "run the same command again (up to 3 calls), then go on with what is there"}))
+    return 0 if not left else 1

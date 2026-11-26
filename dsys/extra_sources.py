@@ -60,7 +60,7 @@ def parse_podcast_feed(xml_text: str | bytes, show: str) -> list[dict]:
         desc = item.findtext("description") or item.findtext("{http://www.itunes.com/dtds/podcast-1.0.dtd}summary") or ""
         dur = item.findtext("{http://www.itunes.com/dtds/podcast-1.0.dtd}duration")
         out.append({"show": show, "title": title, "url": link or None, "audio_url": audio,
-                    "published": news._date(item.findtext("pubDate") or ""), "summary": news.clean(desc, 500),
+                    "published": news._date(item.findtext("pubDate") or ""), "summary": news.clean(desc),
                     **({"duration": dur.strip()} if dur else {})})
     return out
 
@@ -76,7 +76,7 @@ def parse_itunes_episodes(data: dict) -> list[dict]:
         out.append({"show": r.get("collectionName"), "title": " ".join(r["trackName"].split()),
                     "url": r.get("trackViewUrl"), "audio_url": r.get("episodeUrl"),
                     "published": str(r.get("releaseDate", ""))[:19] + "Z" if r.get("releaseDate") else None,
-                    "summary": news.clean(r.get("shortDescription") or r.get("description") or "", 500),
+                    "summary": news.clean(r.get("description") or r.get("shortDescription") or ""),
                     **({"duration": f"{int(ms) // 60000} min"} if ms else {})})
     return out
 

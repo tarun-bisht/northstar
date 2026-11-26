@@ -122,7 +122,7 @@ def api_search(query: str, max_results: int, published_after: str, region: str, 
 def api_videos(ids: list[str]) -> list[dict]:
     out = []
     for i in range(0, len(ids), 50):
-        data = _get("videos", {"part": "snippet,contentDetails,status", "id": ",".join(ids[i:i + 50])})
+        data = _get("videos", {"part": "snippet,contentDetails,status,statistics", "id": ",".join(ids[i:i + 50])})
         for it in data.get("items", []):
             sn, cd = it.get("snippet", {}), it.get("contentDetails", {})
             if it.get("status", {}).get("embeddable") is False:
@@ -132,13 +132,68 @@ def api_videos(ids: list[str]) -> list[dict]:
                 "title": sn.get("title", ""),
                 "channel": {"name": sn.get("channelTitle", ""), "id": sn.get("channelId", "")},
                 "published": (sn.get("publishedAt") or "")[:10],
-                "description": (sn.get("description") or "")[:600],
+                "description": " ".join((sn.get("description") or "").split()),
                 "duration_seconds": parse_iso8601_duration(cd.get("duration", "")),
                 "tags": sn.get("tags", [])[:10],
                 "language": (sn.get("defaultAudioLanguage") or sn.get("defaultLanguage") or "").split("-")[0] or None,
                 "made_for_kids": it.get("status", {}).get("madeForKids"),
+                **_stats(it.get("statistics", {})),
             })
     return out
+
+
+def _stats(st: dict) -> dict:
+    """Views, likes and comments (YouTube hides likes on some videos: then they are left out)."""
+    out = {}
+    for k, name in (("viewCount", "views"), ("likeCount", "likes"), ("commentCount", "comments")):
+        if st.get(k) is not None:
+            out[name] = int(st[k])
+    return out
+
+
+def api_channels(ids: list[str]) -> dict[str, dict]:
+    """channels.list statistics (1 unit per 50 channels): subscribers and total videos."""
+    out = {}
+    for i in range(0, len(ids), 50):
+        data = _get("channels", {"part": "statistics,snippet", "id": ",".join(ids[i:i + 50])})
+        for it in data.get("items", []):
+            st = it.get("statistics", {})
+            out[it["id"]] = {"name": it.get("snippet", {}).get("title"),
+                             "subscribers": int(st["subscriberCount"]) if st.get("subscriberCount") else None}
+    return out
+
+
+def channel_id_for_handle(handle: str) -> str | None:
+    data = _get("channels", {"part": "id", "forHandle": handle.lstrip("@")})
+    items = data.get("items", [])
+    return items[0]["id"] if items else None
+
+
+def channel_feed_ids(channel_id: str, timeout: int = 20) -> list[tuple[str, str]]:
+    """(video id, published) from a channel's free RSS feed (latest 15 uploads, no quota)."""
+    import xml.etree.ElementTree as ET
+    raw = net.get(f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}", timeout=timeout)
+    ns = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015"}
+    out = []
+    for e in ET.fromstring(raw).findall("a:entry", ns):
+        vid = e.findtext("yt:videoId", namespaces=ns)
+        if vid:
+            out.append((vid, (e.findtext("a:published", namespaces=ns) or "")[:10]))
+    return out
+
+
+def quality(v: dict, subscribers: int | None = None) -> dict:
+    """Signals for choosing without watching: engagement rates and reach against channel size."""
+    views = v.get("views") or 0
+    q = {}
+    if views:
+        if v.get("likes") is not None:
+            q["like_rate"] = round(v["likes"] / views, 4)
+        if v.get("comments") is not None:
+            q["comment_rate"] = round(v["comments"] / views, 5)
+    if subscribers:
+        q["views_per_subscriber"] = round(views / subscribers, 3)
+    return q
 
 
 # --- Shorts classification ------------------------------------------------------------

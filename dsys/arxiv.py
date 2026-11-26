@@ -63,6 +63,8 @@ def parse_feed(xml_text: str) -> list[dict]:
         if not is_valid_id(aid):
             continue
         cats = [c.get("term") for c in e.findall(f"{ATOM}category") if c.get("term")]
+        affs = sorted({" ".join((x.text or "").split()) for a in e.findall(f"{ATOM}author")
+                       for x in a.findall(f"{ARXIV}affiliation") if (x.text or "").strip()})
         out.append({
             "arxiv_id": aid,
             "version": ver,
@@ -72,12 +74,24 @@ def parse_feed(xml_text: str) -> list[dict]:
             "submitted": (e.findtext(f"{ATOM}published") or "")[:10],
             "updated": (e.findtext(f"{ATOM}updated") or "")[:10],
             "categories": cats,
+            **({"affiliations": affs} if affs else {}),
             **({"comment": " ".join(e.findtext(f"{ARXIV}comment").split())} if e.findtext(f"{ARXIV}comment") else {}),
             **({"journal_ref": " ".join(e.findtext(f"{ARXIV}journal_ref").split())} if e.findtext(f"{ARXIV}journal_ref") else {}),
             "primary_category": (e.find(f"{ARXIV}primary_category").get("term")
                                  if e.find(f"{ARXIV}primary_category") is not None else (cats[0] if cats else None)),
             "url": abs_url(aid),
         })
+    return out
+
+
+def fetch_ids(ids: list[str], timeout: int = 90) -> list[dict]:
+    """Full records for given arXiv ids (100 per request), e.g. papers found on Reddit or Bluesky."""
+    out = []
+    for i in range(0, len(ids), 100):
+        q = urllib.parse.urlencode({"id_list": ",".join(ids[i:i + 100]), "max_results": 100})
+        out += parse_feed(net.get("https://export.arxiv.org/api/query?" + q, timeout=timeout,
+                                  pauses=(5, 20, 60)).decode("utf-8", "replace"))
+        net._sleep(3)
     return out
 
 
@@ -93,7 +107,7 @@ def fetch_recent(category: str, max_results: int = 150, timeout: int = 90) -> li
     })
     url = "https://export.arxiv.org/api/query?" + q
     for attempt in range(3):
-        text = net.get(url, timeout=timeout).decode("utf-8", "replace")
+        text = net.get(url, timeout=timeout, pauses=(5, 20, 60)).decode("utf-8", "replace")
         net._sleep(3)  # arXiv asks for at most one request every 3 seconds
         if not text.lstrip().lower().startswith("rate exceeded"):
             return parse_feed(text)
@@ -154,9 +168,22 @@ def parse_hf_daily(data: list) -> list[dict]:
             "abstract": " ".join((p.get("summary") or row.get("summary") or "").split()),
             "submitted": (p.get("publishedAt") or row.get("publishedAt") or "")[:10],
             "hf_upvotes": int(p.get("upvotes") or 0),
+            **({"organizations": orgs} if (orgs := _orgs(row.get("organization") or p.get("organization"))) else {}),
             "url": abs_url(aid),
         })
     return out
+
+
+def _orgs(val) -> list[str]:
+    """Organization names from Hugging Face or alphaXiv fields, whatever their shape."""
+    items = val if isinstance(val, list) else [val] if val else []
+    out = []
+    for o in items:
+        name = o if isinstance(o, str) else (o.get("fullname") or o.get("name") or o.get("displayName")
+                                              if isinstance(o, dict) else None)
+        if name and str(name).strip():
+            out.append(" ".join(str(name).split()))
+    return sorted(set(out))
 
 
 def fetch_hf_daily(date: str, api: str = "https://huggingface.co/api/daily_papers", timeout: int = 30) -> list[dict]:
@@ -205,6 +232,7 @@ def parse_alphaxiv(data) -> list[dict]:
             "arxiv_id": aid,
             "title": " ".join(str(_first(p, "title", "name") or "").split()),
             "authors": [n for n in names if n],
+            **({"organizations": orgs} if (orgs := _orgs(_first(p, "organizations", "organizationInfo", "orgs"))) else {}),
             "abstract": " ".join(str(_first(p, "abstract", "paper_summary", "summary") or "").split()),
             "submitted": when,
             "alphaxiv_votes": votes,

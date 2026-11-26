@@ -1,0 +1,2381 @@
+{
+ "_doc": "Trust registry: a paper is trusted (1) when an author, an organization or affiliation, or an author email domain matches an entry here, else 0 (dsys/reputation.py). Universities come from the QS World University Rankings top 1000 (scripts/build_reputation.py, run by the build-reputation workflow) plus hand-added research groups; labs and researchers are curated. The monthly run adds recurring strong groups and authors from state/reputation_log.json, recording the papers that justify each addition in 'added'.",
+ "universities": [
+  {
+   "name": "Massachusetts Institute of Technology",
+   "aliases": [
+    "MIT",
+    "MIT CSAIL",
+    "CSAIL"
+   ],
+   "domains": [
+    "mit.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Stanford University",
+   "aliases": [
+    "Stanford",
+    "SAIL",
+    "Stanford AI Lab",
+    "Stanford CRFM",
+    "Stanford HAI"
+   ],
+   "domains": [
+    "stanford.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Carnegie Mellon University",
+   "aliases": [
+    "CMU",
+    "Carnegie Mellon"
+   ],
+   "domains": [
+    "cmu.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of California, Berkeley",
+   "aliases": [
+    "UC Berkeley",
+    "Berkeley",
+    "BAIR"
+   ],
+   "domains": [
+    "berkeley.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Harvard University",
+   "aliases": [
+    "Harvard"
+   ],
+   "domains": [
+    "harvard.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Princeton University",
+   "aliases": [
+    "Princeton"
+   ],
+   "domains": [
+    "princeton.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "California Institute of Technology",
+   "aliases": [
+    "Caltech"
+   ],
+   "domains": [
+    "caltech.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of Oxford",
+   "aliases": [
+    "Oxford"
+   ],
+   "domains": [
+    "ox.ac.uk"
+   ],
+   "country": "GB"
+  },
+  {
+   "name": "University of Cambridge",
+   "aliases": [
+    "Cambridge University"
+   ],
+   "domains": [
+    "cam.ac.uk"
+   ],
+   "country": "GB"
+  },
+  {
+   "name": "Imperial College London",
+   "aliases": [
+    "Imperial College"
+   ],
+   "domains": [
+    "imperial.ac.uk"
+   ],
+   "country": "GB"
+  },
+  {
+   "name": "University College London",
+   "aliases": [
+    "UCL"
+   ],
+   "domains": [
+    "ucl.ac.uk"
+   ],
+   "country": "GB"
+  },
+  {
+   "name": "University of Edinburgh",
+   "aliases": [],
+   "domains": [
+    "ed.ac.uk"
+   ],
+   "country": "GB"
+  },
+  {
+   "name": "ETH Zurich",
+   "aliases": [
+    "ETH Zürich",
+    "Swiss Federal Institute of Technology"
+   ],
+   "domains": [
+    "ethz.ch"
+   ],
+   "country": "CH"
+  },
+  {
+   "name": "EPFL",
+   "aliases": [
+    "École Polytechnique Fédérale de Lausanne"
+   ],
+   "domains": [
+    "epfl.ch"
+   ],
+   "country": "CH"
+  },
+  {
+   "name": "Tsinghua University",
+   "aliases": [
+    "Tsinghua"
+   ],
+   "domains": [
+    "tsinghua.edu.cn"
+   ],
+   "country": "CN"
+  },
+  {
+   "name": "Peking University",
+   "aliases": [
+    "PKU"
+   ],
+   "domains": [
+    "pku.edu.cn"
+   ],
+   "country": "CN"
+  },
+  {
+   "name": "National University of Singapore",
+   "aliases": [
+    "NUS"
+   ],
+   "domains": [
+    "nus.edu.sg"
+   ],
+   "country": "SG"
+  },
+  {
+   "name": "Nanyang Technological University",
+   "aliases": [
+    "NTU Singapore"
+   ],
+   "domains": [
+    "ntu.edu.sg"
+   ],
+   "country": "SG"
+  },
+  {
+   "name": "University of Toronto",
+   "aliases": [
+    "UofT"
+   ],
+   "domains": [
+    "utoronto.ca",
+    "toronto.edu"
+   ],
+   "country": "CA"
+  },
+  {
+   "name": "University of Waterloo",
+   "aliases": [],
+   "domains": [
+    "uwaterloo.ca"
+   ],
+   "country": "CA"
+  },
+  {
+   "name": "Université de Montréal",
+   "aliases": [
+    "University of Montreal"
+   ],
+   "domains": [
+    "umontreal.ca"
+   ],
+   "country": "CA"
+  },
+  {
+   "name": "McGill University",
+   "aliases": [
+    "McGill"
+   ],
+   "domains": [
+    "mcgill.ca"
+   ],
+   "country": "CA"
+  },
+  {
+   "name": "University of Tokyo",
+   "aliases": [
+    "The University of Tokyo"
+   ],
+   "domains": [
+    "u-tokyo.ac.jp"
+   ],
+   "country": "JP"
+  },
+  {
+   "name": "KAIST",
+   "aliases": [
+    "Korea Advanced Institute of Science and Technology"
+   ],
+   "domains": [
+    "kaist.ac.kr"
+   ],
+   "country": "KR"
+  },
+  {
+   "name": "Seoul National University",
+   "aliases": [
+    "SNU"
+   ],
+   "domains": [
+    "snu.ac.kr"
+   ],
+   "country": "KR"
+  },
+  {
+   "name": "Indian Institute of Science",
+   "aliases": [
+    "IISc"
+   ],
+   "domains": [
+    "iisc.ac.in",
+    "iisc.ernet.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "Indian Institute of Technology Bombay",
+   "aliases": [
+    "IIT Bombay"
+   ],
+   "domains": [
+    "iitb.ac.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "Indian Institute of Technology Madras",
+   "aliases": [
+    "IIT Madras"
+   ],
+   "domains": [
+    "iitm.ac.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "Indian Institute of Technology Delhi",
+   "aliases": [
+    "IIT Delhi"
+   ],
+   "domains": [
+    "iitd.ac.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "Indian Institute of Technology Kanpur",
+   "aliases": [
+    "IIT Kanpur"
+   ],
+   "domains": [
+    "iitk.ac.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "Indian Institute of Technology Kharagpur",
+   "aliases": [
+    "IIT Kharagpur"
+   ],
+   "domains": [
+    "iitkgp.ac.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "Indian Institute of Technology Roorkee",
+   "aliases": [
+    "IIT Roorkee"
+   ],
+   "domains": [
+    "iitr.ac.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "Indian Institute of Technology Guwahati",
+   "aliases": [
+    "IIT Guwahati"
+   ],
+   "domains": [
+    "iitg.ac.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "Indian Institute of Technology Hyderabad",
+   "aliases": [
+    "IIT Hyderabad"
+   ],
+   "domains": [
+    "iith.ac.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "International Institute of Information Technology Hyderabad",
+   "aliases": [
+    "IIIT Hyderabad"
+   ],
+   "domains": [
+    "iiit.ac.in"
+   ],
+   "country": "IN"
+  },
+  {
+   "name": "University of Washington",
+   "aliases": [
+    "UW"
+   ],
+   "domains": [
+    "uw.edu",
+    "washington.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Cornell University",
+   "aliases": [
+    "Cornell"
+   ],
+   "domains": [
+    "cornell.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Columbia University",
+   "aliases": [
+    "Columbia"
+   ],
+   "domains": [
+    "columbia.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Yale University",
+   "aliases": [
+    "Yale"
+   ],
+   "domains": [
+    "yale.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of Chicago",
+   "aliases": [
+    "UChicago"
+   ],
+   "domains": [
+    "uchicago.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Toyota Technological Institute at Chicago",
+   "aliases": [
+    "TTIC"
+   ],
+   "domains": [
+    "ttic.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "New York University",
+   "aliases": [
+    "NYU"
+   ],
+   "domains": [
+    "nyu.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of Pennsylvania",
+   "aliases": [
+    "UPenn"
+   ],
+   "domains": [
+    "upenn.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of Michigan",
+   "aliases": [],
+   "domains": [
+    "umich.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of Illinois Urbana-Champaign",
+   "aliases": [
+    "UIUC"
+   ],
+   "domains": [
+    "illinois.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Georgia Institute of Technology",
+   "aliases": [
+    "Georgia Tech"
+   ],
+   "domains": [
+    "gatech.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of Texas at Austin",
+   "aliases": [
+    "UT Austin"
+   ],
+   "domains": [
+    "utexas.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of California, Los Angeles",
+   "aliases": [
+    "UCLA"
+   ],
+   "domains": [
+    "ucla.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of California, San Diego",
+   "aliases": [
+    "UCSD",
+    "UC San Diego"
+   ],
+   "domains": [
+    "ucsd.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "University of Maryland",
+   "aliases": [],
+   "domains": [
+    "umd.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Johns Hopkins University",
+   "aliases": [
+    "JHU"
+   ],
+   "domains": [
+    "jhu.edu"
+   ],
+   "country": "US"
+  },
+  {
+   "name": "Technical University of Munich",
+   "aliases": [
+    "TUM"
+   ],
+   "domains": [
+    "tum.de"
+   ],
+   "country": "DE"
+  },
+  {
+   "name": "University of Tübingen",
+   "aliases": [
+    "University of Tuebingen"
+   ],
+   "domains": [
+    "uni-tuebingen.de"
+   ],
+   "country": "DE"
+  },
+  {
+   "name": "LMU Munich",
+   "aliases": [
+    "Ludwig Maximilian University of Munich"
+   ],
+   "domains": [
+    "lmu.de"
+   ],
+   "country": "DE"
+  },
+  {
+   "name": "University of Amsterdam",
+   "aliases": [
+    "UvA"
+   ],
+   "domains": [
+    "uva.nl"
+   ],
+   "country": "NL"
+  },
+  {
+   "name": "KU Leuven",
+   "aliases": [],
+   "domains": [
+    "kuleuven.be"
+   ],
+   "country": "BE"
+  },
+  {
+   "name": "Hong Kong University of Science and Technology",
+   "aliases": [
+    "HKUST"
+   ],
+   "domains": [
+    "ust.hk"
+   ],
+   "country": "HK"
+  },
+  {
+   "name": "The University of Hong Kong",
+   "aliases": [
+    "HKU"
+   ],
+   "domains": [
+    "hku.hk"
+   ],
+   "country": "HK"
+  },
+  {
+   "name": "The Chinese University of Hong Kong",
+   "aliases": [
+    "CUHK"
+   ],
+   "domains": [
+    "cuhk.edu.hk"
+   ],
+   "country": "HK"
+  },
+  {
+   "name": "Shanghai Jiao Tong University",
+   "aliases": [
+    "SJTU"
+   ],
+   "domains": [
+    "sjtu.edu.cn"
+   ],
+   "country": "CN"
+  },
+  {
+   "name": "Zhejiang University",
+   "aliases": [],
+   "domains": [
+    "zju.edu.cn"
+   ],
+   "country": "CN"
+  },
+  {
+   "name": "Fudan University",
+   "aliases": [],
+   "domains": [
+    "fudan.edu.cn"
+   ],
+   "country": "CN"
+  },
+  {
+   "name": "University of Science and Technology of China",
+   "aliases": [
+    "USTC"
+   ],
+   "domains": [
+    "ustc.edu.cn"
+   ],
+   "country": "CN"
+  },
+  {
+   "name": "Technion - Israel Institute of Technology",
+   "aliases": [
+    "Technion"
+   ],
+   "domains": [
+    "technion.ac.il"
+   ],
+   "country": "IL"
+  },
+  {
+   "name": "Weizmann Institute of Science",
+   "aliases": [
+    "Weizmann Institute"
+   ],
+   "domains": [
+    "weizmann.ac.il"
+   ],
+   "country": "IL"
+  },
+  {
+   "name": "Hebrew University of Jerusalem",
+   "aliases": [],
+   "domains": [
+    "huji.ac.il"
+   ],
+   "country": "IL"
+  },
+  {
+   "name": "Tel Aviv University",
+   "aliases": [],
+   "domains": [
+    "tau.ac.il"
+   ],
+   "country": "IL"
+  },
+  {
+   "name": "University of Melbourne",
+   "aliases": [],
+   "domains": [
+    "unimelb.edu.au"
+   ],
+   "country": "AU"
+  },
+  {
+   "name": "Australian National University",
+   "aliases": [
+    "ANU"
+   ],
+   "domains": [
+    "anu.edu.au"
+   ],
+   "country": "AU"
+  },
+  {
+   "name": "University of Sydney",
+   "aliases": [],
+   "domains": [
+    "sydney.edu.au"
+   ],
+   "country": "AU"
+  },
+  {
+   "name": "KTH Royal Institute of Technology",
+   "aliases": [
+    "KTH"
+   ],
+   "domains": [
+    "kth.se"
+   ],
+   "country": "SE"
+  },
+  {
+   "name": "University of Copenhagen",
+   "aliases": [],
+   "domains": [
+    "ku.dk"
+   ],
+   "country": "DK"
+  },
+  {
+   "name": "Sorbonne University",
+   "aliases": [
+    "Sorbonne Université"
+   ],
+   "domains": [
+    "sorbonne-universite.fr"
+   ],
+   "country": "FR"
+  },
+  {
+   "name": "École Normale Supérieure",
+   "aliases": [
+    "ENS Paris",
+    "ENS"
+   ],
+   "domains": [
+    "ens.fr"
+   ],
+   "country": "FR"
+  },
+  {
+   "name": "Institut Polytechnique de Paris",
+   "aliases": [
+    "École Polytechnique"
+   ],
+   "domains": [
+    "polytechnique.edu",
+    "ip-paris.fr"
+   ],
+   "country": "FR"
+  },
+  {
+   "name": "King Abdullah University of Science and Technology",
+   "aliases": [
+    "KAUST"
+   ],
+   "domains": [
+    "kaust.edu.sa"
+   ],
+   "country": "SA"
+  },
+  {
+   "name": "Mohamed bin Zayed University of Artificial Intelligence",
+   "aliases": [
+    "MBZUAI"
+   ],
+   "domains": [
+    "mbzuai.ac.ae"
+   ],
+   "country": "AE"
+  }
+ ],
+ "labs": [
+  {
+   "name": "Google DeepMind",
+   "aliases": [
+    "DeepMind"
+   ],
+   "domains": [
+    "deepmind.com",
+    "deepmind.google"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Google Research",
+   "aliases": [
+    "Google Brain",
+    "Google AI",
+    "Google LLC",
+    "Google Inc"
+   ],
+   "domains": [
+    "google.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "OpenAI",
+   "aliases": [],
+   "domains": [
+    "openai.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Anthropic",
+   "aliases": [],
+   "domains": [
+    "anthropic.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Meta AI",
+   "aliases": [
+    "FAIR",
+    "Meta FAIR",
+    "Facebook AI Research",
+    "Meta Platforms",
+    "Meta Superintelligence Labs"
+   ],
+   "domains": [
+    "meta.com",
+    "fb.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Microsoft Research",
+   "aliases": [
+    "Microsoft",
+    "MSR"
+   ],
+   "domains": [
+    "microsoft.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "NVIDIA Research",
+   "aliases": [
+    "NVIDIA"
+   ],
+   "domains": [
+    "nvidia.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Apple Machine Learning Research",
+   "aliases": [
+    "Apple"
+   ],
+   "domains": [
+    "apple.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Amazon Science",
+   "aliases": [
+    "Amazon",
+    "AWS AI Labs",
+    "Amazon Web Services"
+   ],
+   "domains": [
+    "amazon.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "ByteDance Seed",
+   "aliases": [
+    "ByteDance"
+   ],
+   "domains": [
+    "bytedance.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Alibaba",
+   "aliases": [
+    "Alibaba Group",
+    "DAMO Academy",
+    "Qwen Team",
+    "Tongyi Lab"
+   ],
+   "domains": [
+    "alibaba-inc.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Tencent AI Lab",
+   "aliases": [
+    "Tencent",
+    "Tencent Hunyuan"
+   ],
+   "domains": [
+    "tencent.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Baidu Research",
+   "aliases": [
+    "Baidu"
+   ],
+   "domains": [
+    "baidu.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "IBM Research",
+   "aliases": [
+    "IBM"
+   ],
+   "domains": [
+    "ibm.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Adobe Research",
+   "aliases": [
+    "Adobe"
+   ],
+   "domains": [
+    "adobe.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Sony AI",
+   "aliases": [
+    "Sony"
+   ],
+   "domains": [
+    "sony.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Huawei Noah's Ark Lab",
+   "aliases": [
+    "Huawei",
+    "Noah's Ark Lab"
+   ],
+   "domains": [
+    "huawei.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Samsung Research",
+   "aliases": [
+    "Samsung",
+    "Samsung AI Center",
+    "SAIT"
+   ],
+   "domains": [
+    "samsung.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Salesforce AI Research",
+   "aliases": [
+    "Salesforce"
+   ],
+   "domains": [
+    "salesforce.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Qualcomm AI Research",
+   "aliases": [
+    "Qualcomm"
+   ],
+   "domains": [
+    "qualcomm.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Intel Labs",
+   "aliases": [
+    "Intel"
+   ],
+   "domains": [
+    "intel.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "AMD",
+   "aliases": [],
+   "domains": [
+    "amd.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "LG AI Research",
+   "aliases": [],
+   "domains": [
+    "lgresearch.ai"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "NAVER AI Lab",
+   "aliases": [
+    "NAVER",
+    "NAVER Cloud"
+   ],
+   "domains": [
+    "navercorp.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Kuaishou",
+   "aliases": [
+    "Kling"
+   ],
+   "domains": [
+    "kuaishou.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Xiaomi",
+   "aliases": [],
+   "domains": [
+    "xiaomi.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Ant Group",
+   "aliases": [
+    "Ant Research"
+   ],
+   "domains": [
+    "antgroup.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "JD Explore Academy",
+   "aliases": [
+    "JD.com"
+   ],
+   "domains": [
+    "jd.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Bloomberg AI",
+   "aliases": [
+    "Bloomberg"
+   ],
+   "domains": [
+    "bloomberg.net"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "J.P. Morgan AI Research",
+   "aliases": [
+    "JPMorgan AI Research"
+   ],
+   "domains": [
+    "jpmorgan.com"
+   ],
+   "kind": "big_tech"
+  },
+  {
+   "name": "Mistral AI",
+   "aliases": [
+    "Mistral"
+   ],
+   "domains": [
+    "mistral.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "xAI",
+   "aliases": [],
+   "domains": [
+    "x.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "DeepSeek",
+   "aliases": [
+    "DeepSeek-AI"
+   ],
+   "domains": [
+    "deepseek.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Moonshot AI",
+   "aliases": [
+    "Kimi Team"
+   ],
+   "domains": [
+    "moonshot.cn"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Zhipu AI",
+   "aliases": [
+    "Z.ai",
+    "Zhipu"
+   ],
+   "domains": [
+    "zhipuai.cn"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "MiniMax",
+   "aliases": [],
+   "domains": [],
+   "kind": "frontier"
+  },
+  {
+   "name": "01.AI",
+   "aliases": [],
+   "domains": [
+    "01.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "StepFun",
+   "aliases": [],
+   "domains": [
+    "stepfun.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Cohere",
+   "aliases": [
+    "Cohere For AI",
+    "Cohere Labs"
+   ],
+   "domains": [
+    "cohere.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Safe Superintelligence",
+   "aliases": [
+    "SSI"
+   ],
+   "domains": [
+    "ssi.inc"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Thinking Machines Lab",
+   "aliases": [],
+   "domains": [
+    "thinkingmachines.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Sakana AI",
+   "aliases": [],
+   "domains": [
+    "sakana.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Prior Labs",
+   "aliases": [],
+   "domains": [
+    "priorlabs.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "World Labs",
+   "aliases": [],
+   "domains": [
+    "worldlabs.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Hugging Face",
+   "aliases": [],
+   "domains": [
+    "huggingface.co"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Stability AI",
+   "aliases": [],
+   "domains": [
+    "stability.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Black Forest Labs",
+   "aliases": [],
+   "domains": [
+    "bfl.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Runway",
+   "aliases": [
+    "RunwayML"
+   ],
+   "domains": [
+    "runwayml.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Luma AI",
+   "aliases": [],
+   "domains": [
+    "lumalabs.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Midjourney",
+   "aliases": [],
+   "domains": [
+    "midjourney.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Perplexity",
+   "aliases": [
+    "Perplexity AI"
+   ],
+   "domains": [
+    "perplexity.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Together AI",
+   "aliases": [
+    "Together Computer"
+   ],
+   "domains": [
+    "together.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Databricks",
+   "aliases": [
+    "Mosaic AI",
+    "MosaicML"
+   ],
+   "domains": [
+    "databricks.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Nous Research",
+   "aliases": [],
+   "domains": [
+    "nousresearch.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Prime Intellect",
+   "aliases": [],
+   "domains": [
+    "primeintellect.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Liquid AI",
+   "aliases": [],
+   "domains": [
+    "liquid.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Cartesia",
+   "aliases": [
+    "Cartesia AI"
+   ],
+   "domains": [
+    "cartesia.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Physical Intelligence",
+   "aliases": [],
+   "domains": [
+    "physicalintelligence.company"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Figure AI",
+   "aliases": [],
+   "domains": [
+    "figure.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Covariant",
+   "aliases": [],
+   "domains": [
+    "covariant.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Skild AI",
+   "aliases": [],
+   "domains": [
+    "skild.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "AI21 Labs",
+   "aliases": [],
+   "domains": [
+    "ai21.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Aleph Alpha",
+   "aliases": [],
+   "domains": [
+    "aleph-alpha.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Reka AI",
+   "aliases": [],
+   "domains": [
+    "reka.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Character.AI",
+   "aliases": [],
+   "domains": [
+    "character.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Poolside",
+   "aliases": [],
+   "domains": [
+    "poolside.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Magic.dev",
+   "aliases": [],
+   "domains": [
+    "magic.dev"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Reflection AI",
+   "aliases": [],
+   "domains": [
+    "reflection.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Isomorphic Labs",
+   "aliases": [],
+   "domains": [
+    "isomorphiclabs.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Goodfire",
+   "aliases": [
+    "Goodfire AI"
+   ],
+   "domains": [
+    "goodfire.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Transluce",
+   "aliases": [],
+   "domains": [
+    "transluce.org"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Upstage",
+   "aliases": [],
+   "domains": [
+    "upstage.ai"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Preferred Networks",
+   "aliases": [],
+   "domains": [
+    "preferred.jp"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Krutrim",
+   "aliases": [
+    "Ola Krutrim"
+   ],
+   "domains": [
+    "olakrutrim.com"
+   ],
+   "kind": "frontier"
+  },
+  {
+   "name": "Sarvam AI",
+   "aliases": [
+    "Sarvam"
+   ],
+   "domains": [
+    "sarvam.ai"
+   ],
+   "kind": "regional",
+   "country": "IN"
+  },
+  {
+   "name": "BharatGen",
+   "aliases": [],
+   "domains": [],
+   "kind": "regional",
+   "country": "IN"
+  },
+  {
+   "name": "AI4Bharat",
+   "aliases": [],
+   "domains": [
+    "ai4bharat.org"
+   ],
+   "kind": "regional",
+   "country": "IN"
+  },
+  {
+   "name": "Wadhwani AI",
+   "aliases": [],
+   "domains": [
+    "wadhwaniai.org"
+   ],
+   "kind": "regional",
+   "country": "IN"
+  },
+  {
+   "name": "TCS Research",
+   "aliases": [
+    "Tata Consultancy Services"
+   ],
+   "domains": [
+    "tcs.com"
+   ],
+   "kind": "regional",
+   "country": "IN"
+  },
+  {
+   "name": "Allen Institute for AI",
+   "aliases": [
+    "AI2",
+    "Ai2",
+    "Allen Institute for Artificial Intelligence"
+   ],
+   "domains": [
+    "allenai.org"
+   ],
+   "kind": "institute"
+  },
+  {
+   "name": "EleutherAI",
+   "aliases": [],
+   "domains": [
+    "eleuther.ai"
+   ],
+   "kind": "institute"
+  },
+  {
+   "name": "Mila",
+   "aliases": [
+    "Mila - Quebec AI Institute",
+    "Quebec AI Institute"
+   ],
+   "domains": [
+    "mila.quebec"
+   ],
+   "kind": "institute",
+   "country": "CA"
+  },
+  {
+   "name": "Vector Institute",
+   "aliases": [],
+   "domains": [
+    "vectorinstitute.ai"
+   ],
+   "kind": "institute",
+   "country": "CA"
+  },
+  {
+   "name": "Max Planck Institute",
+   "aliases": [
+    "Max Planck",
+    "MPI for Intelligent Systems",
+    "MPI-IS"
+   ],
+   "domains": [
+    "mpg.de",
+    "tuebingen.mpg.de",
+    "mpi-inf.mpg.de"
+   ],
+   "kind": "institute",
+   "country": "DE"
+  },
+  {
+   "name": "ELLIS",
+   "aliases": [
+    "European Laboratory for Learning and Intelligent Systems"
+   ],
+   "domains": [
+    "ellis.eu"
+   ],
+   "kind": "institute"
+  },
+  {
+   "name": "Inria",
+   "aliases": [],
+   "domains": [
+    "inria.fr"
+   ],
+   "kind": "institute",
+   "country": "FR"
+  },
+  {
+   "name": "Alan Turing Institute",
+   "aliases": [],
+   "domains": [
+    "turing.ac.uk"
+   ],
+   "kind": "institute",
+   "country": "GB"
+  },
+  {
+   "name": "Tuebingen AI Center",
+   "aliases": [
+    "Tübingen AI Center"
+   ],
+   "domains": [],
+   "kind": "institute",
+   "country": "DE"
+  },
+  {
+   "name": "Shanghai AI Laboratory",
+   "aliases": [
+    "Shanghai AI Lab"
+   ],
+   "domains": [
+    "pjlab.org.cn"
+   ],
+   "kind": "institute",
+   "country": "CN"
+  },
+  {
+   "name": "Beijing Academy of Artificial Intelligence",
+   "aliases": [
+    "BAAI"
+   ],
+   "domains": [
+    "baai.ac.cn"
+   ],
+   "kind": "institute",
+   "country": "CN"
+  },
+  {
+   "name": "RIKEN",
+   "aliases": [
+    "RIKEN AIP"
+   ],
+   "domains": [
+    "riken.jp"
+   ],
+   "kind": "institute",
+   "country": "JP"
+  },
+  {
+   "name": "A*STAR",
+   "aliases": [
+    "Agency for Science, Technology and Research"
+   ],
+   "domains": [
+    "a-star.edu.sg"
+   ],
+   "kind": "institute",
+   "country": "SG"
+  },
+  {
+   "name": "Flatiron Institute",
+   "aliases": [
+    "Simons Foundation"
+   ],
+   "domains": [
+    "flatironinstitute.org",
+    "simonsfoundation.org"
+   ],
+   "kind": "institute",
+   "country": "US"
+  },
+  {
+   "name": "Arc Institute",
+   "aliases": [],
+   "domains": [
+    "arcinstitute.org"
+   ],
+   "kind": "institute",
+   "country": "US"
+  },
+  {
+   "name": "FutureHouse",
+   "aliases": [],
+   "domains": [
+    "futurehouse.org"
+   ],
+   "kind": "institute",
+   "country": "US"
+  },
+  {
+   "name": "Broad Institute",
+   "aliases": [],
+   "domains": [
+    "broadinstitute.org"
+   ],
+   "kind": "institute",
+   "country": "US"
+  },
+  {
+   "name": "Toyota Research Institute",
+   "aliases": [
+    "TRI"
+   ],
+   "domains": [
+    "tri.global"
+   ],
+   "kind": "institute",
+   "country": "US"
+  },
+  {
+   "name": "UK AI Security Institute",
+   "aliases": [
+    "AI Security Institute",
+    "AISI"
+   ],
+   "domains": [
+    "aisi.gov.uk",
+    "dsit.gov.uk"
+   ],
+   "kind": "institute",
+   "country": "GB"
+  },
+  {
+   "name": "METR",
+   "aliases": [],
+   "domains": [
+    "metr.org"
+   ],
+   "kind": "institute"
+  },
+  {
+   "name": "Apollo Research",
+   "aliases": [],
+   "domains": [
+    "apolloresearch.ai"
+   ],
+   "kind": "institute"
+  },
+  {
+   "name": "Redwood Research",
+   "aliases": [],
+   "domains": [
+    "rdwrs.com"
+   ],
+   "kind": "institute"
+  },
+  {
+   "name": "Epoch AI",
+   "aliases": [],
+   "domains": [
+    "epochai.org"
+   ],
+   "kind": "institute"
+  },
+  {
+   "name": "Center for AI Safety",
+   "aliases": [],
+   "domains": [
+    "safe.ai"
+   ],
+   "kind": "institute"
+  },
+  {
+   "name": "FAR.AI",
+   "aliases": [
+    "FAR AI"
+   ],
+   "domains": [
+    "far.ai"
+   ],
+   "kind": "institute"
+  },
+  {
+   "name": "Lawrence Livermore National Laboratory",
+   "aliases": [
+    "LLNL"
+   ],
+   "domains": [
+    "llnl.gov"
+   ],
+   "kind": "institute",
+   "country": "US"
+  },
+  {
+   "name": "Los Alamos National Laboratory",
+   "aliases": [
+    "LANL"
+   ],
+   "domains": [
+    "lanl.gov"
+   ],
+   "kind": "institute",
+   "country": "US"
+  },
+  {
+   "name": "Oak Ridge National Laboratory",
+   "aliases": [
+    "ORNL"
+   ],
+   "domains": [
+    "ornl.gov"
+   ],
+   "kind": "institute",
+   "country": "US"
+  },
+  {
+   "name": "Argonne National Laboratory",
+   "aliases": [],
+   "domains": [
+    "anl.gov"
+   ],
+   "kind": "institute",
+   "country": "US"
+  },
+  {
+   "name": "CERN",
+   "aliases": [],
+   "domains": [
+    "cern.ch"
+   ],
+   "kind": "institute"
+  }
+ ],
+ "researchers": [
+  {
+   "name": "Fei-Fei Li"
+  },
+  {
+   "name": "Yann LeCun"
+  },
+  {
+   "name": "Geoffrey Hinton"
+  },
+  {
+   "name": "Yoshua Bengio"
+  },
+  {
+   "name": "Andrej Karpathy"
+  },
+  {
+   "name": "Ilya Sutskever"
+  },
+  {
+   "name": "David Ha"
+  },
+  {
+   "name": "Llion Jones"
+  },
+  {
+   "name": "Frank Hutter"
+  },
+  {
+   "name": "Tri Dao"
+  },
+  {
+   "name": "Albert Gu"
+  },
+  {
+   "name": "Sebastian Raschka"
+  },
+  {
+   "name": "Juergen Schmidhuber"
+  },
+  {
+   "name": "Jürgen Schmidhuber"
+  },
+  {
+   "name": "Kaiming He"
+  },
+  {
+   "name": "Yang Song"
+  },
+  {
+   "name": "Stefano Ermon"
+  },
+  {
+   "name": "Jonathan Ho"
+  },
+  {
+   "name": "Tim Salimans"
+  },
+  {
+   "name": "Diederik P. Kingma"
+  },
+  {
+   "name": "Durk Kingma"
+  },
+  {
+   "name": "Max Welling"
+  },
+  {
+   "name": "Karsten Kreis"
+  },
+  {
+   "name": "Tero Karras"
+  },
+  {
+   "name": "Danijar Hafner"
+  },
+  {
+   "name": "Sergey Levine"
+  },
+  {
+   "name": "Pieter Abbeel"
+  },
+  {
+   "name": "Chelsea Finn"
+  },
+  {
+   "name": "Jitendra Malik"
+  },
+  {
+   "name": "Percy Liang"
+  },
+  {
+   "name": "Christopher D. Manning"
+  },
+  {
+   "name": "Tatsunori Hashimoto"
+  },
+  {
+   "name": "Jure Leskovec"
+  },
+  {
+   "name": "Michael Bronstein"
+  },
+  {
+   "name": "Petar Veličković"
+  },
+  {
+   "name": "Joan Bruna"
+  },
+  {
+   "name": "Thomas N. Kipf"
+  },
+  {
+   "name": "Jimmy Lin"
+  },
+  {
+   "name": "Omar Khattab"
+  },
+  {
+   "name": "Matei Zaharia"
+  },
+  {
+   "name": "Jeff Dean"
+  },
+  {
+   "name": "Oriol Vinyals"
+  },
+  {
+   "name": "Demis Hassabis"
+  },
+  {
+   "name": "John Jumper"
+  },
+  {
+   "name": "David Baker"
+  },
+  {
+   "name": "Pushmeet Kohli"
+  },
+  {
+   "name": "Chris Olah"
+  },
+  {
+   "name": "Neel Nanda"
+  },
+  {
+   "name": "Sanjeev Arora"
+  },
+  {
+   "name": "Tengyu Ma"
+  },
+  {
+   "name": "Zico Kolter"
+  },
+  {
+   "name": "Nicholas Carlini"
+  },
+  {
+   "name": "Florian Tramèr"
+  },
+  {
+   "name": "Dawn Song"
+  },
+  {
+   "name": "Aleksander Madry"
+  },
+  {
+   "name": "Nicolas Papernot"
+  },
+  {
+   "name": "Yarin Gal"
+  },
+  {
+   "name": "Zoubin Ghahramani"
+  },
+  {
+   "name": "Bernhard Schölkopf"
+  },
+  {
+   "name": "Michael I. Jordan"
+  },
+  {
+   "name": "Richard S. Sutton"
+  },
+  {
+   "name": "Andrew Gordon Wilson"
+  },
+  {
+   "name": "Ashish Vaswani"
+  },
+  {
+   "name": "Noam Shazeer"
+  },
+  {
+   "name": "Jakob Uszkoreit"
+  },
+  {
+   "name": "Aidan N. Gomez"
+  },
+  {
+   "name": "Lukasz Kaiser"
+  },
+  {
+   "name": "Niki Parmar"
+  },
+  {
+   "name": "Alec Radford"
+  },
+  {
+   "name": "Jared Kaplan"
+  },
+  {
+   "name": "Dario Amodei"
+  },
+  {
+   "name": "Jan Leike"
+  },
+  {
+   "name": "Paul Christiano"
+  },
+  {
+   "name": "Sam Bowman"
+  },
+  {
+   "name": "Ethan Perez"
+  },
+  {
+   "name": "Jacob Steinhardt"
+  },
+  {
+   "name": "Dan Hendrycks"
+  },
+  {
+   "name": "Stuart Russell"
+  },
+  {
+   "name": "Been Kim"
+  },
+  {
+   "name": "Cynthia Rudin"
+  },
+  {
+   "name": "Finale Doshi-Velez"
+  },
+  {
+   "name": "Yejin Choi"
+  },
+  {
+   "name": "Luke Zettlemoyer"
+  },
+  {
+   "name": "Noah A. Smith"
+  },
+  {
+   "name": "Graham Neubig"
+  },
+  {
+   "name": "Danqi Chen"
+  },
+  {
+   "name": "Kyunghyun Cho"
+  },
+  {
+   "name": "Alexei A. Efros"
+  },
+  {
+   "name": "Trevor Darrell"
+  },
+  {
+   "name": "Saining Xie"
+  },
+  {
+   "name": "Ross Girshick"
+  },
+  {
+   "name": "Piotr Dollár"
+  },
+  {
+   "name": "Andrea Vedaldi"
+  },
+  {
+   "name": "Andrew Zisserman"
+  },
+  {
+   "name": "Ben Mildenhall"
+  },
+  {
+   "name": "Jonathan T. Barron"
+  },
+  {
+   "name": "Ruslan Salakhutdinov"
+  },
+  {
+   "name": "Eric P. Xing"
+  },
+  {
+   "name": "Samy Bengio"
+  },
+  {
+   "name": "Hugo Larochelle"
+  },
+  {
+   "name": "Aaron Courville"
+  },
+  {
+   "name": "Doina Precup"
+  },
+  {
+   "name": "Joelle Pineau"
+  },
+  {
+   "name": "Rich Caruana"
+  },
+  {
+   "name": "Shakir Mohamed"
+  },
+  {
+   "name": "Danilo J. Rezende"
+  },
+  {
+   "name": "Volodymyr Mnih"
+  },
+  {
+   "name": "David Silver"
+  },
+  {
+   "name": "Koray Kavukcuoglu"
+  },
+  {
+   "name": "Tom Goldstein"
+  },
+  {
+   "name": "Song Han"
+  },
+  {
+   "name": "Christopher Ré"
+  },
+  {
+   "name": "Stefanie Jegelka"
+  },
+  {
+   "name": "Tommi Jaakkola"
+  },
+  {
+   "name": "Regina Barzilay"
+  },
+  {
+   "name": "Max Tegmark"
+  },
+  {
+   "name": "Leslie Pack Kaelbling"
+  },
+  {
+   "name": "Josh Tenenbaum"
+  },
+  {
+   "name": "Joshua B. Tenenbaum"
+  },
+  {
+   "name": "Daniel Kahneman"
+  },
+  {
+   "name": "Shimon Whiteson"
+  },
+  {
+   "name": "Arthur Gretton"
+  },
+  {
+   "name": "Francis Bach"
+  },
+  {
+   "name": "Gaël Varoquaux"
+  },
+  {
+   "name": "Bin Yu"
+  },
+  {
+   "name": "Martin Wainwright"
+  },
+  {
+   "name": "Elad Hazan"
+  },
+  {
+   "name": "Sham Kakade"
+  },
+  {
+   "name": "Nati Srebro"
+  },
+  {
+   "name": "Shai Shalev-Shwartz"
+  },
+  {
+   "name": "Ankur Moitra"
+  },
+  {
+   "name": "Boaz Barak"
+  },
+  {
+   "name": "Ludwig Schmidt"
+  },
+  {
+   "name": "Zeyuan Allen-Zhu"
+  },
+  {
+   "name": "Yuanzhi Li"
+  },
+  {
+   "name": "Sébastien Bubeck"
+  },
+  {
+   "name": "Shafi Goldwasser"
+  },
+  {
+   "name": "Cynthia Dwork"
+  },
+  {
+   "name": "Moritz Hardt"
+  },
+  {
+   "name": "Rediet Abebe"
+  },
+  {
+   "name": "Kate Crawford"
+  },
+  {
+   "name": "Timnit Gebru"
+  },
+  {
+   "name": "Margaret Mitchell"
+  },
+  {
+   "name": "Arvind Narayanan"
+  },
+  {
+   "name": "Sayash Kapoor"
+  },
+  {
+   "name": "Ian Goodfellow"
+  },
+  {
+   "name": "Aditi Raghunathan"
+  },
+  {
+   "name": "Chris Callison-Burch"
+  },
+  {
+   "name": "Mohit Iyyer"
+  },
+  {
+   "name": "Swabha Swayamdipta"
+  },
+  {
+   "name": "Partha Talukdar"
+  },
+  {
+   "name": "Mitesh M. Khapra"
+  },
+  {
+   "name": "Soumen Chakrabarti"
+  },
+  {
+   "name": "Sunita Sarawagi"
+  },
+  {
+   "name": "Prateek Jain"
+  },
+  {
+   "name": "Manik Varma"
+  },
+  {
+   "name": "Sanjiv Kumar"
+  },
+  {
+   "name": "Praneeth Netrapalli"
+  },
+  {
+   "name": "Amit Sethi"
+  },
+  {
+   "name": "Lilian Weng"
+  },
+  {
+   "name": "Jason Wei"
+  },
+  {
+   "name": "Hyung Won Chung"
+  },
+  {
+   "name": "Denny Zhou"
+  },
+  {
+   "name": "Quoc V. Le"
+  },
+  {
+   "name": "Barret Zoph"
+  },
+  {
+   "name": "Mark Chen"
+  },
+  {
+   "name": "Jakub Pachocki"
+  },
+  {
+   "name": "Wojciech Zaremba"
+  },
+  {
+   "name": "Tom B. Brown"
+  },
+  {
+   "name": "Chris Lattner"
+  },
+  {
+   "name": "Christian Szegedy"
+  },
+  {
+   "name": "Sepp Hochreiter"
+  },
+  {
+   "name": "Alex Graves"
+  },
+  {
+   "name": "Razvan Pascanu"
+  },
+  {
+   "name": "Yee Whye Teh"
+  },
+  {
+   "name": "Arnaud Doucet"
+  },
+  {
+   "name": "Laurent Dinh"
+  },
+  {
+   "name": "Rianne van den Berg"
+  },
+  {
+   "name": "Emiel Hoogeboom"
+  },
+  {
+   "name": "Karsten Borgwardt"
+  },
+  {
+   "name": "Marinka Zitnik"
+  },
+  {
+   "name": "Jian Tang"
+  },
+  {
+   "name": "Xavier Bresson"
+  },
+  {
+   "name": "Yizhou Sun"
+  },
+  {
+   "name": "Jiawei Han"
+  },
+  {
+   "name": "Michael Bernstein"
+  },
+  {
+   "name": "Diyi Yang"
+  },
+  {
+   "name": "Jascha Sohl-Dickstein"
+  },
+  {
+   "name": "Surya Ganguli"
+  },
+  {
+   "name": "Andrew Ng"
+  },
+  {
+   "name": "Daphne Koller"
+  }
+ ],
+ "added": []
+}

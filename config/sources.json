@@ -799,7 +799,7 @@
       "https://www.reddit.com/r/MachineLearning/"
     ],
     "note": "X/Twitter and LinkedIn posts are only included when reachable and quotable through legitimate access (search results or the post page). Never invent posts.",
-    "_doc": "Fetched daily by GitHub Actions into candidates/updates/<date>.json: blog and newsletter feeds (RSS or Atom), Hacker News stories (Algolia API) and r/MachineLearning. A feed that fails is listed in errors and the rest still work. X and LinkedIn have no open feed, so their discussion comes through Hacker News, newsletters and web search, never invented.",
+    "_doc": "Fetched daily by GitHub Actions into candidates/updates/<date>.json, in parallel: lab, researcher and newsletter feeds (the Alan Turing Institute's generated feeds cover labs without RSS), Google News bridges for labs without feeds and for X and LinkedIn posts, Reddit, Bluesky and Hacker News. Duplicates are removed by canonical URL and headline. Dead links (404, 410) are logged in state/feed_health.json and skipped.",
     "lookback_days": 7,
     "feeds": [
       {
@@ -818,18 +818,18 @@
         "kind": "lab"
       },
       {
+        "name": "Google AI Blog",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/rss/",
+        "kind": "lab"
+      },
+      {
         "name": "Microsoft Research",
         "url": "https://www.microsoft.com/en-us/research/feed/",
         "kind": "lab"
       },
       {
-        "name": "BAIR Blog",
-        "url": "https://bair.berkeley.edu/blog/feed.xml",
-        "kind": "lab"
-      },
-      {
-        "name": "CMU ML Blog",
-        "url": "https://blog.ml.cmu.edu/feed/",
+        "name": "NVIDIA Technical Blog",
+        "url": "https://developer.nvidia.com/blog/feed",
         "kind": "lab"
       },
       {
@@ -838,9 +838,96 @@
         "kind": "lab"
       },
       {
-        "name": "MIT News: AI",
-        "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
+        "name": "Databricks",
+        "url": "https://www.databricks.com/feed",
+        "kind": "lab"
+      },
+      {
+        "name": "Weights & Biases",
+        "url": "https://wandb.ai/fully-connected/rss.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "LangChain Blog",
+        "url": "https://blog.langchain.dev/rss/",
+        "kind": "lab"
+      },
+      {
+        "name": "Anthropic News",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/anthropic-news.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "Anthropic Research",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/anthropic-research.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "Claude News",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/claude-news.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "Mistral News",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/mistral-news.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "Cohere Blog",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/cohere-blog.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "Ai2 News",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/allenai-news.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "Mila News",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/mila-news.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "AI Security Institute Blog",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/aisi-blog.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "xAI News",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/spacex-ai-news.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "TLDR AI",
+        "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/tldr-ai.xml",
+        "kind": "newsletter",
+        "lookback_days": 2
+      },
+      {
+        "name": "BAIR Blog",
+        "url": "https://bair.berkeley.edu/blog/feed.xml",
+        "kind": "lab"
+      },
+      {
+        "name": "Stanford CRFM",
+        "url": "https://crfm.stanford.edu/feed",
+        "kind": "lab"
+      },
+      {
+        "name": "CMU ML Blog",
+        "url": "https://blog.ml.cmu.edu/feed/",
+        "kind": "lab"
+      },
+      {
+        "name": "MIT News: Machine learning",
+        "url": "https://news.mit.edu/topic/mitmachine-learning-rss.xml",
         "kind": "news"
+      },
+      {
+        "name": "EleutherAI Blog",
+        "url": "https://blog.eleuther.ai/index.xml",
+        "kind": "lab",
+        "lookback_days": 30
       },
       {
         "name": "AI Alignment Forum",
@@ -854,6 +941,30 @@
         "lookback_days": 30
       },
       {
+        "name": "Nicholas Carlini",
+        "url": "https://nicholas.carlini.com/writing/feed.xml",
+        "kind": "researcher",
+        "lookback_days": 30
+      },
+      {
+        "name": "Chip Huyen",
+        "url": "https://huyenchip.com/feed",
+        "kind": "researcher",
+        "lookback_days": 30
+      },
+      {
+        "name": "Eugene Yan",
+        "url": "https://eugeneyan.com/rss/",
+        "kind": "researcher",
+        "lookback_days": 14
+      },
+      {
+        "name": "Simon Willison",
+        "url": "https://simonwillison.net/atom/everything/",
+        "kind": "researcher",
+        "lookback_days": 2
+      },
+      {
         "name": "Interconnects (Nathan Lambert)",
         "url": "https://www.interconnects.ai/feed",
         "kind": "newsletter"
@@ -865,14 +976,21 @@
       },
       {
         "name": "Import AI (Jack Clark)",
-        "url": "https://jack-clark.net/feed/",
+        "url": "https://importai.substack.com/feed",
+        "kind": "newsletter",
+        "alternates": [
+          "https://jack-clark.net/feed/"
+        ]
+      },
+      {
+        "name": "Latent Space",
+        "url": "https://www.latent.space/feed",
         "kind": "newsletter"
       },
       {
-        "name": "Simon Willison",
-        "url": "https://simonwillison.net/atom/everything/",
-        "kind": "researcher",
-        "lookback_days": 2
+        "name": "Last Week in AI",
+        "url": "https://lastweekin.ai/feed",
+        "kind": "newsletter"
       },
       {
         "name": "The Gradient",
@@ -881,15 +999,14 @@
         "lookback_days": 30
       },
       {
-        "name": "Quanta Magazine",
-        "url": "https://www.quantamagazine.org/feed/",
-        "kind": "magazine"
+        "name": "MIT Technology Review: AI",
+        "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+        "kind": "news"
       },
       {
-        "name": "r/MachineLearning",
-        "url": "https://www.reddit.com/r/MachineLearning/top.rss?t=day",
-        "kind": "discussion",
-        "lookback_days": 2
+        "name": "Quanta Magazine",
+        "url": "https://api.quantamagazine.org/feed",
+        "kind": "magazine"
       }
     ],
     "hacker_news": {
@@ -910,6 +1027,89 @@
         "diffusion",
         "GPU"
       ]
+    },
+    "google_news_bridges": [
+      {
+        "name": "Meta AI",
+        "q": "\"Meta AI\" (model OR research OR release OR Llama)",
+        "kind": "lab"
+      },
+      {
+        "name": "xAI",
+        "q": "xAI (Grok OR model OR release)",
+        "kind": "lab"
+      },
+      {
+        "name": "DeepSeek",
+        "q": "DeepSeek (model OR release OR paper)",
+        "kind": "lab"
+      },
+      {
+        "name": "Qwen",
+        "q": "Qwen (model OR release) Alibaba",
+        "kind": "lab"
+      },
+      {
+        "name": "Anthropic",
+        "q": "Anthropic (Claude OR research OR release)",
+        "kind": "lab"
+      },
+      {
+        "name": "X posts on AI releases",
+        "q": "site:x.com (\"arxiv.org\" OR released OR weights OR \"open source\") (OpenAI OR Anthropic OR DeepMind OR Meta OR Mistral OR DeepSeek OR Qwen)",
+        "kind": "social"
+      },
+      {
+        "name": "LinkedIn posts on AI research",
+        "q": "site:linkedin.com (\"arxiv.org\" OR \"new model\" OR \"open source\" OR research) AI",
+        "kind": "social"
+      }
+    ],
+    "google_news_edition": {
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en"
+    },
+    "reddit": [
+      {
+        "name": "Reddit AI community",
+        "subreddits": [
+          "artificial",
+          "singularity",
+          "OpenAI",
+          "ClaudeAI",
+          "GoogleGeminiAI"
+        ],
+        "sort": "top",
+        "t": "day"
+      },
+      {
+        "name": "Reddit ML research",
+        "subreddits": [
+          "MachineLearning",
+          "LocalLLaMA",
+          "LocalLLM",
+          "computervision",
+          "LanguageTechnology",
+          "reinforcementlearning",
+          "deeplearning",
+          "StableDiffusion"
+        ],
+        "sort": "top",
+        "t": "day"
+      }
+    ],
+    "bluesky": {
+      "queries": [
+        "new paper AI",
+        "open weights model",
+        "AI agents",
+        "interpretability",
+        "AI safety"
+      ],
+      "days": 1,
+      "min_likes": 30,
+      "_doc": "Bluesky public search (api.bsky.app, no login; only the first 100 results per query). Posts below min_likes are dropped."
     }
   },
   "world": {
@@ -1039,13 +1239,15 @@
         "name": "The Conversation (Global)",
         "url": "https://theconversation.com/global/articles.atom",
         "section": "explainers",
-        "lookback_hours": 96
+        "lookback_hours": 96,
+        "depth": true
       },
       {
         "name": "The Conversation (US)",
         "url": "https://theconversation.com/us/articles.atom",
         "section": "explainers",
-        "lookback_hours": 96
+        "lookback_hours": 96,
+        "depth": true
       },
       {
         "name": "RBI Press Releases",
@@ -1081,25 +1283,50 @@
         "name": "The Conversation (UK)",
         "url": "https://theconversation.com/uk/articles.atom",
         "section": "explainers",
-        "lookback_hours": 96
+        "lookback_hours": 96,
+        "depth": true
       },
       {
         "name": "The Conversation (Australia)",
         "url": "https://theconversation.com/au/articles.atom",
         "section": "explainers",
-        "lookback_hours": 96
+        "lookback_hours": 96,
+        "depth": true
       },
       {
         "name": "The Conversation (Africa)",
         "url": "https://theconversation.com/africa/articles.atom",
         "section": "explainers",
-        "lookback_hours": 96
+        "lookback_hours": 96,
+        "depth": true
       },
       {
         "name": "The Conversation (Canada)",
         "url": "https://theconversation.com/ca/articles.atom",
         "section": "explainers",
+        "lookback_hours": 96,
+        "depth": true
+      },
+      {
+        "name": "Quanta Magazine",
+        "url": "https://api.quantamagazine.org/feed",
+        "section": "science_space",
+        "depth": true,
         "lookback_hours": 96
+      },
+      {
+        "name": "Nature News",
+        "url": "https://www.nature.com/nature.rss",
+        "section": "science_space",
+        "depth": true,
+        "lookback_hours": 96,
+        "only_url_contains": "/articles/d41586"
+      },
+      {
+        "name": "Hacker News front page",
+        "url": "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=40",
+        "section": "technology",
+        "type": "hn_front"
       }
     ],
     "categories": {
@@ -1525,13 +1752,8 @@
       }
     },
     "google_news": {
-      "_doc": "Google News RSS, fetched by GitHub Actions alongside the publisher feeds. topics are Google's top-story sections. queries are searches for subjects you want covered every day. Links point to news.google.com and redirect to the publisher. Queries marked interest:true come from your interests (config/interests.json), so the news covers what you care about, not only the headlines.",
+      "_doc": "Google News RSS for every edition in 'editions' (India and US): topic sections, fixed searches (the first edition only, unless all_editions is true) and searches built from your interests. Links point to news.google.com and redirect to the publisher.",
       "enabled": true,
-      "edition": {
-        "hl": "en-IN",
-        "gl": "IN",
-        "ceid": "IN:en"
-      },
       "max_per_feed": 30,
       "topics": [
         {
@@ -1696,8 +1918,46 @@
           "section": "technology",
           "interest": true
         }
-      ]
-    }
+      ],
+      "editions": [
+        {
+          "hl": "en-IN",
+          "gl": "IN",
+          "ceid": "IN:en"
+        },
+        {
+          "hl": "en-US",
+          "gl": "US",
+          "ceid": "US:en"
+        }
+      ],
+      "interest_query": {
+        "groups": [
+          "established.ai_research",
+          "growth.for_research",
+          "exploration.subjects",
+          "world.topics"
+        ],
+        "batch_size": 5,
+        "max_words": 4,
+        "_doc": "Searches built from config/interests.json, run for every edition: short phrases joined with OR, a few per query. Single lowercase words are skipped as too noisy."
+      }
+    },
+    "reddit": [
+      {
+        "name": "Reddit world and science",
+        "subreddits": [
+          "worldnews",
+          "geopolitics",
+          "science",
+          "economics"
+        ],
+        "sort": "top",
+        "t": "day",
+        "section": "world"
+      }
+    ],
+    "_doc_depth": "Feeds with depth:true (The Conversation, Nature News, Quanta) explain why things happen; the World Radar pairs big stories with them."
   },
   "youtube": {
     "max_results_per_query": 25,
@@ -1831,6 +2091,49 @@
         "architecture documentary",
         "biography documentary"
       ]
+    },
+    "channels": {
+      "_doc": "Curated channels read through their free RSS feeds (no search quota). Handles are resolved to channel ids once with channels.list (1 unit) and cached in state/youtube_channels.json; stats come from videos.list (1 unit per 50 videos).",
+      "lookback_days": 7,
+      "handles": [
+        "@3blue1brown",
+        "@WelchLabsVideo",
+        "@TwoMinutePapers",
+        "@YannicKilcher",
+        "@AndrejKarpathy",
+        "@StatQuest",
+        "@MachineLearningStreetTalk",
+        "@SabineHossenfelder",
+        "@veritasium",
+        "@pbsspacetime",
+        "@Numberphile",
+        "@standupmaths",
+        "@Vsauce",
+        "@kurzgesagt",
+        "@TomScottGo",
+        "@RealEngineering",
+        "@Wendoverproductions",
+        "@PracticalEngineeringChannel",
+        "@ScienceClicEN",
+        "@ArtemKirsanov",
+        "@Mathologer",
+        "@QuantaScienceChannel",
+        "@lexfridman",
+        "@DwarkeshPatel",
+        "@HistoryMatters",
+        "@OverlySarcasticProductions",
+        "@KingsandGenerals",
+        "@CGPGrey",
+        "@Asianometry",
+        "@TechnologyConnections",
+        "@Polymatter",
+        "@JohnnyHarris",
+        "@TheB1M",
+        "@SmarterEveryDay",
+        "@minutephysics",
+        "@ZachStar",
+        "@NileRed"
+      ]
     }
   },
   "paper_tags": {
@@ -1954,7 +2257,7 @@
     ]
   },
   "podcasts": {
-    "_doc": "Fetched daily by GitHub Actions into candidates/podcasts/<date>.json. Shows are looked up by name with the iTunes Search API (no feed URLs to maintain); each episode keeps its audio file so it plays on the page. episode_searches find single episodes on your interests. Edit freely.",
+    "_doc": "Fetched daily by GitHub Actions into candidates/podcasts/<date>.json. Shows are looked up by name with the iTunes Search API (no feed URLs to maintain); each episode keeps its audio file so it plays on the page. episode_searches find single episodes on your interests. Edit freely. feeds are podcast RSS feeds read directly (no iTunes lookup).",
     "lookback_days": 14,
     "per_show": 3,
     "per_search": 8,
@@ -2146,6 +2449,84 @@
         "tier": "exploration",
         "days": 30
       }
+    ],
+    "feeds": [
+      {
+        "name": "Latent Space",
+        "url": "https://www.latent.space/feed",
+        "tier": "established"
+      },
+      {
+        "name": "The Gradient Podcast",
+        "url": "https://api.substack.com/feed/podcast/265424/s/1354.rss",
+        "tier": "established"
+      },
+      {
+        "name": "TWIML AI Podcast",
+        "url": "https://twimlai.com/feed",
+        "tier": "established"
+      },
+      {
+        "name": "Gradient Dissent",
+        "url": "https://feeds.captivate.fm/gradient-dissent/",
+        "tier": "established"
+      },
+      {
+        "name": "Practical AI",
+        "url": "https://changelog.com/practicalai/feed",
+        "tier": "established"
+      },
+      {
+        "name": "MLOps.community",
+        "url": "https://anchor.fm/s/174cb1b8/podcast/rss",
+        "tier": "established"
+      },
+      {
+        "name": "Last Week in AI",
+        "url": "https://lastweekin.ai/feed",
+        "tier": "established"
+      },
+      {
+        "name": "NLP Highlights",
+        "url": "http://feeds.soundcloud.com/users/soundcloud:users:306749289/sounds.rss",
+        "tier": "established"
+      },
+      {
+        "name": "Data Skeptic",
+        "url": "https://dataskeptic.libsyn.com/rss",
+        "tier": "established"
+      },
+      {
+        "name": "Eye On A.I.",
+        "url": "https://aneyeonai.libsyn.com/rss",
+        "tier": "established"
+      }
     ]
+  },
+  "paper_social": {
+    "_doc": "Papers people are discussing: arXiv ids found in Reddit and Bluesky posts are added to the paper candidates (fetched from the arXiv API if new) with reddit_mentions, bluesky_mentions and bluesky_likes.",
+    "reddit": {
+      "subreddits": [
+        "MachineLearning",
+        "LocalLLaMA",
+        "LocalLLM",
+        "computervision",
+        "LanguageTechnology",
+        "reinforcementlearning",
+        "deeplearning",
+        "StableDiffusion"
+      ],
+      "sort": "top",
+      "t": "week"
+    },
+    "bluesky": {
+      "queries": [
+        "arxiv.org",
+        "alphaxiv.org",
+        "huggingface.co/papers"
+      ],
+      "days": 2,
+      "sort": "top"
+    }
   }
 }

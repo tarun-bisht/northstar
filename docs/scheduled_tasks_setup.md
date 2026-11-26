@@ -6,14 +6,14 @@ Northstar runs on eight Claude scheduled tasks: five that make content and three
 |---|---|---|---|
 | Daily northstar schedule (Sonnet, starts Haiku and Opus helpers; Slack and alphaXiv connectors) | Every day, 08:13 | `prompts/runs/daily.md` | Research (papers, updates), News, Exploration (discoveries), Languages (language pack) |
 | Shorts northstar schedule (Sonnet) | Every day, 08:41 | `prompts/runs/shorts.md` | YouTube shorts for the Exploration page |
-| Weekly northstar schedule | Saturday, 06:46 | `prompts/runs/weekly.md` | Next week's Papers of the week, Research, Knowledge, Exploration and Languages |
-| Monthly northstar schedule | 1st of the month, 06:15 | `prompts/runs/monthly.md` | One deep dive per part, plus language plans |
-| Quarterly northstar schedule | 1 Jan, Apr, Jul, Oct, 06:41 | `prompts/runs/quarterly.md` | A short public review per part, with numbers |
+| Weekly northstar schedule (Opus) | Saturday, 06:46 | `prompts/runs/weekly.md` | Next week's Papers of the week, Research, Knowledge, Exploration and Languages |
+| Monthly northstar schedule (Opus) | 1st of the month, 06:15 | `prompts/runs/monthly.md` | One deep dive per part, plus language plans |
+| Quarterly northstar schedule (Sonnet) | 1 Jan, Apr, Jul, Oct, 06:41 | `prompts/runs/quarterly.md` | A short public review per part, with numbers |
 | Northstar Slack digest (Haiku) | Every day, 09:43 | `prompts/runs/slack_digest.md` | One Slack message: today's links, and anything that failed |
 | Northstar topic poll (Sonnet) | Thursdays and the 25th, 20:07 | `prompts/runs/topic_poll.md` | Slack polls: next week's New in AI topic, next month's research and fundamentals deep dives |
 | Northstar poll collect (Haiku) | Saturdays and the 1st, 05:53 | `prompts/runs/poll_collect.md` | Saves your poll answers to `state/polls.json` before the weekly and monthly runs |
 
-**Notifications.** Slack is the only channel. Turn off mobile push and email for all eight tasks. The three Slack tasks need the Slack connector. Content runs post one line on failure if they have it, and the daily digest reports their failures either way; the channel is in `config/notifications.json`.
+**Notifications.** Slack is the only channel. Turn off mobile push and email for all eight tasks. Every task has the Slack connector. The daily digest reports missing parts; the channel is in `config/notifications.json`.
 
 Every task runs after the 07:17 IST candidate fetch on GitHub Actions and its 07:53 gap-filling run. GitHub can start scheduled runs hours late, so the daily and shorts runs start the fetch themselves when today's files are missing (`dsys.py candidates ensure`).
 
@@ -32,7 +32,7 @@ Set up the Northstar scheduled tasks for my GitHub repo https://github.com/OWNER
 
 1. Read docs/scheduled_tasks_setup.md in that repo.
 2. Delete any existing scheduled tasks with the same names.
-3. Create the eight tasks under "The tasks" in that file, with mobile and email notifications off. Give the three Slack tasks my Slack connector. The content tasks may have it too: then they post one line when they fail. Use each name, cron schedule and prompt exactly as written. If my repo is not tarun-bisht/northstar, replace tarun-bisht/northstar with OWNER/REPO in every prompt and change nothing else.
+3. Create the eight tasks under "The tasks" in that file, with mobile and email notifications off. Give every task my Slack and alphaXiv connectors. Use each name, cron schedule and prompt exactly as written. If my repo is not tarun-bisht/northstar, replace tarun-bisht/northstar with OWNER/REPO in every prompt and change nothing else.
 4. Give every task automatic approval (auto mode), so runs never wait for me.
 5. Attach my repo to every task with push access, so runs can commit to main.
 6. When done, list each task with its schedule, next run time and approval mode.
@@ -159,4 +159,6 @@ You are running the POLL COLLECT run of Northstar, a personal discovery system, 
 3. Never force-push. Never store private information.
 ```
 
-**Models.** Weekly, monthly and quarterly runs use Opus. Set the model per task in its settings as in the table.
+**Models.** Weekly and monthly runs use Opus (questions, study plans, recommendations). The quarterly run uses Sonnet (short summaries from drafted numbers). Set the model per task in its settings as in the table.
+
+**Connectors.** Every task has Slack (runs may ask a rare question in #northstar-ask) and alphaXiv (papers of the week, New in AI, polls). Mobile push and email are off for every task.

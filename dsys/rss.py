@@ -59,12 +59,12 @@ def for_readers(html_body: str) -> str:
     """
     from .mathfmt import convert_html
     html_body = _UNSAFE.sub("", html_body)
-    keep: list[str] = []  # abstract toggles stay as show/hide toggles
-    html_body = _ABS_FOLD.sub(lambda m: keep.append(m.group(0)) or f"\x00ABS{len(keep) - 1}\x00", html_body)
+    # abstract toggles are opened too: readers handle <details> unevenly and some lose the
+    # title above it, so a feed always shows the abstract in full
+    html_body = _ABS_FOLD.sub(lambda m: re.sub(r"</?details[^>]*>|<summary>.*?</summary>", "", m.group(0)), html_body)
     html_body = _PLAY_FOLD.sub(lambda m: m.group(1), html_body)
     html_body = _DETAILS_OPEN.sub(lambda m: f"<p><strong>{m.group(1)}</strong></p>", html_body)
     html_body = html_body.replace("</details>", "")
-    html_body = re.sub(r"\x00ABS(\d+)\x00", lambda m: keep[int(m.group(1))], html_body)
     return convert_html(html_body)
 
 

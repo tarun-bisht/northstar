@@ -120,7 +120,8 @@ def paper(p: dict, full: bool = True) -> str:
     title = f"<h3>{a(p['url'], p['title'])}</h3>"
     aff = esc("; ".join(p["affiliations"][:3])) if p.get("affiliations") else ""
     meta = _meta(_authors(p), aff, esc(", ".join(p.get("tags", []))))
-    return f"<div class='entry'>{title}{meta}{render.abstract_toggle(p.get('abstract', ''))}</div>"
+    abstract = f"<blockquote>{esc(p['abstract'])}</blockquote>" if p.get("abstract") else ""
+    return f"<div class='entry'>{title}{meta}{abstract}</div>"
 
 
 def update(u: dict) -> str:

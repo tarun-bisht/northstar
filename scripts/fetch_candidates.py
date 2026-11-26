@@ -21,6 +21,7 @@ import urllib.parse
 
 import _bootstrap  # noqa: F401
 from dsys import arxiv as ax
+from dsys.stages import is_english
 from dsys.config import arxiv_categories
 from dsys import news
 from dsys import extra_sources as xs
@@ -681,6 +682,8 @@ def fetch_long_videos(repo, day: dt.date) -> int:
         subs = yt.api_channels(sorted({v["channel"]["id"] for v in raw if v["channel"].get("id")}))
         for v in raw:
             if (v.get("duration_seconds") or 0) < int(cfg.get("min_duration_seconds", 240)):
+                continue
+            if not is_english(v):  # English only (config youtube.languages_accepted)
                 continue
             s = subs.get(v["channel"].get("id"), {}).get("subscribers")
             v.update(query=origin.get(v["video_id"]), url=yt.watch_url(v["video_id"]), embed_url=yt.embed_url(v["video_id"]),

@@ -63,10 +63,20 @@ def test_research_feed_overview_then_rest(repo):
     assert html.startswith("<div style=\"font-family:") and 'style="font-family:-apple-system' in html
 
 
-def test_every_paper_has_an_abstract_toggle_in_feed_and_site(repo):
+def test_feed_shows_every_title_and_abstract_and_site_keeps_the_toggle(repo):
     from dsys import render
-    _papers(repo)
+    ps = _papers(repo)
     html = ET.fromstring(build_feed(repo, "research")).find("channel/item").find(NS).text
-    assert html.count('<details class="abs"') == 8 and "<summary" in html  # top, more and overview alike
-    assert "<details open" not in html
+    assert "<details" not in html and "<summary" not in html  # readers handle toggles unevenly
+    for p in ps:
+        assert html.count(f">{p['title']}</a></h3>") == 1
+    assert html.count("<blockquote") == len(ps) and html.count(ps[0]["abstract"]) == len(ps)
     assert render.arxiv_item(paper("2611.00001")).count('<details class="abs">') == 1
+
+
+def test_english_only_everywhere():
+    from dsys.stages import english_only
+    cands = [{"title": "How transformers work", "language": "en"}, {"title": "Physics", "language": "hi"},
+             {"title": "भौतिकी सरल भाषा में"}, {"title": "اردو میں سائنس"}, {"title": "Japanese for beginners"},
+             {"title": "No language given"}]
+    assert [c["title"] for c in english_only(cands)] == ["How transformers work", "Japanese for beginners", "No language given"]

@@ -261,9 +261,9 @@ def _youtube_day_checks(rep: Report, where: str, items: list, repo: Repo) -> Non
     try:
         policy = repo.config("recommendation_policy")
         limit = int(policy.get("dedup_windows_days", {}).get("youtube_creator_soft_limit_per_day", 3))
-        langs = set(repo.config("sources").get("youtube", {}).get("languages_accepted", ["en", "hi"]))
+        langs = set(repo.config("sources").get("youtube", {}).get("languages_accepted", ["en"]))
     except FileNotFoundError:
-        limit, langs = 3, {"en", "hi"}
+        limit, langs = 3, {"en"}
     per = {}
     for it in items:
         ch = it.get("channel", {}).get("id") or it.get("channel", {}).get("name")

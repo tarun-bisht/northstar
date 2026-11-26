@@ -318,3 +318,19 @@ def prefilter_shorts(cands: list[dict], per_channel: int = 3, keep: int = SHORTS
         out += [q[i] for q in queues.values() if i < len(q)]
         i += 1
     return out[:keep]
+
+
+_NON_LATIN = __import__("re").compile(r"[\u0900-\u0DFF\u0600-\u06FF\u0750-\u077F]")  # Indic scripts, Arabic/Urdu
+
+
+def is_english(c: dict) -> bool:
+    """English only, for every video, podcast and short: a stated non-English language, or a title in
+    an Indic or Arabic script, is out. Learning-language lessons are taught in English, so they pass."""
+    lang = (c.get("language") or "").split("-")[0].lower()
+    if lang and lang != "en":
+        return False
+    return not _NON_LATIN.search(str(c.get("title", "")))
+
+
+def english_only(cands: list[dict]) -> list[dict]:
+    return [c for c in cands if is_english(c)]

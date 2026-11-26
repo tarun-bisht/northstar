@@ -129,6 +129,7 @@ def cmd_candidates(repo: Repo, args) -> int:
         if args.kind in ("podcasts", "videos"):
             from . import stages
             stages.record(repo, day, "discovery", **{f"{args.kind}_fetched": len(doc.get("candidates", []))})
+            doc = {**doc, "candidates": stages.english_only(doc.get("candidates", []))}
             if not args.full:
                 doc = stages.lean_media(doc)
         _print(doc)
@@ -153,7 +154,7 @@ def cmd_candidates(repo: Repo, args) -> int:
     if args.kind == "youtube" and not args.full:
         from . import stages
         n = len(data["candidates"])
-        data["candidates"] = stages.prefilter_shorts(data["candidates"])
+        data["candidates"] = stages.prefilter_shorts(stages.english_only(data["candidates"]))
         data["prefiltered"] = f"{len(data['candidates'])} of {n} kept: not for kids, at most 3 per creator, best engagement per query"
         stages.record(repo, day, "youtube_shorts", candidates=n, prefiltered=len(data["candidates"]))
         data = stages.lean_media(data)

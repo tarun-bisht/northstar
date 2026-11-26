@@ -12,7 +12,7 @@ The daily Exploration page (`daily/<date>/exploration.html`) shows discoveries i
 - **At least one video, lecture or documentary** (from `candidates videos`; use the watch URL, it plays on the page).
 - **The rest is free and random**: entertainment, things to enjoy in free time (films, anime, music, games, sport stories, cooking, travel), interests from `config/interests.json`, and reads (an essay, article or book chapter). Mix knowledge, culture, people and curiosity, not only AI.
 - **At least one item in each tier:** established, growth, exploration (validation enforces the podcast, the video and the tiers).
-- **Languages:** recommend only content in languages the user understands (English, Hindi). For languages they are learning (`config/languages.json`), only beginner material explained in English or Hindi, unless that language has `native_content_ok: true`.
+- **Languages:** English only, for everything: videos, podcasts, reads, films and the rest (nothing in Hindi). For languages the user is learning (`config/languages.json`), only beginner material explained in English, unless that language has `native_content_ok: true`.
 - **No broken links:** only URLs found in a search result or fetched in this run.
 
 ## Steps

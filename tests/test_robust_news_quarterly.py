@@ -256,7 +256,7 @@ def test_daily_part_digest_feeds(repo):
     assert item.find("title").text.startswith("Research, Tue 24 Nov: 1 papers")
     assert item.find("link").text.endswith("/daily/2026-11-24/research.html")
     html = item.find("{http://purl.org/rss/1.0/modules/content/}encoded").text
-    assert "<h2" in html and ">Overview</h2>" in html and html.count(">A paper</a>") == 1  # in the overview, not twice
+    assert ">Papers (1)</h2>" in html and ">Overview</h2>" not in html and html.count(">A paper</a>") == 1
     assert ET.fromstring(build_feed(repo, "news")).find("channel/item") is None  # no news that day
 
 

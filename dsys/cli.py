@@ -279,8 +279,15 @@ def cmd_daily(repo: Repo, args) -> int:
         streams = {s: load_json(repo.daily_path(s, day.isoformat())) for s in overview.STREAMS
                    if repo.daily_path(s, day.isoformat()).exists()}
         parts = [args.part] if args.part else list(overview.PARTS)
-        print(json.dumps({p: [{"id": it["id"], "title": it["title"]} for _, it in overview.chosen(streams, p)]
-                          for p in parts}, indent=1, ensure_ascii=False))
+        out = {}
+        for p in parts:
+            if p == "research":  # Slack's Today's best: the first three of each, ranked
+                out[p] = {s: [{"id": it["id"], "title": it["title"]}
+                              for it in overview.rank((streams.get(s) or {}).get("items", []))[:3]]
+                          for s in ("research_updates", "arxiv")}
+            else:
+                out[p] = [{"id": it["id"], "title": it["title"]} for _, it in overview.chosen(streams, p)]
+        print(json.dumps(out, indent=1, ensure_ascii=False))
         return 0
     if not args.stream:
         raise SystemExit("daily merge needs a stream")

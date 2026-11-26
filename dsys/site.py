@@ -384,14 +384,7 @@ def _stream_block(s: str, doc: dict, date: str | None = None) -> str:
     elif s == "discovery":
         out += [_sub(f"discover-{k}", label, len(its), "".join(_entry(s, it, "h5") for it in its))
                 for k, label, its in render.group_discovery(items)]
-    elif s in ("arxiv", "research_updates") and any(it.get("priority") == "more" for it in items):
-        top = [it for it in items if it.get("priority", "top") != "more"]
-        more = [it for it in items if it.get("priority") == "more"]
-        out.append('<div class="col">' + "".join(_entry(s, it, "h4") for it in top) + "</div>")
-        label = "More papers" if s == "arxiv" else "More updates"
-        out.append(f'<details class="more"><summary>{label} ({len(more)})</summary><div class="col">'
-                   + "".join(_entry(s, it, "h4") for it in more) + "</div></details>")
-    else:
+    else:  # research updates and papers: every item, already ranked best first
         out.append('<div class="col">' + "".join(_entry(s, it, "h4") for it in items) + "</div>")
     out.append("</section>")
     return "".join(out)
@@ -426,7 +419,10 @@ def _daily_part_page(site, date, streams, part, prev=None, nxt=None) -> str:
     """daily/<date>/<part>.html: one part of the day (research, news or exploration)."""
     from . import overview
     key, label, names = next(x for x in render.DAILY_PARTS if x[0] == part)
-    ov, rest = overview.split(streams, part) if part in overview.PARTS else ([], streams)
+    ov, rest = overview.split(streams, part) if part in overview.SHOWN else ([], streams)
+    if part == "research":  # one ranked list per stream, best first
+        rest = {s: ({**d, "items": overview.rank(d.get("items", []))} if s in ("arxiv", "research_updates") else d)
+                for s, d in rest.items()}
     # a stream emptied only because its items moved into the overview is not shown as empty
     present = [s for s in names if s in rest and (rest[s].get("items") or not streams[s].get("items"))]
     tabs = _part_tabs(_daily_parts(streams), part, "")  # counts of the whole day, overview included
@@ -463,7 +459,10 @@ def _part_card(streams: dict, key: str, names: list, base: str) -> str:
     total = sum(len(streams[s].get("items", [])) for s in names if s in streams)
     if not total:
         return ""
-    ov = overview.chosen(streams, key) if key in overview.PARTS else []
+    ov = overview.chosen(streams, key) if key in overview.SHOWN else []
+    if key == "research":
+        streams = {s: ({**d, "items": overview.rank(d.get("items", []))} if s in ("arxiv", "research_updates") else d)
+                   for s, d in streams.items()}
     def link(it):
         url = it.get("url") or (it.get("source") or {}).get("url") or ((it.get("sources") or [{}])[0]).get("url")
         return a(url, it["title"]) if url else esc(it["title"])

@@ -123,8 +123,8 @@ def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
     from . import feedhtml as fh
     from . import overview
     label = next(lbl for k, lbl, _ in render.DAILY_PARTS if k == part)
-    ov, rest = overview.split(streams, part) if part in overview.PARTS else ([], streams)
-    body = {"research": lambda: fh.research(rest, ov), "news": lambda: fh.news(rest),
+    ov, rest = overview.split(streams, part) if part in overview.SHOWN else ([], streams)
+    body = {"research": lambda: fh.research(rest), "news": lambda: fh.news(rest),
             "exploration": lambda: fh.exploration(rest, ov), "shorts": lambda: fh.shorts(rest),
             "languages": lambda: fh.languages(rest)}[part]()
     return fh.header(site, date, part, label) + body + fh.footer(site, date, part)

@@ -131,18 +131,12 @@ def _clip(text: str, limit: int) -> str:
     return text if len(text) <= limit else text[:limit].rsplit(" ", 1)[0] + "…"
 
 
-ITEM_BUDGET = 60_000  # characters before styling (about 120k after); readers cut longer items short
-
-
-def paper(p: dict, full: bool = True) -> str:
-    """full: the whole abstract. Otherwise its first ~280 characters; the title links to the paper."""
+def paper(p: dict) -> str:
+    """Title (to alphaXiv), authors, affiliations and tags, then the whole abstract."""
     title = f"<h3>{a(p['url'], p['title'])}</h3>"
     aff = esc("; ".join(p["affiliations"][:3])) if p.get("affiliations") else ""
     meta = _meta(_authors(p), aff, esc(", ".join(p.get("tags", []))))
-    text = p.get("abstract") or ""
-    if text and not full:
-        text = _clip(text, 280) + " (full abstract on alphaXiv)"
-    abstract = f"<blockquote>{esc(text)}</blockquote>" if text else ""
+    abstract = f"<blockquote>{esc(p['abstract'])}</blockquote>" if p.get("abstract") else ""
     return f"<div class='entry'>{title}{meta}{abstract}</div>"
 
 
@@ -189,33 +183,18 @@ def overview_block(ov: list) -> str:
             + "".join(ENTRY[s](it) for s, it in ov))
 
 
-def research(streams: dict, ov: list) -> str:
-    out = [overview_block(ov)]
-    papers = (streams.get("arxiv") or {}).get("items", [])
-    if papers:
-        top = [p for p in papers if p.get("priority", "top") != "more"]
-        more = [p for p in papers if p.get("priority") == "more"]
-        out.append("<h2>Papers</h2>" + "".join(paper(p) for p in top))
-        if more:
-            # full abstracts while the item stays readable; past the budget, the start of each
-            # abstract, so readers that cut long items never lose papers
-            used = sum(len(x) for x in out)
-            rows = []
-            for p in more:
-                html = paper(p)
-                if used + len(html) > ITEM_BUDGET:
-                    html = paper(p, full=False)
-                used += len(html)
-                rows.append(html)
-            out.append(f"<p class='more'>More papers that passed ({len(more)})</p>" + "".join(rows))
-    ups = (streams.get("research_updates") or {}).get("items", [])
+def research(streams: dict) -> str:
+    """Research updates first, all in full, then every paper with its full abstract, both ranked
+    best first (dsys/overview.py rank)."""
+    from .overview import rank
+    out = []
+    ups = rank((streams.get("research_updates") or {}).get("items", []))
     if ups:
-        top = [u for u in ups if u.get("priority", "top") != "more"]
-        more = [u for u in ups if u.get("priority") == "more"]
-        out.append("<h2>Research updates</h2>" + "".join(update(u) for u in top))
-        if more:
-            out.append(f"<p class='more'>More updates ({len(more)})</p><ul class='briefs'>" + "".join(
-                f"<li>{a((u.get('source') or {}).get('url'), u['title'])}</li>" for u in more) + "</ul>")
+        out.append(f"<h2>Research updates ({len(ups)})</h2>" + "".join(update(u) for u in ups))
+    papers = rank((streams.get("arxiv") or {}).get("items", []))
+    if papers:
+        out.append(f"<h2>Papers ({len(papers)})</h2><p class='meta'>Most relevant first.</p>"
+                   + "".join(paper(p) for p in papers))
     return "".join(out)
 
 

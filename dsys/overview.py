@@ -14,6 +14,16 @@ from .core import Repo, load_json, write_json
 MAX = 5
 PARTS = {"research": ("arxiv", "research_updates"), "exploration": ("discovery",)}
 STREAMS = {s for ss in PARTS.values() for s in ss}
+SHOWN = ("exploration",)  # parts that show an Overview section; research uses its picks to rank
+
+
+def rank(items: list) -> list:
+    """Best first, using the run's own judgement: the items it picked for the overview (in that
+    order), then the other top items, then the rest, each in the order the helper chose."""
+    def key(ix):
+        i, it = ix
+        return (0 if it.get("overview") else 1 if it.get("priority", "top") != "more" else 2, i)
+    return [it for _, it in sorted(enumerate(items), key=key)]
 
 
 def _items(streams: dict, s: str) -> list:

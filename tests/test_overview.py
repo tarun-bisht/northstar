@@ -54,14 +54,20 @@ def test_exploration_fallback_is_varied_and_feed_has_no_duplicates(repo):
         assert html.count(f">{it['title']}</a>") + html.count(f">{it['title']}</h3>") <= 1
 
 
-def test_research_feed_overview_then_rest(repo):
+def test_research_feed_updates_first_then_ranked_papers_no_overview(repo):
     _papers(repo)
+    day = dt.date.fromisoformat(D)
+    overview.set_overview(repo, day, "research", ["arxiv-2611.00007"])  # the run's pick ranks first
+    u = example("u", "research_updates")
+    daily(repo, "research_updates", D, u["items"])
     html = ET.fromstring(build_feed(repo, "research")).find("channel/item").find(NS).text
-    assert html.index(">Overview</h2>") < html.index(">Papers</h2>")
-    assert all(html.count(f">Paper {i}</a>") == 1 for i in range(8))
-    assert "More papers that passed (2)" in html
-    assert html.startswith("<div style=\"font-family:") and 'style="font-family:-apple-system' in html
-
+    assert ">Overview</h2>" not in html
+    assert html.index(">Research updates (") < html.index(">Papers (8)</h2>")
+    order = [html.index(f">Paper {i}</a>") for i in (7, 0, 1, 2, 3, 4, 5, 6)]
+    assert order == sorted(order)  # picked, then top in order, then more in order
+    assert html.count("<blockquote") == 8 and "full abstract on alphaXiv" not in html
+    for it in u["items"]:
+        assert it["what_happened"][:40] in html  # every update in full
 
 def test_feed_shows_every_title_and_abstract_and_site_keeps_the_toggle(repo):
     from dsys import render

@@ -173,7 +173,7 @@ def cross_domain_line(item) -> str:
 
 # --- the parts every page is split into (each part has its own URL and RSS feed) ------------
 DAILY_PARTS = [  # (key, heading, streams)
-    ("research", "Research", ["arxiv", "research_updates"]),
+    ("research", "Research", ["research_updates", "arxiv"]),  # updates first, then papers, best first
     ("news", "News", ["world"]),
     ("exploration", "Exploration", ["discovery"]),
     ("shorts", "Shorts", ["youtube_shorts"]),  # its own page, so it doesn't distract from the rest

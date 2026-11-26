@@ -131,11 +131,18 @@ def _clip(text: str, limit: int) -> str:
     return text if len(text) <= limit else text[:limit].rsplit(" ", 1)[0] + "…"
 
 
+ITEM_BUDGET = 60_000  # characters before styling (about 120k after); readers cut longer items short
+
+
 def paper(p: dict, full: bool = True) -> str:
+    """full: the whole abstract. Otherwise its first ~280 characters; the title links to the paper."""
     title = f"<h3>{a(p['url'], p['title'])}</h3>"
     aff = esc("; ".join(p["affiliations"][:3])) if p.get("affiliations") else ""
     meta = _meta(_authors(p), aff, esc(", ".join(p.get("tags", []))))
-    abstract = f"<blockquote>{esc(p['abstract'])}</blockquote>" if p.get("abstract") else ""
+    text = p.get("abstract") or ""
+    if text and not full:
+        text = _clip(text, 280) + " (full abstract on alphaXiv)"
+    abstract = f"<blockquote>{esc(text)}</blockquote>" if text else ""
     return f"<div class='entry'>{title}{meta}{abstract}</div>"
 
 
@@ -190,7 +197,17 @@ def research(streams: dict, ov: list) -> str:
         more = [p for p in papers if p.get("priority") == "more"]
         out.append("<h2>Papers</h2>" + "".join(paper(p) for p in top))
         if more:
-            out.append(f"<p class='more'>More papers that passed ({len(more)})</p>" + "".join(paper(p, full=False) for p in more))
+            # full abstracts while the item stays readable; past the budget, the start of each
+            # abstract, so readers that cut long items never lose papers
+            used = sum(len(x) for x in out)
+            rows = []
+            for p in more:
+                html = paper(p)
+                if used + len(html) > ITEM_BUDGET:
+                    html = paper(p, full=False)
+                used += len(html)
+                rows.append(html)
+            out.append(f"<p class='more'>More papers that passed ({len(more)})</p>" + "".join(rows))
     ups = (streams.get("research_updates") or {}).get("items", [])
     if ups:
         top = [u for u in ups if u.get("priority", "top") != "more"]

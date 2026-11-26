@@ -2,13 +2,14 @@
 
 One task does the whole day: papers, news, updates, discovery, the language pack, shorts, the topic polls on Thursdays and the 25th, and the Slack messages.
 
-Start and finish as in `prompts/runs/_common.md`. GitHub Actions scrapes; this run only reads, filters and writes. Cheap models do bulk reading and Opus makes the judgement calls:
+Start and finish as in `prompts/runs/_common.md`. GitHub Actions scrapes; this run only reads, filters and writes. Filtering is done by cheaper models. Opus is kept for recommendations and for content that must be correct:
 
 | Work | Who |
 |---|---|
 | News, research updates, putting the day together | you (Sonnet) |
 | First reading of every paper abstract | **Haiku** helpers, in parallel (`prompts/paper_triage.md`) |
-| Final paper choice, papers of the week, discovery picks, the language pack | **Opus** helpers |
+| Final paper choice and papers of the week (filtering) | a **Sonnet** helper (`prompts/arxiv.md`) |
+| Discovery recommendations and the language pack (must be right) | an **Opus** helper |
 | Shorts (`prompts/youtube_shorts.md`) | a **Sonnet** helper |
 
 Start helpers with the Agent tool (`model: "haiku"`, `"sonnet"` or `"opus"`), give each a complete, standalone task (paths, prompt files, output file), and start independent helpers in the same message so they run in parallel. If the Agent tool isn't available, do the work yourself in the same order.
@@ -21,7 +22,7 @@ Start helpers with the Agent tool (`model: "haiku"`, `"sonnet"` or `"opus"`), gi
 5. **Papers, stage 1 (Haiku).** `python scripts/dsys.py papers stage1 --date <today>` writes batches of 40 papers (`batches`, each with a `read` and a `write` path). Start one Haiku helper per batch, all at once: "Read `prompts/paper_triage.md` in ~/northstar, then sort all <papers> papers in `<read>` (one per line). Write verdicts to `<write>`." When all are done: `python scripts/dsys.py papers merge --date <today> --files <all write paths, comma-separated>`. If a verdict file is missing or short, run that batch again once.
 6. **Papers, page 1.** `python scripts/dsys.py papers enrich --date <today>` (GitHub Actions reads page 1 of each passing paper for affiliations and email domains). If it says to run it again, do, up to 3 calls. Papers it couldn't read are fine.
 7. **In parallel, start three helpers** (in one message), then do steps 8 and 9 yourself while they work:
-   - **Papers, final choice (Opus):** "In ~/northstar, follow `prompts/arxiv.md` for <today>: read `python scripts/dsys.py papers stage2 --date <today>`, choose, write `/tmp/arxiv.json`, mark the rest seen, add one to three papers to this week's papers of the week (`prompts/reading_list.md`, week <this_week>), and merge. Reply with the counts, the top titles, and up to 5 paper ids for the day's overview, best first."
+   - **Papers, final choice (Sonnet):** "In ~/northstar, follow `prompts/arxiv.md` for <today>: read `python scripts/dsys.py papers stage2 --date <today>`, choose, write `/tmp/arxiv.json`, mark the rest seen, add one to three papers to this week's papers of the week (`prompts/reading_list.md`, week <this_week>), and merge. Reply with the counts, the top titles, and up to 5 paper ids for the day's overview, best first."
    - **Discovery and language (Opus):** "In ~/northstar, follow `prompts/discovery.md` and then `prompts/language.md` (the daily pack) for <today>, and merge both. Reply with the titles, and up to 5 discovery ids for the day's overview, best first, from different sections."
    - **Shorts (Sonnet):** "In ~/northstar, follow `prompts/youtube_shorts.md` for <today> (the shorts file is already fetched) and merge. Don't commit. Reply with the count and the language and tier split."
 8. **Research updates:** follow `prompts/research_updates.md`.

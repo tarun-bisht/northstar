@@ -6,14 +6,20 @@
 
 | Layer | Purpose (vision §15) | When (IST) | Made by |
 |---|---|---|---|
-| Daily | stay aware | every day (papers too: other sources fill days when arXiv is quiet) | Daily run 08:13 (Sonnet, with Haiku, Opus and Sonnet helpers), which also posts the topic polls and the Slack messages |
+| Daily | stay aware | every day (papers too: other sources fill days when arXiv is quiet) | Daily run 08:13 (Sonnet, with Haiku, Sonnet and Opus helpers), which also posts the topic polls and the Slack messages |
 | Weekly | explore | Saturday 06:46, for the week starting Monday | Weekly run |
 | Monthly | go deep | 1st of the month, 06:15 | Monthly run |
 | Quarterly | look back | 1 Jan, Apr, Jul, Oct, 06:41 | Quarterly run |
 
 Before the runs, GitHub Actions scrapes everything at 07:17 and refetches failed sources at 07:53 (section 4). No AI runs in that step. GitHub can start these hours late, so the daily run starts the fetch itself if today's files are missing, and a late scheduled run that finds today's files exits without fetching again.
 
-**Who does what.** GitHub Actions scrapes. Python cleans, removes duplicates (across sources and against the last 3 days) and compacts. Cheap models read in bulk (Haiku reads every candidate abstract), and Opus makes the judgement calls: the final paper choice, discovery picks, the language pack, and the weekly and monthly packages. Web search is used only where nothing can be scraped: discovery (films, books, reads, places, by theme and some randomness), targeted X and LinkedIn searches for research updates, and study resources in the weekly and monthly plans.
+**Who does what.** GitHub Actions scrapes. Python cleans, removes duplicates (across sources and against the last 3 days) and compacts. Models follow one rule: **filtering goes to cheaper models, Opus only where correctness or recommendation quality matters.**
+
+| Work | Model |
+|---|---|
+| First reading of every paper abstract | Haiku |
+| Final paper choice, papers of the week, research updates, news, shorts, the quarterly review | Sonnet |
+| Discovery recommendations, the daily language pack, the weekly and monthly packages (study plans, questions with answers, challenges) | Opus | Web search is used only where nothing can be scraped: discovery (films, books, reads, places, by theme and some randomness), targeted X and LinkedIn searches for research updates, and study resources in the weekly and monthly plans.
 
 ## 2. Parts, each with its own URL
 
@@ -83,7 +89,7 @@ All of these are fetched by `.github/workflows/fetch-candidates.yml` (`scripts/f
 1. **Python** (`dsys.py papers stage1`): drops papers already seen and the ones that match no interest and have no quality signal (votes, discussion, notable author, venue, code). Writes compact batches: id, title, full abstract, matched interests, signals, trust flag, buzz. Coverage keywords per interest live in `arxiv.coverage`.
 2. **Haiku** (`prompts/paper_triage.md`), in parallel batches: reads every abstract and sorts each paper into *strong* (on your interests, good), *field* (important for the field with little overlap) or *no*. Generous: when unsure, it keeps.
 3. **Page 1** (`dsys.py papers enrich`): affiliations and emails for the passing papers, then the trust flag.
-4. **Opus** (`prompts/arxiv.md`): reads the passing papers in full and decides. No fixed number: the best picks are `priority: top`, everything else that passes is `priority: more`, folded on the page. Trust and buzz raise confidence but never rescue an empty abstract. alphaXiv summaries are never used to judge.
+4. **Sonnet** (`prompts/arxiv.md`): reads the passing papers in full and decides. No fixed number: the best picks are `priority: top`, everything else that passes is `priority: more`, folded on the page. Trust and buzz raise confidence but never rescue an empty abstract. alphaXiv summaries are never used to judge.
 5. **Every paper link goes to alphaXiv** (`alphaxiv.org/abs/<id>`), on the site and in the feeds, so you can read the paper and its summary there.
 6. **Papers of the week** (`reading.xml`, `weekly/<week>/papers.html`): *For you*, *Trending this week* and *From leading groups*. Daily runs add to it; it is a weekly part.
 

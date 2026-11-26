@@ -19,7 +19,7 @@ Research and Exploration open with an **Overview** of at most five of the day's 
 
 Slack is the only notification: a daily "ready" message with links and how many items were read and picked, polls on Thursdays and the 25th where you pick what to go deep on next, and something light in #random.
 
-GitHub Actions scrapes everything (papers, news, research updates, podcasts, videos). Claude only reads and filters: Haiku reads every candidate paper abstract, Opus makes the final choices. Every paper link opens on alphaXiv.
+GitHub Actions scrapes everything (papers, news, research updates, podcasts, videos). Claude only reads and filters: Haiku reads every candidate paper abstract, Sonnet makes the final choices. Every paper link opens on alphaXiv.
 
 Every week touches every dimension of development in `config/interests.json` (vision §4). Every part has its own page and its own RSS feed. Everything is optional.
 

@@ -18,7 +18,7 @@ The daily run does this after it has pushed the day. It commits nothing.
    • <title>
 
    📄 **Research** · [open](<site>/daily/<today>/research.html)
-   <fetched> papers fetched → <read_stage1> read by Haiku → <read_stage2> read by Opus → **<picked> picked**
+   <fetched> papers fetched → <read_stage1> read by Haiku → <read_stage2> read by Sonnet → **<picked> picked**
    <updates fetched> updates → **<updates picked> picked**
 
    🌍 **News** · [open](<site>/daily/<today>/news.html)

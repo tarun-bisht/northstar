@@ -1,5 +1,5 @@
 """Staged reading for the daily run: Python narrows and compacts, cheap models read in bulk,
-Opus decides. Nothing good is thrown away unseen, and tokens go where judgement is needed.
+Sonnet decides. Nothing good is thrown away unseen, and tokens go where judgement is needed.
 
 Papers
   stage1   every unseen paper that matches an interest OR has a quality signal (votes,
@@ -8,7 +8,7 @@ Papers
   verdicts Haiku returns {id, lane: strong|field|no}. strong = on the user's interests and
            good; field = important for the field even with little overlap.
   enrich   page 1 of the passing papers (affiliations, emails) via the fetch workflow.
-  stage2   the passing papers in full, with affiliations, trust and signals, for Opus.
+  stage2   the passing papers in full, with affiliations, trust and signals, for the final choice (Sonnet).
 News and research updates are compacted the same way, and anything published in the last
 three days is dropped (exact URL or the same headline).
 Every stage records its counts in state/stats/<date>.json for the Slack message.

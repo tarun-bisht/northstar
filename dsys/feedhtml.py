@@ -28,7 +28,7 @@ STYLES = [
     ("p", "kicker", "font-size:.78em;letter-spacing:.06em;text-transform:uppercase;opacity:.65;margin:0 0 .3em"),
     ("p", "lede", "font-size:1.08em;line-height:1.55;margin:.2em 0 1.1em"),
     ("p", "meta", QUIET), ("p", "authors", QUIET), ("p", "links", QUIET), ("p", "source", QUIET),
-    ("p", "tags", QUIET), ("p", "yt-link", "font-size:.86em;margin:.35em 0 1em"), ("p", "site", QUIET),
+    ("p", "tags", QUIET), ("p", "yt-link", "font-size:.8em;opacity:.8;margin:.3em 0 1em"), ("p", "site", QUIET),
     ("p", "why", f"margin:.45em 0 .7em;padding:.05em 0 .05em .8em;border-left:3px solid {RULE}"),
     ("p", "also", "margin:1em 0 .3em;font-size:.9em"),
     ("p", "more", "font-size:.95em;margin:1.2em 0 .4em;font-weight:600"),

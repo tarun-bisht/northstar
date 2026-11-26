@@ -131,6 +131,8 @@ CSS += """
 .plan li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
 .plan li .meta{margin:0}
 .plain{list-style:none;padding:0}.plain li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
+/* youtube player and its small fallback link */
+.yt{margin:.6rem 0 .2rem}.yt-link{font-size:.8rem;opacity:.8;margin:.25rem 0 1rem}
 /* overview */
 .overview{border-left:3px solid var(--brass);padding-left:1rem}
 /* daily */

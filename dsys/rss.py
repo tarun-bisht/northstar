@@ -42,6 +42,10 @@ def rfc822(d: dt.datetime) -> str:
 
 
 _DETAILS_OPEN = re.compile(r"<details[^>]*>\s*<summary>(.*?)</summary>", re.S)
+# Readers keep the first copy of an item and never fetch it again. Bump this only when the feed HTML
+# changes in a way readers must see for items they already have: every item then arrives once more.
+FEED_REV = ":r2"
+
 _ABS_FOLD = re.compile(r'<details class="abs">.*?</details>', re.S)
 _PLAY_FOLD = re.compile(r"<details class=\"play\">\s*<summary>Play here</summary>(.*?)</details>", re.S)
 _UNSAFE = re.compile(r"<script\b.*?</script\s*>|<style\b.*?</style\s*>|<link\b[^>]*>|<script\b[^>]*/?>", re.S | re.I)
@@ -216,7 +220,7 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
         out.append("<item>")
         out.append(f"<title>{x(e['title'])}</title>")
         out.append(f"<link>{x(e['link'])}</link>")
-        out.append(f'<guid isPermaLink="false">{x(e["guid"])}</guid>')
+        out.append(f'<guid isPermaLink="false">{x(e["guid"])}{FEED_REV}</guid>')
         out.append(f"<pubDate>{rfc822(e['pub'])}</pubDate>")
         if e["creator"]:
             out.append(f"<dc:creator>{x(e['creator'])}</dc:creator>")

@@ -68,8 +68,9 @@ def test_feed_shows_every_title_and_abstract_and_site_keeps_the_toggle(repo):
     ps = _papers(repo)
     html = ET.fromstring(build_feed(repo, "research")).find("channel/item").find(NS).text
     assert "<details" not in html and "<summary" not in html  # readers handle toggles unevenly
-    for p in ps:
-        assert html.count(f">{p['title']}</a></h3>") == 1
+    for p in ps:  # titles as bold links in a paragraph: every reader keeps those
+        assert html.count(f">{p['title']}</a></strong></p>") == 1
+    assert "<h3" not in html and "<h4" not in html
     assert html.count("<blockquote") == len(ps) and html.count(ps[0]["abstract"]) == len(ps)
     assert render.arxiv_item(paper("2611.00001")).count('<details class="abs">') == 1
 

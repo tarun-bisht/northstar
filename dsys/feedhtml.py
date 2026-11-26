@@ -25,6 +25,8 @@ QUIET = "font-size:.86em;opacity:.72;margin:0 0 .55em;line-height:1.45"
 
 # (tag, class or None) -> inline style. The first match wins; class-specific rules come first.
 STYLES = [
+    ("p", "etitle", "font-size:1.06em;line-height:1.35;margin:1.3em 0 .3em"),
+    ("p", "label", "font-size:.8em;letter-spacing:.06em;text-transform:uppercase;opacity:.7;margin:1.5em 0 .5em"),
     ("p", "kicker", "font-size:.78em;letter-spacing:.06em;text-transform:uppercase;opacity:.65;margin:0 0 .3em"),
     ("p", "lede", "font-size:1.08em;line-height:1.55;margin:.2em 0 1.1em"),
     ("p", "meta", QUIET), ("p", "authors", QUIET), ("p", "links", QUIET), ("p", "source", QUIET),
@@ -60,9 +62,22 @@ _OPEN = re.compile(r"<(?P<tag>[a-zA-Z][a-zA-Z0-9]*)(?P<attrs>(?:\s[^<>]*?)?)(?P<
 _CLASS = re.compile(r"""\sclass=(["'])(.*?)\1""")
 
 
+_HEAD = re.compile(r"<h([345])((?:\s[^>]*)?)>(.*?)</h\1>", re.S)
+
+
+def titles_as_paragraphs(html: str) -> str:
+    """Entry titles (<h3>, <h4>, <h5>) become bold paragraphs: some readers drop small headings,
+    with them the titles, while every reader keeps <p><strong>. Section headings (<h2>) stay."""
+    def sub(m):
+        label = "sub-h" in (m.group(2) or "")
+        return f"<p class='{'label' if label else 'etitle'}'><strong>{m.group(3)}</strong></p>"
+    return _HEAD.sub(sub, html)
+
+
 def polish(html: str) -> str:
     """Add the inline styles and wrap the body in the font stack. Tags that already carry a style
-    (the YouTube player) keep theirs; MathML is left alone."""
+    (the YouTube player) keep theirs; MathML is left alone. Entry titles become bold paragraphs."""
+    html = titles_as_paragraphs(html)
     def style(m: re.Match) -> str:
         tag, attrs = m.group("tag").lower(), m.group("attrs") or ""
         if " style=" in attrs or tag in ("math", "a", "iframe", "span", "strong", "em", "br", "sub", "sup"):

@@ -1,3 +1,4 @@
+from dsys.rss import FEED_REV
 """Retries and fallbacks, alphaXiv and news candidates, the daily digest feed and the quarterly review."""
 
 import importlib.util
@@ -251,7 +252,7 @@ def test_daily_part_digest_feeds(repo):
     daily(repo, "arxiv", "2026-11-24", [paper()])
     root = ET.fromstring(build_feed(repo, "research"))
     item = root.find("channel/item")
-    assert item.find("guid").text == "dsys:research:2026-11-24"
+    assert item.find("guid").text == "dsys:research:2026-11-24" + FEED_REV
     assert item.find("title").text.startswith("Research, Tue 24 Nov: 1 papers")
     assert item.find("link").text.endswith("/daily/2026-11-24/research.html")
     html = item.find("{http://purl.org/rss/1.0/modules/content/}encoded").text
@@ -278,7 +279,7 @@ def test_quarterly_draft_validate_and_feed(repo):
     rep = validate_repo(repo)
     assert not [e for e in rep.errors if "quarterly" in e], rep.errors
     item = ET.fromstring(build_feed(repo, "quarterly-research")).find("channel/item")
-    assert item.find("guid").text == "dsys:quarterly:2026-Q4:research" and "In numbers" in build_feed(repo, "quarterly-research")
+    assert item.find("guid").text == "dsys:quarterly:2026-Q4:research" + FEED_REV and "In numbers" in build_feed(repo, "quarterly-research")
     quarterly.draft(repo, "2026-Q4")  # a re-draft keeps what was written
     assert load_json(p)["parts"]["research"]["summary"].startswith("Two plain lines")
 

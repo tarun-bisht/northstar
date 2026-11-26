@@ -1,3 +1,4 @@
+from dsys.rss import FEED_REV
 import xml.etree.ElementTree as ET
 
 from conftest import activity, daily, example, monthly, paper, video, weekly
@@ -32,7 +33,7 @@ def test_escaping_and_guids(repo):
     xml = build_feed(repo, "research")
     root = ET.fromstring(xml)
     item = root.find("channel/item")
-    assert item.find("guid").text == "dsys:research:2026-11-24"
+    assert item.find("guid").text == "dsys:research:2026-11-24" + FEED_REV
     assert item.find("guid").get("isPermaLink") == "false"
     html = item.find("content:encoded", NS).text
     assert "Bias &amp; &lt;script&gt;" in html and "<script>" not in html
@@ -51,7 +52,7 @@ def test_rolling_window(repo):
     for d in ("2026-11-22", "2026-11-23", "2026-11-24"):
         daily(repo, "arxiv", d, [paper(f"2611.0000{d[-1]}")])
     items = ET.fromstring(build_feed(repo, "research")).findall("channel/item")
-    assert [i.find("guid").text for i in items] == ["dsys:research:2026-11-24", "dsys:research:2026-11-23"]
+    assert [i.find("guid").text for i in items] == ["dsys:research:2026-11-24" + FEED_REV, "dsys:research:2026-11-23" + FEED_REV]
 
 
 def test_shorts_in_their_own_feed(repo):
@@ -73,7 +74,7 @@ def test_weekly_monthly_feeds_and_site(repo, tmp_path):
     assert validate_repo(repo).ok
     for part in ("research", "knowledge", "exploration"):
         items = ET.fromstring(build_feed(repo, f"weekly-{part}")).findall("channel/item")
-        assert [i.find("guid").text for i in items] == [f"dsys:weekly:2026-W49:{part}"]
+        assert [i.find("guid").text for i in items] == [f"dsys:weekly:2026-W49:{part}" + FEED_REV]
         assert items[0].find("link").text.endswith(f"/weekly/2026-W49/{part}.html")
     assert "Hint 2" in build_feed(repo, "weekly-research") and "Hint 2" not in build_feed(repo, "weekly-exploration")
     assert ET.fromstring(build_feed(repo, "monthly-research")).find("channel/item") is not None

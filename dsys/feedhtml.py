@@ -183,19 +183,24 @@ def overview_block(ov: list) -> str:
             + "".join(ENTRY[s](it) for s, it in ov))
 
 
-def research(streams: dict) -> str:
-    """Research updates first, all in full, then every paper with its full abstract, both ranked
-    best first (dsys/overview.py rank)."""
+def research_updates(streams: dict) -> str:
+    """Every research update in full, ranked best first."""
     from .overview import rank
-    out = []
     ups = rank((streams.get("research_updates") or {}).get("items", []))
-    if ups:
-        out.append(f"<h2>Research updates ({len(ups)})</h2>" + "".join(update(u) for u in ups))
+    return f"<h2>Research updates ({len(ups)})</h2>" + "".join(update(u) for u in ups) if ups else ""
+
+
+def paper_radar(streams: dict) -> str:
+    """Every paper with its full abstract, ranked best first (dsys/overview.py rank)."""
+    from .overview import rank
     papers = rank((streams.get("arxiv") or {}).get("items", []))
-    if papers:
-        out.append(f"<h2>Papers ({len(papers)})</h2><p class='meta'>Most relevant first.</p>"
-                   + "".join(paper(p) for p in papers))
-    return "".join(out)
+    return (f"<h2>Paper Radar ({len(papers)})</h2><p class='meta'>Most relevant first.</p>"
+            + "".join(paper(p) for p in papers)) if papers else ""
+
+
+def research(streams: dict) -> str:
+    """Both, updates first (the site's research page)."""
+    return research_updates(streams) + paper_radar(streams)
 
 
 def news(streams: dict) -> str:

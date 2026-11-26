@@ -48,7 +48,7 @@ FEED_REV = ":r2"
 # WebSub: readers subscribe at the hub, and the publish workflow pings it, so new items arrive in
 # seconds instead of at the reader's next check (Inoreader: about every 8 hours).
 HUB = "https://pubsubhubbub.appspot.com/"
-COVER_KINDS = {"research", "news", "exploration", "shorts", "languages", "reading", "weekly", "monthly", "quarterly"}
+COVER_KINDS = {"research", "updates", "papers", "news", "exploration", "shorts", "languages", "reading", "weekly", "monthly", "quarterly"}
 
 
 def cover_url(site: dict, kind: str) -> str:
@@ -130,6 +130,38 @@ def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
     return fh.header(site, date, part, label) + body + fh.footer(site, date, part)
 
 
+UPDATES_FIRST = 3600  # pub offset; Paper Radar is one minute older, so readers list updates first
+
+
+def _research_entries(site: dict, date: str, streams: dict) -> list[dict]:
+    """Research as two daily entries, so neither is huge: every update, then every paper. The
+    updates entry is a minute newer, so newest-first readers show it above Paper Radar."""
+    from . import feedhtml as fh
+    day = dt.date.fromisoformat(date)
+    when = day.strftime("%a %-d %b")
+    link = f"{site['base_url']}/daily/{date}/research.html"
+    out = []
+    ups = (streams.get("research_updates") or {}).get("items", [])
+    papers = (streams.get("arxiv") or {}).get("items", [])
+    if ups:
+        n = f"{len(ups)} update{'s' if len(ups) != 1 else ''}"
+        out.append({"guid": f"dsys:research-updates:{date}", "title": f"Research updates, {when}: {n}",
+                    "link": f"{link}#research_updates", "description": n,
+                    "html": fh.header(site, date, "research", "Research updates") + fh.research_updates(streams)
+                    + fh.footer(site, date, "research"),
+                    "pub": pub_datetime(day, site, -UPDATES_FIRST), "creator": None, "categories": ["research", "updates"],
+                    "media": None, "thumb": cover_url(site, "updates")})
+    if papers:
+        n = f"{len(papers)} paper{'s' if len(papers) != 1 else ''}"
+        out.append({"guid": f"dsys:paper-radar:{date}", "title": f"Paper Radar, {when}: {n}",
+                    "link": f"{link}#arxiv", "description": n,
+                    "html": fh.header(site, date, "research", "Paper Radar") + fh.paper_radar(streams)
+                    + fh.footer(site, date, "research"),
+                    "pub": pub_datetime(day, site, -UPDATES_FIRST + 60), "creator": None, "categories": ["research", "papers"],
+                    "media": None, "thumb": cover_url(site, "papers")})
+    return out
+
+
 def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None, part: str) -> list[dict]:
     by_date: dict[str, dict] = {}
     for s in DAILY_STREAMS:
@@ -139,6 +171,9 @@ def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None, p
     entries = []
     for date in sorted(by_date, reverse=True)[:limit]:
         streams = dict(by_date[date])
+        if part == "research":  # two entries a day: Research updates, then Paper Radar
+            entries += _research_entries(site, date, streams)
+            continue
         names = next(ss for k, _, ss in render.DAILY_PARTS if k == part)
         if not any(s in streams and (streams[s].get("items") or streams[s].get("papers") or streams[s].get("briefs")) for s in names):
             continue

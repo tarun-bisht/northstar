@@ -41,7 +41,7 @@ STREAM_META = {
 # Stream titles above name the daily streams on pages. The RSS feeds are below: one per part.
 FEEDS = {
     "research": {"title": "Research, daily", "file": "research.xml",
-                 "description": "One item per day: high-quality papers and research updates."},
+                 "description": "Two items per day: Research updates (all, in full), then Paper Radar (every paper, most relevant first, full abstracts)."},
     "news": {"title": "News, daily", "file": "news.xml",
              "description": "One item per day: the world radar by category, with explained stories and briefs."},
     "exploration": {"title": "Exploration, daily", "file": "exploration.xml",

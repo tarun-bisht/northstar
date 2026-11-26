@@ -17,6 +17,8 @@ PARTS = {
     "shorts": ("Shorts", "Short videos worth a minute"),
     "languages": ("Languages", "A five-minute pack a day"),
     "reading": ("Papers of the week", "For you, trending and from leading groups"),
+    "updates": ("Research updates", "What changed in research today"),
+    "papers": ("Paper Radar", "Today's papers, most relevant first"),
     "weekly": ("This week", "Research, knowledge and exploration"),
     "monthly": ("This month", "Deep dives and challenges"),
     "quarterly": ("The quarter", "A short look back"),

@@ -33,7 +33,7 @@ def test_escaping_and_guids(repo):
     xml = build_feed(repo, "research")
     root = ET.fromstring(xml)
     item = root.find("channel/item")
-    assert item.find("guid").text == "dsys:research:2026-11-24" + FEED_REV
+    assert item.find("guid").text == "dsys:paper-radar:2026-11-24" + FEED_REV
     assert item.find("guid").get("isPermaLink") == "false"
     html = item.find("content:encoded", NS).text
     assert "Bias &amp; &lt;script&gt;" in html and "<script>" not in html
@@ -52,7 +52,7 @@ def test_rolling_window(repo):
     for d in ("2026-11-22", "2026-11-23", "2026-11-24"):
         daily(repo, "arxiv", d, [paper(f"2611.0000{d[-1]}")])
     items = ET.fromstring(build_feed(repo, "research")).findall("channel/item")
-    assert [i.find("guid").text for i in items] == ["dsys:research:2026-11-24" + FEED_REV, "dsys:research:2026-11-23" + FEED_REV]
+    assert [i.find("guid").text for i in items] == ["dsys:paper-radar:2026-11-24" + FEED_REV, "dsys:paper-radar:2026-11-23" + FEED_REV]
 
 
 def test_shorts_in_their_own_feed(repo):
@@ -160,4 +160,4 @@ def test_every_item_has_a_picture_and_feeds_declare_the_hub(repo):
     assert f'<atom:link href="{HUB}" rel="hub"/>' in raw
     item = ET.fromstring(raw).find("channel/item")
     thumb = item.find("{http://search.yahoo.com/mrss/}thumbnail").get("url")
-    assert thumb.endswith("/assets/covers/research.png") and thumb.startswith("https://")
+    assert thumb.endswith("/assets/covers/papers.png") and thumb.startswith("https://")

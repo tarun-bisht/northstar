@@ -60,14 +60,15 @@ def test_research_feed_updates_first_then_ranked_papers_no_overview(repo):
     overview.set_overview(repo, day, "research", ["arxiv-2611.00007"])  # the run's pick ranks first
     u = example("u", "research_updates")
     daily(repo, "research_updates", D, u["items"])
-    html = ET.fromstring(build_feed(repo, "research")).find("channel/item").find(NS).text
-    assert ">Overview</h2>" not in html
-    assert html.index(">Research updates (") < html.index(">Papers (8)</h2>")
+    items = ET.fromstring(build_feed(repo, "research")).findall("channel/item")
+    assert [i.findtext("title").split(",")[0] for i in items] == ["Research updates", "Paper Radar"]  # two entries a day
+    ups, html = (i.find(NS).text for i in items)
+    assert ">Overview</h2>" not in html and ">Paper Radar (8)</h2>" in html and "Paper Radar" not in ups
     order = [html.index(f">Paper {i}</a>") for i in (7, 0, 1, 2, 3, 4, 5, 6)]
     assert order == sorted(order)  # picked, then top in order, then more in order
     assert html.count("<blockquote") == 8 and "full abstract on alphaXiv" not in html
     for it in u["items"]:
-        assert it["what_happened"][:40] in html  # every update in full
+        assert it["what_happened"][:40] in ups  # every update in full
 
 def test_feed_shows_every_title_and_abstract_and_site_keeps_the_toggle(repo):
     from dsys import render
@@ -87,3 +88,12 @@ def test_english_only_everywhere():
              {"title": "भौतिकी सरल भाषा में"}, {"title": "اردو میں سائنس"}, {"title": "Japanese for beginners"},
              {"title": "No language given"}]
     assert [c["title"] for c in english_only(cands)] == ["How transformers work", "Japanese for beginners", "No language given"]
+
+
+def test_research_updates_entry_is_newer_than_paper_radar(repo):
+    import email.utils
+    _papers(repo)
+    daily(repo, "research_updates", D, example("u", "research_updates")["items"])
+    items = ET.fromstring(build_feed(repo, "research")).findall("channel/item")
+    t = {i.findtext("title").split(",")[0]: email.utils.parsedate_to_datetime(i.findtext("pubDate")) for i in items}
+    assert t["Research updates"] > t["Paper Radar"]

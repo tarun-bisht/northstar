@@ -252,11 +252,11 @@ def test_daily_part_digest_feeds(repo):
     daily(repo, "arxiv", "2026-11-24", [paper()])
     root = ET.fromstring(build_feed(repo, "research"))
     item = root.find("channel/item")
-    assert item.find("guid").text == "dsys:research:2026-11-24" + FEED_REV
-    assert item.find("title").text.startswith("Research, Tue 24 Nov: 1 papers")
-    assert item.find("link").text.endswith("/daily/2026-11-24/research.html")
+    assert item.find("guid").text == "dsys:paper-radar:2026-11-24" + FEED_REV
+    assert item.find("title").text == "Paper Radar, Tue 24 Nov: 1 paper"
+    assert item.find("link").text.endswith("/daily/2026-11-24/research.html#arxiv")
     html = item.find("{http://purl.org/rss/1.0/modules/content/}encoded").text
-    assert ">Papers (1)</h2>" in html and ">Overview</h2>" not in html and html.count(">A paper</a>") == 1
+    assert ">Paper Radar (1)</h2>" in html and ">Overview</h2>" not in html and html.count(">A paper</a>") == 1
     assert ET.fromstring(build_feed(repo, "news")).find("channel/item") is None  # no news that day
 
 

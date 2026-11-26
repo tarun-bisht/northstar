@@ -6,6 +6,7 @@ import argparse
 import datetime as dt
 import json
 import sys
+from pathlib import Path
 
 from . import feedback as fb_mod
 from . import history
@@ -58,7 +59,10 @@ def _print(obj):
     from .readable import emit
     args = sys.argv[1:]
     name = "-".join(args[:2]) + "-" + hashlib.sha1(" ".join(args).encode()).hexdigest()[:6]
-    emit(dump_json(obj), name, obj=obj)
+    text = dump_json(obj)
+    from .usage import add
+    add(Path(__file__).resolve().parents[1], " ".join(args[:3]), len(text))
+    emit(text, name, obj=obj)
 
 
 def _parse_list(s):
@@ -184,6 +188,22 @@ def cmd_reputation(repo: Repo, args) -> int:
         reg = reputation.load(repo)
         _print({"universities": len(reg.data.get("universities", [])), "labs": len(reg.data.get("labs", [])),
                 "researchers": len(reg.data.get("researchers", [])), "added": reg.data.get("added", [])[-10:]})
+    return 0
+
+
+def cmd_usage(repo: Repo, args) -> int:
+    """Run times and an estimate of tokens read (dsys/usage.py)."""
+    from . import usage
+    if args.action == "start":
+        print(json.dumps(usage.start(repo.root, args.run, _day(args.date).isoformat())))
+    elif args.action == "end":
+        print(json.dumps(usage.end(repo.root), ensure_ascii=False))
+    else:
+        if args.week:
+            days = usage.week_days(args.week)
+        else:
+            days = [_day(args.date).isoformat()]
+        print(usage.table(usage.summary(repo.root, days)))
     return 0
 
 
@@ -504,6 +524,13 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--domains", help="add: comma-separated email domains, only if seen in an email or official page")
     s.add_argument("--lab-kind", choices=["big_tech", "frontier", "regional", "institute"], help="add: lab type")
     s.set_defaults(fn=cmd_reputation)
+
+    s = sub.add_parser("usage", help="run times and estimated tokens read (state/usage/<date>.jsonl)")
+    s.add_argument("action", choices=["start", "end", "show"])
+    s.add_argument("--run", help="start: daily, weekly, monthly or quarterly")
+    s.add_argument("--date")
+    s.add_argument("--week", help="show: a whole week, e.g. 2026-W48")
+    s.set_defaults(fn=cmd_usage)
 
     s = sub.add_parser("stats", help="processed and passed counts per stream (state/stats/<date>.json)")
     s.add_argument("action", choices=["record", "show"])

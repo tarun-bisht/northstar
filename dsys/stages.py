@@ -90,6 +90,8 @@ def stage1(repo: Repo, day: dt.date, batch_size: int = 40) -> dict:
                                                 for r in rows[k:k + batch_size]))) + "\n", encoding="utf-8")
         batches.append({"read": str(f), "write": str(out_dir / f"verdict_{n:02d}.json"),
                         "papers": len(rows[k:k + batch_size])})
+    from .usage import add
+    add(repo.root, "papers stage1 batches (Haiku)", sum(Path(b["read"]).stat().st_size for b in batches))
     record(repo, day, "papers", fetched=total, unseen=len(_cands(repo, day)), read_stage1=len(rows),
            skipped_no_interest_no_signal=skipped)
     return {"date": day.isoformat(), "fetched": total, "read_stage1": len(rows), "skipped": skipped,

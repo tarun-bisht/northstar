@@ -4,11 +4,12 @@ The task prompt has already cloned the repo to `~/northstar` and installed the r
 
 ## Start
 
-Read `CLAUDE.md` and `prompts/_shared.md`. Then follow your runbook from its first step to its last, skipping none.
+Read `CLAUDE.md` and `prompts/_shared.md`. Run `python scripts/dsys.py usage start --run <daily|weekly|monthly|quarterly>` (times the run and counts what it reads). Then follow your runbook from its first step to its last, skipping none.
 
 ## Finish: validate, commit, push
 
 ```bash
+python scripts/dsys.py usage end            # stamps the end; keep its numbers for the final message
 python scripts/dsys.py history rebuild && python scripts/validate.py
 git add -A content state feedback inbox config
 git commit -m "<stream>: <date> (<n> items)"

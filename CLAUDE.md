@@ -39,6 +39,7 @@ python scripts/dsys.py daily merge <stream> --date D --items file.json
 python scripts/dsys.py daily overview --date D --part research|exploration --ids a,b  # up to 5, shown first
 python scripts/dsys.py reading show|add --week W --json papers.json
 python scripts/dsys.py reputation show|suggest|add ...                 # trust registry (never edit by hand)
+python scripts/dsys.py usage start|end|show [--week W]                 # run minutes and tokens read
 python scripts/dsys.py ideas|interests|feedback|polls|stats|status ...
 python scripts/dsys.py quarterly draft --quarter YYYY-Qn
 python scripts/validate.py && python scripts/build.py && python -m pytest -q

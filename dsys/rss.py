@@ -42,15 +42,37 @@ def rfc822(d: dt.datetime) -> str:
 
 
 _DETAILS_OPEN = re.compile(r"<details[^>]*>\s*<summary>(.*?)</summary>", re.S)
+_PLAY_FOLD = re.compile(r"<details class=\"play\">\s*<summary>Play here</summary>(.*?)</details>", re.S)
+_UNSAFE = re.compile(r"<script\b.*?</script\s*>|<style\b.*?</style\s*>|<link\b[^>]*>|<script\b[^>]*/?>", re.S | re.I)
+_TAGS = re.compile(r"<[^>]+>")
 
 
 def for_readers(html_body: str) -> str:
-    """Make fragments safe for RSS readers: many drop or mangle <details>, so open them up.
+    """Make a fragment render well in RSS readers (Inoreader, FeedFlow, NetNewsWire...) with no
+    JavaScript and no stylesheets:
 
-    The summary becomes a bold lead-in and the content shows in full.
+    * <details> folds are opened (many readers drop them): players show directly, other summaries
+      become a bold lead-in;
+    * <script>, <style> and stylesheet links are removed (readers strip them anyway);
+    * LaTeX becomes <sub>/<sup> or native MathML (dsys/mathfmt.py).
     """
+    from .mathfmt import convert_html
+    html_body = _UNSAFE.sub("", html_body)
+    html_body = _PLAY_FOLD.sub(lambda m: m.group(1), html_body)
     html_body = _DETAILS_OPEN.sub(lambda m: f"<p><strong>{m.group(1)}</strong></p>", html_body)
-    return html_body.replace("</details>", "")
+    return convert_html(html_body.replace("</details>", ""))
+
+
+def plain_text(html_body: str, limit: int = 400) -> str:
+    """A clean plain-text fallback for <description>: no tags, no entities, one line, cut at a word."""
+    import html as _html
+    t = " ".join(_html.unescape(_TAGS.sub(" ", html_body)).split())
+    return t if len(t) <= limit else t[:limit].rsplit(" ", 1)[0] + "…"
+
+
+def cdata(s: str) -> str:
+    """Wrap HTML in CDATA, splitting any ']]>' so the section can't end early."""
+    return "<![CDATA[" + _CTRL.sub("", s).replace("]]>", "]]]]><![CDATA[>") + "]]>"
 
 
 def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
@@ -98,9 +120,10 @@ def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
                 out += [f"<h4>{render.esc(pk['language'].capitalize())}: {render.esc(pk['title'])}</h4>"
                         + for_readers(render.language_pack(pk)) for pk in items]
             elif s == "youtube_shorts":
-                out.append("<p>" + " ".join(
-                    f'<a href="{render.esc(v["url"])}" target="_blank" rel="noopener noreferrer"><img src="{render.esc(v["thumbnail"])}" alt="{render.esc(v["title"])}" width="120"/></a>'
-                    for v in items[:12]) + "</p>")
+                out.append("".join(
+                    f"<h4>{render.esc(v['title'])}</h4>"
+                    + render.youtube_player(v["video_id"], v["title"], short=v.get("format") == "short" or "/shorts/" in v["url"])
+                    for v in items))
                 out.append(f'<p><a href="{x(site["base_url"])}/daily/{date}/shorts.html" target="_blank" rel="noopener">All {len(items)} shorts</a></p>')
     return "".join(out)
 
@@ -234,8 +257,9 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
             out.append(f"<dc:creator>{x(e['creator'])}</dc:creator>")
         for c in e["categories"]:
             out.append(f"<category>{x(c)}</category>")
-        out.append(f"<description>{x(e['description'])}</description>")
-        out.append(f"<content:encoded>{x(for_readers(e['html']))}</content:encoded>")
+        body = for_readers(e["html"])
+        out.append(f"<description>{x(plain_text(e['description'] or body))}</description>")
+        out.append(f"<content:encoded>{cdata(body)}</content:encoded>")
         if e["media"]:
             m = e["media"]
             out.append(f'<media:thumbnail url="{x(m["thumbnail"])}"/>')

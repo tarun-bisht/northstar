@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 
-from conftest import activity, daily, monthly, paper, video, weekly
+from conftest import activity, daily, example, monthly, paper, video, weekly
 from dsys.core import FEEDS
 from dsys.rss import build_feed, generate_all
 from dsys.site import build_site
@@ -59,7 +59,9 @@ def test_shorts_in_their_own_feed(repo):
     assert ET.fromstring(build_feed(repo, "exploration")).find("channel/item") is None
     item = ET.fromstring(build_feed(repo, "shorts")).find("channel/item")
     html = item.find("content:encoded", NS).text
-    assert "hqdefault.jpg" in html and "&lt;fast&gt;" in html
+    assert "youtube.com/embed/abcDEF12345" in html and "&lt;fast&gt;" in html
+    assert 'referrerpolicy="strict-origin-when-cross-origin"' in html and "allowfullscreen" in html
+    assert "youtube.com/shorts/abcDEF12345" in html  # the fallback link
     assert item.find("link").text.endswith("/daily/2026-11-24/shorts.html")
 
 
@@ -115,3 +117,36 @@ def test_feed_reads_only_newest_files(repo, monkeypatch):
     assert len(loaded) == 5
     assert [e["guid"] for e in fast] == [e["guid"] for e in full[:5]]
     assert fast[0]["guid"] == "dsys:weekly:2026-W49:research"
+
+
+def test_feed_is_rss2_with_cdata_plain_description_and_no_scripts(repo):
+    from dsys.rss import cdata, for_readers, plain_text
+    w = example("w", "world")
+    w["items"][0]["what_happened"] = "Rates rose; see x_{l+1} = x_l + f(x_l) and \\frac{a}{b}. Costs $83 now."
+    daily(repo, "world", "2026-11-24", w["items"], briefs=w.get("briefs", []))
+    raw = build_feed(repo, "news")
+    assert 'xmlns:content="http://purl.org/rss/1.0/modules/content/"' in raw and '<rss version="2.0"' in raw
+    assert "<content:encoded><![CDATA[" in raw
+    item = ET.fromstring(raw).find("channel/item")
+    desc = item.find("description").text
+    assert "<" not in desc and "&lt;" not in desc
+    html = item.find("content:encoded", NS).text
+    assert "x<sub>l+1</sub> = x<sub>l</sub> + f(x<sub>l</sub>)" in html
+    assert "<math" in html and "<mfrac>" in html and "$83" in html
+    assert "<script" not in for_readers('<p>a</p><script>alert(1)</script><link rel="stylesheet" href="s.css"><style>p{}</style>')
+    assert cdata("a]]>b") == "<![CDATA[a]]]]><![CDATA[>b]]>"
+    assert ET.fromstring(f"<x>{cdata('a]]>b')}</x>").text == "a]]>b"
+    assert plain_text("<p>Hi &amp; <b>bye</b></p>") == "Hi & bye"
+
+
+def test_youtube_links_become_players_with_fallback():
+    from dsys import render
+    for url, short in [("https://www.youtube.com/watch?v=abcDEF12345", False), ("https://youtu.be/abcDEF12345", False),
+                       ("https://www.youtube.com/shorts/abcDEF12345", True), ("https://m.youtube.com/watch?v=abcDEF12345&t=3", False)]:
+        h = render.media_embed(url, "T")
+        assert "https://www.youtube.com/embed/abcDEF12345" in h and "allowfullscreen" in h
+        assert 'referrerpolicy="strict-origin-when-cross-origin"' in h
+        assert ("youtube.com/shorts/abcDEF12345" in h) == short and ("aspect-ratio:9/16" in h) == short
+    from dsys.rss import for_readers
+    opened = for_readers(render.media_embed("https://youtu.be/abcDEF12345", "T"))
+    assert "<details" not in opened and "Play here" not in opened and opened.startswith('<div class="yt">')

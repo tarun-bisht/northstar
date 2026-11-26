@@ -197,6 +197,8 @@ def mark_svg() -> str:
 
 def page(site: dict, title: str, body: str, depth: int = 0, current: str = "") -> str:
     """One page. No navigation bar: every page links home; the home page links everywhere."""
+    from .mathfmt import convert_html
+    body = convert_html(body)  # LaTeX in content renders as <sub>/<sup> or MathML, no JavaScript
     up = "../" * depth
     head_title = esc(site["title"]) if title == "Home" else f"{esc(title)} | {esc(site['title'])}"
     alt = "".join(f'<link rel="alternate" type="application/rss+xml" title="{esc(site["title"])}: {esc(m["title"])}" '

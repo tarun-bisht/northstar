@@ -46,7 +46,11 @@ One feed per part, so each can be followed on its own:
 | `monthly-research.xml`, `monthly-knowledge.xml`, `monthly-exploration.xml`, `monthly-languages.xml` | month |
 | `quarterly-research.xml`, `quarterly-knowledge.xml`, `quarterly-exploration.xml` | quarter, with the numbers |
 
-The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config/recommendation_policy.json → feeds`. Feed HTML is plain and semantic: folded sections are opened, and tags are separated, so it reads well in readers that drop CSS.
+The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config/recommendation_policy.json → feeds`. Feeds are valid RSS 2.0 and render in readers like Inoreader, FeedFlow and NetNewsWire with no JavaScript or stylesheets (`dsys/rss.py`):
+
+- Rich HTML goes in `<content:encoded>` inside CDATA, with a plain-text `<description>` fallback. Folded sections are opened, and `<script>`, `<style>` and stylesheet links are removed.
+- **Maths** (`dsys/mathfmt.py`, on the site too): simple subscripts and superscripts (`x_{l+1}`, `a^2`) become `<sub>`/`<sup>`. Fractions, sums, integrals, matrices and Greek letters become native MathML (latex2mathml). This works with `$...$`, `$$...$$`, `\(...\)`, `\[...\]` or no delimiters. `$83` stays money, and snake_case, URLs and code are left alone.
+- **YouTube**: videos and Shorts (watch, `youtu.be` and `/shorts/` links) play in the item through a responsive `youtube.com/embed` player. It has `allowfullscreen` and `referrerpolicy="strict-origin-when-cross-origin"`, which avoids error 153, and a "Watch on YouTube" link below for videos that can't be embedded.
 
 ## 4. Sources and robustness
 

@@ -67,6 +67,19 @@ def a(url: str, text: str | None = None) -> str:
     return f'<a href="{esc(url)}"{ext}>{esc(text or url)}</a>'
 
 
+def youtube_player(vid: str, title: str = "", short: bool = False) -> str:
+    """A responsive YouTube player that works inside RSS readers and on the site: the referrer
+    policy avoids YouTube's error 153 in web views, and a link below covers videos whose owners
+    turned off embedding."""
+    w, h, ratio = (315, 560, "9/16") if short else (560, 315, "16/9")
+    link = yt.shorts_url(vid) if short else yt.watch_url(vid)
+    return (f'<div class="yt"><iframe src="{esc(yt.embed_url(vid))}" title="{esc(title)}" width="{w}" height="{h}" '
+            f'style="width:100%;max-width:{w}px;height:auto;aspect-ratio:{ratio};border:0" frameborder="0" loading="lazy" '
+            f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" '
+            f'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'
+            f'<p class="yt-link"><a href="{esc(link)}" target="_blank" rel="noopener noreferrer">Watch on YouTube</a></p>')
+
+
 def media_embed(url: str | None, title: str = "", audio_url: str | None = None) -> str:
     """Play a video or podcast on the page: YouTube, Spotify and Apple Podcasts embeds, or a direct audio file.
     The player sits in a closed <details>, so nothing loads until it is opened."""
@@ -77,7 +90,7 @@ def media_embed(url: str | None, title: str = "", audio_url: str | None = None) 
     src, h = None, 352
     vid = yt.extract_id(url) if "youtu" in url else None
     if vid:
-        src, h = yt.embed_url(vid), 315
+        return f'<details class="play"><summary>Play here</summary>{youtube_player(vid, title, "/shorts/" in url)}</details>'
     else:
         m = re.match(r"https://open\.spotify\.com/(episode|show)/([A-Za-z0-9]+)", url)
         if m:
@@ -459,12 +472,9 @@ def video_item(v: dict, embed: bool = True) -> str:
     thumb = v.get("thumbnail") or yt.thumbnail_url(vid)
     parts = []
     if embed:
-        parts.append(
-            f'<p><iframe width="315" height="560" src="{esc(yt.embed_url(vid))}" title="{esc(v["title"])}" '
-            f'frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" '
-            f'referrerpolicy="strict-origin-when-cross-origin" '
-            f'allowfullscreen="allowfullscreen" loading="lazy"></iframe></p>')
-    parts.append(f'<p><a href="{esc(watch)}"><img src="{esc(thumb)}" alt="{esc(v["title"])}" width="320" loading="lazy"/></a></p>')
+        parts.append(youtube_player(vid, v["title"], short=v.get("format") == "short" or "/shorts/" in watch))
+    else:
+        parts.append(f'<p><a href="{esc(watch)}"><img src="{esc(thumb)}" alt="{esc(v["title"])}" width="320" loading="lazy"/></a></p>')
     dur = f", {v['duration_seconds']} s" if v.get("duration_seconds") else ""
     kind = {"short": "Short", "short_form": "short video", "unknown": "short video"}.get(v.get("format"), "video")
     parts.append(f"<p>{a(watch, 'Watch on YouTube')}. {esc(v['channel']['name'])}, {kind}{dur}</p>")

@@ -44,4 +44,4 @@ python scripts/dsys.py quarterly draft --quarter YYYY-Qn
 python scripts/validate.py && python scripts/build.py && python -m pytest -q
 ```
 
-Run `python scripts/dsys.py <command> -h` for options. Long output arrives as part files: read every part. Code lives in `dsys/` (stdlib + jsonschema). Keep it simple and tested.
+Run `python scripts/dsys.py <command> -h` for options. Long output arrives as part files: read every part. Code lives in `dsys/` (stdlib plus `requirements.txt`: jsonschema, markdown, latex2mathml). Keep it simple and tested.

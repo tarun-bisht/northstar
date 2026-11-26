@@ -1,12 +1,13 @@
 name: Build reputation (universities)
 
-# Fills config/reputation.json -> universities from the published QS World University
-# Rankings table (top 1000) and the open university-domains list. Run it by hand once a year.
+# Fills config/reputation.json -> universities: the top 1000 research universities by
+# citations (OpenAlex), with QS ranks from the public QS PDF (top 100) and email domains from
+# the open university-domains list. Run it by hand once a year.
 on:
   workflow_dispatch:
     inputs:
       pdf_url:
-        description: "URL of the QS World University Rankings results table (PDF)"
+        description: "Optional: QS results PDF, to add QS ranks"
         type: string
         default: "https://sps.utm.my/wp-content/uploads/2026/04/2026-QS-World-University-Rankings-1.3-For-qs.com_.pdf"
       top:
@@ -38,7 +39,7 @@ jobs:
           git config user.email "dsys-bot@users.noreply.github.com"
           git add config/reputation.json
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
-          git commit -m "reputation: universities from the QS top ${{ inputs.top }}"
+          git commit -m "reputation: top ${{ inputs.top }} research universities (OpenAlex) with QS ranks"
           for i in 1 2 3; do
             git pull --rebase origin main && git push origin main && exit 0
             sleep 15

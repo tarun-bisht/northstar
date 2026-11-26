@@ -151,3 +151,13 @@ def test_youtube_links_become_players_with_fallback():
     from dsys.rss import for_readers
     opened = for_readers(render.media_embed("https://youtu.be/abcDEF12345", "T"))
     assert "<details" not in opened and "Play here" not in opened and opened.startswith('<div class="yt">')
+
+
+def test_every_item_has_a_picture_and_feeds_declare_the_hub(repo):
+    from dsys.rss import HUB
+    daily(repo, "arxiv", "2026-11-24", [paper("2611.00001")])
+    raw = build_feed(repo, "research")
+    assert f'<atom:link href="{HUB}" rel="hub"/>' in raw
+    item = ET.fromstring(raw).find("channel/item")
+    thumb = item.find("{http://search.yahoo.com/mrss/}thumbnail").get("url")
+    assert thumb.endswith("/assets/covers/research.png") and thumb.startswith("https://")

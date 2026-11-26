@@ -593,6 +593,8 @@ def build_site(repo: Repo, out: Path | None = None) -> Path:
     render.configure(repo)
     DIMENSIONS[:] = list(DIMENSION_NAMES)
 
+    if repo.p("assets").exists():  # feed covers and other static files
+        shutil.copytree(repo.p("assets"), out / "assets")
     feeds = generate_all(repo, out / "feeds")
     generate_all(repo, repo.p("feeds"))
 

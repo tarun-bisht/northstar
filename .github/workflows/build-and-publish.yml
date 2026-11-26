@@ -51,3 +51,19 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            feeds
+            config/site.json
+      - name: Tell the WebSub hub the feeds changed
+        # Readers subscribed through the hub (Inoreader and others) get new items within seconds
+        # instead of at their next check. A failed ping only means readers find it later.
+        continue-on-error: true
+        run: |
+          sleep 30  # let the new deployment reach the edge before the hub fetches it
+          base=$(python3 -c "import json;print(json.load(open('config/site.json'))['base_url'].rstrip('/'))")
+          for f in feeds/*.xml; do
+            curl -s -o /dev/null -w "%{http_code} $(basename $f)\n" -X POST https://pubsubhubbub.appspot.com/ \
+              --data-urlencode "hub.mode=publish" --data-urlencode "hub.url=$base/feeds/$(basename $f)" || true
+          done

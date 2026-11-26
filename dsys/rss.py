@@ -45,6 +45,26 @@ _DETAILS_OPEN = re.compile(r"<details[^>]*>\s*<summary>(.*?)</summary>", re.S)
 # Readers keep the first copy of an item and never fetch it again. Bump this only when the feed HTML
 # changes in a way readers must see for items they already have: every item then arrives once more.
 FEED_REV = ":r2"
+# WebSub: readers subscribe at the hub, and the publish workflow pings it, so new items arrive in
+# seconds instead of at the reader's next check (Inoreader: about every 8 hours).
+HUB = "https://pubsubhubbub.appspot.com/"
+COVER_KINDS = {"research", "news", "exploration", "shorts", "languages", "reading", "weekly", "monthly", "quarterly"}
+
+
+def cover_url(site: dict, kind: str) -> str:
+    return f"{site['base_url'].rstrip('/')}/assets/covers/{kind if kind in COVER_KINDS else 'research'}.png"
+
+
+def _video_thumb(items: list) -> str | None:
+    """The picture of the first item that is a YouTube video, if any."""
+    from . import youtube as yt
+    for it in items:
+        if it.get("thumbnail"):
+            return it["thumbnail"]
+        vid = yt.extract_id(it.get("url") or "") if "youtu" in (it.get("url") or "") else None
+        if vid:
+            return yt.thumbnail_url(vid)
+    return None
 
 _ABS_FOLD = re.compile(r'<details class="abs">.*?</details>', re.S)
 _PLAY_FOLD = re.compile(r"<details class=\"play\">\s*<summary>Play here</summary>(.*?)</details>", re.S)
@@ -84,6 +104,19 @@ def cdata(s: str) -> str:
     return "<![CDATA[" + _CTRL.sub("", s).replace("]]>", "]]]]><![CDATA[>") + "]]>"
 
 
+def _digest_thumb(site: dict, streams: dict, part: str) -> str:
+    """A real picture where the part has one (the first video in Exploration, the first short),
+    otherwise the part's cover."""
+    from . import overview
+    if part == "exploration":
+        ov, _ = overview.split(streams, part)
+        items = [it for _, it in ov] + (streams.get("discovery") or {}).get("items", [])
+        return _video_thumb(items) or cover_url(site, part)
+    if part == "shorts":
+        return _video_thumb((streams.get("youtube_shorts") or {}).get("items", [])) or cover_url(site, part)
+    return cover_url(site, part)
+
+
 def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
     """One part of a day, on the shared feed template (dsys/feedhtml.py). Research and Exploration
     open with an Overview of at most five items, which the main list then leaves out."""
@@ -120,6 +153,7 @@ def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None, p
             "link": f"{site['base_url']}/daily/{date}/{part}.html", "description": "; ".join(counts),
             "html": _digest_html(site, date, streams, part), "pub": pub_datetime(day, site, -3600),
             "creator": None, "categories": [part], "media": None,
+            "thumb": _digest_thumb(site, streams, part),
         })
     return entries
 
@@ -150,6 +184,7 @@ def collect_items(repo: Repo, feed: str, site: dict, examples: bool = False,
                     "html": render.reading_list({"papers": [pp]}),
                     "pub": pub_datetime(dt.date.fromisoformat(pp["added"]), site, i),
                     "creator": ", ".join(pp.get("authors", [])[:6]) or None, "categories": [group] + pp["tags"], "media": None,
+                    "thumb": cover_url(site, "reading"),
                 })
         elif stream == "weekly":
             start, _ = week_bounds(doc["week"])
@@ -165,6 +200,7 @@ def collect_items(repo: Repo, feed: str, site: dict, examples: bool = False,
                     "link": f"{site['base_url']}/weekly/{doc['week']}/{part}.html",
                     "description": doc["intro"], "html": render.weekly_package(doc, part),
                     "pub": pub_datetime(start, site), "creator": None, "categories": ["weekly", part], "media": None,
+                    "thumb": _video_thumb([it for it in doc.get("items", []) if it.get("section") == part]) or cover_url(site, "weekly"),
                 })
         elif stream == "monthly":
             start, _ = month_bounds(doc["month"])
@@ -181,6 +217,7 @@ def collect_items(repo: Repo, feed: str, site: dict, examples: bool = False,
                     "link": f"{site['base_url']}/monthly/{doc['month']}/{part}.html",
                     "description": doc["intro"], "html": render.monthly_package(doc, part),
                     "pub": pub_datetime(start, site), "creator": None, "categories": ["monthly", part], "media": None,
+                    "thumb": cover_url(site, "monthly"),
                 })
         elif stream == "quarterly":
             qend = dt.date.fromisoformat(doc["to"])
@@ -192,6 +229,7 @@ def collect_items(repo: Repo, feed: str, site: dict, examples: bool = False,
                 "html": render.quarterly_review(doc, part) + render.quarterly_stats(doc),
                 "pub": pub_datetime(qend + dt.timedelta(days=1), site), "creator": None,
                 "categories": ["quarterly", part], "media": None,
+                "thumb": cover_url(site, "quarterly"),
             })
     entries.sort(key=lambda e: (e["pub"], e["guid"]), reverse=True)
     return entries[:limit] if limit is not None else entries
@@ -213,6 +251,7 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
            f"<description>{x(meta['description'])}</description>",
            "<language>en</language>",
            f'<atom:link href="{x(self_url)}" rel="self" type="application/rss+xml"/>',
+           f'<atom:link href="{HUB}" rel="hub"/>',
            f"<lastBuildDate>{last}</lastBuildDate>",
            "<generator>dsys</generator>",
            "<ttl>180</ttl>"]
@@ -238,6 +277,8 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
             out.append(f'<media:thumbnail url="{x(m["thumbnail"])}"/>')
             out.append(f'<media:content url="{x(m["player"])}" medium="video">'
                        f'<media:player url="{x(m["player"])}"/><media:title>{x(m["title"])}</media:title></media:content>')
+        elif e.get("thumb"):
+            out.append(f'<media:thumbnail url="{x(e["thumb"])}"/>')
         out.append("</item>")
     out += ["</channel>", "</rss>", ""]
     return "\n".join(out)

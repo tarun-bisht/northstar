@@ -1,6 +1,6 @@
 # Monthly run (1st of each month, 06:15 IST)
 
-Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
+Start and finish as in `prompts/runs/_common.md`. Then:
 
 1. `python scripts/dsys.py period` gives `this_month` (the month to plan, since this runs on the 1st). The previous month is the one to collect feedback for.
 2. Feedback for the previous month's package, if `inbox/feedback.md` mentions it: `prompts/feedback.md`. Otherwise do nothing.

@@ -1,6 +1,6 @@
 # Weekly run (Saturday, 06:46 IST)
 
-Follow `prompts/runs/_git.md` for setup, validation and commit. Then:
+Start and finish as in `prompts/runs/_common.md`. Then:
 
 1. `python scripts/dsys.py period` gives `this_week` (ending tomorrow) and `next_week` (the week to plan).
 2. **Feedback for `this_week`**: if `inbox/feedback.md` has content, follow `prompts/feedback.md` for period `this_week` (and older periods if the feedback refers to them). If no feedback was given, do nothing: unmentioned items expire quietly. Do not invent feedback.

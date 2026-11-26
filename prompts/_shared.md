@@ -1,10 +1,10 @@
 # Shared rules (read first)
 
-## What Northstar is for
+These add detail to the rules in `CLAUDE.md`. Daily = stay aware, weekly = explore, monthly = go deep. Real life comes first. Balance familiar, adjacent and unexpected, and look for cross-domain connections. Fewer, better items: targets are guidance, except the rules validation enforces.
 
-Read `docs/vision.md` first: Northstar finds, filters, connects and recommends things genuinely worth the person's attention. It is a compass, not a tracker. Daily = stay aware, weekly = explore, monthly = go deep. Balance familiar, adjacent and unexpected, and look for cross-domain connections. Fewer excellent things beat many mediocre ones.
+## Interests
 
-A personal system for steady growth, at your own pace. Everything is shaped by `config/interests.json`, which has **three tiers that mean different things**:
+Everything is shaped by `config/interests.json`, which has **three tiers that mean different things**:
 
 | Tier | Meaning | How it's used |
 |---|---|---|
@@ -19,12 +19,6 @@ I am a beginner in these languages. In every stream (discovery, podcasts, videos
 
 Growth comes from doing too: **learn, practise, create, experience, reflect, adapt.** Weekly and monthly items sometimes turn learning into action.
 
-## Philosophy
-
-- Daily: stay aware. Weekly: something new if there's time. Monthly: go deeper if the month allows. Real life comes first.
-- No streaks, scores, quotas, guilt or backlogs. Skipped items expire. User intent beats algorithmic recommendation.
-- Fewer, better items. Targets are guidance, except the explicit daily and monthly rules, which validation enforces.
-
 ## Web access in scheduled runs (never wait for approval)
 
 Scheduled runs have nobody to approve anything, so a run must never trigger a permission prompt. WebSearch never asks. WebFetch only runs without asking when the URL already appeared in this session: in the run prompt, in a WebSearch result, or in a page you already fetched. A URL typed from memory, built by editing another URL, or read from a file (candidates, config, content) needs approval. The run then stalls and the fetch is withdrawn.
@@ -35,15 +29,13 @@ Scheduled runs have nobody to approve anything, so a run must never trigger a pe
 
 ## Truthfulness
 
-- Never invent papers, authors, posts, URLs, video IDs, dates, durations or facts. Every URL must come from something you retrieved this session; if unverified, omit `url`.
 - arXiv abstracts are copied verbatim. World and research items keep facts separate from analysis and say what's uncertain.
 - If a source or tool is unavailable, say so in `notes` and produce fewer items.
 - Copyright: describe and link; don't reproduce articles, lyrics or book passages.
 
 ## Privacy: the repo, site and feeds are public
 
-- Never save private details: project names or unpublished work, other people's names, institutions, health, relationships, finances, schedules, travel dates.
-- **Translate, never record.** A project becomes the general topics its method touches; a trip becomes "<country> documentaries" and similar. See `prompts/update_interests.md`.
+- **Translate, never record** (CLAUDE.md rule 5): a project becomes the general topics its method touches, a trip becomes "<country> documentaries" and similar. See `prompts/update_interests.md`.
 - For arXiv, at most "Closely related to your work."
 - Feedback holds short sanitized paraphrases and generic reasons only. Reflections and syntheses go to chat or the run summary, never into files.
 - `scripts/validate.py` catches obvious patterns (keys, emails, phone numbers, raw feedback), not meaning.
@@ -55,7 +47,6 @@ Scheduled runs have nobody to approve anything, so a run must never trigger a pe
 - IDs: `arxiv-<id>`, `ru-<date>-<slug>`, `world-<date>-<slug>`, `disc-<date>-<slug>`, `yt-<video_id>`, `w-<YYYY-Www>-<slug>`, `m-<YYYY-MM>-<slug>`.
 - Daily streams: write `{"items": [...], "notes": "..."}` to a temp file, then `python scripts/dsys.py daily merge <stream> --date <date> --items <file>`.
 - Weekly/monthly: write `content/weekly/YYYY/YYYY-Www.json` or `content/monthly/YYYY/YYYY-MM.json`.
-- Always finish with `python scripts/dsys.py history rebuild && python scripts/validate.py`, and fix every error before committing.
 
 ## Writing style (all text: summaries, hints, lessons, notes)
 

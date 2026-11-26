@@ -2,29 +2,7 @@
 
 This copies the full setup: GitHub Actions to fetch and publish, four Claude scheduled tasks to curate, and Slack to notify. It takes about 30 minutes. Times are IST (`Asia/Kolkata`). To use another zone, see step 7.
 
-## What runs when
-
-| When (IST) | What | Where |
-|---|---|---|
-| Every day 07:17, retry 07:53 | Fetch candidates: papers, news, updates, podcasts, videos, shorts, fun | GitHub Actions (`fetch-candidates.yml`) |
-| Every day 08:13 | **Daily** task (Sonnet, with Haiku, Opus and Sonnet helpers) | Claude |
-| Saturday 06:46 | **Weekly** task (Opus) | Claude |
-| 1st of the month 06:15 | **Monthly** task (Opus) | Claude |
-| 1 Jan, Apr, Jul, Oct 06:41 | **Quarterly** task (Sonnet) | Claude |
-| On every push to `main` | Validate, build the site and feeds, publish | GitHub Actions (`build-and-publish.yml`) |
-
-The daily task needs today's fetch, so it runs after it. If GitHub starts the fetch late, the daily task starts it itself and waits (`dsys.py candidates ensure`). Weekly and monthly run before the fetch on purpose: they plan from earlier days, and the daily task announces them in Slack.
-
-What each task does in Slack:
-
-| Task | Slack |
-|---|---|
-| Daily | Reads answers in #northstar-ask. Posts polls in #northstar-polls on Thursdays (weekly) and the 25th (monthly). Posts the "ready" message in #northstar-daily, plus the week on Saturdays and the month on the 1st. Posts the quarterly review in #general at a quarter start. One light post in #random. |
-| Weekly | Reads the weekly poll thread in #northstar-polls and replies "Got it" if you answered. |
-| Monthly | Reads the monthly poll thread in #northstar-polls and replies "Got it" if you answered. |
-| Quarterly | Nothing. The daily task announces it. |
-
-No task ever posts about a failed source. Mobile and email notifications are off.
+The daily task runs after the 07:17 fetch. Weekly and monthly run before it, and the daily task announces them. The full schedule is in `docs/how_it_works.md` §1, and what each task posts in Slack is in §7.
 
 ## Steps
 
@@ -89,22 +67,17 @@ Change `CRON_TZ=Asia/Kolkata` in each task and the UTC crons in `.github/workflo
 
 ## The tasks
 
-The prompts are short on purpose: the logic lives in the repo (`CLAUDE.md`, `prompts/runs/`). To change what a run does, edit the repo, not the task. Each prompt still names its Slack steps, so none gets skipped.
+The prompts only get the repo and name a runbook. Everything else, including the safety rules and every Slack step, lives in the repo (`prompts/runs/_common.md` and the runbook), so it is written once. To change what a run does, edit the repo, not the task.
 
 ### Daily northstar schedule
 
 Cron `CRON_TZ=Asia/Kolkata 13 8 * * *` · Model `claude-sonnet-5-5`
 
 ```
-You are running the DAILY run of Northstar, a personal discovery system, in the GitHub repo tarun-bisht/northstar.
+You are running the DAILY run of Northstar in the GitHub repo tarun-bisht/northstar.
 
-1. Clone or update the repo (git clone https://github.com/tarun-bisht/northstar.git ~/northstar; then cd ~/northstar && git checkout main && git pull --rebase origin main) and install requirements (pip install -r requirements.txt, adding --break-system-packages if needed).
-2. Read CLAUDE.md and docs/vision.md, then follow prompts/runs/daily.md exactly, every step in order. It waits for today's fetch, reads answers to questions in #northstar-ask, makes the whole day (papers, research updates, news, exploration, languages and shorts, with Haiku, Opus and Sonnet helpers), validates, commits and pushes to main.
-3. After pushing, do the Slack steps in prompts/runs/daily.md:
-   - on Thursdays and the 25th, post the topic polls in #northstar-polls (prompts/runs/topic_poll.md);
-   - always post the "ready" message in #northstar-daily, with the weekly one on Saturdays and the monthly one on the 1st, the quarterly review in #general at a quarter start, and one light post in #random (prompts/runs/slack_digest.md).
-   Channel ids are in config/notifications.json. Post only there, and never about failed sources.
-4. Never force-push. Never store private information.
+1. Get the repo: git clone https://github.com/tarun-bisht/northstar.git ~/northstar (if it exists: cd ~/northstar && git checkout main && git pull --rebase origin main). Then pip install -r requirements.txt (add --break-system-packages if pip refuses).
+2. Follow prompts/runs/daily.md from its first step to its last, skipping none. Its last steps post the polls and messages to Slack.
 ```
 
 ### Weekly northstar schedule
@@ -112,15 +85,10 @@ You are running the DAILY run of Northstar, a personal discovery system, in the 
 Cron `CRON_TZ=Asia/Kolkata 46 6 * * 6` (Saturday) · Model `claude-opus-5-5`
 
 ```
-You are running the WEEKLY run of Northstar, a personal discovery system, in the GitHub repo tarun-bisht/northstar.
+You are running the WEEKLY run of Northstar in the GitHub repo tarun-bisht/northstar.
 
-1. Clone or update the repo (git clone https://github.com/tarun-bisht/northstar.git ~/northstar; then cd ~/northstar && git checkout main && git pull --rebase origin main) and install requirements (pip install -r requirements.txt, adding --break-system-packages if needed).
-2. Read CLAUDE.md and docs/vision.md, then follow prompts/runs/weekly.md exactly, every step in order:
-   - first read the answers to the weekly poll in #northstar-polls (the whole thread and the user's later messages in the channel), save them and reply "Got it" in the thread if there was an answer (prompts/runs/poll_collect.md);
-   - then plan next week's package with all parts, and Papers of the week with at least 3 entries;
-   - validate, commit and push to main.
-3. Post nothing else to Slack: the daily run announces the week. Channel ids are in config/notifications.json.
-4. Never force-push. Never store private information.
+1. Get the repo: git clone https://github.com/tarun-bisht/northstar.git ~/northstar (if it exists: cd ~/northstar && git checkout main && git pull --rebase origin main). Then pip install -r requirements.txt (add --break-system-packages if pip refuses).
+2. Follow prompts/runs/weekly.md from its first step to its last, skipping none. Before planning, it reads the poll answers in Slack.
 ```
 
 ### Monthly northstar schedule
@@ -128,16 +96,10 @@ You are running the WEEKLY run of Northstar, a personal discovery system, in the
 Cron `CRON_TZ=Asia/Kolkata 15 6 1 * *` · Model `claude-opus-5-5`
 
 ```
-You are running the MONTHLY run of Northstar, a personal discovery system, in the GitHub repo tarun-bisht/northstar.
+You are running the MONTHLY run of Northstar in the GitHub repo tarun-bisht/northstar.
 
-1. Clone or update the repo (git clone https://github.com/tarun-bisht/northstar.git ~/northstar; then cd ~/northstar && git checkout main && git pull --rebase origin main) and install requirements (pip install -r requirements.txt, adding --break-system-packages if needed).
-2. Read CLAUDE.md and docs/vision.md, then follow prompts/runs/monthly.md exactly, every step in order:
-   - first read the answers to the monthly poll in #northstar-polls (the whole thread and the user's later messages in the channel), save them and reply "Got it" in the thread if there was an answer (prompts/runs/poll_collect.md);
-   - then plan this month's deep dives, challenges and language plans;
-   - keep the trust registry current (config/reputation.json);
-   - validate, commit and push to main.
-3. Post nothing else to Slack: the daily run announces the month. Channel ids are in config/notifications.json.
-4. Never force-push. Never store private information.
+1. Get the repo: git clone https://github.com/tarun-bisht/northstar.git ~/northstar (if it exists: cd ~/northstar && git checkout main && git pull --rebase origin main). Then pip install -r requirements.txt (add --break-system-packages if pip refuses).
+2. Follow prompts/runs/monthly.md from its first step to its last, skipping none. Before planning, it reads the poll answers in Slack.
 ```
 
 ### Quarterly northstar schedule
@@ -145,10 +107,8 @@ You are running the MONTHLY run of Northstar, a personal discovery system, in th
 Cron `CRON_TZ=Asia/Kolkata 41 6 1 1,4,7,10 *` · Model `claude-sonnet-5-5`
 
 ```
-You are running the QUARTERLY run of Northstar, a personal discovery system, in the GitHub repo tarun-bisht/northstar.
+You are running the QUARTERLY run of Northstar in the GitHub repo tarun-bisht/northstar.
 
-1. Clone or update the repo (git clone https://github.com/tarun-bisht/northstar.git ~/northstar; then cd ~/northstar && git checkout main && git pull --rebase origin main) and install requirements (pip install -r requirements.txt, adding --break-system-packages if needed).
-2. Read CLAUDE.md and docs/vision.md, then follow prompts/runs/quarterly.md exactly: review the quarter that just ended, validate, commit and push to main.
-3. Post nothing to Slack: the daily run posts the review link in #general.
-4. Never force-push. Never store private information.
+1. Get the repo: git clone https://github.com/tarun-bisht/northstar.git ~/northstar (if it exists: cd ~/northstar && git checkout main && git pull --rebase origin main). Then pip install -r requirements.txt (add --break-system-packages if pip refuses).
+2. Follow prompts/runs/quarterly.md from its first step to its last, skipping none.
 ```

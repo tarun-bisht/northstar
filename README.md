@@ -43,16 +43,7 @@ If GitHub starts the scrape late, the daily run starts it and waits. It never se
 
 ## Make it yours
 
-Follow [`docs/scheduled_tasks_setup.md`](docs/scheduled_tasks_setup.md). It copies this exact setup in eight steps:
-
-1. Fork, then turn on Actions and Pages.
-2. Edit `config/` for your interests, sources and languages, and clear my data.
-3. Add a free `YOUTUBE_API_KEY` secret.
-4. Create the Slack channels and put their ids in `config/notifications.json`.
-5. Connect Slack and alphaXiv to Claude.
-6. Create the four scheduled tasks (exact prompts, crons and models are in the guide).
-7. Change time zones if you need to.
-8. Run it once and check.
+Follow [`docs/scheduled_tasks_setup.md`](docs/scheduled_tasks_setup.md), about 30 minutes: fork, edit `config/`, add a YouTube key, create the Slack channels, connect Slack and alphaXiv, create the four scheduled tasks, and run once.
 
 ```bash
 pip install -r requirements.txt

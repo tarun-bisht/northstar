@@ -2,14 +2,14 @@
 
 One task does the whole day: papers, news, updates, discovery, the language pack, shorts, the topic polls on Thursdays and the 25th, and the Slack messages.
 
-Follow `prompts/runs/_git.md` for setup, validation and commit. GitHub Actions scrapes; this run only reads, filters and writes. Cheap models do bulk reading and Opus makes the judgement calls:
+Start and finish as in `prompts/runs/_common.md`. GitHub Actions scrapes; this run only reads, filters and writes. Cheap models do bulk reading and Opus makes the judgement calls:
 
 | Work | Who |
 |---|---|
 | News, research updates, putting the day together | you (Sonnet) |
 | First reading of every paper abstract | **Haiku** helpers, in parallel (`prompts/paper_triage.md`) |
 | Final paper choice, papers of the week, discovery picks, the language pack | **Opus** helpers |
-| Shorts (`prompts/runs/shorts.md`) | a **Sonnet** helper |
+| Shorts (`prompts/youtube_shorts.md`) | a **Sonnet** helper |
 
 Start helpers with the Agent tool (`model: "haiku"` or `model: "opus"`), give each a complete, standalone task (paths, prompt files, output file), and start independent helpers in the same message so they run in parallel. If the Agent tool isn't available, do the work yourself in the same order.
 
@@ -23,12 +23,10 @@ Start helpers with the Agent tool (`model: "haiku"` or `model: "opus"`), give ea
 7. **In parallel, start three helpers** (in one message), then do steps 8 and 9 yourself while they work:
    - **Papers, final choice (Opus):** "In ~/northstar, follow `prompts/arxiv.md` for <today>: read `python scripts/dsys.py papers stage2 --date <today>`, choose, write `/tmp/arxiv.json`, mark the rest seen, add one to three papers to this week's papers of the week (`prompts/reading_list.md`, week <this_week>), and merge. Reply with the counts and the top titles."
    - **Discovery and language (Opus):** "In ~/northstar, follow `prompts/discovery.md` and then `prompts/language.md` (the daily pack) for <today>, and merge both. Reply with the titles."
-   - **Shorts (Sonnet):** "In ~/northstar, follow `prompts/runs/shorts.md` steps 2 and 3 for <today> (the shorts file is already fetched). Reply with the count." 
-8. **Research updates:** follow `prompts/research_updates.md` (compact reading, plus up to 8 targeted X and LinkedIn searches).
-9. **World Radar:** follow `prompts/world.md` (awareness across all categories, interest-matched stories, depth pieces paired with events, and a lesson in every explained story).
-10. When all helpers have replied: `python scripts/dsys.py history rebuild && python scripts/validate.py`, fix any errors, then commit `daily: <today>` and push. The counts for the Slack message are in `state/stats/<today>.json`; commit that file too.
-11. **Topic polls (Thursdays and the 25th only):** follow `prompts/runs/topic_poll.md` (weekly poll on Thursdays, monthly poll on the 25th, both on a day that is both).
-12. **Slack:** follow `prompts/runs/slack_digest.md`: the "ready" message in #northstar-daily (with the weekly one on Saturdays and the monthly one on the 1st), and one light post in #random.
+   - **Shorts (Sonnet):** "In ~/northstar, follow `prompts/youtube_shorts.md` for <today> (the shorts file is already fetched) and merge. Don't commit. Reply with the count and the language and tier split."
+8. **Research updates:** follow `prompts/research_updates.md`.
+9. **World Radar:** follow `prompts/world.md`.
+10. When all helpers have replied, finish as in `_common.md` (validate, commit `daily: <today>`, push). This also commits the counts in `state/stats/<today>.json`.
+11. **Slack, polls (Thursdays and the 25th only):** follow `prompts/runs/topic_poll.md`.
+12. **Slack, messages (every day):** follow `prompts/runs/slack_digest.md`.
 13. Final message: items per stream, the top papers in one line each, and anything that could not be made. No praise, no padding.
-
-The site shows the day as five pages: `daily/<date>/research.html` (papers, research updates), `news.html`, `exploration.html` (discovery), `shorts.html` and `languages.html`. Step 12 announces it in Slack.

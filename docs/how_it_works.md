@@ -96,8 +96,8 @@ Mobile and email notifications are off for every task. All channels are public (
 |---|---|
 | #northstar-daily | "Daily is ready" with links and counts, posted at the end of the daily run (`prompts/runs/slack_digest.md`); "Week is ready" on Saturdays; "Month is ready" on the 1st; one line if a part is missing. Never messages about failed sources. |
 | #northstar-polls | Thursdays: next week's New in AI topic. The 25th: next month's research and fundamentals deep dives. Posted by the daily run. Every poll ends with "Other: reply with your own topic" (`prompts/runs/topic_poll.md`). |
-| #northstar-ask | Rare questions from a run, only when the answer changes what gets made (`prompts/runs/_git.md`). |
-| #general | Announcements: changes to Northstar, the quarterly review. |
+| #northstar-ask | Rare questions from a run, only when the answer changes what gets made (`prompts/runs/_common.md`). |
+| #general | Announcements: changes to Northstar, and the quarterly review (posted by the daily run on the quarter's first day). |
 | #random | One light thing a day: an xkcd link or an original joke. |
 
 **Replies.** Reply in Slack, in the thread under a poll or question. A run reads the whole thread and your own messages in the channel after the poll, nothing before it. The weekly and monthly runs read their poll's answers before planning (`prompts/runs/poll_collect.md`); the daily run reads answers to questions at its start. Only the general topic is saved (`state/polls.json`), never private details.

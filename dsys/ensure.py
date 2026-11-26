@@ -122,7 +122,7 @@ def ensure(repo, day: dt.date, kinds: list[str], timeout: int = 540, attempts: i
                       "next": ("use the fetched files; list failed_sources in the final message" if ok else
                                "run the same command again (each call waits about 9 minutes; up to 10 calls). "
                                "Never search instead. After 10 calls, skip the streams that need the missing files "
-                               "and post the failure to Slack (prompts/runs/_git.md)")}))
+                               "and name them in the final message. Don't post about it: the daily Slack message lists missing parts")}))
     return 0 if ok else 1
 
 

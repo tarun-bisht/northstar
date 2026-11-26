@@ -1,0 +1,995 @@
+{
+ "https://api.quantamagazine.org/feed": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 5,
+  "name": "Quanta Magazine",
+  "status": "ok"
+ },
+ "https://bair.berkeley.edu/blog/feed.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "BAIR Blog",
+  "status": "ok"
+ },
+ "https://blog.eleuther.ai/index.xml": {
+  "checked": "2026-11-26",
+  "dead_since": "2026-11-26",
+  "fails": 1,
+  "name": "EleutherAI Blog",
+  "status": "404"
+ },
+ "https://blog.google/innovation-and-ai/technology/ai/rss/": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 20,
+  "name": "Google AI Blog",
+  "status": "ok"
+ },
+ "https://blog.langchain.dev/rss/": {
+  "checked": "2026-11-26",
+  "fails": 1,
+  "name": "LangChain Blog",
+  "status": "ParseError"
+ },
+ "https://blog.ml.cmu.edu/feed/": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 1,
+  "name": "CMU ML Blog",
+  "status": "ok"
+ },
+ "https://crfm.stanford.edu/feed": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "Stanford CRFM",
+  "status": "ok"
+ },
+ "https://deepmind.google/blog/feed": {
+  "checked": "2026-11-26",
+  "fails": 1,
+  "name": "Google DeepMind Blog",
+  "status": "ParseError"
+ },
+ "https://developer.nvidia.com/blog/feed": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "NVIDIA Technical Blog",
+  "status": "ok"
+ },
+ "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 50,
+  "name": "Economic Times Markets",
+  "status": "ok"
+ },
+ "https://eugeneyan.com/rss/": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 215,
+  "name": "Eugene Yan",
+  "status": "ok"
+ },
+ "https://feeds.bbci.co.uk/news/business/rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 49,
+  "name": "BBC Business",
+  "status": "ok"
+ },
+ "https://feeds.bbci.co.uk/news/health/rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 57,
+  "name": "BBC Health",
+  "status": "ok"
+ },
+ "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 42,
+  "name": "BBC Science and Environment",
+  "status": "ok"
+ },
+ "https://feeds.bbci.co.uk/news/technology/rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 21,
+  "name": "BBC Technology",
+  "status": "ok"
+ },
+ "https://feeds.bbci.co.uk/news/world/asia/india/rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 26,
+  "name": "BBC India",
+  "status": "ok"
+ },
+ "https://feeds.bbci.co.uk/news/world/rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 32,
+  "name": "BBC World",
+  "status": "ok"
+ },
+ "https://feeds.npr.org/1004/rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "NPR World",
+  "status": "ok"
+ },
+ "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=40": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 30,
+  "name": "Hacker News front page",
+  "status": "ok"
+ },
+ "https://huggingface.co/blog/feed.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 917,
+  "name": "Hugging Face Blog",
+  "status": "ok"
+ },
+ "https://huyenchip.com/feed": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "Chip Huyen",
+  "status": "ok"
+ },
+ "https://importai.substack.com/feed": {
+  "checked": "2026-11-26",
+  "fails": 1,
+  "name": "Import AI (Jack Clark)",
+  "status": "403"
+ },
+ "https://indianexpress.com/section/explained/feed/": {
+  "checked": "2026-11-26",
+  "fails": 2,
+  "name": "Indian Express Explained",
+  "status": "403"
+ },
+ "https://indianexpress.com/section/india/feed/": {
+  "checked": "2026-11-26",
+  "fails": 2,
+  "name": "Indian Express India",
+  "status": "403"
+ },
+ "https://jack-clark.net/feed/": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "Import AI (Jack Clark)",
+  "status": "ok"
+ },
+ "https://lastweekin.ai/feed": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 20,
+  "name": "Last Week in AI",
+  "status": "ok"
+ },
+ "https://lilianweng.github.io/index.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 53,
+  "name": "Lil'Log (Lilian Weng)",
+  "status": "ok"
+ },
+ "https://magazine.sebastianraschka.com/feed": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 20,
+  "name": "Ahead of AI (Sebastian Raschka)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 57,
+  "name": "Google News Business",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 62,
+  "name": "Google News Business (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/HEALTH?hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 70,
+  "name": "Google News Health",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/HEALTH?hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 70,
+  "name": "Google News Health (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/NATION?hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 50,
+  "name": "Google News Nation",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/NATION?hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 64,
+  "name": "Google News Nation (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 70,
+  "name": "Google News Science",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 56,
+  "name": "Google News Science (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 70,
+  "name": "Google News Technology",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 70,
+  "name": "Google News Technology (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 70,
+  "name": "Google News World",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 64,
+  "name": "Google News World (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%22Meta%20AI%22%20%28model%20OR%20research%20OR%20release%20OR%20Llama%29%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 29,
+  "name": "Google News: Meta AI",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22causal+machine+learning%22+OR+%22world+models%22+OR+%22AI+for+science%22+OR+%22cosmology+and+astrophysics%22+OR+%22statistical+physics%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 8,
+  "name": "Google News: interests 4",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22causal+machine+learning%22+OR+%22world+models%22+OR+%22AI+for+science%22+OR+%22cosmology+and+astrophysics%22+OR+%22statistical+physics%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 8,
+  "name": "Google News: interests 4 (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22cognitive+science%22+OR+%22philosophy+of+science%22+OR+%22evolutionary+biology%22+OR+%22linguistics+and+language+evolution%22+OR+%22behavioral+economics%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 13,
+  "name": "Google News: interests 5",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22cognitive+science%22+OR+%22philosophy+of+science%22+OR+%22evolutionary+biology%22+OR+%22linguistics+and+language+evolution%22+OR+%22behavioral+economics%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 12,
+  "name": "Google News: interests 5 (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22economic+history%22+OR+%22earth+science%22+OR+%22international+relations%22+OR+%22technology+policy%22+OR+%22demographics+and+migration%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 62,
+  "name": "Google News: interests 6",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22economic+history%22+OR+%22earth+science%22+OR+%22international+relations%22+OR+%22technology+policy%22+OR+%22demographics+and+migration%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 62,
+  "name": "Google News: interests 6 (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22international+development%22+OR+%22science+and+technology+policy%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 24,
+  "name": "Google News: interests 7",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22international+development%22+OR+%22science+and+technology+policy%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 25,
+  "name": "Google News: interests 7 (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22large+language+models%22+OR+%22evaluation+methodology%22+OR+%22machine+unlearning%22+OR+%22NLP%22+OR+%22AI+systems%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 24,
+  "name": "Google News: interests 1",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22large+language+models%22+OR+%22evaluation+methodology%22+OR+%22machine+unlearning%22+OR+%22NLP%22+OR+%22AI+systems%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 25,
+  "name": "Google News: interests 1 (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22learning+theory%22+OR+%22representation+learning%22+OR+%22efficient+AI%22+OR+%22generative+models%22+OR+%22multimodal+AI%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 12,
+  "name": "Google News: interests 2",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22learning+theory%22+OR+%22representation+learning%22+OR+%22efficient+AI%22+OR+%22generative+models%22+OR+%22multimodal+AI%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 12,
+  "name": "Google News: interests 2 (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22named+CEO%22+OR+%22appointed+CEO%22+OR+%22steps+down+as+CEO%22+OR+%22chief+executive+resigns%22%29+%28bank+OR+tech+OR+global+OR+India%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 18,
+  "name": "Google News: (\"named CEO\" OR \"appointed CEO\" OR \"steps down as CEO\" OR \"chief executive resigns\") (bank OR tech OR global OR India)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22prime+minister%22+OR+president+OR+%22foreign+minister%22+OR+%22finance+minister%22+OR+%22central+bank+governor%22%29+%28resigns+OR+%22sworn+in%22+OR+appointed+OR+ousted+OR+elected%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 56,
+  "name": "Google News: (\"prime minister\" OR president OR \"foreign minister\" OR \"finance minister\" OR \"central bank governor\") (resigns OR \"sworn in\" OR appointed OR ousted OR elected)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22research+methodology%22+OR+%22generalization+and+learning+dynamics%22+OR+%22stability+of+learning+algorithms%22+OR+%22deep+learning+theory%22+OR+%22continual+and+lifelong+learning%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 7,
+  "name": "Google News: interests 3",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28%22research+methodology%22+OR+%22generalization+and+learning+dynamics%22+OR+%22stability+of+learning+algorithms%22+OR+%22deep+learning+theory%22+OR+%22continual+and+lifelong+learning%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 7,
+  "name": "Google News: interests 3 (US)",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=%28leaves+OR+departs+OR+exits+OR+quits+OR+joins+OR+poached%29+%28OpenAI+OR+Google+OR+DeepMind+OR+Apple+OR+Microsoft+OR+Meta+OR+Nvidia+OR+Anthropic+OR+Amazon+OR+Tesla+OR+xAI%29+executive+OR+researcher+OR+chief+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: (leaves OR departs OR exits OR quits OR joins OR poached) (OpenAI OR Google OR DeepMind OR Apple OR Microsoft OR Meta OR Nvidia OR Anthropic OR Amazon OR Tesla OR xAI) executive OR researcher OR chief",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=AI+safety+OR+%22AI+security%22+OR+jailbreak+OR+deepfake+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: AI safety OR \"AI security\" OR jailbreak OR deepfake",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=Anthropic%20%28Claude%20OR%20research%20OR%20release%29%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: Anthropic",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=DeepSeek%20%28model%20OR%20release%20OR%20paper%29%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 28,
+  "name": "Google News: DeepSeek",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=ISRO+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 30,
+  "name": "Google News: ISRO",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=India+foreign+policy+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 27,
+  "name": "Google News: India foreign policy",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=India+science+research+OR+%22higher+education%22+India+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 18,
+  "name": "Google News: India science research OR \"higher education\" India",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=Japan+culture+OR+anime+industry+OR+manga+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 23,
+  "name": "Google News: Japan culture OR anime industry OR manga",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=Nobel+OR+%22Fields+Medal%22+OR+%22Turing+Award%22+OR+%22Breakthrough+Prize%22+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 54,
+  "name": "Google News: Nobel OR \"Fields Medal\" OR \"Turing Award\" OR \"Breakthrough Prize\"",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=Nvidia+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: Nvidia",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=OpenAI+OR+Anthropic+OR+%22Google+DeepMind%22+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: OpenAI OR Anthropic OR \"Google DeepMind\"",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=Qwen%20%28model%20OR%20release%29%20Alibaba%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 9,
+  "name": "Google News: Qwen",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=RBI+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: RBI",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=Sensex+Nifty+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: Sensex Nifty",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=SpaceX+OR+NASA+OR+%22space+mission%22+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: SpaceX OR NASA OR \"space mission\"",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=archaeology+discovery+OR+%22ancient%22+excavation+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 22,
+  "name": "Google News: archaeology discovery OR \"ancient\" excavation",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=artificial+intelligence+policy+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 52,
+  "name": "Google News: artificial intelligence policy",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=climate+change+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: climate change",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=cyberattack+OR+%22data+breach%22+OR+ransomware+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: cyberattack OR \"data breach\" OR ransomware",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=earthquake+OR+flood+OR+cyclone+OR+wildfire+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: earthquake OR flood OR cyclone OR wildfire",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=mathematician+OR+%22maths+prize%22+OR+%22proof%22+mathematics+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 44,
+  "name": "Google News: mathematician OR \"maths prize\" OR \"proof\" mathematics",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=migration+OR+census+OR+education+policy+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 65,
+  "name": "Google News: migration OR census OR education policy",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=museum+exhibition+OR+art+auction+OR+artist+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 28,
+  "name": "Google News: museum exhibition OR art auction OR artist",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=neuroscience+study+OR+brain+research+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 27,
+  "name": "Google News: neuroscience study OR brain research",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=physics+discovery+OR+%22particle+physics%22+OR+%22dark+matter%22+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 33,
+  "name": "Google News: physics discovery OR \"particle physics\" OR \"dark matter\"",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=quantum+computing+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: quantum computing",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=renewable+energy+OR+oil+prices+OR+emissions+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 54,
+  "name": "Google News: renewable energy OR oil prices OR emissions",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=robotics+OR+humanoid+robot+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: robotics OR humanoid robot",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=semiconductor+chips+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 66,
+  "name": "Google News: semiconductor chips",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=site%3Alinkedin.com%20%28%22arxiv.org%22%20OR%20%22new%20model%22%20OR%20%22open%20source%22%20OR%20research%29%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: LinkedIn posts on AI research",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=site%3Ax.com%20%28%22arxiv.org%22%20OR%20released%20OR%20weights%20OR%20%22open%20source%22%29%20%28OpenAI%20OR%20Anthropic%20OR%20DeepMind%20OR%20Meta%20OR%20Mistral%20OR%20DeepSeek%20OR%20Qwen%29%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: X posts on AI releases",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=startup+funding+OR+acquisition+OR+merger+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 55,
+  "name": "Google News: startup funding OR acquisition OR merger",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=summit+OR+sanctions+OR+%22foreign+minister%22+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: summit OR sanctions OR \"foreign minister\"",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=war+OR+ceasefire+OR+airstrike+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google News: war OR ceasefire OR airstrike",
+  "status": "ok"
+ },
+ "https://news.google.com/rss/search?q=xAI%20%28Grok%20OR%20model%20OR%20release%29%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 34,
+  "name": "Google News: xAI",
+  "status": "ok"
+ },
+ "https://news.mit.edu/topic/mitmachine-learning-rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 50,
+  "name": "MIT News: Machine learning",
+  "status": "ok"
+ },
+ "https://nicholas.carlini.com/writing/feed.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 41,
+  "name": "Nicholas Carlini",
+  "status": "ok"
+ },
+ "https://old.reddit.com/r/MachineLearning+LocalLLaMA+LocalLLM+computervision+LanguageTechnology+reinforcementlearning+deeplearning+StableDiffusion/top/.rss?t=day": {
+  "checked": "2026-11-26",
+  "fails": 1,
+  "name": "Reddit ML research",
+  "status": "ParseError"
+ },
+ "https://old.reddit.com/r/artificial+singularity+OpenAI+ClaudeAI+GoogleGeminiAI/top/.rss?t=day": {
+  "checked": "2026-11-26",
+  "fails": 1,
+  "name": "Reddit AI community",
+  "status": "ParseError"
+ },
+ "https://old.reddit.com/r/worldnews+geopolitics+science+economics/top/.rss?t=day": {
+  "checked": "2026-11-26",
+  "fails": 2,
+  "name": "Reddit world and science",
+  "status": "ParseError"
+ },
+ "https://openai.com/news/rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 1430,
+  "name": "OpenAI News",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/aisi-blog.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "AI Security Institute Blog",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/allenai-news.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 9,
+  "name": "Ai2 News",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/anthropic-news.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 88,
+  "name": "Anthropic News",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/anthropic-research.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 60,
+  "name": "Anthropic Research",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/claude-news.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 11,
+  "name": "Claude News",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/cohere-blog.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 15,
+  "name": "Cohere Blog",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/mila-news.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "Mila News",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/mistral-news.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 94,
+  "name": "Mistral News",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/spacex-ai-news.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 93,
+  "name": "xAI News",
+  "status": "ok"
+ },
+ "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/refs/heads/main/feeds/tldr-ai.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 20,
+  "name": "TLDR AI",
+  "status": "ok"
+ },
+ "https://research.google/blog/rss/": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 100,
+  "name": "Google Research Blog",
+  "status": "ok"
+ },
+ "https://simonwillison.net/atom/everything/": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 30,
+  "name": "Simon Willison",
+  "status": "ok"
+ },
+ "https://theconversation.com/africa/articles.atom": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 50,
+  "name": "The Conversation (Africa)",
+  "status": "ok"
+ },
+ "https://theconversation.com/au/articles.atom": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 50,
+  "name": "The Conversation (Australia)",
+  "status": "ok"
+ },
+ "https://theconversation.com/ca/articles.atom": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 50,
+  "name": "The Conversation (Canada)",
+  "status": "ok"
+ },
+ "https://theconversation.com/global/articles.atom": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 49,
+  "name": "The Conversation (Global)",
+  "status": "ok"
+ },
+ "https://theconversation.com/uk/articles.atom": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 50,
+  "name": "The Conversation (UK)",
+  "status": "ok"
+ },
+ "https://theconversation.com/us/articles.atom": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 50,
+  "name": "The Conversation (US)",
+  "status": "ok"
+ },
+ "https://thegradient.pub/rss/": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 15,
+  "name": "The Gradient",
+  "status": "ok"
+ },
+ "https://wandb.ai/fully-connected/rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 50,
+  "name": "Weights & Biases",
+  "status": "ok"
+ },
+ "https://www.alignmentforum.org/feed.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "AI Alignment Forum",
+  "status": "ok"
+ },
+ "https://www.aljazeera.com/xml/rss/all.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 25,
+  "name": "Al Jazeera",
+  "status": "ok"
+ },
+ "https://www.cnbc.com/id/10000664/device/rss/rss.html": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 30,
+  "name": "CNBC Finance",
+  "status": "ok"
+ },
+ "https://www.cnbc.com/id/100727362/device/rss/rss.html": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 30,
+  "name": "CNBC World Markets",
+  "status": "ok"
+ },
+ "https://www.databricks.com/feed": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "Databricks",
+  "status": "ok"
+ },
+ "https://www.interconnects.ai/feed": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 20,
+  "name": "Interconnects (Nathan Lambert)",
+  "status": "ok"
+ },
+ "https://www.latent.space/feed": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 20,
+  "name": "Latent Space",
+  "status": "ok"
+ },
+ "https://www.livemint.com/rss/economy": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 35,
+  "name": "Mint Economy",
+  "status": "ok"
+ },
+ "https://www.livemint.com/rss/markets": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 35,
+  "name": "Mint Markets",
+  "status": "ok"
+ },
+ "https://www.microsoft.com/en-us/research/feed/": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "Microsoft Research",
+  "status": "ok"
+ },
+ "https://www.nature.com/nature.rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 0,
+  "name": "Nature News",
+  "status": "ok"
+ },
+ "https://www.rbi.org.in/pressreleases_rss.xml": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "RBI Press Releases",
+  "status": "ok"
+ },
+ "https://www.reddit.com/r/MachineLearning+LocalLLaMA+LocalLLM+computervision+LanguageTechnology+reinforcementlearning+deeplearning+StableDiffusion/top/.rss?t=day": {
+  "checked": "2026-11-26",
+  "dead_since": "2026-11-26",
+  "fails": 1,
+  "name": "Reddit ML research",
+  "status": "404"
+ },
+ "https://www.reddit.com/r/artificial+singularity+OpenAI+ClaudeAI+GoogleGeminiAI/top/.rss?t=day": {
+  "checked": "2026-11-26",
+  "dead_since": "2026-11-26",
+  "fails": 1,
+  "name": "Reddit AI community",
+  "status": "404"
+ },
+ "https://www.reddit.com/r/worldnews+geopolitics+science+economics/top/.rss?t=day": {
+  "checked": "2026-11-26",
+  "dead_since": "2026-11-26",
+  "fails": 2,
+  "name": "Reddit world and science",
+  "status": "404"
+ },
+ "https://www.technologyreview.com/topic/artificial-intelligence/feed/": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 10,
+  "name": "MIT Technology Review: AI",
+  "status": "ok"
+ },
+ "https://www.theguardian.com/business/rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 19,
+  "name": "The Guardian Business",
+  "status": "ok"
+ },
+ "https://www.theguardian.com/environment/rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 34,
+  "name": "The Guardian Environment",
+  "status": "ok"
+ },
+ "https://www.theguardian.com/science/rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 27,
+  "name": "The Guardian Science",
+  "status": "ok"
+ },
+ "https://www.theguardian.com/technology/rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 36,
+  "name": "The Guardian Technology",
+  "status": "ok"
+ },
+ "https://www.theguardian.com/world/rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 45,
+  "name": "The Guardian World",
+  "status": "ok"
+ },
+ "https://www.thehindu.com/business/feeder/default.rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 60,
+  "name": "The Hindu Business",
+  "status": "ok"
+ },
+ "https://www.thehindu.com/news/international/feeder/default.rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 60,
+  "name": "The Hindu International",
+  "status": "ok"
+ },
+ "https://www.thehindu.com/news/national/feeder/default.rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 60,
+  "name": "The Hindu National",
+  "status": "ok"
+ },
+ "https://www.thehindu.com/sci-tech/feeder/default.rss": {
+  "checked": "2026-11-26",
+  "fails": 0,
+  "items": 60,
+  "name": "The Hindu Sci-Tech",
+  "status": "ok"
+ }
+}

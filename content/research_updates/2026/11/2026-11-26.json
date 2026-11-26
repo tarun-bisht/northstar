@@ -1,0 +1,324 @@
+{
+  "schema": "research_updates",
+  "date": "2026-11-26",
+  "items": [
+    {
+      "id": "ru-2026-11-26-matrix-multiplication-exponent",
+      "title": "Preprint claims the matrix multiplication exponent is 9/4",
+      "kind": "new_result",
+      "what_happened": "A preprint in OpenAI's math repository, dated 24 November, claims the exponent of square matrix multiplication is 9/4 over every field.",
+      "why_it_matters": "Matrix multiplication sits under most of machine learning. A result like this would settle a long-studied bound.",
+      "what_to_watch": "Independent checks by complexity theorists and any published formal verification.",
+      "source": {
+        "name": "OpenAI math repository",
+        "url": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf",
+        "type": "github",
+        "published": "2026-11-25"
+      },
+      "published": "2026-11-25",
+      "research_area": "complexity theory",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "top",
+      "uncertainty": "A new claim. I have not seen independent review. It says nothing about practical speed.",
+      "overview": true
+    },
+    {
+      "id": "ru-2026-11-26-vp-vnp-claims",
+      "title": "Two labs report proofs that VP and VNP are different",
+      "kind": "new_result",
+      "what_happened": "OpenAI posted a preprint claiming VP is not equal to VNP. Posts say Anthropic published its own proof hours earlier.",
+      "why_it_matters": "This is the algebraic cousin of P versus NP, open for decades. It would be a landmark for AI-assisted maths.",
+      "what_to_watch": "Expert review of both proofs and whether they use the same idea.",
+      "source": {
+        "name": "OpenAI math repository",
+        "url": "https://github.com/openai/math/tree/main/preprints/VP-and-VNP-are-different-November-23-2026",
+        "type": "github",
+        "published": "2026-11-24"
+      },
+      "published": "2026-11-24",
+      "research_area": "complexity theory",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "top",
+      "uncertainty": "Claims are fresh and I have not seen independent review.",
+      "overview": true
+    },
+    {
+      "id": "ru-2026-11-26-polynomial-hirsch",
+      "title": "Preprint claims the polynomial Hirsch conjecture is false",
+      "kind": "new_result",
+      "what_happened": "A preprint in OpenAI's math repository claims superpolynomial graph diameter for simple polytopes, which would disprove the conjecture.",
+      "why_it_matters": "The question bears on how fast the simplex method for linear programming could ever be.",
+      "what_to_watch": "Whether optimisation researchers confirm the construction.",
+      "source": {
+        "name": "OpenAI math repository",
+        "url": "https://github.com/openai/math/blob/main/preprints/Superpolynomial-graph-diameter-of-simple-polytopes-November-24-2026/paper.pdf",
+        "type": "github",
+        "published": "2026-11-25"
+      },
+      "published": "2026-11-25",
+      "research_area": "optimisation theory",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "top",
+      "uncertainty": "Not independently reviewed as far as the source shows."
+    },
+    {
+      "id": "ru-2026-11-26-metr-time-horizon",
+      "title": "METR updates its AI task time horizon plot",
+      "kind": "benchmark",
+      "what_happened": "METR reports some capabilities are still rising exponentially, while models are weaker at judgment tasks than at coding.",
+      "why_it_matters": "The plot is widely cited in forecasting and policy, so its limits matter.",
+      "what_to_watch": "The full report's task mix and how judgment tasks are scored.",
+      "source": {
+        "name": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/",
+        "type": "news",
+        "published": "2026-11-20"
+      },
+      "published": "2026-11-20",
+      "research_area": "evaluation",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top"
+    },
+    {
+      "id": "ru-2026-11-26-aisi-attack-policy",
+      "title": "AISI: attack policy choice can mislead monitor evaluations",
+      "kind": "new_result",
+      "what_happened": "The UK AI Security Institute published a case study on how choosing the attack policy can undermine claims that a monitor is reliable.",
+      "why_it_matters": "AI control and monitoring results may look stronger than they are.",
+      "what_to_watch": "Whether monitor papers start reporting how attack policies were chosen.",
+      "source": {
+        "name": "AI Security Institute Blog",
+        "url": "https://www.aisi.gov.uk/blog/attack-policy-selection-can-make-monitor-evaluations-misleading",
+        "type": "lab_blog",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "AI safety evaluation",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "uncertainty": "One case study."
+    },
+    {
+      "id": "ru-2026-11-26-lessons-from-12-evals",
+      "title": "Eugene Yan on where 12 public evals break",
+      "kind": "resource",
+      "what_happened": "Eugene Yan wrote up how benchmarks are built, the bugs they have and what should change.",
+      "why_it_matters": "A practical checklist before trusting or building a benchmark.",
+      "what_to_watch": "Fixes from benchmark maintainers.",
+      "source": {
+        "name": "Eugene Yan",
+        "url": "https://eugeneyan.com/writing/public-evals",
+        "type": "researcher_blog",
+        "published": "2026-11-22"
+      },
+      "published": "2026-11-22",
+      "research_area": "evaluation",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top"
+    },
+    {
+      "id": "ru-2026-11-26-chaos-physics-constraints",
+      "title": "MIT: physics constraints keep chaotic-system models stable",
+      "kind": "new_method",
+      "what_happened": "MIT researchers report that enforcing physics-based constraints stops AI models from making unreliable predictions for complex nonlinear systems.",
+      "why_it_matters": "Relevant to weather, climate and turbulence models and to scientific machine learning.",
+      "what_to_watch": "Tests on longer rollouts and real data.",
+      "source": {
+        "name": "MIT News",
+        "url": "https://news.mit.edu/new-approach-enables-physically-consistent-ai-models-chaotic-systems-1120",
+        "type": "news",
+        "published": "2026-11-20"
+      },
+      "published": "2026-11-20",
+      "research_area": "scientific machine learning",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top"
+    },
+    {
+      "id": "ru-2026-11-26-solomonoff-reflective-oracles",
+      "title": "Solomonoff induction with reflective oracles",
+      "kind": "new_result",
+      "what_happened": "A paper shared on the Alignment Forum studies a version of Solomonoff induction built with reflective oracles.",
+      "why_it_matters": "It suggests self-reflection can help a predictor cope with sources outside its hypothesis class.",
+      "what_to_watch": "Follow-up work in agent foundations.",
+      "source": {
+        "name": "AI Alignment Forum",
+        "url": "https://www.alignmentforum.org/posts/nvrFYAwciyyj9T5ir/solomonoff-induction-with-reflective-oracles",
+        "type": "forum",
+        "published": "2026-11-19"
+      },
+      "published": "2026-11-19",
+      "research_area": "learning theory",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-26-provable-agent-safety",
+      "title": "CMU essay on provable safety for capable agents",
+      "kind": "resource",
+      "what_happened": "A CMU ML Blog post discusses guarantees that keep capable agents open to human correction, such as honouring a stop request.",
+      "why_it_matters": "It frames corrigibility as a property to prove, not only to test.",
+      "what_to_watch": "Whether the guarantees hold under realistic assumptions.",
+      "source": {
+        "name": "CMU ML Blog",
+        "url": "https://blog.ml.cmu.edu/2026/11/19/towards-a-science-of-capable-autonomous-agents-provable-safety-part-ii/",
+        "type": "researcher_blog",
+        "published": "2026-11-19"
+      },
+      "published": "2026-11-19",
+      "research_area": "AI safety",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-26-weight-space-implants",
+      "title": "Agents write small programs into an LLM's weights",
+      "kind": "new_method",
+      "what_happened": "A researcher reports using Claude to write small modules that bolt onto model weights to patch failure modes, shown on Qwen3-0.6B.",
+      "why_it_matters": "A possible route to editable, inspectable fixes without retraining.",
+      "what_to_watch": "Results on larger models and independent reproduction.",
+      "source": {
+        "name": "Bluesky",
+        "url": "https://bsky.app/profile/harsimony.bsky.social/post/3n35rx6izgs2k",
+        "type": "other",
+        "published": "2026-11-25"
+      },
+      "published": "2026-11-25",
+      "research_area": "model editing",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "Self-reported, on a very small model."
+    },
+    {
+      "id": "ru-2026-11-26-adversarial-distillation",
+      "title": "OpenAI describes defences against adversarial distillation",
+      "kind": "lab_announcement",
+      "what_happened": "OpenAI outlined layered defences: model training, safeguards, detection and enforcement against capability extraction.",
+      "why_it_matters": "Shows how labs are treating model outputs as something to protect.",
+      "what_to_watch": "Effects on ordinary research use of APIs.",
+      "source": {
+        "name": "OpenAI",
+        "url": "https://openai.com/index/combatting-adversarial-distillation",
+        "type": "lab_blog",
+        "published": "2026-11-20"
+      },
+      "published": "2026-11-20",
+      "research_area": "security",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-26-medchembench",
+      "title": "MedChemBench tests models on early drug discovery",
+      "kind": "benchmark",
+      "what_happened": "OpenAI introduced a benchmark on reading molecular structures, reasoning from experiments and choosing compounds.",
+      "why_it_matters": "A more applied test of scientific reasoning than quiz questions.",
+      "what_to_watch": "Independent scores across model families.",
+      "source": {
+        "name": "OpenAI",
+        "url": "https://openai.com/index/introducing-medchembench",
+        "type": "lab_blog",
+        "published": "2026-11-20"
+      },
+      "published": "2026-11-20",
+      "research_area": "AI for science",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "Built and reported by a model developer."
+    },
+    {
+      "id": "ru-2026-11-26-rl-rollout-dynamo",
+      "title": "NVIDIA on speeding up RL rollouts",
+      "kind": "tool",
+      "what_happened": "NVIDIA published guidance on reducing inference bottlenecks in reinforcement learning rollouts with Dynamo.",
+      "why_it_matters": "Rollout speed often limits how much RL training is affordable.",
+      "what_to_watch": "Reported gains outside NVIDIA's own setup.",
+      "source": {
+        "name": "NVIDIA Technical Blog",
+        "url": "https://developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo/",
+        "type": "lab_blog",
+        "published": "2026-11-19"
+      },
+      "published": "2026-11-19",
+      "research_area": "RL systems",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-26-one-neural-code",
+      "title": "Multilingual AI points to a shared neural code for meaning",
+      "kind": "new_result",
+      "what_happened": "An MIT study of speakers of 21 languages finds the brain may represent meaning in much the same way across them.",
+      "why_it_matters": "A neat link between language models and neuroscience.",
+      "what_to_watch": "Replication with more languages and other imaging methods.",
+      "source": {
+        "name": "MIT News",
+        "url": "https://news.mit.edu/2026/many-languages-one-common-neural-code-1123",
+        "type": "news",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "neuroscience",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "more",
+      "uncertainty": "The source words this as 'may'."
+    },
+    {
+      "id": "ru-2026-11-26-anthropic-working-with-ai",
+      "title": "Anthropic interviews 58 companies on AI and work",
+      "kind": "new_result",
+      "what_happened": "Interviewed firms described few layoffs but reduced hiring, and said the most valuable uses often came from reorganising roles.",
+      "why_it_matters": "Qualitative evidence on how deployment changes work.",
+      "what_to_watch": "Whether labour data shows the same hiring pattern.",
+      "source": {
+        "name": "Anthropic Research",
+        "url": "https://www.anthropic.com/research/working-with-ai",
+        "type": "lab_blog",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "societal impact",
+      "dimensions": [
+        "research",
+        "world"
+      ],
+      "priority": "more",
+      "uncertainty": "A vendor study of its own customers."
+    }
+  ],
+  "generated_at": "2026-11-26T03:53:16Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Built from the fetched updates file. X and LinkedIn searches returned no usable new posts today."
+}

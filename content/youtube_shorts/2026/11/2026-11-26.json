@@ -1,0 +1,1025 @@
+{
+  "schema": "youtube_shorts",
+  "date": "2026-11-26",
+  "items": [
+    {
+      "id": "yt-CcxvNoKVZPk",
+      "video_id": "CcxvNoKVZPk",
+      "title": "What Is a Derivative, Really? The Puzzle That Invented Calculus #calculus #maths",
+      "channel": {
+        "name": "calculusphile",
+        "id": "UC4ycvZtDfjoi42zpnS-FyXg"
+      },
+      "url": "https://www.youtube.com/shorts/CcxvNoKVZPk",
+      "embed_url": "https://www.youtube.com/embed/CcxvNoKVZPk",
+      "thumbnail": "https://i.ytimg.com/vi/CcxvNoKVZPk/hqdefault.jpg",
+      "duration_seconds": 175,
+      "published": "2026-11-14",
+      "topic": "calculus: what a derivative is",
+      "category": "mathematics",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "why_it_matches": "Builds the derivative from secant lines to the tangent, one step at a time.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "established",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-r9Wk5DEuf3A",
+      "video_id": "r9Wk5DEuf3A",
+      "title": "Why can't your hands pass through each other? (Answer: Quantum mechanics)",
+      "channel": {
+        "name": "FloatHeadPhysics",
+        "id": "UCGfFUc6eWxfbtjYeun6r9xg"
+      },
+      "url": "https://www.youtube.com/shorts/r9Wk5DEuf3A",
+      "embed_url": "https://www.youtube.com/embed/r9Wk5DEuf3A",
+      "thumbnail": "https://i.ytimg.com/vi/r9Wk5DEuf3A/hqdefault.jpg",
+      "duration_seconds": 172,
+      "published": "2026-11-21",
+      "topic": "quantum mechanics: spin and exclusion",
+      "category": "physics",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "why_it_matches": "Links electron spin and the Pauli principle to why your hand does not pass through a chair.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-rCXE-2tZ3_k",
+      "video_id": "rCXE-2tZ3_k",
+      "title": "The Tiny Bat That Folds a Leaf Into a Tent 🦇 #shorts #wildlife #naturedocumentary",
+      "channel": {
+        "name": "Animal Architects",
+        "id": "UCpT8pUeu2ZtBpNjTWoHhnTA"
+      },
+      "url": "https://www.youtube.com/shorts/rCXE-2tZ3_k",
+      "embed_url": "https://www.youtube.com/embed/rCXE-2tZ3_k",
+      "thumbnail": "https://i.ytimg.com/vi/rCXE-2tZ3_k/hqdefault.jpg",
+      "duration_seconds": 68,
+      "published": "2026-11-21",
+      "topic": "animal architecture: tent-making bats",
+      "category": "nature",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "why_it_matches": "How the Honduran white bat cuts a leaf so it folds into a tent.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "exploration",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-ZZdeyQpghL4",
+      "video_id": "ZZdeyQpghL4",
+      "title": "Stop thinking there's a gap between 0.999… and 1 #math #learning",
+      "channel": {
+        "name": "The Oddly Rational Pi",
+        "id": "UCRv4vaYEyJvMHHWpPNWRUuQ"
+      },
+      "url": "https://www.youtube.com/shorts/ZZdeyQpghL4",
+      "embed_url": "https://www.youtube.com/embed/ZZdeyQpghL4",
+      "thumbnail": "https://i.ytimg.com/vi/ZZdeyQpghL4/hqdefault.jpg",
+      "duration_seconds": 48,
+      "published": "2026-11-24",
+      "topic": "limits: why 0.999... equals 1",
+      "category": "mathematics",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "why_it_matches": "A short proof that there is no gap between 0.999... and 1.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "established",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-VmIbSogKW6E",
+      "video_id": "VmIbSogKW6E",
+      "title": "Onake Obavva: मूसल से रोकी हैदर अली की सेना! 😱 #short",
+      "channel": {
+        "name": "Past Unlocked",
+        "id": "UCHZeS4jNqow_7DTM_uktiTQ"
+      },
+      "url": "https://www.youtube.com/shorts/VmIbSogKW6E",
+      "embed_url": "https://www.youtube.com/embed/VmIbSogKW6E",
+      "thumbnail": "https://i.ytimg.com/vi/VmIbSogKW6E/hqdefault.jpg",
+      "duration_seconds": 61,
+      "published": "2026-11-23",
+      "topic": "Indian history: Onake Obavva",
+      "category": "history",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "why_it_matches": "The story of a woman who defended a narrow gap in Chitradurga fort with a pestle.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "hi",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-fPHpPFG9dQ4",
+      "video_id": "fPHpPFG9dQ4",
+      "title": "these spinning circles are drawing a bass clef 🎼",
+      "channel": {
+        "name": "The Overtone Series",
+        "id": "UCQVjp_JW5RqbwQpTuSXjuUA"
+      },
+      "url": "https://www.youtube.com/shorts/fPHpPFG9dQ4",
+      "embed_url": "https://www.youtube.com/embed/fPHpPFG9dQ4",
+      "thumbnail": "https://i.ytimg.com/vi/fPHpPFG9dQ4/hqdefault.jpg",
+      "duration_seconds": 16,
+      "published": "2026-11-23",
+      "topic": "Fourier transform drawing with circles",
+      "category": "mathematics",
+      "dimensions": [
+        "research",
+        "curiosity"
+      ],
+      "why_it_matches": "Shows how more Fourier terms close the gap to a drawn shape.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "established",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-MeG-wS8tC4c",
+      "video_id": "MeG-wS8tC4c",
+      "title": "Improve Your Communication FAST",
+      "channel": {
+        "name": "Vinh Giang",
+        "id": "UC9K9Wnz6t4cLnCdTzAVrXqQ"
+      },
+      "url": "https://www.youtube.com/shorts/MeG-wS8tC4c",
+      "embed_url": "https://www.youtube.com/embed/MeG-wS8tC4c",
+      "thumbnail": "https://i.ytimg.com/vi/MeG-wS8tC4c/hqdefault.jpg",
+      "duration_seconds": 56,
+      "published": "2026-11-06",
+      "topic": "speaking practice: record and review yourself",
+      "category": "communication",
+      "dimensions": [
+        "people"
+      ],
+      "why_it_matches": "A concrete exercise: record yourself, then review voice, body language and words separately.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-GxDk2vsyr0s",
+      "video_id": "GxDk2vsyr0s",
+      "title": "I created a brain in a beaker #science #experiment #chemistry #shorts",
+      "channel": {
+        "name": "Tommy Technetium",
+        "id": "UC6rrBCCDvrDFcOJHifruL5A"
+      },
+      "url": "https://www.youtube.com/shorts/GxDk2vsyr0s",
+      "embed_url": "https://www.youtube.com/embed/GxDk2vsyr0s",
+      "thumbnail": "https://i.ytimg.com/vi/GxDk2vsyr0s/hqdefault.jpg",
+      "duration_seconds": 65,
+      "published": "2026-10-10",
+      "topic": "gel chemistry experiment",
+      "category": "chemistry",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "why_it_matches": "Explains why antacid in acid forms a floating gel, with safety notes.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "exploration",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-b1j181SFkQQ",
+      "video_id": "b1j181SFkQQ",
+      "title": "Shoes before socks? | Topological Sort #Shorts",
+      "channel": {
+        "name": "One Algorithm a Day",
+        "id": "UCt1cqAXeDXJ2jNr-nsE0j4g"
+      },
+      "url": "https://www.youtube.com/shorts/b1j181SFkQQ",
+      "embed_url": "https://www.youtube.com/embed/b1j181SFkQQ",
+      "thumbnail": "https://i.ytimg.com/vi/b1j181SFkQQ/hqdefault.jpg",
+      "duration_seconds": 120,
+      "published": "2026-11-22",
+      "topic": "topological sort",
+      "category": "algorithms",
+      "dimensions": [
+        "research"
+      ],
+      "why_it_matches": "Explains ordering tasks with prerequisites using an everyday getting-dressed example.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "established",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-JczVA-sFH2g",
+      "video_id": "JczVA-sFH2g",
+      "title": "Understanding Emotional Intelligence",
+      "channel": {
+        "name": "Think Sharper Today",
+        "id": "UC8s6H0ODJLH1uyT-8oPyYcg"
+      },
+      "url": "https://www.youtube.com/shorts/JczVA-sFH2g",
+      "embed_url": "https://www.youtube.com/embed/JczVA-sFH2g",
+      "thumbnail": "https://i.ytimg.com/vi/JczVA-sFH2g/hqdefault.jpg",
+      "duration_seconds": 142,
+      "published": "2026-11-20",
+      "topic": "emotion and decision making",
+      "category": "neuroscience",
+      "dimensions": [
+        "people",
+        "knowledge"
+      ],
+      "why_it_matches": "Uses Damasio's patient studies to ask what feelings add to reasoning.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-l6h9K1m0Cc4",
+      "video_id": "l6h9K1m0Cc4",
+      "title": "बूढ़ी होकर फिर बच्ची बन जाती है! 🪼 अमर जेलीफ़िश का राज़ #shorts",
+      "channel": {
+        "name": "Khoj Pothi | खोज पोथी",
+        "id": "UCN4Osvb7sRve5MTKV89hoPg"
+      },
+      "url": "https://www.youtube.com/shorts/l6h9K1m0Cc4",
+      "embed_url": "https://www.youtube.com/embed/l6h9K1m0Cc4",
+      "thumbnail": "https://i.ytimg.com/vi/l6h9K1m0Cc4/hqdefault.jpg",
+      "duration_seconds": 136,
+      "published": "2026-11-03",
+      "topic": "the so-called immortal jellyfish",
+      "category": "biology",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "why_it_matches": "Explains how one jellyfish returns to its young stage and asks whether that is really immortality.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "hi",
+      "tier": "exploration",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-sT8PVUa6Sxo",
+      "video_id": "sT8PVUa6Sxo",
+      "title": "Episode 06: Eigenvalues & Eigenvectors (Vectors That Refuse to Turn) #shorts #ai #math #byteai",
+      "channel": {
+        "name": "Byte",
+        "id": "UCLtB26B-0zcGimh8cq0N9Kg"
+      },
+      "url": "https://www.youtube.com/shorts/sT8PVUa6Sxo",
+      "embed_url": "https://www.youtube.com/embed/sT8PVUa6Sxo",
+      "thumbnail": "https://i.ytimg.com/vi/sT8PVUa6Sxo/hqdefault.jpg",
+      "duration_seconds": 45,
+      "published": "2026-11-04",
+      "topic": "eigenvectors, visual intuition",
+      "category": "mathematics",
+      "dimensions": [
+        "research"
+      ],
+      "why_it_matches": "A picture of eigenvectors as directions a matrix does not turn.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "established",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-N94jI1qEDAg",
+      "video_id": "N94jI1qEDAg",
+      "title": "Every note secretly contains a chord. #musictheory #music #piano #physics #harmonics",
+      "channel": {
+        "name": "MichaelsMusicMind",
+        "id": "UCN9B4503-Z7WWPOCm9BEaqQ"
+      },
+      "url": "https://www.youtube.com/shorts/N94jI1qEDAg",
+      "embed_url": "https://www.youtube.com/embed/N94jI1qEDAg",
+      "thumbnail": "https://i.ytimg.com/vi/N94jI1qEDAg/hqdefault.jpg",
+      "duration_seconds": 93,
+      "published": "2026-10-01",
+      "topic": "harmonics and chords",
+      "category": "music",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "why_it_matches": "Connects the physics of a vibrating string to why a major chord sounds natural.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-HBz41yE1enM",
+      "video_id": "HBz41yE1enM",
+      "title": "Why Is This Country Inside Another Country? 🌍 #geography #shorts #facts",
+      "channel": {
+        "name": "WhyHereMaps",
+        "id": "UCpsVFSKYgKQ0R5zc4jXUpqA"
+      },
+      "url": "https://www.youtube.com/shorts/HBz41yE1enM",
+      "embed_url": "https://www.youtube.com/embed/HBz41yE1enM",
+      "thumbnail": "https://i.ytimg.com/vi/HBz41yE1enM/hqdefault.jpg",
+      "duration_seconds": 93,
+      "published": "2026-10-21",
+      "topic": "why The Gambia sits inside Senegal",
+      "category": "geography",
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "why_it_matches": "A map story about how colonial rivalry shaped a border.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "exploration",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-nSrUfiV1h6A",
+      "video_id": "nSrUfiV1h6A",
+      "title": "Why a $5 Calculator Uses Rocket Science",
+      "channel": {
+        "name": "OverEngineered Lab",
+        "id": "UCOpVYXyaLTLej4eYjJJk2fA"
+      },
+      "url": "https://www.youtube.com/shorts/nSrUfiV1h6A",
+      "embed_url": "https://www.youtube.com/embed/nSrUfiV1h6A",
+      "thumbnail": "https://i.ytimg.com/vi/nSrUfiV1h6A/hqdefault.jpg",
+      "duration_seconds": 75,
+      "published": "2026-11-25",
+      "topic": "how a calculator computes, including CORDIC",
+      "category": "computing",
+      "dimensions": [
+        "research",
+        "curiosity"
+      ],
+      "why_it_matches": "Shows how simple hardware gets sine and cosine using mostly addition.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "established",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-H2AFP4uCqt0",
+      "video_id": "H2AFP4uCqt0",
+      "title": "If today repeated forever, would you be okay? #philosophy #shorts",
+      "channel": {
+        "name": "Leo vs Philosophy",
+        "id": "UCKYgZOrhlbkoMbnzAUnhKBw"
+      },
+      "url": "https://www.youtube.com/shorts/H2AFP4uCqt0",
+      "embed_url": "https://www.youtube.com/embed/H2AFP4uCqt0",
+      "thumbnail": "https://i.ytimg.com/vi/H2AFP4uCqt0/hqdefault.jpg",
+      "duration_seconds": 21,
+      "published": "2026-10-27",
+      "topic": "Nietzsche: eternal recurrence",
+      "category": "philosophy",
+      "dimensions": [
+        "knowledge",
+        "people"
+      ],
+      "why_it_matches": "Puts a famous thought experiment as one question to think over.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-R9PUluilMaQ",
+      "video_id": "R9PUluilMaQ",
+      "title": "In Japanese, Sun + Moon = ? ☀️🌙 #japan #kanji  #shorts",
+      "channel": {
+        "name": "Japan, Seriously?!",
+        "id": "UCIYbOlcKxnQMoujvH2sod1g"
+      },
+      "url": "https://www.youtube.com/shorts/R9PUluilMaQ",
+      "embed_url": "https://www.youtube.com/embed/R9PUluilMaQ",
+      "thumbnail": "https://i.ytimg.com/vi/R9PUluilMaQ/hqdefault.jpg",
+      "duration_seconds": 22,
+      "published": "2026-11-23",
+      "topic": "Japanese: kanji built from parts",
+      "category": "language learning",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "why_it_matches": "A beginner Japanese look in English at how small kanji combine into new ones.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-UfO4f_Uh-Eg",
+      "video_id": "UfO4f_Uh-Eg",
+      "title": "The Unit Circle Explained 🔵 | Sine, Cosine, Angles & Trigonometry #mathshorts #unitcircle #maths",
+      "channel": {
+        "name": "codematrixvishal",
+        "id": "UC3pDzpjVbCnU-k8YPbcNKWw"
+      },
+      "url": "https://www.youtube.com/shorts/UfO4f_Uh-Eg",
+      "embed_url": "https://www.youtube.com/embed/UfO4f_Uh-Eg",
+      "thumbnail": "https://i.ytimg.com/vi/UfO4f_Uh-Eg/hqdefault.jpg",
+      "duration_seconds": 17,
+      "published": "2026-10-13",
+      "topic": "unit circle, sine and cosine",
+      "category": "mathematics",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "why_it_matches": "A quick visual refresher on how angles give sine and cosine.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "established",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-Cd_qqURtVfk",
+      "video_id": "Cd_qqURtVfk",
+      "title": "Why Ancient Greeks Built Giant Underwater Stone Cones? #shorts  #ancientengineering  #history",
+      "channel": {
+        "name": "Engineering the Ancients",
+        "id": "UCtsescT_NaLZoHlZdl9N0YQ"
+      },
+      "url": "https://www.youtube.com/shorts/Cd_qqURtVfk",
+      "embed_url": "https://www.youtube.com/embed/Cd_qqURtVfk",
+      "thumbnail": "https://i.ytimg.com/vi/Cd_qqURtVfk/hqdefault.jpg",
+      "duration_seconds": 134,
+      "published": "2026-11-23",
+      "topic": "Greek underwater stone structures",
+      "category": "ancient engineering",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "why_it_matches": "Looks at an unusual piece of ancient coastal engineering and how it may have worked.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "exploration",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-YVJt80GV7XY",
+      "video_id": "YVJt80GV7XY",
+      "title": "Quantum Model of the Atom: Why Atoms Don't Collapse",
+      "channel": {
+        "name": "SoYa Science",
+        "id": "UCDWA84SVLyPdKIYVI3UC-Sg"
+      },
+      "url": "https://www.youtube.com/shorts/YVJt80GV7XY",
+      "embed_url": "https://www.youtube.com/embed/YVJt80GV7XY",
+      "thumbnail": "https://i.ytimg.com/vi/YVJt80GV7XY/hqdefault.jpg",
+      "duration_seconds": 54,
+      "published": "2026-11-01",
+      "topic": "why atoms do not collapse",
+      "category": "physics",
+      "dimensions": [
+        "knowledge"
+      ],
+      "why_it_matches": "Explains why treating the electron as a wave keeps atoms stable.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-l4tio9aRgMY",
+      "video_id": "l4tio9aRgMY",
+      "title": "एक हादसे ने बदल दी कारों की सुरक्षा! | Airbag की कहानी #shorts",
+      "channel": {
+        "name": "LVK",
+        "id": "UCqyPVuAkLLvL94wSYyYUDgA"
+      },
+      "url": "https://www.youtube.com/shorts/l4tio9aRgMY",
+      "embed_url": "https://www.youtube.com/embed/l4tio9aRgMY",
+      "thumbnail": "https://i.ytimg.com/vi/l4tio9aRgMY/hqdefault.jpg",
+      "duration_seconds": 89,
+      "published": "2026-11-25",
+      "topic": "how the car airbag came about",
+      "category": "invention history",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "why_it_matches": "Traces the airbag from an early idea to crash sensors and gas inflation.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "hi",
+      "tier": "exploration",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-Y_J4Sj_QRqs",
+      "video_id": "Y_J4Sj_QRqs",
+      "title": "The One Math Concept Every Game Dev Needs",
+      "channel": {
+        "name": "gr8gdev",
+        "id": "UCRnVbA_tbf-_1QYZWgMgvww"
+      },
+      "url": "https://www.youtube.com/shorts/Y_J4Sj_QRqs",
+      "embed_url": "https://www.youtube.com/embed/Y_J4Sj_QRqs",
+      "thumbnail": "https://i.ytimg.com/vi/Y_J4Sj_QRqs/hqdefault.jpg",
+      "duration_seconds": 37,
+      "published": "2026-10-17",
+      "topic": "vectors in game development",
+      "category": "mathematics",
+      "dimensions": [
+        "research",
+        "curiosity"
+      ],
+      "why_it_matches": "Shows what vectors do in movement and physics inside games.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "established",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-joMjXmQpliU",
+      "video_id": "joMjXmQpliU",
+      "title": "Look closely at the painting of this silk | Carolus-Duran 🔍 #arthistory",
+      "channel": {
+        "name": "Simon Claridge: Look Closely",
+        "id": "UCIck5bk4paXjmznf5z2-xoQ"
+      },
+      "url": "https://www.youtube.com/shorts/joMjXmQpliU",
+      "embed_url": "https://www.youtube.com/embed/joMjXmQpliU",
+      "thumbnail": "https://i.ytimg.com/vi/joMjXmQpliU/hqdefault.jpg",
+      "duration_seconds": 20,
+      "published": "2026-11-18",
+      "topic": "looking closely at Carolus-Duran's brushwork",
+      "category": "art history",
+      "dimensions": [
+        "culture"
+      ],
+      "why_it_matches": "Teaches close looking at the painting style a young Sargent learned.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-HsQ1YcPdAcY",
+      "video_id": "HsQ1YcPdAcY",
+      "title": "The Bird That Builds an Oven and Tests It With Its Beak 🐦 #shorts #wildlife #naturedocumentary",
+      "channel": {
+        "name": "Animal Architects",
+        "id": "UCpT8pUeu2ZtBpNjTWoHhnTA"
+      },
+      "url": "https://www.youtube.com/shorts/HsQ1YcPdAcY",
+      "embed_url": "https://www.youtube.com/embed/HsQ1YcPdAcY",
+      "thumbnail": "https://i.ytimg.com/vi/HsQ1YcPdAcY/hqdefault.jpg",
+      "duration_seconds": 61,
+      "published": "2026-11-20",
+      "topic": "the malleefowl's compost incubator",
+      "category": "nature",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "why_it_matches": "A bird that controls the temperature of a huge mound to hatch its eggs.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "exploration",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-pS7B2-4TfIM",
+      "video_id": "pS7B2-4TfIM",
+      "title": "Sum vs Integration Explained Visually | Riemann Sum, Area Under Curve & Calculus #integration #area",
+      "channel": {
+        "name": "codematrixvishal",
+        "id": "UC3pDzpjVbCnU-k8YPbcNKWw"
+      },
+      "url": "https://www.youtube.com/shorts/pS7B2-4TfIM",
+      "embed_url": "https://www.youtube.com/embed/pS7B2-4TfIM",
+      "thumbnail": "https://i.ytimg.com/vi/pS7B2-4TfIM/hqdefault.jpg",
+      "duration_seconds": 16,
+      "published": "2026-10-15",
+      "topic": "Riemann sums and integration",
+      "category": "mathematics",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "why_it_matches": "Shows rectangles closing in on the area under a curve.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "established",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-sQwpQ6nKD_0",
+      "video_id": "sQwpQ6nKD_0",
+      "title": "Socrates’ Trick for Questioning Any Opinion #socrates  #philosophy  #criticalthinking  #history #fac",
+      "channel": {
+        "name": "ben",
+        "id": "UCXrLYgI6iL5fftj3dr92j8g"
+      },
+      "url": "https://www.youtube.com/shorts/sQwpQ6nKD_0",
+      "embed_url": "https://www.youtube.com/embed/sQwpQ6nKD_0",
+      "thumbnail": "https://i.ytimg.com/vi/sQwpQ6nKD_0/hqdefault.jpg",
+      "duration_seconds": 50,
+      "published": "2026-11-11",
+      "topic": "Socratic questioning",
+      "category": "philosophy",
+      "dimensions": [
+        "knowledge",
+        "people"
+      ],
+      "why_it_matches": "A small example of testing definitions and assumptions in a conversation.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-046ZoVcWSZs",
+      "video_id": "046ZoVcWSZs",
+      "title": "This Japanese pronunciation trick trips up almost every beginner 🤏",
+      "channel": {
+        "name": "Yomikai",
+        "id": "UCk9VQK_OXwo-b7SCVn4spPQ"
+      },
+      "url": "https://www.youtube.com/shorts/046ZoVcWSZs",
+      "embed_url": "https://www.youtube.com/embed/046ZoVcWSZs",
+      "thumbnail": "https://i.ytimg.com/vi/046ZoVcWSZs/hqdefault.jpg",
+      "duration_seconds": 16,
+      "published": "2026-11-16",
+      "topic": "Japanese: the small tsu pause",
+      "category": "language learning",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "why_it_matches": "A beginner Japanese pronunciation lesson in English with word pairs to say aloud.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-hAxbD1hzOzI",
+      "video_id": "hAxbD1hzOzI",
+      "title": "क्या आत्मा एक है या अनंत? महर्षि कपिल का चौंकाने वाला सिद्धांत | सांख्य दर्शन",
+      "channel": {
+        "name": "SpiritualConce",
+        "id": "UCYT7DuabLROeUJoYg0t14Wg"
+      },
+      "url": "https://www.youtube.com/shorts/hAxbD1hzOzI",
+      "embed_url": "https://www.youtube.com/embed/hAxbD1hzOzI",
+      "thumbnail": "https://i.ytimg.com/vi/hAxbD1hzOzI/hqdefault.jpg",
+      "duration_seconds": 141,
+      "published": "2026-11-23",
+      "topic": "Samkhya: one self or many",
+      "category": "philosophy",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "why_it_matches": "Introduces the Samkhya argument for many conscious selves in Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "hi",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-7dbtk0BwS3M",
+      "video_id": "7dbtk0BwS3M",
+      "title": "This $0.10 Soda Can Is More Overengineered Than a Skyscraper",
+      "channel": {
+        "name": "OverEngineered Lab",
+        "id": "UCOpVYXyaLTLej4eYjJJk2fA"
+      },
+      "url": "https://www.youtube.com/shorts/7dbtk0BwS3M",
+      "embed_url": "https://www.youtube.com/embed/7dbtk0BwS3M",
+      "thumbnail": "https://i.ytimg.com/vi/7dbtk0BwS3M/hqdefault.jpg",
+      "duration_seconds": 54,
+      "published": "2026-11-24",
+      "topic": "design of the drink can",
+      "category": "engineering",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "why_it_matches": "Shows the reasons behind the shape of an everyday object.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "exploration",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-kT_prrXllO8",
+      "video_id": "kT_prrXllO8",
+      "title": "The Monster Function That Broke Calculus. The Curve With Zero Tangent Lines.",
+      "channel": {
+        "name": "MAGPIEHUB",
+        "id": "UC7k18a-lja4LIJdj6cxd0HA"
+      },
+      "url": "https://www.youtube.com/shorts/kT_prrXllO8",
+      "embed_url": "https://www.youtube.com/embed/kT_prrXllO8",
+      "thumbnail": "https://i.ytimg.com/vi/kT_prrXllO8/hqdefault.jpg",
+      "duration_seconds": 13,
+      "published": "2026-10-25",
+      "topic": "analysis: the Weierstrass function",
+      "category": "mathematics",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "why_it_matches": "A curve that is continuous everywhere and smooth nowhere.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-PRjkio1Xlq8",
+      "video_id": "PRjkio1Xlq8",
+      "title": "How Did Romans Turn Water Into Flour 2,000 Years Ago? #shorts",
+      "channel": {
+        "name": "How They Make It",
+        "id": "UCQD09CFzMUyF0orWeYquipA"
+      },
+      "url": "https://www.youtube.com/shorts/PRjkio1Xlq8",
+      "embed_url": "https://www.youtube.com/embed/PRjkio1Xlq8",
+      "thumbnail": "https://i.ytimg.com/vi/PRjkio1Xlq8/hqdefault.jpg",
+      "duration_seconds": 77,
+      "published": "2026-11-25",
+      "topic": "Roman watermill gears",
+      "category": "history of technology",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "why_it_matches": "Shows how wooden gears turned the motion of a waterwheel to drive a millstone.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-kP3JbiTfN64",
+      "video_id": "kP3JbiTfN64",
+      "title": "🔥 Overheating of the Economy Explained | GDP Formula & Inflation #economy",
+      "channel": {
+        "name": "Mrunal Patel Unacademy",
+        "id": "UCwDfgcUkKKTxPozU9UnQ8Pw"
+      },
+      "url": "https://www.youtube.com/shorts/kP3JbiTfN64",
+      "embed_url": "https://www.youtube.com/embed/kP3JbiTfN64",
+      "thumbnail": "https://i.ytimg.com/vi/kP3JbiTfN64/hqdefault.jpg",
+      "duration_seconds": 143,
+      "published": "2026-10-21",
+      "topic": "what an overheating economy means",
+      "category": "economics",
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "why_it_matches": "A Hindi explanation of GDP, demand and inflation. It comes from an exam coaching channel.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "hi",
+      "tier": "exploration",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-hdZkLMdbj2w",
+      "video_id": "hdZkLMdbj2w",
+      "title": "बस यात्रा तेलुगु में | Bus Travel in Telugu|Learn Telugu Through Hindi|Spoken Telugu #shorts #telugu",
+      "channel": {
+        "name": "Nagmani Bongi",
+        "id": "UCJhk3vNW5_vekViVft-UzAQ"
+      },
+      "url": "https://www.youtube.com/shorts/hdZkLMdbj2w",
+      "embed_url": "https://www.youtube.com/embed/hdZkLMdbj2w",
+      "thumbnail": "https://i.ytimg.com/vi/hdZkLMdbj2w/hqdefault.jpg",
+      "duration_seconds": 8,
+      "published": "2026-11-12",
+      "topic": "Telugu: bus travel words",
+      "category": "language learning",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "why_it_matches": "Beginner Telugu travel words taught through Hindi.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "hi",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    },
+    {
+      "id": "yt-uayUk1kpf0c",
+      "video_id": "uayUk1kpf0c",
+      "title": "Is the Boundary of a Set Always Closed? | Topology Short",
+      "channel": {
+        "name": "Clear Math with Prof. Muna",
+        "id": "UC5L7ZcFWgHmx7x9SmNs8Xcw"
+      },
+      "url": "https://www.youtube.com/shorts/uayUk1kpf0c",
+      "embed_url": "https://www.youtube.com/embed/uayUk1kpf0c",
+      "thumbnail": "https://i.ytimg.com/vi/uayUk1kpf0c/hqdefault.jpg",
+      "duration_seconds": 53,
+      "published": "2026-10-17",
+      "topic": "topology: the boundary of a set",
+      "category": "mathematics",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "why_it_matches": "One definition and one example showing why a boundary is always closed.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "language": "en",
+      "tier": "growth",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-26T03:10:44Z"
+      }
+    }
+  ],
+  "generated_at": "2026-11-26T03:50:34Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Few good AI or machine learning shorts in today's candidates, so established picks are mostly maths and computing.",
+  "candidates_considered": 865
+}

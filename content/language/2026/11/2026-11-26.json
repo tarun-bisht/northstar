@@ -1,0 +1,98 @@
+{
+  "schema": "language",
+  "date": "2026-11-26",
+  "items": [
+    {
+      "id": "lang-2026-11-26",
+      "language": "japanese",
+      "title": "Greetings through the day",
+      "theme": "greetings: morning, daytime, evening and thanks",
+      "minutes": 5,
+      "phrases": [
+        {
+          "text": "おはようございます",
+          "romanization": "ohayō gozaimasu",
+          "meaning": "good morning (polite)",
+          "note": "With friends, just おはよう (ohayō)."
+        },
+        {
+          "text": "こんにちは",
+          "romanization": "konnichiwa",
+          "meaning": "hello, good afternoon",
+          "note": "Use it from late morning until early evening."
+        },
+        {
+          "text": "こんばんは",
+          "romanization": "konbanwa",
+          "meaning": "good evening"
+        },
+        {
+          "text": "ありがとうございます",
+          "romanization": "arigatō gozaimasu",
+          "meaning": "thank you (polite)"
+        },
+        {
+          "text": "お元気ですか",
+          "romanization": "o-genki desu ka",
+          "meaning": "how are you? (literally: are you well?)",
+          "note": "Used when you haven't seen someone for a while, not every day."
+        },
+        {
+          "text": "元気です",
+          "romanization": "genki desu",
+          "meaning": "I'm fine, I'm well"
+        }
+      ],
+      "dialogue": [
+        {
+          "text": "こんばんは、田中さん。",
+          "romanization": "Konbanwa, Tanaka-san.",
+          "meaning": "Good evening, Mr or Ms Tanaka."
+        },
+        {
+          "text": "あ、こんばんは。お元気ですか。",
+          "romanization": "A, konbanwa. O-genki desu ka.",
+          "meaning": "Oh, good evening. How are you?"
+        },
+        {
+          "text": "はい、元気です。ありがとうございます。",
+          "romanization": "Hai, genki desu. Arigatō gozaimasu.",
+          "meaning": "Yes, I'm well. Thank you."
+        },
+        {
+          "text": "よかったです。",
+          "romanization": "Yokatta desu.",
+          "meaning": "I'm glad to hear that."
+        }
+      ],
+      "practice": [
+        {
+          "question": "It's 8 a.m. and you meet your neighbour. What do you say?",
+          "answer": "おはようございます (ohayō gozaimasu)"
+        },
+        {
+          "question": "Someone asks お元気ですか (o-genki desu ka). How do you reply politely?",
+          "answer": "はい、元気です。ありがとうございます。(Hai, genki desu. Arigatō gozaimasu.)",
+          "hint": "yes + I'm fine + thank you"
+        },
+        {
+          "question": "It's 7 p.m. How do you greet a shop owner?",
+          "answer": "こんばんは (konbanwa)"
+        },
+        {
+          "question": "Why add さん (san) after Tanaka?",
+          "answer": "It is a polite title, like Mr or Ms. Never use it with your own name."
+        }
+      ],
+      "say_aloud": "Say the right greeting for right now, then add ありがとうございます (arigatō gozaimasu). Say both three times, slowly.",
+      "tier": "growth",
+      "dimensions": [
+        "people",
+        "culture"
+      ]
+    }
+  ],
+  "generated_at": "2026-11-26T03:51:59Z",
+  "generator": "claude-scheduled-task",
+  "notes": "First daily pack, so it starts with survival basics: greetings through the day. No listening resource added, because none was found and verified in this run."
+}

@@ -1,5 +1,335 @@
 {
   "_doc": "Derived. Used to avoid repeating videos and over-using creators.",
-  "videos": {},
-  "creators": {}
+  "videos": {
+    "046ZoVcWSZs": {
+      "date": "2026-11-26",
+      "channel": "Yomikai",
+      "title": "This Japanese pronunciation trick trips up almost every beginner 🤏",
+      "category": "language learning"
+    },
+    "7dbtk0BwS3M": {
+      "date": "2026-11-26",
+      "channel": "OverEngineered Lab",
+      "title": "This $0.10 Soda Can Is More Overengineered Than a Skyscraper",
+      "category": "engineering"
+    },
+    "CcxvNoKVZPk": {
+      "date": "2026-11-26",
+      "channel": "calculusphile",
+      "title": "What Is a Derivative, Really? The Puzzle That Invented Calculus #calculus #maths",
+      "category": "mathematics"
+    },
+    "Cd_qqURtVfk": {
+      "date": "2026-11-26",
+      "channel": "Engineering the Ancients",
+      "title": "Why Ancient Greeks Built Giant Underwater Stone Cones? #shorts  #ancientengineering  #history",
+      "category": "ancient engineering"
+    },
+    "GxDk2vsyr0s": {
+      "date": "2026-11-26",
+      "channel": "Tommy Technetium",
+      "title": "I created a brain in a beaker #science #experiment #chemistry #shorts",
+      "category": "chemistry"
+    },
+    "H2AFP4uCqt0": {
+      "date": "2026-11-26",
+      "channel": "Leo vs Philosophy",
+      "title": "If today repeated forever, would you be okay? #philosophy #shorts",
+      "category": "philosophy"
+    },
+    "HBz41yE1enM": {
+      "date": "2026-11-26",
+      "channel": "WhyHereMaps",
+      "title": "Why Is This Country Inside Another Country? 🌍 #geography #shorts #facts",
+      "category": "geography"
+    },
+    "HsQ1YcPdAcY": {
+      "date": "2026-11-26",
+      "channel": "Animal Architects",
+      "title": "The Bird That Builds an Oven and Tests It With Its Beak 🐦 #shorts #wildlife #naturedocumentary",
+      "category": "nature"
+    },
+    "JczVA-sFH2g": {
+      "date": "2026-11-26",
+      "channel": "Think Sharper Today",
+      "title": "Understanding Emotional Intelligence",
+      "category": "neuroscience"
+    },
+    "MeG-wS8tC4c": {
+      "date": "2026-11-26",
+      "channel": "Vinh Giang",
+      "title": "Improve Your Communication FAST",
+      "category": "communication"
+    },
+    "N94jI1qEDAg": {
+      "date": "2026-11-26",
+      "channel": "MichaelsMusicMind",
+      "title": "Every note secretly contains a chord. #musictheory #music #piano #physics #harmonics",
+      "category": "music"
+    },
+    "PRjkio1Xlq8": {
+      "date": "2026-11-26",
+      "channel": "How They Make It",
+      "title": "How Did Romans Turn Water Into Flour 2,000 Years Ago? #shorts",
+      "category": "history of technology"
+    },
+    "R9PUluilMaQ": {
+      "date": "2026-11-26",
+      "channel": "Japan, Seriously?!",
+      "title": "In Japanese, Sun + Moon = ? ☀️🌙 #japan #kanji  #shorts",
+      "category": "language learning"
+    },
+    "UfO4f_Uh-Eg": {
+      "date": "2026-11-26",
+      "channel": "codematrixvishal",
+      "title": "The Unit Circle Explained 🔵 | Sine, Cosine, Angles & Trigonometry #mathshorts #unitcircle #maths",
+      "category": "mathematics"
+    },
+    "VmIbSogKW6E": {
+      "date": "2026-11-26",
+      "channel": "Past Unlocked",
+      "title": "Onake Obavva: मूसल से रोकी हैदर अली की सेना! 😱 #short",
+      "category": "history"
+    },
+    "YVJt80GV7XY": {
+      "date": "2026-11-26",
+      "channel": "SoYa Science",
+      "title": "Quantum Model of the Atom: Why Atoms Don't Collapse",
+      "category": "physics"
+    },
+    "Y_J4Sj_QRqs": {
+      "date": "2026-11-26",
+      "channel": "gr8gdev",
+      "title": "The One Math Concept Every Game Dev Needs",
+      "category": "mathematics"
+    },
+    "ZZdeyQpghL4": {
+      "date": "2026-11-26",
+      "channel": "The Oddly Rational Pi",
+      "title": "Stop thinking there's a gap between 0.999… and 1 #math #learning",
+      "category": "mathematics"
+    },
+    "b1j181SFkQQ": {
+      "date": "2026-11-26",
+      "channel": "One Algorithm a Day",
+      "title": "Shoes before socks? | Topological Sort #Shorts",
+      "category": "algorithms"
+    },
+    "fPHpPFG9dQ4": {
+      "date": "2026-11-26",
+      "channel": "The Overtone Series",
+      "title": "these spinning circles are drawing a bass clef 🎼",
+      "category": "mathematics"
+    },
+    "hAxbD1hzOzI": {
+      "date": "2026-11-26",
+      "channel": "SpiritualConce",
+      "title": "क्या आत्मा एक है या अनंत? महर्षि कपिल का चौंकाने वाला सिद्धांत | सांख्य दर्शन",
+      "category": "philosophy"
+    },
+    "hdZkLMdbj2w": {
+      "date": "2026-11-26",
+      "channel": "Nagmani Bongi",
+      "title": "बस यात्रा तेलुगु में | Bus Travel in Telugu|Learn Telugu Through Hindi|Spoken Telugu #shorts #telugu",
+      "category": "language learning"
+    },
+    "joMjXmQpliU": {
+      "date": "2026-11-26",
+      "channel": "Simon Claridge: Look Closely",
+      "title": "Look closely at the painting of this silk | Carolus-Duran 🔍 #arthistory",
+      "category": "art history"
+    },
+    "kP3JbiTfN64": {
+      "date": "2026-11-26",
+      "channel": "Mrunal Patel Unacademy",
+      "title": "🔥 Overheating of the Economy Explained | GDP Formula & Inflation #economy",
+      "category": "economics"
+    },
+    "kT_prrXllO8": {
+      "date": "2026-11-26",
+      "channel": "MAGPIEHUB",
+      "title": "The Monster Function That Broke Calculus. The Curve With Zero Tangent Lines.",
+      "category": "mathematics"
+    },
+    "l4tio9aRgMY": {
+      "date": "2026-11-26",
+      "channel": "LVK",
+      "title": "एक हादसे ने बदल दी कारों की सुरक्षा! | Airbag की कहानी #shorts",
+      "category": "invention history"
+    },
+    "l6h9K1m0Cc4": {
+      "date": "2026-11-26",
+      "channel": "Khoj Pothi | खोज पोथी",
+      "title": "बूढ़ी होकर फिर बच्ची बन जाती है! 🪼 अमर जेलीफ़िश का राज़ #shorts",
+      "category": "biology"
+    },
+    "nSrUfiV1h6A": {
+      "date": "2026-11-26",
+      "channel": "OverEngineered Lab",
+      "title": "Why a $5 Calculator Uses Rocket Science",
+      "category": "computing"
+    },
+    "pS7B2-4TfIM": {
+      "date": "2026-11-26",
+      "channel": "codematrixvishal",
+      "title": "Sum vs Integration Explained Visually | Riemann Sum, Area Under Curve & Calculus #integration #area",
+      "category": "mathematics"
+    },
+    "r9Wk5DEuf3A": {
+      "date": "2026-11-26",
+      "channel": "FloatHeadPhysics",
+      "title": "Why can't your hands pass through each other? (Answer: Quantum mechanics)",
+      "category": "physics"
+    },
+    "rCXE-2tZ3_k": {
+      "date": "2026-11-26",
+      "channel": "Animal Architects",
+      "title": "The Tiny Bat That Folds a Leaf Into a Tent 🦇 #shorts #wildlife #naturedocumentary",
+      "category": "nature"
+    },
+    "sQwpQ6nKD_0": {
+      "date": "2026-11-26",
+      "channel": "ben",
+      "title": "Socrates’ Trick for Questioning Any Opinion #socrates  #philosophy  #criticalthinking  #history #fac",
+      "category": "philosophy"
+    },
+    "sT8PVUa6Sxo": {
+      "date": "2026-11-26",
+      "channel": "Byte",
+      "title": "Episode 06: Eigenvalues & Eigenvectors (Vectors That Refuse to Turn) #shorts #ai #math #byteai",
+      "category": "mathematics"
+    },
+    "uayUk1kpf0c": {
+      "date": "2026-11-26",
+      "channel": "Clear Math with Prof. Muna",
+      "title": "Is the Boundary of a Set Always Closed? | Topology Short",
+      "category": "mathematics"
+    }
+  },
+  "creators": {
+    "Animal Architects": {
+      "count": 2,
+      "last": "2026-11-26"
+    },
+    "Byte": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Clear Math with Prof. Muna": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Engineering the Ancients": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "FloatHeadPhysics": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "How They Make It": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Japan, Seriously?!": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Khoj Pothi | खोज पोथी": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "LVK": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Leo vs Philosophy": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "MAGPIEHUB": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "MichaelsMusicMind": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Mrunal Patel Unacademy": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Nagmani Bongi": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "One Algorithm a Day": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "OverEngineered Lab": {
+      "count": 2,
+      "last": "2026-11-26"
+    },
+    "Past Unlocked": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Simon Claridge: Look Closely": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "SoYa Science": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "SpiritualConce": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "The Oddly Rational Pi": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "The Overtone Series": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Think Sharper Today": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Tommy Technetium": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Vinh Giang": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "WhyHereMaps": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "Yomikai": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "ben": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "calculusphile": {
+      "count": 1,
+      "last": "2026-11-26"
+    },
+    "codematrixvishal": {
+      "count": 2,
+      "last": "2026-11-26"
+    },
+    "gr8gdev": {
+      "count": 1,
+      "last": "2026-11-26"
+    }
+  }
 }

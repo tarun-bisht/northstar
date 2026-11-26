@@ -1,0 +1,459 @@
+{
+  "schema": "discovery",
+  "date": "2026-11-26",
+  "items": [
+    {
+      "id": "disc-2026-11-26-tomasello-agency-mlst",
+      "title": "What It Would Actually Take for a Machine to Have Agency (Michael Tomasello)",
+      "creator": "Machine Learning Street Talk",
+      "type": "podcast",
+      "category": "AI and cognitive science",
+      "topic": "agency in animals, children and machines",
+      "subtopics": [
+        "developmental psychology",
+        "great apes",
+        "AI agents",
+        "decision making"
+      ],
+      "url": "https://podcasters.spotify.com/pod/show/machinelearningstreettalk/episodes/What-It-Would-Actually-Take-for-a-Machine-to-Have-Agency-Michael-Tomasello-e3sm6qn",
+      "url_verified": true,
+      "audio_url": "https://traffic.megaphone.fm/APO6444677352.mp3",
+      "description": "Developmental psychologist Michael Tomasello, who spent twenty years comparing children and great apes, explains when nature builds a decision maker instead of a fixed reflex, and what that means for machines.",
+      "duration": "67 min",
+      "difficulty": "medium",
+      "why_recommended": "Agents are everywhere in AI right now. This is a rare outside view from someone who studied real agency for decades.",
+      "connection_to_interests": "AI agents, planning and cognitive science.",
+      "what_i_might_get_from_it": "A clear test for agency: unpredictability calls for a decision maker. Use it on any system that claims to be an agent.",
+      "action": "listen",
+      "time_required": "1h",
+      "priority": "high",
+      "status": "suggested",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "cross_domain": {
+        "fields": [
+          "developmental psychology",
+          "AI agents"
+        ],
+        "connection": "Tomasello traces agency from control loops in reptiles to a squirrel imagining a fall to apes seeking more information. Each step is a design question for AI agents: when should a system stop and decide?"
+      },
+      "tier": "established",
+      "overview": true
+    },
+    {
+      "id": "yt-zqzk43bSdDI",
+      "title": "We've been asking: \"What if AI solved the Riemann Hypothesis?\"",
+      "creator": "3Blue1Brown",
+      "type": "video",
+      "category": "mathematics and AI",
+      "topic": "mathematicians react to AI and the Riemann Hypothesis",
+      "subtopics": [
+        "Riemann Hypothesis",
+        "formal proof",
+        "AI for mathematics"
+      ],
+      "url": "https://www.youtube.com/watch?v=zqzk43bSdDI",
+      "url_verified": true,
+      "description": "Short takes from mathematicians including Kevin Buzzard, Terence Tao, Daniel Litt and Jordan Ellenberg on a recent announcement tied to the Riemann Hypothesis and what AI means for mathematics.",
+      "duration": "14 min",
+      "difficulty": "medium",
+      "why_recommended": "The strongest video of the week by engagement, and a fast way to hear careful experts rather than headlines. Note the on-screen correction at 13:20.",
+      "connection_to_interests": "AI for science, mathematical reasoning and evaluation.",
+      "what_i_might_get_from_it": "How working mathematicians judge a claimed breakthrough, and what checking an AI-assisted proof actually takes.",
+      "action": "watch",
+      "time_required": "15m",
+      "priority": "high",
+      "status": "suggested",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "tier": "established",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-26-after-life-koreeda",
+      "title": "After Life (1998)",
+      "creator": "Hirokazu Kore-eda",
+      "type": "film",
+      "category": "world cinema",
+      "topic": "choosing one memory to keep forever",
+      "subtopics": [
+        "Japanese cinema",
+        "memory",
+        "documentary style"
+      ],
+      "url": "https://www.criterion.com/films/29081-after-life",
+      "url_verified": true,
+      "description": "In a quiet way station, the newly dead have one week to choose a single memory, which staff then recreate on film. Kore-eda mixes actors with real people telling their own memories.",
+      "duration": "118 min",
+      "difficulty": "easy",
+      "why_recommended": "A gentle, deeply human Japanese film. Chosen for its emotional depth, not its fame.",
+      "connection_to_interests": "Japanese cinema, memory and understanding people.",
+      "what_i_might_get_from_it": "A quiet evening, and a question to carry: which single memory would you keep, and why that one?",
+      "action": "watch",
+      "time_required": "2h",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "cross_domain": {
+        "fields": [
+          "cinema",
+          "psychology of memory"
+        ],
+        "connection": "The film turns a question about memory into a production process. People revise, embellish and rebuild their memories on set, which is close to what memory research says we do every time we remember."
+      },
+      "tier": "exploration",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-26-olah-manifolds-topology",
+      "title": "Neural Networks, Manifolds, and Topology",
+      "creator": "Chris Olah",
+      "type": "article",
+      "category": "deep learning theory",
+      "topic": "what layers do to the shape of data",
+      "subtopics": [
+        "representation learning",
+        "topology",
+        "interpretability"
+      ],
+      "url": "https://www.gwern.net/docs/www/colah.github.io/2d2a03bce5f6de8b48799f894aee58479e2a9f48.html",
+      "url_verified": true,
+      "description": "A visual essay on neural network layers as transformations that stretch and fold data, and on what topology says a network of a given width can and cannot separate.",
+      "duration": "30 min",
+      "difficulty": "medium",
+      "why_recommended": "Pairs with today's horned sphere video. An older essay that still shapes how interpretability researchers think. This link is an archived copy.",
+      "connection_to_interests": "Representation learning, interpretability and topology.",
+      "what_i_might_get_from_it": "A geometric picture of what a classifier does to its input, and why some datasets need extra dimensions to untangle.",
+      "action": "read",
+      "time_required": "30m",
+      "priority": "medium",
+      "status": "suggested",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "cross_domain": {
+        "fields": [
+          "topology",
+          "deep learning"
+        ],
+        "connection": "Topology asks which shapes can be deformed into each other. Olah uses that question to explain why a network sometimes cannot separate two classes, linking abstract maths to representation learning."
+      },
+      "tier": "established",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-26-chichu-art-museum",
+      "title": "Chichu Art Museum, Naoshima",
+      "creator": "Tadao Ando (architect), Benesse Art Site",
+      "type": "place",
+      "category": "architecture and art",
+      "topic": "a museum built almost entirely underground",
+      "subtopics": [
+        "Tadao Ando",
+        "Claude Monet",
+        "James Turrell",
+        "Walter De Maria",
+        "Seto Inland Sea"
+      ],
+      "url": "https://benesse-artsite.jp/en/art/chichu.html",
+      "url_verified": true,
+      "description": "A museum on a small island in Japan's Seto Inland Sea, set mostly underground and lit by daylight. It holds a few works by Monet, James Turrell and Walter De Maria.",
+      "duration": "half a day if you go, 20 min to explore online",
+      "difficulty": "easy",
+      "why_recommended": "One of the clearest examples of a building designed around light and attention. Worth a slow look at photos even if a trip is far off.",
+      "connection_to_interests": "Architecture, design and Japanese culture.",
+      "what_i_might_get_from_it": "A feel for how architecture can slow you down, and an idea for a future trip in Japan.",
+      "action": "explore",
+      "time_required": "15m",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "tier": "exploration",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-26-rovelli-nature-of-reality",
+      "title": "Carlo Rovelli on the Nature of Reality",
+      "creator": "Philosophy Bites",
+      "type": "podcast",
+      "category": "philosophy of science",
+      "topic": "is there an ultimate reality science converges on",
+      "subtopics": [
+        "physics",
+        "realism",
+        "relational quantum mechanics"
+      ],
+      "url": "https://philosophybites.libsyn.com/carlo-rovelli-on-the-nature-of-reality",
+      "url_verified": true,
+      "audio_url": "https://traffic.libsyn.com/secure/philosophybites/Carlo_Rovelli_on_the_Nature_of_Reality.mp3?dest-id=14010",
+      "description": "Physicist and philosopher Carlo Rovelli talks with Nigel Warburton about whether science is slowly getting closer to one ultimate picture of reality.",
+      "duration": "21 min",
+      "difficulty": "medium",
+      "why_recommended": "Short, dense and new this week. A good walk-length episode on a question every scientist quietly assumes an answer to.",
+      "connection_to_interests": "Philosophy of science and modern physics.",
+      "what_i_might_get_from_it": "A sharper sense of what it means for a theory to be true, and a relational way of thinking about reality you can bring to debates.",
+      "action": "listen",
+      "time_required": "30m",
+      "priority": "medium",
+      "status": "suggested",
+      "dimensions": [
+        "knowledge"
+      ],
+      "tier": "growth"
+    },
+    {
+      "id": "disc-2026-11-26-in-our-time-gilgamesh",
+      "title": "In Our Time: Epic of Gilgamesh",
+      "creator": "BBC Radio 4, Melvyn Bragg",
+      "type": "podcast",
+      "category": "history and literature",
+      "topic": "the oldest surviving great work of literature",
+      "subtopics": [
+        "Mesopotamia",
+        "cuneiform",
+        "epic poetry"
+      ],
+      "url": "http://www.bbc.co.uk/programmes/p0pj9cd5",
+      "url_verified": true,
+      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss/proto/http/vpid/p0pj9dsn.mp3",
+      "description": "Melvyn Bragg and guests on Gilgamesh, king of Uruk, and Enkidu: a story kept on cuneiform tablets for thousands of years, then lost, then pieced back together after 1853.",
+      "duration": "48 min",
+      "difficulty": "easy",
+      "why_recommended": "An archive episode re-released this week. Pairs well with the Ishtar episode from the same show if you want more.",
+      "connection_to_interests": "History, classic literature and storytelling.",
+      "what_i_might_get_from_it": "The story of Gilgamesh in outline, and how scholars rebuilt a lost epic from broken clay tablets.",
+      "action": "listen",
+      "time_required": "1h",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "tier": "growth"
+    },
+    {
+      "id": "disc-2026-11-26-japan-station-katsu",
+      "title": "Japan's (linguistic) KATSU obsession EXPLAINED!",
+      "creator": "Japan Station",
+      "type": "podcast",
+      "category": "Japanese language and culture",
+      "topic": "everyday Japanese words ending in katsu",
+      "subtopics": [
+        "bukatsu",
+        "shūkatsu",
+        "oshikatsu",
+        "word formation"
+      ],
+      "url": "https://podcasts.apple.com/us/podcast/japans-linguistic-katsu-obsession-explained/id1440454968?i=1000803253069&uo=4",
+      "url_verified": true,
+      "audio_url": "https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.libsyn.com/secure/japanstation/JS_241_-_The_KATSU_episode_GR.mp3?dest-id=837902",
+      "description": "An English-language episode on why so many Japanese words end in katsu, activity: club life, job hunting, marriage hunting, therapeutic crying and even a corn boom.",
+      "duration": "37 min",
+      "difficulty": "easy",
+      "why_recommended": "Explained in English, so it suits a beginner. One word ending opens a window on daily life in Japan.",
+      "connection_to_interests": "Japanese culture and everyday life, linguistics.",
+      "what_i_might_get_from_it": "A handful of real words people use every day, and a feel for how Japanese builds new words from one kanji.",
+      "action": "listen",
+      "time_required": "30m",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "tier": "exploration"
+    },
+    {
+      "id": "yt-9eJQQVrUUoI",
+      "title": "MIT 6.S184: Flow Matching and Diffusion Models, Lecture 01: Flow and Diffusion Models (2026)",
+      "creator": "Peter Holderrieth and Ron Shprints, MIT",
+      "type": "lecture",
+      "category": "generative models",
+      "topic": "flow matching and diffusion from first principles",
+      "subtopics": [
+        "ODEs",
+        "SDEs",
+        "vector fields",
+        "generative AI"
+      ],
+      "url": "https://www.youtube.com/watch?v=9eJQQVrUUoI",
+      "url_verified": true,
+      "description": "First lecture of MIT's course on generative AI with differential equations. It builds flow and diffusion models from the maths up, with lecture notes, slides and code exercises.",
+      "duration": "78 min",
+      "difficulty": "advanced",
+      "why_recommended": "Very high views for the channel's size, and it goes beyond intuition to the actual framework. Free notes and exercises let you go deeper.",
+      "connection_to_interests": "Diffusion and flow-based generative models.",
+      "what_i_might_get_from_it": "A unified picture of diffusion and flow models as learned vector fields, solid enough to read new papers in this area.",
+      "action": "watch",
+      "time_required": "2h",
+      "priority": "medium",
+      "status": "suggested",
+      "dimensions": [
+        "research"
+      ],
+      "tier": "established"
+    },
+    {
+      "id": "yt-ViT2FOEr6EI",
+      "title": "This Object Defies Common Sense",
+      "creator": "Numberphile, with Richard Elwes",
+      "type": "video",
+      "category": "mathematics",
+      "topic": "the Alexander horned sphere",
+      "subtopics": [
+        "topology",
+        "pathological examples"
+      ],
+      "url": "https://www.youtube.com/watch?v=ViT2FOEr6EI",
+      "url_verified": true,
+      "description": "Mathematician Richard Elwes explains the Alexander horned sphere, a strange surface that shows how intuition about inside and outside can fail in three dimensions.",
+      "duration": "12 min",
+      "difficulty": "easy",
+      "why_recommended": "A gentle, visual step into topology, with a high comment rate for the channel.",
+      "connection_to_interests": "Topology, one of your growth subjects.",
+      "what_i_might_get_from_it": "A famous counterexample you can picture, and why topologists care so much about well-behaved spaces.",
+      "action": "watch",
+      "time_required": "15m",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "knowledge"
+      ],
+      "tier": "growth"
+    },
+    {
+      "id": "yt-of60wacXiTQ",
+      "title": "Old trams waste power on purpose. Here's why",
+      "creator": "Tom Scott",
+      "type": "video",
+      "category": "engineering and fun",
+      "topic": "how old trams are driven, plus a tram driving contest",
+      "subtopics": [
+        "electrical engineering",
+        "transport history",
+        "Seaton Tramway"
+      ],
+      "url": "https://www.youtube.com/watch?v=of60wacXiTQ",
+      "url_verified": true,
+      "description": "Tom Scott explains why old trams burn off power by design, then holds his own tram driving championship with the Seaton Tramway team.",
+      "duration": "27 min",
+      "difficulty": "easy",
+      "why_recommended": "Pure free-time fun with a real engineering idea inside. Strong likes for its size.",
+      "connection_to_interests": "Strange science, history of technology and unexpected connections.",
+      "what_i_might_get_from_it": "A small, memorable piece of engineering history, and half an hour of good-natured competition.",
+      "action": "watch",
+      "time_required": "30m",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "curiosity"
+      ],
+      "tier": "exploration"
+    },
+    {
+      "id": "disc-2026-11-26-hamming-you-and-your-research",
+      "title": "You and Your Research",
+      "creator": "Richard Hamming",
+      "type": "article",
+      "category": "research skills",
+      "topic": "how great research careers are made",
+      "subtopics": [
+        "research taste",
+        "important problems",
+        "Bell Labs"
+      ],
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.pdf",
+      "url_verified": true,
+      "description": "Transcript of Hamming's 1986 talk at Bellcore on why some scientists do great work: picking important problems, open doors, courage and turning obstacles into assets.",
+      "duration": "45 min",
+      "difficulty": "easy",
+      "why_recommended": "A classic worth reading once a year. On a day full of AI and maths, it asks the question behind them all: what is worth working on?",
+      "connection_to_interests": "Research taste and generating research ideas.",
+      "what_i_might_get_from_it": "A personal list of the important problems in your field, and one habit to try this week.",
+      "action": "read",
+      "time_required": "1h",
+      "priority": "medium",
+      "status": "suggested",
+      "dimensions": [
+        "research",
+        "people"
+      ],
+      "tier": "growth"
+    },
+    {
+      "id": "disc-2026-11-26-entangled-life",
+      "title": "Entangled Life: How Fungi Make Our Worlds, Change Our Minds and Shape Our Futures",
+      "creator": "Merlin Sheldrake",
+      "type": "book",
+      "category": "biology",
+      "topic": "fungi, networks and lichens",
+      "subtopics": [
+        "mycology",
+        "symbiosis",
+        "mycorrhizal networks",
+        "lichens"
+      ],
+      "url": "https://merlinsheldrake.com/entangled-life",
+      "url_verified": true,
+      "description": "A biologist's book on fungi: the networks linking plant roots, lichens as partnerships between species, and how fungi blur the line between individual and community.",
+      "duration": "about 10 hours",
+      "difficulty": "easy",
+      "why_recommended": "Genuinely unfamiliar territory, written with wonder. Read one chapter, the lichen chapter is a good place to start.",
+      "connection_to_interests": "Evolutionary biology, nature observation and strange science.",
+      "what_i_might_get_from_it": "A new view of what counts as an organism, and why lichens made biologists rethink the idea of a single individual.",
+      "action": "read",
+      "time_required": "multi-session",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "tier": "exploration"
+    },
+    {
+      "id": "disc-2026-11-26-talking-timbuktu",
+      "title": "Talking Timbuktu",
+      "creator": "Ali Farka Touré with Ry Cooder",
+      "type": "album",
+      "category": "music",
+      "topic": "Malian desert blues meets American slide guitar",
+      "subtopics": [
+        "Mali",
+        "blues",
+        "world music"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Talking_Timbuktu",
+      "url_verified": true,
+      "description": "A 1994 album recorded by Malian guitarist Ali Farka Touré and Ry Cooder in a few days. Slow, hypnotic songs that show how close West African music and the blues are.",
+      "duration": "about 60 min",
+      "difficulty": "easy",
+      "why_recommended": "Beautiful background for work or a walk, from a region you rarely hear from. It won a Grammy for world music.",
+      "connection_to_interests": "Music appreciation and cultures beyond your usual map.",
+      "what_i_might_get_from_it": "An hour of calm music, and an ear for how the blues may echo older West African traditions.",
+      "action": "listen",
+      "time_required": "1h",
+      "priority": "optional",
+      "status": "suggested",
+      "dimensions": [
+        "culture"
+      ],
+      "tier": "exploration"
+    }
+  ],
+  "generated_at": "2026-11-26T03:51:38Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Podcasts and videos come only from today's fetched candidates (The Gradient feed returned 403 and the Welch Labs channel was not found during the fetch). Films, books, the album, the place and the reads come from web search. The Ologies lichen episode was skipped because its candidate link points to a homepage, not the episode. Asianometry's Soviet software video was skipped because its description had no substance to judge."
+}

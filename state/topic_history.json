@@ -1,4 +1,12 @@
 {
   "_doc": "Derived. How often each dimension appeared per month. A variety signal, never a target.",
-  "by_month": {}
+  "by_month": {
+    "2026-11": {
+      "culture": 5,
+      "curiosity": 4,
+      "knowledge": 7,
+      "people": 2,
+      "research": 5
+    }
+  }
 }

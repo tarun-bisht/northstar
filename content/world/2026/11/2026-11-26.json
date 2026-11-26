@@ -1,0 +1,1153 @@
+{
+  "schema": "world",
+  "date": "2026-11-26",
+  "items": [
+    {
+      "id": "world-2026-11-26-us-tariffs-india",
+      "title": "US proposes 25% tariff on India, or 17% with a trade deal",
+      "section": "geopolitics",
+      "topic": "trade",
+      "regions": [
+        "India",
+        "United States",
+        "China",
+        "European Union"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "The US proposed new tariffs on 14 economies, citing excess factory capacity. India faces 25%, falling to 17% if a bilateral trade deal is reached. India says it has no structural excess capacity.",
+      "why_it_matters": "The US is India's largest goods export market. The gap between the two rates puts pressure on India to close the trade talks.",
+      "what_to_watch": "Written comments are due on January 5 and public hearings start on January 25. Watch whether the interim trade pact is signed first.",
+      "confirmed_facts": [
+        "The proposal comes from a Section 301 investigation covering 14 economies.",
+        "India's goods exports to the US were over $87 billion in the year to March 2026.",
+        "India says it remains committed to concluding the trade deal."
+      ],
+      "sources": [
+        {
+          "name": "The Federal",
+          "url": "https://thefederal.com/category/business/us-proposes-25-tariff-on-india-over-excess-capacity-claim-new-delhi-rejects-rationale-264113",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "Mint Economy",
+          "url": "https://www.livemint.com/economy/new-us-tariffs-on-india-impact-trade-deal-11795623444552.html",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "Mint Economy",
+          "url": "https://www.livemint.com/economy/india-rejects-us-structural-excess-capacity-allegations-as-washington-links-17-tariff-to-trade-deal-25-otherwise-11795630104530.html",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "How Section 301 tariffs work",
+        "explanation": "Section 301 of US trade law lets the government investigate foreign practices it calls unfair and then tax imports in response. It needs an inquiry, comments and hearings first. That makes it slower than emergency powers but harder to strike down. The threatened rate is often a bargaining tool."
+      },
+      "context": "The probe began after the US Supreme Court struck down earlier tariffs imposed under emergency powers.",
+      "analysis": "Offering a lower rate for signing suggests the tariff is partly leverage in the negotiation.",
+      "uncertainty": "These are proposals. The US trade chief says they would generally not stack fully on existing duties."
+    },
+    {
+      "id": "world-2026-11-26-solomons-australia-treaty",
+      "title": "Solomon Islands signs security treaty naming Australia its main partner",
+      "section": "geopolitics",
+      "topic": "international_relations",
+      "regions": [
+        "Oceania",
+        "Australia",
+        "China"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "The Solomon Islands and Australia signed a treaty in Canberra. It names Australia the primary security partner and says there will be no foreign military base on the islands.",
+      "why_it_matters": "The Solomons had a secret security pact with China that worried neighbours. This is a clear shift in the contest for influence in the Pacific.",
+      "what_to_watch": "Whether the China pact is allowed to lapse in early 2027, and how Beijing responds.",
+      "confirmed_facts": [
+        "Prime Ministers Matthew Wale and Anthony Albanese signed the treaty.",
+        "It also covers infrastructure, education, renewable energy and sport.",
+        "China says its Pacific cooperation involves no geopolitical rivalry."
+      ],
+      "sources": [
+        {
+          "name": "Associated Press via Yahoo News",
+          "url": "https://www.yahoo.com/news/world/articles/solomon-islands-names-australia-primary-023706744.html",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Conversation (Australia)",
+          "url": "https://theconversation.com/solomon-islands-and-australia-sign-a-new-defence-treaty-and-theres-plenty-in-it-for-both-countries-297498",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "Why small islands carry strategic weight",
+        "explanation": "Pacific island states control vast ocean areas and sit on routes between Asia, Australia and the Americas. A base there could watch or disrupt shipping and military movement. Large powers therefore compete with aid, police training and security pacts. Small states can use that competition to get better terms."
+      },
+      "uncertainty": "Reports say the China pact will end. The Solomons says talks with Beijing continue."
+    },
+    {
+      "id": "world-2026-11-26-china-chen-jining-probe",
+      "title": "China investigates Shanghai party chief Chen Jining, a rising Politburo star",
+      "section": "leadership",
+      "topic": "politics",
+      "regions": [
+        "China"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "China's ruling party announced an investigation into Chen Jining, its Shanghai secretary and a member of the 24-person Politburo. It cited severe violations of discipline and law.",
+      "why_it_matters": "Chen was widely seen as a candidate for the top seven-member Standing Committee next year. His fall reshapes who may lead China later.",
+      "what_to_watch": "Who takes over Shanghai, and who is promoted at next October's party congress.",
+      "confirmed_facts": [
+        "He is the fourth sitting Politburo member investigated since 2022.",
+        "No details of the alleged wrongdoing were released.",
+        "He is an environmental scientist and a former mayor of Beijing."
+      ],
+      "sources": [
+        {
+          "name": "The Irish Times",
+          "url": "https://www.irishtimes.com/world/2026/11/25/xis-corruption-purge-takes-down-a-rising-political-star-in-china/",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "NBC News",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOME5kMWtTeDRDYjZaM1U0aWRDX2ZocDVKV3FxdDB5WnItTmJwRE5XNFd4amhXcTlxbzB1eXpWSWQtcTZTXzEwNzR1YksxRUtpbFFsLWlWb0dSWkV6ZHY2d2lGUlYzZFRZdWJKaHhxYW5ENm5ReWxkbnJXcjlweHdaUTBzUV95cUZpRWVWTk1wRDJ5dmNiYTNaRzN3MkRaRUpsOGc?oc=5",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "How China chooses its top leaders",
+        "explanation": "China's Communist Party picks leaders from within. A congress every five years renews a Central Committee, which names a Politburo and a smaller Standing Committee that holds real power. Running a city like Shanghai has often been a stepping stone. The party's discipline body can end a career before any court is involved."
+      },
+      "context": "Xi Jinping's long anti-corruption campaign has reached senior military and civilian figures.",
+      "analysis": "Observers see the case as a sign that rising through a prominent post no longer protects anyone.",
+      "uncertainty": "The charge language usually points to corruption, but nothing specific is public."
+    },
+    {
+      "id": "world-2026-11-26-yemen-saudi-escalation",
+      "title": "Yemen war escalates: Houthis threaten Saudi Red Sea ports after hits on Riyadh",
+      "section": "conflict_disaster",
+      "topic": "conflict",
+      "regions": [
+        "Middle East",
+        "Saudi Arabia",
+        "Yemen",
+        "India"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "The Houthis threatened Jeddah and other Saudi Red Sea ports if Hodeidah port is attacked. The Saudi-led coalition then struck Hodeidah. A drone attack on a Riyadh tower had injured 11, including two Indians.",
+      "why_it_matters": "The fighting threatens Red Sea shipping, oil facilities, Yemen's main food gateway and the many Indians who work in Saudi Arabia.",
+      "what_to_watch": "Damage to Hodeidah, any strike on Jeddah, and the Houthi advance toward Aden.",
+      "confirmed_facts": [
+        "Fighting has intensified since September.",
+        "India condemned the strike on the Riyadh tower.",
+        "Aid experts warn that disruption at Hodeidah would hurt millions of Yemenis."
+      ],
+      "sources": [
+        {
+          "name": "Reuters via Yahoo News",
+          "url": "https://www.yahoo.com/news/world/articles/yemens-houthis-threaten-target-jeddah-024339735.html",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Hindu International",
+          "url": "https://www.thehindu.com/news/national/houthi-attack-in-saudi-capital-riyadh-indians-injured/article71740914.ece",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/25/could-renewed-strikes-on-hodeidah-port-worsen-yemens-humanitarian-crisis?traffic_source=rss",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Guardian World",
+          "url": "https://www.theguardian.com/world/2026/nov/25/yemen-houthis-advance-aden",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "Why the Bab el-Mandeb strait matters",
+        "explanation": "The Bab el-Mandeb is the narrow southern door of the Red Sea. Ships between Asia and Europe pass it to reach the Suez Canal. Whoever can threaten it can raise shipping and insurance costs far away. The other route goes around Africa and takes much longer."
+      },
+      "uncertainty": "Battlefield claims from both sides are hard to verify independently."
+    },
+    {
+      "id": "world-2026-11-26-nvidia-huang-sp-watch",
+      "title": "Nvidia faces rating warning after bringing back CEO Jensen Huang",
+      "section": "leadership",
+      "topic": "business",
+      "regions": [
+        "United States",
+        "Global"
+      ],
+      "dimensions": [
+        "world",
+        "people"
+      ],
+      "what_happened": "S&P put Nvidia's AA credit rating on watch for a possible downgrade. Huang resigned on November 12 over personal conduct and was reinstated on November 23. S&P cites board independence and no succession plan.",
+      "why_it_matters": "Nvidia's chips underpin much of the AI boom. Reliance on one person and weak board oversight are now treated as financial risks.",
+      "what_to_watch": "S&P expects to decide within 90 days. Also watch questions in Congress and any succession plan.",
+      "confirmed_facts": [
+        "The watch signals a possible cut of one notch.",
+        "S&P says Nvidia's competitive and financial position is unchanged for now.",
+        "The Washington Post reports officials had floated using wartime law to reinstate him."
+      ],
+      "sources": [
+        {
+          "name": "StockAnalysis",
+          "url": "https://stockanalysis.com/news/nvidia-sp-rating-creditwatch-negative/",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Washington Post",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQcDJ0UmNqUTc2UWNoaVh0STB6ZHRZTnV6WGVPX2Q0VDhmRWU4Wk5hV2lZMTZOZUV4ZEwzOVBnVmVtbnB0eXlpekIyMVF5cG91WmVxLTNIeWx1MzhLN3czOHFLbFRuVTdYRUIwdk4zMTlfcEtLb2J3Y1lQM0l1OTREU2p5UzBxaXI5aExoOGlyUVctZlJZcllacVRzTU9zVXlNaVVMNThZRE85NWdlaEo2WUJKd3FtTVBRZ00xU0l0V2tMLTRiLUE?oc=5",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "The Guardian Business",
+          "url": "https://www.theguardian.com/technology/2026/nov/24/jensen-huang-nvidia-apologizes-staff",
+          "type": "news",
+          "published": "2026-11-24"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "What a company board is for",
+        "explanation": "A board hires, pays, oversees and if needed removes the chief executive on behalf of shareholders. It works only if directors are independent enough to say no. Credit agencies watch this because weak oversight raises the chance of bad surprises. A succession plan is a basic test.",
+        "learn_more": {
+          "title": "What's the point of a board? (The Conversation)",
+          "url": "https://theconversation.com/jensen-huangs-controversial-return-to-nvidia-poses-the-question-whats-the-point-of-a-board-297386"
+        }
+      },
+      "analysis": "The concern is less about this quarter's sales than about who can check a very powerful chief.",
+      "uncertainty": "Reports of government pressure are disputed. Huang denies Trump drove his return."
+    },
+    {
+      "id": "world-2026-11-26-markets-sensex-rupee",
+      "title": "Sensex jumps 1,502 points and rupee hits eight-month high",
+      "section": "economy_markets",
+      "topic": "finance",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "On November 25 the Sensex rose 1.82% to 83,938 and the Nifty 1.85% to 25,819. The rupee touched about 92.29 a dollar in the day. Foreign buying, banks, consumer stocks and cheaper crude helped.",
+      "why_it_matters": "Cheaper oil lowers India's import bill and inflation pressure. Foreign money returning supports both shares and the rupee.",
+      "what_to_watch": "US markets and the new tariff proposal, oil, and the Reserve Bank's December decision.",
+      "confirmed_facts": [
+        "Brent crude fell about 1.6% to below $90 on November 25.",
+        "The rupee has recovered from a record low of 96.88 on October 8.",
+        "Smaller company shares fell even as the main indices surged."
+      ],
+      "sources": [
+        {
+          "name": "5paisa",
+          "url": "https://www.5paisa.com/blog/sensex-nifty-market-close-25-nov-2026",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Hindu Business",
+          "url": "https://www.thehindu.com/business/markets/indian-rupee-vs-us-dollar-on-november-25-2026/article71741090.ece",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Hindu Business",
+          "url": "https://www.thehindu.com/business/markets/sensex-jumps-1502-points-nifty-surges-to-25819-on-foreign-fund-inflows-lower-crude-oil/article71742244.ece",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "Why oil moves the rupee",
+        "explanation": "India imports most of its crude and pays in dollars. When oil is cheap, importers need fewer dollars, so pressure on the rupee eases. Foreign investors buying Indian shares also bring dollars in. Both forces pushing the same way can move the currency quickly."
+      },
+      "analysis": "Falling small caps suggest the rally was narrow and led by large companies.",
+      "uncertainty": "The rupee figure is an intraday level, not the close."
+    },
+    {
+      "id": "world-2026-11-26-rbi-bulletin-inflation",
+      "title": "RBI bulletin: food price pressure stays broad as inflation tops 6%",
+      "section": "economy_markets",
+      "topic": "economics",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "The Reserve Bank's November bulletin says food price pressure is widespread. Consumer inflation rose to 6.1% in October from 5.5%, above the 6% upper limit for the first time since October 2024.",
+      "why_it_matters": "Households pay more for staples, and higher inflation makes another interest rate rise more likely.",
+      "what_to_watch": "The Monetary Policy Committee's December decision and November vegetable and cereal prices.",
+      "confirmed_facts": [
+        "Core inflation rose to 4.5% from 4.3%.",
+        "Wholesale inflation rose to 12.3% from 11.4%.",
+        "The repo rate was raised to 5.50% in October."
+      ],
+      "sources": [
+        {
+          "name": "Webindia123",
+          "url": "https://news.webindia123.com/news/Articles/Business/20261125/4524504.html",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Hindu Business",
+          "url": "https://www.thehindu.com/business/Economy/broad-based-pressure-on-food-prices-continues-rbi-bulletin/article71743566.ece",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "How inflation targeting works",
+        "explanation": "The Reserve Bank aims for 4% inflation, with a band of 2% to 6%. When prices run too hot it raises the repo rate, the rate at which it lends to banks. Loans get costlier and demand cools. Rate rises cannot grow more onions, so food shocks are the hard case.",
+        "learn_more": {
+          "title": "The rising cost of putting food on the table in India (BBC)",
+          "url": "https://www.bbc.co.uk/news/articles/cmy0xj41kl50o?at_medium=RSS&at_campaign=rss"
+        }
+      }
+    },
+    {
+      "id": "world-2026-11-26-ai-stock-rout-anthropic",
+      "title": "AI shares slide again and Anthropic falls below its listing price",
+      "section": "technology",
+      "topic": "finance",
+      "regions": [
+        "United States",
+        "Global"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "Investors sold AI shares on worries about heavy spending, borrowing costs and returns. Anthropic closed Tuesday at $81.91, below its $83 listing price. The Nasdaq 100 fell sharply on Wednesday before recovering part of it.",
+      "why_it_matters": "The AI buildout depends on investors continuing to fund very large commitments. A change of mood can slow it.",
+      "what_to_watch": "Borrowing costs for AI firms, the next rate decision in the US, and whether other AI listings are delayed.",
+      "confirmed_facts": [
+        "Anthropic disclosed $900.9 billion of total committed spending in its filing.",
+        "US inflation of 3.8% and tariff news added to the nerves.",
+        "Prediction markets now see an OpenAI listing later in 2027."
+      ],
+      "sources": [
+        {
+          "name": "Forbes",
+          "url": "https://www.forbes.com/sites/eriksherman/2026/11/24/anthropic-shares-fall-under-the-ipo-price-heres-what-it-means/",
+          "type": "news",
+          "published": "2026-11-24"
+        },
+        {
+          "name": "Mint Markets",
+          "url": "https://www.livemint.com/market/stock-market-news/nasdaq-100-plunges-nearly-5-briefly-enters-bear-market-zone-as-ai-fears-and-fresh-tariffs-hit-sentiment-11795626875336.html",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "CNBC Finance",
+          "url": "https://www.cnbc.com/2026/11/25/openai-ipo-odds-2027-prediction-markets.html",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "Why interest rates hit growth stocks hardest",
+        "explanation": "A share is worth the future profits it is expected to earn, counted in today's money. When interest rates rise, profits far in the future are worth less now. Companies that spend heavily today for gains years away feel this most. Debt also becomes dearer."
+      },
+      "uncertainty": "A few days of falls do not show whether this is a correction or a lasting turn."
+    },
+    {
+      "id": "world-2026-11-26-spacex-orbital-data-centres",
+      "title": "US clears SpaceX plan for up to a million data centre satellites",
+      "section": "technology",
+      "topic": "technology",
+      "regions": [
+        "United States",
+        "Global"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "The US communications regulator approved SpaceX's Starmind plan for up to one million satellites that act as data centres, flying 500 to 1,002 km up.",
+      "why_it_matters": "It could move some AI computing off the ground. It also raises debris, space traffic and night sky concerns on a new scale.",
+      "what_to_watch": "The first satellite must operate by 2033 and the full set by 2040. Watch for legal challenges.",
+      "confirmed_facts": [
+        "The approval has conditions including a debris mitigation plan.",
+        "The regulator rejected objections from Amazon, Viasat and astronomers.",
+        "The American Astronomical Society said it was dismayed."
+      ],
+      "sources": [
+        {
+          "name": "GeekWire",
+          "url": "https://www.geekwire.com/2026/fcc-clears-spacex-million-satellites-starmind-data-center/",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "BBC Business",
+          "url": "https://www.bbc.co.uk/news/articles/cwp836l8n1jgo?at_medium=RSS&at_campaign=rss",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "Why cooling is hard in space",
+        "explanation": "On Earth, computers shed heat into moving air or water. Space is a vacuum, so heat can only leave as radiation. That needs large radiator panels. Space does offer steady sunlight for power, which is the attraction."
+      },
+      "uncertainty": "Approval to deploy is not proof that the plan is technically or financially workable."
+    },
+    {
+      "id": "world-2026-11-26-riemann-ai-proof",
+      "title": "Computer checks back an AI-assisted proof of the Riemann hypothesis",
+      "section": "science_space",
+      "topic": "science",
+      "regions": [
+        "Global"
+      ],
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "what_happened": "Anthropic researcher Levent Alpöge released a proof built with the AI model Claude on November 20. The Lean community said on November 21 that the formal proof checks out.",
+      "why_it_matters": "The hypothesis, about how prime numbers are spread, had resisted proof for over 160 years. It changes what humans and machines may each do in maths.",
+      "what_to_watch": "A readable paper, peer review and whether mathematicians can explain why the proof works.",
+      "confirmed_facts": [
+        "Several independent proof checkers accepted it.",
+        "No human readable proof paper had been released as of November 22.",
+        "The Clay prize needs peer reviewed publication and at least two years of acceptance."
+      ],
+      "sources": [
+        {
+          "name": "XenoSpectrum",
+          "url": "https://xenospectrum.com/en/riemann-hypothesis-lean-clay-prize/",
+          "type": "news",
+          "published": "2026-11-22"
+        },
+        {
+          "name": "The Hindu Sci-Tech",
+          "url": "https://www.thehindu.com/sci-tech/science/anthropic-scientist-claims-proof-of-maths-most-famous-problem-with-ai-help/article71727161.ece",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "Scientific American",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNUjdHVi1aanhYQ0NBcVlBVHZUa1ozaE9ETGYxeDhhcjYzLUhKb2NVVDR4aHYtMXBtVll6c096aEgyNlB6aVdYNUt4YVhQRk9TT2JSZDRYZjlwV1QxaDNXc2pLaVE2dDFuN2FKbXhXa19XOGdLOEV3cnBST1lOOW1aT3dERm41TWRCVEUzemgwY0FWanlPRkZSMjN5d056VFBaU0FF?oc=5",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "What a formal proof checker does",
+        "explanation": "Lean is a language in which every step of a proof is written so precisely that a small program can check it. The checker does not understand the idea. It only confirms each step follows from the rules. People must still confirm the stated theorem is the right one and learn what it teaches.",
+        "learn_more": {
+          "title": "How mathematicians can adapt to AI (The Conversation)",
+          "url": "https://theconversation.com/from-solving-to-digesting-how-mathematicians-can-adapt-to-the-dramatic-changes-ai-has-brought-to-their-field-295539"
+        }
+      },
+      "context": "Experts quoted expect it to take months or years to understand the argument.",
+      "analysis": "Being verified and being understood are now two separate milestones.",
+      "uncertainty": "Anthropic employs the author. Some checks were still running, and the prize process has not started."
+    },
+    {
+      "id": "world-2026-11-26-hera-dimorphos-crater",
+      "title": "First close images show the crater NASA left on an asteroid",
+      "section": "science_space",
+      "topic": "science",
+      "regions": [
+        "Global",
+        "Europe"
+      ],
+      "dimensions": [
+        "knowledge",
+        "world"
+      ],
+      "what_happened": "Europe's Hera spacecraft sent its first close pictures of the asteroid Dimorphos, showing the large crater left when NASA's DART probe struck it in 2022.",
+      "why_it_matters": "DART was the first test of pushing an asteroid off course. Measuring the damage shows how well the method would work in a real threat.",
+      "what_to_watch": "Hera will map the crater for months and release two small satellites in about six weeks.",
+      "confirmed_facts": [
+        "The images were released around November 25.",
+        "Long exposure images show boulders still orbiting the system.",
+        "Space.com describes the crater as stadium sized."
+      ],
+      "sources": [
+        {
+          "name": "The Planetary Society",
+          "url": "https://www.planetary.org/articles/heras-first-close-up-images-of-didymos-and-dimorphos",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "Space",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPcks2cFhLVGxRTlROWmU2M2tLTG42RFJaWk9qbTU4b2w1OUxUQkdrZmFfTUh1dlVGRFhRWkRFUjEzTnA3c2FCMDZDOHFrOWEwTkhoWHNCTFA3UGRVcmRoVWEzSnN0SVFWMVFUX01HX0ktY01MNk9ORlhJTzQ1LWFDUFczMS1uVm95YnAzUmxGdXBfeUQzUWtfc2NzM1dJVWdfRWhLanRqaGtiNDZsZFJHcU9JQ3VodGd1bllzZ0ZTOUxKY19wQU9xV3JlTEpRQ1A2MU5jMTZnTWRkX0U?oc=5",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "Kinetic impact: deflecting by collision",
+        "explanation": "A fast spacecraft hitting an asteroid transfers momentum and nudges its path. Debris thrown out of the crater adds extra push, like a small rocket. The effect depends on how solid or loose the rock is. Done years ahead, a tiny change in speed becomes a large miss."
+      }
+    },
+    {
+      "id": "world-2026-11-26-unaids-hiv-warning",
+      "title": "UN warns HIV infections could start rising again after aid cuts",
+      "section": "health",
+      "topic": "health",
+      "regions": [
+        "Africa",
+        "Global"
+      ],
+      "dimensions": [
+        "world",
+        "people"
+      ],
+      "what_happened": "UNAIDS warned that new HIV infections could rise from historic lows starting next year as international funding falls and prevention services shrink.",
+      "why_it_matters": "Decades of gains could be reversed. Many hard hit countries depend on outside money for most of their HIV response.",
+      "what_to_watch": "Donor pledges and whether governments can replace lost funding while carrying heavy debt.",
+      "confirmed_facts": [
+        "32.1 million of 40 million people with HIV are on treatment.",
+        "About 446,000 fewer people used preventive medicine in 2025 than in 2024.",
+        "There is a $4.3 billion funding gap in low and middle income countries."
+      ],
+      "sources": [
+        {
+          "name": "UN News",
+          "url": "https://news.un.org/en/story/2026/11/1168869",
+          "type": "official",
+          "published": "2026-11-24"
+        },
+        {
+          "name": "DW.com",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOanMwUjNzVU10MkQ4aGdjY3ZzcWlCSlVVYWxqV19JdnlTMk1xMGtIY3hzQ3lfa0VFSkp1TXFEVUtfc0phZ3RhV2dlMDFkWmdPTWFCZ3ZBWHR6dkdrRUp4andKUkQzeTdJT3dTV09XY1F4bG9CRmI4NnhZR3hJOWl3ak1TUGhvZU5Q0gGIAUFVX3lxTE1ZVEo1UXZma2NkbFU5Rm55RlFUTGFOa2l0X0wtUzg2NTVhbFRFTXl0T2o2dExzUC11VmdnV2RvclpDZGQ1T0ppQlFxbmNnY1ZaQmxxazJBQ2xHWnhDckJ3dy11VFg5UW9mZGdGa2ZGSGhpaDVHYkRTcS1xWTJlRmx5Tk92WFhDWGg?oc=5",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-24",
+      "lesson": {
+        "concept": "Why prevention cuts show up late",
+        "explanation": "HIV can go unnoticed for years. When testing, condoms and preventive drugs are cut, the harm does not appear at once. Infections spread quietly and surface later, when treating them costs far more. Steady funding matters more than bursts."
+      },
+      "uncertainty": "The rise is a projection and depends on future funding."
+    },
+    {
+      "id": "world-2026-11-26-six-days-above-2c",
+      "title": "Global temperature stays above 2C for six days in a row, a first",
+      "section": "climate_energy",
+      "topic": "climate",
+      "regions": [
+        "Global"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "For the first time, global daily temperature was at least 2C above preindustrial levels for six days running. It reached a record 2.24C on November 23, according to EU Copernicus data.",
+      "why_it_matters": "It shows how warming plus a strong El Niño can push the planet into new territory, with effects on food, water and health.",
+      "what_to_watch": "Whether the streak continues, the El Niño peak by January, and its effects in the months after.",
+      "confirmed_facts": [
+        "The previous daily record was 2.05C in 2023.",
+        "A few days above 2C do not breach the Paris limits, which refer to long term averages.",
+        "Scientists point to fossil fuel emissions and an unusually strong El Niño."
+      ],
+      "sources": [
+        {
+          "name": "Irish Examiner, from The Guardian",
+          "url": "https://www.irishexaminer.com/world/arid-41942481.html",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Guardian",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPR0p3bVRkTGZLb0pMa3lYVjR0VFdtSld3VmRVN0FTa0FpT2MtMDRLUXBIYmpRc0NGRktDTEp4bVcxQnY3amZMbC0tdVdnVkcwU3JpaUlKenBaMlY3MXU5Z3lfcUF2Q0owa1RGdEFXbU1Rb1pRdmRpb3ZQNGNSZnJmS1hFdHRZeUNGRzdnN1lhb0gySS0tTjdNcVNoQk8yTGIyNi0xRmVNTmQtemxFSUY1enVqUHR0LVp0N1lV?oc=5",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "How El Niño adds to warming",
+        "explanation": "El Niño is a natural swing in which the tropical Pacific surface turns unusually warm. The ocean releases stored heat into the air and shifts rainfall around the world, including India's monsoon. It adds a temporary bump on top of the long rise from greenhouse gases.",
+        "learn_more": {
+          "title": "Super El Niño and Africa's heat (The Conversation)",
+          "url": "https://theconversation.com/super-el-nino-will-add-to-africas-heat-crisis-how-governments-can-protect-people-before-it-peaks-295583"
+        }
+      }
+    },
+    {
+      "id": "world-2026-11-26-bangladesh-garment-wage",
+      "title": "Bangladesh raises garment minimum wage by 36% after weeks of protest",
+      "section": "society",
+      "topic": "economics",
+      "regions": [
+        "Bangladesh",
+        "South Asia"
+      ],
+      "dimensions": [
+        "world",
+        "people"
+      ],
+      "what_happened": "A wage board set a new monthly minimum of 17,500 taka, about $136, up from 12,500. Workers had demanded 30,000 taka and had not clearly accepted the offer.",
+      "why_it_matters": "The industry employs about four million people, many of them rural women, and earns most of the country's exports.",
+      "what_to_watch": "Whether workers return, and how brands and factories absorb the cost. The new wage applies from December.",
+      "confirmed_facts": [
+        "Wages will now be reviewed every three years instead of five.",
+        "Bangladesh is the second largest garment exporter after China.",
+        "Manufacturers estimate $428 million in losses from the protests."
+      ],
+      "sources": [
+        {
+          "name": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/25/bangladesh-garment-workers-win-36-pay-rise-after-weeks-of-protest",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "AP News",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQeG1YZnFJZHdHdHJvOEVqWEtMaG9jalF4REswUkl4SEYtVHJXNDQ5STNRMGRxVVhUTFZzNjhEOGZ4ZjhmUXpaQTFwN0dMQkZtV0NENXB5WFQ3bHEwVHU4Q19YUzRwTmZjUXJfcnAyOUxOZFpfa2xFYU4tZXN3Y2xlQVUtTGtGN2FPbm5BajROd2xBempqbUNz?oc=5",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "How a minimum wage board bargains",
+        "explanation": "In some industries a board of employers, workers and government sets a wage floor. Employers weigh export competition and workers weigh living costs. Long gaps between reviews let inflation eat the old wage, which builds pressure until it bursts into protest."
+      },
+      "uncertainty": "Workers' acceptance is uncertain."
+    },
+    {
+      "id": "world-2026-11-26-cabinet-infra-package",
+      "title": "Cabinet clears ₹19,934 crore for a port, an airport, post and equipment making",
+      "section": "india",
+      "topic": "policy",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "The Union Cabinet approved five projects, including ₹11,000 crore to make construction equipment, a container terminal at Kamarajar Port in Tamil Nadu and a new airport near Silchar in Assam.",
+      "why_it_matters": "The money aims to cut equipment imports, add port capacity and improve links to the Northeast.",
+      "what_to_watch": "Tendering of the port terminal and the start of airport work.",
+      "confirmed_facts": [
+        "The port terminal costs about ₹4,288 crore under a public private partnership.",
+        "The Doloo airport in Assam costs about ₹2,014 crore.",
+        "Two postal schemes get ₹2,632 crore over five years."
+      ],
+      "sources": [
+        {
+          "name": "Bombay Samachar",
+          "url": "https://english.bombaysamachar.com/india-news/india-cabinet-19934-crore-infrastructure-projects/",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Times of India",
+          "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxPZEFhbFk3bW9xaG4tc1l0cC1XcHA1dXN1WGlFWG1SNEFNYVg3R3FVNVk5UHRFRUxLbmFJNWw4RDk0VURVMmVnMnFxY1NYcnIyYi0wR1pSX1RJUUMyTlNZTE5uU2VCSndmMWFQZks1LU45NEt4aXVPV1dtTFppbGgzQzhCaGNtdEZjZkdhdFM3aVZFQTJWWGZnSlFNUy1zMU9HSmlaRTZkU0dpWGJjNmJrUXVaQmNFUGRpamJCUnRMNkREMkFCNVFCcU1SU0FmRUVWSU56YVZKNVlzdTl3SDVQOTZBdGhBTDQ3VGFrQnFPWGZtSzB4N0pmRGJBUjAwemx6cEYtSzU3WjlkYlFDcGJia1ln?oc=5",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "What a public private partnership is",
+        "explanation": "In a design, build, finance, operate and transfer deal, a private firm pays to build an asset and runs it for years to recover the cost. It then hands it back to the public owner. The state saves money up front but must write the contract and share risks carefully."
+      },
+      "uncertainty": "Approval does not mean the money is spent or work has started."
+    },
+    {
+      "id": "world-2026-11-26-sc-rahul-assets-order",
+      "title": "Supreme Court sets aside High Court orders on Rahul Gandhi assets complaint",
+      "section": "india",
+      "topic": "politics",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "The Supreme Court set aside Allahabad High Court orders asking the CBI and Enforcement Directorate to check assets allegations against Rahul Gandhi. A new High Court bench will hear it again.",
+      "why_it_matters": "It affirms that a person should be heard before a court issues orders affecting them, in a politically charged case.",
+      "what_to_watch": "The fresh High Court hearing, where Gandhi can challenge whether the petition is maintainable.",
+      "confirmed_facts": [
+        "A bench led by Chief Justice Surya Kant gave the ruling.",
+        "The petitioner is a BJP worker, S Vignesh Shishir.",
+        "The petitioner must now make Gandhi a party to the case."
+      ],
+      "sources": [
+        {
+          "name": "The Federal",
+          "url": "https://thefederal.com/category/news/supreme-court-set-aside-allahabad-high-court-order-on-probe-into-rahul-gandhi-assets-264088",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Hindu",
+          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOMVl3dWFxNVJyNzU5U1lKVExubTNyTm9pdzM4SDVBemUySHVqVHVjLTlkUHBwSGduWE1rdy1MeG5BTS00Ujh6dXRJWDBaQnQ5QUx5dW1zSEFjV0ZuNVdGMTdOZnk3Rzk4NXlESi1Hb3ozOEYzdnpCMDFRRF9Nc2E1eVFMazg1TlFtS0tOVEtzdGI3eklqdzNIMTFTVjV2bFR3YWdEek4xejVCME5KQk9EdTYtWXZpelZOUy1OQzVVUGxuZWRqbmNscWh5N05ELUllNm5Xdml4RzJqS2h5TDB4NHJYT2NxWWdhajh2cC0tX2pHakFDUkFlQzhGVFdvTzjSAYYCQVVfeXFMUHhzdmRSQ3pkTE1JaVFvX05uRkxxTERrWjJDbGtnYnhUT2lkdlNBU0NEbG1IRHpYd0JJS2RaUG9SMDZxMXlWSFRIempSNTBWWkNsWHozenRnTGIwZlFZamNHYUJST3QyOUxTZGVOa3lNajNZZWlqTzMtRWNQM0pIaXBFYlBZRXd0TnpFc2JuT2JqMElFb01XTlBWT2pNOUdFWW9wUDlucjFjT3RQRU5RTHRxUUZiZGg4NVc5dWVZYlZSVTlxTkp5YUhhVkRiZ1oxS2tvZG45d3VTRW1WcEJtNjFzZVJPWHYySWxNUHNfUENTWG1zdzBaTjB5a0szYXdYRWdIVWRMZw?oc=5",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "Natural justice: hear the other side",
+        "explanation": "A basic rule of fair procedure is that no one should be affected by a decision without a chance to answer. Courts can cancel an order that breaks this rule, whatever the merits. It does not decide whether the allegations are true."
+      },
+      "uncertainty": "The ruling is about procedure. It does not decide the allegations."
+    },
+    {
+      "id": "world-2026-11-26-sc-protest-detentions",
+      "title": "Supreme Court asks Centre to answer on detentions at election chief protests",
+      "section": "india",
+      "topic": "politics",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "people"
+      ],
+      "what_happened": "The Supreme Court gave the Centre and Delhi government 10 days to respond to petitions alleging unlawful detention of protesters in October. They had sought the removal of the Chief Election Commissioner.",
+      "why_it_matters": "The case tests limits on police detention of peaceful protesters amid a dispute over revising voter rolls.",
+      "what_to_watch": "The government affidavits, and a march against the roll revision planned for Constitution Day.",
+      "confirmed_facts": [
+        "Protests took place in Delhi on 10 and 11 October.",
+        "The court had said on October 11 that no one be detained except as the law allows.",
+        "Police say no permission was sought for the November 26 march."
+      ],
+      "sources": [
+        {
+          "name": "Bar and Bench",
+          "url": "https://www.barandbench.com/news/litigation/supreme-court-seeks-centres-response-to-petitions-challenging-detention-of-people-seeking-cec-gyanesh-kumars-removal",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "The Hindu National",
+          "url": "https://www.thehindu.com/news/cities/Delhi/no-permission-sought-for-november-26-anti-sir-march-says-delhi-police/article71741234.ece",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "What a special intensive revision is",
+        "explanation": "Electoral rolls are updated every year. An intensive revision rebuilds them more thoroughly, with fresh checks on who belongs. It can remove duplicates and dead voters, but strict paperwork can also drop eligible people. That is why the process is fought over."
+      },
+      "uncertainty": "The detention claims are allegations the governments have yet to fully answer."
+    },
+    {
+      "id": "world-2026-11-26-explainer-us-consumer",
+      "title": "Why US consumers keep spending, and why it may not last",
+      "section": "explainers",
+      "topic": "economics",
+      "regions": [
+        "United States"
+      ],
+      "dimensions": [
+        "knowledge",
+        "world"
+      ],
+      "what_happened": "A Conversation explainer asks why American households keep spending despite inflation, tariffs and high interest rates, and why that could soon fade.",
+      "why_it_matters": "US consumers power much of world demand, including for exports from India.",
+      "what_to_watch": "Holiday sales, the saving rate and the Fed's December decision.",
+      "confirmed_facts": [
+        "US inflation was 3.8% in the year to October.",
+        "Spending after inflation was roughly flat in October.",
+        "Third quarter growth was revised to a 4.3% annual rate."
+      ],
+      "sources": [
+        {
+          "name": "The Conversation",
+          "url": "https://theconversation.com/why-american-consumers-are-still-spending-and-powering-the-us-economy-and-why-this-could-soon-fizzle-295810",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "Transport Topics",
+          "url": "https://ttnews.com/articles/us-consumer-spending-oct-2026",
+          "type": "news",
+          "published": "2026-11-25"
+        }
+      ],
+      "published": "2026-11-25",
+      "lesson": {
+        "concept": "Why consumption drives economies",
+        "explanation": "Household spending is the largest part of the US economy. People spend from wages, savings, credit and the feeling of being wealthy from shares or homes. When any of these weakens, spending can slow even if jobs still look fine."
+      },
+      "analysis": "The author argues that resilience so far may not continue.",
+      "uncertainty": "Written from the article's summary and separate data reports, not its full text."
+    },
+    {
+      "id": "world-2026-11-26-explainer-cop31",
+      "title": "Why COP31 ended without a deal, and what can still move",
+      "section": "explainers",
+      "topic": "climate",
+      "regions": [
+        "Global",
+        "Türkiye",
+        "Australia"
+      ],
+      "dimensions": [
+        "knowledge",
+        "world"
+      ],
+      "what_happened": "The UN climate summit in Antalya ended without a final agreement, split mainly over fossil fuels. A Conversation piece argues that coalitions of willing countries can still push ahead.",
+      "why_it_matters": "Global climate rules need near total agreement, so a few blockers can stop a text. Action may shift to smaller groups.",
+      "what_to_watch": "A 60 country fossil fuel initiative and the roughly 80 country electrification target.",
+      "confirmed_facts": [
+        "Analysts call it the first such failure in seventeen years.",
+        "Deadlocks included fossil fuel wording and adaptation finance.",
+        "Existing Paris Agreement duties still apply."
+      ],
+      "sources": [
+        {
+          "name": "The Conversation",
+          "url": "https://theconversation.com/the-silver-lining-of-the-cop31-flop-climate-coalitions-will-rise-and-the-shift-away-from-fossil-fuels-will-accelerate-297294",
+          "type": "news",
+          "published": "2026-11-24"
+        },
+        {
+          "name": "Atlantic Council",
+          "url": "https://www.atlanticcouncil.org/dispatches/why-cop31-climate-talks-collapsed-and-what-to-expect-next/",
+          "type": "news"
+        }
+      ],
+      "published": "2026-11-24",
+      "lesson": {
+        "concept": "Consensus decision making",
+        "explanation": "UN climate summits adopt decisions by consensus rather than majority vote. This gives every country a voice and makes agreed texts widely owned. It also lets a determined group block progress, which is why some propose majority voting or side coalitions."
+      },
+      "analysis": "The author argues the shift away from fossil fuels will speed up despite the failure.",
+      "uncertainty": "The author's argument is taken from the article summary."
+    }
+  ],
+  "generated_at": "2026-11-26T03:57:31Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Failed sources today: Indian Express Explained, Indian Express India, Reddit world and science. India coverage and explainers are thinner for that reason. All 12 categories had material and other was checked. Every headline title was read by category, with summaries opened for shortlisted stories. Explainers on US consumers and COP31 use article summaries, not full text.",
+  "briefs": [
+    {
+      "title": "MEA separates Sheikh Hasina’s plans to return to Bangladesh from issue of extradition",
+      "url": "https://www.thehindu.com/news/national/mea-separates-sheikh-hasinas-plans-to-return-to-bangladesh-from-issue-of-extradition/article71743712.ece",
+      "source": "The Hindu International",
+      "section": "india",
+      "published": "2026-11-25",
+      "line": "India says Hasina's plan to return home is separate from the extradition request."
+    },
+    {
+      "title": "Rajnath Singh unveils ‘RAKSHA’ document outlining India’s 10-year defence diplomacy roadmap",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPU016SzNyNzA4M1c5N0NyTnJVMGhBOWxraHVNTVN3RnBaeDlGQm4zdFE0UFBqX29ESHJ4WEgybE44X3duTG5nT0xlV3VkdzlUdTVZMGtmMVkzTnp0ZmJqdUhNdWliSmJmZWh3RVFvc1c0bFBZSmw1TkxFOEtpZk02Y0hzd2pOMWRWU2Q1R2NQaFBNQXBWY3BKWFNoWlBQU2lyQllmV2xJdktLSy0tQWNRbHpucWY?oc=5",
+      "source": "DD News",
+      "section": "india",
+      "published": "2026-11-25",
+      "line": "A ten year roadmap for defence diplomacy."
+    },
+    {
+      "title": "Great Nicobar Island project: Final Calcutta High Court hearing deferred as Centre seeks to file affidavit, objections",
+      "url": "https://www.thehindu.com/sci-tech/science/great-nicobar-island-project-final-calcutta-high-court-hearing-deferred-as-centre-seeks-to-file-affidavit-objections/article71743226.ece",
+      "source": "The Hindu National",
+      "section": "india",
+      "published": "2026-11-25",
+      "line": "The final High Court hearing on the project moves to January 2027."
+    },
+    {
+      "title": "T.N. opposes ad hoc release of only 2,000 cusecs at Biligundlu",
+      "url": "https://www.thehindu.com/news/national/tamil-nadu/tn-opposes-ad-hoc-release-of-only-2000-cusecs-at-biligundlu/article71742903.ece",
+      "source": "The Hindu National",
+      "section": "india",
+      "published": "2026-11-25",
+      "line": "The Cauvery water dispute flares again."
+    },
+    {
+      "title": "Israeli judges recommend dropping most serious charges against Netanyahu",
+      "url": "https://www.bbc.co.uk/news/articles/cxj05mv723r2o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC World",
+      "section": "geopolitics",
+      "published": "2026-11-25",
+      "line": "Judges see little chance of conviction in one of three cases."
+    },
+    {
+      "title": "North Korea declares a Swiss diplomat persona non grata and orders him to leave",
+      "url": "https://www.thehindu.com/news/international/north-korea-declares-a-swiss-diplomat-persona-non-grata-and-orders-him-to-leave/article71741084.ece",
+      "source": "The Hindu International",
+      "section": "geopolitics",
+      "published": "2026-11-25",
+      "line": "A sanctions feud also forces a Swiss office to close."
+    },
+    {
+      "title": "Huawei found guilty of stealing US trade secrets but acquitted of racketeering",
+      "url": "https://www.bbc.co.uk/news/articles/cmy49ngydqzpo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC World",
+      "section": "geopolitics",
+      "published": "2026-11-25",
+      "line": "A US jury verdict in a long running China tech case."
+    },
+    {
+      "title": "Iraq’s top court rules government can take over Kurdish borders, oil fields",
+      "url": "https://www.aljazeera.com/news/2026/11/25/iraqs-top-court-rules-government-can-take-over-kurdish-borders-oil-fields?traffic_source=rss",
+      "source": "Al Jazeera",
+      "section": "geopolitics",
+      "published": "2026-11-25",
+      "line": "A ruling that shifts power from Kurdish authorities to Baghdad."
+    },
+    {
+      "title": "South Africa's Ramaphosa wins court battle over impeachment threat",
+      "url": "https://www.bbc.co.uk/news/articles/cq4gn6gj3z37o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC World",
+      "section": "leadership",
+      "published": "2026-11-25",
+      "line": "The ruling eases the threat to South Africa's president."
+    },
+    {
+      "title": "Kalyan Krishnamurthy to step down as Flipkart CEO",
+      "url": "https://www.thehindu.com/business/Industry/kalyan-krishnamurthy-to-step-down-as-flipkart-ceo/article71741751.ece",
+      "source": "The Hindu Business",
+      "section": "leadership",
+      "published": "2026-11-25",
+      "line": "A change at the top of a major Indian online retailer ahead of its listing."
+    },
+    {
+      "title": "Israel’s Eisenkot secures first coalition partner in bid to form government",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZko5TURpc0NyWmNtX3F2LVpWZkRYQjQxNTdhYVlKRHhfRS0yOXN2V0ZON09NeEVwclpQR0lsTXRCcDQ3ekRueEZXTVd3ZGVUNWNMQXdOWkNYT0tsTHBoaTJHTWU3amlmLTJ3dFp6alJFeVdEelRZQkwzRzhjUmU0ZnhSMUpOYnY1QkpsZkk1OUJGTXg1aTlfNWVKVUkxdWFCcDNvZmxZYW56SjhXVnFEUkpSMVZTTzjSAbwBQVVfeXFMUE1vcDlDZUE5SDRBZ3FiN0pOTlczalZmZ1M1aW04YVRmT1RYTUpEbl9PVm5nZjRlMjZjaDk2b2xjQXdISHd4UzNReXFMMjVCUUwzeURLRVk2ZDRKQWQ1U0dXS0d4ZDZtUFRpTDFjaE0zQjBBeTZqS05LLUstS21CSFhBM0N4VFJHTV9IM0xZM2otS1FmTFFFQmJmTUhKcWN6NDMyeWN6WTJWRGJxRkt1RlZsY0JkZUpSd1JfM0Q?oc=5",
+      "source": "Al Jazeera",
+      "section": "leadership",
+      "published": "2026-11-25",
+      "line": "A first step toward a new government after Israel's election."
+    },
+    {
+      "title": "Russia's own figures show it has lost nearly 500,000 people in Ukraine war",
+      "url": "https://www.bbc.co.uk/news/articles/cmx27g533zwyo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC World",
+      "section": "conflict_disaster",
+      "published": "2026-11-25",
+      "line": "Leaked data point to nearly 500,000 Russian deaths."
+    },
+    {
+      "title": "Thirty-one killed in massive fire as fuel tanker crashes on Cairo highway",
+      "url": "https://www.bbc.co.uk/news/articles/cqy7rn30v314o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC World",
+      "section": "conflict_disaster",
+      "published": "2026-11-25",
+      "line": "A fuel tanker crash on Cairo's ring road."
+    },
+    {
+      "title": "A flood that hit an unauthorized gold mine in Indonesia left 9 dead, 17 believed trapped",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQbllNUG04bUpwSG83TWFhVWdBMmdqYVBZOWFpZG12WGFCWWxVZUk0ek1oRDk0WWNtRlJlQ2FsemFMYkNtekRDMzVsdjh3VVFneE92dkpzUXNOZ3BGaEFhVGNVeVBXXy1QUnZJT1hyUUdDek9Rb0dMd1RMQjJlUVIzbTJLREtCUkVzbmdrdXNxU3VvaWVU?oc=5",
+      "source": "AP News",
+      "section": "conflict_disaster",
+      "published": "2026-11-25",
+      "line": "More people were believed trapped at an unauthorised gold mine."
+    },
+    {
+      "title": "Iran says ships hit mines in Hormuz, warns vessels to coordinate passage",
+      "url": "https://www.thehindu.com/news/international/iran-says-ships-hit-mines-in-hormuz-warns-vessels-to-coordinate-passage/article71743889.ece",
+      "source": "The Hindu International",
+      "section": "conflict_disaster",
+      "published": "2026-11-25",
+      "line": "A risk to one of the world's key oil routes."
+    },
+    {
+      "title": "Net FDI fell to more than 5.5-year low in September 2026, as outflows jumped 40%",
+      "url": "https://www.thehindu.com/business/Economy/net-fdi-fell-to-more-than-55-year-low-in-september-2026-as-outflows-jumped-40/article71742778.ece",
+      "source": "The Hindu Business",
+      "section": "economy_markets",
+      "published": "2026-11-25",
+      "line": "Outflows rose 40%, though the half year is still up."
+    },
+    {
+      "title": "SEBI eases KYC norms, simplifies client onboarding",
+      "url": "https://www.thehindu.com/business/sebi-eases-kyc-norms-simplifies-client-onboarding/article71743597.ece",
+      "source": "The Hindu Business",
+      "section": "economy_markets",
+      "published": "2026-11-25",
+      "line": "Simpler onboarding for investors."
+    },
+    {
+      "title": "RBI raises share of domestically held gold reserves, data shows",
+      "url": "https://economictimes.indiatimes.com/markets/forex/forex-news/rbi-raises-share-of-domestically-held-gold-reserves-data-shows/articleshow/136165807.cms",
+      "source": "Economic Times Markets",
+      "section": "economy_markets",
+      "published": "2026-11-25",
+      "line": "More of the reserve gold is now held in India."
+    },
+    {
+      "title": "Energy bills to rise by 26% from January after gas prices surge",
+      "url": "https://www.bbc.co.uk/news/articles/cm20qnq33e90o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Business",
+      "section": "economy_markets",
+      "published": "2026-11-25",
+      "line": "A typical British bill would rise sharply after gas prices surged."
+    },
+    {
+      "title": "EXCLUSIVE: Billionaire Boehly signs US-backed share swap deal to buy Lukoil global assets",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQM05VWXNudnhTWW1BY2VFUHpZRzdNSjU4TG1Ob3NYZTRKM0tNUWNGQmxyNEp6NW0yTEJWaTZabF9UNW9CUUZTclBhaGpnQmZ6WVRZTVhqS3dpOTBsZEtaOGZnMzFPQlR5MDRpZThJNmU0cXc5Q0trMDNhdWtxVjV4V1lMYzYyR1RHU0lBNDdWZDlzOWxBN1J1Wm0xWlJkNEVMaVNXUXdQcTRuUHlvczlnMTd1VGRWQQ?oc=5",
+      "source": "Reuters",
+      "section": "business",
+      "published": "2026-11-25",
+      "line": "A US backed share swap for the sanctioned Russian firm's foreign assets."
+    },
+    {
+      "title": "China’s Xiamen Airlines to buy 50 Boeing jets in $7.4 billion deal",
+      "url": "https://www.cnbc.com/2026/11/25/china-xiamen-boeing-deal.html",
+      "source": "CNBC World Markets",
+      "section": "business",
+      "published": "2026-11-25",
+      "line": "A $7.4 billion order at list prices."
+    },
+    {
+      "title": "Drugmaker Insmed shares rally 14% after Sanofi agrees to buy it in pharma’s biggest deal in three years",
+      "url": "https://www.cnbc.com/2026/11/24/insmed-sanofi-deal-stock-pharma.html",
+      "source": "CNBC World Markets",
+      "section": "business",
+      "published": "2026-11-24",
+      "line": "The biggest pharma deal in three years."
+    },
+    {
+      "title": "U.S. CIA, ODNI suffer cybersecurity breach of some unclassified information, NYT reports",
+      "url": "https://www.thehindu.com/news/international/us-cia-odni-suffer-cybersecurity-breach-of-some-unclassified-information-nyt-reports/article71740185.ece",
+      "source": "The Hindu International",
+      "section": "technology",
+      "published": "2026-11-25",
+      "line": "Unclassified material was exposed at US intelligence agencies."
+    },
+    {
+      "title": "New York bans AI toys, including those using internet to talk to children",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBReElfczdYTVZVTzlNbVpLaXRGTzJXN0ZSNjA0SllVbjJ6MlppSmVGcDVicUdhekpzYlJWWTRzS3BndWpGOGhYc3JtX3MycFBqOEJWbTJLUVNnTXNscFdYTm40M1VZem84NTZTS2FfQ3RPMEhFSzJlSQ?oc=5",
+      "source": "The Guardian",
+      "section": "technology",
+      "published": "2026-11-25",
+      "line": "A five year ban reported over child safety."
+    },
+    {
+      "title": "Australia passes law forcing internet platforms to take down harmful content",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNcHZFR1FPbktZQ2RvV1h2UERSZUpBQksta2w2OGhBZVhmbWE2amZHMHRaWlFnczlYbXlvNHNNVURSMFhHVVI0czJYTlpjR0V3X29qaTdacHRRRy1tbFFQaU5DdF9tRXZkM1hDbVNfQndjcEs4d2NQMGtqXzRPMlJtUTVGN2JaSDA1dDZoOERLeEY4VUt5dlB6Yy0tdFk1Zk51MFBZSTVvekg0ZFA4cldFUng1RllGNUFzcGVlR1M2di1jc2Fs?oc=5",
+      "source": "Reuters",
+      "section": "technology",
+      "published": "2026-11-25",
+      "line": "Platforms must remove harmful content under a new Australian law."
+    },
+    {
+      "title": "Commission presents ambitious Quantum Act to push forward tech in Europe",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMDVjWVhfa3dFSVZnaEM2bjVsczZkdUFLemJUWVpqSnF1cU42Z0R1YWl0VURrT1d1Y201MHJBVDdzZU1pV0QwdzViSzZrVDhXTDNEQjFsZTBfSlEwMG4tMHlQcERCblBPRURYRjJWODhnWWY2d0RwVTNDWG02a2wzd0dkOTFxZXlEY2NKcUx0UlJFTUtDWmc5aXNWc1FTZDc2b2VLMENFOEc?oc=5",
+      "source": "European Interest",
+      "section": "technology",
+      "published": "2026-11-25",
+      "line": "The EU sets out a plan to bring quantum research to market."
+    },
+    {
+      "title": "China sends first foreign astronaut to ISS rival as it globalises space operations",
+      "url": "https://www.theguardian.com/science/2026/nov/25/china-sends-first-pakistani-astronaut-into-space",
+      "source": "The Guardian World",
+      "section": "science_space",
+      "published": "2026-11-25",
+      "line": "The first Pakistani in orbit boards China's Tiangong station."
+    },
+    {
+      "title": "HAL-L&T’s First Private PSLV Rocket Targets 2027 Launch: What We Know",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRVpmY25LZTNVSzRiR2xfQVNCWVdXTzlERkRnTUduWUtWQjVBQVhHbG04bms1MV94VTRFdU9CWEVBUC05NmR5MHNiVVRuVU5QUHJDX29qLWVyVjNXeHczUG55cDBrQ2ZyaFZhN2l3WTlFWjU5MmpvYnNwcVI3R3Q2NWVCUDdTOWtUX3hQU0drRlNfRkhvLWVUTndRODRYUm81QnJITU53?oc=5",
+      "source": "APAC Media",
+      "section": "science_space",
+      "published": "2026-11-25",
+      "line": "India's first industry built PSLV is aimed for early 2027."
+    },
+    {
+      "title": "Scientists discover quasar formed 630 million years after the Big Bang",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNWQ4MjJwb3M5ejZIa0dUbDBncmVLaDAwMzlHQTd1QUFXQW9LQkVnOW8yNWJ3SjVONGRQZk80bDlpTDduR3VhQlA4d1pOdWRBVWpFT1F2WEwyTnpKTS1OVV9ZaHRCb3BST290N1RwMHZ1NmpLNlVYeW93NzVPNW1tREJ5MVBXcFZhS29sNVlDdnA3YWhkT3Bjb1l1UjdtVEg2UkNmcUZR0gGmAUFVX3lxTE1FTTBrQzU0VWo2ZHIxSlhqYUpqaE1nMmJhVUQ5VUFjT0F3WXV3cy00eFdkUU5oSnV3Q1E5RERrdTFqWk52Ql81aE9ITmNidHBfaFl3THpDa3VkWjBHdXBfN2pjdVVuaW5Hc3BwMzhmRkx4V0dhOVlhT0lYZFlQd0ZQWVVuTHdQYkdlMmRGUEtoa29RNVVKZXhpZDJwR0N1bnZUVnhCV3c?oc=5",
+      "source": "DW.com",
+      "section": "science_space",
+      "published": "2026-11-25",
+      "line": "A quasar seen about 630 million years after the Big Bang."
+    },
+    {
+      "title": "Global vaccine group aims to buy 1.5 million doses of new Ebola Bundibugyo shot for Congo",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQTi1aWEc4NWZDc1BNNzZNM3ZQbXh1ZlJYVXRsUEpRby1YWDJNZFBib0RMRjM4WWVnT3RFNUxqX2NZWDBjcHYzdHFaQ3ZOajd0MFlPMkdPQWtWbjRjQ0lMVzlUNmxvMk94dTQzbzhqN0FvTkJpcXZiOXZ1UlFCdUhKU2x3RTFtRnlpSlZaTi12Um5oS0t4V2V4eEFUNWFubmVHTWQ5RXpITDgtRUI2U0JfNWlNck8yOXZSVjNNam5PUHMwRC1ZVER0aFM2Zm95WllUdElxaVIwcnA3Q2RMbEtBRDhQYzU?oc=5",
+      "source": "Reuters",
+      "section": "health",
+      "published": "2026-11-24",
+      "line": "A plan to buy 1.5 million doses for Congo's outbreak."
+    },
+    {
+      "title": "Wisconsin reports 3rd measles death, as illnesses spread to the general public",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQckZNQ1V3YTBhZVlUT3VyR2ZNZDduUjJDazUxd0lnUzJEVGJhWGZfdXVUdGM2MFlqbG1JdmFjejQ1SDlWV1B1ZTdRMENpNVJkOFZhaUR1NW9Fc1lYeTk0WXRibmcwclkxWVhaNE5TY0lGUjVnZWo4WTU3NklrZm5ycGwwTFpEMWFUajZJaG1WQ05QYzBYWk5fdjgxSFJtenJlYkJEdw?oc=5",
+      "source": "NBC News",
+      "section": "health",
+      "published": "2026-11-24",
+      "line": "Measles spreads further in the US."
+    },
+    {
+      "title": "India develops first indigenous H5N1 bird flu vaccine",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNM3M0VTRrcERsRHdCSElhdGh1dGRzOVFsTFlQX3IyVnZscnFIRnFueGNFRWV1WFIwVE9paGNSWFlKYWg0U2FzT0hqM3lJNF9vUVlNR1pXWTVDU3VneUJkVUl5V2N4YXNLVEZmMXR0VFdNcjI3YXl1eVY2MTBCc1ZBWUVTZDVyUQ?oc=5",
+      "source": "News On AIR",
+      "section": "health",
+      "published": "2026-11-25",
+      "line": "A homegrown bird flu vaccine."
+    },
+    {
+      "title": "Record 5,200 heat-linked deaths estimated in England this year",
+      "url": "https://www.bbc.co.uk/news/articles/cq2e83egrez3o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Science and Environment",
+      "section": "climate_energy",
+      "published": "2026-11-24",
+      "line": "Heat deaths in England double the previous record."
+    },
+    {
+      "title": "Students who opted for three languages can continue with them, says Supreme Court",
+      "url": "https://www.thehindu.com/education/students-who-opted-for-three-languages-can-continue-with-them-says-supreme-court/article71743644.ece",
+      "source": "The Hindu National",
+      "section": "society",
+      "published": "2026-11-25",
+      "line": "The Supreme Court on students already studying three languages."
+    },
+    {
+      "title": "What are AI chips, and what’s so special about Nvidia’s?",
+      "url": "https://theconversation.com/what-are-ai-chips-and-whats-so-special-about-nvidias-297128",
+      "source": "The Conversation (US)",
+      "section": "explainers",
+      "published": "2026-11-24",
+      "line": "A clear primer on why Nvidia's chips matter."
+    },
+    {
+      "title": "Myanmar genocide ruling presents China with a dilemma",
+      "url": "https://theconversation.com/myanmar-genocide-ruling-presents-china-with-a-dilemma-297324",
+      "source": "The Conversation (UK)",
+      "section": "explainers",
+      "published": "2026-11-25",
+      "line": "What the genocide ruling on Myanmar means for China."
+    }
+  ]
+}

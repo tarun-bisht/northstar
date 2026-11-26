@@ -1,0 +1,69 @@
+{
+  "schema": "reading",
+  "week": "2026-W48",
+  "start_date": "2026-11-23",
+  "end_date": "2026-11-29",
+  "papers": [
+    {
+      "id": "rl-memorized-hallucinations",
+      "title": "LLMs Memorize Their Own Hallucinations During Post-Training",
+      "url": "https://arxiv.org/abs/2611.26863",
+      "authors": [
+        "Anirudh Atmakuru",
+        "Tanya Goyal"
+      ],
+      "arxiv_id": "2611.26863",
+      "source": "arxiv",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "notable researcher"
+      ],
+      "note": "Studies how post-training can teach language models their own hallucinations.",
+      "kind": "for_you",
+      "hf_upvotes": 5,
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-unlearning-deletion-audit",
+      "title": "Deletion You Can Check: Auditing LLM Unlearning",
+      "url": "https://arxiv.org/abs/2611.33525",
+      "authors": [
+        "Mayank Gulati",
+        "Gerhard Wunder"
+      ],
+      "arxiv_id": "2611.33525",
+      "source": "arxiv",
+      "tags": [
+        "useful for your work",
+        "benchmark or dataset"
+      ],
+      "note": "Shows when a membership-inference score can and cannot show that a model forgot a record.",
+      "kind": "for_you",
+      "added": "2026-11-26"
+    },
+    {
+      "id": "rl-lazy-agents-beliefs",
+      "title": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+      "url": "https://arxiv.org/abs/2611.32884",
+      "authors": [
+        "Richmond Sin Jing Xuan",
+        "Peilin Feng",
+        "Wenbin Wang",
+        "Soujanya Poria"
+      ],
+      "arxiv_id": "2611.32884",
+      "source": "arxiv",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "strong result"
+      ],
+      "note": "Reinforcement learning that makes agents act on what they believe before they answer.",
+      "kind": "trending",
+      "hf_upvotes": 96,
+      "added": "2026-11-26"
+    }
+  ],
+  "generated_at": "2026-11-26T03:52:10Z"
+}

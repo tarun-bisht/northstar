@@ -1,13 +1,1139 @@
 {
   "_doc": "Derived by `dsys history rebuild`. 'seen' = candidates reviewed but not selected.",
-  "selected": {},
+  "selected": {
+    "2603.14133": {
+      "date": "2026-11-26",
+      "title": "Computer Science Achievement and Writing Skills Predict Vibe Coding Proficiency",
+      "tags": [
+        "worth knowing",
+        "strong result"
+      ]
+    },
+    "2610.02185": {
+      "date": "2026-11-26",
+      "title": "Decoding Looped Transformers Better for (Almost) Free",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2610.04158": {
+      "date": "2026-11-26",
+      "title": "How RL Reshapes LLM Reasoning: Transferability, Coverage, and Scaling Laws",
+      "tags": [
+        "theory",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2610.10536": {
+      "date": "2026-11-26",
+      "title": "Decoupling Exploration from Optimization in RLVR",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2610.38095": {
+      "date": "2026-11-26",
+      "title": "Nemotron 3.5 Super and Lightning: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Models for Agentic AI",
+      "tags": [
+        "worth knowing",
+        "notable researcher",
+        "new method or architecture"
+      ]
+    },
+    "2610.40345": {
+      "date": "2026-11-26",
+      "title": "A Unified Hessian-Guided Framework for Post-Training Quantization",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.01022": {
+      "date": "2026-11-26",
+      "title": "Jet-QSparse: Accelerating Agentic LLM Inference with 4-Bit Sparse Attention",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "strong result"
+      ]
+    },
+    "2611.21791": {
+      "date": "2026-11-26",
+      "title": "Regularized Score Centering",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.25140": {
+      "date": "2026-11-26",
+      "title": "Asymmetric rhetorical strategies drive partisanship in television news",
+      "tags": [
+        "worth knowing",
+        "strong result"
+      ]
+    },
+    "2611.25403": {
+      "date": "2026-11-26",
+      "title": "Antom 3-in-1 Transformer: A Payment Foundation Model",
+      "tags": [
+        "worth knowing",
+        "strong result",
+        "new method or architecture"
+      ]
+    },
+    "2611.25595": {
+      "date": "2026-11-26",
+      "title": "LoopedWAM: Looped World Action Models for Elastic Inference",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "useful for your work"
+      ]
+    },
+    "2611.25599": {
+      "date": "2026-11-26",
+      "title": "Tether: Verified Stateful Policy Engine for System-Level Monitoring of Agents",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.25717": {
+      "date": "2026-11-26",
+      "title": "VR-SparseQuant: Accurate FP4 Quantization with 2:4 Sparsity on Vera Rubin",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "notable researcher"
+      ]
+    },
+    "2611.25813": {
+      "date": "2026-11-26",
+      "title": "Efficient and Robust Drafting with Multi-Token Prediction",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.26216": {
+      "date": "2026-11-26",
+      "title": "Frontier models need only one text to unmask its human or AI author",
+      "tags": [
+        "strong result",
+        "worth knowing",
+        "useful for your work"
+      ]
+    },
+    "2611.26358": {
+      "date": "2026-11-26",
+      "title": "Beam Model Technical Report",
+      "tags": [
+        "worth knowing",
+        "strong result",
+        "new method or architecture"
+      ]
+    },
+    "2611.26361": {
+      "date": "2026-11-26",
+      "title": "How Much Should an Agent Remember? Deployment Lessons from Self-Distilled Memory for LLM Agents",
+      "tags": [
+        "useful for your work",
+        "worth knowing",
+        "strong result"
+      ]
+    },
+    "2611.26863": {
+      "date": "2026-11-26",
+      "title": "LLMs Memorize Their Own Hallucinations During Post-Training",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "notable researcher"
+      ]
+    },
+    "2611.27125": {
+      "date": "2026-11-26",
+      "title": "When Students Fail to Learn from Teachers: Learning Dynamics of On-Policy Distillation",
+      "tags": [
+        "useful for your work",
+        "theory",
+        "worth knowing"
+      ]
+    },
+    "2611.27193": {
+      "date": "2026-11-26",
+      "title": "cmHC: Balancing Stream Mixing in Hyper-Connections via Geometric Contraction",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "worth knowing"
+      ]
+    },
+    "2611.29285": {
+      "date": "2026-11-26",
+      "title": "Compared to What? Calibrating Machine-Unlearning Diagnostics with Present, Absent and Suppressed Anchors",
+      "tags": [
+        "useful for your work",
+        "benchmark or dataset",
+        "strong result"
+      ]
+    },
+    "2611.29512": {
+      "date": "2026-11-26",
+      "title": "Exact, narrow and fast: Use the Gaffke confidence interval for the mean of a discrete bounded variable",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "theory"
+      ]
+    },
+    "2611.29651": {
+      "date": "2026-11-26",
+      "title": "Which Loopholes Get Found? Predicting Reward Hacking of LLM Judges Before RL Training",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "new method or architecture"
+      ]
+    },
+    "2611.30116": {
+      "date": "2026-11-26",
+      "title": "Grokking as a Subspace Search: Computing the Destination Before Training",
+      "tags": [
+        "theory",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.30546": {
+      "date": "2026-11-26",
+      "title": "Fetch, Read, Reuse: How AI Search Agents Bend the Web's Rules",
+      "tags": [
+        "worth knowing",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.31258": {
+      "date": "2026-11-26",
+      "title": "RECAP: Training Long-horizon LLM Agents with Context Compaction",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.31338": {
+      "date": "2026-11-26",
+      "title": "Per-Attack Blocking Hides Catalog Vulnerability: A Weakest-Link Analysis of Tool Manifests",
+      "tags": [
+        "useful for your work",
+        "worth knowing",
+        "benchmark or dataset"
+      ]
+    },
+    "2611.31350": {
+      "date": "2026-11-26",
+      "title": "GHC:Expanding Residual Interfaces in Hyper-Connections",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.31358": {
+      "date": "2026-11-26",
+      "title": "Nemotron-Labs-VisualCreation: Pixel as Code for Agentic Visual Creation",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "worth knowing"
+      ]
+    },
+    "2611.31397": {
+      "date": "2026-11-26",
+      "title": "CoRe: Jointly Learning Contextual Representations for Understanding and Generation",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "worth knowing"
+      ]
+    },
+    "2611.31427": {
+      "date": "2026-11-26",
+      "title": "Learning What vs. Learning How: Decomposing Task and Interface Competence in Agentic Training",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "worth knowing"
+      ]
+    },
+    "2611.31513": {
+      "date": "2026-11-26",
+      "title": "How to build and train your recurrent-depth model: A fixed-point perspective",
+      "tags": [
+        "theory",
+        "new method or architecture",
+        "useful for your work"
+      ]
+    },
+    "2611.31543": {
+      "date": "2026-11-26",
+      "title": "Reproducible Social Structure Emerges From Free-Form Interaction Among LLM Agents",
+      "tags": [
+        "worth knowing",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.31576": {
+      "date": "2026-11-26",
+      "title": "Lit Up but Not Needed: Scoped Lesions Show Where Multimodal Mixture-of-Experts Depend on Their Experts",
+      "tags": [
+        "useful for your work",
+        "worth knowing",
+        "strong result"
+      ]
+    },
+    "2611.31605": {
+      "date": "2026-11-26",
+      "title": "Noise-Level Adjacency in Diffusion Training",
+      "tags": [
+        "theory",
+        "useful for your work",
+        "worth knowing"
+      ]
+    },
+    "2611.31615": {
+      "date": "2026-11-26",
+      "title": "Eliciting sandbagged LLM capability via structural interventions on attention-head functional networks",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "worth knowing"
+      ]
+    },
+    "2611.31619": {
+      "date": "2026-11-26",
+      "title": "What a Forecasting Leaderboard Can Establish: Resolution Reporting for Zero-Shot Time-Series Models",
+      "tags": [
+        "useful for your work",
+        "benchmark or dataset",
+        "worth knowing"
+      ]
+    },
+    "2611.31621": {
+      "date": "2026-11-26",
+      "title": "Self-Improving Long-Horizon Reasoning by Learning Summaries from Local Continuations",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.31681": {
+      "date": "2026-11-26",
+      "title": "Your bids are showing: re-identifying power plants in anonymized market data, and a differentially private alternative",
+      "tags": [
+        "worth knowing",
+        "new method or architecture",
+        "useful for your work"
+      ]
+    },
+    "2611.31791": {
+      "date": "2026-11-26",
+      "title": "SwarmLeak: Does Coordination Improve Privacy Attacks on LLM Agents?",
+      "tags": [
+        "useful for your work",
+        "worth knowing",
+        "benchmark or dataset"
+      ]
+    },
+    "2611.31795": {
+      "date": "2026-11-26",
+      "title": "Constructive Causal Abstraction and a Case Study in Mechanistic Interpretability",
+      "tags": [
+        "useful for your work",
+        "theory",
+        "new method or architecture"
+      ]
+    },
+    "2611.31800": {
+      "date": "2026-11-26",
+      "title": "Learning Compact State Abstractions for LLM Agents",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.31813": {
+      "date": "2026-11-26",
+      "title": "Agentic Discovery of Soundness Bugs in Safe Rust Bindings",
+      "tags": [
+        "strong result",
+        "worth knowing",
+        "new method or architecture"
+      ]
+    },
+    "2611.31817": {
+      "date": "2026-11-26",
+      "title": "Compressible Representations: Functional Spines in Deep Neural Networks",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "strong result"
+      ]
+    },
+    "2611.31839": {
+      "date": "2026-11-26",
+      "title": "Spec-Test Coverage Gap: Detecting Overspecified Tests in SWE-Bench-Style Benchmarks",
+      "tags": [
+        "useful for your work",
+        "benchmark or dataset",
+        "strong result"
+      ]
+    },
+    "2611.31870": {
+      "date": "2026-11-26",
+      "title": "Subliminal Learning Crosses Modalities",
+      "tags": [
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.31910": {
+      "date": "2026-11-26",
+      "title": "ReJEPA: Bounded Predictive Regulation for Latent World Models",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.31974": {
+      "date": "2026-11-26",
+      "title": "Coding4Games: Can Modern Coding Agents Play Modern Video Games?",
+      "tags": [
+        "benchmark or dataset",
+        "notable researcher",
+        "worth knowing"
+      ]
+    },
+    "2611.31975": {
+      "date": "2026-11-26",
+      "title": "Localizing Cross-Lingual Generalization in Parameter Space",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "worth knowing"
+      ]
+    },
+    "2611.31977": {
+      "date": "2026-11-26",
+      "title": "Distill to Loop: Turning Pretrained Diffusion Transformers into Looped Models with Adjustable Depth",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "useful for your work"
+      ]
+    },
+    "2611.32013": {
+      "date": "2026-11-26",
+      "title": "To Critic Or Not To Critic",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "notable researcher"
+      ]
+    },
+    "2611.32037": {
+      "date": "2026-11-26",
+      "title": "Online Environment Repair for Coding Agents",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "strong result"
+      ]
+    },
+    "2611.32050": {
+      "date": "2026-11-26",
+      "title": "Do Clinician-Scored Examples Help LLMs Code ADOS-2 from Hour-Long Transcripts?",
+      "tags": [
+        "useful for your work",
+        "worth knowing",
+        "benchmark or dataset"
+      ]
+    },
+    "2611.32057": {
+      "date": "2026-11-26",
+      "title": "Generalized Tensor Parallelism: Powering Trillion-Parameter LLM Training at 10+ EFLOP/s",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.32063": {
+      "date": "2026-11-26",
+      "title": "Integral DeltaNet: Improved Linear Attention with Adaptive Memory Integration",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.32064": {
+      "date": "2026-11-26",
+      "title": "Fix How It Acts, Not How It Thinks: Surgical Fine-Tuning of Frontier LLMs",
+      "tags": [
+        "strong result",
+        "new method or architecture",
+        "useful for your work"
+      ]
+    },
+    "2611.32131": {
+      "date": "2026-11-26",
+      "title": "Rethinking Reasoning Effort Training in Large Language Models: On-Policy Distillation or Reinforcement Learning?",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "worth knowing"
+      ]
+    },
+    "2611.32168": {
+      "date": "2026-11-26",
+      "title": "Benchmarking Protein Structure Tokenizers as Generation Targets for Language Models",
+      "tags": [
+        "benchmark or dataset",
+        "useful for your work",
+        "worth knowing"
+      ]
+    },
+    "2611.32183": {
+      "date": "2026-11-26",
+      "title": "ThinkMorph-SSL: Scaling Interleaved Multimodal Reasoning with Pretext Tasks",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "strong result"
+      ]
+    },
+    "2611.32194": {
+      "date": "2026-11-26",
+      "title": "LLM Agent Authorization Across Context Compaction",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.32199": {
+      "date": "2026-11-26",
+      "title": "Steerable by Design: Conditional Pretraining for Robust Control of Language Models",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "notable researcher"
+      ]
+    },
+    "2611.32206": {
+      "date": "2026-11-26",
+      "title": "Seeing Is Not Reaching: Instruction Shortcuts Override Visual Grounding in Vision-Language-Action Models",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "new method or architecture"
+      ]
+    },
+    "2611.32294": {
+      "date": "2026-11-26",
+      "title": "DAiSy: Online Data Selection by Adaptive Utility Estimation for LLM Pretraining",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.32316": {
+      "date": "2026-11-26",
+      "title": "ASTERISM: Do Multimodal LLMs Actually Look at All the Images?",
+      "tags": [
+        "benchmark or dataset",
+        "useful for your work",
+        "new method or architecture"
+      ]
+    },
+    "2611.32415": {
+      "date": "2026-11-26",
+      "title": "Within-task hazards of AI agents: unidentified by time-horizon curves, identified by repeated runs",
+      "tags": [
+        "useful for your work",
+        "theory",
+        "worth knowing"
+      ]
+    },
+    "2611.32423": {
+      "date": "2026-11-26",
+      "title": "Factorized Context Attention: From Emulated to Native Grid Probing",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "useful for your work"
+      ]
+    },
+    "2611.32539": {
+      "date": "2026-11-26",
+      "title": "Avalon-M1: Reinforcement Learning from Collective Rewards",
+      "tags": [
+        "new method or architecture",
+        "worth knowing",
+        "useful for your work"
+      ]
+    },
+    "2611.32547": {
+      "date": "2026-11-26",
+      "title": "Contact Geometry for Generative Models: An Unbalanced Optimal Transport Formulation",
+      "tags": [
+        "theory",
+        "new method or architecture",
+        "useful for your work"
+      ]
+    },
+    "2611.32572": {
+      "date": "2026-11-26",
+      "title": "Breaking Routing And Inter-device Dependencies in Mixture-of-Experts",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "useful for your work"
+      ]
+    },
+    "2611.32585": {
+      "date": "2026-11-26",
+      "title": "Understanding the Importance of Massive Activations through Adversarial Robustness",
+      "tags": [
+        "useful for your work",
+        "theory",
+        "worth knowing"
+      ]
+    },
+    "2611.32606": {
+      "date": "2026-11-26",
+      "title": "Recursive Collective Intelligence: Emergence on an Equal-Budget Ladder in Multi-Agent LLM Systems",
+      "tags": [
+        "useful for your work",
+        "notable researcher",
+        "worth knowing"
+      ]
+    },
+    "2611.32649": {
+      "date": "2026-11-26",
+      "title": "ICLWorld: Benchmarking In-Context Learning of Agents from Digital to Physical Worlds",
+      "tags": [
+        "benchmark or dataset",
+        "useful for your work",
+        "worth knowing"
+      ]
+    },
+    "2611.32672": {
+      "date": "2026-11-26",
+      "title": "Text Is Just Another Shot in Vision-Language Models: Simple Probes on Frozen Encoders Do It",
+      "tags": [
+        "useful for your work",
+        "worth knowing",
+        "strong result"
+      ]
+    },
+    "2611.32691": {
+      "date": "2026-11-26",
+      "title": "Load Balancing Neurons: Firing-Rate Control Sustains Plasticity in Continual Learning",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.32755": {
+      "date": "2026-11-26",
+      "title": "ReQOR: Operator-Discrepancy Subspace Repair for Quantization-Conditioned Backdoors in Large Language Models",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.32762": {
+      "date": "2026-11-26",
+      "title": "SGD with Large Learning Rates: General Analysis & Improved Rates",
+      "tags": [
+        "theory",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.32782": {
+      "date": "2026-11-26",
+      "title": "Measuring Layer-wise Intrinsic Dimensionality of FFNs in LLMs via PCA",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "strong result"
+      ]
+    },
+    "2611.32786": {
+      "date": "2026-11-26",
+      "title": "Simulator-as-Proxy World Model for Robot Manipulation",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "worth knowing"
+      ]
+    },
+    "2611.32801": {
+      "date": "2026-11-26",
+      "title": "Scaling Laws of Ensemble Uncertainty in Language Models",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "worth knowing"
+      ]
+    },
+    "2611.32802": {
+      "date": "2026-11-26",
+      "title": "Sample-Efficient In-Context Adaptation via Sleep",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.32811": {
+      "date": "2026-11-26",
+      "title": "Interactive Neural Computers",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "worth knowing"
+      ]
+    },
+    "2611.32820": {
+      "date": "2026-11-26",
+      "title": "Residual Guidance for Real-Time Interactive Video Generation",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "worth knowing"
+      ]
+    },
+    "2611.32848": {
+      "date": "2026-11-26",
+      "title": "Measurement Artifacts in Trustworthiness Evaluations of Quantized Small Language Models",
+      "tags": [
+        "useful for your work",
+        "worth knowing",
+        "benchmark or dataset"
+      ]
+    },
+    "2611.32873": {
+      "date": "2026-11-26",
+      "title": "MXFP4 for LLM Inference: Complementary Post-Training Quantization Techniques and Their Interactions",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "worth knowing"
+      ]
+    },
+    "2611.32884": {
+      "date": "2026-11-26",
+      "title": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "strong result"
+      ]
+    },
+    "2611.32918": {
+      "date": "2026-11-26",
+      "title": "InstructReplay: Replaying Assistant Turns to Preserve General Behavior During Factual Fine-Tuning",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "strong result"
+      ]
+    },
+    "2611.32969": {
+      "date": "2026-11-26",
+      "title": "Eliciting the Recall Capacity of Linear Attention",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "theory"
+      ]
+    },
+    "2611.32973": {
+      "date": "2026-11-26",
+      "title": "SpecEngineeringBench: Evaluating Coding Agents as Autonomous Specification Engineers",
+      "tags": [
+        "benchmark or dataset",
+        "useful for your work",
+        "worth knowing"
+      ]
+    },
+    "2611.32989": {
+      "date": "2026-11-26",
+      "title": "AVQ-Attention-2: Adaptive Vector-Quantized Attention with Exact Local Blocks and Linear-Cost Training",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "notable researcher"
+      ]
+    },
+    "2611.32991": {
+      "date": "2026-11-26",
+      "title": "On Potentiality and Actuality Of Foundation Models",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "theory"
+      ]
+    },
+    "2611.33009": {
+      "date": "2026-11-26",
+      "title": "Train What You Run: Probabilistic Convolutions for Learning Token Compaction in State Space Models",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "notable researcher"
+      ]
+    },
+    "2611.33010": {
+      "date": "2026-11-26",
+      "title": "Embodied AI Fails the Mirror Test: How a Simple Mirror Breaks Robot Policies",
+      "tags": [
+        "worth knowing",
+        "strong result",
+        "benchmark or dataset"
+      ]
+    },
+    "2611.33048": {
+      "date": "2026-11-26",
+      "title": "Latent Merger: Latent-Space Composition of Hypernetwork-Generated LoRAs",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.33050": {
+      "date": "2026-11-26",
+      "title": "Worth the Wait? How Response Time and Streaming Shape Judgments of Generative AI Answers and Chatbot Engagement",
+      "tags": [
+        "worth knowing",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.33062": {
+      "date": "2026-11-26",
+      "title": "Understanding Clipping In Zeroth-Order Optimization",
+      "tags": [
+        "theory",
+        "useful for your work",
+        "new method or architecture"
+      ]
+    },
+    "2611.33064": {
+      "date": "2026-11-26",
+      "title": "U-Statistics-Powered LLM Reasoning",
+      "tags": [
+        "new method or architecture",
+        "theory",
+        "useful for your work"
+      ]
+    },
+    "2611.33069": {
+      "date": "2026-11-26",
+      "title": "Pragmatic Deeply Debiased ML",
+      "tags": [
+        "theory",
+        "new method or architecture",
+        "useful for your work"
+      ]
+    },
+    "2611.33098": {
+      "date": "2026-11-26",
+      "title": "Delegent: A Multi-Agent Harness That Reduces Cost without Sacrificing Performance",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "notable researcher"
+      ]
+    },
+    "2611.33102": {
+      "date": "2026-11-26",
+      "title": "Reinforcement Learning Can Be Recovered From Its Own Rollouts",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "worth knowing"
+      ]
+    },
+    "2611.33148": {
+      "date": "2026-11-26",
+      "title": "CoT-Proxy: Cross-Format Transfer for Distilling Long-Horizon Policies",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.33248": {
+      "date": "2026-11-26",
+      "title": "Typical Angina, Reversed: A Long-Standing Documentation Error in the UCI Heart Disease Data",
+      "tags": [
+        "worth knowing",
+        "benchmark or dataset",
+        "useful for your work"
+      ]
+    },
+    "2611.33254": {
+      "date": "2026-11-26",
+      "title": "Anti-AI in the Wild: From Toxic Discourse to Action",
+      "tags": [
+        "worth knowing",
+        "useful for your work",
+        "benchmark or dataset"
+      ]
+    },
+    "2611.33302": {
+      "date": "2026-11-26",
+      "title": "Two Timescales of Forgetting in Fine-tuning of Language Models: Fast Behavioral Suppression and Slow Representational Drift",
+      "tags": [
+        "useful for your work",
+        "theory",
+        "strong result"
+      ]
+    },
+    "2611.33303": {
+      "date": "2026-11-26",
+      "title": "Certify What You Plant: Shortcut-Free Proof Depth in Logical Reasoning Data",
+      "tags": [
+        "benchmark or dataset",
+        "useful for your work",
+        "new method or architecture"
+      ]
+    },
+    "2611.33304": {
+      "date": "2026-11-26",
+      "title": "The Platonic Representation Hypothesis in Jacobian-Space: Language and Vision Models Agree Approximately Up to a Rotation",
+      "tags": [
+        "strong result",
+        "useful for your work",
+        "worth knowing"
+      ]
+    },
+    "2611.33314": {
+      "date": "2026-11-26",
+      "title": "Building a Unified Inline Code Editing Model for GitHub Copilot",
+      "tags": [
+        "worth knowing",
+        "strong result",
+        "new method or architecture"
+      ]
+    },
+    "2611.33316": {
+      "date": "2026-11-26",
+      "title": "What Does RL Post-Training Teach Text-to-Image Models? A Skill-Wise Analysis of Flow-GRPO",
+      "tags": [
+        "useful for your work",
+        "strong result",
+        "worth knowing"
+      ]
+    },
+    "2611.33339": {
+      "date": "2026-11-26",
+      "title": "Temporal Weight Surgery: Repairing Video Grounding with LLM Editors",
+      "tags": [
+        "new method or architecture",
+        "worth knowing",
+        "useful for your work"
+      ]
+    },
+    "2611.33353": {
+      "date": "2026-11-26",
+      "title": "The Marauder's Map: Bézier Manifolds Reveal Hidden Surfaces for Model Merging and Ensembling",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "worth knowing"
+      ]
+    },
+    "2611.33447": {
+      "date": "2026-11-26",
+      "title": "Centered Kernel Distance: Dimension-Free Error Bounds for Comparing Neural Representations",
+      "tags": [
+        "theory",
+        "useful for your work",
+        "new method or architecture"
+      ]
+    },
+    "2611.33464": {
+      "date": "2026-11-26",
+      "title": "PAC Learning to Sample: On Computational Aspects of Language Generation",
+      "tags": [
+        "theory",
+        "useful for your work",
+        "worth knowing"
+      ]
+    },
+    "2611.33525": {
+      "date": "2026-11-26",
+      "title": "Deletion You Can Check: Auditing LLM Unlearning",
+      "tags": [
+        "useful for your work",
+        "benchmark or dataset"
+      ]
+    },
+    "2611.33527": {
+      "date": "2026-11-26",
+      "title": "Casper: A Projection-Based Neurosymbolic Layer for Scalable & Guaranteed Constraint Satisfaction",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.33531": {
+      "date": "2026-11-26",
+      "title": "Adversarial Bandit Convex Optimization with $d^{3/2}\\sqrt{n}$ Regret",
+      "tags": [
+        "theory",
+        "strong result",
+        "useful for your work"
+      ]
+    },
+    "2611.33571": {
+      "date": "2026-11-26",
+      "title": "Trigger-Invariant Contrastive Unlearning for Backdoor Removal",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.33589": {
+      "date": "2026-11-26",
+      "title": "Amortizing Exact Orthogonality: Drift-Triggered Restoration for Orthogonal Fine-Tuning",
+      "tags": [
+        "new method or architecture",
+        "notable researcher",
+        "useful for your work"
+      ]
+    },
+    "2611.33592": {
+      "date": "2026-11-26",
+      "title": "Improved Sample Complexity of Robust Reinforcement Learning with KL Uncertainty Sets",
+      "tags": [
+        "theory",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.33622": {
+      "date": "2026-11-26",
+      "title": "How Many Sources, Not Just How Many Problems: Planning the Precision of LLM Evaluations from Earlier Results",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "benchmark or dataset"
+      ]
+    },
+    "2611.33625": {
+      "date": "2026-11-26",
+      "title": "State Space Attention: Learning Context-Dependent Memory Retention",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "strong result"
+      ]
+    },
+    "2611.33640": {
+      "date": "2026-11-26",
+      "title": "Sparse-to-Sparse Feature Learning for Cross-Layer Analysis and Steering",
+      "tags": [
+        "new method or architecture",
+        "useful for your work",
+        "worth knowing"
+      ]
+    },
+    "2611.33672": {
+      "date": "2026-11-26",
+      "title": "Node Differential Privacy via Node-Stable Graph Projections",
+      "tags": [
+        "theory",
+        "new method or architecture",
+        "useful for your work"
+      ]
+    },
+    "2611.33690": {
+      "date": "2026-11-26",
+      "title": "Refusal Is Not Scored: A Coverage Limit in Content-Based Bias Evaluation",
+      "tags": [
+        "useful for your work",
+        "worth knowing",
+        "benchmark or dataset"
+      ]
+    },
+    "2611.33692": {
+      "date": "2026-11-26",
+      "title": "Rethinking Sequential Locate-Then-Edit: Optimality and Stability",
+      "tags": [
+        "theory",
+        "new method or architecture",
+        "useful for your work"
+      ]
+    },
+    "2611.33719": {
+      "date": "2026-11-26",
+      "title": "Understanding Mode Collapse in Diffusion Models under Classifier-Free Guidance",
+      "tags": [
+        "theory",
+        "useful for your work",
+        "worth knowing"
+      ]
+    }
+  },
   "seen": {
+    "1706.03762": "2026-11-26",
+    "1806.02404": "2026-11-26",
+    "2310.19780": "2026-11-26",
+    "2510.22622": "2026-11-26",
+    "2610.06647": "2026-11-26",
+    "2610.13438": "2026-11-26",
+    "2610.20832": "2026-11-26",
     "2611.00911": "2026-11-24",
+    "2611.04061": "2026-11-26",
+    "2611.10463": "2026-11-26",
+    "2611.10987": "2026-11-26",
     "2611.12164": "2026-11-24",
+    "2611.13275": "2026-11-26",
     "2611.13730": "2026-11-24",
     "2611.15449": "2026-11-24",
     "2611.15941": "2026-11-24",
+    "2611.17212": "2026-11-26",
     "2611.18639": "2026-11-24",
+    "2611.19064": "2026-11-26",
     "2611.19230": "2026-11-24",
     "2611.19247": "2026-11-24",
     "2611.20455": "2026-11-24",
@@ -19,6 +1145,7 @@
     "2611.22479": "2026-11-24",
     "2611.22495": "2026-11-24",
     "2611.22666": "2026-11-24",
+    "2611.23364": "2026-11-26",
     "2611.23417": "2026-11-24",
     "2611.23835": "2026-11-24",
     "2611.23875": "2026-11-24",
@@ -43,11 +1170,15 @@
     "2611.25604": "2026-11-24",
     "2611.25773": "2026-11-24",
     "2611.25776": "2026-11-24",
+    "2611.25838": "2026-11-26",
+    "2611.25848": "2026-11-26",
+    "2611.25865": "2026-11-26",
     "2611.25927": "2026-11-24",
     "2611.25935": "2026-11-24",
     "2611.25980": "2026-11-24",
     "2611.26103": "2026-11-24",
     "2611.26107": "2026-11-24",
+    "2611.26196": "2026-11-26",
     "2611.26211": "2026-11-24",
     "2611.26232": "2026-11-24",
     "2611.26239": "2026-11-24",
@@ -58,14 +1189,19 @@
     "2611.26298": "2026-11-24",
     "2611.26380": "2026-11-24",
     "2611.26389": "2026-11-24",
+    "2611.26405": "2026-11-26",
     "2611.26408": "2026-11-24",
     "2611.26409": "2026-11-24",
     "2611.26414": "2026-11-24",
+    "2611.26420": "2026-11-26",
+    "2611.26434": "2026-11-26",
     "2611.26444": "2026-11-24",
     "2611.26450": "2026-11-24",
+    "2611.26493": "2026-11-26",
     "2611.26510": "2026-11-24",
     "2611.26511": "2026-11-24",
     "2611.26516": "2026-11-24",
+    "2611.26519": "2026-11-26",
     "2611.26540": "2026-11-24",
     "2611.26590": "2026-11-24",
     "2611.26595": "2026-11-24",
@@ -73,6 +1209,7 @@
     "2611.26613": "2026-11-24",
     "2611.26617": "2026-11-24",
     "2611.26624": "2026-11-24",
+    "2611.26625": "2026-11-26",
     "2611.26629": "2026-11-24",
     "2611.26745": "2026-11-24",
     "2611.26809": "2026-11-24",
@@ -1058,6 +2195,7 @@
     "2611.29339": "2026-11-24",
     "2611.29340": "2026-11-24",
     "2611.29341": "2026-11-24",
+    "2611.29343": "2026-11-26",
     "2611.29348": "2026-11-24",
     "2611.29350": "2026-11-24",
     "2611.29353": "2026-11-24",
@@ -1120,6 +2258,7 @@
     "2611.29491": "2026-11-24",
     "2611.29493": "2026-11-24",
     "2611.29494": "2026-11-24",
+    "2611.29497": "2026-11-26",
     "2611.29501": "2026-11-24",
     "2611.29507": "2026-11-24",
     "2611.29510": "2026-11-24",
@@ -1174,9 +2313,11 @@
     "2611.29657": "2026-11-24",
     "2611.29658": "2026-11-24",
     "2611.29661": "2026-11-24",
+    "2611.29662": "2026-11-26",
     "2611.29663": "2026-11-24",
     "2611.29664": "2026-11-24",
     "2611.29665": "2026-11-24",
+    "2611.29672": "2026-11-26",
     "2611.29674": "2026-11-24",
     "2611.29675": "2026-11-24",
     "2611.29678": "2026-11-24",
@@ -1208,6 +2349,7 @@
     "2611.29737": "2026-11-24",
     "2611.29741": "2026-11-24",
     "2611.29744": "2026-11-24",
+    "2611.29749": "2026-11-26",
     "2611.29750": "2026-11-24",
     "2611.29752": "2026-11-24",
     "2611.29753": "2026-11-24",
@@ -1237,6 +2379,7 @@
     "2611.29805": "2026-11-24",
     "2611.29807": "2026-11-24",
     "2611.29808": "2026-11-24",
+    "2611.29809": "2026-11-26",
     "2611.29811": "2026-11-24",
     "2611.29813": "2026-11-24",
     "2611.29814": "2026-11-24",
@@ -1275,7 +2418,9 @@
     "2611.29903": "2026-11-24",
     "2611.29904": "2026-11-24",
     "2611.29905": "2026-11-24",
+    "2611.29908": "2026-11-26",
     "2611.29909": "2026-11-24",
+    "2611.29912": "2026-11-26",
     "2611.29914": "2026-11-24",
     "2611.29915": "2026-11-24",
     "2611.29919": "2026-11-24",
@@ -1285,6 +2430,7 @@
     "2611.29930": "2026-11-24",
     "2611.29932": "2026-11-24",
     "2611.29934": "2026-11-24",
+    "2611.29935": "2026-11-26",
     "2611.29936": "2026-11-24",
     "2611.29937": "2026-11-24",
     "2611.29941": "2026-11-24",
@@ -1296,6 +2442,7 @@
     "2611.29958": "2026-11-24",
     "2611.29960": "2026-11-24",
     "2611.29964": "2026-11-24",
+    "2611.29966": "2026-11-26",
     "2611.29968": "2026-11-24",
     "2611.29969": "2026-11-24",
     "2611.29970": "2026-11-24",
@@ -1316,6 +2463,7 @@
     "2611.30004": "2026-11-24",
     "2611.30005": "2026-11-24",
     "2611.30006": "2026-11-24",
+    "2611.30007": "2026-11-26",
     "2611.30011": "2026-11-24",
     "2611.30012": "2026-11-24",
     "2611.30013": "2026-11-24",
@@ -1401,6 +2549,7 @@
     "2611.30170": "2026-11-24",
     "2611.30171": "2026-11-24",
     "2611.30176": "2026-11-24",
+    "2611.30178": "2026-11-26",
     "2611.30179": "2026-11-24",
     "2611.30181": "2026-11-24",
     "2611.30183": "2026-11-24",
@@ -1419,6 +2568,7 @@
     "2611.30209": "2026-11-24",
     "2611.30214": "2026-11-24",
     "2611.30215": "2026-11-24",
+    "2611.30216": "2026-11-26",
     "2611.30218": "2026-11-24",
     "2611.30219": "2026-11-24",
     "2611.30224": "2026-11-24",
@@ -1431,6 +2581,7 @@
     "2611.30244": "2026-11-24",
     "2611.30252": "2026-11-24",
     "2611.30253": "2026-11-24",
+    "2611.30254": "2026-11-26",
     "2611.30255": "2026-11-24",
     "2611.30256": "2026-11-24",
     "2611.30259": "2026-11-24",
@@ -1454,6 +2605,7 @@
     "2611.30298": "2026-11-24",
     "2611.30304": "2026-11-24",
     "2611.30310": "2026-11-24",
+    "2611.30312": "2026-11-26",
     "2611.30314": "2026-11-24",
     "2611.30316": "2026-11-24",
     "2611.30320": "2026-11-24",
@@ -1497,6 +2649,7 @@
     "2611.30406": "2026-11-24",
     "2611.30410": "2026-11-24",
     "2611.30412": "2026-11-24",
+    "2611.30417": "2026-11-26",
     "2611.30419": "2026-11-24",
     "2611.30422": "2026-11-24",
     "2611.30423": "2026-11-24",
@@ -1525,6 +2678,7 @@
     "2611.30490": "2026-11-24",
     "2611.30492": "2026-11-24",
     "2611.30494": "2026-11-24",
+    "2611.30495": "2026-11-26",
     "2611.30496": "2026-11-24",
     "2611.30499": "2026-11-24",
     "2611.30500": "2026-11-24",
@@ -1573,7 +2727,9 @@
     "2611.30590": "2026-11-24",
     "2611.30592": "2026-11-24",
     "2611.30593": "2026-11-24",
+    "2611.30595": "2026-11-26",
     "2611.30597": "2026-11-24",
+    "2611.30599": "2026-11-26",
     "2611.30600": "2026-11-24",
     "2611.30601": "2026-11-24",
     "2611.30602": "2026-11-24",
@@ -1595,6 +2751,7 @@
     "2611.30635": "2026-11-24",
     "2611.30636": "2026-11-24",
     "2611.30637": "2026-11-24",
+    "2611.30639": "2026-11-26",
     "2611.30641": "2026-11-24",
     "2611.30642": "2026-11-24",
     "2611.30646": "2026-11-24",
@@ -1669,9 +2826,11 @@
     "2611.30829": "2026-11-24",
     "2611.30835": "2026-11-24",
     "2611.30836": "2026-11-24",
+    "2611.30838": "2026-11-26",
     "2611.30839": "2026-11-24",
     "2611.30840": "2026-11-24",
     "2611.30844": "2026-11-24",
+    "2611.30845": "2026-11-26",
     "2611.30849": "2026-11-24",
     "2611.30850": "2026-11-24",
     "2611.30854": "2026-11-24",
@@ -1770,11 +2929,13 @@
     "2611.31099": "2026-11-24",
     "2611.31101": "2026-11-24",
     "2611.31105": "2026-11-24",
+    "2611.31108": "2026-11-26",
     "2611.31110": "2026-11-24",
     "2611.31112": "2026-11-24",
     "2611.31113": "2026-11-24",
     "2611.31115": "2026-11-24",
     "2611.31117": "2026-11-24",
+    "2611.31118": "2026-11-26",
     "2611.31122": "2026-11-24",
     "2611.31125": "2026-11-24",
     "2611.31126": "2026-11-24",
@@ -1823,6 +2984,539 @@
     "2611.31237": "2026-11-24",
     "2611.31238": "2026-11-24",
     "2611.31239": "2026-11-24",
-    "2611.31240": "2026-11-24"
+    "2611.31240": "2026-11-24",
+    "2611.31307": "2026-11-26",
+    "2611.31312": "2026-11-26",
+    "2611.31313": "2026-11-26",
+    "2611.31319": "2026-11-26",
+    "2611.31320": "2026-11-26",
+    "2611.31326": "2026-11-26",
+    "2611.31333": "2026-11-26",
+    "2611.31343": "2026-11-26",
+    "2611.31345": "2026-11-26",
+    "2611.31346": "2026-11-26",
+    "2611.31347": "2026-11-26",
+    "2611.31354": "2026-11-26",
+    "2611.31403": "2026-11-26",
+    "2611.31406": "2026-11-26",
+    "2611.31429": "2026-11-26",
+    "2611.31431": "2026-11-26",
+    "2611.31434": "2026-11-26",
+    "2611.31436": "2026-11-26",
+    "2611.31439": "2026-11-26",
+    "2611.31442": "2026-11-26",
+    "2611.31451": "2026-11-26",
+    "2611.31452": "2026-11-26",
+    "2611.31455": "2026-11-26",
+    "2611.31465": "2026-11-26",
+    "2611.31466": "2026-11-26",
+    "2611.31471": "2026-11-26",
+    "2611.31475": "2026-11-26",
+    "2611.31481": "2026-11-26",
+    "2611.31486": "2026-11-26",
+    "2611.31487": "2026-11-26",
+    "2611.31495": "2026-11-26",
+    "2611.31496": "2026-11-26",
+    "2611.31499": "2026-11-26",
+    "2611.31509": "2026-11-26",
+    "2611.31511": "2026-11-26",
+    "2611.31520": "2026-11-26",
+    "2611.31525": "2026-11-26",
+    "2611.31526": "2026-11-26",
+    "2611.31527": "2026-11-26",
+    "2611.31532": "2026-11-26",
+    "2611.31535": "2026-11-26",
+    "2611.31536": "2026-11-26",
+    "2611.31540": "2026-11-26",
+    "2611.31541": "2026-11-26",
+    "2611.31554": "2026-11-26",
+    "2611.31558": "2026-11-26",
+    "2611.31559": "2026-11-26",
+    "2611.31561": "2026-11-26",
+    "2611.31569": "2026-11-26",
+    "2611.31571": "2026-11-26",
+    "2611.31578": "2026-11-26",
+    "2611.31581": "2026-11-26",
+    "2611.31582": "2026-11-26",
+    "2611.31586": "2026-11-26",
+    "2611.31588": "2026-11-26",
+    "2611.31589": "2026-11-26",
+    "2611.31590": "2026-11-26",
+    "2611.31595": "2026-11-26",
+    "2611.31596": "2026-11-26",
+    "2611.31601": "2026-11-26",
+    "2611.31603": "2026-11-26",
+    "2611.31604": "2026-11-26",
+    "2611.31608": "2026-11-26",
+    "2611.31611": "2026-11-26",
+    "2611.31613": "2026-11-26",
+    "2611.31627": "2026-11-26",
+    "2611.31638": "2026-11-26",
+    "2611.31640": "2026-11-26",
+    "2611.31651": "2026-11-26",
+    "2611.31656": "2026-11-26",
+    "2611.31667": "2026-11-26",
+    "2611.31668": "2026-11-26",
+    "2611.31670": "2026-11-26",
+    "2611.31677": "2026-11-26",
+    "2611.31680": "2026-11-26",
+    "2611.31682": "2026-11-26",
+    "2611.31686": "2026-11-26",
+    "2611.31687": "2026-11-26",
+    "2611.31688": "2026-11-26",
+    "2611.31689": "2026-11-26",
+    "2611.31694": "2026-11-26",
+    "2611.31702": "2026-11-26",
+    "2611.31703": "2026-11-26",
+    "2611.31712": "2026-11-26",
+    "2611.31714": "2026-11-26",
+    "2611.31725": "2026-11-26",
+    "2611.31727": "2026-11-26",
+    "2611.31730": "2026-11-26",
+    "2611.31731": "2026-11-26",
+    "2611.31733": "2026-11-26",
+    "2611.31735": "2026-11-26",
+    "2611.31736": "2026-11-26",
+    "2611.31737": "2026-11-26",
+    "2611.31740": "2026-11-26",
+    "2611.31744": "2026-11-26",
+    "2611.31747": "2026-11-26",
+    "2611.31752": "2026-11-26",
+    "2611.31755": "2026-11-26",
+    "2611.31756": "2026-11-26",
+    "2611.31765": "2026-11-26",
+    "2611.31766": "2026-11-26",
+    "2611.31771": "2026-11-26",
+    "2611.31774": "2026-11-26",
+    "2611.31780": "2026-11-26",
+    "2611.31786": "2026-11-26",
+    "2611.31790": "2026-11-26",
+    "2611.31794": "2026-11-26",
+    "2611.31796": "2026-11-26",
+    "2611.31801": "2026-11-26",
+    "2611.31803": "2026-11-26",
+    "2611.31821": "2026-11-26",
+    "2611.31822": "2026-11-26",
+    "2611.31833": "2026-11-26",
+    "2611.31836": "2026-11-26",
+    "2611.31849": "2026-11-26",
+    "2611.31850": "2026-11-26",
+    "2611.31851": "2026-11-26",
+    "2611.31853": "2026-11-26",
+    "2611.31856": "2026-11-26",
+    "2611.31864": "2026-11-26",
+    "2611.31869": "2026-11-26",
+    "2611.31873": "2026-11-26",
+    "2611.31875": "2026-11-26",
+    "2611.31883": "2026-11-26",
+    "2611.31891": "2026-11-26",
+    "2611.31895": "2026-11-26",
+    "2611.31899": "2026-11-26",
+    "2611.31903": "2026-11-26",
+    "2611.31909": "2026-11-26",
+    "2611.31913": "2026-11-26",
+    "2611.31914": "2026-11-26",
+    "2611.31920": "2026-11-26",
+    "2611.31921": "2026-11-26",
+    "2611.31931": "2026-11-26",
+    "2611.31932": "2026-11-26",
+    "2611.31937": "2026-11-26",
+    "2611.31938": "2026-11-26",
+    "2611.31939": "2026-11-26",
+    "2611.31944": "2026-11-26",
+    "2611.31951": "2026-11-26",
+    "2611.31952": "2026-11-26",
+    "2611.31958": "2026-11-26",
+    "2611.31962": "2026-11-26",
+    "2611.31964": "2026-11-26",
+    "2611.31966": "2026-11-26",
+    "2611.31969": "2026-11-26",
+    "2611.31972": "2026-11-26",
+    "2611.31973": "2026-11-26",
+    "2611.31979": "2026-11-26",
+    "2611.31981": "2026-11-26",
+    "2611.31983": "2026-11-26",
+    "2611.31986": "2026-11-26",
+    "2611.31987": "2026-11-26",
+    "2611.31988": "2026-11-26",
+    "2611.31989": "2026-11-26",
+    "2611.31990": "2026-11-26",
+    "2611.31995": "2026-11-26",
+    "2611.31996": "2026-11-26",
+    "2611.31998": "2026-11-26",
+    "2611.31999": "2026-11-26",
+    "2611.32006": "2026-11-26",
+    "2611.32008": "2026-11-26",
+    "2611.32011": "2026-11-26",
+    "2611.32015": "2026-11-26",
+    "2611.32016": "2026-11-26",
+    "2611.32017": "2026-11-26",
+    "2611.32018": "2026-11-26",
+    "2611.32021": "2026-11-26",
+    "2611.32022": "2026-11-26",
+    "2611.32029": "2026-11-26",
+    "2611.32031": "2026-11-26",
+    "2611.32033": "2026-11-26",
+    "2611.32035": "2026-11-26",
+    "2611.32039": "2026-11-26",
+    "2611.32041": "2026-11-26",
+    "2611.32053": "2026-11-26",
+    "2611.32054": "2026-11-26",
+    "2611.32067": "2026-11-26",
+    "2611.32071": "2026-11-26",
+    "2611.32074": "2026-11-26",
+    "2611.32085": "2026-11-26",
+    "2611.32088": "2026-11-26",
+    "2611.32092": "2026-11-26",
+    "2611.32094": "2026-11-26",
+    "2611.32096": "2026-11-26",
+    "2611.32097": "2026-11-26",
+    "2611.32102": "2026-11-26",
+    "2611.32108": "2026-11-26",
+    "2611.32112": "2026-11-26",
+    "2611.32113": "2026-11-26",
+    "2611.32127": "2026-11-26",
+    "2611.32128": "2026-11-26",
+    "2611.32143": "2026-11-26",
+    "2611.32147": "2026-11-26",
+    "2611.32151": "2026-11-26",
+    "2611.32152": "2026-11-26",
+    "2611.32153": "2026-11-26",
+    "2611.32166": "2026-11-26",
+    "2611.32172": "2026-11-26",
+    "2611.32174": "2026-11-26",
+    "2611.32175": "2026-11-26",
+    "2611.32182": "2026-11-26",
+    "2611.32198": "2026-11-26",
+    "2611.32203": "2026-11-26",
+    "2611.32208": "2026-11-26",
+    "2611.32209": "2026-11-26",
+    "2611.32211": "2026-11-26",
+    "2611.32223": "2026-11-26",
+    "2611.32225": "2026-11-26",
+    "2611.32226": "2026-11-26",
+    "2611.32227": "2026-11-26",
+    "2611.32228": "2026-11-26",
+    "2611.32233": "2026-11-26",
+    "2611.32238": "2026-11-26",
+    "2611.32250": "2026-11-26",
+    "2611.32251": "2026-11-26",
+    "2611.32255": "2026-11-26",
+    "2611.32257": "2026-11-26",
+    "2611.32260": "2026-11-26",
+    "2611.32264": "2026-11-26",
+    "2611.32269": "2026-11-26",
+    "2611.32286": "2026-11-26",
+    "2611.32292": "2026-11-26",
+    "2611.32295": "2026-11-26",
+    "2611.32297": "2026-11-26",
+    "2611.32302": "2026-11-26",
+    "2611.32304": "2026-11-26",
+    "2611.32321": "2026-11-26",
+    "2611.32324": "2026-11-26",
+    "2611.32329": "2026-11-26",
+    "2611.32339": "2026-11-26",
+    "2611.32343": "2026-11-26",
+    "2611.32345": "2026-11-26",
+    "2611.32347": "2026-11-26",
+    "2611.32348": "2026-11-26",
+    "2611.32351": "2026-11-26",
+    "2611.32357": "2026-11-26",
+    "2611.32365": "2026-11-26",
+    "2611.32369": "2026-11-26",
+    "2611.32371": "2026-11-26",
+    "2611.32372": "2026-11-26",
+    "2611.32384": "2026-11-26",
+    "2611.32390": "2026-11-26",
+    "2611.32391": "2026-11-26",
+    "2611.32400": "2026-11-26",
+    "2611.32402": "2026-11-26",
+    "2611.32405": "2026-11-26",
+    "2611.32406": "2026-11-26",
+    "2611.32410": "2026-11-26",
+    "2611.32416": "2026-11-26",
+    "2611.32422": "2026-11-26",
+    "2611.32439": "2026-11-26",
+    "2611.32445": "2026-11-26",
+    "2611.32446": "2026-11-26",
+    "2611.32447": "2026-11-26",
+    "2611.32452": "2026-11-26",
+    "2611.32453": "2026-11-26",
+    "2611.32455": "2026-11-26",
+    "2611.32461": "2026-11-26",
+    "2611.32462": "2026-11-26",
+    "2611.32463": "2026-11-26",
+    "2611.32472": "2026-11-26",
+    "2611.32473": "2026-11-26",
+    "2611.32480": "2026-11-26",
+    "2611.32483": "2026-11-26",
+    "2611.32496": "2026-11-26",
+    "2611.32501": "2026-11-26",
+    "2611.32504": "2026-11-26",
+    "2611.32508": "2026-11-26",
+    "2611.32510": "2026-11-26",
+    "2611.32515": "2026-11-26",
+    "2611.32525": "2026-11-26",
+    "2611.32528": "2026-11-26",
+    "2611.32529": "2026-11-26",
+    "2611.32536": "2026-11-26",
+    "2611.32537": "2026-11-26",
+    "2611.32545": "2026-11-26",
+    "2611.32548": "2026-11-26",
+    "2611.32549": "2026-11-26",
+    "2611.32554": "2026-11-26",
+    "2611.32562": "2026-11-26",
+    "2611.32564": "2026-11-26",
+    "2611.32566": "2026-11-26",
+    "2611.32568": "2026-11-26",
+    "2611.32573": "2026-11-26",
+    "2611.32576": "2026-11-26",
+    "2611.32595": "2026-11-26",
+    "2611.32598": "2026-11-26",
+    "2611.32600": "2026-11-26",
+    "2611.32602": "2026-11-26",
+    "2611.32605": "2026-11-26",
+    "2611.32609": "2026-11-26",
+    "2611.32610": "2026-11-26",
+    "2611.32614": "2026-11-26",
+    "2611.32615": "2026-11-26",
+    "2611.32617": "2026-11-26",
+    "2611.32621": "2026-11-26",
+    "2611.32622": "2026-11-26",
+    "2611.32624": "2026-11-26",
+    "2611.32625": "2026-11-26",
+    "2611.32631": "2026-11-26",
+    "2611.32632": "2026-11-26",
+    "2611.32634": "2026-11-26",
+    "2611.32639": "2026-11-26",
+    "2611.32644": "2026-11-26",
+    "2611.32645": "2026-11-26",
+    "2611.32651": "2026-11-26",
+    "2611.32654": "2026-11-26",
+    "2611.32658": "2026-11-26",
+    "2611.32660": "2026-11-26",
+    "2611.32662": "2026-11-26",
+    "2611.32663": "2026-11-26",
+    "2611.32665": "2026-11-26",
+    "2611.32675": "2026-11-26",
+    "2611.32685": "2026-11-26",
+    "2611.32686": "2026-11-26",
+    "2611.32687": "2026-11-26",
+    "2611.32693": "2026-11-26",
+    "2611.32697": "2026-11-26",
+    "2611.32705": "2026-11-26",
+    "2611.32708": "2026-11-26",
+    "2611.32710": "2026-11-26",
+    "2611.32718": "2026-11-26",
+    "2611.32734": "2026-11-26",
+    "2611.32736": "2026-11-26",
+    "2611.32745": "2026-11-26",
+    "2611.32748": "2026-11-26",
+    "2611.32749": "2026-11-26",
+    "2611.32750": "2026-11-26",
+    "2611.32764": "2026-11-26",
+    "2611.32765": "2026-11-26",
+    "2611.32772": "2026-11-26",
+    "2611.32776": "2026-11-26",
+    "2611.32777": "2026-11-26",
+    "2611.32778": "2026-11-26",
+    "2611.32780": "2026-11-26",
+    "2611.32781": "2026-11-26",
+    "2611.32793": "2026-11-26",
+    "2611.32803": "2026-11-26",
+    "2611.32807": "2026-11-26",
+    "2611.32812": "2026-11-26",
+    "2611.32815": "2026-11-26",
+    "2611.32816": "2026-11-26",
+    "2611.32817": "2026-11-26",
+    "2611.32821": "2026-11-26",
+    "2611.32823": "2026-11-26",
+    "2611.32825": "2026-11-26",
+    "2611.32829": "2026-11-26",
+    "2611.32830": "2026-11-26",
+    "2611.32855": "2026-11-26",
+    "2611.32858": "2026-11-26",
+    "2611.32859": "2026-11-26",
+    "2611.32864": "2026-11-26",
+    "2611.32866": "2026-11-26",
+    "2611.32881": "2026-11-26",
+    "2611.32889": "2026-11-26",
+    "2611.32899": "2026-11-26",
+    "2611.32900": "2026-11-26",
+    "2611.32903": "2026-11-26",
+    "2611.32917": "2026-11-26",
+    "2611.32938": "2026-11-26",
+    "2611.32940": "2026-11-26",
+    "2611.32944": "2026-11-26",
+    "2611.32945": "2026-11-26",
+    "2611.32946": "2026-11-26",
+    "2611.32951": "2026-11-26",
+    "2611.32954": "2026-11-26",
+    "2611.32955": "2026-11-26",
+    "2611.32957": "2026-11-26",
+    "2611.32958": "2026-11-26",
+    "2611.32959": "2026-11-26",
+    "2611.32964": "2026-11-26",
+    "2611.32967": "2026-11-26",
+    "2611.32971": "2026-11-26",
+    "2611.32982": "2026-11-26",
+    "2611.32986": "2026-11-26",
+    "2611.32993": "2026-11-26",
+    "2611.32996": "2026-11-26",
+    "2611.32998": "2026-11-26",
+    "2611.33004": "2026-11-26",
+    "2611.33005": "2026-11-26",
+    "2611.33012": "2026-11-26",
+    "2611.33013": "2026-11-26",
+    "2611.33016": "2026-11-26",
+    "2611.33020": "2026-11-26",
+    "2611.33022": "2026-11-26",
+    "2611.33024": "2026-11-26",
+    "2611.33026": "2026-11-26",
+    "2611.33030": "2026-11-26",
+    "2611.33031": "2026-11-26",
+    "2611.33036": "2026-11-26",
+    "2611.33037": "2026-11-26",
+    "2611.33065": "2026-11-26",
+    "2611.33078": "2026-11-26",
+    "2611.33080": "2026-11-26",
+    "2611.33086": "2026-11-26",
+    "2611.33093": "2026-11-26",
+    "2611.33094": "2026-11-26",
+    "2611.33103": "2026-11-26",
+    "2611.33104": "2026-11-26",
+    "2611.33109": "2026-11-26",
+    "2611.33111": "2026-11-26",
+    "2611.33113": "2026-11-26",
+    "2611.33118": "2026-11-26",
+    "2611.33119": "2026-11-26",
+    "2611.33124": "2026-11-26",
+    "2611.33130": "2026-11-26",
+    "2611.33132": "2026-11-26",
+    "2611.33133": "2026-11-26",
+    "2611.33137": "2026-11-26",
+    "2611.33141": "2026-11-26",
+    "2611.33143": "2026-11-26",
+    "2611.33145": "2026-11-26",
+    "2611.33147": "2026-11-26",
+    "2611.33151": "2026-11-26",
+    "2611.33153": "2026-11-26",
+    "2611.33158": "2026-11-26",
+    "2611.33229": "2026-11-26",
+    "2611.33231": "2026-11-26",
+    "2611.33232": "2026-11-26",
+    "2611.33236": "2026-11-26",
+    "2611.33240": "2026-11-26",
+    "2611.33242": "2026-11-26",
+    "2611.33243": "2026-11-26",
+    "2611.33246": "2026-11-26",
+    "2611.33249": "2026-11-26",
+    "2611.33250": "2026-11-26",
+    "2611.33252": "2026-11-26",
+    "2611.33259": "2026-11-26",
+    "2611.33261": "2026-11-26",
+    "2611.33263": "2026-11-26",
+    "2611.33268": "2026-11-26",
+    "2611.33307": "2026-11-26",
+    "2611.33309": "2026-11-26",
+    "2611.33318": "2026-11-26",
+    "2611.33323": "2026-11-26",
+    "2611.33327": "2026-11-26",
+    "2611.33331": "2026-11-26",
+    "2611.33335": "2026-11-26",
+    "2611.33336": "2026-11-26",
+    "2611.33344": "2026-11-26",
+    "2611.33346": "2026-11-26",
+    "2611.33350": "2026-11-26",
+    "2611.33351": "2026-11-26",
+    "2611.33368": "2026-11-26",
+    "2611.33371": "2026-11-26",
+    "2611.33375": "2026-11-26",
+    "2611.33376": "2026-11-26",
+    "2611.33378": "2026-11-26",
+    "2611.33385": "2026-11-26",
+    "2611.33387": "2026-11-26",
+    "2611.33388": "2026-11-26",
+    "2611.33394": "2026-11-26",
+    "2611.33398": "2026-11-26",
+    "2611.33399": "2026-11-26",
+    "2611.33402": "2026-11-26",
+    "2611.33414": "2026-11-26",
+    "2611.33424": "2026-11-26",
+    "2611.33426": "2026-11-26",
+    "2611.33428": "2026-11-26",
+    "2611.33437": "2026-11-26",
+    "2611.33439": "2026-11-26",
+    "2611.33440": "2026-11-26",
+    "2611.33448": "2026-11-26",
+    "2611.33452": "2026-11-26",
+    "2611.33454": "2026-11-26",
+    "2611.33457": "2026-11-26",
+    "2611.33459": "2026-11-26",
+    "2611.33460": "2026-11-26",
+    "2611.33466": "2026-11-26",
+    "2611.33467": "2026-11-26",
+    "2611.33468": "2026-11-26",
+    "2611.33469": "2026-11-26",
+    "2611.33470": "2026-11-26",
+    "2611.33474": "2026-11-26",
+    "2611.33480": "2026-11-26",
+    "2611.33486": "2026-11-26",
+    "2611.33487": "2026-11-26",
+    "2611.33489": "2026-11-26",
+    "2611.33492": "2026-11-26",
+    "2611.33493": "2026-11-26",
+    "2611.33497": "2026-11-26",
+    "2611.33499": "2026-11-26",
+    "2611.33503": "2026-11-26",
+    "2611.33510": "2026-11-26",
+    "2611.33513": "2026-11-26",
+    "2611.33515": "2026-11-26",
+    "2611.33532": "2026-11-26",
+    "2611.33542": "2026-11-26",
+    "2611.33549": "2026-11-26",
+    "2611.33557": "2026-11-26",
+    "2611.33565": "2026-11-26",
+    "2611.33577": "2026-11-26",
+    "2611.33579": "2026-11-26",
+    "2611.33583": "2026-11-26",
+    "2611.33588": "2026-11-26",
+    "2611.33591": "2026-11-26",
+    "2611.33594": "2026-11-26",
+    "2611.33605": "2026-11-26",
+    "2611.33612": "2026-11-26",
+    "2611.33615": "2026-11-26",
+    "2611.33621": "2026-11-26",
+    "2611.33627": "2026-11-26",
+    "2611.33628": "2026-11-26",
+    "2611.33632": "2026-11-26",
+    "2611.33639": "2026-11-26",
+    "2611.33643": "2026-11-26",
+    "2611.33644": "2026-11-26",
+    "2611.33645": "2026-11-26",
+    "2611.33649": "2026-11-26",
+    "2611.33668": "2026-11-26",
+    "2611.33670": "2026-11-26",
+    "2611.33673": "2026-11-26",
+    "2611.33676": "2026-11-26",
+    "2611.33679": "2026-11-26",
+    "2611.33682": "2026-11-26",
+    "2611.33687": "2026-11-26",
+    "2611.33693": "2026-11-26",
+    "2611.33706": "2026-11-26",
+    "2611.33716": "2026-11-26",
+    "2611.33725": "2026-11-26",
+    "2611.33726": "2026-11-26",
+    "2611.33728": "2026-11-26",
+    "2611.33730": "2026-11-26",
+    "2611.33732": "2026-11-26",
+    "2611.33734": "2026-11-26",
+    "2611.33741": "2026-11-26",
+    "2611.33742": "2026-11-26",
+    "2611.33743": "2026-11-26",
+    "2611.33745": "2026-11-26",
+    "2611.33747": "2026-11-26",
+    "2611.33748": "2026-11-26",
+    "2611.33751": "2026-11-26"
   }
 }

@@ -1,4 +1,154 @@
 {
   "_doc": "Derived. Everything recommended in discovery/weekly/monthly.",
-  "items": {}
+  "items": {
+    "discovery:disc-2026-11-26-after-life-koreeda": {
+      "date": "2026-11-26",
+      "title": "After Life (1998)",
+      "url": "https://www.criterion.com/films/29081-after-life",
+      "category": "world cinema",
+      "type": "film",
+      "dimensions": [
+        "culture",
+        "people"
+      ]
+    },
+    "discovery:disc-2026-11-26-chichu-art-museum": {
+      "date": "2026-11-26",
+      "title": "Chichu Art Museum, Naoshima",
+      "url": "https://benesse-artsite.jp/en/art/chichu.html",
+      "category": "architecture and art",
+      "type": "place",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ]
+    },
+    "discovery:disc-2026-11-26-entangled-life": {
+      "date": "2026-11-26",
+      "title": "Entangled Life: How Fungi Make Our Worlds, Change Our Minds and Shape Our Futures",
+      "url": "https://merlinsheldrake.com/entangled-life",
+      "category": "biology",
+      "type": "book",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ]
+    },
+    "discovery:disc-2026-11-26-hamming-you-and-your-research": {
+      "date": "2026-11-26",
+      "title": "You and Your Research",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.pdf",
+      "category": "research skills",
+      "type": "article",
+      "dimensions": [
+        "research",
+        "people"
+      ]
+    },
+    "discovery:disc-2026-11-26-in-our-time-gilgamesh": {
+      "date": "2026-11-26",
+      "title": "In Our Time: Epic of Gilgamesh",
+      "url": "http://www.bbc.co.uk/programmes/p0pj9cd5",
+      "category": "history and literature",
+      "type": "podcast",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ]
+    },
+    "discovery:disc-2026-11-26-japan-station-katsu": {
+      "date": "2026-11-26",
+      "title": "Japan's (linguistic) KATSU obsession EXPLAINED!",
+      "url": "https://podcasts.apple.com/us/podcast/japans-linguistic-katsu-obsession-explained/id1440454968?i=1000803253069&uo=4",
+      "category": "Japanese language and culture",
+      "type": "podcast",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ]
+    },
+    "discovery:disc-2026-11-26-olah-manifolds-topology": {
+      "date": "2026-11-26",
+      "title": "Neural Networks, Manifolds, and Topology",
+      "url": "https://www.gwern.net/docs/www/colah.github.io/2d2a03bce5f6de8b48799f894aee58479e2a9f48.html",
+      "category": "deep learning theory",
+      "type": "article",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ]
+    },
+    "discovery:disc-2026-11-26-rovelli-nature-of-reality": {
+      "date": "2026-11-26",
+      "title": "Carlo Rovelli on the Nature of Reality",
+      "url": "https://philosophybites.libsyn.com/carlo-rovelli-on-the-nature-of-reality",
+      "category": "philosophy of science",
+      "type": "podcast",
+      "dimensions": [
+        "knowledge"
+      ]
+    },
+    "discovery:disc-2026-11-26-talking-timbuktu": {
+      "date": "2026-11-26",
+      "title": "Talking Timbuktu",
+      "url": "https://en.wikipedia.org/wiki/Talking_Timbuktu",
+      "category": "music",
+      "type": "album",
+      "dimensions": [
+        "culture"
+      ]
+    },
+    "discovery:disc-2026-11-26-tomasello-agency-mlst": {
+      "date": "2026-11-26",
+      "title": "What It Would Actually Take for a Machine to Have Agency (Michael Tomasello)",
+      "url": "https://podcasters.spotify.com/pod/show/machinelearningstreettalk/episodes/What-It-Would-Actually-Take-for-a-Machine-to-Have-Agency-Michael-Tomasello-e3sm6qn",
+      "category": "AI and cognitive science",
+      "type": "podcast",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ]
+    },
+    "discovery:yt-9eJQQVrUUoI": {
+      "date": "2026-11-26",
+      "title": "MIT 6.S184: Flow Matching and Diffusion Models, Lecture 01: Flow and Diffusion Models (2026)",
+      "url": "https://www.youtube.com/watch?v=9eJQQVrUUoI",
+      "category": "generative models",
+      "type": "lecture",
+      "dimensions": [
+        "research"
+      ]
+    },
+    "discovery:yt-ViT2FOEr6EI": {
+      "date": "2026-11-26",
+      "title": "This Object Defies Common Sense",
+      "url": "https://www.youtube.com/watch?v=ViT2FOEr6EI",
+      "category": "mathematics",
+      "type": "video",
+      "dimensions": [
+        "knowledge"
+      ]
+    },
+    "discovery:yt-of60wacXiTQ": {
+      "date": "2026-11-26",
+      "title": "Old trams waste power on purpose. Here's why",
+      "url": "https://www.youtube.com/watch?v=of60wacXiTQ",
+      "category": "engineering and fun",
+      "type": "video",
+      "dimensions": [
+        "curiosity"
+      ]
+    },
+    "discovery:yt-zqzk43bSdDI": {
+      "date": "2026-11-26",
+      "title": "We've been asking: \"What if AI solved the Riemann Hypothesis?\"",
+      "url": "https://www.youtube.com/watch?v=zqzk43bSdDI",
+      "category": "mathematics and AI",
+      "type": "video",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ]
+    }
+  }
 }

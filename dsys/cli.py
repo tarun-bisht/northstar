@@ -112,7 +112,8 @@ def cmd_history(repo: Repo, args) -> int:
 def cmd_candidates(repo: Repo, args) -> int:
     day = _day(args.date)
     if args.kind == "news":
-        _print(history.news_candidates(repo, day, args.category or args.section, args.brief))
+        refs = {r.strip() for r in args.refs.split(",") if r.strip()} if args.refs else None
+        _print(history.news_candidates(repo, day, args.category or args.section, args.brief, refs))
         return 0
     if args.kind == "ensure":
         from .ensure import ensure
@@ -126,6 +127,8 @@ def cmd_candidates(repo: Repo, args) -> int:
         if args.kind in ("podcasts", "videos"):
             from . import stages
             stages.record(repo, day, "discovery", **{f"{args.kind}_fetched": len(doc.get("candidates", []))})
+            if not args.full:
+                doc = stages.lean_media(doc)
         _print(doc)
         return 0
     if args.kind == "arxiv" and args.search:
@@ -147,6 +150,9 @@ def cmd_candidates(repo: Repo, args) -> int:
         return 0
     if args.limit:
         data["candidates"] = data["candidates"][args.offset:args.offset + args.limit]
+    if args.kind == "youtube" and not args.full:
+        from . import stages
+        data = stages.lean_media(data)
     if args.brief and args.kind == "arxiv":
         data["candidates"] = [{"arxiv_id": c["arxiv_id"], "title": c["title"], "categories": c.get("categories", []),
                                **{k: c[k] for k in ("hf_upvotes", "alphaxiv_votes", "notable_authors") if c.get(k)}}
@@ -564,7 +570,9 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--category", help="news: only this category (india, geopolitics, conflict_disaster, economy_markets, "
                                       "business_tech, science_health, climate_energy, society, explainers)")
     s.add_argument("--section", help=argparse.SUPPRESS)
-    s.add_argument("--brief", action="store_true", help="arxiv: id/title/categories/signals only; news: no summaries")
+    s.add_argument("--brief", action="store_true", help="arxiv: id/title/categories/signals only; news: ref, title and source only")
+    s.add_argument("--refs", help="news: full rows (url, summary, other outlets) for these comma-separated refs")
+    s.add_argument("--full", action="store_true", help="podcasts, videos, youtube: full descriptions and every field")
     s.add_argument("--ranked", action="store_true", help="arxiv: code-ranked shortlist with interests and quality signals")
     s.add_argument("--ids", help="arxiv: comma-separated ids to print in full (abstracts)")
     s.add_argument("--search", help="arxiv: alphaXiv search results per interest ('all' or an interest name), "

@@ -151,7 +151,13 @@ def week_trending(repo: Repo, week: str, limit: int = 30) -> dict:
     return {"week": week, "papers": rows[:limit], "total_with_votes": len(rows)}
 
 
-def news_candidates(repo: Repo, day: dt.date, category: str | None = None, brief: bool = False) -> dict:
+def news_ref(url: str | None) -> str:
+    import hashlib
+    return hashlib.sha1((url or "").encode()).hexdigest()[:7]
+
+
+def news_candidates(repo: Repo, day: dt.date, category: str | None = None, brief: bool = False,
+                    refs: set | None = None) -> dict:
     """Fetched headlines, each with a news category, duplicates merged, grouped by category.
     Missing file -> available False (fall back to search)."""
     from . import news
@@ -173,16 +179,23 @@ def news_candidates(repo: Repo, day: dt.date, category: str | None = None, brief
             continue
         rows = []
         for c in news.merge_duplicates(groups[cat]):
-            row = {k: c.get(k) for k in ("title", "source", "published", "url")}
+            ref = news_ref(c.get("url"))
+            if refs is not None and ref not in refs:
+                continue
+            # brief: what is needed to choose (title, source); the full row comes with --refs
+            row = ({"ref": ref, "title": c.get("title"), "source": c.get("source")} if brief and refs is None
+                   else {"ref": ref, **{k: c.get(k) for k in ("title", "source", "published", "url")}})
             if c.get("depth") or any(x.get("depth") for x in c.get("also_in", []) if isinstance(x, dict)):
                 row["depth"] = True
             if c.get("also_in"):
-                row["also_in"] = [x["source"] for x in c["also_in"]] if brief else c["also_in"]
-            if not brief:
+                row["also_in"] = [x["source"] for x in c["also_in"]] if brief and refs is None else c["also_in"]
+            if not brief or refs is not None:
                 row["summary"] = c.get("summary")
             rows.append(row)
+        if refs is not None and not rows:
+            continue
         out[cat] = rows
-    if not category:
+    if not category and refs is None:
         record(repo, day, "world", headlines=len(cand.get("candidates", [])), dropped_recent=len(cand.get("candidates", [])) - len(fresh),
                stories=sum(len(v) for v in out.values()))
     return {"date": day.isoformat(), "available": True, "fetched_at": cand.get("fetched_at"),

@@ -182,3 +182,13 @@ def test_enrich_ids_strong_first_capped(repo):
         _j.dumps({f"2611.000{i:02d}": ("strong" if i < 3 else "field") for i in range(10)}))
     ids = stages.enrich_ids(repo, day, limit=5)
     assert ids[:3] == ["2611.00002", "2611.00001", "2611.00000"] and len(ids) == 5 and ids[3] == "2611.00009"
+
+
+def test_lean_media_keeps_needed_fields_and_clips_text():
+    from dsys.stages import lean_media
+    doc = {"candidates": [{"video_id": "abcDEF12345", "title": "T", "url": "u", "embed_url": "e", "thumbnail": "t",
+                           "channel": {"name": "C", "id": "UCx"}, "description": "word " * 400, "tags": list("abcdefgh"),
+                           "views": 9}]}
+    c = lean_media(doc)["candidates"][0]
+    assert {"video_id", "url", "embed_url", "thumbnail", "views"} <= set(c) and c["channel"] == {"name": "C"}
+    assert len(c["description"]) <= 301 and c["tags"] == list("abcde")

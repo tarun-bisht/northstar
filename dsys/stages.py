@@ -199,3 +199,31 @@ def compact_updates(repo: Repo, day: dt.date) -> list[dict]:
                     **({"pts": x["points"]} if x.get("points") else {}), **({"likes": x["likes"]} if x.get("likes") else {})})
     record(repo, day, "research_updates", fetched=len(doc.get("candidates", [])), dropped_recent=dropped, read=len(out))
     return out
+
+
+LEAN_TEXT = 300  # characters of a description or summary kept for choosing
+
+
+def _clip(text, n: int = LEAN_TEXT):
+    text = " ".join(str(text or "").split())
+    return text if len(text) <= n else text[:n].rsplit(" ", 1)[0] + "…"
+
+
+def lean_media(doc: dict) -> dict:
+    """Videos, shorts and podcasts as a run reads them to choose: the description or summary cut to
+    its first 300 characters (YouTube descriptions are mostly links, timestamps and sponsor text),
+    at most 5 tags, no channel ids. Every field a content item needs (url, embed_url, thumbnail,
+    audio_url, stats) is kept. `--full` shows everything."""
+    out = []
+    for c in doc.get("candidates", []):
+        c = dict(c)
+        for k in ("description", "summary"):
+            if k in c:
+                c[k] = _clip(c[k])
+        if isinstance(c.get("tags"), list):
+            c["tags"] = c["tags"][:5]
+        if isinstance(c.get("channel"), dict):
+            c["channel"] = {k: v for k, v in c["channel"].items() if k != "id"}
+        c.pop("apple_show_url", None)
+        out.append(c)
+    return {**doc, "candidates": out}

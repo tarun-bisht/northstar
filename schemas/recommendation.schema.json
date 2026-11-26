@@ -132,6 +132,12 @@
     "audio_url": {
       "$ref": "common.schema.json#/$defs/url",
       "description": "For podcasts: a direct audio file (the episode enclosure from the show's RSS feed), so it plays on the page."
+    },
+    "start_here": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 160,
+      "description": "One line on why to start the day with this item (at most one per stream per day)."
     }
   }
 }

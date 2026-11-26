@@ -58,7 +58,7 @@ def _cands(repo: Repo, day: dt.date) -> list[dict]:
     return unseen_arxiv_candidates(repo, day).get("candidates", [])
 
 
-def stage1(repo: Repo, day: dt.date, batch_size: int = 100) -> dict:
+def stage1(repo: Repo, day: dt.date, batch_size: int = 40) -> dict:
     """Write compact batches for the cheap first reading and return their paths and counts."""
     cfg = repo.config("sources")
     topics = cfg["arxiv"].get("coverage", {}).get("topics", [])
@@ -79,13 +79,17 @@ def stage1(repo: Repo, day: dt.date, batch_size: int = 100) -> dict:
     rows.sort(key=lambda r: (-(len(r["i"]) > 0), -r["b"], r["id"]))
     out_dir = WORK / day.isoformat()
     out_dir.mkdir(parents=True, exist_ok=True)
-    for old in out_dir.glob("stage1_*.json"):
+    from .readable import wrap
+    for old in list(out_dir.glob("stage1_*")) + list(out_dir.glob("verdict_*")):
         old.unlink()
     batches = []
     for n, k in enumerate(range(0, len(rows), batch_size), 1):
-        f = out_dir / f"stage1_{n:02d}.json"
-        f.write_text(json.dumps(rows[k:k + batch_size], ensure_ascii=False, separators=(",", ":")))
-        batches.append(str(f))
+        # one paper per line, long lines wrapped, so one Read call sees the whole batch
+        f = out_dir / f"stage1_{n:02d}.txt"
+        f.write_text("\n".join(wrap("\n".join(json.dumps(r, ensure_ascii=False, separators=(",", ":"))
+                                                for r in rows[k:k + batch_size]))) + "\n", encoding="utf-8")
+        batches.append({"read": str(f), "write": str(out_dir / f"verdict_{n:02d}.json"),
+                        "papers": len(rows[k:k + batch_size])})
     record(repo, day, "papers", fetched=total, unseen=len(_cands(repo, day)), read_stage1=len(rows),
            skipped_no_interest_no_signal=skipped)
     return {"date": day.isoformat(), "fetched": total, "read_stage1": len(rows), "skipped": skipped,

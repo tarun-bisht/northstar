@@ -53,7 +53,12 @@ def _day(s: str | None) -> dt.date:
 
 
 def _print(obj):
-    sys.stdout.write(dump_json(obj))
+    """Print JSON; output too long to read in one go goes to part files (dsys/readable.py)."""
+    import hashlib
+    from .readable import emit
+    args = sys.argv[1:]
+    name = "-".join(args[:2]) + "-" + hashlib.sha1(" ".join(args).encode()).hexdigest()[:6]
+    emit(dump_json(obj), name, obj=obj)
 
 
 def _parse_list(s):
@@ -173,6 +178,9 @@ def cmd_reputation(repo: Repo, args) -> int:
     from . import reputation
     if args.action == "suggest":
         _print(reputation.suggestions(repo, int(args.min_papers)))
+    elif args.action == "add":
+        _print(reputation.add(repo, args.kind, args.name, _parse_list(args.evidence) or [],
+                              _parse_list(args.aliases), _parse_list(args.domains), args.lab_kind))
     else:
         reg = reputation.load(repo)
         _print({"universities": len(reg.data.get("universities", [])), "labs": len(reg.data.get("labs", [])),
@@ -224,8 +232,17 @@ def cmd_period(repo: Repo, args) -> int:
 
 
 def cmd_daily(repo: Repo, args) -> int:
-    """Merge items into a day's file (creating it), skipping ids already present."""
+    """Merge items into a day's file (creating it), skipping ids already present; or set Start here."""
     day = _day(args.date)
+    if args.action == "start-here":
+        from . import picks
+        chosen = dict(p.split("=", 1) for p in (args.pick or []) if "=" in p)
+        if not chosen or len(chosen) != len(args.pick or []):
+            raise SystemExit("give --pick <item id>=<one line why>, up to three (paper, story, exploration)")
+        print(json.dumps(picks.set_picks(repo, day, chosen), indent=1))
+        return 0
+    if not args.stream:
+        raise SystemExit("daily merge needs a stream")
     path = repo.daily_path(args.stream, day.isoformat())
     doc = load_json(path) if path.exists() else {"schema": args.stream, "date": day.isoformat(), "items": []}
     doc["generated_at"] = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -475,8 +492,14 @@ def build_parser() -> argparse.ArgumentParser:
     s.set_defaults(fn=cmd_papers)
 
     s = sub.add_parser("reputation", help="trust registry: summary, or recurring authors and groups to consider adding")
-    s.add_argument("action", choices=["show", "suggest"])
+    s.add_argument("action", choices=["show", "suggest", "add"])
     s.add_argument("--min-papers", default=3)
+    s.add_argument("--kind", choices=["lab", "researcher"], help="add: what to add")
+    s.add_argument("--name", help="add: the lab or person")
+    s.add_argument("--evidence", help="add: comma-separated arXiv ids of their strong papers")
+    s.add_argument("--aliases", help="add: comma-separated other names (labs)")
+    s.add_argument("--domains", help="add: comma-separated email domains, only if seen in an email or official page")
+    s.add_argument("--lab-kind", choices=["big_tech", "frontier", "regional", "institute"], help="add: lab type")
     s.set_defaults(fn=cmd_reputation)
 
     s = sub.add_parser("stats", help="processed and passed counts per stream (state/stats/<date>.json)")
@@ -530,8 +553,9 @@ def build_parser() -> argparse.ArgumentParser:
     s.set_defaults(fn=cmd_period)
 
     s = sub.add_parser("daily", help="merge generated items into a day's file")
-    s.add_argument("action", choices=["merge"])
-    s.add_argument("stream", choices=DAILY_STREAMS)
+    s.add_argument("action", choices=["merge", "start-here"])
+    s.add_argument("stream", nargs="?", choices=DAILY_STREAMS)
+    s.add_argument("--pick", action="append", help="start-here: <item id>=<one line why> (repeat, up to 3)")
     s.add_argument("--date")
     s.add_argument("--items", help="JSON file: list of items, or {items, notes, candidates_considered}")
     s.add_argument("--notes")

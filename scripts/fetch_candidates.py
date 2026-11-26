@@ -694,6 +694,23 @@ def prune(repo, keep_days: int, day: dt.date) -> int:
 
 
 def main() -> int:
+    code = _main()
+    a = sys.argv
+    if "--retry-failed" in a and len(a) > 1 and a[1] in ("arxiv", "news", "updates", "podcasts"):
+        # mark that today's failed sources had their retry, so the daily run doesn't retry them again
+        day = today()
+        for i, x in enumerate(a):
+            if x == "--date" and i + 1 < len(a):
+                day = dt.date.fromisoformat(a[i + 1])
+        f = repo_from_env().p("candidates", a[1], f"{day.isoformat()}.json")
+        if f.exists():
+            doc = load_json(f)
+            doc["retried_at"] = now_utc()
+            write_candidates(f, doc)
+    return code
+
+
+def _main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("kind", choices=["arxiv", "news", "youtube", "videos", "podcasts", "updates", "hf", "fun", "enrich", "addpapers", "prune"])
     ap.add_argument("--ids", default="", help="enrich, addpapers: comma-separated arXiv ids")

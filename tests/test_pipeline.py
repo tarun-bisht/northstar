@@ -119,7 +119,9 @@ def test_stage1_skips_no_interest_no_signal_then_merge_and_stage2(repo, tmp_path
                        _paper("2611.00003", "A hot paper", "Something else.", hf_upvotes=40)])
     s1 = stages.stage1(repo, D)
     assert s1["read_stage1"] == 2 and s1["skipped"] == 1
-    rows = json.loads(open(s1["batches"][0]).read())
+    b = s1["batches"][0]
+    assert b["papers"] == 2 and b["write"].endswith("verdict_01.json")
+    rows = [json.loads(line) for line in open(b["read"]).read().splitlines()]
     assert rows[0]["id"] == "2611.00001" and set(rows[0]) == {"id", "t", "a", "i", "s", "tr", "b"}
     v = tmp_path / "v.json"
     v.write_text(json.dumps([{"id": "2611.00001", "lane": "strong"}, {"id": "2611.00003", "lane": "field"}]))
@@ -157,3 +159,13 @@ def test_interest_news_queries():
     b = news.interest_batches({"established": {"ai_research": ["machine unlearning", "agents", "world models"]}},
                               {"groups": ["established.ai_research"], "batch_size": 5})
     assert b == ['("machine unlearning" OR "world models")']  # single lowercase words are too noisy
+
+
+def test_reputation_add_appends_with_evidence_and_skips_known(repo):
+    from dsys import reputation
+    r = reputation.add(repo, "lab", "Tiny Frontier Lab", ["2611.00001", "2611.00002"], aliases=["TFL"], lab_kind="frontier")
+    assert r["added"] and r["labs"]["kind"] == "frontier"
+    doc = load_json(repo.p("config", "reputation.json"))
+    assert doc["added"][-1]["evidence"] == ["2611.00001", "2611.00002"]
+    assert reputation.add(repo, "lab", "tiny frontier lab", ["2611.00003"])["added"] is False
+    assert reputation.add(repo, "lab", "TFL", ["2611.00003"])["added"] is False

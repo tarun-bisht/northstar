@@ -14,7 +14,6 @@
     "summaries of every paper"
   ],
   "daily": {
-    "arxiv_weekdays_only": true,
     "complements_existing_newsletter": true,
     "youtube_shorts_target": [
       30,
@@ -36,7 +35,28 @@
     "world_briefs_target": [
       15,
       30
-    ]
+    ],
+    "light": {
+      "_doc": "Sizes on a light day: the daily run uses these when `dsys.py period` shows load_this_week = light (config/schedules.json). Each part keeps only its best. The daily rules still hold: one podcast, one video and every tier in exploration, every tier in shorts.",
+      "papers": "top picks only, no 'more'",
+      "max_research_updates": 5,
+      "world_target": [
+        6,
+        10
+      ],
+      "world_briefs_target": [
+        8,
+        15
+      ],
+      "discovery_target": [
+        3,
+        6
+      ],
+      "youtube_shorts_target": [
+        10,
+        15
+      ]
+    }
   },
   "weekly": {
     "typical_item_count": [

@@ -205,3 +205,11 @@ def test_pull_keeps_uncommitted_work_and_slug_follows_origin():
     assert repo_slug(lambda c: _R("git@github.com:someone/my-north.git\n")) == "someone/my-north"
     assert repo_slug(lambda c: _R("https://github.com/a/b\n")) == "a/b"
     assert repo_slug(lambda c: _R(code=1)) == "tarun-bisht/northstar"
+
+
+def test_ensure_accepts_failed_sources_already_retried_by_the_workflow(repo):
+    from dsys.ensure import ensure
+    write_json(repo.p("candidates", "news", f"{D}.json"),
+               {"candidates": [1], "failed_sources": ["Reddit"], "retried_at": "2026-11-26T02:30:00Z"})
+    run, st = _fake_github(repo)
+    assert ensure(repo, D, ["news"], run=run, sleep=lambda s: None) == 0 and st["dispatches"] == []

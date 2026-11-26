@@ -147,3 +147,34 @@ def suggestions(repo, min_papers: int = 3) -> dict:
     pick = lambda d: sorted(([k, v] for k, v in d.items() if len(v["papers"]) >= min_papers),
                             key=lambda kv: -len(kv[1]["papers"]))[:40]
     return {"authors": pick(doc["authors"]), "orgs": pick(doc["orgs"])}
+
+
+def add(repo, kind: str, name: str, evidence: list[str], aliases: list[str] | None = None,
+        domains: list[str] | None = None, lab_kind: str | None = None, day: str | None = None) -> dict:
+    """Add a lab or researcher to config/reputation.json with the papers that justify it, without
+    anyone having to read or rewrite the whole (large) file. Existing entries are never changed."""
+    import datetime as _dt
+    from .core import load_json, write_json
+    if kind not in ("lab", "researcher"):
+        raise SystemExit("kind must be lab or researcher")
+    if not evidence:
+        raise SystemExit("give the arXiv ids that show consistently strong work (--evidence)")
+    path = repo.p("config", "reputation.json")
+    doc = load_json(path)
+    key = "labs" if kind == "lab" else "researchers"
+    names = {norm(x["name"]) for x in doc.get(key, [])}
+    names |= {norm(a) for x in doc.get(key, []) for a in x.get("aliases", [])}
+    if norm(name) in names:
+        return {"added": False, "reason": f"{name} is already in {key}"}
+    entry = {"name": name}
+    if aliases:
+        entry["aliases"] = aliases
+    if domains:
+        entry["domains"] = domains
+    if kind == "lab":
+        entry["kind"] = lab_kind or "institute"
+    doc.setdefault(key, []).append(entry)
+    doc.setdefault("added", []).append({"name": name, "kind": kind, "date": day or _dt.date.today().isoformat(),
+                                        "evidence": evidence})
+    write_json(path, doc)
+    return {"added": True, key: entry}

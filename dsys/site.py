@@ -131,6 +131,10 @@ CSS += """
 .plan li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
 .plan li .meta{margin:0}
 .plain{list-style:none;padding:0}.plain li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
+/* start here */
+.start{border:1px solid var(--rule);border-left:3px solid var(--brass);background:var(--paper-2);border-radius:10px;padding:.6rem 1rem;margin:1rem 0}
+.start h2{margin:.2rem 0 .4rem;font-size:1.05rem}.start ul{list-style:none;padding:0;margin:0}
+.start li{margin:.45rem 0}.start .pick{font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;opacity:.7;margin-right:.3rem}
 /* daily */
 .daynav{display:flex;justify-content:space-between;gap:1rem;font:400 .9rem var(--sans);margin:.2rem 0 1.4rem}
 .toc{font:400 .92rem/1.5 var(--sans);padding:.6rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
@@ -438,7 +442,8 @@ def _daily_part_page(site, date, streams, part, prev=None, nxt=None) -> str:
 
 def _daily_overview(site, date, streams, prev=None, nxt=None) -> str:
     """daily/<date>/index.html: the three parts with their first few items."""
-    body = [f"<h1>{esc(long_date(date))}</h1>", _part_tabs(_daily_parts(streams), None, "")]
+    body = [f"<h1>{esc(long_date(date))}</h1>", _part_tabs(_daily_parts(streams), None, ""),
+            render.start_here(streams, base="")]
     cards = []
     for key, label, names in render.DAILY_PARTS:
         lis = []
@@ -679,7 +684,9 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
 
     if latest:
         st = daily[latest]
-        b.append(f"<h2>{a(f'daily/{latest}/index.html', long_date(latest))}</h2><div class='today'>")
+        b.append(f"<h2>{a(f'daily/{latest}/index.html', long_date(latest))}</h2>")
+        b.append(render.start_here(st, base=f"daily/{latest}/"))
+        b.append("<div class='today'>")
         for key, label, names in render.DAILY_PARTS:
             blocks = []
             for s in names:

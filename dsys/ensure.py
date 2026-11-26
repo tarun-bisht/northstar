@@ -76,6 +76,15 @@ def _retried_marker(repo, day: dt.date) -> Path:
     return repo.p(".cache", f"retried-{day.isoformat()}")  # gitignored, local to this run
 
 
+def _all_retried(repo, day: dt.date, failed: dict) -> bool:
+    """True when every kind with failed sources already had its retry today (the 07:53 run)."""
+    for k in failed:
+        f = repo.p("candidates", k, f"{day.isoformat()}.json")
+        if not (f.exists() and json.loads(f.read_text()).get("retried_at")):
+            return False
+    return True
+
+
 def needed(day: dt.date, kinds: list[str]) -> list[str]:
     return [k for k in kinds if not (k in WEEKDAY_ONLY and day.weekday() >= 5)]
 
@@ -122,7 +131,7 @@ def ensure(repo, day: dt.date, kinds: list[str], timeout: int = 540, attempts: i
     log = []
     for attempt in range(1, attempts + 1):
         missing, failed = check(repo, day, kinds)
-        if not missing and (not failed or _retried_marker(repo, day).exists()):
+        if not missing and (not failed or _retried_marker(repo, day).exists() or _all_retried(repo, day, failed)):
             # failed sources get one retry per run; after that the fetched data is used as it is
             print(json.dumps({"ok": True, "missing": [], "failed_sources": failed, "log": log,
                               "next": "use the fetched files; list failed_sources in the final message"}))

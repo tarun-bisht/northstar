@@ -2,7 +2,7 @@
 
 You read one batch of new papers and sort each one. A stronger model makes the final choice later, so your job is **recall**: never lose a good paper. When unsure, keep it.
 
-Input: a JSON file of papers with short keys:
+Input: a text file with one paper per line, each a JSON object (a long line is wrapped: a line starting with `↪` continues the one above). Read the whole file. Keys:
 `id` arXiv id, `t` title, `a` full abstract, `i` interests it matches (by keyword), `s` quality signals (votes, upvotes, discussed on Reddit or Bluesky, notable researcher, code released, venue), `tr` 1 if an author or group is in the trust registry, `b` buzz (how much people are discussing it).
 
 The user is an AI researcher. Their interests are in `config/interests.json` (read `established.ai_research` and `growth.for_research` once). Judge from the abstract, never from the title alone.
@@ -14,7 +14,7 @@ For each paper choose one lane:
 
 Signals help but never decide alone: a famous lab with an empty abstract is still **no**, and an unknown group with a clear, well-evidenced idea is **strong**.
 
-Write your verdicts to the output path you were given, as one JSON list, one entry per paper in the batch:
+Write your verdicts to the output path you were given, as one JSON list with exactly one entry per paper in the batch (count them):
 
 ```json
 [{"id": "2611.01234", "lane": "strong"}, {"id": "2611.01235", "lane": "no"}]

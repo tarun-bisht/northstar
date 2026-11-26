@@ -12,6 +12,11 @@ The daily run does this after it has pushed the day. It commits nothing.
    ```
    ☀️ **Northstar · <Weekday> <d Mon> is ready**
 
+   ⭐ **Start here**
+   • <Paper title> · <why>
+   • <Story title> · <why>
+   • <Explore title> · <why>
+
    📄 **Research** · [open](<site>/daily/<today>/research.html)
    <fetched> papers fetched → <read_stage1> read by Haiku → <read_stage2> read by Opus → **<picked> picked**
    <updates fetched> updates → **<updates picked> picked**
@@ -26,7 +31,7 @@ The daily run does this after it has pushed the day. It commits nothing.
 
    🗣️ **Languages** · [open](<site>/daily/<today>/languages.html)
    ```
-   If a part is missing, end with one line: `⚠️ Missing today: <part names>.` Otherwise no warning line.
+   Take the Start here picks from items with `start_here` in today's papers, news and exploration files (link each title). Leave the block out if there are none. On a light day (`period → load_this_week: light`) add `🌿 Light day, only the best.` under the title. If a part is missing, end with one line: `⚠️ Missing today: <part names>.` Otherwise no warning line.
 5. **Saturday:** if next week's package exists (`status → next_week.package`), post a second message: `📅 **Week of <d Mon> is ready** · [open](<site>/weekly/<next_week>/index.html)` with one line per part (papers, research, knowledge, exploration, languages) giving its item count and, for knowledge, the subjects. If the user's poll pick was used, say which.
 6. **The 1st:** if this month's package exists, post `🗓️ **<Month> is ready** · [open](<site>/monthly/<this_month>/index.html)` with the deep dives (one line each) and the number of challenge problems per subject. At a quarter start, also post the quarterly review in **#general** (`slack.general.id`): `📊 **<YYYY-Qn> review is ready** · [open](<site>/quarterly/<YYYY-Qn>/index.html)` with one line per part, if `content/quarterly/<YYYY>/<YYYY-Qn>.json` exists (the quarter that just ended).
 7. **#random** (`slack.random.id`): one light post a day. Read `candidates/fun/<today>.json`. Most days post the latest xkcd if it's from the last 3 days, otherwise the random one: `😄 xkcd <num>: **<title>** <url>`. If the file is missing, or some days anyway, an original short joke or pun about AI, maths, physics or research life. Never copy someone else's joke or image.

@@ -55,7 +55,8 @@ def for_readers(html_body: str) -> str:
 
 def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
     """One compact part of a day: headings per stream and section, short entries that link out."""
-    out = [f'<p><a href="{x(site["base_url"])}/daily/{date}/{part}.html" target="_blank" rel="noopener">Open on the site</a></p>']
+    out = [f'<p><a href="{x(site["base_url"])}/daily/{date}/{part}.html" target="_blank" rel="noopener">Open on the site</a></p>',
+           render.start_here(streams, only=part)]
     for key, label, names in render.DAILY_PARTS:
         if key != part:
             continue

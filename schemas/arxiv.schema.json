@@ -141,6 +141,12 @@
             "field"
           ],
           "description": "strong: on the user's interests. field: important for the field even with little overlap."
+        },
+        "start_here": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160,
+          "description": "One line on why to start the day with this item (at most one per stream per day)."
         }
       }
     }

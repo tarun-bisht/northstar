@@ -36,10 +36,12 @@ python scripts/dsys.py candidates ensure --kinds ...           # wait for (or st
 python scripts/dsys.py candidates <kind> ...                   # read fetched candidates
 python scripts/dsys.py papers stage1|merge|enrich|stage2|add --date D
 python scripts/dsys.py daily merge <stream> --date D --items file.json
+python scripts/dsys.py daily start-here --date D --pick <id>="<why>" ...  # the day's way in
 python scripts/dsys.py reading show|add --week W --json papers.json
-python scripts/dsys.py ideas|interests|feedback|polls|reputation|stats|status ...
+python scripts/dsys.py reputation show|suggest|add ...                 # trust registry (never edit by hand)
+python scripts/dsys.py ideas|interests|feedback|polls|stats|status ...
 python scripts/dsys.py quarterly draft --quarter YYYY-Qn
 python scripts/validate.py && python scripts/build.py && python -m pytest -q
 ```
 
-Run `python scripts/dsys.py <command> -h` for options. Code lives in `dsys/` (stdlib + jsonschema). Keep it simple and tested.
+Run `python scripts/dsys.py <command> -h` for options. Long output arrives as part files: read every part. Code lives in `dsys/` (stdlib + jsonschema). Keep it simple and tested.

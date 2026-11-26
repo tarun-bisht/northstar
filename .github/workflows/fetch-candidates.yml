@@ -134,7 +134,8 @@ jobs:
         run: |
           git config user.name "dsys-bot"
           git config user.email "dsys-bot@users.noreply.github.com"
-          git add candidates state/feed_health.json 2>/dev/null || git add candidates
+          git add candidates
+          for f in state/feed_health.json state/youtube_channels.json; do [ -f "$f" ] && git add "$f"; done
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
           git commit -m "candidates: $(TZ=Asia/Kolkata date +%F)"
           for i in 1 2 3; do

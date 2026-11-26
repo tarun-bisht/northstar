@@ -20,13 +20,17 @@ on:
         type: boolean
         default: false
       kinds:
-        description: "Which sources: all, or a comma list of arxiv,news,youtube,videos,podcasts,updates,hf,fun,enrich"
+        description: "Which sources: all, or a comma list of arxiv,news,youtube,videos,podcasts,updates,hf,fun,enrich,addpapers"
         type: string
         default: "all"
       ids:
-        description: "enrich: comma-separated arXiv ids to read page 1 of"
+        description: "enrich, addpapers: comma-separated arXiv ids"
         type: string
         default: ""
+      tag:
+        description: "addpapers: which alphaXiv feed the ids came from"
+        type: string
+        default: "alphaXiv"
 
 permissions:
   contents: write
@@ -111,6 +115,10 @@ jobs:
         if: ${{ steps.mode.outputs.skip != 'true' && (!inputs.kinds || inputs.kinds == 'all' || contains(inputs.kinds, 'fun')) }}
         continue-on-error: true
         run: python scripts/fetch_candidates.py fun
+      - name: Add papers found on alphaXiv (Hot, For You)
+        if: ${{ contains(inputs.kinds, 'addpapers') && inputs.ids != '' }}
+        continue-on-error: true
+        run: python scripts/fetch_candidates.py addpapers --ids "${{ inputs.ids }}" --tag "${{ inputs.tag }}"
       - name: Enrich papers with affiliations and emails (page 1)
         if: ${{ contains(inputs.kinds, 'enrich') && inputs.ids != '' }}
         continue-on-error: true

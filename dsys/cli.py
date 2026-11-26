@@ -163,6 +163,9 @@ def cmd_papers(repo: Repo, args) -> int:
         return enrich(repo, day, ids)
     elif args.action == "stage2":
         _print(stages.stage2(repo, day))
+    elif args.action == "add":
+        from .ensure import add_papers
+        return add_papers(repo, day, [i.strip() for i in (args.ids_csv or "").split(",") if i.strip()], args.tag)
     return 0
 
 
@@ -462,7 +465,9 @@ def build_parser() -> argparse.ArgumentParser:
     s.set_defaults(fn=cmd_history)
 
     s = sub.add_parser("papers", help="staged paper reading: stage1 batches, merge verdicts, enrich, stage2")
-    s.add_argument("action", choices=["stage1", "merge", "enrich", "stage2", "mark-seen"])
+    s.add_argument("action", choices=["stage1", "merge", "enrich", "stage2", "mark-seen", "add"])
+    s.add_argument("--ids-csv", help="add: comma-separated arXiv ids from an alphaXiv feed")
+    s.add_argument("--tag", default="alphaXiv", help="add: which feed (alphaXiv Hot, alphaXiv For You)")
     s.add_argument("ids", nargs="*", help="mark-seen: arXiv ids reviewed but not selected")
     s.add_argument("--date")
     s.add_argument("--batch-size", default=100)

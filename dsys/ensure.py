@@ -126,6 +126,25 @@ def ensure(repo, day: dt.date, kinds: list[str], timeout: int = 540, attempts: i
     return 0 if ok else 1
 
 
+def add_papers(repo, day: dt.date, ids: list[str], tag: str, timeout: int = 540, pause: int = 60, run=None,
+               sleep=time.sleep, clock=time.monotonic) -> int:
+    """Start the fetch workflow in addpapers mode (alphaXiv feed papers) and wait for it to finish."""
+    run = run or _run
+    deadline = clock() + timeout
+    if not _active(run):
+        r = run(["gh", "api", "-X", "POST", f"repos/{REPO_SLUG}/actions/workflows/{WORKFLOW}/dispatches",
+                 "-f", "ref=main", "-f", "inputs[kinds]=addpapers", "-f", f"inputs[ids]={','.join(ids)}",
+                 "-f", f"inputs[tag]={tag}"])
+        if r.returncode != 0:
+            print(json.dumps({"ok": False, "error": (r.stderr or r.stdout)[-300:], "next": "go on without them"}))
+            return 1
+        sleep(min(pause, 10))
+    _wait_done(run, {x["id"] for x in _active(run)}, sleep, pause, deadline, clock)
+    run(["git", "pull", "-q", "--rebase", "origin", "main"])
+    print(json.dumps({"ok": True, "added": len(ids), "tag": tag}))
+    return 0
+
+
 def enrich(repo, day: dt.date, ids: list[str], timeout: int = 540, pause: int = 60, run=None, sleep=time.sleep,
            clock=time.monotonic) -> int:
     """Start the fetch workflow in enrich mode for these papers and wait for it to finish (page 1:

@@ -537,6 +537,31 @@ def fetch_enrich(repo, day: dt.date, ids: list[str]) -> int:
     return 0
 
 
+def fetch_addpapers(repo, day: dt.date, ids: list[str], tag: str) -> int:
+    """Papers a run found on alphaXiv (its Hot and For You feeds through the alphaXiv connector):
+    tag the ones we have, fetch the rest from the arXiv API, and merge into today's candidates."""
+    path = repo.p("candidates", "arxiv", f"{day.isoformat()}.json")
+    doc = load_json(path) if path.exists() else {"kind": "arxiv", "date": day.isoformat(), "candidates": []}
+    by_id = {c["arxiv_id"]: c for c in doc["candidates"]}
+    missing = [i for i in ids if i not in by_id]
+    if missing:
+        try:
+            for p in ax.fetch_ids(missing):
+                _merge(by_id, {**p, "source": "alphaxiv_feed"})
+        except Exception as e:
+            print(f"addpapers: arXiv API failed ({net_status(e)})")
+    registry = rep.load(repo)
+    for i in ids:
+        if i in by_id:
+            _merge(by_id, {"arxiv_id": i, "alphaxiv_lists": [tag]})
+            rep.apply(registry, by_id[i])
+    doc["candidates"] = sorted(by_id.values(), key=lambda p: p["arxiv_id"], reverse=True)
+    doc.setdefault("notes", []).append(f"{len(ids)} papers from {tag} ({len(missing)} new)")
+    write_candidates(path, doc)
+    print(f"addpapers: {len(ids)} from {tag}, {len(missing)} new")
+    return 0
+
+
 def fetch_fun(repo, day: dt.date) -> int:
     """Today's latest xkcd and one random older one, for the #random channel."""
     import random as _r
@@ -662,8 +687,9 @@ def prune(repo, keep_days: int, day: dt.date) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("kind", choices=["arxiv", "news", "youtube", "videos", "podcasts", "updates", "hf", "fun", "enrich", "prune"])
-    ap.add_argument("--ids", default="", help="enrich: comma-separated arXiv ids")
+    ap.add_argument("kind", choices=["arxiv", "news", "youtube", "videos", "podcasts", "updates", "hf", "fun", "enrich", "addpapers", "prune"])
+    ap.add_argument("--ids", default="", help="enrich, addpapers: comma-separated arXiv ids")
+    ap.add_argument("--tag", default="alphaXiv", help="addpapers: which alphaXiv feed they came from")
     ap.add_argument("--date")
     ap.add_argument("--keep-days", type=int, default=14)
     ap.add_argument("--retry-failed", action="store_true",
@@ -683,6 +709,8 @@ def main() -> int:
         return fetch_youtube(repo, day)
     if a.kind == "enrich":
         return fetch_enrich(repo, day, [x.strip() for x in a.ids.split(",") if x.strip()])
+    if a.kind == "addpapers":
+        return fetch_addpapers(repo, day, [x.strip() for x in a.ids.split(",") if x.strip()], a.tag)
     if a.kind == "fun":
         return fetch_fun(repo, day)
     simple = {"videos": fetch_long_videos, "podcasts": fetch_podcasts, "updates": fetch_updates, "hf": fetch_hf}

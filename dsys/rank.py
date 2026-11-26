@@ -60,6 +60,10 @@ def signals(paper: dict, venue_re: re.Pattern | None = None) -> list[str]:
         out.append(f"alphaXiv {paper['alphaxiv_votes']} votes")
     if paper.get("hf_upvotes"):
         out.append(f"HF {paper['hf_upvotes']} upvotes")
+    if "alphaXiv For You" in (paper.get("alphaxiv_lists") or []):
+        out.append("in your alphaXiv For You feed")
+    if paper.get("reddit_mentions") or paper.get("bluesky_mentions"):
+        out.append(f"discussed on Reddit or Bluesky ({(paper.get('reddit_mentions') or 0) + (paper.get('bluesky_mentions') or 0)} posts)")
     if "Twitter (X)" in (paper.get("alphaxiv_lists") or []):
         out.append("discussed on X")
     if paper.get("alphaxiv_interests"):

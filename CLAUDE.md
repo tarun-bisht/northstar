@@ -36,7 +36,7 @@ python scripts/dsys.py candidates ensure --kinds ...           # wait for (or st
 python scripts/dsys.py candidates <kind> ...                   # read fetched candidates
 python scripts/dsys.py papers stage1|merge|enrich|stage2|add --date D
 python scripts/dsys.py daily merge <stream> --date D --items file.json
-python scripts/dsys.py daily start-here --date D --pick <id>="<why>" ...  # the day's way in
+python scripts/dsys.py daily overview --date D --part research|exploration --ids a,b  # up to 5, shown first
 python scripts/dsys.py reading show|add --week W --json papers.json
 python scripts/dsys.py reputation show|suggest|add ...                 # trust registry (never edit by hand)
 python scripts/dsys.py ideas|interests|feedback|polls|stats|status ...

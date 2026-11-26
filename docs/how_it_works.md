@@ -26,7 +26,7 @@ Every page is split into parts, so research, news and exploration never pile up 
 | Monthly (go deep) | **Research**: a New in AI deep dive and a Fundamentals deep dive. **Knowledge**: a deep dive outside AI, and hard challenge problems (olympiad, entrance exam, university level) in maths, physics and 4 to 6 other subjects. **Exploration**: a deep dive that rotates through people and self, culture and life, and curiosity and making. **Languages**: a plan per language | `monthly/<month>/<part>.html`, plus `index.html` |
 | Quarterly | A short summary and the topics covered, per part, plus the numbers | `quarterly/<YYYY-Qn>/<part>.html`, plus `index.html` |
 
-**Start here.** Each day the daily run marks at most one paper, one story and one exploration pick with a one-line reason (`dsys.py daily start-here`, field `start_here`). They lead the day's overview, the home page, each part's feed entry and the Slack message, so a busy reader can stop there and still get the best. It is an editorial pick, nothing is tracked.
+**Overview.** Research and Exploration open with an Overview: at most five of the day's best items, chosen by the daily run (`dsys.py daily overview`, field `overview`) or, if it didn't choose, taken from the top-priority papers and updates or one exploration pick per section. Overview items are not repeated in the main list, on the site or in the feeds (`dsys/overview.py`).
 
 **Light days.** When `config/schedules.json` makes the week light (`dsys.py period → load_this_week`), the daily run uses the smaller sizes in `config/preferences.json → daily.light`: only the best of each part, with the daily rules still holding. Real life comes first.
 
@@ -46,7 +46,7 @@ One feed per part, so each can be followed on its own:
 | `monthly-research.xml`, `monthly-knowledge.xml`, `monthly-exploration.xml`, `monthly-languages.xml` | month |
 | `quarterly-research.xml`, `quarterly-knowledge.xml`, `quarterly-exploration.xml` | quarter, with the numbers |
 
-The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config/recommendation_policy.json → feeds`. Feeds are valid RSS 2.0 and render in readers like Inoreader, FeedFlow and NetNewsWire with no JavaScript or stylesheets (`dsys/rss.py`):
+The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config/recommendation_policy.json → feeds`. Every feed entry uses one template (`dsys/feedhtml.py`): a small header, section headings, entry titles, a quiet meta line, the text, then "Why it matters". Inline styles give a system font stack, a type scale and spacing, with no text colours, so light and dark reader themes both work and readers that strip styles still show clean HTML. Feeds are valid RSS 2.0 and render in readers like Inoreader, FeedFlow and NetNewsWire with no JavaScript or stylesheets (`dsys/rss.py`):
 
 - Rich HTML goes in `<content:encoded>` inside CDATA, with a plain-text `<description>` fallback. Folded sections are opened, and `<script>`, `<style>` and stylesheet links are removed.
 - **Maths** (`dsys/mathfmt.py`, on the site too): simple subscripts and superscripts (`x_{l+1}`, `a^2`) become `<sub>`/`<sup>`. Fractions, sums, integrals, matrices and Greek letters become native MathML (latex2mathml). This works with `$...$`, `$$...$$`, `\(...\)`, `\[...\]` or no delimiters. `$83` stays money, and snake_case, URLs and code are left alone.

@@ -182,23 +182,6 @@ DAILY_PARTS = [  # (key, heading, streams)
 DAILY_GROUPS = DAILY_PARTS  # old name
 
 
-def start_here(streams: dict, base: str | None = None, only: str | None = None) -> str:
-    """The day's Start here picks (at most a paper, a story and an exploration pick), each with
-    one line on why. base links the part pages; only limits it to one part (feeds)."""
-    from . import picks
-    lis = []
-    for s, it in picks.items(streams):
-        if only and picks.PART[s] != only:
-            continue
-        url = picks.link(s, it)
-        title = a(url, it["title"]) if url else esc(it["title"])
-        part = f' · <a href="{esc(base)}{picks.PART[s]}.html">more {picks.PART[s]}</a>' if base is not None and not only else ""
-        lis.append(f"<li><span class='pick'>{picks.LABELS[s]}</span> <strong>{title}</strong><br/>"
-                   f"{esc(it['start_here'])}{part}</li>")
-    if not lis:
-        return ""
-    return f"<section class='start'><h2>Start here</h2><ul>{''.join(lis)}</ul></section>"
-
 WEEKLY_PARTS = [("papers", "Papers of the week"), ("research", "Research"), ("knowledge", "Knowledge"),
                 ("exploration", "Exploration"), ("languages", "Languages")]
 MONTHLY_PARTS = [("research", "Research"), ("knowledge", "Knowledge"), ("exploration", "Exploration"),

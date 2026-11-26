@@ -96,6 +96,10 @@
             "more"
           ],
           "description": "top: shown first. more: folded under 'More updates'."
+        },
+        "overview": {
+          "type": "boolean",
+          "description": "In the day's overview (at most 5 per part, shown first and left out of the main list)."
         }
       }
     }

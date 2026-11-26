@@ -131,10 +131,8 @@ CSS += """
 .plan li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
 .plan li .meta{margin:0}
 .plain{list-style:none;padding:0}.plain li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
-/* start here */
-.start{border:1px solid var(--rule);border-left:3px solid var(--brass);background:var(--paper-2);border-radius:10px;padding:.6rem 1rem;margin:1rem 0}
-.start h2{margin:.2rem 0 .4rem;font-size:1.05rem}.start ul{list-style:none;padding:0;margin:0}
-.start li{margin:.45rem 0}.start .pick{font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;opacity:.7;margin-right:.3rem}
+/* overview */
+.overview{border-left:3px solid var(--brass);padding-left:1rem}
 /* daily */
 .daynav{display:flex;justify-content:space-between;gap:1rem;font:400 .9rem var(--sans);margin:.2rem 0 1.4rem}
 .toc{font:400 .92rem/1.5 var(--sans);padding:.6rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
@@ -420,9 +418,13 @@ def _daynav(prev, nxt, suffix: str = ".html", up: str = "") -> str:
 
 def _daily_part_page(site, date, streams, part, prev=None, nxt=None) -> str:
     """daily/<date>/<part>.html: one part of the day (research, news or exploration)."""
+    from . import overview
     key, label, names = next(x for x in render.DAILY_PARTS if x[0] == part)
-    present = [s for s in names if s in streams]
-    toc = []
+    ov, rest = overview.split(streams, part) if part in overview.PARTS else ([], streams)
+    # a stream emptied only because its items moved into the overview is not shown as empty
+    present = [s for s in names if s in rest and (rest[s].get("items") or not streams[s].get("items"))]
+    streams = rest
+    toc = [f'<a href="#overview">Overview</a> <span>{len(ov)}</span>'] if ov else []
     for s in present:
         if s == "world":
             br = streams[s].get("briefs", [])
@@ -437,28 +439,40 @@ def _daily_part_page(site, date, streams, part, prev=None, nxt=None) -> str:
     body = [f"<h1>{esc(label)}<span class='sub'>{esc(long_date(date))}</span></h1>",
             _part_tabs(_daily_parts(streams), part, ""),
             '<nav class="toc"><p>' + " ".join(toc) + "</p></nav>" if toc else ""]
+    if ov:
+        body.append('<section id="overview" class="stream-block overview"><h3 class="stream-h">Overview '
+                    f'<span>{len(ov)}</span></h3><p class="stream-note">The best of today. The rest follows below.</p>'
+                    '<div class="col">' + "".join(_entry(s, it, "h4") for s, it in ov) + "</div></section>")
     body += [_stream_block(s, streams[s], date) for s in present]
     body.append(_daynav(prev, nxt, f"/{part}.html", "../"))
     return page(site, f"{label}, {date}", "".join(body), 2, "archive")
 
 
+def _part_card(streams: dict, key: str, names: list, base: str) -> str:
+    """A part's card on the day and home pages: the overview for research and exploration,
+    otherwise the first three items of each stream."""
+    from . import overview
+    label = next(lbl for k, lbl, _ in render.DAILY_PARTS if k == key)
+    total = sum(len(streams[s].get("items", [])) for s in names if s in streams)
+    if not total:
+        return ""
+    ov = overview.chosen(streams, key) if key in overview.PARTS else []
+    if ov:
+        lis = "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>" for _, it in ov)
+        blocks = f"<h4 class='sub-h'>Overview <span>{len(ov)} of {total}</span></h4><ul>{lis}</ul>"
+    else:
+        blocks = "".join(
+            f"<h4 class='sub-h'>{esc(STREAM_META.get(s, {}).get('title', s))} <span>{len(streams[s]['items'])}</span></h4><ul>"
+            + "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>" for it in streams[s]["items"][:3])
+            + "</ul>" for s in names if s in streams and streams[s].get("items"))
+    return (f"<div class='stream'><h3><a href='{base}{key}.html'>{esc(label)}</a></h3>{blocks}"
+            f"<p><a href='{base}{key}.html'>Open {esc(label.lower())}</a></p></div>")
+
+
 def _daily_overview(site, date, streams, prev=None, nxt=None) -> str:
     """daily/<date>/index.html: the three parts with their first few items."""
-    body = [f"<h1>{esc(long_date(date))}</h1>", _part_tabs(_daily_parts(streams), None, ""),
-            render.start_here(streams, base="")]
-    cards = []
-    for key, label, names in render.DAILY_PARTS:
-        lis = []
-        for s in names:
-            if s not in streams:
-                continue
-            items = streams[s]["papers"] if s == "reading" else streams[s]["items"]
-            title = {"reading": "Reading list"}.get(s, STREAM_META.get(s, {}).get("title", s))
-            first = "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>" for it in items[:3])
-            lis.append(f"<h4 class='sub-h'>{esc(title)} <span>{len(items)}</span></h4><ul>{first}</ul>")
-        if lis:
-            cards.append(f"<div class='stream'><h3><a href='{key}.html'>{esc(label)}</a></h3>{''.join(lis)}"
-                         f"<p><a href='{key}.html'>Open {esc(label.lower())}</a></p></div>")
+    body = [f"<h1>{esc(long_date(date))}</h1>", _part_tabs(_daily_parts(streams), None, "")]
+    cards = [_part_card(streams, key, names, "") for key, _, names in render.DAILY_PARTS]
     body.append("<div class='today'>" + "".join(cards) + "</div>")
     body.append(_daynav(prev, nxt, "/index.html", "../"))
     return page(site, date, "".join(body), 2, "archive")
@@ -687,19 +701,8 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
     if latest:
         st = daily[latest]
         b.append(f"<h2>{a(f'daily/{latest}/index.html', long_date(latest))}</h2>")
-        b.append(render.start_here(st, base=f"daily/{latest}/"))
         b.append("<div class='today'>")
-        for key, label, names in render.DAILY_PARTS:
-            blocks = []
-            for s in names:
-                if s not in st:
-                    continue
-                items = st[s]["papers"] if s == "reading" else st[s]["items"]
-                title = "Papers of the week" if s == "reading" else STREAM_META[s]["title"]
-                lis = "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>" for it in items[:3])
-                blocks.append(f"<h4 class='sub-h'>{esc(title)} <span>{len(items)}</span></h4><ul>{lis}</ul>")
-            if blocks:
-                b.append(f"<div class='stream'><h3>{a(f'daily/{latest}/{key}.html', label)}</h3>{''.join(blocks)}</div>")
+        b += [_part_card(st, key, names, f"daily/{latest}/") for key, _, names in render.DAILY_PARTS]
         b.append("</div>")
 
     plan = []

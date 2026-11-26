@@ -496,8 +496,8 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 for e in discovery_rule_errors(items):
                     rep.err(where, e)
             if stream in DAILY_STREAMS:
-                from .picks import errors as pick_errors
-                for e in pick_errors(stream, items):
+                from .overview import errors as overview_errors
+                for e in overview_errors(stream, items):
                     rep.err(where, e)
             if doc.get("date", "") >= TEACHING_FROM:
                 for e in teaching_errors(stream, items):

@@ -15,7 +15,7 @@ This repo is one person's real setup. Fork it and make it your own.
 | **Monthly** | A New in AI deep dive and a Fundamentals deep dive | A deep dive outside AI, and hard challenge problems by subject | An exploration deep dive | A plan per language |
 | **Quarterly** | Numbers, a short summary and the topics covered, for each part | | | |
 
-Every day opens with **Start here**: one paper, one story and one exploration pick, each with a line on why, so a busy day can stop there. In a light week (`config/schedules.json`) each part keeps only its best.
+Research and Exploration open with an **Overview** of at most five of the day's best items, so a busy day can stop there. Nothing in the Overview is repeated below it. In a light week (`config/schedules.json`) each part keeps only its best.
 
 Slack is the only notification: a daily "ready" message with links and how many items were read and picked, polls on Thursdays and the 25th where you pick what to go deep on next, and something light in #random.
 

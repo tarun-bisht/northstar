@@ -232,14 +232,18 @@ def cmd_period(repo: Repo, args) -> int:
 
 
 def cmd_daily(repo: Repo, args) -> int:
-    """Merge items into a day's file (creating it), skipping ids already present; or set Start here."""
+    """Merge items into a day's file (creating it), skipping ids already present; or set the overview."""
     day = _day(args.date)
-    if args.action == "start-here":
-        from . import picks
-        chosen = dict(p.split("=", 1) for p in (args.pick or []) if "=" in p)
-        if not chosen or len(chosen) != len(args.pick or []):
-            raise SystemExit("give --pick <item id>=<one line why>, up to three (paper, story, exploration)")
-        print(json.dumps(picks.set_picks(repo, day, chosen), indent=1))
+    if args.action == "overview":
+        from . import overview
+        if args.ids:
+            print(json.dumps(overview.set_overview(repo, day, args.part, _parse_list(args.ids)), indent=1))
+            return 0
+        streams = {s: load_json(repo.daily_path(s, day.isoformat())) for s in overview.STREAMS
+                   if repo.daily_path(s, day.isoformat()).exists()}
+        parts = [args.part] if args.part else list(overview.PARTS)
+        print(json.dumps({p: [{"id": it["id"], "title": it["title"]} for _, it in overview.chosen(streams, p)]
+                          for p in parts}, indent=1, ensure_ascii=False))
         return 0
     if not args.stream:
         raise SystemExit("daily merge needs a stream")
@@ -553,9 +557,10 @@ def build_parser() -> argparse.ArgumentParser:
     s.set_defaults(fn=cmd_period)
 
     s = sub.add_parser("daily", help="merge generated items into a day's file")
-    s.add_argument("action", choices=["merge", "start-here"])
+    s.add_argument("action", choices=["merge", "overview"])
     s.add_argument("stream", nargs="?", choices=DAILY_STREAMS)
-    s.add_argument("--pick", action="append", help="start-here: <item id>=<one line why> (repeat, up to 3)")
+    s.add_argument("--part", choices=["research", "exploration"], help="overview: which part")
+    s.add_argument("--ids", help="overview: up to 5 item ids, best first, comma-separated")
     s.add_argument("--date")
     s.add_argument("--items", help="JSON file: list of items, or {items, notes, candidates_considered}")
     s.add_argument("--notes")

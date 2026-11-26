@@ -76,56 +76,16 @@ def cdata(s: str) -> str:
 
 
 def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
-    """One compact part of a day: headings per stream and section, short entries that link out."""
-    out = [f'<p><a href="{x(site["base_url"])}/daily/{date}/{part}.html" target="_blank" rel="noopener">Open on the site</a></p>',
-           render.start_here(streams, only=part)]
-    for key, label, names in render.DAILY_PARTS:
-        if key != part:
-            continue
-        present = [s for s in names if s in streams and (streams[s].get("papers") or streams[s].get("items"))]
-        if not present:
-            continue
-        for s in present:
-            items = streams[s]["papers"] if s == "reading" else streams[s]["items"]
-            title = "Papers of the week" if s == "reading" else STREAM_META[s]["title"]
-            out.append(f"<h3>{render.esc(title)} ({len(items)})</h3>")
-            if s == "arxiv":
-                out.append("<ul>" + "".join(
-                    f"<li><strong>{render.a(p['url'], p['title'])}</strong><br/>{render.esc(', '.join(p['tags']))}. "
-                    f"{render.esc(', '.join(p['authors'][:4]))}{' et al.' if len(p['authors']) > 4 else ''}</li>"
-                    for p in items) + "</ul>")
-            elif s == "world":
-                briefs = streams[s].get("briefs", [])
-                for key, sec, its in render.group_world(items, briefs):
-                    out.append(f"<h4>{render.esc(sec)}</h4>" + ("<ul>" + "".join(
-                        f"<li><strong>{render.a(w['sources'][0]['url'], w['title'])}</strong><br/>{render.esc(w['what_happened'])} "
-                        f"<em>Why it matters:</em> {render.esc(w['why_it_matters'])}</li>" for w in its) + "</ul>" if its else "")
-                        + render.world_briefs(briefs, key))
-            elif s == "research_updates":
-                out.append("<ul>" + "".join(
-                    f"<li><strong>{render.a(u['source']['url'], u['title'])}</strong><br/>{render.esc(u['what_happened'])}</li>"
-                    for u in items) + "</ul>")
-            elif s == "discovery":
-                for _, sec, its in render.group_discovery(items):
-                    out.append(f"<h4>{render.esc(sec)}</h4><ul>" + "".join(
-                        f"<li><strong>{render.a(r['url'], r['title']) if r.get('url') else render.esc(r['title'])}</strong>"
-                        f"{' by ' + render.esc(r['creator']) if r.get('creator') else ''}<br/>{render.esc(r['description'])}"
-                        f"{render.media_embed(r.get('url'), r.get('title', ''), r.get('audio_url'))}</li>"
-                        for r in its) + "</ul>")
-            elif s == "reading":
-                out.append("<ul>" + "".join(
-                    f"<li><strong>{render.a(pp['url'], pp['title'])}</strong><br/>{render.esc(', '.join(pp['tags']))}"
-                    f"{'. ' + render.esc(pp['note']) if pp.get('note') else ''}</li>" for pp in items) + "</ul>")
-            elif s == "language":
-                out += [f"<h4>{render.esc(pk['language'].capitalize())}: {render.esc(pk['title'])}</h4>"
-                        + for_readers(render.language_pack(pk)) for pk in items]
-            elif s == "youtube_shorts":
-                out.append("".join(
-                    f"<h4>{render.esc(v['title'])}</h4>"
-                    + render.youtube_player(v["video_id"], v["title"], short=v.get("format") == "short" or "/shorts/" in v["url"])
-                    for v in items))
-                out.append(f'<p><a href="{x(site["base_url"])}/daily/{date}/shorts.html" target="_blank" rel="noopener">All {len(items)} shorts</a></p>')
-    return "".join(out)
+    """One part of a day, on the shared feed template (dsys/feedhtml.py). Research and Exploration
+    open with an Overview of at most five items, which the main list then leaves out."""
+    from . import feedhtml as fh
+    from . import overview
+    label = next(lbl for k, lbl, _ in render.DAILY_PARTS if k == part)
+    ov, rest = overview.split(streams, part) if part in overview.PARTS else ([], streams)
+    body = {"research": lambda: fh.research(rest, ov), "news": lambda: fh.news(rest),
+            "exploration": lambda: fh.exploration(rest, ov), "shorts": lambda: fh.shorts(rest),
+            "languages": lambda: fh.languages(rest)}[part]()
+    return fh.header(site, date, part, label) + body + fh.footer(site, date, part)
 
 
 def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None, part: str) -> list[dict]:
@@ -257,7 +217,11 @@ def build_feed(repo: Repo, stream: str, examples: bool = False) -> str:
             out.append(f"<dc:creator>{x(e['creator'])}</dc:creator>")
         for c in e["categories"]:
             out.append(f"<category>{x(c)}</category>")
-        body = for_readers(e["html"])
+        from .feedhtml import frame, polish
+        html_in = e["html"]
+        if stream not in DIGEST_FEEDS:  # daily parts already carry their header and footer
+            html_in = frame(site, meta["title"], e["pub"].strftime("%-d %B %Y"), e["link"], html_in)
+        body = polish(for_readers(html_in))
         out.append(f"<description>{x(plain_text(e['description'] or body))}</description>")
         out.append(f"<content:encoded>{cdata(body)}</content:encoded>")
         if e["media"]:

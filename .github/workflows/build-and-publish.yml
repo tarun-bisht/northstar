@@ -54,7 +54,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            feeds
+            dsys
             config/site.json
       - name: Tell the WebSub hub the feeds changed
         # Readers subscribed through the hub (Inoreader and others) get new items within seconds
@@ -62,8 +62,9 @@ jobs:
         continue-on-error: true
         run: |
           sleep 30  # let the new deployment reach the edge before the hub fetches it
-          base=$(python3 -c "import json;print(json.load(open('config/site.json'))['base_url'].rstrip('/'))")
-          for f in feeds/*.xml; do
-            curl -s -o /dev/null -w "%{http_code} $(basename $f)\n" -X POST https://pubsubhubbub.appspot.com/ \
-              --data-urlencode "hub.mode=publish" --data-urlencode "hub.url=$base/feeds/$(basename $f)" || true
+          # every feed URL, from the feed list in dsys/core.py (stdlib only, no install needed)
+          urls=$(python3 -c "import json;from dsys.core import FEEDS;b=json.load(open('config/site.json'))['base_url'].rstrip('/');print(' '.join(f'{b}/feeds/{v[\"file\"]}' for v in FEEDS.values()))")
+          for u in $urls; do
+            curl -s -o /dev/null -w "%{http_code} $u\n" -X POST https://pubsubhubbub.appspot.com/ \
+              --data-urlencode "hub.mode=publish" --data-urlencode "hub.url=$u" || true
           done

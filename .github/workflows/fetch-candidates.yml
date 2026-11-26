@@ -63,7 +63,10 @@ jobs:
             for k in arxiv news youtube videos podcasts updates hf; do
               [ -f "candidates/$k/$today.json" ] && have=$((have+1))
             done
-            if [ "$have" -ge 7 ]; then
+            # Skip only if the papers were fetched after arXiv's release (01:00 UTC), so an early
+            # hand-started fetch never stops the morning one from getting the new papers.
+            fresh=$(python -c "import json,sys;d=json.load(open('candidates/arxiv/$today.json'));print(1 if d.get('fetched_at','')[11:16]>='01:05' else 0)" 2>/dev/null || echo 0)
+            if [ "$have" -ge 7 ] && [ "$fresh" = "1" ]; then
               echo "late scheduled run: today's files already exist, nothing to do"; skip=true
             fi
           fi

@@ -390,7 +390,7 @@ def fetch_youtube(repo, day: dt.date) -> int:
     kept, dropped = yt.filter_candidates(
         vids, set(hist.get("videos", {})), recent_titles,
         max_duration=int(cfg.get("max_duration_seconds", 180)), per_channel=int(cfg.get("max_candidates_per_channel", 5)),
-        languages=tuple(cfg.get("languages_accepted", ["en", "hi"])))
+        languages=tuple(cfg.get("languages_accepted", ["en"])))
 
     # classify Shorts with evidence (never by duration alone)
     if cfg.get("shorts_url_check", True):

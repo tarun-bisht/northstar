@@ -42,6 +42,7 @@ def rfc822(d: dt.datetime) -> str:
 
 
 _DETAILS_OPEN = re.compile(r"<details[^>]*>\s*<summary>(.*?)</summary>", re.S)
+_ABS_FOLD = re.compile(r'<details class="abs">.*?</details>', re.S)
 _PLAY_FOLD = re.compile(r"<details class=\"play\">\s*<summary>Play here</summary>(.*?)</details>", re.S)
 _UNSAFE = re.compile(r"<script\b.*?</script\s*>|<style\b.*?</style\s*>|<link\b[^>]*>|<script\b[^>]*/?>", re.S | re.I)
 _TAGS = re.compile(r"<[^>]+>")
@@ -58,9 +59,13 @@ def for_readers(html_body: str) -> str:
     """
     from .mathfmt import convert_html
     html_body = _UNSAFE.sub("", html_body)
+    keep: list[str] = []  # abstract toggles stay as show/hide toggles
+    html_body = _ABS_FOLD.sub(lambda m: keep.append(m.group(0)) or f"\x00ABS{len(keep) - 1}\x00", html_body)
     html_body = _PLAY_FOLD.sub(lambda m: m.group(1), html_body)
     html_body = _DETAILS_OPEN.sub(lambda m: f"<p><strong>{m.group(1)}</strong></p>", html_body)
-    return convert_html(html_body.replace("</details>", ""))
+    html_body = html_body.replace("</details>", "")
+    html_body = re.sub(r"\x00ABS(\d+)\x00", lambda m: keep[int(m.group(1))], html_body)
+    return convert_html(html_body)
 
 
 def plain_text(html_body: str, limit: int = 400) -> str:

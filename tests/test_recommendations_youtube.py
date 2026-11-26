@@ -253,19 +253,21 @@ def test_filter_candidates_dedup_language_and_creators():
              mk("bad", "invalid id")] + [mk(f"bbbbbbbbbb{i}", t, ch="B") for i, t in enumerate(
                  ["Volcanoes of Iceland", "How bees dance", "The Mughal water gardens", "Prime spirals explained",
                   "Why glass is a liquid myth", "Octopus camouflage"])]
-    kept, why = yt.filter_candidates(cands, {"aaaaaaaaaa3"}, ["Old title"], per_channel=3)
+    kept, why = yt.filter_candidates(cands, {"aaaaaaaaaa3"}, ["Old title"], per_channel=3, languages=("en", "hi"))
     ids = [c["video_id"] for c in kept]
     assert "aaaaaaaaaa1" in ids and "aaaaaaaaaa2" not in ids and "aaaaaaaaaa6" in ids
     assert why["already_seen"] == 1 and why["too_long"] == 1 and why["language"] == 1
     assert why["invalid_id"] == 1 and why["near_duplicate_title"] == 1 and why["channel_cap"] == 3
 
 
-def test_hindi_and_english_discovery_configured():
+def test_shorts_are_english_only():
     yt_cfg = load_json(ROOT / "config" / "sources.json")["youtube"]
-    langs = {g["language"] for g in yt_cfg["query_groups"]}
-    assert {"en", "hi"} <= langs and set(yt_cfg["languages_accepted"]) >= {"en", "hi"}
-    hi = next(g for g in yt_cfg["query_groups"] if g["language"] == "hi")
-    assert any(any("ऀ" <= ch <= "ॿ" for ch in q) for q in hi["queries"])
+    assert {g["language"] for g in yt_cfg["query_groups"]} == {"en"} and yt_cfg["languages_accepted"] == ["en"]
+    mk = lambda vid, title, lang: {"video_id": vid, "title": title, "channel": {"name": vid}, "language": lang,
+                                   "duration_seconds": 40}
+    kept, why = yt.filter_candidates([mk("aaaaaaaaaa1", "Physics", "en"), mk("aaaaaaaaaa2", "भौतिकी सरल भाषा में", "hi")],
+                                     set(), [], per_channel=3)
+    assert [k["video_id"] for k in kept] == ["aaaaaaaaaa1"] and why["language"] == 1
 
 
 def test_fetch_youtube_pipeline_with_mocked_api(repo, monkeypatch):
@@ -288,8 +290,7 @@ def test_fetch_youtube_pipeline_with_mocked_api(repo, monkeypatch):
     by = {c["video_id"]: c for c in out["candidates"]}
     assert by["vid00000001"]["format"] == "short" and by["vid00000001"]["url"].endswith("/shorts/vid00000001")
     assert by["vid00000002"]["format"] == "short_form" and "watch?v=" in by["vid00000002"]["url"]
-    assert by["vid00000003"]["format"] == "unknown" and by["vid00000003"]["format_evidence"] == "none"
-    assert by["vid00000003"]["language"] == "hi"
+    assert "vid00000003" not in by  # Hindi shorts are not wanted (English only)
 
 
 def test_youtube_rss_embed_and_escaping(repo):

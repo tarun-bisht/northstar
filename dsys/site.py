@@ -162,6 +162,9 @@ h1 .sub{display:block;font:400 1rem var(--sans);color:var(--ink-2);margin-top:.4
 .tags{margin:.2rem 0 .4rem;display:flex;flex-wrap:wrap;gap:.35rem}
 .tag{font:700 .75rem/1 var(--sans);padding:.3rem .55rem;border-radius:999px;background:var(--paper-2);color:var(--ink);border:1px solid var(--rule)}
 .abstract{font-size:.95rem;line-height:1.55}
+details.abs{margin:.2rem 0 .6rem}details.abs>summary{cursor:pointer;font-size:.85rem;color:var(--brass);list-style:none}
+details.abs>summary::before{content:"▸ "}details.abs[open]>summary::before{content:"▾ "}
+details.abs>summary::-webkit-details-marker{display:none}
 .lang{list-style:none;padding:0}.lang li{margin:.3rem 0}.native{font-size:1.1em}.rom{color:var(--ink-2);font-style:italic}
 .qs li{margin:.4rem 0}
 .short .ch{color:var(--ink-2);font-size:.8rem}

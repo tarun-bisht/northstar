@@ -36,6 +36,8 @@ STYLES = [
                       "background:rgba(176,141,60,.09);border-radius:0 6px 6px 0"),
     ("div", "yt", "margin:.6em 0 .2em"),
     ("div", "entry", "margin:0 0 1.5em"), ("article", None, "margin:0 0 1.5em"), ("section", None, "margin:0 0 1.5em"),
+    ("details", "abs", "margin:.2em 0 .8em"),
+    ("summary", None, "cursor:pointer;font-size:.86em;opacity:.8;margin:.1em 0 .3em"),
     ("blockquote", None, f"margin:.5em 0 .8em;padding:.1em 0 .1em .9em;border-left:3px solid {RULE};font-size:.95em"),
     ("ul", "briefs", "margin:.3em 0 1em;padding-left:1.1em;font-size:.95em"),
     ("ul", None, "margin:.35em 0 .9em;padding-left:1.25em"), ("ol", None, "margin:.35em 0 .9em;padding-left:1.4em"),
@@ -118,9 +120,7 @@ def paper(p: dict, full: bool = True) -> str:
     title = f"<h3>{a(p['url'], p['title'])}</h3>"
     aff = esc("; ".join(p["affiliations"][:3])) if p.get("affiliations") else ""
     meta = _meta(_authors(p), aff, esc(", ".join(p.get("tags", []))))
-    if not full:
-        return f"<div class='entry'>{title}{meta}</div>"
-    return f"<div class='entry'>{title}{meta}<blockquote>{esc(p['abstract'])}</blockquote></div>"
+    return f"<div class='entry'>{title}{meta}{render.abstract_toggle(p.get('abstract', ''))}</div>"
 
 
 def update(u: dict) -> str:

@@ -2030,25 +2030,6 @@
         ]
       },
       {
-        "language": "hi",
-        "queries": [
-          "विज्ञान समझाइए",
-          "गणित की रोचक बातें",
-          "भौतिकी सरल भाषा में",
-          "भारतीय इतिहास की कहानी",
-          "अंतरिक्ष के रहस्य",
-          "दर्शनशास्त्र सरल भाषा में",
-          "अर्थव्यवस्था समझिए",
-          "भूगोल रोचक तथ्य",
-          "जीव विज्ञान रोचक तथ्य",
-          "संवाद कौशल",
-          "आविष्कार की कहानी",
-          "विज्ञान प्रयोग",
-          "तेलुगु सीखें",
-          "हिंदी से जापानी सीखें"
-        ]
-      },
-      {
         "language": "en",
         "purpose": "language_learning",
         "queries": [
@@ -2062,12 +2043,11 @@
       }
     ],
     "languages_accepted": [
-      "en",
-      "hi"
+      "en"
     ],
     "shorts_url_check": true,
     "max_candidates_per_channel": 5,
-    "_doc_languages": "Only languages you understand. For languages you are learning, use beginner lessons taught in English or Hindi (purpose language_learning). Native videos in a learning language come only after config/languages.json sets native_content_ok to true for it.",
+    "_doc_languages": "Only languages you want to watch: English. For languages you are learning, use beginner lessons taught in English (purpose language_learning). Native videos in a learning language come only after config/languages.json sets native_content_ok to true for it.",
     "queries_per_day": 40,
     "long_form": {
       "enabled": true,

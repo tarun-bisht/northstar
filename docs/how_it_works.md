@@ -60,6 +60,7 @@ The feed list lives in `dsys/core.py` (`FEEDS`), and each feed's size in `config
 
 - Rich HTML goes in `<content:encoded>` inside CDATA, with a plain-text `<description>` fallback. Folded sections are opened, and `<script>`, `<style>` and stylesheet links are removed.
 - **Maths** (`dsys/mathfmt.py`, on the site too): simple subscripts and superscripts (`x_{l+1}`, `a^2`) become `<sub>`/`<sup>`. Fractions, sums, integrals, matrices and Greek letters become native MathML (latex2mathml). This works with `$...$`, `$$...$$`, `\(...\)`, `\[...\]` or no delimiters. `$83` stays money, and snake_case, URLs and code are left alone.
+- **Abstracts**: every paper, on the site and in the feeds, has its full abstract behind an "Abstract" show/hide toggle (`<details>`). Readers without toggle support simply show it.
 - **YouTube**: videos and Shorts (watch, `youtu.be` and `/shorts/` links) play in the item through a responsive `youtube.com/embed` player. It has `allowfullscreen` and `referrerpolicy="strict-origin-when-cross-origin"`, which avoids error 153, and a "Watch on YouTube" link below for videos that can't be embedded.
 
 ## 4. Sources and robustness

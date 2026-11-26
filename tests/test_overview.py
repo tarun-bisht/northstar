@@ -61,3 +61,12 @@ def test_research_feed_overview_then_rest(repo):
     assert all(html.count(f">Paper {i}</a>") == 1 for i in range(8))
     assert "More papers that passed (2)" in html
     assert html.startswith("<div style=\"font-family:") and 'style="font-family:-apple-system' in html
+
+
+def test_every_paper_has_an_abstract_toggle_in_feed_and_site(repo):
+    from dsys import render
+    _papers(repo)
+    html = ET.fromstring(build_feed(repo, "research")).find("channel/item").find(NS).text
+    assert html.count('<details class="abs"') == 8 and "<summary" in html  # top, more and overview alike
+    assert "<details open" not in html
+    assert render.arxiv_item(paper("2611.00001")).count('<details class="abs">') == 1

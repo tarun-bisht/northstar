@@ -239,7 +239,7 @@ def near_duplicate(a: str, b: str, threshold: float = 0.9) -> bool:
 
 def filter_candidates(cands: list[dict], known_ids: set[str], recent_titles: list[str], *,
                       max_duration: int = 180, per_channel: int = 5,
-                      languages: tuple[str, ...] = ("en", "hi")) -> tuple[list[dict], dict]:
+                      languages: tuple[str, ...] = ("en",)) -> tuple[list[dict], dict]:
     """Drop invalid, already-seen, too-long, near-duplicate and over-represented candidates.
 
     Returns (kept, reasons) where reasons counts why items were dropped. Order is preserved.

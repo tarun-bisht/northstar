@@ -357,6 +357,13 @@ def tags_line(tags) -> str:
     return "<p class='tags'>" + "<span class='sep'> · </span>".join(f"<span class='tag'>{esc(t)}</span>" for t in tags) + "</p>"
 
 
+def abstract_toggle(text: str) -> str:
+    """The abstract behind a show/hide toggle (site and feeds). Readers without <details> support
+    simply show it."""
+    return (f'<details class="abs"><summary>Abstract</summary>'
+            f'<blockquote class="abstract">{esc(text)}</blockquote></details>') if text else ""
+
+
 def arxiv_item(p: dict) -> str:
     links = a(paper_link(p["url"]), f"Read on alphaXiv (arXiv:{p['arxiv_id']})")
     affs = f"<p class='meta'>{esc('; '.join(p['affiliations'][:4]))}</p>" if p.get("affiliations") else ""
@@ -365,7 +372,7 @@ def arxiv_item(p: dict) -> str:
         tags_line(p["tags"]),
         f'<p class="authors">{esc(", ".join(p["authors"][:8]))}{" et al." if len(p["authors"]) > 8 else ""}</p>',
         affs,
-        f'<blockquote class="abstract">{esc(p["abstract"])}</blockquote>',
+        abstract_toggle(p["abstract"]),
         f'<p class="links">{links}. {esc(p["research_area"])}, {esc(" ".join(p["categories"]))}, '
         f'submitted {nice_date(p["submitted"])}{hf}</p>',
     ])

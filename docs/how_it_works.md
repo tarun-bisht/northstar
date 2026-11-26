@@ -6,7 +6,7 @@
 
 | Layer | Purpose (vision §15) | When (IST) | Made by |
 |---|---|---|---|
-| Daily | stay aware | every day (papers too: other sources fill days when arXiv is quiet) | Daily run 08:13 (Sonnet with Haiku and Opus helpers), Shorts run 08:41 (Sonnet), Slack digest 09:43 (Haiku) |
+| Daily | stay aware | every day (papers too: other sources fill days when arXiv is quiet) | Daily run 08:13 (Sonnet, with Haiku, Opus and Sonnet helpers), which also posts the topic polls and the Slack messages |
 | Weekly | explore | Saturday 06:46, for the week starting Monday | Weekly run |
 | Monthly | go deep | 1st of the month, 06:15 | Monthly run |
 | Quarterly | look back | 1 Jan, Apr, Jul, Oct, 06:41 | Quarterly run |
@@ -94,13 +94,13 @@ Mobile and email notifications are off for every task. All channels are public (
 
 | Channel | What |
 |---|---|
-| #northstar-daily | "Daily is ready" with links and counts (09:43, `prompts/runs/slack_digest.md`); "Week is ready" on Saturdays; "Month is ready" on the 1st; one line if a part is missing. Never messages about failed sources. |
-| #northstar-polls | Thursdays: next week's New in AI topic. The 25th: next month's research and fundamentals deep dives. Every poll ends with "Other: reply with your own topic" (`prompts/runs/topic_poll.md`). |
+| #northstar-daily | "Daily is ready" with links and counts, posted at the end of the daily run (`prompts/runs/slack_digest.md`); "Week is ready" on Saturdays; "Month is ready" on the 1st; one line if a part is missing. Never messages about failed sources. |
+| #northstar-polls | Thursdays: next week's New in AI topic. The 25th: next month's research and fundamentals deep dives. Posted by the daily run. Every poll ends with "Other: reply with your own topic" (`prompts/runs/topic_poll.md`). |
 | #northstar-ask | Rare questions from a run, only when the answer changes what gets made (`prompts/runs/_git.md`). |
 | #general | Announcements: changes to Northstar, the quarterly review. |
 | #random | One light thing a day: an xkcd link or an original joke. |
 
-**Replies.** Reply in Slack, in the thread under a poll or question. A run reads the whole thread and your own messages in the channel after the poll, nothing before it. Polls are read on Saturdays and the 1st before the weekly and monthly runs (`prompts/runs/poll_collect.md`); questions at the start of each daily run. Only the general topic is saved (`state/polls.json`), never private details.
+**Replies.** Reply in Slack, in the thread under a poll or question. A run reads the whole thread and your own messages in the channel after the poll, nothing before it. The weekly and monthly runs read their poll's answers before planning (`prompts/runs/poll_collect.md`); the daily run reads answers to questions at its start. Only the general topic is saved (`state/polls.json`), never private details.
 
 ## 8. What is never done (vision §2 and §17)
 
@@ -112,7 +112,7 @@ No streaks, scores, completion tracking, backlogs or guilt. Items carry a status
 |---|---|
 | `docs/vision.md` | why Northstar exists. Read first |
 | `docs/how_it_works.md` | this map |
-| `docs/scheduled_tasks_setup.md` | the eight scheduled tasks and how to create them |
+| `docs/scheduled_tasks_setup.md` | the four scheduled tasks and how to create them |
 | `CLAUDE.md` | rules every Claude run follows |
 | `prompts/runs/*.md` | what each scheduled run does, step by step |
 | `prompts/*.md` | how to make each kind of content |

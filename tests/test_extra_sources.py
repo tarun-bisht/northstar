@@ -176,3 +176,13 @@ def test_enrich_dispatches_once_and_reads_results(repo):
     assert enrich(repo, D, ["2611.00001"], run=run2, sleep=lambda s: None) == 0
     assert len(st["dispatches"]) == 1 and "inputs[kinds]=enrich" in st["dispatches"][0]
     assert enrich(repo, D, ["2611.00001"], run=run2, sleep=lambda s: None) == 0 and len(st["dispatches"]) == 1
+
+
+def test_no_youtube_key_writes_empty_files_so_ensure_does_not_refetch(repo, monkeypatch):
+    from dsys import ensure
+    fc = _fc()
+    monkeypatch.delenv("YOUTUBE_API_KEY", raising=False)
+    day = dt.date(2026, 11, 26)
+    assert fc.fetch_youtube(repo, day) == 0 and fc.fetch_long_videos(repo, day) == 0
+    missing, failed = ensure.check(repo, day, ["youtube", "videos"])
+    assert missing == [] and failed == {}

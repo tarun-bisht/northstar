@@ -112,7 +112,7 @@ No streaks, scores, completion tracking, backlogs or guilt. Items carry a status
 |---|---|
 | `docs/vision.md` | why Northstar exists. Read first |
 | `docs/how_it_works.md` | this map |
-| `docs/scheduled_tasks_setup.md` | the four scheduled tasks and how to create them |
+| `docs/scheduled_tasks_setup.md` | how to set up your own copy, step by step: GitHub, Slack, connectors and the four scheduled tasks with their exact prompts |
 | `CLAUDE.md` | rules every Claude run follows |
 | `prompts/runs/*.md` | what each scheduled run does, step by step |
 | `prompts/*.md` | how to make each kind of content |
@@ -136,6 +136,6 @@ No streaks, scores, completion tracking, backlogs or guilt. Items carry a status
 - **News feeds or categories:** `config/sources.json → world.feeds` and `world.categories`.
 - **Notable researchers:** `config/sources.json → notable_researchers`.
 - **Sizes and required sections:** `config/preferences.json` and `WEEKLY_REQUIRED` in `dsys/validate.py`.
-- **Times:** the cron lines in the scheduled tasks and in `.github/workflows/fetch-candidates.yml`. Keep the runs after the 07:17 and 07:53 fetches.
+- **Times:** the cron lines in the scheduled tasks and in `.github/workflows/fetch-candidates.yml`. Keep the daily run after the 07:17 fetch, and the weekly and monthly runs before the daily run (`docs/scheduled_tasks_setup.md`).
 
 Finish every change with `python scripts/validate.py && python -m pytest -q`.

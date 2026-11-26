@@ -7,7 +7,7 @@ Read `prompts/_shared.md` first.
 ## Legitimate access only
 
 - **Preferred:** candidates fetched by GitHub Actions via the YouTube Data API v3 (`candidates/youtube/<date>.json`, needs the `YOUTUBE_API_KEY` repository secret). These have real IDs, titles, channels, durations and dates.
-- **No fallback.** Videos come only from the candidates file. If it is missing after `candidates ensure`, make no shorts today and report it.
+- **No fallback.** Videos come only from the candidates file. If it is missing or empty after `candidates ensure` (empty means no `YOUTUBE_API_KEY`), make no shorts today and report it.
 - Never scrape YouTube HTML, and never construct or guess video ids.
 
 ## Steps

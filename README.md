@@ -30,18 +30,29 @@ Every week touches every dimension of development in `config/interests.json` (vi
 
 ## How it runs
 
-1. **07:17 IST, GitHub Actions** fetches candidates: papers, headlines, videos, podcasts and blogs. No AI runs here. Failed sources are retried in the same job and again at 07:53. If GitHub starts late, the daily run starts the fetch itself.
-2. **Claude scheduled tasks** pick the best items, write short notes and commit them, following `prompts/runs/`.
-3. **GitHub Actions** validates everything, builds the site and feeds, and publishes to GitHub Pages.
+| When (IST) | What |
+|---|---|
+| 07:17, retry 07:53 | GitHub Actions scrapes papers, news, updates, podcasts and videos. No AI. |
+| 08:13 daily | Claude reads, filters and writes the day, posts polls on Thursdays and the 25th, and sends the Slack messages. |
+| Saturday 06:46 | Claude plans next week (after reading your poll answer). |
+| 1st 06:15 | Claude plans the month (after reading your poll answer). |
+| 1 Jan, Apr, Jul, Oct 06:41 | Claude writes the quarterly review. |
+| Every push | GitHub Actions validates, builds the site and feeds, and publishes. |
 
-The full map, including how papers are ranked from their abstracts, is in [`docs/how_it_works.md`](docs/how_it_works.md).
+If GitHub starts the scrape late, the daily run starts it and waits. It never searches instead. The full map is in [`docs/how_it_works.md`](docs/how_it_works.md).
 
 ## Make it yours
 
-1. **Fork and publish.** Fork the repo. In **Actions**, turn on workflows. In **Settings → Pages**, set the source to **GitHub Actions**. In **Settings → Environments → github-pages**, allow `main` to deploy.
-2. **Personalise.** Edit `config/`: `interests.json` (your tiers), `sources.json` (arXiv coverage, news feeds, YouTube searches), `languages.json` and `site.json`. Then clear my data: delete `content/` and `candidates/`, and set `state/ideas.json` to `{"ideas": []}`.
-3. **YouTube key (optional, free).** In [Google Cloud Console](https://console.cloud.google.com/), enable **YouTube Data API v3** and create an API key restricted to it. Add it as the repository secret `YOUTUBE_API_KEY`. The free quota is 10,000 units a day, and each search costs 100.
-4. **Scheduled tasks.** Follow [`docs/scheduled_tasks_setup.md`](docs/scheduled_tasks_setup.md), then click **Run now** on the daily task.
+Follow [`docs/scheduled_tasks_setup.md`](docs/scheduled_tasks_setup.md). It copies this exact setup in eight steps:
+
+1. Fork, then turn on Actions and Pages.
+2. Edit `config/` for your interests, sources and languages, and clear my data.
+3. Add a free `YOUTUBE_API_KEY` secret.
+4. Create the Slack channels and put their ids in `config/notifications.json`.
+5. Connect Slack and alphaXiv to Claude.
+6. Create the four scheduled tasks (exact prompts, crons and models are in the guide).
+7. Change time zones if you need to.
+8. Run it once and check.
 
 ```bash
 pip install -r requirements.txt

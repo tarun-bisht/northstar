@@ -34,7 +34,8 @@ Northstar is a public, forkable personal discovery and growth companion. Claude 
 | Situation | Prompt |
 |---|---|
 | Scheduled runs (four tasks) | `prompts/runs/daily.md` (calls `shorts.md`, `topic_poll.md`, `slack_digest.md`), `weekly.md` and `monthly.md` (call `poll_collect.md`), `quarterly.md` |
-| Changing how the system works | `docs/how_it_works.md` (update it too) |
+| Changing how the system works | `docs/how_it_works.md` (update it too), and `docs/scheduled_tasks_setup.md` if a task, time, connector or channel changes |
+| Setting up a fork, or recreating the scheduled tasks | `docs/scheduled_tasks_setup.md` (exact prompts, crons and models) |
 | "Recommend me…", "I want to try…" | `prompts/on_demand_recommendations.md`, then `prompts/inbox.md` to record it |
 | User shares interests, projects, trips, how busy they are | `prompts/update_interests.md` |
 | Feedback on a week or month | `prompts/feedback.md` |

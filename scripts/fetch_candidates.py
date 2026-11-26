@@ -322,10 +322,19 @@ def fetch_news(repo, day: dt.date, retry_failed: bool = False) -> int:
     return 0 if cands or not errors else 1
 
 
+
+def _skip_no_key(repo, kind: str, day: dt.date) -> int:
+    """Without YOUTUBE_API_KEY, write an empty file so the daily run sees the kind as done
+    (instead of starting fetches again) and makes no shorts or videos. Never search instead."""
+    print(f"{kind}: YOUTUBE_API_KEY not set, writing an empty file")
+    write_candidates(repo.p("candidates", kind, f"{day.isoformat()}.json"),
+                     {"kind": kind, "date": day.isoformat(), "fetched_at": now_utc(),
+                      "skipped": "YOUTUBE_API_KEY not set", "failed_sources": [], "candidates": []})
+    return 0
+
 def fetch_youtube(repo, day: dt.date) -> int:
     if not os.environ.get("YOUTUBE_API_KEY"):
-        print("youtube: YOUTUBE_API_KEY not set — skipping (the generator will fall back to web search + oEmbed).")
-        return 0
+        return _skip_no_key(repo, "youtube", day)
     cfg = repo.config("sources")["youtube"]
     after = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=int(cfg.get("published_within_days", 60))))
     after_s = after.replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -626,8 +635,7 @@ def fetch_long_videos(repo, day: dt.date) -> int:
     rotating long-form search. Each video carries views, likes, comments, engagement rates and
     reach against its channel's size, so the run chooses from data without watching."""
     if not os.environ.get("YOUTUBE_API_KEY"):
-        print("videos: YOUTUBE_API_KEY not set, skipping")
-        return 0
+        return _skip_no_key(repo, "videos", day)
     yc = repo.config("sources")["youtube"]
     cfg = yc.get("long_form", {})
     ch = yc.get("channels", {})

@@ -438,7 +438,7 @@ def lesson_block(ls: dict | None) -> str:
 def recommendation_item(r: dict) -> str:
     return "".join([
         meta(esc(r.get("creator")), human(r["type"]), esc(r["category"]),
-             esc(r.get("duration") or r.get("time_required")), TIER_LABEL.get(r.get("tier"))),
+             human(r.get("duration") or r.get("time_required") or ""), TIER_LABEL.get(r.get("tier"))),
         f"<p>{esc(r['description'])}</p>",
         f'<p class="why">{esc(r["why_recommended"])}</p>',
         cross_domain_line(r) or _field("Connects", r.get("connection_to_interests")),

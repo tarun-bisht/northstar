@@ -18,7 +18,7 @@ The daily task runs after the 07:17 fetch. Weekly and monthly run before it, and
 
 1. Edit `config/interests.json` (your three tiers). Add an `arxiv.coverage` entry in `config/sources.json` for each research interest.
 2. Edit `config/sources.json` (arXiv categories, news feeds, YouTube channels and searches), `config/languages.json` and `config/preferences.json` if you like.
-3. Clear my data: delete `content/`, `candidates/` and `state/stats/`, and set `state/ideas.json` to `{"ideas": []}` and `state/polls.json` to `{"polls": []}`.
+3. Clear my data: delete `content/`, `candidates/`, `state/stats/`, `state/feed_health.json` and `state/youtube_channels.json` (if present). Set `state/ideas.json` to `{"ideas": []}` and `state/polls.json` to `{"polls": []}`. Then run `python scripts/dsys.py history rebuild && python scripts/validate.py`, which empties the histories built from my content.
 4. Optional: rebuild the trust registry with **Actions → build-reputation → Run workflow**.
 
 ### 3. YouTube key (free, needed for videos and shorts)

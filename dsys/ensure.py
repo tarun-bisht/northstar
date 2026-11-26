@@ -29,6 +29,7 @@ from pathlib import Path
 
 REPO_SLUG = "tarun-bisht/northstar"  # default; forks use their own origin (repo_slug)
 WORKFLOW = "fetch-candidates.yml"
+ARXIV_READY_UTC = "01:05"  # arXiv's daily papers are out by then (the workflow's skip rule uses the same time)
 WEEKDAY_ONLY: set = set()  # papers are fetched every day (arXiv plus other sources)
 
 
@@ -98,6 +99,10 @@ def check(repo, day: dt.date, kinds: list[str]) -> tuple[list[str], dict[str, li
             missing.append(k)
             continue
         doc = json.loads(f.read_text())
+        if k == "arxiv" and doc.get("fetched_at", "") < f"{day.isoformat()}T{ARXIV_READY_UTC}":
+            # fetched before arXiv published today's papers (an early hand-started run): fetch again
+            missing.append(k)
+            continue
         bad = doc.get("failed_sources") or ([] if doc.get("candidates") or doc.get("models") else doc.get("errors") or [])
         if bad:
             failed[k] = bad

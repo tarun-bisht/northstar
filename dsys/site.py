@@ -134,7 +134,8 @@ CSS += """
 /* youtube player and its small fallback link */
 .yt{margin:.6rem 0 .2rem}.yt-link{font-size:.8rem;opacity:.8;margin:.25rem 0 1rem}
 /* overview */
-.overview{border-left:3px solid var(--brass);padding-left:1rem}
+.overview{background:var(--paper-2);border-radius:14px;padding:1rem 1.3rem .4rem;margin:0 0 2rem}
+.overview .stream-h{color:var(--brass)}
 /* daily */
 .daynav{display:flex;justify-content:space-between;gap:1rem;font:400 .9rem var(--sans);margin:.2rem 0 1.4rem}
 .toc{font:400 .92rem/1.5 var(--sans);padding:.6rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
@@ -425,6 +426,7 @@ def _daily_part_page(site, date, streams, part, prev=None, nxt=None) -> str:
     ov, rest = overview.split(streams, part) if part in overview.PARTS else ([], streams)
     # a stream emptied only because its items moved into the overview is not shown as empty
     present = [s for s in names if s in rest and (rest[s].get("items") or not streams[s].get("items"))]
+    tabs = _part_tabs(_daily_parts(streams), part, "")  # counts of the whole day, overview included
     streams = rest
     toc = [f'<a href="#overview">Overview</a> <span>{len(ov)}</span>'] if ov else []
     for s in present:
@@ -439,7 +441,7 @@ def _daily_part_page(site, date, streams, part, prev=None, nxt=None) -> str:
                      "youtube_shorts": "Shorts", "language": "Language"}.get(s, _stream_title(s))
             toc.append(f'<a href="#{s}">{esc(short)}</a> <span>{_count(streams, s)}</span>')
     body = [f"<h1>{esc(label)}<span class='sub'>{esc(long_date(date))}</span></h1>",
-            _part_tabs(_daily_parts(streams), part, ""),
+            tabs,
             '<nav class="toc"><p>' + " ".join(toc) + "</p></nav>" if toc else ""]
     if ov:
         body.append('<section id="overview" class="stream-block overview"><h3 class="stream-h">Overview '
@@ -459,13 +461,16 @@ def _part_card(streams: dict, key: str, names: list, base: str) -> str:
     if not total:
         return ""
     ov = overview.chosen(streams, key) if key in overview.PARTS else []
+    def link(it):
+        url = it.get("url") or (it.get("source") or {}).get("url") or ((it.get("sources") or [{}])[0]).get("url")
+        return a(url, it["title"]) if url else esc(it["title"])
     if ov:
-        lis = "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>" for _, it in ov)
+        lis = "".join(f"<li>{link(it)}</li>" for _, it in ov)
         blocks = f"<h4 class='sub-h'>Overview <span>{len(ov)} of {total}</span></h4><ul>{lis}</ul>"
     else:
         blocks = "".join(
             f"<h4 class='sub-h'>{esc(STREAM_META.get(s, {}).get('title', s))} <span>{len(streams[s]['items'])}</span></h4><ul>"
-            + "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>" for it in streams[s]["items"][:3])
+            + "".join(f"<li>{link(it)}</li>" for it in streams[s]["items"][:3])
             + "</ul>" for s in names if s in streams and streams[s].get("items"))
     return (f"<div class='stream'><h3><a href='{base}{key}.html'>{esc(label)}</a></h3>{blocks}"
             f"<p><a href='{base}{key}.html'>Open {esc(label.lower())}</a></p></div>")

@@ -125,7 +125,8 @@ def _fake_github(repo, land_on_pull=1, fail_sources=False):
             st["pulls"] += 1
             if st["pulls"] >= land_on_pull:
                 write_json(repo.p("candidates", "arxiv", f"{D}.json"),
-                           {"candidates": [1], "failed_sources": ["alphaxiv:Hot"] if fail_sources else []})
+                           {"candidates": [1], "fetched_at": f"{D}T01:48:00Z",
+                            "failed_sources": ["alphaxiv:Hot"] if fail_sources else []})
         return _R()
     return run, st
 
@@ -213,3 +214,11 @@ def test_ensure_accepts_failed_sources_already_retried_by_the_workflow(repo):
                {"candidates": [1], "failed_sources": ["Reddit"], "retried_at": "2026-11-26T02:30:00Z"})
     run, st = _fake_github(repo)
     assert ensure(repo, D, ["news"], run=run, sleep=lambda s: None) == 0 and st["dispatches"] == []
+
+
+def test_ensure_refetches_papers_fetched_before_arxiv_published(repo):
+    from dsys.ensure import check
+    write_json(repo.p("candidates", "arxiv", f"{D}.json"), {"candidates": [1], "fetched_at": f"{D}T00:24:36Z"})
+    assert check(repo, D, ["arxiv"])[0] == ["arxiv"]
+    write_json(repo.p("candidates", "arxiv", f"{D}.json"), {"candidates": [1], "fetched_at": f"{D}T01:48:00Z"})
+    assert check(repo, D, ["arxiv"])[0] == []

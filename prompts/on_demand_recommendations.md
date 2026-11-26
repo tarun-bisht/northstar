@@ -6,7 +6,7 @@ Read `prompts/_shared.md` first. Use this in any chat, any time: "recommend a ho
 
 ## What you can do (pick what the request needs)
 
-1. **Recommend right away**, without scheduling anything. Give 1–3 specific options with why, a first step, time and cost. Read `config/interests.json`, `state/ideas.json` and `state/learned_preferences.json` so the picks fit them.
+1. **Recommend right away**, without scheduling anything. Give 1–3 specific options with why, a first step, time and cost. Read `config/interests.json`, `state/ideas.json` and `state/preference_profile.json` so the picks fit them.
 2. **Scope an idea realistically** (below).
 3. **Estimate** time, money, equipment and space.
 4. **Define a first experience or deliverable**: one concrete, enjoyable, low-cost thing.

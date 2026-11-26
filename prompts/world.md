@@ -2,7 +2,9 @@
 
 Read `prompts/_shared.md` first.
 
-**Purpose:** help them *understand* the world, not consume headlines. For every item the test is: what happened, why does it matter, and is it worth their attention? This is not a generic news feed.
+**Purpose:** news is part of the user's learning beyond AI, science and maths. Help them *understand* the world, not consume headlines: every explained story should leave them knowing something they didn't, about how economies, politics, societies, technology or nature work. For every item the test is: what happened, why it matters, what it teaches, and is it worth their attention? Curate the best, not the most.
+
+**Every explained item teaches** (`lesson`, required): the concept, mechanism or history behind the story, explained in 2 to 4 plain sentences so it sticks. Examples: a rate cut, then *how a central bank uses interest rates to steer inflation*; a monsoon failure, then *what drives the monsoon and why El Niño weakens it*; new sanctions, then *how sanctions bite and how countries route around them*; a leadership change, then *how that country's system chooses its leader*. `lesson: {concept, explanation, learn_more}`; `learn_more` is optional, a good explainer (often the paired depth piece) with a URL from the candidates or a search result.
 
 ## News categories
 

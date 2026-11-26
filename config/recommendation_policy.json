@@ -26,7 +26,11 @@
     "monthly-exploration": 12,
     "quarterly-research": 8,
     "quarterly-knowledge": 8,
-    "quarterly-exploration": 8
+    "quarterly-exploration": 8,
+    "shorts": 30,
+    "languages": 30,
+    "weekly-languages": 26,
+    "monthly-languages": 12
   },
   "source_quality": {
     "prefer": [

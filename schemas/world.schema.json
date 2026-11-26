@@ -196,6 +196,39 @@
             "science_health"
           ],
           "description": "News category (prompts/world.md). business_tech and science_health are older values."
+        },
+        "lesson": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "concept",
+            "explanation"
+          ],
+          "description": "What this story teaches: the concept, mechanism or bit of history behind it, explained so it sticks (how a central bank fights inflation, why monsoons fail, how sanctions bite). Required for explained items from 2026-11-27.",
+          "properties": {
+            "concept": {
+              "$ref": "common.schema.json#/$defs/nonempty"
+            },
+            "explanation": {
+              "$ref": "common.schema.json#/$defs/nonempty"
+            },
+            "learn_more": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "url"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "$ref": "common.schema.json#/$defs/url"
+                }
+              }
+            }
+          }
         }
       }
     }

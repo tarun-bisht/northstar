@@ -54,12 +54,13 @@ def test_rolling_window(repo):
     assert [i.find("guid").text for i in items] == ["dsys:research:2026-11-24", "dsys:research:2026-11-23"]
 
 
-def test_shorts_in_exploration_feed(repo):
+def test_shorts_in_their_own_feed(repo):
     daily(repo, "youtube_shorts", "2026-11-24", [video(title='Fourier & "waves" <fast>')])
-    item = ET.fromstring(build_feed(repo, "exploration")).find("channel/item")
+    assert ET.fromstring(build_feed(repo, "exploration")).find("channel/item") is None
+    item = ET.fromstring(build_feed(repo, "shorts")).find("channel/item")
     html = item.find("content:encoded", NS).text
     assert "hqdefault.jpg" in html and "&lt;fast&gt;" in html
-    assert item.find("link").text.endswith("/daily/2026-11-24/exploration.html")
+    assert item.find("link").text.endswith("/daily/2026-11-24/shorts.html")
 
 
 def test_weekly_monthly_feeds_and_site(repo, tmp_path):

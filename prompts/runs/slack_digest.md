@@ -20,7 +20,9 @@ Follow `prompts/runs/_git.md` for setup (clone or update). This run commits noth
    <headlines> headlines → <stories> stories → **<picked> explained + <briefs> briefs**
 
    🧭 **Exploration** · [open](<site>/daily/<today>/exploration.html)
-   <podcasts_fetched> episodes and <videos_fetched> videos → **<picked> picks** · <shorts picked> shorts
+   <podcasts_fetched> episodes and <videos_fetched> videos → **<picked> picks**
+
+   🎬 **Shorts** · [open](<site>/daily/<today>/shorts.html) · <shorts picked>
 
    🗣️ **Languages** · [open](<site>/daily/<today>/languages.html)
    ```

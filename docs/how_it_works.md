@@ -21,7 +21,7 @@ Every page is split into parts, so research, news and exploration never pile up 
 
 | Layer | Parts | Pages |
 |---|---|---|
-| Daily (be aware) | **Research**: arXiv radar, research updates. **News**: world radar by category. **Exploration**: at least one podcast and one video (they play on the page), the rest free (entertainment, free-time interests, reads), 30 to 40 shorts. **Languages**: the 5-minute pack | `daily/<date>/research.html`, `news.html`, `exploration.html`, `languages.html`, plus `index.html` |
+| Daily (be aware) | **Research**: papers, research updates. **News**: world radar by category, each explained story with the idea behind it. **Exploration**: at least one podcast and one video (they play on the page), the rest free (entertainment, free-time interests, reads), each saying what you'll learn. **Shorts**: 30 to 40, on their own page so they don't distract. **Languages**: the 5-minute pack | `daily/<date>/research.html`, `news.html`, `exploration.html`, `shorts.html`, `languages.html`, plus `index.html` |
 | Weekly (explore) | Touches all six pillars of development every week (vision §4). **Papers of the week**: for you (from the daily papers), trending, and leading groups. **Research**: Fundamentals and New in AI. **Knowledge**: topics grouped by subject, maths and physics always plus 5 to 6 rotating subjects, each with a study plan and resources, and approachable maths and physics questions. **Exploration** (the largest part): curiosities, culture, people and self, curiosity and making. **Languages**: a lesson per language | `weekly/<week>/papers.html`, `research.html`, `knowledge.html`, `exploration.html`, `languages.html`, plus `index.html` |
 | Monthly (go deep) | **Research**: a New in AI deep dive and a Fundamentals deep dive. **Knowledge**: a deep dive outside AI, and hard challenge problems (olympiad, entrance exam, university level) in maths, physics and 4 to 6 other subjects. **Exploration**: a deep dive that rotates through people and self, culture and life, and curiosity and making. **Languages**: a plan per language | `monthly/<month>/<part>.html`, plus `index.html` |
 | Quarterly | A short summary and the topics covered, per part, plus the numbers | `quarterly/<YYYY-Qn>/<part>.html`, plus `index.html` |
@@ -36,7 +36,7 @@ One feed per part, so each can be followed on its own:
 
 | Feed | One item per |
 |---|---|
-| `research.xml`, `news.xml`, `exploration.xml`, `languages.xml` | day |
+| `research.xml`, `news.xml`, `exploration.xml`, `shorts.xml`, `languages.xml` | day |
 | `reading.xml` (papers of the week) | paper: *For you*, *Trending this week*, *From leading groups* |
 | `weekly-research.xml`, `weekly-knowledge.xml`, `weekly-exploration.xml`, `weekly-languages.xml` | week |
 | `monthly-research.xml`, `monthly-knowledge.xml`, `monthly-exploration.xml`, `monthly-languages.xml` | month |
@@ -81,7 +81,7 @@ All of these are fetched by `.github/workflows/fetch-candidates.yml` (`scripts/f
 
 Every headline is categorized in code (`dsys/news.py`) into 12 categories, duplicates are merged (`also_in`), and anything published in the last 3 days is dropped. News has two roles, both every day: **awareness** across all categories, and **interest-matched** stories from searches built from your interests. Depth sources (The Conversation, Nature News, Quanta, marked `depth`) are paired with the events they explain, so a story says *why*. Two layers (`prompts/world.md`):
 
-- **Explained items:** 12 to 20 stories across at least 7 categories, with what happened, why it matters, context and what to watch.
+- **Explained items:** 12 to 20 stories across at least 7 categories, with what happened, why it matters, context, what to watch, and a `lesson`: the concept or history behind the story, explained so it sticks. News and Exploration are part of your learning beyond AI, science and maths, so they teach, not just list.
 - **Briefs:** 15 to 30 one-line headlines linking to the article.
 
 Research updates are read the same way: one compact pass (`candidates updates --compact`), last 3 days removed, plus 5 to 8 targeted X and LinkedIn searches across all interest keywords. No cap: the best are `priority: top`, the rest folded.

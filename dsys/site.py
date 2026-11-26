@@ -62,6 +62,7 @@ p{margin:.55rem 0}
 .meta,.authors,.source,.links,.kind{font:400 .875rem/1.5 var(--sans);color:var(--ink-2)}
 .meta{margin:.15rem 0 .5rem}
 .why{font-style:italic}
+.lesson{border-left:3px solid var(--accent,#5b6cff);padding:.2em .8em;margin:.6em 0;background:rgba(91,108,255,.06)}
 .uncertain strong{color:var(--brass)}
 blockquote{margin:.6rem 0;padding:.1rem 0 .1rem 1rem;border-left:2px solid var(--rule);color:var(--ink-2);font-size:.98rem}
 details{margin:.45rem 0}
@@ -340,7 +341,7 @@ def _short(it: dict) -> str:
 
 
 def _stream_title(s: str) -> str:
-    return "Reading list this week" if s == "reading" else STREAM_META[s]["title"]
+    return "Papers of the week" if s == "reading" else STREAM_META[s]["title"]
 
 
 def _sub(anchor: str, label: str, n: int, inner: str) -> str:
@@ -393,13 +394,6 @@ def _part_tabs(parts: list[tuple[str, str, int]], current: str | None, prefix: s
                      f"<a class='tab' href='{prefix}{key}.html'>{esc(label)} <span>{n}</span></a>"
                      for key, label, n in parts]
     return "<nav class='tabs'>" + "".join(tabs) + "</nav>"
-
-
-def _with_reading(streams: dict, reading: dict | None) -> dict:
-    streams = dict(streams)
-    if reading and reading.get("papers"):
-        streams["reading"] = reading
-    return streams
 
 
 def _count(streams: dict, s: str) -> int:
@@ -692,7 +686,7 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
                 if s not in st:
                     continue
                 items = st[s]["papers"] if s == "reading" else st[s]["items"]
-                title = "Reading list" if s == "reading" else STREAM_META[s]["title"]
+                title = "Papers of the week" if s == "reading" else STREAM_META[s]["title"]
                 lis = "".join(f"<li>{a(it['url'], it['title']) if it.get('url') else esc(it['title'])}</li>" for it in items[:3])
                 blocks.append(f"<h4 class='sub-h'>{esc(title)} <span>{len(items)}</span></h4><ul>{lis}</ul>")
             if blocks:
@@ -720,7 +714,7 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
         return (f"<li><span class='fname'>{esc(title)}</span>"
                 f"<input readonly value='{esc(url)}' aria-label='{esc(title)} feed URL' onclick='this.select()'>"
                 f"<button type='button' data-copy='{esc(url)}'>Copy</button></li>")
-    groups = [("Daily", ["research", "news", "exploration", "languages"]),
+    groups = [("Daily", ["research", "news", "exploration", "shorts", "languages"]),
               ("Weekly", ["reading", "weekly-research", "weekly-knowledge", "weekly-exploration", "weekly-languages"]),
               ("Monthly", ["monthly-research", "monthly-knowledge", "monthly-exploration", "monthly-languages"]),
               ("Quarterly", ["quarterly-research", "quarterly-knowledge", "quarterly-exploration"])]

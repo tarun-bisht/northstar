@@ -162,7 +162,8 @@ def cross_domain_line(item) -> str:
 DAILY_PARTS = [  # (key, heading, streams)
     ("research", "Research", ["arxiv", "research_updates"]),
     ("news", "News", ["world"]),
-    ("exploration", "Exploration", ["discovery", "youtube_shorts"]),
+    ("exploration", "Exploration", ["discovery"]),
+    ("shorts", "Shorts", ["youtube_shorts"]),  # its own page, so it doesn't distract from the rest
     ("languages", "Languages", ["language"]),
 ]
 DAILY_GROUPS = DAILY_PARTS  # old name
@@ -404,9 +405,19 @@ def world_item(w: dict) -> str:
         _field("Why it matters", w["why_it_matters"]),
         _field("What to watch", w["what_to_watch"]),
         _field("Uncertain", w.get("uncertainty"), "uncertain"),
+        lesson_block(w.get("lesson")),
         f'<details><summary>Facts, context and analysis</summary>{deeper}</details>' if deeper else "",
         f'<p class="source">Sources: {"; ".join(_source(s) for s in w["sources"])}</p>',
     ])
+
+
+def lesson_block(ls: dict | None) -> str:
+    """The idea behind a story: the concept it teaches, explained, with somewhere to learn more."""
+    if not ls:
+        return ""
+    more = f" {a(ls['learn_more']['url'], ls['learn_more']['title'])}" if ls.get("learn_more", {}).get("url") else ""
+    return (f"<div class='lesson'><p><strong>The idea behind it: {esc(ls['concept'])}.</strong> "
+            f"{esc(ls['explanation'])}{more}</p></div>")
 
 
 def recommendation_item(r: dict) -> str:
@@ -416,7 +427,7 @@ def recommendation_item(r: dict) -> str:
         f"<p>{esc(r['description'])}</p>",
         f'<p class="why">{esc(r["why_recommended"])}</p>',
         cross_domain_line(r) or _field("Connects", r.get("connection_to_interests")),
-        _field("You might get", r.get("what_i_might_get_from_it")),
+        _field("What you'll learn", r.get("what_i_might_get_from_it")),
         media_embed(r.get("url"), r.get("title", ""), r.get("audio_url")),
         f'<p class="links">{a(r["url"], "Open")}</p>' if r.get("url") else "",
         dimension_line(r),

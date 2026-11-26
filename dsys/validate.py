@@ -106,6 +106,24 @@ TIERS = {"established", "growth", "exploration"}
 LEARNING_CATEGORIES = {"research_fundamentals", "ai_study", "paper", "new_knowledge"}
 
 
+TEACHING_FROM = "2026-11-27"  # news and exploration teach, not just list (from this date on)
+
+
+def teaching_errors(stream: str, items: list) -> list[str]:
+    """Explained news items carry a lesson (the idea behind the story); discovery items say what
+    you'll learn or get from them."""
+    errs = []
+    if stream == "world":
+        for it in items:
+            if not it.get("lesson"):
+                errs.append(f"world item {it.get('id')}: needs a lesson (the concept or history behind the story)")
+    if stream == "discovery":
+        for it in items:
+            if not it.get("what_i_might_get_from_it"):
+                errs.append(f"discovery item {it.get('id')}: needs what_i_might_get_from_it (what you'll learn or get)")
+    return errs
+
+
 def discovery_rule_errors(items: list) -> list[str]:
     """Daily rules: at least one podcast, at least one video, and every tier represented. The rest is free."""
     errs = []
@@ -476,6 +494,9 @@ def validate_repo(repo: Repo, examples: bool = False) -> Report:
                 _youtube_day_checks(rep, where, items, repo)
             if stream == "discovery":
                 for e in discovery_rule_errors(items):
+                    rep.err(where, e)
+            if doc.get("date", "") >= TEACHING_FROM:
+                for e in teaching_errors(stream, items):
                     rep.err(where, e)
             if stream == "language":
                 for it in items:

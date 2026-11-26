@@ -21,8 +21,8 @@ Start helpers with the Agent tool (`model: "haiku"` or `model: "opus"`), give ea
    - **Papers, final choice:** "In ~/northstar, follow `prompts/arxiv.md` for <today>: read `python scripts/dsys.py papers stage2 --date <today>`, choose, write `/tmp/arxiv.json`, mark the rest seen, add one to three papers to this week's papers of the week (`prompts/reading_list.md`, week <this_week>), and merge. Reply with the counts and the top titles."
    - **Discovery and language:** "In ~/northstar, follow `prompts/discovery.md` and then `prompts/language.md` (the daily pack) for <today>, and merge both. Reply with the titles."
 8. **Research updates:** follow `prompts/research_updates.md` (compact reading, plus up to 8 targeted X and LinkedIn searches).
-9. **World Radar:** follow `prompts/world.md` (awareness across all categories, interest-matched stories, depth pieces paired with events).
+9. **World Radar:** follow `prompts/world.md` (awareness across all categories, interest-matched stories, depth pieces paired with events, and a lesson in every explained story).
 10. When both helpers have replied: `python scripts/dsys.py history rebuild && python scripts/validate.py`, fix any errors, then commit `daily: <today>` and push. The counts for the Slack message are already in `state/stats/<today>.json`; commit that file too.
 11. Final message: items per stream, the top papers in one line each, and anything that could not be made. No praise, no padding.
 
-The site shows the day as four pages: `daily/<date>/research.html` (papers, research updates), `news.html`, `exploration.html` (discovery, shorts) and `languages.html`. The Slack digest (09:43) announces it.
+The site shows the day as five pages: `daily/<date>/research.html` (papers, research updates), `news.html`, `exploration.html` (discovery), `shorts.html` (made by the Shorts run) and `languages.html`. The Slack digest (09:43) announces it.

@@ -17,20 +17,20 @@ PERIODIC_STREAMS = ["weekly", "monthly", "reading", "quarterly"]
 ALL_STREAMS = DAILY_STREAMS + PERIODIC_STREAMS
 
 STREAM_META = {
-    "arxiv": {"title": "arXiv Paper Radar", "feed": "arxiv.xml",
-              "description": "Weekday paper triage: only genuinely relevant new arXiv papers, with original abstracts."},
+    "arxiv": {"title": "Paper Radar", "feed": "arxiv.xml",
+              "description": "Every day: high-quality new papers on your interests and for the field, with original abstracts."},
     "research_updates": {"title": "Research Updates", "feed": "research-updates.xml",
                          "description": "Filtered research developments beyond arXiv: lab posts, methods, results, debates."},
     "world": {"title": "World Radar", "feed": "world.xml",
               "description": "What happened, why it matters, what to watch, at home and around the world."},
     "discovery": {"title": "Daily Discovery", "feed": "discovery.xml",
                   "description": "A few worthwhile things to read, watch, try or think about."},
-    "youtube_shorts": {"title": "YouTube Shorts Radar", "feed": "youtube-shorts.xml",
+    "youtube_shorts": {"title": "Shorts", "feed": "shorts.xml",
                        "description": "Short videos across all your dimensions. Inline playback depends on your RSS reader."},
     "language": {"title": "Language", "feed": "language.xml",
                  "description": "A 5-minute daily practice in your current focus language."},
-    "reading": {"title": "Reading list", "feed": "reading.xml",
-                "description": "Papers worth definitely reading this week."},
+    "reading": {"title": "Papers of the week", "feed": "reading.xml",
+                "description": "Papers worth reading this week."},
     "quarterly": {"title": "Quarterly review", "feed": "quarterly.xml",
                   "description": "Every three months: stats, summaries and topics."},
     "weekly": {"title": "Weekly", "feed": "weekly.xml",
@@ -45,7 +45,9 @@ FEEDS = {
     "news": {"title": "News, daily", "file": "news.xml",
              "description": "One item per day: the world radar by category, with explained stories and briefs."},
     "exploration": {"title": "Exploration, daily", "file": "exploration.xml",
-                    "description": "One item per day: podcasts, videos, reads, things to try and shorts."},
+                    "description": "One item per day: podcasts, videos, reads and things to try, each with what you'll learn."},
+    "shorts": {"title": "Shorts, daily", "file": "shorts.xml",
+               "description": "One item per day: 30 to 40 short videos, on their own page so they don't distract."},
     "languages": {"title": "Languages, daily", "file": "languages.xml",
                   "description": "One item per day: the five-minute language pack."},
     "reading": {"title": "Papers of the week", "file": "reading.xml",
@@ -74,7 +76,7 @@ FEEDS = {
     "quarterly-exploration": {"title": "Quarterly review: exploration", "file": "quarterly-exploration.xml",
                               "description": "Every three months: exploration summary and topics."},
 }
-DIGEST_FEEDS = ["research", "news", "exploration", "languages"]  # daily part digests, built from the daily streams
+DIGEST_FEEDS = ["research", "news", "exploration", "shorts", "languages"]  # daily part digests, built from the daily streams
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WEEK_RE = re.compile(r"^(\d{4})-W(\d{2})$")

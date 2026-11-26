@@ -64,7 +64,7 @@ def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
             continue
         for s in present:
             items = streams[s]["papers"] if s == "reading" else streams[s]["items"]
-            title = "Reading list this week" if s == "reading" else STREAM_META[s]["title"]
+            title = "Papers of the week" if s == "reading" else STREAM_META[s]["title"]
             out.append(f"<h3>{render.esc(title)} ({len(items)})</h3>")
             if s == "arxiv":
                 out.append("<ul>" + "".join(
@@ -100,7 +100,7 @@ def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
                 out.append("<p>" + " ".join(
                     f'<a href="{render.esc(v["url"])}" target="_blank" rel="noopener noreferrer"><img src="{render.esc(v["thumbnail"])}" alt="{render.esc(v["title"])}" width="120"/></a>'
                     for v in items[:12]) + "</p>")
-                out.append(f'<p><a href="{x(site["base_url"])}/daily/{date}/exploration.html#youtube_shorts" target="_blank" rel="noopener">All {len(items)} shorts</a></p>')
+                out.append(f'<p><a href="{x(site["base_url"])}/daily/{date}/shorts.html" target="_blank" rel="noopener">All {len(items)} shorts</a></p>')
     return "".join(out)
 
 

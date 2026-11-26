@@ -10,7 +10,7 @@ This repo is one person's real setup. Fork it and make it your own.
 
 | | Research | Knowledge / News | Exploration | Languages |
 |---|---|---|---|---|
-| **Daily** | High-quality new papers every day (arXiv, Hugging Face, alphaXiv, Reddit, Bluesky), research updates from labs, researchers and newsletters | **News:** 12 to 20 explained stories plus 15 to 30 one-line briefs, from about 30 publisher feeds and Google News, in 12 categories | At least one podcast and one video that play on the page, the rest free, 30 to 40 shorts | A 5-minute pack |
+| **Daily** | High-quality new papers every day (arXiv, Hugging Face, alphaXiv, Reddit, Bluesky), research updates from labs, researchers and newsletters | **News:** 12 to 20 explained stories plus 15 to 30 one-line briefs, from about 30 publisher feeds and Google News, in 12 categories | At least one podcast and one video that play on the page, the rest free, each with what you'll learn. Shorts on their own page | A 5-minute pack |
 | **Weekly** | Papers of the week (for you, trending, leading groups), Fundamentals, New in AI | Topics by subject (maths and physics always, plus 5 to 6 rotating subjects), each with a study plan and resources, and maths and physics questions | Curiosities, culture, people and self, curiosity and making | A lesson per language |
 | **Monthly** | A New in AI deep dive and a Fundamentals deep dive | A deep dive outside AI, and hard challenge problems by subject | An exploration deep dive | A plan per language |
 | **Quarterly** | Numbers, a short summary and the topics covered, for each part | | | |

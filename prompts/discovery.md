@@ -1,13 +1,15 @@
 # Daily Discovery
 
-Read `docs/vision.md` and `prompts/_shared.md` first. Worthwhile things to listen to, watch, read or try. There is no fixed number: fewer excellent things beat many mediocre ones (at most 14).
+Read `docs/vision.md` and `prompts/_shared.md` first. Exploration is part of the user's learning beyond AI, science and maths: worthwhile things to listen to, watch, read or try. Curate the best you can find, not the most: there is no fixed number, and fewer excellent things beat many mediocre ones (at most 24).
 
-The daily Exploration page (`daily/<date>/exploration.html`) shows discoveries in sections by `type`: **Podcasts** (podcast), **Videos and lectures** (video, lecture, documentary, playlist, course), **Reads** (article, paper, book, website), **Watch and listen** (film, series, anime, album, music, artwork) and **Try, make or go** (place, experience, project, tool, idea, person). Shorts sit below them. The language pack has its own page (`daily/<date>/languages.html`).
+**Every item teaches or gives something specific** (`what_i_might_get_from_it`, required): what they'll understand, be able to do, or feel after it, in one or two concrete sentences. Not "a great documentary about Japan" but "how Edo-period Japan ran a closed economy for 250 years, and why it opened". `why_recommended` says why this one, today.
+
+The daily Exploration page (`daily/<date>/exploration.html`) shows discoveries in sections by `type`: **Podcasts** (podcast), **Videos and lectures** (video, lecture, documentary, playlist, course), **Reads** (article, paper, book, website), **Watch and listen** (film, series, anime, album, music, artwork) and **Try, make or go** (place, experience, project, tool, idea, person). Shorts have their own page (`daily/<date>/shorts.html`) so they don't distract, and the language pack has its own (`daily/<date>/languages.html`).
 
 ## Every day
 
 - **At least one podcast episode** (link to the episode page, not the show). Add `audio_url` (the episode's audio file, from the show's RSS feed or `candidates/podcasts` when present) so it plays on the page. Spotify and Apple Podcasts episode links also play on the page.
-- **At least one video, lecture or documentary** (YouTube IDs confirmed via oEmbed or the API; use the watch URL, it plays on the page).
+- **At least one video, lecture or documentary** (from `candidates videos`; use the watch URL, it plays on the page).
 - **The rest is free and random**: entertainment, things to enjoy in free time (films, anime, music, games, sport stories, cooking, travel), interests from `config/interests.json`, and reads (an essay, article or book chapter). Mix knowledge, culture, people and curiosity, not only AI.
 - **At least one item in each tier:** established, growth, exploration (validation enforces the podcast, the video and the tiers).
 - **Languages:** recommend only content in languages the user understands (English, Hindi). For languages they are learning (`config/languages.json`), only beginner material explained in English or Hindi, unless that language has `native_content_ok: true`.

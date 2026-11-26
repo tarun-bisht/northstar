@@ -247,12 +247,17 @@ def lean_media(doc: dict) -> dict:
     return {**doc, "candidates": out}
 
 
+MAX_PAPERS = 40  # a day's papers, best first: enough to cover the field, few enough to read
+
+
 def pick(repo: Repo, day: dt.date, choices: list[dict]) -> dict:
     """Build full paper items from the final choice. The model writes only its judgement (arxiv_id,
     priority, research_area, tags, dimensions, in order, best first). Title, authors, link, dates,
     categories, the abstract word for word, affiliations, trust, lane and upvotes come from the
     fetched data, so nothing is retyped and nothing can drift from the source."""
     passed = json.loads((WORK / day.isoformat() / "stage1_passed.json").read_text())
+    dropped = choices[MAX_PAPERS:]
+    choices = choices[:MAX_PAPERS]  # best first: past the limit, the weakest go
     affil_p = repo.p("candidates", "affil", f"{day.isoformat()}.json")
     affil = load_json(affil_p).get("papers", {}) if affil_p.exists() else {}
     reg = reputation.load(repo)
@@ -282,7 +287,12 @@ def pick(repo: Repo, day: dt.date, choices: list[dict]) -> dict:
         if p.get("version"):
             it["version"] = p["version"]
         items.append(it)
-    return {"items": items, "missing": missing}
+    out = {"items": items, "missing": missing}
+    if dropped:
+        out["over_limit"] = (f"{len(dropped)} more papers than the limit of {MAX_PAPERS}; kept the first {MAX_PAPERS} "
+                             "as ordered. Mark the dropped ones seen.")
+        out["dropped"] = [str(c["arxiv_id"]).replace("arxiv-", "") for c in dropped]
+    return out
 
 
 SHORTS_KEEP = 250

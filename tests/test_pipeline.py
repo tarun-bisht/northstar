@@ -230,3 +230,16 @@ def test_record_is_safe_with_parallel_writers(repo):
     [t.start() for t in ts]
     [t.join() for t in ts]
     assert len(stages.stats(repo, D)["streams"]) == 12
+
+
+def test_pick_keeps_at_most_the_first_40(repo):
+    import json as _j
+    from dsys import stages
+    day = D
+    write_json(repo.p("candidates", "arxiv", f"{day}.json"),
+               {"candidates": [_paper(f"2611.{i:05d}", f"P{i}", "x") for i in range(45)]})
+    (stages.WORK / day.isoformat()).mkdir(parents=True, exist_ok=True)
+    (stages.WORK / day.isoformat() / "stage1_passed.json").write_text(_j.dumps({f"2611.{i:05d}": "field" for i in range(45)}))
+    res = stages.pick(repo, day, [{"arxiv_id": f"2611.{i:05d}", "research_area": "x", "tags": []} for i in range(45)])
+    assert len(res["items"]) == 40 and res["items"][0]["arxiv_id"] == "2611.00000"
+    assert res["dropped"] == [f"2611.{i:05d}" for i in range(40, 45)] and "over_limit" in res

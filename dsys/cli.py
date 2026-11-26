@@ -188,7 +188,8 @@ def cmd_papers(repo: Repo, args) -> int:
         res = stages.pick(repo, day, json.loads(Path(args.choices).read_text()))
         out = Path(args.out or "/tmp/arxiv.json")
         out.write_text(json.dumps({"items": res["items"]}, ensure_ascii=False, indent=1))
-        print(json.dumps({"items": len(res["items"]), "written": str(out), "missing": res["missing"]}))
+        print(json.dumps({"items": len(res["items"]), "written": str(out), "missing": res["missing"],
+                          **({k: res[k] for k in ("over_limit", "dropped") if k in res})}))
     elif args.action == "add":
         from .ensure import add_papers
         return add_papers(repo, day, [i.strip() for i in (args.ids_csv or "").split(",") if i.strip()], args.tag)

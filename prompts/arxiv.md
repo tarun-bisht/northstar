@@ -2,7 +2,7 @@
 
 Read `prompts/_shared.md` first.
 
-The job is to filter, and never to lose quality work. Keep the papers that are high quality **and** on the user's interests, and the high-quality papers that matter for the field even with little overlap. There is no fixed number, but the bar is real: on a normal day that means roughly 10 to 40 papers, with 5 to 15 of them `top`. A much bigger list usually means the bar slipped. Order them: the best picks first (`priority: top`), everything else that passes the bar as `priority: more`, shown folded on the page.
+The job is to filter, and never to lose quality work. Keep the papers that are high quality **and** on the user's interests, and the high-quality papers that matter for the field even with little overlap. The bar is real: on a normal day that means roughly 10 to 40 papers, with 5 to 15 of them `top`, and **never more than 40** (`papers pick` keeps the first 40 of your list). A bigger list means the bar slipped: keep only papers worth the user's time, the most relevant first. Order them **most relevant first**: that order is exactly how the user reads them, top to bottom, stopping when time runs out. The best picks are `priority: top`, everything else that passes the bar `priority: more`, listed after them.
 
 ## Where candidates come from
 

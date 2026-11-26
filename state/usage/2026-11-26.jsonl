@@ -11,3 +11,10 @@
 {"t": "2026-11-26T07:52:08+00:00", "run": "monthly", "read": "polls list --open", "chars": 1462}
 {"t": "2026-11-26T07:52:13+00:00", "run": "monthly", "read": "reputation suggest", "chars": 34}
 {"t": "2026-11-26T07:52:13+00:00", "run": "monthly", "event": "end"}
+{"t": "2026-11-26T07:52:50+00:00", "run": "quarterly", "event": "start"}
+{"t": "2026-11-26T07:52:50+00:00", "run": "quarterly", "read": "runbook and prompts", "chars": 76522}
+{"t": "2026-11-26T07:52:50+00:00", "run": "quarterly", "read": "period", "chars": 226}
+{"t": "2026-11-26T07:52:53+00:00", "run": "quarterly", "read": "quarterly draft --quarter", "chars": 2109}
+{"t": "2026-11-26T07:53:18+00:00", "run": "quarterly", "read": "reading show --week", "chars": 2063}
+{"t": "2026-11-26T07:53:18+00:00", "run": "quarterly", "read": "reading show --week", "chars": 7379}
+{"t": "2026-11-26T07:53:18+00:00", "run": "quarterly", "event": "end"}

@@ -1,0 +1,321 @@
+{
+  "schema": "quarterly",
+  "quarter": "2026-Q4",
+  "from": "2026-10-01",
+  "to": "2026-12-31",
+  "generated_at": "2026-11-26T07:52:53Z",
+  "generator": "dsys quarterly draft",
+  "stats": {
+    "days_with_content": 1,
+    "counts": {
+      "arxiv": 124,
+      "discovery": 14,
+      "language": 1,
+      "monthly_items": 4,
+      "monthly_packages": 1,
+      "reading_list_papers": 13,
+      "research_updates": 15,
+      "weekly_items": 22,
+      "weekly_packages": 1,
+      "world": 19,
+      "youtube_shorts": 34
+    },
+    "discovery_by_tier": {
+      "established": 4,
+      "growth": 4,
+      "exploration": 6
+    },
+    "news_by_category": {
+      "india": 3,
+      "geopolitics": 2,
+      "leadership": 2,
+      "economy_markets": 2,
+      "technology": 2,
+      "science_space": 2,
+      "explainers": 2,
+      "conflict_disaster": 1,
+      "health": 1,
+      "climate_energy": 1,
+      "society": 1
+    },
+    "top_paper_tags": [
+      [
+        "useful for your work",
+        111
+      ],
+      [
+        "new method or architecture",
+        81
+      ],
+      [
+        "strong result",
+        73
+      ],
+      [
+        "worth knowing",
+        57
+      ],
+      [
+        "theory",
+        26
+      ],
+      [
+        "notable researcher",
+        23
+      ],
+      [
+        "benchmark or dataset",
+        23
+      ]
+    ],
+    "top_research_areas": [
+      [
+        "fine-tuning forgetting",
+        2
+      ],
+      [
+        "reward hacking",
+        2
+      ],
+      [
+        "open moe models",
+        2
+      ],
+      [
+        "reinforcement learning agents",
+        1
+      ],
+      [
+        "hallucination post-training",
+        1
+      ],
+      [
+        "machine unlearning auditing",
+        1
+      ],
+      [
+        "rl post-training",
+        1
+      ],
+      [
+        "privacy authorship attribution",
+        1
+      ],
+      [
+        "coding agent evaluation",
+        1
+      ],
+      [
+        "foundation model adaptation",
+        1
+      ],
+      [
+        "differential privacy",
+        1
+      ],
+      [
+        "subliminal learning",
+        1
+      ]
+    ]
+  },
+  "parts": {
+    "research": {
+      "summary": "So far the themes are world models, information flow between transformer layers and low-precision LLMs, with exercises on the maths underneath. The reading lists also cover reinforcement learning after pretraining, agents and checking whether models really forget. There is little data so far. A good next step is to take one theme from reading to a small proof or experiment.",
+      "topics": [
+        {
+          "period": "2026-11",
+          "kind": "monthly",
+          "title": "Fundamentals: concentration inequalities and your first generalization bound",
+          "url": "https://tarunbisht.com/northstar/monthly/2026-11/research.html",
+          "about": "Deriving the basic probability bounds that explain why a model's results can carry over to new data."
+        },
+        {
+          "period": "2026-11",
+          "kind": "monthly",
+          "title": "New in AI: low-precision LLMs, from GPTQ to FP4 training",
+          "url": "https://tarunbisht.com/northstar/monthly/2026-11/research.html",
+          "about": "How language models are shrunk to run, and even train, with very few bits per number."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "New in AI: rethinking the residual connection with hyper-connections",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/research.html",
+          "about": "A newer design that replaces the single residual stream in a transformer with several mixed streams."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Why doubly stochastic mixing is stable: prove it, then build Sinkhorn",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/research.html",
+          "about": "A short proof and a small program showing why a special kind of mixing matrix keeps signals stable."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "World models: a one-week map of the field",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/research.html",
+          "about": "A map of the main kinds of models that learn to predict how an environment behaves."
+        }
+      ]
+    },
+    "knowledge": {
+      "summary": "So far the topics reach into maths, physics, minds, history, language, philosophy of science and the chip supply chain. Several connect back to AI, such as contraction maps, prediction in the brain and the cost of erasing information. These come from the first weekly and monthly sets, so there is little to go on yet.",
+      "topics": [
+        {
+          "period": "2026-11",
+          "kind": "monthly",
+          "title": "The problem of consciousness: Nagel, Chalmers and the global workspace",
+          "url": "https://tarunbisht.com/northstar/monthly/2026-11/knowledge.html",
+          "about": "Classic arguments on why subjective experience is hard to explain, and one leading theory of it."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Five points in a square: two must be close",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "A geometry puzzle that is solved with the pigeonhole principle."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "How the chip supply chain works, and why a few places control it",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "The few firms and places that design, equip and make advanced chips."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Landauer's principle: forgetting has a physical cost",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "Why erasing a bit of information must release at least a tiny amount of heat."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Predictive processing: is the brain a world model?",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "The theory that the brain mostly predicts its input and passes on the errors."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "The Banach fixed-point theorem: why contractions always converge",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "A theorem that says repeatedly applying a shrinking map leads to one fixed point."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "The Meiji Restoration: how Japan rebuilt itself in one generation",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "How Japan changed its government, industry and schools in the late 1800s."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "The minimum energy to erase a gigabyte",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "A quick estimate of the physical energy limit for erasing a gigabyte of data."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "The spinning skater: where does the extra energy come from?",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "A mechanics puzzle about where the extra energy comes from when a spin speeds up."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Thomas Kuhn and how science really changes",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "Kuhn's account of science as long steady periods broken by changes of framework."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Which takes longer to appear: HH or HT?",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "A coin-toss puzzle about waiting times for two different patterns."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Word order: why Japanese and Telugu put the verb last",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/knowledge.html",
+          "about": "Why two unrelated languages both put the verb at the end of a sentence."
+        }
+      ]
+    },
+    "exploration": {
+      "summary": "So far the culture picks are an anime film, a short story and a composer, plus a maths story and a kitchen physics puzzle. Making includes a small interactive explainer and a camera obscura. The people side is about follow-up questions and explaining ideas clearly. These are options to pick from, and there is little to go on yet.",
+      "topics": [
+        {
+          "period": "2026-11",
+          "kind": "monthly",
+          "title": "Make something: build a tiny interactive explainer",
+          "url": "https://tarunbisht.com/northstar/monthly/2026-11/exploration.html",
+          "about": "A small creative project: an interactive page that explains one idea."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "1729 and the notebook found 100 years later",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/exploration.html",
+          "about": "The story of Ramanujan's taxi number and the later maths found in his notes."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Explain one idea from this week at three levels",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/exploration.html",
+          "about": "A practice in explaining an idea simply and hearing it explained back."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Ghost in the Shell (1995): what is left of you if your body is replaceable?",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/exploration.html",
+          "about": "An anime film that asks what makes a person when the body can be replaced."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Ryuichi Sakamoto: a life in three pieces",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/exploration.html",
+          "about": "Three pieces that trace a Japanese composer's changing career."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Ted Chiang, Exhalation: a scientist dissects his own brain",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/exploration.html",
+          "about": "A short story in which a mechanical being studies his own brain."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "The Mpemba effect: can hot water freeze faster than cold?",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/exploration.html",
+          "about": "An unsettled physics question about whether hot water can freeze before cold water."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Three follow-up questions before your own view",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/exploration.html",
+          "about": "A listening practice: ask more about someone's story before sharing your view."
+        },
+        {
+          "period": "2026-W49",
+          "kind": "weekly",
+          "title": "Turn a room into a camera obscura",
+          "url": "https://tarunbisht.com/northstar/weekly/2026-W49/exploration.html",
+          "about": "A hands-on project that projects the street outside onto a wall through a small hole."
+        }
+      ]
+    }
+  }
+}

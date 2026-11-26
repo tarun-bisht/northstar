@@ -40,6 +40,31 @@
       ],
       "status": "open",
       "choices": []
+    },
+    {
+      "kind": "weekly",
+      "period": "2026-W49",
+      "ts": "1795665497.606009",
+      "options": [
+        {
+          "key": "1",
+          "topic": "AI and formal proof with Lean"
+        },
+        {
+          "key": "2",
+          "topic": "Rethinking residual connections and attention"
+        },
+        {
+          "key": "3",
+          "topic": "RL for LLM agents: rewards, beliefs and reward hacking"
+        },
+        {
+          "key": "4",
+          "topic": "Machine unlearning and how to audit it"
+        }
+      ],
+      "status": "open",
+      "choices": []
     }
   ]
 }

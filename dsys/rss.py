@@ -133,9 +133,9 @@ def _digest_html(site: dict, date: str, streams: dict, part: str) -> str:
 UPDATES_FIRST = 3600  # pub offset; Paper Radar is one minute older, so readers list updates first
 
 
-def _research_entries(site: dict, date: str, streams: dict) -> list[dict]:
-    """Research as two daily entries, so neither is huge: every update, then every paper. The
-    updates entry is a minute newer, so newest-first readers show it above Paper Radar."""
+def _research_entries(site: dict, date: str, streams: dict, which: str = "both") -> list[dict]:
+    """Research as two daily entries, each in its own feed: updates.xml (every update) and
+    research.xml (Paper Radar, every paper). which: "updates", "papers" or "both"."""
     from . import feedhtml as fh
     day = dt.date.fromisoformat(date)
     when = day.strftime("%a %-d %b")
@@ -143,7 +143,7 @@ def _research_entries(site: dict, date: str, streams: dict) -> list[dict]:
     out = []
     ups = (streams.get("research_updates") or {}).get("items", [])
     papers = (streams.get("arxiv") or {}).get("items", [])
-    if ups:
+    if ups and which in ("updates", "both"):
         n = f"{len(ups)} update{'s' if len(ups) != 1 else ''}"
         out.append({"guid": f"dsys:research-updates:{date}", "title": f"Research updates, {when}: {n}",
                     "link": f"{link}#research_updates", "description": n,
@@ -151,7 +151,7 @@ def _research_entries(site: dict, date: str, streams: dict) -> list[dict]:
                     + fh.footer(site, date, "research"),
                     "pub": pub_datetime(day, site, -UPDATES_FIRST), "creator": None, "categories": ["research", "updates"],
                     "media": None, "thumb": cover_url(site, "updates")})
-    if papers:
+    if papers and which in ("papers", "both"):
         n = f"{len(papers)} paper{'s' if len(papers) != 1 else ''}"
         out.append({"guid": f"dsys:paper-radar:{date}", "title": f"Paper Radar, {when}: {n}",
                     "link": f"{link}#arxiv", "description": n,
@@ -171,8 +171,8 @@ def _digest_entries(repo: Repo, site: dict, examples: bool, limit: int | None, p
     entries = []
     for date in sorted(by_date, reverse=True)[:limit]:
         streams = dict(by_date[date])
-        if part == "research":  # two entries a day: Research updates, then Paper Radar
-            entries += _research_entries(site, date, streams)
+        if part in ("research", "updates"):  # research.xml is Paper Radar, updates.xml the research updates
+            entries += _research_entries(site, date, streams, "papers" if part == "research" else "updates")
             continue
         names = next(ss for k, _, ss in render.DAILY_PARTS if k == part)
         if not any(s in streams and (streams[s].get("items") or streams[s].get("papers") or streams[s].get("briefs")) for s in names):

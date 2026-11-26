@@ -15,6 +15,7 @@
   "feeds": {
     "_doc": "How many items each RSS feed keeps (newest first).",
     "research": 30,
+    "updates": 30,
     "news": 30,
     "exploration": 30,
     "reading": 120,

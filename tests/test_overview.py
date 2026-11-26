@@ -61,8 +61,10 @@ def test_research_feed_updates_first_then_ranked_papers_no_overview(repo):
     u = example("u", "research_updates")
     daily(repo, "research_updates", D, u["items"])
     items = ET.fromstring(build_feed(repo, "research")).findall("channel/item")
-    assert [i.findtext("title").split(",")[0] for i in items] == ["Research updates", "Paper Radar"]  # two entries a day
-    ups, html = (i.find(NS).text for i in items)
+    assert [i.findtext("title").split(",")[0] for i in items] == ["Paper Radar"]  # research.xml is Paper Radar only
+    uitems = ET.fromstring(build_feed(repo, "updates")).findall("channel/item")
+    assert [i.findtext("title").split(",")[0] for i in uitems] == ["Research updates"]  # updates.xml has its own
+    html, ups = items[0].find(NS).text, uitems[0].find(NS).text
     assert ">Overview</h2>" not in html and ">Paper Radar (8)</h2>" in html and "Paper Radar" not in ups
     order = [html.index(f">Paper {i}</a>") for i in (7, 0, 1, 2, 3, 4, 5, 6)]
     assert order == sorted(order)  # picked, then top in order, then more in order
@@ -90,10 +92,12 @@ def test_english_only_everywhere():
     assert [c["title"] for c in english_only(cands)] == ["How transformers work", "Japanese for beginners", "No language given"]
 
 
-def test_research_updates_entry_is_newer_than_paper_radar(repo):
-    import email.utils
+def test_updates_and_paper_radar_are_separate_feeds(repo):
     _papers(repo)
     daily(repo, "research_updates", D, example("u", "research_updates")["items"])
-    items = ET.fromstring(build_feed(repo, "research")).findall("channel/item")
-    t = {i.findtext("title").split(",")[0]: email.utils.parsedate_to_datetime(i.findtext("pubDate")) for i in items}
-    assert t["Research updates"] > t["Paper Radar"]
+    radar = ET.fromstring(build_feed(repo, "research"))
+    upd = ET.fromstring(build_feed(repo, "updates"))
+    assert "Paper Radar" in radar.findtext("channel/title")
+    assert "Research updates" in upd.findtext("channel/title")
+    assert {i.findtext("guid").split(":")[1] for i in radar.findall("channel/item")} == {"paper-radar"}
+    assert {i.findtext("guid").split(":")[1] for i in upd.findall("channel/item")} == {"research-updates"}

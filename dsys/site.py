@@ -737,7 +737,7 @@ def _home(repo, site, daily, weeks, months, feeds, readings) -> str:
         return (f"<li><span class='fname'>{esc(title)}</span>"
                 f"<input readonly value='{esc(url)}' aria-label='{esc(title)} feed URL' onclick='this.select()'>"
                 f"<button type='button' data-copy='{esc(url)}'>Copy</button></li>")
-    groups = [("Daily", ["research", "news", "exploration", "shorts", "languages"]),
+    groups = [("Daily", ["updates", "research", "news", "exploration", "shorts", "languages"]),
               ("Weekly", ["reading", "weekly-research", "weekly-knowledge", "weekly-exploration", "weekly-languages"]),
               ("Monthly", ["monthly-research", "monthly-knowledge", "monthly-exploration", "monthly-languages"]),
               ("Quarterly", ["quarterly-research", "quarterly-knowledge", "quarterly-exploration"])]

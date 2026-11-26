@@ -36,7 +36,7 @@ Every page is split into parts, so research, news and exploration never pile up 
 | Monthly (go deep) | **Research**: a New in AI deep dive and a Fundamentals deep dive. **Knowledge**: a deep dive outside AI, and hard challenge problems (olympiad, entrance exam, university level) in maths, physics and 4 to 6 other subjects. **Exploration**: a deep dive that rotates through people and self, culture and life, and curiosity and making. **Languages**: a plan per language | `monthly/<month>/<part>.html`, plus `index.html` |
 | Quarterly | A short summary and the topics covered, per part, plus the numbers | `quarterly/<YYYY-Qn>/<part>.html`, plus `index.html` |
 
-**Ranking and Overview.** The daily run marks up to five best items per part (`dsys.py daily overview`, field `overview`). Research shows **research updates first, then papers, every item in full and ranked best first**. Its feed has two entries a day, **Research updates** and **Paper Radar** (a minute older, so it lists below), so neither entry is huge (`dsys/overview.py rank`): the marked items, then the other top items, then the rest, each in the order the helper chose. So when time is short, read from the top. Exploration shows its marked items as an Overview section first, left out of the main list. The Slack message's Today's best lists the first three updates and the first three papers.
+**Ranking and Overview.** The daily run marks up to five best items per part (`dsys.py daily overview`, field `overview`). Research shows **research updates first, then papers, every item in full and ranked best first**. They are two separate feeds, `updates.xml` (**Research updates**) and `research.xml` (**Paper Radar**), so neither entry is huge. Ranking (`dsys/overview.py rank`): the marked items, then the other top items, then the rest, each in the order the helper chose. So when time is short, read from the top. Exploration shows its marked items as an Overview section first, left out of the main list. The Slack message's Today's best lists the first three updates and the first three papers.
 
 **Light days.** When `config/schedules.json` makes the week light (`dsys.py period → load_this_week`), the daily run uses the smaller sizes in `config/preferences.json → daily.light`: only the best of each part, with the daily rules still holding. Real life comes first.
 
@@ -50,7 +50,7 @@ One feed per part, so each can be followed on its own:
 
 | Feed | One item per |
 |---|---|
-| `research.xml`, `news.xml`, `exploration.xml`, `shorts.xml`, `languages.xml` | day |
+| `updates.xml` (Research updates), `research.xml` (Paper Radar), `news.xml`, `exploration.xml`, `shorts.xml`, `languages.xml` | day |
 | `reading.xml` (papers of the week) | paper: *For you*, *Trending this week*, *From leading groups* |
 | `weekly-research.xml`, `weekly-knowledge.xml`, `weekly-exploration.xml`, `weekly-languages.xml` | week |
 | `monthly-research.xml`, `monthly-knowledge.xml`, `monthly-exploration.xml`, `monthly-languages.xml` | month |

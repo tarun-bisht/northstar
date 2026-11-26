@@ -40,8 +40,10 @@ STREAM_META = {
 }
 # Stream titles above name the daily streams on pages. The RSS feeds are below: one per part.
 FEEDS = {
-    "research": {"title": "Research, daily", "file": "research.xml",
-                 "description": "Two items per day: Research updates (all, in full), then Paper Radar (every paper, most relevant first, full abstracts)."},
+    "research": {"title": "Paper Radar, daily", "file": "research.xml",
+                 "description": "One item per day: every paper that passed the bar, most relevant first, with full abstracts."},
+    "updates": {"title": "Research updates, daily", "file": "updates.xml",
+                "description": "One item per day: every research update (labs, releases, results), in full."},
     "news": {"title": "News, daily", "file": "news.xml",
              "description": "One item per day: the world radar by category, with explained stories and briefs."},
     "exploration": {"title": "Exploration, daily", "file": "exploration.xml",
@@ -76,7 +78,7 @@ FEEDS = {
     "quarterly-exploration": {"title": "Quarterly review: exploration", "file": "quarterly-exploration.xml",
                               "description": "Every three months: exploration summary and topics."},
 }
-DIGEST_FEEDS = ["research", "news", "exploration", "shorts", "languages"]  # daily part digests, built from the daily streams
+DIGEST_FEEDS = ["updates", "research", "news", "exploration", "shorts", "languages"]  # daily part digests, built from the daily streams
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WEEK_RE = re.compile(r"^(\d{4})-W(\d{2})$")

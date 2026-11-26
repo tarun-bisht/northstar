@@ -13,7 +13,7 @@ NS = {"content": "http://purl.org/rss/1.0/modules/content/", "media": "http://se
 def test_every_feed_valid_when_empty(repo, tmp_path):
     out = generate_all(repo, tmp_path / "f")
     assert set(p.name for p in out.values()) == {m["file"] for m in FEEDS.values()}
-    assert {"research.xml", "news.xml", "exploration.xml", "reading.xml", "weekly-knowledge.xml",
+    assert {"research.xml", "updates.xml", "news.xml", "exploration.xml", "reading.xml", "weekly-knowledge.xml",
             "monthly-exploration.xml", "quarterly-research.xml"} <= {p.name for p in out.values()}
     assert "arxiv.xml" not in {p.name for p in out.values()}  # no single-stream feeds
     for p in out.values():

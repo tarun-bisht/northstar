@@ -72,7 +72,10 @@ def main() -> int:
         by_name.setdefault(norm(re.sub(r"\(.*?\)", "", h["name"]).replace("The ", "")), h)
     rows = parse_rows(text, a.top)
     if len(rows) < a.top * 0.8:
-        print(f"only {len(rows)} rows parsed from the PDF; refusing to write", file=sys.stderr)
+        print(f"only {len(rows)} rows parsed from the PDF ({len(pdf.pages)} pages); refusing to write", file=sys.stderr)
+        odd = [ln for ln in text.splitlines() if re.match(r"^\s*=?\d", ln) and not ROW.match(" ".join(ln.split()))]
+        print("sample lines that did not parse:", *odd[:40], sep="\n", file=sys.stderr)
+        print("last lines:", *text.splitlines()[-15:], sep="\n", file=sys.stderr)
         return 1
     repo = repo_from_env()
     path = repo.p("config", "reputation.json")

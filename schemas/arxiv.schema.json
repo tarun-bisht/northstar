@@ -76,7 +76,7 @@
             "type": "string",
             "pattern": "^[a-z-]+(\\.[A-Za-z-]+)?$"
           },
-          "minItems": 1
+          "description": "arXiv categories, filled by the fetch (looked up for Hugging Face and alphaXiv papers). Empty only if that lookup failed: never guessed."
         },
         "abstract": {
           "type": "string",

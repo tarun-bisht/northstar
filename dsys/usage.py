@@ -19,6 +19,20 @@ CHARS_PER_TOKEN = 4
 RUNS = ("daily", "weekly", "monthly", "quarterly")
 
 
+PARTS = [("papers stage1", "papers, first reading (Haiku)"), ("papers stage2", "papers, final choice"),
+         ("candidates arxiv", "papers, other"), ("papers", "papers, other"), ("candidates news", "news"),
+         ("candidates updates", "research updates"), ("candidates youtube", "shorts"),
+         ("candidates videos", "discovery"), ("candidates podcasts", "discovery"), ("candidates hf", "discovery"),
+         ("context", "context"), ("runbook", "runbook and prompts"), ("reading", "papers of the week")]
+
+
+def part_of(what: str) -> str:
+    for prefix, part in PARTS:
+        if what.startswith(prefix):
+            return part
+    return "other"
+
+
 def _now() -> dt.datetime:
     return dt.datetime.now(dt.timezone.utc)
 
@@ -110,7 +124,7 @@ def summary(root: Path, days: list[str]) -> list[dict]:
                 x["end"] = r["t"]
             else:
                 x["chars"] += r["chars"]
-                key = r["read"].split(" --")[0]
+                key = part_of(r["read"])
                 x["top"][key] = x["top"].get(key, 0) + r["chars"]
         for x in runs.values():
             mins = None

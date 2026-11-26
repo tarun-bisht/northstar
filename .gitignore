@@ -8,3 +8,4 @@ __pycache__/
 # local notes: never committed
 private/
 .cache/
+*.lock

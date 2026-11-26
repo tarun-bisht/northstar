@@ -144,10 +144,32 @@ def dump_json(data: Any) -> str:
 
 
 def write_json(path: Path, data: Any) -> None:
+    """Atomic write. The temporary name is per process, so helpers writing at the same time never
+    trip over each other's file; readers always see a whole file."""
+    import os
     path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp = path.with_suffix(f"{path.suffix}.{os.getpid()}.tmp")
     tmp.write_text(dump_json(data), encoding="utf-8")
     tmp.replace(path)
+
+
+class locked:
+    """Exclusive lock around a read-modify-write of one file, for helpers running in parallel."""
+
+    def __init__(self, path: Path):
+        self.lock = path.with_suffix(path.suffix + ".lock")
+
+    def __enter__(self):
+        import fcntl
+        self.lock.parent.mkdir(parents=True, exist_ok=True)
+        self.f = open(self.lock, "w")
+        fcntl.flock(self.f, fcntl.LOCK_EX)
+        return self
+
+    def __exit__(self, *exc):
+        import fcntl
+        fcntl.flock(self.f, fcntl.LOCK_UN)
+        self.f.close()
 
 
 # --- dates ------------------------------------------------------------------

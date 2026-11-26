@@ -40,10 +40,12 @@ def buzz(p: dict) -> int:
 
 # --- stats ---------------------------------------------------------------------------------
 def record(repo: Repo, day: dt.date, stream: str, **counts) -> dict:
+    from .core import locked
     p = repo.p("state", "stats", f"{day.isoformat()}.json")
-    doc = load_json(p) if p.exists() else {"date": day.isoformat(), "streams": {}}
-    doc["streams"].setdefault(stream, {}).update({k: v for k, v in counts.items() if v is not None})
-    write_json(p, doc)
+    with locked(p):
+        doc = load_json(p) if p.exists() else {"date": day.isoformat(), "streams": {}}
+        doc["streams"].setdefault(stream, {}).update({k: v for k, v in counts.items() if v is not None})
+        write_json(p, doc)
     return doc
 
 
@@ -58,7 +60,10 @@ def _cands(repo: Repo, day: dt.date) -> list[dict]:
     return unseen_arxiv_candidates(repo, day).get("candidates", [])
 
 
-def stage1(repo: Repo, day: dt.date, batch_size: int = 40) -> dict:
+BATCH_CHARS = 60_000  # about 15k tokens: well inside one file read
+
+
+def stage1(repo: Repo, day: dt.date, batch_size: int = 80) -> dict:
     """Write compact batches for the cheap first reading and return their paths and counts."""
     cfg = repo.config("sources")
     topics = cfg["arxiv"].get("coverage", {}).get("topics", [])
@@ -83,13 +88,22 @@ def stage1(repo: Repo, day: dt.date, batch_size: int = 40) -> dict:
     for old in list(out_dir.glob("stage1_*")) + list(out_dir.glob("verdict_*")):
         old.unlink()
     batches = []
-    for n, k in enumerate(range(0, len(rows), batch_size), 1):
-        # one paper per line, long lines wrapped, so one Read call sees the whole batch
+    # one paper per line; a batch ends at batch_size papers or BATCH_CHARS characters, whichever
+    # comes first, so one Read call always sees the whole batch
+    groups, cur, size = [], [], 0
+    for r in rows:
+        line = json.dumps(r, ensure_ascii=False, separators=(",", ":"))
+        if cur and (len(cur) >= batch_size or size + len(line) > BATCH_CHARS):
+            groups.append(cur)
+            cur, size = [], 0
+        cur.append(line)
+        size += len(line) + 1
+    if cur:
+        groups.append(cur)
+    for n, g in enumerate(groups, 1):
         f = out_dir / f"stage1_{n:02d}.txt"
-        f.write_text("\n".join(wrap("\n".join(json.dumps(r, ensure_ascii=False, separators=(",", ":"))
-                                                for r in rows[k:k + batch_size]))) + "\n", encoding="utf-8")
-        batches.append({"read": str(f), "write": str(out_dir / f"verdict_{n:02d}.json"),
-                        "papers": len(rows[k:k + batch_size])})
+        f.write_text("\n".join(wrap("\n".join(g))) + "\n", encoding="utf-8")
+        batches.append({"read": str(f), "write": str(out_dir / f"verdict_{n:02d}.json"), "papers": len(g)})
     from .usage import add
     add(repo.root, "papers stage1 batches (Haiku)", sum(Path(b["read"]).stat().st_size for b in batches))
     record(repo, day, "papers", fetched=total, unseen=len(_cands(repo, day)), read_stage1=len(rows),
@@ -151,8 +165,8 @@ def stage2(repo: Repo, day: dt.date) -> list[dict]:
                     "abstract": p.get("abstract", ""), "affiliations": full["affiliations"][:8],
                     "trusted": full["trusted"], "trust_matches": full.get("trust_matches", []),
                     "interests": interests[:4], "signals": rank.signals(p), "buzz": buzz(p),
-                    "categories": p.get("categories", []), "comment": p.get("comment"),
-                    "submitted": p.get("submitted"), "alphaxiv": alphaxiv_url(p["arxiv_id"])})
+                    "categories": p.get("categories", [])[:3], "comment": p.get("comment"),
+                    "submitted": p.get("submitted")})
     out.sort(key=lambda r: (r["lane"] != "strong", -r["trusted"], -r["buzz"]))
     hot = [{"arxiv_id": r["id"], "authors": r["authors"], "affiliations": r["affiliations"]} for r in out if r["buzz"] >= 20]
     if hot:
@@ -225,5 +239,82 @@ def lean_media(doc: dict) -> dict:
         if isinstance(c.get("channel"), dict):
             c["channel"] = {k: v for k, v in c["channel"].items() if k != "id"}
         c.pop("apple_show_url", None)
+        if c.get("video_id"):
+            # built from the id when writing an item (youtube_shorts.md step 8): not needed to choose
+            for k in ("url", "embed_url", "thumbnail", "query_language", "made_for_kids"):
+                c.pop(k, None)
         out.append(c)
     return {**doc, "candidates": out}
+
+
+def pick(repo: Repo, day: dt.date, choices: list[dict]) -> dict:
+    """Build full paper items from the final choice. The model writes only its judgement (arxiv_id,
+    priority, research_area, tags, dimensions, in order, best first). Title, authors, link, dates,
+    categories, the abstract word for word, affiliations, trust, lane and upvotes come from the
+    fetched data, so nothing is retyped and nothing can drift from the source."""
+    passed = json.loads((WORK / day.isoformat() / "stage1_passed.json").read_text())
+    affil_p = repo.p("candidates", "affil", f"{day.isoformat()}.json")
+    affil = load_json(affil_p).get("papers", {}) if affil_p.exists() else {}
+    reg = reputation.load(repo)
+    by_id = {p["arxiv_id"]: p for p in _cands(repo, day)}
+    items, missing = [], []
+    for c in choices:
+        aid = str(c["arxiv_id"]).replace("arxiv-", "")
+        p = by_id.get(aid)
+        if not p:
+            missing.append(aid)
+            continue
+        a = affil.get(aid, {})
+        full = {**p, "affiliations": sorted(set(p.get("affiliations", [])) | set(a.get("affiliations", []))),
+                "email_domains": a.get("email_domains", [])}
+        reputation.apply(reg, full)
+        it = {"id": f"arxiv-{aid}", "arxiv_id": aid, "title": " ".join(p["title"].split()),
+              "authors": p.get("authors", []), "url": f"https://arxiv.org/abs/{aid}",
+              "submitted": (p.get("submitted") or "")[:10], "categories": p.get("categories", []),
+              "abstract": p.get("abstract", ""), "abstract_source": "arxiv_api_candidates",
+              "research_area": c["research_area"], "tags": c.get("tags", []),
+              "dimensions": c.get("dimensions", ["research"]), "priority": c.get("priority", "more"),
+              "lane": passed.get(aid, c.get("lane", "field")), "trusted": full["trusted"]}
+        if full["affiliations"]:
+            it["affiliations"] = full["affiliations"][:8]
+        if p.get("hf_upvotes"):
+            it["hf_upvotes"] = p["hf_upvotes"]
+        if p.get("version"):
+            it["version"] = p["version"]
+        items.append(it)
+    return {"items": items, "missing": missing}
+
+
+SHORTS_KEEP = 250
+
+
+def prefilter_shorts(cands: list[dict], per_channel: int = 3, keep: int = SHORTS_KEEP) -> list[dict]:
+    """Narrow shorts before any model reads them, using only rules the shorts prompt already sets:
+    nothing made for kids, at most 3 per creator, then the best by engagement (likes and comments
+    per view, with reach), taken in turn from each search query. Each query comes from an interest,
+    so every topic and tier keeps its share."""
+    import math
+    from collections import defaultdict
+
+    def score(c):
+        v = c.get("views") or 0
+        if not v:
+            return 0.0
+        return ((c.get("likes") or 0) / v) * 10 + ((c.get("comments") or 0) / v) * 100 + math.log10(v + 1) * 0.3
+
+    by_ch: dict = defaultdict(int)
+    ok = []
+    for c in sorted(cands, key=score, reverse=True):
+        ch = (c.get("channel") or {}).get("name", "")
+        if c.get("made_for_kids") or by_ch[ch] >= per_channel:
+            continue
+        by_ch[ch] += 1
+        ok.append(c)
+    queues: dict = defaultdict(list)
+    for c in ok:
+        queues[c.get("query", "")].append(c)
+    out, i = [], 0
+    while len(out) < keep and any(i < len(q) for q in queues.values()):
+        out += [q[i] for q in queues.values() if i < len(q)]
+        i += 1
+    return out[:keep]

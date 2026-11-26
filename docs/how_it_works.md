@@ -6,20 +6,24 @@
 
 | Layer | Purpose (vision §15) | When (IST) | Made by |
 |---|---|---|---|
-| Daily | stay aware | every day (papers too: other sources fill days when arXiv is quiet) | Daily run 08:13 (Sonnet, with Haiku, Sonnet and Opus helpers), which also posts the topic polls and the Slack messages |
+| Daily | stay aware | every day (papers too: other sources fill days when arXiv is quiet) | Daily run 08:13 (Sonnet coordinating Haiku, Sonnet and Opus helpers), which also posts the topic polls and the Slack messages |
 | Weekly | explore | Saturday 06:46, for the week starting Monday | Weekly run |
 | Monthly | go deep | 1st of the month, 06:15 | Monthly run |
 | Quarterly | look back | 1 Jan, Apr, Jul, Oct, 06:41 | Quarterly run |
 
 Before the runs, GitHub Actions scrapes everything at 07:17 and refetches failed sources at 07:53 (section 4). No AI runs in that step. GitHub can start these hours late, so the daily run starts the fetch itself if today's files are missing, and a late scheduled run that finds today's files exits without fetching again.
 
-**Who does what.** GitHub Actions scrapes. Python cleans, removes duplicates (across sources and against the last 3 days) and compacts. Models follow one rule: **filtering goes to cheaper models, Opus only where correctness or recommendation quality matters.**
+**Who does what.** GitHub Actions scrapes. Python cleans, removes duplicates (across sources and against the last 3 days) and compacts. Models follow one rule: **cheap models filter, Sonnet chooses and writes the daily parts, Opus only where precise, critical thinking matters.**
 
 | Work | Model |
 |---|---|
-| First reading of every paper abstract | Haiku |
-| Final paper choice, papers of the week, research updates, news, shorts, the quarterly review | Sonnet |
-| Discovery recommendations, the daily language pack, the weekly and monthly packages (study plans, questions with answers, challenges) | Opus | Web search is used only where nothing can be scraped: discovery (films, books, reads, places, by theme and some randomness), targeted X and LinkedIn searches for research updates, and study resources in the weekly and monthly plans.
+| First reading of every paper abstract, the news shortlist | Haiku |
+| Daily: final paper choice, papers of the week, research updates, World Radar, discovery recommendations (videos, podcasts, reads), shorts; the quarterly review | Sonnet |
+| The daily language pack (must be correct), the weekly and monthly runs (what to read and study, fundamentals, study plans, questions with answers, challenges) | Opus |
+
+The daily run only coordinates: helpers do every large read in a fresh context and merge their part, so nothing big sits in the main run's context and gets paid for again on every step. Code does the copying: `papers pick` builds full paper items (abstract word for word) from the model's short choice list, shorts are narrowed in code (no kids' content, at most 3 per creator, best engagement per interest) before a model reads them, news rows are short refs until a story is chosen, and video and podcast descriptions show their first 300 characters.
+
+Web search is used only where nothing can be scraped: discovery (films, books, reads, places, by theme and some randomness), targeted X and LinkedIn searches for research updates, and study resources in the weekly and monthly plans.
 
 ## 2. Parts, each with its own URL
 

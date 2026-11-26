@@ -112,7 +112,9 @@ def cmd_history(repo: Repo, args) -> int:
 def cmd_candidates(repo: Repo, args) -> int:
     day = _day(args.date)
     if args.kind == "news":
-        refs = {r.strip() for r in args.refs.split(",") if r.strip()} if args.refs else None
+        raw = Path(args.refs_file).read_text() if args.refs_file else (args.refs or "")
+        refs = ({str(r).strip() for r in (json.loads(raw) if raw.strip().startswith("[") else raw.split(",")) if str(r).strip()}
+                if raw else None)
         _print(history.news_candidates(repo, day, args.category or args.section, args.brief, refs))
         return 0
     if args.kind == "ensure":
@@ -148,11 +150,15 @@ def cmd_candidates(repo: Repo, args) -> int:
         sl = rank.shortlist(data["candidates"], repo.config("sources"), args.limit)
         _print({k: v for k, v in data.items() if k not in ("candidates", "interest_search")} | sl)
         return 0
-    if args.limit:
-        data["candidates"] = data["candidates"][args.offset:args.offset + args.limit]
     if args.kind == "youtube" and not args.full:
         from . import stages
+        n = len(data["candidates"])
+        data["candidates"] = stages.prefilter_shorts(data["candidates"])
+        data["prefiltered"] = f"{len(data['candidates'])} of {n} kept: not for kids, at most 3 per creator, best engagement per query"
+        stages.record(repo, day, "youtube_shorts", candidates=n, prefiltered=len(data["candidates"]))
         data = stages.lean_media(data)
+    if args.limit:
+        data["candidates"] = data["candidates"][args.offset:args.offset + args.limit]
     if args.brief and args.kind == "arxiv":
         data["candidates"] = [{"arxiv_id": c["arxiv_id"], "title": c["title"], "categories": c.get("categories", []),
                                **{k: c[k] for k in ("hf_upvotes", "alphaxiv_votes", "notable_authors") if c.get(k)}}
@@ -169,7 +175,7 @@ def cmd_papers(repo: Repo, args) -> int:
         n = history.mark_papers_seen(repo, args.ids, day)
         print(f"marked {n} papers as seen")
     elif args.action == "stage1":
-        _print(stages.stage1(repo, day, int(args.batch_size)))
+        _print(stages.stage1(repo, day, int(args.batch_size or 80)))
     elif args.action == "merge":
         _print(stages.merge_verdicts(repo, day, [f for f in args.files.split(",") if f]))
     elif args.action == "enrich":
@@ -177,6 +183,11 @@ def cmd_papers(repo: Repo, args) -> int:
         return enrich(repo, day, stages.enrich_ids(repo, day))
     elif args.action == "stage2":
         _print(stages.stage2(repo, day))
+    elif args.action == "pick":
+        res = stages.pick(repo, day, json.loads(Path(args.choices).read_text()))
+        out = Path(args.out or "/tmp/arxiv.json")
+        out.write_text(json.dumps({"items": res["items"]}, ensure_ascii=False, indent=1))
+        print(json.dumps({"items": len(res["items"]), "written": str(out), "missing": res["missing"]}))
     elif args.action == "add":
         from .ensure import add_papers
         return add_papers(repo, day, [i.strip() for i in (args.ids_csv or "").split(",") if i.strip()], args.tag)
@@ -511,12 +522,14 @@ def build_parser() -> argparse.ArgumentParser:
     s.set_defaults(fn=cmd_history)
 
     s = sub.add_parser("papers", help="staged paper reading: stage1 batches, merge verdicts, enrich, stage2")
-    s.add_argument("action", choices=["stage1", "merge", "enrich", "stage2", "mark-seen", "add"])
+    s.add_argument("action", choices=["stage1", "merge", "enrich", "stage2", "pick", "mark-seen", "add"])
+    s.add_argument("--choices", help="pick: JSON file with the final choice (arxiv_id, priority, research_area, tags, dimensions)")
+    s.add_argument("--out", help="pick: where to write the built items (default /tmp/arxiv.json)")
     s.add_argument("--ids-csv", help="add: comma-separated arXiv ids from an alphaXiv feed")
     s.add_argument("--tag", default="alphaXiv", help="add: which feed (alphaXiv Hot, alphaXiv For You)")
     s.add_argument("ids", nargs="*", help="mark-seen: arXiv ids reviewed but not selected")
     s.add_argument("--date")
-    s.add_argument("--batch-size", default=100)
+    s.add_argument("--batch-size", default=None, help="stage1: most papers per batch (default 80; batches also stay under 60k characters)")
     s.add_argument("--files", default="", help="merge: comma-separated verdict files")
     s.set_defaults(fn=cmd_papers)
 
@@ -572,6 +585,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--section", help=argparse.SUPPRESS)
     s.add_argument("--brief", action="store_true", help="arxiv: id/title/categories/signals only; news: ref, title and source only")
     s.add_argument("--refs", help="news: full rows (url, summary, other outlets) for these comma-separated refs")
+    s.add_argument("--refs-file", help="news: the same, refs read from a JSON list or comma-separated file")
     s.add_argument("--full", action="store_true", help="podcasts, videos, youtube: full descriptions and every field")
     s.add_argument("--ranked", action="store_true", help="arxiv: code-ranked shortlist with interests and quality signals")
     s.add_argument("--ids", help="arxiv: comma-separated ids to print in full (abstracts)")

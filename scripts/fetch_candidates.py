@@ -235,6 +235,19 @@ def fetch_arxiv(repo, day: dt.date, retry_failed: bool = False) -> int:
         else:
             p.pop("notable_authors", None)
         rep.apply(registry, p)
+    # Hugging Face and alphaXiv give no arXiv categories; one API call per 100 ids fills them in,
+    # so a paper item never needs a guessed category. Failing this only leaves them empty.
+    no_cat = [a for a, p in by_id.items() if not p.get("categories")]
+    if no_cat:
+        try:
+            for r in ax.fetch_ids(no_cat):
+                if r.get("arxiv_id") in by_id and r.get("categories"):
+                    by_id[r["arxiv_id"]]["categories"] = r["categories"]
+                    for k in ("submitted", "version"):
+                        if r.get(k) and not by_id[r["arxiv_id"]].get(k):
+                            by_id[r["arxiv_id"]][k] = r[k]
+        except Exception as e:  # noqa: BLE001
+            notes.append(f"categories lookup failed: {str(e)[:120]}")
     still_failed = failed + ([s for s in prev.get("failed_sources", []) if s not in wanted] if prev else [])
     out = {"kind": "arxiv", "date": day.isoformat(), "fetched_at": now_utc(),
            "source": "arXiv API (rss.arxiv.org fallback), Hugging Face Daily Papers, alphaXiv lists and search, Reddit, Bluesky",

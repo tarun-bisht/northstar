@@ -131,7 +131,7 @@ def test_stage1_skips_no_interest_no_signal_then_merge_and_stage2(repo, tmp_path
                {"papers": {"2611.00001": {"affiliations": ["Carnegie Mellon University"], "email_domains": ["cmu.edu"]}}})
     s2 = stages.stage2(repo, D)
     assert [r["id"] for r in s2] == ["2611.00001", "2611.00003"]
-    assert s2[0]["lane"] == "strong" and s2[0]["alphaxiv"] == "https://www.alphaxiv.org/abs/2611.00001"
+    assert s2[0]["lane"] == "strong" and "alphaxiv" not in s2[0]  # links are built by papers pick
     st = stages.stats(repo, D)["streams"]["papers"]
     assert st["fetched"] == 3 and st["read_stage1"] == 2 and st["passed_stage1"] == 2 and st["read_stage2"] == 2
 
@@ -190,5 +190,43 @@ def test_lean_media_keeps_needed_fields_and_clips_text():
                            "channel": {"name": "C", "id": "UCx"}, "description": "word " * 400, "tags": list("abcdefgh"),
                            "views": 9}]}
     c = lean_media(doc)["candidates"][0]
-    assert {"video_id", "url", "embed_url", "thumbnail", "views"} <= set(c) and c["channel"] == {"name": "C"}
+    assert {"video_id", "views", "title"} <= set(c) and c["channel"] == {"name": "C"}
+    assert not {"url", "embed_url", "thumbnail"} & set(c)  # rebuilt from video_id when writing an item
     assert len(c["description"]) <= 301 and c["tags"] == list("abcde")
+
+
+def test_pick_builds_full_items_from_fetched_data(repo):
+    import json as _j
+    from dsys import stages
+    day = D
+    write_json(repo.p("candidates", "arxiv", f"{day}.json"),
+               {"candidates": [_paper("2611.00001", "A real title", "The exact abstract.", hf_upvotes=12)]})
+    (stages.WORK / day.isoformat()).mkdir(parents=True, exist_ok=True)
+    (stages.WORK / day.isoformat() / "stage1_passed.json").write_text(_j.dumps({"2611.00001": "strong"}))
+    res = stages.pick(repo, day, [{"arxiv_id": "2611.00001", "priority": "top", "research_area": "agents",
+                                   "tags": ["strong result"], "dimensions": ["research"]},
+                                  {"arxiv_id": "9999.99999", "priority": "more", "research_area": "x", "tags": []}])
+    it = res["items"][0]
+    assert res["missing"] == ["9999.99999"]
+    assert it["abstract"] == "The exact abstract." and it["title"] == "A real title" and it["lane"] == "strong"
+    assert it["url"] == "https://arxiv.org/abs/2611.00001" and it["hf_upvotes"] == 12 and it["priority"] == "top"
+
+
+def test_shorts_prefilter_rules():
+    from dsys.stages import prefilter_shorts
+    cands = [{"video_id": f"v{i}", "channel": {"name": "Same" if i < 6 else f"C{i}"}, "views": 1000, "likes": 100 - i,
+              "comments": 5, "query": "q1" if i % 2 else "q2", "made_for_kids": i == 7} for i in range(12)]
+    out = prefilter_shorts(cands, keep=8)
+    ids = [c["video_id"] for c in out]
+    assert len(out) == 8 and "v7" not in ids
+    assert sum(1 for c in out if c["channel"]["name"] == "Same") <= 3
+    assert {c["query"] for c in out} == {"q1", "q2"}
+
+
+def test_record_is_safe_with_parallel_writers(repo):
+    import threading
+    from dsys import stages
+    ts = [threading.Thread(target=stages.record, args=(repo, D, f"s{i}"), kwargs={"n": i}) for i in range(12)]
+    [t.start() for t in ts]
+    [t.join() for t in ts]
+    assert len(stages.stats(repo, D)["streams"]) == 12

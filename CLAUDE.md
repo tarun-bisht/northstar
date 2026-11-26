@@ -34,7 +34,7 @@ python scripts/dsys.py period                                  # today, this/nex
 python scripts/dsys.py context <stream> [--date D] [--period P]  # what a planner should know
 python scripts/dsys.py candidates ensure --kinds ...           # wait for (or start) today's fetch
 python scripts/dsys.py candidates <kind> ...                   # read fetched candidates
-python scripts/dsys.py papers stage1|merge|enrich|stage2|add --date D
+python scripts/dsys.py papers stage1|merge|enrich|stage2|pick|add --date D  # pick: items from a choice list
 python scripts/dsys.py daily merge <stream> --date D --items file.json
 python scripts/dsys.py daily overview --date D --part research|exploration --ids a,b  # up to 5, shown first
 python scripts/dsys.py reading show|add --week W --json papers.json

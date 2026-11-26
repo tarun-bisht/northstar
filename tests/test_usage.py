@@ -12,8 +12,8 @@ def test_counts_only_inside_a_run_and_summarises(repo):
     row = usage.end(root)
     assert row["run"] == "daily" and row["minutes"] == 0
     assert row["read_chars"] >= 52000 and row["est_tokens_read"] == row["read_chars"] // 4
-    assert row["biggest"][0] == ("papers stage2", 40000)
-    assert ("candidates news", 12000) in row["biggest"]
+    assert row["biggest"][0] == ("papers, final choice", 40000)
+    assert ("news", 12000) in row["biggest"]
     t = usage.table(usage.summary(root, usage.week_days("2026-W48")))
     assert "| 2026-11-26 | daily | 0 |" in t and "**total**" in t
 

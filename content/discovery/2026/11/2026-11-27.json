@@ -1,0 +1,272 @@
+{
+  "schema": "discovery",
+  "date": "2026-11-27",
+  "items": [
+    {
+      "id": "disc-2026-11-27-graepel-uncertainty",
+      "title": "Building AI That Can Reason Under Uncertainty",
+      "creator": "TWIML AI Podcast",
+      "type": "podcast",
+      "category": "machine learning",
+      "topic": "reasoning under uncertainty",
+      "url": "https://twimlai.com/podcast/twimlai/building-ai-that-can-reason-under-uncertainty",
+      "url_verified": true,
+      "description": "Thore Graepel on an AlphaGo-inspired approach to reasoning, with explicit representations of knowledge and uncertainty.",
+      "why_recommended": "A fresh episode on what reliable reasoning might need beyond a bigger language model.",
+      "what_i_might_get_from_it": "One argument for tracking uncertainty explicitly, which you can weigh against how current models reason.",
+      "action": "listen",
+      "time_required": "1h",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "audio_url": "https://pscrb.fm/rss/p/traffic.megaphone.fm/MLN2250038870.mp3",
+      "duration": "70 min",
+      "overview": true
+    },
+    {
+      "id": "yt-svl_1upFpQo",
+      "title": "The paradox at the heart of AI and science | Terence Tao",
+      "creator": "Big Think Clips",
+      "type": "video",
+      "category": "AI and science",
+      "topic": "how AI changes scientific work",
+      "url": "https://www.youtube.com/watch?v=svl_1upFpQo",
+      "url_verified": true,
+      "description": "Terence Tao on a paradox he sees where AI meets science.",
+      "why_recommended": "Far more views than the channel's size would predict, from a mathematician known for careful judgement.",
+      "what_i_might_get_from_it": "A working mathematician's view of what AI helps with in research and where care is still needed.",
+      "action": "watch",
+      "time_required": "30m",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "duration": "30 min",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-27-distill-momentum",
+      "title": "Why Momentum Really Works",
+      "creator": "Gabriel Goh, Distill",
+      "type": "article",
+      "category": "optimization",
+      "topic": "momentum in gradient descent",
+      "url": "https://distill.pub/2017/momentum/",
+      "url_verified": true,
+      "description": "An interactive article that takes momentum apart on simple quadratic problems, with sliders for step size and momentum.",
+      "why_recommended": "You use momentum often. This shows why it speeds things up, past the usual ball-rolling story.",
+      "what_i_might_get_from_it": "See how each eigendirection converges at its own rate, and how step size and momentum trade off.",
+      "action": "read",
+      "time_required": "30m",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "difficulty": "medium",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-27-gleaners-and-i",
+      "title": "The Gleaners and I (2000)",
+      "creator": "Agnès Varda",
+      "type": "film",
+      "category": "world cinema",
+      "topic": "gleaning and what gets thrown away",
+      "url": "https://www.criterion.com/films/30368-the-gleaners-and-i",
+      "url_verified": true,
+      "description": "Varda's documentary about people who gather what others leave behind, and about her own way of collecting images.",
+      "why_recommended": "A warm, playful documentary for a free evening, far from screens full of AI news.",
+      "what_i_might_get_from_it": "A new way to notice waste and thrift, and how a filmmaker can put herself in the story.",
+      "action": "watch",
+      "time_required": "2h",
+      "tier": "exploration",
+      "dimensions": [
+        "culture"
+      ],
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-27-cyanotype",
+      "title": "Introduction to the cyanotype process",
+      "creator": "Science and Media Museum",
+      "type": "project",
+      "category": "making and photography",
+      "topic": "sun printing",
+      "url": "https://blog.scienceandmediamuseum.org.uk/introduction-cyanotype-process/",
+      "url_verified": true,
+      "description": "How to coat paper, expose it to UV light and develop a blue print in water, with some history from 1841.",
+      "why_recommended": "A hands-on weekend option that joins chemistry, botany and photography.",
+      "what_i_might_get_from_it": "Make a blue print of a leaf. Never add hydrochloric or sulphuric acid, which can release toxic gas.",
+      "action": "try",
+      "time_required": "half_day",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ],
+      "cross_domain": {
+        "fields": [
+          "chemistry",
+          "photography"
+        ],
+        "connection": "Light changes iron salts into a blue pigment. Anna Atkins used this to picture plants in her botany books."
+      },
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-27-chassang-deniability",
+      "title": "Plausible Deniability: Getting People to Tell the Truth",
+      "creator": "Game Changer, with Sylvain Chassang",
+      "type": "podcast",
+      "category": "game theory",
+      "topic": "eliciting sensitive information",
+      "url": "https://podcasts.apple.com/us/podcast/plausible-deniability-getting-people-to-tell-the/id1536444695?i=1000803688571&uo=4",
+      "url_verified": true,
+      "description": "Why anonymity is sometimes not enough to get honest reports, and how plausible deniability can help, with field work in garment factories.",
+      "why_recommended": "A short episode where economics meets a question that also sits under privacy research.",
+      "what_i_might_get_from_it": "How to design a reporting system so that telling the truth is safer for the person who speaks.",
+      "action": "listen",
+      "time_required": "30m",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "people"
+      ],
+      "audio_url": "https://traffic.libsyn.com/secure/tws-gamechanger/133_S_Chassang_Sensitive_Information_2.mp3?dest-id=2368262",
+      "duration": "31 min",
+      "cross_domain": {
+        "fields": [
+          "game theory",
+          "data privacy"
+        ],
+        "connection": "Adding deniability to answers is also the idea behind randomized response, a root of differential privacy."
+      }
+    },
+    {
+      "id": "yt-CIFWlxQrl88",
+      "title": "Why the Soviet GitHub Failed",
+      "creator": "Asianometry",
+      "type": "video",
+      "category": "history of computing",
+      "topic": "Soviet software sharing",
+      "url": "https://www.youtube.com/watch?v=CIFWlxQrl88",
+      "url_verified": true,
+      "description": "A history of a Soviet effort to share software, and why it did not work.",
+      "why_recommended": "It drew unusually active discussion for the channel's size, on a story rarely told.",
+      "what_i_might_get_from_it": "A concrete case of why sharing code needs more than a central place to put it.",
+      "action": "watch",
+      "time_required": "30m",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "duration": "24 min"
+    },
+    {
+      "id": "yt-WbM7GP7QoEM",
+      "title": "Scientists Said This Wave Was Impossible",
+      "creator": "Veritasium",
+      "type": "video",
+      "category": "physics",
+      "topic": "rogue waves",
+      "url": "https://www.youtube.com/watch?v=WbM7GP7QoEM",
+      "url_verified": true,
+      "description": "Do monster waves really exist? A look at rogue waves and the physics of waves adding up.",
+      "why_recommended": "A well-watched new explainer that turns a sailors' story into a physics question.",
+      "what_i_might_get_from_it": "An idea of how waves can combine into one far larger than those around it.",
+      "action": "watch",
+      "time_required": "30m",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "duration": "28 min"
+    },
+    {
+      "id": "yt-pOSSpd8mb4Y",
+      "title": "Taking turns isn't fair. We fixed it.",
+      "creator": "Stand-up Maths",
+      "type": "video",
+      "category": "recreational mathematics",
+      "topic": "fair turn order",
+      "url": "https://www.youtube.com/watch?v=pOSSpd8mb4Y",
+      "url_verified": true,
+      "description": "Matt Parker on why simple alternation can favour one side, and what orders such as ABBA BAAB do about it.",
+      "why_recommended": "Very strong likes and comments for the channel. Light, funny and useful in daily life.",
+      "what_i_might_get_from_it": "A fairer way to order turns the next time two people pick, serve or share.",
+      "action": "watch",
+      "time_required": "30m",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "duration": "20 min"
+    },
+    {
+      "id": "disc-2026-11-27-evolution-of-trust",
+      "title": "The Evolution of Trust",
+      "creator": "Nicky Case",
+      "type": "website",
+      "category": "game theory",
+      "topic": "how trust grows and breaks",
+      "url": "http://ncase.me/trust/",
+      "url_verified": true,
+      "description": "A playable explanation of repeated trust games.",
+      "why_recommended": "Play it after the deniability episode. It lets you test when cooperation survives.",
+      "what_i_might_get_from_it": "A feel for how repeated meetings and honest mistakes change which strategy wins.",
+      "action": "explore",
+      "time_required": "30m",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "people"
+      ]
+    },
+    {
+      "id": "disc-2026-11-27-follow-up-questions",
+      "title": "Elements of Meaningful Conversation: Fewer Mirror Questions, More Follow-Ups",
+      "creator": "Alison Wood Brooks, HBS Working Knowledge",
+      "type": "article",
+      "category": "conversation",
+      "topic": "asking better questions",
+      "url": "https://www.library.hbs.edu/working-knowledge/elements-of-meaningful-conversation-fewer-mirror-questions-more-follow-ups",
+      "url_verified": true,
+      "description": "A book excerpt on four kinds of questions, drawing on a study of get-to-know-you conversations between strangers.",
+      "why_recommended": "A short, practical read on listening that you can try in your next conversation.",
+      "what_i_might_get_from_it": "Why follow-up questions raise liking, while bouncing a question back does much less.",
+      "action": "read",
+      "time_required": "15m",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ]
+    },
+    {
+      "id": "disc-2026-11-27-part-tabula-rasa",
+      "title": "Tabula Rasa",
+      "creator": "Arvo Pärt, ECM",
+      "type": "album",
+      "category": "music",
+      "topic": "spare modern composition",
+      "url": "https://ecmrecords.com/product/arvo-part-tabula-rasa-gidon-kremer-keith-jarrett-tatjana-grindenko-alfred-schnittke-the-12-cellists-of-the-berlin-philharmonic-orchestra-staatsorchester-stuttgart-dennis-russell-davies-lithuan/",
+      "url_verified": true,
+      "description": "The ECM album of Pärt's music with Gidon Kremer, Keith Jarrett and others. Start with Fratres.",
+      "why_recommended": "A landmark recording and a quiet change of pace at the end of the week.",
+      "what_i_might_get_from_it": "A sense of how very few notes and patient repetition can carry deep feeling.",
+      "action": "listen",
+      "time_required": "1h",
+      "tier": "growth",
+      "dimensions": [
+        "culture"
+      ]
+    }
+  ],
+  "generated_at": "2026-11-27T03:17:05Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Podcasts and videos come from the candidate files fetched on 26 November."
+}

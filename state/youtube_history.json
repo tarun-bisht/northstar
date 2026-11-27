@@ -1,17 +1,71 @@
 {
   "_doc": "Derived. Used to avoid repeating videos and over-using creators.",
   "videos": {
+    "-S8ZES8cGdQ": {
+      "date": "2026-11-27",
+      "channel": "Dr.Flora Runji",
+      "title": "The Co-finite Topology Explained: Topology for Beginners",
+      "category": "mathematics"
+    },
     "046ZoVcWSZs": {
       "date": "2026-11-26",
       "channel": "Yomikai",
       "title": "This Japanese pronunciation trick trips up almost every beginner 🤏",
       "category": "language learning"
     },
+    "0gAfK9L_Pj4": {
+      "date": "2026-11-27",
+      "channel": "Mind Quirks",
+      "title": "How your brain builds a memory, step by step",
+      "category": "neuroscience"
+    },
+    "351KerBM0g4": {
+      "date": "2026-11-27",
+      "channel": "SemiconductorDee",
+      "title": "Power Is Not My Problem. Power Is Our Problem #Shorts | Leadership Lesson",
+      "category": "people skills"
+    },
+    "3g5CKwgc3dI": {
+      "date": "2026-11-27",
+      "channel": "Curt Jaimungal",
+      "title": "Most Neuroscientists Put Consciousness in the Cortex. I Don't.",
+      "category": "neuroscience"
+    },
+    "3sizde7L2Fk": {
+      "date": "2026-11-27",
+      "channel": "Aswani Kopparapu - Conversational Telugu Teacher",
+      "title": "3 Useful Telugu Words for Everyday Conversation with Jr.NTR| Spoken Telugu",
+      "category": "language learning"
+    },
+    "3tDfqoRH1F0": {
+      "date": "2026-11-27",
+      "channel": "Shihab Gazi",
+      "title": "Is this the most useful math rule? 😮‍💨 #math #shorts",
+      "category": "mathematics"
+    },
+    "518xJLkaOIY": {
+      "date": "2026-11-27",
+      "channel": "Proper Stories",
+      "title": "Why Nobody Wanted the First Shopping Cart #shorts  #history  #inventions  #shoppingcart  #animation",
+      "category": "history"
+    },
     "7dbtk0BwS3M": {
       "date": "2026-11-26",
       "channel": "OverEngineered Lab",
       "title": "This $0.10 Soda Can Is More Overengineered Than a Skyscraper",
       "category": "engineering"
+    },
+    "9CHzR0pUmRg": {
+      "date": "2026-11-27",
+      "channel": "Info Nator",
+      "title": "Russian vs Ukrainian: Why One-Sided Understanding? #shorts",
+      "category": "language"
+    },
+    "BJg4H7LLBZE": {
+      "date": "2026-11-27",
+      "channel": "Intel",
+      "title": "What Is Quantum Computing and How Does It Work? | Intel",
+      "category": "physics"
     },
     "CcxvNoKVZPk": {
       "date": "2026-11-26",
@@ -24,6 +78,24 @@
       "channel": "Engineering the Ancients",
       "title": "Why Ancient Greeks Built Giant Underwater Stone Cones? #shorts  #ancientengineering  #history",
       "category": "ancient engineering"
+    },
+    "Eme9t3NSIGM": {
+      "date": "2026-11-27",
+      "channel": "Japanese With Himari",
+      "title": "Basic Japanese Words for Travel | Travel Japanese #1",
+      "category": "language learning"
+    },
+    "F3LFc4Jvj9o": {
+      "date": "2026-11-27",
+      "channel": "Philipp Humm",
+      "title": "7 Rules That Instantly Make You a Better Speaker",
+      "category": "communication"
+    },
+    "GL5oiNScPBw": {
+      "date": "2026-11-27",
+      "channel": "Japanese with Uta | 仲里詩",
+      "title": "Japanese Pronunciation for Beginners | How to Say KA KI KU KE KO",
+      "category": "language learning"
     },
     "GxDk2vsyr0s": {
       "date": "2026-11-26",
@@ -43,11 +115,23 @@
       "title": "Why Is This Country Inside Another Country? 🌍 #geography #shorts #facts",
       "category": "geography"
     },
+    "HGCsUyNVMoE": {
+      "date": "2026-11-27",
+      "channel": "India in Pixels by Ashris",
+      "title": "Why did Yudhishthira choose Nakula? #mahabharata #wisdom #short",
+      "category": "culture"
+    },
     "HsQ1YcPdAcY": {
       "date": "2026-11-26",
       "channel": "Animal Architects",
       "title": "The Bird That Builds an Oven and Tests It With Its Beak 🐦 #shorts #wildlife #naturedocumentary",
       "category": "nature"
+    },
+    "IP7Ks7PzOvk": {
+      "date": "2026-11-27",
+      "channel": "8BitEngineering",
+      "title": "How A Wankel Rotary Engine Works⚙️ #physics #automobile #engineering #pixelart #engineeringexplained",
+      "category": "engineering"
     },
     "JczVA-sFH2g": {
       "date": "2026-11-26",
@@ -67,17 +151,35 @@
       "title": "Every note secretly contains a chord. #musictheory #music #piano #physics #harmonics",
       "category": "music"
     },
+    "OaWGQISJzPQ": {
+      "date": "2026-11-27",
+      "channel": "KODAWARI Sensei",
+      "title": "10 Japanese Phrases to Learn Before You Fly — With Mai",
+      "category": "language learning"
+    },
     "PRjkio1Xlq8": {
       "date": "2026-11-26",
       "channel": "How They Make It",
       "title": "How Did Romans Turn Water Into Flour 2,000 Years Ago? #shorts",
       "category": "history of technology"
     },
+    "Pl8mze1aKWA": {
+      "date": "2026-11-27",
+      "channel": "Geopolpage",
+      "title": "This country could circle the Earth 2.5 times 🌍 #geography #facts #shorts",
+      "category": "maps"
+    },
     "R9PUluilMaQ": {
       "date": "2026-11-26",
       "channel": "Japan, Seriously?!",
       "title": "In Japanese, Sun + Moon = ? ☀️🌙 #japan #kanji  #shorts",
       "category": "language learning"
+    },
+    "RDRiy8r214Q": {
+      "date": "2026-11-27",
+      "channel": "Planetary Detours",
+      "title": "Inside Sámi Reindeer Herding 🦌 | Arctic Life  #sweden #sami #laponia #reindeer",
+      "category": "places"
     },
     "UfO4f_Uh-Eg": {
       "date": "2026-11-26",
@@ -90,6 +192,24 @@
       "channel": "Past Unlocked",
       "title": "Onake Obavva: मूसल से रोकी हैदर अली की सेना! 😱 #short",
       "category": "history"
+    },
+    "W96RGgk0Nkc": {
+      "date": "2026-11-27",
+      "channel": "SCI60",
+      "title": "Secrets of Antarctica | The Frozen Continent Hiding Earth's History - 60s Documentary",
+      "category": "earth science"
+    },
+    "XuiaKvA945E": {
+      "date": "2026-11-27",
+      "channel": "Geometry & Topology Explained",
+      "title": "This game can never end in a draw #maths  #topology  #boardgames  #mathshorts",
+      "category": "mathematics"
+    },
+    "Y4wucxgf7Yo": {
+      "date": "2026-11-27",
+      "channel": "Sacramento History Museum",
+      "title": "Printing a turkey as Thanksgiving approaches",
+      "category": "art"
     },
     "YVJt80GV7XY": {
       "date": "2026-11-26",
@@ -107,6 +227,24 @@
       "date": "2026-11-26",
       "channel": "The Oddly Rational Pi",
       "title": "Stop thinking there's a gap between 0.999… and 1 #math #learning",
+      "category": "mathematics"
+    },
+    "_FJvcvlEcB0": {
+      "date": "2026-11-27",
+      "channel": "Kyota Ko",
+      "title": "Japanese hints that hint you to leave",
+      "category": "culture"
+    },
+    "aAXUsv3Ttdo": {
+      "date": "2026-11-27",
+      "channel": "Dr. Rebecca Marks",
+      "title": "5 classics less than 100 pages #booktok #booktube #tbr #reading",
+      "category": "books"
+    },
+    "acpnShcfY_s": {
+      "date": "2026-11-27",
+      "channel": "The Synthetic Mind",
+      "title": "Why Bayes' Theorem Is So Powerful",
       "category": "mathematics"
     },
     "b1j181SFkQQ": {
@@ -133,6 +271,12 @@
       "title": "बस यात्रा तेलुगु में | Bus Travel in Telugu|Learn Telugu Through Hindi|Spoken Telugu #shorts #telugu",
       "category": "language learning"
     },
+    "inYhvHCwpHM": {
+      "date": "2026-11-27",
+      "channel": "Blazar101",
+      "title": "The Strangest Property of the Electron #physics #quantumphysics",
+      "category": "physics"
+    },
     "joMjXmQpliU": {
       "date": "2026-11-26",
       "channel": "Simon Claridge: Look Closely",
@@ -151,6 +295,12 @@
       "title": "The Monster Function That Broke Calculus. The Curve With Zero Tangent Lines.",
       "category": "mathematics"
     },
+    "kcY092S_hgE": {
+      "date": "2026-11-27",
+      "channel": "GeoAtlas",
+      "title": "This Land Is Free and No Country Wants It",
+      "category": "geography"
+    },
     "l4tio9aRgMY": {
       "date": "2026-11-26",
       "channel": "LVK",
@@ -162,6 +312,12 @@
       "channel": "Khoj Pothi | खोज पोथी",
       "title": "बूढ़ी होकर फिर बच्ची बन जाती है! 🪼 अमर जेलीफ़िश का राज़ #shorts",
       "category": "biology"
+    },
+    "mOT5eGyJQwY": {
+      "date": "2026-11-27",
+      "channel": "History by Mae",
+      "title": "Drawings made by survivors of the atomic bomb #history #art",
+      "category": "history"
     },
     "nSrUfiV1h6A": {
       "date": "2026-11-26",
@@ -187,6 +343,12 @@
       "title": "The Tiny Bat That Folds a Leaf Into a Tent 🦇 #shorts #wildlife #naturedocumentary",
       "category": "nature"
     },
+    "rhD7jWor3oQ": {
+      "date": "2026-11-27",
+      "channel": "8BitEngineering",
+      "title": "Why does a V8 sound like THAT? 🔊#engineering #gaming #physics #pixelart #engineeringexplained #retro",
+      "category": "engineering"
+    },
     "sQwpQ6nKD_0": {
       "date": "2026-11-26",
       "channel": "ben",
@@ -204,12 +366,62 @@
       "channel": "Clear Math with Prof. Muna",
       "title": "Is the Boundary of a Set Always Closed? | Topology Short",
       "category": "mathematics"
+    },
+    "vkSpIi5ndX0": {
+      "date": "2026-11-27",
+      "channel": "Bandroom",
+      "title": "How short can a note get? 1024th notes to a whole note",
+      "category": "music"
+    },
+    "wDRDFZnla8A": {
+      "date": "2026-11-27",
+      "channel": "zapscenes",
+      "title": "How The Godfather Builds Tension Without Music | Film Analysis",
+      "category": "cinema"
+    },
+    "xMWK7gYbUJ4": {
+      "date": "2026-11-27",
+      "channel": "Wealth Avenue",
+      "title": "They Called Him Too Soft… He Was the Only One Who Stopped 💔 #shorts",
+      "category": "people skills"
+    },
+    "yEHyAsKLVMU": {
+      "date": "2026-11-27",
+      "channel": "Atoms & Awe",
+      "title": "Why Achilles can never catch the tortoise (Zeno's paradox) #shorts",
+      "category": "philosophy"
+    },
+    "znXs_n1dIPQ": {
+      "date": "2026-11-27",
+      "channel": "The Alpha Mind",
+      "title": "A Message Is Only as Good as Its Delivery #communication #emotionalintelligence",
+      "category": "communication"
     }
   },
   "creators": {
+    "8BitEngineering": {
+      "count": 2,
+      "last": "2026-11-27"
+    },
     "Animal Architects": {
       "count": 2,
       "last": "2026-11-26"
+    },
+    "Aswani Kopparapu - Conversational Telugu Teacher": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Atoms & Awe": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Bandroom": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Blazar101": {
+      "count": 1,
+      "last": "2026-11-27"
     },
     "Byte": {
       "count": 1,
@@ -219,6 +431,18 @@
       "count": 1,
       "last": "2026-11-26"
     },
+    "Curt Jaimungal": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Dr. Rebecca Marks": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Dr.Flora Runji": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
     "Engineering the Ancients": {
       "count": 1,
       "last": "2026-11-26"
@@ -227,17 +451,61 @@
       "count": 1,
       "last": "2026-11-26"
     },
+    "GeoAtlas": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Geometry & Topology Explained": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Geopolpage": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "History by Mae": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
     "How They Make It": {
       "count": 1,
       "last": "2026-11-26"
+    },
+    "India in Pixels by Ashris": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Info Nator": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Intel": {
+      "count": 1,
+      "last": "2026-11-27"
     },
     "Japan, Seriously?!": {
       "count": 1,
       "last": "2026-11-26"
     },
+    "Japanese With Himari": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Japanese with Uta | 仲里詩": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "KODAWARI Sensei": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
     "Khoj Pothi | खोज पोथी": {
       "count": 1,
       "last": "2026-11-26"
+    },
+    "Kyota Ko": {
+      "count": 1,
+      "last": "2026-11-27"
     },
     "LVK": {
       "count": 1,
@@ -254,6 +522,10 @@
     "MichaelsMusicMind": {
       "count": 1,
       "last": "2026-11-26"
+    },
+    "Mind Quirks": {
+      "count": 1,
+      "last": "2026-11-27"
     },
     "Mrunal Patel Unacademy": {
       "count": 1,
@@ -275,6 +547,34 @@
       "count": 1,
       "last": "2026-11-26"
     },
+    "Philipp Humm": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Planetary Detours": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Proper Stories": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "SCI60": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Sacramento History Museum": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "SemiconductorDee": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
+    "Shihab Gazi": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
     "Simon Claridge: Look Closely": {
       "count": 1,
       "last": "2026-11-26"
@@ -287,6 +587,10 @@
       "count": 1,
       "last": "2026-11-26"
     },
+    "The Alpha Mind": {
+      "count": 1,
+      "last": "2026-11-27"
+    },
     "The Oddly Rational Pi": {
       "count": 1,
       "last": "2026-11-26"
@@ -294,6 +598,10 @@
     "The Overtone Series": {
       "count": 1,
       "last": "2026-11-26"
+    },
+    "The Synthetic Mind": {
+      "count": 1,
+      "last": "2026-11-27"
     },
     "Think Sharper Today": {
       "count": 1,
@@ -306,6 +614,10 @@
     "Vinh Giang": {
       "count": 1,
       "last": "2026-11-26"
+    },
+    "Wealth Avenue": {
+      "count": 1,
+      "last": "2026-11-27"
     },
     "WhyHereMaps": {
       "count": 1,
@@ -330,6 +642,10 @@
     "gr8gdev": {
       "count": 1,
       "last": "2026-11-26"
+    },
+    "zapscenes": {
+      "count": 1,
+      "last": "2026-11-27"
     }
   }
 }

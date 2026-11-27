@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-27",
+  "streams": {
+    "papers": {
+      "fetched": 2702,
+      "unseen": 1400,
+      "read_stage1": 568,
+      "skipped_no_interest_no_signal": 832,
+      "passed_stage1": 202,
+      "strong": 161,
+      "field": 41,
+      "read_stage2": 202,
+      "enriched": 176
+    },
+    "youtube_shorts": {
+      "candidates": 747,
+      "prefiltered": 250,
+      "picked": 32
+    },
+    "research_updates": {
+      "fetched": 206,
+      "dropped_recent": 8,
+      "read": 198,
+      "picked": 19
+    },
+    "discovery": {
+      "podcasts_fetched": 102,
+      "videos_fetched": 127,
+      "picked": 12
+    },
+    "world": {
+      "headlines": 2114,
+      "dropped_recent": 9,
+      "stories": 1880,
+      "picked": 17,
+      "briefs": 25
+    },
+    "arxiv": {
+      "picked": 38
+    },
+    "language": {
+      "picked": 1
+    }
+  }
+}

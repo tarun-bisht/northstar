@@ -1,0 +1,948 @@
+{
+  "schema": "world",
+  "date": "2026-11-27",
+  "items": [
+    {
+      "id": "world-2026-11-27-delimitation-sitting",
+      "title": "Parliament returns on November 30 with delimitation expected",
+      "section": "india",
+      "topic": "politics",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "The government has called the Lok Sabha back on November 30 and the Rajya Sabha on December 2. A bill to redraw constituencies is expected. The government has not named the business.",
+      "confirmed_facts": [
+        "The proposal would raise the Lok Sabha from 543 to 850 seats, with about a third reserved for women.",
+        "A constitutional amendment needs roughly 360 Lok Sabha votes. The NDA counts 319 as certain.",
+        "The DMK says it will back it if Tamil Nadu keeps a 7.2% share of seats."
+      ],
+      "why_it_matters": "It would decide how much weight each state carries in Parliament for years.",
+      "context": "Southern states fear losing influence because their populations grew more slowly than those of some northern states.",
+      "what_to_watch": "Whether the bill's text writes in a flat 50% rise for every state, and how the DMK votes.",
+      "sources": [
+        {
+          "name": "Pratidin Time",
+          "url": "https://www.pratidintime.com/national/parliament-reconvene-delimitation-womens-reservation-bill-12844062",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "The Indian Express",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPSTNTR0Z3Q2lWZ2Qzekh2VnJtSmtXSnpneTNhaHhUS3NJM1hQeHJUemw3YjdHaW1DWnl0dkZaNTNYd0JUempIWllZVUNaTU5fWmhRY29uZUZUUjkwQnhjMzU5MWJHekQ5QWdFTXJ4QWFSSnR2VUU5YXBQZmFGMm9wb1ctNTc4bk03MVRlT3A4Y3RieW9uTE9lQl9qNFcxTWk4UWR5TC1fSjRZZHBa?oc=5",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "The Hindu",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOMVVXeUROenNyelhVTFhKMDNFTUxfS011NHQ2Y2VNbFA5a01KcEtEUWtMNjE0RXNpR1JEckwxMzN2RzBOU0EwaEp0Q1ViQWFLQzdEeXF1dFVuRjlkVHJVdlRJbFlNN1BMMTJkTWM2Sk5RZ3BibTY0VU5DMXRUZllPTEtsVmVPNXFyUGdNVmFDcG1rM3h0LTI4bGduZGpDYUlzWERVanh6VGRzMWFMYzZfR3ZqNUNjVmt2TDI2Y09BZF9aOXNRZExuRVoxZlZKdGtLRTdB0gHaAUFVX3lxTFBmMDU4Ykh1NjNLTm1iamI4UXVnQ2RnU3BvUDBiOThUT2tsYmNiT1UtZ0VVS2ZUR1NocHpyMG1WS1d6UzUyS29VaUZxZDV3WjVoYTVOMS14WWJRaXEzWndhZE9VR3h5LUV0MThqekFJSFRMdXByNU5ZVUdNRU1yOEJUZFAzR3ZIU3BvaGk4SzcyTmdJTlF3OXJxRjZTZDd0RkJ5NTJ0V2xBNkV6cVUzZV93d3F6VzRMdFVKc1pGNUFwemhRcEV5WmZLRnJBMjhWaHNTUzBGWnJCUUNn?oc=5",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "What delimitation is",
+        "explanation": "Delimitation redraws constituencies and shares out seats, usually by population, so each vote weighs about the same. India froze each state's share in the 1970s so that states which slowed population growth would not be punished. Reopening it brings that tension back."
+      },
+      "uncertainty": "The final bill is not public. Vote counts are estimates from one report."
+    },
+    {
+      "id": "world-2026-11-27-netflix-pakistani-series",
+      "title": "Government warns Netflix over a Pakistani series",
+      "section": "india",
+      "topic": "policy",
+      "regions": [
+        "India",
+        "Pakistan"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "The government has warned that Pakistani-origin content cannot be shown on Indian streaming platforms, after a Pakistani series appeared on Netflix.",
+      "confirmed_facts": [
+        "The warning concerns the series Jo Bachay Hain Sang Samait Lo.",
+        "The Hindu has published an explainer asking what the legal basis for the block is."
+      ],
+      "why_it_matters": "It tests how far the government can restrict what streaming services show.",
+      "context": "Streaming services in India fall under the IT Rules of 2021, a newer and still debated framework.",
+      "what_to_watch": "Whether Netflix or anyone else challenges the block in court.",
+      "sources": [
+        {
+          "name": "The Hindu National",
+          "url": "https://www.thehindu.com/news/national/on-what-legal-basis-has-government-blocked-a-pakistani-series-on-netflix-explained/article71749245.ece",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-27",
+      "lesson": {
+        "concept": "How online content gets blocked in India",
+        "explanation": "Section 69A of the IT Act lets the government order content blocked on grounds such as sovereignty, security or public order. The orders are usually confidential. That makes them harder to examine than an open ban."
+      },
+      "uncertainty": "The exact legal order used here was not confirmed in the material read."
+    },
+    {
+      "id": "world-2026-11-27-nz-hung-parliament",
+      "title": "New Zealand PM Luxon loses his majority",
+      "section": "geopolitics",
+      "topic": "politics",
+      "regions": [
+        "New Zealand",
+        "Oceania"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "Final results leave Prime Minister Christopher Luxon's right-wing coalition one seat short of a majority. A new centrist party, Opportunity, now holds the balance.",
+      "confirmed_facts": [
+        "The election was held on November 7.",
+        "National lost two seats between the preliminary and final counts.",
+        "Opportunity says it has bottom lines on climate, cost of living and cleaner politics."
+      ],
+      "why_it_matters": "The next government depends on a party that is new and untested.",
+      "context": "New Zealand uses proportional representation, so coalitions are normal. Forming the last one took more than six weeks.",
+      "what_to_watch": "Coalition talks, and whether failure leads to another election.",
+      "sources": [
+        {
+          "name": "RTÉ",
+          "url": "https://www.rte.ie/news/2026/1127/1600847-new-zealand-election/",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "The Conversation (Australia)",
+          "url": "https://theconversation.com/nz-election-final-right-needs-opportunity-to-govern-uncharted-political-waters-ahead-297127",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-27",
+      "lesson": {
+        "concept": "Kingmakers in proportional systems",
+        "explanation": "Under proportional representation, seats roughly match vote shares, so one party rarely wins outright. A small party that either side needs can win policies far beyond its size. Its power lasts only while it can credibly walk away.",
+        "learn_more": {
+          "title": "The Conversation: NZ election final",
+          "url": "https://theconversation.com/nz-election-final-right-needs-opportunity-to-govern-uncharted-political-waters-ahead-297127"
+        }
+      }
+    },
+    {
+      "id": "world-2026-11-27-kuwait-drone-italians",
+      "title": "Drone strike in Kuwait kills two Italians as Gulf attacks spread",
+      "section": "conflict_disaster",
+      "topic": "conflict",
+      "regions": [
+        "Middle East",
+        "Kuwait",
+        "Iran",
+        "Italy"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "A drone strike on an air-defence site in Kuwait killed two Italian technicians. Kuwait blames Iran. Iran denies it.",
+      "confirmed_facts": [
+        "Two other people were injured.",
+        "Houthi rebels struck Saudi refineries at Ras Tanura on Wednesday and Jazan on Thursday.",
+        "Two tankers were reported hit near Oman and Dubai, with all crew safe."
+      ],
+      "why_it_matters": "The war is reaching Gulf states and shipping, which pushes up oil costs for importers such as India.",
+      "context": "The US-Israeli war with Iran began in February. The Strait of Hormuz has been effectively shut by attacks on shipping.",
+      "what_to_watch": "Italy's response, any Saudi retaliation and oil prices.",
+      "sources": [
+        {
+          "name": "ABC News",
+          "url": "https://www.abc.net.au/news/2026-11-27/italians-killed-in-kuwait-attack-iran/107432996",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "The Washington Post",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPdFVJenQ4a3hlOERnbnhWVGJ1QkNhUVQ1UjFGdUl2QjRFTjVaQUM4VC1sN2ZIWV9INVA3Y1hjUDA5VV94Zk4yOGF2Z00zak5OcGVNYTA3d2trbUxneVR6NnV0YXZ5Y3R5RDh3cTN0LVNqenltbmZMX2E1VkswTmNOT0t4R3hKWDNNeTRRbThMN2lFcUpRUjRwTjVnWS1sSDRLN2NTczlQNGg1Zw?oc=5",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-27",
+      "lesson": {
+        "concept": "Why the Strait of Hormuz matters",
+        "explanation": "Hormuz is the narrow exit from the Persian Gulf. Before the war about a fifth of the world's traded oil and gas passed through it. A chokepoint like this lets a weaker navy raise costs for the whole world with mines and drones."
+      },
+      "uncertainty": "Responsibility is disputed. Claims about mine strikes have not been independently verified."
+    },
+    {
+      "id": "world-2026-11-27-myanmar-icj",
+      "title": "Myanmar says it will not fully comply with genocide ruling",
+      "section": "conflict_disaster",
+      "topic": "international_relations",
+      "regions": [
+        "Myanmar",
+        "Bangladesh",
+        "Southeast Asia"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "Myanmar said it will not fully comply with orders from the International Court of Justice, which has held it responsible for genocide against the Rohingya.",
+      "confirmed_facts": [
+        "The ruling is the first time the court has held a state responsible for genocide.",
+        "The ruling is final.",
+        "The court has very limited ways to enforce it."
+      ],
+      "why_it_matters": "It shows the gap between a binding judgment and any change on the ground, including for refugees in Bangladesh.",
+      "context": "The ICJ settles disputes between states. It does not try individuals.",
+      "what_to_watch": "Whether the UN Security Council or major states apply any pressure.",
+      "sources": [
+        {
+          "name": "The Hindu International",
+          "url": "https://www.thehindu.com/news/international/myanmar-says-it-will-not-fully-comply-with-icj-genocide-orders/article71747952.ece",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "The Conversation (Global)",
+          "url": "https://theconversation.com/justice-is-elusive-for-the-rohingya-even-after-the-icjs-landmark-genocide-ruling-against-myanmar-297125",
+          "type": "news",
+          "published": "2026-11-24"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "How international court rulings are enforced",
+        "explanation": "The ICJ has no police. A state that wins can ask the UN Security Council to act, but any permanent member can veto. So compliance mostly depends on diplomatic and economic pressure and on reputation.",
+        "learn_more": {
+          "title": "The Conversation: Justice is elusive for the Rohingya",
+          "url": "https://theconversation.com/justice-is-elusive-for-the-rohingya-even-after-the-icjs-landmark-genocide-ruling-against-myanmar-297125"
+        }
+      },
+      "analysis": "The Conversation's author argues that safe and dignified return of the Rohingya is close to impossible despite the ruling."
+    },
+    {
+      "id": "world-2026-11-27-ecb-de-cos",
+      "title": "Spain's Hernández de Cos set to lead the European Central Bank",
+      "section": "leadership",
+      "topic": "economics",
+      "regions": [
+        "Europe",
+        "Spain"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "Pablo Hernández de Cos has won the backing needed to succeed Christine Lagarde as president of the European Central Bank next year.",
+      "confirmed_facts": [
+        "De Cos is a former governor of Spain's central bank.",
+        "He would take over from Christine Lagarde next year."
+      ],
+      "why_it_matters": "The ECB sets interest rates for the euro area, which affects growth, currencies and capital flows well beyond Europe.",
+      "context": "CNBC says he will arrive in a period of political uncertainty and choppy growth.",
+      "what_to_watch": "The formal appointment steps and his first signals on inflation.",
+      "sources": [
+        {
+          "name": "CNBC World Markets",
+          "url": "https://www.cnbc.com/2026/11/26/pablo-hernandez-de-cos-ecb-president.html",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "One interest rate for many countries",
+        "explanation": "Countries using the euro share one central bank and one policy rate. A rate that suits a booming economy may be too tight for a weak one. That is why the choice of ECB president is bargained between governments."
+      }
+    },
+    {
+      "id": "world-2026-11-27-markets-sensex-crude",
+      "title": "Sensex ends higher while crude near $95 weighs on rupee and bonds",
+      "section": "economy_markets",
+      "topic": "finance",
+      "regions": [
+        "India",
+        "Global"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "On November 26 the Sensex closed about 390 points higher, led by IT shares. The rupee fell 24 paise to 92.44 a dollar and bonds slid as Brent crude topped $95.",
+      "confirmed_facts": [
+        "IT stocks rose about 3.6%.",
+        "The Nifty was up 12.3% in November so far, on track for its best month since April 2020.",
+        "The dollar index touched a 22-month high this week before easing."
+      ],
+      "why_it_matters": "Costly oil feeds inflation and the import bill, even while shares are strong.",
+      "context": "Mint links November's rally to earlier lower oil, a shift in AI investment mood, better earnings hopes and returning foreign investors.",
+      "what_to_watch": "Crude prices and the RBI decision on December 4.",
+      "sources": [
+        {
+          "name": "The Hindu Business",
+          "url": "https://www.thehindu.com/business/markets/rupee-weakens-24-paise-to-settle-at-9244-against-us-dollar/article71746086.ece",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "THE WEEK",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOMWh4RTAyVDlVUE5XVl93dmxkUHVRMnFWUk5EOThlX3dpVFQzczg1d3ItcnQwcHZ5UUdHVDZfaEpqeGVWZGJFb01xYWUzX0lvQTdMUEJSVG9RdGlobG1neE5IRDQwdmV4bGR6ZkYxUTk2NFhMTmRwUWFJLXFNN09BN09Jc0tPdHJQUUg4aWpLTG1jVWFPMWVkS2xOZFFGVzhiX2dBRm1lYV9TeXFiMW9qVHRfWXhfMDBuMGl0bzRGc19uZUdIMExLTU5sVC1nU0x1NnhEb1V4VXZTTU0?oc=5",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "Mint Markets",
+          "url": "https://www.livemint.com/market/stock-market-news/nifty-surges-over-12-in-november-eyes-biggest-monthly-gain-in-six-years-bse-eternal-trent-among-top-gainers-11795694066553.html",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "Economic Times Markets",
+          "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-tumble-as-brent-tops-95-per-barrel-rbi-flags-food-inflation-risks/articleshow/136193320.cms",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "Economic Times Markets",
+          "url": "https://economictimes.indiatimes.com/markets/forex/forex-news/dollar-lingers-near-22-month-peak-as-ai-worries-simmer/articleshow/136207046.cms",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "Why oil moves the rupee and bonds",
+        "explanation": "India imports most of its oil and pays in dollars. Dearer oil means more rupees sold for dollars, so the rupee tends to weaken. It also raises inflation risk, so bond buyers ask for higher yields and bond prices fall."
+      }
+    },
+    {
+      "id": "world-2026-11-27-rbi-hike-signals",
+      "title": "Markets signal the RBI could raise rates by more than usual",
+      "section": "economy_markets",
+      "topic": "economics",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "Swap rates and treasury bill yields suggest traders see a chance of a larger than usual RBI rate rise at its December 2 to 4 meeting.",
+      "confirmed_facts": [
+        "October retail inflation was 6.09%, above the 2% to 6% band.",
+        "The three-month swap rate rose to 6.12% on Thursday.",
+        "The policy decision is due on December 4."
+      ],
+      "why_it_matters": "A bigger rise would make home, car and business loans dearer sooner.",
+      "context": "Economists cited expect a quarter-point rise. Market pricing leans further.",
+      "what_to_watch": "The December 4 decision and the RBI's inflation forecast.",
+      "sources": [
+        {
+          "name": "IUX24",
+          "url": "https://www.iux24.com/news/indian-market-signals-raise-prospect-of-larger-rbi-rate-hike-20261126/",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNTURLc0UwZjNUdy05dVdJMVFLLUpDNUQwN19INXh3cVcwdW5fM2k3eDV2bnY4ZkZkMDVzSjN4N3Yzcm9CQ1MtT1hmaVJzMmY5VkpMUzgxQzVrQm1zZzU2OERSak1TeU84dDlTOVk0aEZSNXFGcUNzaFo2bVlXN2wwYjRScUxtVE9GeXFFRjBFdWdlZ2tjOEpnQ19UTmVJVnlBQ0ZVclBQdHhieTd0SDJlVEU3c0ZTaFZFazB6cVAtbWpqMmU2?oc=5",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "Reading rate expectations from markets",
+        "explanation": "In an overnight index swap, one side pays a fixed rate and the other pays whatever the overnight rate turns out to be. The fixed rate therefore reflects what traders expect the central bank to do. It is a bet, not a promise."
+      },
+      "uncertainty": "Market pricing often overshoots. The RBI has not signalled the size of any move."
+    },
+    {
+      "id": "world-2026-11-27-nvidia-southeast-asia",
+      "title": "Nvidia reportedly halts AI server shipments to four Southeast Asian countries",
+      "section": "technology",
+      "topic": "technology",
+      "regions": [
+        "Southeast Asia",
+        "United States",
+        "China"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "The Financial Times reports that Nvidia has stopped AI server shipments to Malaysia, Singapore, Thailand and Indonesia as new US export rules bite.",
+      "confirmed_facts": [
+        "Dell and Supermicro told customers their orders could not ship.",
+        "The US added the firm Megaspeed to its Entity List on Wednesday.",
+        "Some data centres have 90 days from November 19 to get a licence."
+      ],
+      "why_it_matters": "It disrupts a data centre boom in the region and tightens China's access to top chips.",
+      "context": "Chinese AI labs had reportedly rented advanced chips through cloud firms in Southeast Asia, which export rules did not cover.",
+      "what_to_watch": "Whether the halt is temporary and how licences will work.",
+      "sources": [
+        {
+          "name": "Engadget",
+          "url": "https://www.engadget.com/2329200/nvidia-reportedly-halts-chip-shipments-to-southeast-asia/",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOd3BvSkxTQnd6ZVRTQUJ4RHBUY3l5M0J1aW1yTl9zUVFNaE1tUjlrVG1MeE9lVlNTMTVrOFFPUjA3R0RnWktyNERHcGhnWk9YYlQ3RXRRVXQtUXhCZDg3d3Foa2dxZndDSTU5UW51eU1ZSW91Nk45bFFZVjk2YzU0MGtwal9zbldIVU93NkpDLTFXdw?oc=5",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "Why chip controls leak through the cloud",
+        "explanation": "Export controls usually track where a physical chip goes. But computing power can be rented over the internet from a data centre in a third country. Closing that gap means checking who uses the machines, which is much harder."
+      },
+      "uncertainty": "Based on press reporting. How long the pause lasts is unknown."
+    },
+    {
+      "id": "world-2026-11-27-sarvam-chinese-models",
+      "title": "India's Sarvam faces questions for hosting Chinese AI models",
+      "section": "technology",
+      "topic": "technology",
+      "regions": [
+        "India",
+        "China"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "Sarvam's new Token Factory service runs Chinese open-weight models alongside its own, which set off a debate about what sovereign AI means.",
+      "confirmed_facts": [
+        "It launched on November 18 with six Chinese open-weight models, Google's Gemma and Sarvam's own.",
+        "Sarvam says it uses privately bought GPUs and sends no requests to overseas developers.",
+        "The IT secretary reportedly said hosting such models breaks no IndiaAI rules."
+      ],
+      "why_it_matters": "It asks whether AI independence means owning the models, the computers or the data.",
+      "context": "Sarvam was picked by the government in 2025 to build Indian models and got subsidised computing for training.",
+      "what_to_watch": "Whether government rules on hosting foreign models change.",
+      "sources": [
+        {
+          "name": "MediaNama",
+          "url": "https://www.medianama.com/2026/11/223-sarvam-token-factory-india-sovereign-ai/",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "The Hindu Business",
+          "url": "https://www.thehindu.com/business/training-vs-inference-whats-the-distinction-at-the-heart-of-the-sarvam-ai-china-models-controversy-explained/article71736231.ece",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "Training versus inference",
+        "explanation": "Training builds a model by adjusting its weights on huge amounts of data. Inference is running the finished model to answer requests. With open weights you can run someone else's model on your own machines, so data stays local while the design stays theirs."
+      }
+    },
+    {
+      "id": "world-2026-11-27-lupex-rover",
+      "title": "Japan shows a test rover for its 2028 Moon mission with India",
+      "section": "science_space",
+      "topic": "science",
+      "regions": [
+        "Japan",
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "Japan's space agency JAXA unveiled a test model of the LUPEX rover, which is meant to search for water near the Moon's south pole.",
+      "confirmed_facts": [
+        "The model was shown in Tokyo on November 25.",
+        "India is developing the lander and Japan the rover.",
+        "The mission aims to fly in 2028."
+      ],
+      "why_it_matters": "Water found on the Moon could one day be turned into rocket fuel.",
+      "context": "In India the mission is also known as Chandrayaan-5.",
+      "what_to_watch": "Testing progress and the choice of landing site.",
+      "sources": [
+        {
+          "name": "Prothom Alo",
+          "url": "https://en.prothomalo.com/science-technology/science/rq4cp7jah2",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "MLQ.ai",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOX0FoTzVfaFVZRTJFOWJTa3Qza1lVeXAzeGU5UFM2OW5lMnN1ZTVRUk9ySjExYlg4eU5Ld256U00tUkJ4WTJJVDRXeGVBQ1M3ampVUEl5MVh6MnFJaDdveHRqal9hcVVtQnZaUkJtTU1GZ053Y2RyYS1qMHRZZkJKMkh4WVp3TVVqU1N5RHp2MG5IYk5Vb05PZkFlRHhTMWN0NUh6MDNvS0Jab1lTRjYydkg1Vmk?oc=5",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "Why look for water at the lunar poles",
+        "explanation": "Some polar craters never see sunlight, so they stay cold enough to trap ice for a very long time. Water can be split into hydrogen and oxygen, which are rocket fuel. Making fuel there would avoid lifting it all from Earth."
+      }
+    },
+    {
+      "id": "world-2026-11-27-maths-digesting",
+      "title": "Explainer: after AI proofs, mathematicians need to digest them",
+      "section": "explainers",
+      "topic": "science",
+      "regions": [
+        "Global"
+      ],
+      "dimensions": [
+        "knowledge"
+      ],
+      "what_happened": "A mathematician writing in The Conversation argues that as AI produces proofs, the field's main work shifts toward understanding them.",
+      "confirmed_facts": [
+        "On November 20 an Anthropic mathematician claimed a solution of the generalised Riemann hypothesis, working with Claude.",
+        "About a month earlier OpenAI released 722 papers of AI results and has since retracted some."
+      ],
+      "why_it_matters": "It is an early look at how a whole discipline changes when answers become cheaper than understanding.",
+      "context": "A computer check can show each step follows. It does not explain why the result is true.",
+      "what_to_watch": "Whether mathematicians simplify the proof into ideas people can reuse.",
+      "sources": [
+        {
+          "name": "The Conversation (US)",
+          "url": "https://theconversation.com/from-solving-to-digesting-how-mathematicians-can-adapt-to-the-dramatic-changes-ai-has-brought-to-their-field-295539",
+          "type": "news",
+          "published": "2026-11-24"
+        },
+        {
+          "name": "Cobb County Courier (The Conversation)",
+          "url": "https://cobbcountycourier.com/2026/11/from-solving-to-digesting-how-mathematicians-can-adapt-to-the-dramatic-changes-ai-has-brought-to-their-field/",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-24",
+      "lesson": {
+        "concept": "Proof versus understanding",
+        "explanation": "A proof settles whether a statement is true. Mathematicians also want the reason, because a good reason can be carried to new problems. A correct but huge argument gives the first without the second.",
+        "learn_more": {
+          "title": "The Conversation: From solving to digesting",
+          "url": "https://theconversation.com/from-solving-to-digesting-how-mathematicians-can-adapt-to-the-dramatic-changes-ai-has-brought-to-their-field-295539"
+        }
+      },
+      "analysis": "The author sees this as a chance to teach and train around understanding rather than solving alone.",
+      "uncertainty": "The Riemann claim still needs expert examination.",
+      "follows_up": "world-2026-11-26-riemann-ai-proof"
+    },
+    {
+      "id": "world-2026-11-27-russia-security-framework",
+      "title": "Explainer: why Russia's Eurasian security plan faces long odds",
+      "section": "explainers",
+      "topic": "geopolitics",
+      "regions": [
+        "Russia",
+        "Europe",
+        "China"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "Russia's foreign minister Sergey Lavrov proposed a new security system for all of Eurasia. An expert in The Conversation explains why it is unlikely to work.",
+      "confirmed_facts": [
+        "Lavrov made the proposal at a security conference in Minsk.",
+        "Few details have been published."
+      ],
+      "why_it_matters": "Russia is tying the end of the Ukraine war to a wider redesign of European security.",
+      "context": "Russia has long argued that NATO's eastward growth threatens it.",
+      "what_to_watch": "Whether the idea enters the Ukraine peace talks.",
+      "sources": [
+        {
+          "name": "The Conversation (Australia)",
+          "url": "https://theconversation.com/russia-wants-to-build-a-new-security-framework-to-end-the-war-this-is-why-it-wont-work-296813",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "Yahoo News Australia (The Conversation)",
+          "url": "https://au.news.yahoo.com/russia-wants-build-security-framework-011926493.html",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-27",
+      "lesson": {
+        "concept": "Indivisible security",
+        "explanation": "This principle says no state should boost its own safety at another's expense. Russia reads it as a limit on NATO. Many Western states stress instead that each country may choose its alliances. Both ideas appear in past European agreements, which is why they clash.",
+        "learn_more": {
+          "title": "The Conversation: Russia's new security framework",
+          "url": "https://theconversation.com/russia-wants-to-build-a-new-security-framework-to-end-the-war-this-is-why-it-wont-work-296813"
+        }
+      },
+      "analysis": "The author's case: Europe sees Russia as the main threat, China's role is unclear and Eurasia already has overlapping bodies."
+    },
+    {
+      "id": "world-2026-11-27-datacentre-backlash",
+      "title": "Explainer: how anger at data centres shaped the US midterms",
+      "section": "explainers",
+      "topic": "politics",
+      "regions": [
+        "United States"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "Writing in The Conversation, researchers say survey data suggests Republicans' ties to an unpopular AI industry contributed to their poor midterm result.",
+      "confirmed_facts": [
+        "The argument rests on survey data.",
+        "The US midterm elections were held in early November."
+      ],
+      "why_it_matters": "Local resistance to power-hungry data centres can slow the AI build-out and shape national policy.",
+      "context": "Data centres draw large amounts of electricity and water, and their local jobs are limited.",
+      "what_to_watch": "Whether states tighten rules on siting and power costs.",
+      "sources": [
+        {
+          "name": "The Conversation (US)",
+          "url": "https://theconversation.com/backlash-against-data-centers-helped-democrats-win-the-midterms-297020",
+          "type": "news",
+          "published": "2026-11-24"
+        }
+      ],
+      "published": "2026-11-24",
+      "lesson": {
+        "concept": "Concentrated costs, spread benefits",
+        "explanation": "A project's benefits may be spread across a whole economy while its noise, land use and power demand fall on one place. The people bearing the costs have a strong reason to organise. This explains many fights over infrastructure.",
+        "learn_more": {
+          "title": "The Conversation: Backlash against data centers",
+          "url": "https://theconversation.com/backlash-against-data-centers-helped-democrats-win-the-midterms-297020"
+        }
+      },
+      "analysis": "The link between data centres and votes is the authors' interpretation of surveys.",
+      "uncertainty": "Surveys show association. Many things move an election."
+    },
+    {
+      "id": "world-2026-11-27-surface-water-decline",
+      "title": "Rivers and lakes shrank sharply in the two hottest years",
+      "section": "climate_energy",
+      "topic": "environment",
+      "regions": [
+        "Global",
+        "South America"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "An international study found an unprecedented drop in water in rivers, lakes and reservoirs in 2023 and 2024.",
+      "confirmed_facts": [
+        "River flows were about 5.7% below normal.",
+        "Water stored in lakes and reservoirs fell by 9.5%.",
+        "It was the largest synchronised surface water decline since at least 1991."
+      ],
+      "why_it_matters": "Surface water supplies drinking water, farms and hydropower.",
+      "context": "The study was led by the Chinese Academy of Sciences. Some areas still had extreme rain.",
+      "what_to_watch": "Whether the water recovered after those two years.",
+      "sources": [
+        {
+          "name": "The Guardian Environment",
+          "url": "https://www.theguardian.com/environment/2026/nov/26/water-levels-fall-rivers-lakes-reservoirs-global-study",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "Why heat dries water even with heavy rain",
+        "explanation": "Warmer air can hold and pull up more moisture, so lakes and soils lose water faster. The same air can then release it in short, intense bursts. So a warmer world can see both floods and shortages."
+      }
+    },
+    {
+      "id": "world-2026-11-27-ebola-12000",
+      "title": "Congo's Ebola outbreak passes 12,000 cases as fighting disrupts care",
+      "section": "health",
+      "topic": "health",
+      "regions": [
+        "DR Congo",
+        "Africa"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "Congo reports 12,021 confirmed Ebola cases, and nearly half of those people have died. Fighting is blocking response teams.",
+      "confirmed_facts": [
+        "The Bundibugyo virus causes this outbreak. It has no approved vaccine or treatment.",
+        "About a dozen people, including two WHO staff, were evacuated after being trapped by crossfire."
+      ],
+      "why_it_matters": "It is Congo's deadliest outbreak and is on track to pass the West African outbreak's death toll.",
+      "context": "Poor roads, mistrust and misinformation also slow the response.",
+      "what_to_watch": "Fighting near Bunia, a hub for the response, and vaccine trials.",
+      "sources": [
+        {
+          "name": "NPR via Maine Public",
+          "url": "https://www.mainepublic.org/npr-news/2026-11-26/congo-ebola-outbreak-reaches-12-000-cases-as-some-responders-evacuate",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "NPR World",
+          "url": "https://www.npr.org/2026/11/26/g-s1-155957/congo-ebola-responders",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "The Conversation (US)",
+          "url": "https://theconversation.com/the-drcs-ebola-crisis-revives-an-old-ethical-question-what-do-health-workers-owe-patients-296998",
+          "type": "news",
+          "published": "2026-11-24"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "How Ebola is stopped without a vaccine",
+        "explanation": "Teams find cases early, isolate them, and follow every contact for 21 days. They also make burials safe. Each step needs access and trust, so conflict can break the whole chain.",
+        "learn_more": {
+          "title": "The Conversation: What do health workers owe patients?",
+          "url": "https://theconversation.com/the-drcs-ebola-crisis-revives-an-old-ethical-question-what-do-health-workers-owe-patients-296998"
+        }
+      }
+    },
+    {
+      "id": "world-2026-11-27-uk-net-migration",
+      "title": "UK net migration falls to 77,000",
+      "section": "society",
+      "topic": "migration",
+      "regions": [
+        "United Kingdom",
+        "India"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "The difference between people arriving in and leaving the UK was 77,000 in the year to June 2026, the lowest since 1997 outside the pandemic years.",
+      "confirmed_facts": [
+        "The figures come from the Office for National Statistics and the Home Office.",
+        "Indians were the largest foreign group both arriving and leaving, The Hindu reports."
+      ],
+      "why_it_matters": "It changes the supply of workers and students, with direct effects for Indians.",
+      "context": "A Guardian analysis says factors outside the government's control also helped.",
+      "what_to_watch": "Effects on universities, care work and hiring.",
+      "sources": [
+        {
+          "name": "The Guardian World",
+          "url": "https://www.theguardian.com/uk-news/2026/nov/26/net-migration-to-uk-falls-to-lowest-level-since-1997-excluding-pandemic",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "The Guardian World",
+          "url": "https://www.theguardian.com/uk-news/2026/nov/26/how-much-sharp-fall-uk-immigration-labour-policies",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "lesson": {
+        "concept": "What net migration measures",
+        "explanation": "Net migration is arrivals minus departures. It can fall because fewer people come or because more leave. A wave of students arriving in one year often shows up as departures a few years later."
+      }
+    }
+  ],
+  "generated_at": "2026-11-27T03:37:21Z",
+  "generator": "claude-scheduled-task",
+  "notes": "All 12 categories were covered from the shortlist. Indian Express Explained, Indian Express India and Reddit feeds failed, so India coverage is thinner. Some stories rest on one report.",
+  "briefs": [
+    {
+      "title": "Brazil’s Lula appoints private banker as Finance Minister",
+      "url": "https://www.thehindu.com/news/international/brazils-lula-appoints-private-banker-as-finance-minister/article71749184.ece",
+      "source": "The Hindu International",
+      "section": "leadership",
+      "published": "2026-11-27",
+      "line": "Brazil gets a private banker as its finance minister."
+    },
+    {
+      "title": "Death-sentenced Sheikh Hasina's planned return puts Bangladesh on edge - and India in a bind",
+      "url": "https://www.bbc.co.uk/news/articles/cx30g71rev23o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC World",
+      "section": "geopolitics",
+      "published": "2026-11-27",
+      "line": "Hasina's planned December return strains Dhaka and Delhi."
+    },
+    {
+      "title": "North Korea's Kim vows to build more nuclear weapons after ignoring Trump's overture",
+      "url": "https://www.npr.org/2026/11/26/g-s1-155955/north-korea-kim-nuclear-weapons-trump",
+      "source": "NPR World",
+      "section": "geopolitics",
+      "published": "2026-11-26",
+      "line": "Kim Jong Un calls for more nuclear weapons."
+    },
+    {
+      "title": "Serbia sets Presidential election for December 27 after students won Parliamentary vote",
+      "url": "https://www.thehindu.com/news/international/serbia-sets-presidential-election-for-december-27-after-students-won-parliamentary-vote/article71746565.ece",
+      "source": "The Hindu International",
+      "section": "geopolitics",
+      "published": "2026-11-26",
+      "line": "The vote follows a student movement's parliamentary win."
+    },
+    {
+      "title": "'A lot of political theatre': EU summit ends in disarray as leaders cling to red lines",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNWkY2eURoa2dsbDNDNEVPR1ZRazZTV29lcy04X3p4YVJCZHlMY01oNWEyWWFHZkNIWENIZDcyNHRaYVFaSjQ5S0xfNXdVRXQ0VVBkMEdMM3dXZ01tS1JTamJ2MDlObUs1enRoOE1hLVVfdmxEQjMzbHVOdzFkeS12YjIwNnpCREthQmxmU3V5MnpMbC1xeU1vNEJXQ3N3M3psU1VpVG0zYmJCT2JZS1Z6NFFjd1U1N0FKT0dr?oc=5",
+      "source": "Euronews.com",
+      "section": "geopolitics",
+      "published": "2026-11-27",
+      "line": "EU leaders leave the budget for a December summit."
+    },
+    {
+      "title": "Zelenskyy warns of major Russian attack as Trump urges Putin to ‘pull back’",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNUWhTZEtvSHh2TnVxc2VyZHdvaTFta0F0WGI4TTc3aHhIZzk0dV9iZXJSSGk0VEFDd3JQZ2puU3dERnlzc0h2TEdFcVVSaXhOZXVrTlN3MDBmZmZXUlFrQno0MDNWQ1dCU1hsTnVWYzBFOUlXRjQzd21CX3ExWmR1T1JDNEkyTm9yU2JZeW8waFFCTDI1cHB3cmFWXzNuemkyR3NRZ1hnMDdUZHVTOGpjN3U3MDA1QdIBuwFBVV95cUxOd242M2lqRVpQSGdGdEEyMk4wQWZzZjFPTnJBWXoxaURLaFdhUnZHQUpubzlVVTJzYWp2SUtRTVNKS1FhWG5TMGNLSlltVmdFZXNNdUEyUmx0THZ5aTdhQ1ZzTlFQaFJ1TThZY1B0MHpObS1YeGFxeFk4czg3aVZpRElDcVVnYTJjRDB4SjRXYlY4QzkxZ0V1SWNQZ3hnOXRaNWRLam5HdkxZRTF0NzFkWmxicmNEbWNodkxj?oc=5",
+      "source": "Al Jazeera",
+      "section": "conflict_disaster",
+      "published": "2026-11-27",
+      "line": "Ukraine expects a large strike as Trump asks Putin to pull back."
+    },
+    {
+      "title": "IAEA working with Russia, Ukraine on ceasefire to repair power link at Zaporizhzhia nuclear plant",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPYVJlbHg3YkhOX1Z1RVlSU1pkelg3dERVTzhPZWhPSVFmeS1QSENNQTRRc3hnWnBqSlBxRVVXQ0pQRi1zaloybXRIbGpvTFpWbEQybWFzQTV6cTZ3Y3EtVHlnNENiYkRNYXNXQ2prTkNEM1VleGtIMEgtQTZBVmo4MnBITDA2Z29QSnZsaEcxcFVIUkxHM1pxeXRTU05fUnRicHZkUjYyeVRqQkJEbVpLMTJTcXh6c3I5cmpqRmlR?oc=5",
+      "source": "Al-Monitor",
+      "section": "conflict_disaster",
+      "published": "2026-11-27",
+      "line": "Talks aim to repair a power link at Europe's largest nuclear plant."
+    },
+    {
+      "title": "Israeli strikes kill 16 schoolchildren so far this month, Gaza ministry says",
+      "url": "https://www.theguardian.com/world/2026/nov/26/gaza-ministry-schoolchildren-killed-this-month-israel-strikes",
+      "source": "The Guardian World",
+      "section": "conflict_disaster",
+      "published": "2026-11-26",
+      "line": "Gaza's education ministry reports the toll for November."
+    },
+    {
+      "title": "At least 13 dead in Indonesia gold mine flood as rescue efforts intensify",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQWkJ4Z1dXNWRXTmQ5emI0VEF4b2FsMkcxNUNpRjB6N2tFNmNKUzZzbmhORHhTQ1hsNS1BT2JFTzJrQ01aQjk3dS1vVWZaQ3pMV3A2WUFRODJsNFBBN1c4a25VbHZkY2dqVzJMTWp2ZVRxbmZNQnNodWlnTjMxWG1jQWJjMWlZd2h4Tm14QTNJQ3VSNkJPbTF2aUNvdmlENzExR1kwSnFHRHdfOUoxakZTOERmRGl6d9IBuwFBVV95cUxPV051MjYwaUJXZ2pzLW90aTJ0enhCSDdWbTd4eGZaWU4xWTBhMTFsZGxnbUZveHF3b3JIbDZPU284ZXNKZXJWek5vVVlidlQyQlBVOEJ6NDcyRlNPSkF4cG02dE9Vbm1Bb0Z3MGxaUmp0MlJNVVhmZm9iaE1vM3UyQzhUYkUydzFuSWVLNk81WXhKdlpudnJLakNIc29uQWNHS0diUTQ4czJZZF9FTDFTdG5LdkxGeEJtVUJF?oc=5",
+      "source": "Al Jazeera",
+      "section": "conflict_disaster",
+      "published": "2026-11-26"
+    },
+    {
+      "title": "China industrial profits growth surges to a 5-month high of 20.1% in October",
+      "url": "https://www.cnbc.com/2026/11/27/china-industrial-profits-october.html",
+      "source": "CNBC World Markets",
+      "section": "economy_markets",
+      "published": "2026-11-27",
+      "line": "AI-linked manufacturing drives growth while consumers lag."
+    },
+    {
+      "title": "U.S. tariff-hike threats pile pressure on partners to sign trade deals",
+      "url": "https://www.cnbc.com/2026/11/26/us-tariffs-hike-trade-agreement.html",
+      "source": "CNBC World Markets",
+      "section": "economy_markets",
+      "published": "2026-11-26",
+      "line": "New tariff threats push partners toward trade deals."
+    },
+    {
+      "title": "Yes Bank AT1 bond verdict: 60 lakh retail shareholders face ₹8,415-crore bill",
+      "url": "https://www.thehindu.com/business/yes-bank-at1-bond-verdict-60-lakh-retail-shareholders-face-8415-crore-bill/article71746924.ece",
+      "source": "The Hindu Business",
+      "section": "business",
+      "published": "2026-11-26",
+      "line": "A court verdict on written-off bonds may hit small shareholders."
+    },
+    {
+      "title": "U.S.-led consortium agrees to acquire assets from Russian oil company Lukoil",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNNUJLSnVsSkh3UzJOZ1l2SjJuSjItMHAyX2dpOHhSWGtxbGNLRXRqVl9QeGlXTmVtSDdGSFBZSlFUWTBCQVo5Yy1PVVRmb2k0VXAzUUpqNjIweVJKZjBIemhMTVphcGpKYTlYemcxbkZvcl9TWGdnOWhnSV9IZkxpWU8yZUhpeE0tT2w1UHFOSi1FWWxDSTZCdTN5S3RPQUlRaDhCbGEzek96X0dJa2hZR2plZy1ueWJVMkZyVGs5WG9iemNjU1F4cXgxcXpRR2FxRjNF?oc=5",
+      "source": "BNN Bloomberg",
+      "section": "business",
+      "published": "2026-11-26"
+    },
+    {
+      "title": "Tata Steel Takes Control of APL Apollo to Create India's Downstream Steel Giant",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdy1UVWxneG9tV3VLLWtQUXI4TkNpVEZRUTR4V0FDT04xLVpLM0V0VVdibGFnUi1mNDZXRUpoTGlxMC1VR0xkWmRwejNkQ2FGZTh1U01nSEtFemItMVM2SlAzUmUwTk5WcGZzRVZuZmd5ZjRBSGtwTVdoWVRXbTNiTjMxdnQ?oc=5",
+      "source": "Indianweb2.com",
+      "section": "business",
+      "published": "2026-11-26"
+    },
+    {
+      "title": "OpenAI chief scientist proposes shared limits on frontier AI development",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOMkZOVGpNbTJJRlpCYTA4eHFzQXo5NHJ2RTdnRk5Hc3dzV29pX2ZSV1BLN2kxbGNfY2xnbjZvcUVDVVVCd05UUEx0U0JJeUh6bzFMMmI4dGhCNlFxQlQweF9Pazgyd2dPLTNYYlV3XzNOWU16YmdJRnpEamhzdlQ2S0d1WW0tUF9UZWxkeWl0VzVabVRKbzk1Zms0anVxLXZxcmdETy1UTHNZXzNTZEdpUTdjVQ?oc=5",
+      "source": "EdTech Innovation Hub",
+      "section": "technology",
+      "published": "2026-11-27",
+      "line": "A call for common limits on the most advanced AI."
+    },
+    {
+      "title": "Nvidia CEO Jensen Huang is back. What happens next?",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOU2llVFEzTzBjQ2VGVjBFbTFScmR1NjVfbFY1MHc3eHFEc3NMWHIySnZZVEUtb2xKc0p5UmRoYkFSbWpuVldIMHNRVFJhc2tlaHUzVDNfZ3p6MkprcDZ4MTI5V2JrTDhXSG9Ja211enlHd201SmFxemZvbHF5ZTVMNHpYTmlRVDZMQmR1dG1fWGhXWnFqU1NLcy11WENrV3haVWc?oc=5",
+      "source": "The Verge",
+      "section": "technology",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Earliest monster black hole found at the universe's edge by JWST and Euclid — pushing theories to their limits",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOV25PR0QzQ1FNOTA4X2hkZUlzT0pwNkowcFZYSkVJM3RDTElEN1VzdTRvb1ZpYmZ2dzhyci1LMm9wTmRGUkhxM3FaTEoxN2VvRk5VcnI1YWQyMXpQekVwMm1zMGhyWkFfbmxYSlJHZEdTNVUyNkhXQklXc1VQdkZxYzF6Vk5ZWXVHazRNQm9vRnlCUEJlTEQ0TzEwSEt6SXdOZF84c2lBMWpKQy1vNlF3eFlKb0dPcTd5ZUU4Q25JZFlXN1d1enFDbHEzU0Z1WnN5S1E?oc=5",
+      "source": "Live Science",
+      "section": "science_space",
+      "published": "2026-11-26",
+      "line": "A very early giant black hole tests theories of how they grow."
+    },
+    {
+      "title": "South Pole Telescope releases clearest map ever of matter in the distant universe",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5rMTVHeXhXY20wUEdVazN5Qlc1Q1BQMlJjUlVCMURVVUFvZjA0SlpPem1pbVRGRGoyT0IzT2RST2xXVzFXTEtVSThBR0xtLVo2WWpieDJLa2xQa3BtRzVMTEtFUmt5elF4bk9jN2VaZmwxRXYtU2t1bWkyWWk?oc=5",
+      "source": "Phys.org",
+      "section": "science_space",
+      "published": "2026-11-25"
+    },
+    {
+      "title": "Voyager 1 Stops Sending Data, Reaches One Light-Day From Earth",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPN095aGVFcUlIWmxpZ2JuTFlhaU5sUWNOcER2dkczNGtqcnFWeXNzel9FbTF1Z1llRHJtTkIxNTY2a1JOS1RCZ0o3MjQ2c29MN2JMV2diMHJIOVZLemNvMGY4ZFdpQkp1akdjV0M3NzYycEE5TUFsaFUwUE1CT0RyUGZVSnE0MmVaekE2aGJtVkFNTnk2c3VuQVFR?oc=5",
+      "source": "Hackaday",
+      "section": "science_space",
+      "published": "2026-11-25",
+      "line": "A report on the probe one light-day from Earth."
+    },
+    {
+      "title": "Dengue has exploded globally with shocking speed",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9RYmhqNV96MUctQXUtcHlOdk91Sk9Xb0dxU3dBcDR4ZnU4bzluZzVJVDRiWnVzbFlpMkN5ZHAtSDJSdThvNG5QVmE4VW9JeF9aakN0Tll5NHdiMFlXSURJ?oc=5",
+      "source": "Nature",
+      "section": "health",
+      "published": "2026-11-25"
+    },
+    {
+      "title": "NHS boss warns of 'horrible spike' in flu as hospital admissions surge",
+      "url": "https://www.bbc.co.uk/news/articles/cwvg2ndxdjr2o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Health",
+      "section": "health",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Two-thirds of adolescents in India are deficient in vitamin B12: ICMR survey",
+      "url": "https://www.thehindu.com/sci-tech/health/two-thirds-of-adolescents-in-india-are-deficient-in-vitamin-b12-icmr-survey/article71746253.ece",
+      "source": "The Hindu Sci-Tech",
+      "section": "health",
+      "published": "2026-11-26",
+      "line": "A large survey flags a hidden nutrition gap."
+    },
+    {
+      "title": "India attracts $31 billion in climate equity funding, but capital remains concentrated in power, transport",
+      "url": "https://www.thehindu.com/business/india-attracts-31-billion-in-climate-equity-funding-but-capital-remains-concentrated-in-power-transport/article71747748.ece",
+      "source": "The Hindu Business",
+      "section": "climate_energy",
+      "published": "2026-11-26",
+      "line": "Climate money still goes mostly to power and transport."
+    },
+    {
+      "title": "China to rethink education policy as school enrollment falls: Report",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOUUJBX0ZFS05hZmZ1VE9taTV0QnlGYUJrLXQ0ZTcwOHJ0X0JhWGtSNE5IUVpabjlzUFpMSmx1Uno2dk5qSTRMamxwOGtETnhoRTZrSTF5cGxWZnlnaUlZOVpwUENFUkE0Q3IxSkpWNWNsbjNYRGdZNkF3OGZHSlRLb0p5T0tYeHVBMVdKQm5ZZkdJWnZtNEpGczRPX1pjWFB6ZG5EdFprMjY2UTdwenVjNDdnZnRDdEh6bUJaa0JiWnDSAcYBQVVfeXFMT2djcng4MTRQU01keHNfaEE3NndTeE9nMzNXc3c3d2ZuRl94dTdrNEJpb24zTG9YaDFKdGxyWFZocHJISHhRV0dRLXhtUlJ1ODl4MHU2dV8yWjhXSnZkejdfMElhMTRpdUowbzVkYnhHZVI3cnYxcWRLMU5pS2ZqclZlYzBSRU9OZnBTZ2s1b0pTODItbnV1LXJIU2NDSWNablR1c1NHbTgzR043dFUzSnZNN25XbjQzSFFYRl9jLWg5cGQwRzN3?oc=5",
+      "source": "The Hans India",
+      "section": "society",
+      "published": "2026-11-26"
+    },
+    {
+      "title": "Low funding for postdoc roles fuelling brain drain, govt. funds only 2,500 positions",
+      "url": "https://www.thehindu.com/education/the-ecosystem-divide-why-indian-bright-minds-thrive-abroad-but-stall-at-home/article71450553.ece",
+      "source": "The Hindu Sci-Tech",
+      "section": "india",
+      "published": "2026-11-26",
+      "line": "India spends far less per person on research than China or the US."
+    }
+  ]
+}

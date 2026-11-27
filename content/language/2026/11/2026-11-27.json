@@ -1,0 +1,107 @@
+{
+  "schema": "language",
+  "date": "2026-11-27",
+  "items": [
+    {
+      "id": "lang-2026-11-27",
+      "language": "japanese",
+      "title": "Introducing yourself",
+      "theme": "self-introduction: your name, where you are from, nice to meet you",
+      "minutes": 5,
+      "phrases": [
+        {
+          "text": "はじめまして",
+          "romanization": "hajimemashite",
+          "meaning": "nice to meet you",
+          "note": "Only for the very first meeting. It always comes first."
+        },
+        {
+          "text": "サラです",
+          "romanization": "Sara desu",
+          "meaning": "I'm Sara",
+          "note": "Put your own name before です (desu). You can say わたしは (watashi wa) first, but people often leave it out."
+        },
+        {
+          "text": "よろしくお願いします",
+          "romanization": "yoroshiku onegai shimasu",
+          "meaning": "nice to meet you, I look forward to knowing you",
+          "note": "Said at the end of an introduction. There is no exact English match."
+        },
+        {
+          "text": "こちらこそ",
+          "romanization": "kochira koso",
+          "meaning": "likewise, the pleasure is mine"
+        },
+        {
+          "text": "どちらからですか",
+          "romanization": "dochira kara desu ka",
+          "meaning": "where are you from? (polite)"
+        },
+        {
+          "text": "カナダから来ました",
+          "romanization": "Kanada kara kimashita",
+          "meaning": "I'm from Canada (literally: I came from Canada)",
+          "note": "Swap in your own country before から (kara)."
+        }
+      ],
+      "dialogue": [
+        {
+          "text": "はじめまして。サラです。",
+          "romanization": "Hajimemashite. Sara desu.",
+          "meaning": "Nice to meet you. I'm Sara."
+        },
+        {
+          "text": "はじめまして。田中です。サラさんは、どちらからですか。",
+          "romanization": "Hajimemashite. Tanaka desu. Sara-san wa, dochira kara desu ka.",
+          "meaning": "Nice to meet you. I'm Tanaka. Where are you from, Sara?"
+        },
+        {
+          "text": "カナダから来ました。よろしくお願いします。",
+          "romanization": "Kanada kara kimashita. Yoroshiku onegai shimasu.",
+          "meaning": "I'm from Canada. Nice to meet you."
+        },
+        {
+          "text": "こちらこそ、よろしくお願いします。",
+          "romanization": "Kochira koso, yoroshiku onegai shimasu.",
+          "meaning": "Likewise, nice to meet you."
+        }
+      ],
+      "practice": [
+        {
+          "question": "How would you say \"Nice to meet you. I'm Sara.\"?",
+          "answer": "はじめまして。サラです。(Hajimemashite. Sara desu.)"
+        },
+        {
+          "question": "Someone says よろしくお願いします (yoroshiku onegai shimasu) to you. How do you reply?",
+          "answer": "こちらこそ、よろしくお願いします。(Kochira koso, yoroshiku onegai shimasu.)",
+          "hint": "likewise + the same phrase back"
+        },
+        {
+          "question": "How do you politely ask a new person where they are from?",
+          "answer": "どちらからですか。(Dochira kara desu ka.)"
+        },
+        {
+          "question": "Tanaka asks you: どちらからですか. Sara answers カナダから来ました. What did she say?",
+          "answer": "I'm from Canada. Literally: I came from Canada."
+        }
+      ],
+      "say_aloud": "Introduce yourself in three lines: はじめまして。(your name)です。よろしくお願いします。(Hajimemashite. ... desu. Yoroshiku onegai shimasu.) Say it three times, slowly. Bow a little on the last line.",
+      "resource": {
+        "title": "Video 1: Basic Japanese 1, Self Introductions",
+        "creator": "JapanesePod101",
+        "type": "video",
+        "url": "https://www.japanesepod101.com/lesson/video-1-basic-japanese-1-self-introductions",
+        "url_verified": true,
+        "note": "A short beginner lesson, explained in English, on the same three lines: hajimemashite, (name) desu and yoroshiku onegai shimasu. Watch once, then repeat the lines out loud."
+      },
+      "tier": "growth",
+      "dimensions": [
+        "people",
+        "culture"
+      ]
+    }
+  ],
+  "generated_at": "2026-11-27T03:35:45Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Second pack. It moves from greetings to a first self-introduction. The listening link was found by search and opened in this run."
+}

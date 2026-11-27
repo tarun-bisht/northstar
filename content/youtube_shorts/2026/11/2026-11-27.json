@@ -1,0 +1,960 @@
+{
+  "schema": "youtube_shorts",
+  "date": "2026-11-27",
+  "items": [
+    {
+      "id": "yt-acpnShcfY_s",
+      "video_id": "acpnShcfY_s",
+      "title": "Why Bayes' Theorem Is So Powerful",
+      "channel": {
+        "name": "The Synthetic Mind",
+        "id": "UCbQzDyfzx0SFcDSa2LTunnQ"
+      },
+      "url": "https://www.youtube.com/shorts/acpnShcfY_s",
+      "embed_url": "https://www.youtube.com/embed/acpnShcfY_s",
+      "thumbnail": "https://i.ytimg.com/vi/acpnShcfY_s/hqdefault.jpg",
+      "duration_seconds": 180,
+      "published": "2026-10-20",
+      "topic": "probability",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Builds intuition for priors, likelihoods and posteriors in Bayes' theorem.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-XuiaKvA945E",
+      "video_id": "XuiaKvA945E",
+      "title": "This game can never end in a draw #maths  #topology  #boardgames  #mathshorts",
+      "channel": {
+        "name": "Geometry & Topology Explained",
+        "id": "UCsgLdqI33UwPLMxaC8PK6MA"
+      },
+      "url": "https://www.youtube.com/shorts/XuiaKvA945E",
+      "embed_url": "https://www.youtube.com/embed/XuiaKvA945E",
+      "thumbnail": "https://i.ytimg.com/vi/XuiaKvA945E/hqdefault.jpg",
+      "duration_seconds": 58,
+      "published": "2026-11-26",
+      "topic": "mathematical proofs",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Links why Hex cannot end in a draw to Brouwer's fixed point theorem.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-3tDfqoRH1F0",
+      "video_id": "3tDfqoRH1F0",
+      "title": "Is this the most useful math rule? 😮‍💨 #math #shorts",
+      "channel": {
+        "name": "Shihab Gazi",
+        "id": "UCZ9X7sRSBCRfgyXQvbukL1g"
+      },
+      "url": "https://www.youtube.com/shorts/3tDfqoRH1F0",
+      "embed_url": "https://www.youtube.com/embed/3tDfqoRH1F0",
+      "thumbnail": "https://i.ytimg.com/vi/3tDfqoRH1F0/hqdefault.jpg",
+      "duration_seconds": 49,
+      "published": "2026-10-01",
+      "topic": "statistics",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A quick refresher on the 68 and 95 percent rule for standard deviations.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt--S8ZES8cGdQ",
+      "video_id": "-S8ZES8cGdQ",
+      "title": "The Co-finite Topology Explained: Topology for Beginners",
+      "channel": {
+        "name": "Dr.Flora Runji",
+        "id": "UCeJvTXNMVWDyMrAFrHjR6AA"
+      },
+      "url": "https://www.youtube.com/watch?v=-S8ZES8cGdQ",
+      "embed_url": "https://www.youtube.com/embed/-S8ZES8cGdQ",
+      "thumbnail": "https://i.ytimg.com/vi/-S8ZES8cGdQ/hqdefault.jpg",
+      "duration_seconds": 145,
+      "published": "2026-10-14",
+      "topic": "topology",
+      "category": "mathematics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Walks through the cofinite topology and why it meets the axioms.",
+      "discovery_source": "youtube_data_api",
+      "format": "short_form",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-inYhvHCwpHM",
+      "video_id": "inYhvHCwpHM",
+      "title": "The Strangest Property of the Electron #physics #quantumphysics",
+      "channel": {
+        "name": "Blazar101",
+        "id": "UCNzTiX_OjwRS0cSinK1Vi-A"
+      },
+      "url": "https://www.youtube.com/shorts/inYhvHCwpHM",
+      "embed_url": "https://www.youtube.com/embed/inYhvHCwpHM",
+      "thumbnail": "https://i.ytimg.com/vi/inYhvHCwpHM/hqdefault.jpg",
+      "duration_seconds": 176,
+      "published": "2026-11-06",
+      "topic": "quantum mechanics",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains electron spin through the Stern and Gerlach experiment.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-BJg4H7LLBZE",
+      "video_id": "BJg4H7LLBZE",
+      "title": "What Is Quantum Computing and How Does It Work? | Intel",
+      "channel": {
+        "name": "Intel",
+        "id": "UCk7SjrXVXAj8m8BLgzh6dGA"
+      },
+      "url": "https://www.youtube.com/watch?v=BJg4H7LLBZE",
+      "embed_url": "https://www.youtube.com/embed/BJg4H7LLBZE",
+      "thumbnail": "https://i.ytimg.com/vi/BJg4H7LLBZE/hqdefault.jpg",
+      "duration_seconds": 98,
+      "published": "2026-11-19",
+      "topic": "quantum computing",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A short primer from Intel on how qubits differ from bits.",
+      "discovery_source": "youtube_data_api",
+      "format": "short_form",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-3g5CKwgc3dI",
+      "video_id": "3g5CKwgc3dI",
+      "title": "Most Neuroscientists Put Consciousness in the Cortex. I Don't.",
+      "channel": {
+        "name": "Curt Jaimungal",
+        "id": "UCdWIQh9DGG6uhJk8eyIFl1w"
+      },
+      "url": "https://www.youtube.com/shorts/3g5CKwgc3dI",
+      "embed_url": "https://www.youtube.com/embed/3g5CKwgc3dI",
+      "thumbnail": "https://i.ytimg.com/vi/3g5CKwgc3dI/hqdefault.jpg",
+      "duration_seconds": 60,
+      "published": "2026-11-03",
+      "topic": "consciousness",
+      "category": "neuroscience",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Mark Solms argues that consciousness starts in the brain stem, against the majority view.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-0gAfK9L_Pj4",
+      "video_id": "0gAfK9L_Pj4",
+      "title": "How your brain builds a memory, step by step",
+      "channel": {
+        "name": "Mind Quirks",
+        "id": "UCsTPM52Zn9TMlNOsGbMATuA"
+      },
+      "url": "https://www.youtube.com/shorts/0gAfK9L_Pj4",
+      "embed_url": "https://www.youtube.com/embed/0gAfK9L_Pj4",
+      "thumbnail": "https://i.ytimg.com/vi/0gAfK9L_Pj4/hqdefault.jpg",
+      "duration_seconds": 84,
+      "published": "2026-10-26",
+      "topic": "cognitive science",
+      "category": "neuroscience",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Builds up memory step by step, from attention to sleep.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-yEHyAsKLVMU",
+      "video_id": "yEHyAsKLVMU",
+      "title": "Why Achilles can never catch the tortoise (Zeno's paradox) #shorts",
+      "channel": {
+        "name": "Atoms & Awe",
+        "id": "UCsh6Z-m3GQTQaGUu3kRdDmA"
+      },
+      "url": "https://www.youtube.com/shorts/yEHyAsKLVMU",
+      "embed_url": "https://www.youtube.com/embed/yEHyAsKLVMU",
+      "thumbnail": "https://i.ytimg.com/vi/yEHyAsKLVMU/hqdefault.jpg",
+      "duration_seconds": 61,
+      "published": "2026-11-20",
+      "topic": "philosophy of science",
+      "category": "philosophy",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Zeno's paradox is a compact puzzle about infinity and motion.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-znXs_n1dIPQ",
+      "video_id": "znXs_n1dIPQ",
+      "title": "A Message Is Only as Good as Its Delivery #communication #emotionalintelligence",
+      "channel": {
+        "name": "The Alpha Mind",
+        "id": "UCybLp8ilBD6IRqzxdi1vkpw"
+      },
+      "url": "https://www.youtube.com/shorts/znXs_n1dIPQ",
+      "embed_url": "https://www.youtube.com/embed/znXs_n1dIPQ",
+      "thumbnail": "https://i.ytimg.com/vi/znXs_n1dIPQ/hqdefault.jpg",
+      "duration_seconds": 52,
+      "published": "2026-10-31",
+      "topic": "explaining clearly",
+      "category": "communication",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "On making it comfortable for someone to ask again when a message did not land.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-F3LFc4Jvj9o",
+      "video_id": "F3LFc4Jvj9o",
+      "title": "7 Rules That Instantly Make You a Better Speaker",
+      "channel": {
+        "name": "Philipp Humm",
+        "id": "UCKjyzU_ElNwSXr4b0UzUjdw"
+      },
+      "url": "https://www.youtube.com/shorts/F3LFc4Jvj9o",
+      "embed_url": "https://www.youtube.com/embed/F3LFc4Jvj9o",
+      "thumbnail": "https://i.ytimg.com/vi/F3LFc4Jvj9o/hqdefault.jpg",
+      "duration_seconds": 60,
+      "published": "2026-10-26",
+      "topic": "public speaking",
+      "category": "communication",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "A one minute set of rules for speaking better.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-xMWK7gYbUJ4",
+      "video_id": "xMWK7gYbUJ4",
+      "title": "They Called Him Too Soft… He Was the Only One Who Stopped 💔 #shorts",
+      "channel": {
+        "name": "Wealth Avenue",
+        "id": "UC3Z9YKsLwWG9MfNdyN-i3Kg"
+      },
+      "url": "https://www.youtube.com/shorts/xMWK7gYbUJ4",
+      "embed_url": "https://www.youtube.com/embed/xMWK7gYbUJ4",
+      "thumbnail": "https://i.ytimg.com/vi/xMWK7gYbUJ4/hqdefault.jpg",
+      "duration_seconds": 98,
+      "published": "2026-11-24",
+      "topic": "empathy and leadership",
+      "category": "people skills",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Uses Fred Rogers at a 1969 Senate hearing to show the strength of speaking gently.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-351KerBM0g4",
+      "video_id": "351KerBM0g4",
+      "title": "Power Is Not My Problem. Power Is Our Problem #Shorts | Leadership Lesson",
+      "channel": {
+        "name": "SemiconductorDee",
+        "id": "UCDRWkfmIzwztBcXvv0vOZrQ"
+      },
+      "url": "https://www.youtube.com/shorts/351KerBM0g4",
+      "embed_url": "https://www.youtube.com/embed/351KerBM0g4",
+      "thumbnail": "https://i.ytimg.com/vi/351KerBM0g4/hqdefault.jpg",
+      "duration_seconds": 58,
+      "published": "2026-11-19",
+      "topic": "leadership",
+      "category": "people skills",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "A chip design story about turning one team's problem into everyone's problem.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-518xJLkaOIY",
+      "video_id": "518xJLkaOIY",
+      "title": "Why Nobody Wanted the First Shopping Cart #shorts  #history  #inventions  #shoppingcart  #animation",
+      "channel": {
+        "name": "Proper Stories",
+        "id": "UC4aVxAWwwv-lmibd5J_sgCw"
+      },
+      "url": "https://www.youtube.com/shorts/518xJLkaOIY",
+      "embed_url": "https://www.youtube.com/embed/518xJLkaOIY",
+      "thumbnail": "https://i.ytimg.com/vi/518xJLkaOIY/hqdefault.jpg",
+      "duration_seconds": 62,
+      "published": "2026-11-27",
+      "topic": "history of inventions",
+      "category": "history",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "How the first shopping carts had to win over reluctant shoppers.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-mOT5eGyJQwY",
+      "video_id": "mOT5eGyJQwY",
+      "title": "Drawings made by survivors of the atomic bomb #history #art",
+      "channel": {
+        "name": "History by Mae",
+        "id": "UCANp2YejdjMHJ4rIuce93oA"
+      },
+      "url": "https://www.youtube.com/shorts/mOT5eGyJQwY",
+      "embed_url": "https://www.youtube.com/embed/mOT5eGyJQwY",
+      "thumbnail": "https://i.ytimg.com/vi/mOT5eGyJQwY/hqdefault.jpg",
+      "duration_seconds": 22,
+      "published": "2026-09-30",
+      "topic": "history and art",
+      "category": "history",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Drawings by atomic bomb survivors show history through those who lived it.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-Y4wucxgf7Yo",
+      "video_id": "Y4wucxgf7Yo",
+      "title": "Printing a turkey as Thanksgiving approaches",
+      "channel": {
+        "name": "Sacramento History Museum",
+        "id": "UCoR-l34EFcWd4ceV_Ubkn-g"
+      },
+      "url": "https://www.youtube.com/shorts/Y4wucxgf7Yo",
+      "embed_url": "https://www.youtube.com/embed/Y4wucxgf7Yo",
+      "thumbnail": "https://i.ytimg.com/vi/Y4wucxgf7Yo/hqdefault.jpg",
+      "duration_seconds": 55,
+      "published": "2026-11-25",
+      "topic": "printing history",
+      "category": "art",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "A museum shows letterpress printing from a photo engraving.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-wDRDFZnla8A",
+      "video_id": "wDRDFZnla8A",
+      "title": "How The Godfather Builds Tension Without Music | Film Analysis",
+      "channel": {
+        "name": "zapscenes",
+        "id": "UC5ykOEg2uil-mXdiJFlMKew"
+      },
+      "url": "https://www.youtube.com/shorts/wDRDFZnla8A",
+      "embed_url": "https://www.youtube.com/embed/wDRDFZnla8A",
+      "thumbnail": "https://i.ytimg.com/vi/wDRDFZnla8A/hqdefault.jpg",
+      "duration_seconds": 28,
+      "published": "2026-09-30",
+      "topic": "film sound",
+      "category": "cinema",
+      "tier": "growth",
+      "dimensions": [
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Looks at how silence and a train build tension in The Godfather.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-aAXUsv3Ttdo",
+      "video_id": "aAXUsv3Ttdo",
+      "title": "5 classics less than 100 pages #booktok #booktube #tbr #reading",
+      "channel": {
+        "name": "Dr. Rebecca Marks",
+        "id": "UCjL_9Omlrp_rJwKbEhrQg8A"
+      },
+      "url": "https://www.youtube.com/shorts/aAXUsv3Ttdo",
+      "embed_url": "https://www.youtube.com/embed/aAXUsv3Ttdo",
+      "thumbnail": "https://i.ytimg.com/vi/aAXUsv3Ttdo/hqdefault.jpg",
+      "duration_seconds": 136,
+      "published": "2026-11-23",
+      "topic": "classic literature",
+      "category": "books",
+      "tier": "growth",
+      "dimensions": [
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Five classics under 100 pages, an easy way into more reading.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-vkSpIi5ndX0",
+      "video_id": "vkSpIi5ndX0",
+      "title": "How short can a note get? 1024th notes to a whole note",
+      "channel": {
+        "name": "Bandroom",
+        "id": "UCgzRI503g8uxO2GRYquyyxA"
+      },
+      "url": "https://www.youtube.com/shorts/vkSpIi5ndX0",
+      "embed_url": "https://www.youtube.com/embed/vkSpIi5ndX0",
+      "thumbnail": "https://i.ytimg.com/vi/vkSpIi5ndX0/hqdefault.jpg",
+      "duration_seconds": 25,
+      "published": "2026-11-20",
+      "topic": "music appreciation",
+      "category": "music",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Lets you hear when very fast notes start to blur into sound.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-OaWGQISJzPQ",
+      "video_id": "OaWGQISJzPQ",
+      "title": "10 Japanese Phrases to Learn Before You Fly — With Mai",
+      "channel": {
+        "name": "KODAWARI Sensei",
+        "id": "UCFnavQxSlenrFXmY_3eC37w"
+      },
+      "url": "https://www.youtube.com/shorts/OaWGQISJzPQ",
+      "embed_url": "https://www.youtube.com/embed/OaWGQISJzPQ",
+      "thumbnail": "https://i.ytimg.com/vi/OaWGQISJzPQ/hqdefault.jpg",
+      "duration_seconds": 26,
+      "published": "2026-10-18",
+      "topic": "Japanese: travel phrases",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Ten beginner phrases with romaji, taught in English.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-Eme9t3NSIGM",
+      "video_id": "Eme9t3NSIGM",
+      "title": "Basic Japanese Words for Travel | Travel Japanese #1",
+      "channel": {
+        "name": "Japanese With Himari",
+        "id": "UCXO8mHHK5Mbl-gRVHfsCwmg"
+      },
+      "url": "https://www.youtube.com/shorts/Eme9t3NSIGM",
+      "embed_url": "https://www.youtube.com/embed/Eme9t3NSIGM",
+      "thumbnail": "https://i.ytimg.com/vi/Eme9t3NSIGM/hqdefault.jpg",
+      "duration_seconds": 22,
+      "published": "2026-11-14",
+      "topic": "Japanese: first words",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Six everyday words with romaji to repeat out loud.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-GL5oiNScPBw",
+      "video_id": "GL5oiNScPBw",
+      "title": "Japanese Pronunciation for Beginners | How to Say KA KI KU KE KO",
+      "channel": {
+        "name": "Japanese with Uta | 仲里詩",
+        "id": "UCt6VTsS_ROokvI9MatN6tFA"
+      },
+      "url": "https://www.youtube.com/shorts/GL5oiNScPBw",
+      "embed_url": "https://www.youtube.com/embed/GL5oiNScPBw",
+      "thumbnail": "https://i.ytimg.com/vi/GL5oiNScPBw/hqdefault.jpg",
+      "duration_seconds": 71,
+      "published": "2026-10-01",
+      "topic": "Japanese: pronunciation",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Practises the K row sounds with a tip on tongue position.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-3sizde7L2Fk",
+      "video_id": "3sizde7L2Fk",
+      "title": "3 Useful Telugu Words for Everyday Conversation with Jr.NTR| Spoken Telugu",
+      "channel": {
+        "name": "Aswani Kopparapu - Conversational Telugu Teacher",
+        "id": "UCE7eQjN3xEi-lO5tzaGQ-jw"
+      },
+      "url": "https://www.youtube.com/shorts/3sizde7L2Fk",
+      "embed_url": "https://www.youtube.com/embed/3sizde7L2Fk",
+      "thumbnail": "https://i.ytimg.com/vi/3sizde7L2Fk/hqdefault.jpg",
+      "duration_seconds": 27,
+      "published": "2026-10-05",
+      "topic": "Telugu: everyday phrases",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Three conversational Telugu expressions explained for beginners.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-_FJvcvlEcB0",
+      "video_id": "_FJvcvlEcB0",
+      "title": "Japanese hints that hint you to leave",
+      "channel": {
+        "name": "Kyota Ko",
+        "id": "UCccNFAkYqVkmS9fyT1KvHQg"
+      },
+      "url": "https://www.youtube.com/shorts/_FJvcvlEcB0",
+      "embed_url": "https://www.youtube.com/embed/_FJvcvlEcB0",
+      "thumbnail": "https://i.ytimg.com/vi/_FJvcvlEcB0/hqdefault.jpg",
+      "duration_seconds": 146,
+      "published": "2026-10-11",
+      "topic": "Japanese customs",
+      "category": "culture",
+      "tier": "exploration",
+      "dimensions": [
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains the subtle hints in Japan that it is time to leave.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-HGCsUyNVMoE",
+      "video_id": "HGCsUyNVMoE",
+      "title": "Why did Yudhishthira choose Nakula? #mahabharata #wisdom #short",
+      "channel": {
+        "name": "India in Pixels by Ashris",
+        "id": "UC3vpdI7klzLSLNgqZEESZ4g"
+      },
+      "url": "https://www.youtube.com/shorts/HGCsUyNVMoE",
+      "embed_url": "https://www.youtube.com/embed/HGCsUyNVMoE",
+      "thumbnail": "https://i.ytimg.com/vi/HGCsUyNVMoE/hqdefault.jpg",
+      "duration_seconds": 178,
+      "published": "2026-11-26",
+      "topic": "Indian epics",
+      "category": "culture",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "A question of wisdom and morality from the Yaksha Prashna in the Mahabharata.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-RDRiy8r214Q",
+      "video_id": "RDRiy8r214Q",
+      "title": "Inside Sámi Reindeer Herding 🦌 | Arctic Life  #sweden #sami #laponia #reindeer",
+      "channel": {
+        "name": "Planetary Detours",
+        "id": "UCjQZFKGkiDYAoyYGIUx-vCA"
+      },
+      "url": "https://www.youtube.com/shorts/RDRiy8r214Q",
+      "embed_url": "https://www.youtube.com/embed/RDRiy8r214Q",
+      "thumbnail": "https://i.ytimg.com/vi/RDRiy8r214Q/hqdefault.jpg",
+      "duration_seconds": 100,
+      "published": "2026-11-25",
+      "topic": "Sámi reindeer herding",
+      "category": "places",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "A look at a herding way of life in Laponia, northern Sweden.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-9CHzR0pUmRg",
+      "video_id": "9CHzR0pUmRg",
+      "title": "Russian vs Ukrainian: Why One-Sided Understanding? #shorts",
+      "channel": {
+        "name": "Info Nator",
+        "id": "UCDH1004GO1uC-5EYYc4R2ag"
+      },
+      "url": "https://www.youtube.com/shorts/9CHzR0pUmRg",
+      "embed_url": "https://www.youtube.com/embed/9CHzR0pUmRg",
+      "thumbnail": "https://i.ytimg.com/vi/9CHzR0pUmRg/hqdefault.jpg",
+      "duration_seconds": 59,
+      "published": "2026-11-07",
+      "topic": "linguistics",
+      "category": "language",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Compares how Russian and Ukrainian split from a shared ancestor.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-Pl8mze1aKWA",
+      "video_id": "Pl8mze1aKWA",
+      "title": "This country could circle the Earth 2.5 times 🌍 #geography #facts #shorts",
+      "channel": {
+        "name": "Geopolpage",
+        "id": "UCSVY49LUA_6YZtAxvKwV7JQ"
+      },
+      "url": "https://www.youtube.com/shorts/Pl8mze1aKWA",
+      "embed_url": "https://www.youtube.com/embed/Pl8mze1aKWA",
+      "thumbnail": "https://i.ytimg.com/vi/Pl8mze1aKWA/hqdefault.jpg",
+      "duration_seconds": 74,
+      "published": "2026-11-22",
+      "topic": "geography",
+      "category": "maps",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Why Norway's coastline is so much longer than the map suggests.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-kcY092S_hgE",
+      "video_id": "kcY092S_hgE",
+      "title": "This Land Is Free and No Country Wants It",
+      "channel": {
+        "name": "GeoAtlas",
+        "id": "UCuvHuanY3678NiQEA5rjSJA"
+      },
+      "url": "https://www.youtube.com/shorts/kcY092S_hgE",
+      "embed_url": "https://www.youtube.com/embed/kcY092S_hgE",
+      "thumbnail": "https://i.ytimg.com/vi/kcY092S_hgE/hqdefault.jpg",
+      "duration_seconds": 59,
+      "published": "2026-10-27",
+      "topic": "borders and maps",
+      "category": "geography",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "How colonial borders left some land that no country claims.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-IP7Ks7PzOvk",
+      "video_id": "IP7Ks7PzOvk",
+      "title": "How A Wankel Rotary Engine Works⚙️ #physics #automobile #engineering #pixelart #engineeringexplained",
+      "channel": {
+        "name": "8BitEngineering",
+        "id": "UCQCdUOZje-dgkkjEQPu_5-Q"
+      },
+      "url": "https://www.youtube.com/shorts/IP7Ks7PzOvk",
+      "embed_url": "https://www.youtube.com/embed/IP7Ks7PzOvk",
+      "thumbnail": "https://i.ytimg.com/vi/IP7Ks7PzOvk/hqdefault.jpg",
+      "duration_seconds": 36,
+      "published": "2026-11-05",
+      "topic": "rotary engines",
+      "category": "engineering",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Shows the four stages inside a Wankel engine.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-rhD7jWor3oQ",
+      "video_id": "rhD7jWor3oQ",
+      "title": "Why does a V8 sound like THAT? 🔊#engineering #gaming #physics #pixelart #engineeringexplained #retro",
+      "channel": {
+        "name": "8BitEngineering",
+        "id": "UCQCdUOZje-dgkkjEQPu_5-Q"
+      },
+      "url": "https://www.youtube.com/shorts/rhD7jWor3oQ",
+      "embed_url": "https://www.youtube.com/embed/rhD7jWor3oQ",
+      "thumbnail": "https://i.ytimg.com/vi/rhD7jWor3oQ/hqdefault.jpg",
+      "duration_seconds": 34,
+      "published": "2026-11-10",
+      "topic": "engine acoustics",
+      "category": "engineering",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains the V8 rumble through uneven exhaust pulses.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    },
+    {
+      "id": "yt-W96RGgk0Nkc",
+      "video_id": "W96RGgk0Nkc",
+      "title": "Secrets of Antarctica | The Frozen Continent Hiding Earth's History - 60s Documentary",
+      "channel": {
+        "name": "SCI60",
+        "id": "UCT2qpVgh_MxOfjBRzfk4Gkg"
+      },
+      "url": "https://www.youtube.com/shorts/W96RGgk0Nkc",
+      "embed_url": "https://www.youtube.com/embed/W96RGgk0Nkc",
+      "thumbnail": "https://i.ytimg.com/vi/W96RGgk0Nkc/hqdefault.jpg",
+      "duration_seconds": 61,
+      "published": "2026-10-24",
+      "topic": "Antarctica",
+      "category": "earth science",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Subglacial lakes, Blood Falls and ice core air bubbles in one minute.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-27T03:11:47Z"
+      }
+    }
+  ],
+  "generated_at": "2026-11-27T03:16:21Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Few strong research or AI videos today, so the established tier is small. No filler added.",
+  "candidates_considered": 250
+}

@@ -109,6 +109,90 @@
         "knowledge"
       ]
     },
+    "discovery:disc-2026-11-27-chassang-deniability": {
+      "date": "2026-11-27",
+      "title": "Plausible Deniability: Getting People to Tell the Truth",
+      "url": "https://podcasts.apple.com/us/podcast/plausible-deniability-getting-people-to-tell-the/id1536444695?i=1000803688571&uo=4",
+      "category": "game theory",
+      "type": "podcast",
+      "dimensions": [
+        "knowledge",
+        "people"
+      ]
+    },
+    "discovery:disc-2026-11-27-cyanotype": {
+      "date": "2026-11-27",
+      "title": "Introduction to the cyanotype process",
+      "url": "https://blog.scienceandmediamuseum.org.uk/introduction-cyanotype-process/",
+      "category": "making and photography",
+      "type": "project",
+      "dimensions": [
+        "curiosity",
+        "culture"
+      ]
+    },
+    "discovery:disc-2026-11-27-distill-momentum": {
+      "date": "2026-11-27",
+      "title": "Why Momentum Really Works",
+      "url": "https://distill.pub/2017/momentum/",
+      "category": "optimization",
+      "type": "article",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ]
+    },
+    "discovery:disc-2026-11-27-evolution-of-trust": {
+      "date": "2026-11-27",
+      "title": "The Evolution of Trust",
+      "url": "http://ncase.me/trust/",
+      "category": "game theory",
+      "type": "website",
+      "dimensions": [
+        "curiosity",
+        "people"
+      ]
+    },
+    "discovery:disc-2026-11-27-follow-up-questions": {
+      "date": "2026-11-27",
+      "title": "Elements of Meaningful Conversation: Fewer Mirror Questions, More Follow-Ups",
+      "url": "https://www.library.hbs.edu/working-knowledge/elements-of-meaningful-conversation-fewer-mirror-questions-more-follow-ups",
+      "category": "conversation",
+      "type": "article",
+      "dimensions": [
+        "people"
+      ]
+    },
+    "discovery:disc-2026-11-27-gleaners-and-i": {
+      "date": "2026-11-27",
+      "title": "The Gleaners and I (2000)",
+      "url": "https://www.criterion.com/films/30368-the-gleaners-and-i",
+      "category": "world cinema",
+      "type": "film",
+      "dimensions": [
+        "culture"
+      ]
+    },
+    "discovery:disc-2026-11-27-graepel-uncertainty": {
+      "date": "2026-11-27",
+      "title": "Building AI That Can Reason Under Uncertainty",
+      "url": "https://twimlai.com/podcast/twimlai/building-ai-that-can-reason-under-uncertainty",
+      "category": "machine learning",
+      "type": "podcast",
+      "dimensions": [
+        "research"
+      ]
+    },
+    "discovery:disc-2026-11-27-part-tabula-rasa": {
+      "date": "2026-11-27",
+      "title": "Tabula Rasa",
+      "url": "https://ecmrecords.com/product/arvo-part-tabula-rasa-gidon-kremer-keith-jarrett-tatjana-grindenko-alfred-schnittke-the-12-cellists-of-the-berlin-philharmonic-orchestra-staatsorchester-stuttgart-dennis-russell-davies-lithuan/",
+      "category": "music",
+      "type": "album",
+      "dimensions": [
+        "culture"
+      ]
+    },
     "discovery:yt-9eJQQVrUUoI": {
       "date": "2026-11-26",
       "title": "MIT 6.S184: Flow Matching and Diffusion Models, Lecture 01: Flow and Diffusion Models (2026)",
@@ -117,6 +201,16 @@
       "type": "lecture",
       "dimensions": [
         "research"
+      ]
+    },
+    "discovery:yt-CIFWlxQrl88": {
+      "date": "2026-11-27",
+      "title": "Why the Soviet GitHub Failed",
+      "url": "https://www.youtube.com/watch?v=CIFWlxQrl88",
+      "category": "history of computing",
+      "type": "video",
+      "dimensions": [
+        "knowledge"
       ]
     },
     "discovery:yt-ViT2FOEr6EI": {
@@ -129,6 +223,17 @@
         "knowledge"
       ]
     },
+    "discovery:yt-WbM7GP7QoEM": {
+      "date": "2026-11-27",
+      "title": "Scientists Said This Wave Was Impossible",
+      "url": "https://www.youtube.com/watch?v=WbM7GP7QoEM",
+      "category": "physics",
+      "type": "video",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ]
+    },
     "discovery:yt-of60wacXiTQ": {
       "date": "2026-11-26",
       "title": "Old trams waste power on purpose. Here's why",
@@ -137,6 +242,28 @@
       "type": "video",
       "dimensions": [
         "curiosity"
+      ]
+    },
+    "discovery:yt-pOSSpd8mb4Y": {
+      "date": "2026-11-27",
+      "title": "Taking turns isn't fair. We fixed it.",
+      "url": "https://www.youtube.com/watch?v=pOSSpd8mb4Y",
+      "category": "recreational mathematics",
+      "type": "video",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ]
+    },
+    "discovery:yt-svl_1upFpQo": {
+      "date": "2026-11-27",
+      "title": "The paradox at the heart of AI and science | Terence Tao",
+      "url": "https://www.youtube.com/watch?v=svl_1upFpQo",
+      "category": "AI and science",
+      "type": "video",
+      "dimensions": [
+        "research",
+        "knowledge"
       ]
     },
     "discovery:yt-zqzk43bSdDI": {

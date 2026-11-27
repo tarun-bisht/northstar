@@ -1,0 +1,1375 @@
+{
+  "schema": "arxiv",
+  "date": "2026-11-27",
+  "items": [
+    {
+      "id": "arxiv-2611.34579",
+      "arxiv_id": "2611.34579",
+      "title": "Tune for Retention, Not Just Gain: SFT Forgets Far Less than You Think",
+      "authors": [
+        "Nirmit Joshi",
+        "Nathan Srebro",
+        "Eran Malach"
+      ],
+      "url": "https://arxiv.org/abs/2611.34579",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "abstract": "Catastrophic forgetting, the drastic loss of previously acquired capabilities when learning new ones, is a central challenge in language model fine-tuning. Supervised fine-tuning (SFT) is widely believed to be prone to such forgetting. Recent works have attributed this to the off-policy nature of SFT, arguing that on-policy learning is key to continual learning. In this paper, we challenge this premise. We show that while maximizing new-task performance can induce catastrophic forgetting, alternative hyperparameter choices (lower learning rate and batch size) can yield similar gains with little to no forgetting. With hyperparameters selected jointly for gain and retention, vanilla SFT retains prior capabilities far better than previously suggested and can be competitive with Self-Distillation Fine-Tuning (SDFT), an on-policy approach designed to mitigate forgetting. While SDFT can be more robust to hyperparameter choices, it also requires a retention-aware criterion to identify hyperparameter configurations that avoid catastrophic forgetting. Our results challenge the view that on-policy training is what enables learning with retention and raise broader questions about what drives catastrophic forgetting during fine-tuning.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "continual learning",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1",
+      "overview": true
+    },
+    {
+      "id": "arxiv-2611.34923",
+      "arxiv_id": "2611.34923",
+      "title": "Mixture-of-Loops Transformer",
+      "authors": [
+        "Lianghui Zhu",
+        "Shijie Wang",
+        "Xinggang Wang",
+        "Jinze Bai",
+        "Bo Wang",
+        "Xiang Bai"
+      ],
+      "url": "https://arxiv.org/abs/2611.34923",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "abstract": "Looped Transformers boost expressivity by reusing shared layers across loops, yet at the cost of efficiency. Pushing their expressivity-efficiency frontier requires rethinking the core mechanism connecting adjacent loops: What should be passed as a Transformer loops? We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. Under loop residual, MoLT-R retains the residual stream and reads local KV across loops for expressivity. Under loop KV, MoLT-KV instead restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions for efficiency. MoLT-KV eliminates same-position cross-loop dependence and, paired with loop forcing for parallel training, unlocks single-traversal Mixture-of-Loops (MoL) decoding beyond the training loop horizon. To balance efficiency and quality, we introduce U-shaped MoLT (U-MoLT), which separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. In 400B-token pretraining, U-MoLT outperforms OLMo3 across 700M/1.5B dense and 3B MoE models, achieving 1.7x validation cross-entropy (CE) token efficiency at 700M while improving 3B MoE 10-domain perplexity by 0.75 and 10-task accuracy by 2.1 percentage points. In 100B-token continued pretraining of Qwen3.5-0.8B-Base, our U-MoLT adaptation lowers CE on all 11 domains over the matched baseline with 1.4x mean token efficiency. At inference, U-MoLT with MoL-Hybrid-2 matches non-looped OLMo3 latency at 996.6 vs. 1,000.6 ms on S-size (~113M) models. Code is available at https://github.com/hustvl/MoLT",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "looped transformers",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "worth knowing"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "1Huazhong University of Science & Technology, 2ByteDance Seed, 3University of Toronto"
+      ],
+      "hf_upvotes": 65,
+      "version": "v1",
+      "overview": true
+    },
+    {
+      "id": "arxiv-2611.34934",
+      "arxiv_id": "2611.34934",
+      "title": "Attack Policy Selection can Mislead Monitor Evaluators",
+      "authors": [
+        "Charlie Griffin",
+        "Oliver Makins",
+        "Asa Cooper Stickland",
+        "Alessandro Abate",
+        "Yarin Gal",
+        "Abby D'Cruz",
+        "Xander Davies"
+      ],
+      "url": "https://arxiv.org/abs/2611.34934",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "abstract": "AI monitors, classifiers that flag dangerous behaviour by AI agents, are often evaluated against transcripts generated by attack policies acting as proxies for dangerous behaviour in deployment. We evaluate an ex-production OpenAI monitor as a case study and find that measured false negative rate is highly sensitive to both the method used to generate attack policies and the level of optimisation applied within that method. This rate ranged from 0.5\\% to 20.8\\% across optimisation levels of a single method (reinforcement learning), and from 6.4\\% to 23.0\\% across methods at their best observed optimisation level (optimised prompting vs.\\ transcript editing). Every attack policy was developed against proxy monitors only: all reported results show attacks transferring to the held-out GPT-5.4 target monitor. Our results suggest that monitor evasion evaluations can easily mislead: an evaluation using only basic attack methods may give false confidence that a monitor is strong. The sensitivity to attack-policy choice raises a problem: interpreting any particular result as evidence about deployment performance requires justification. The transcripts produced by attack policies are proxies for the dangerous behaviour a monitor must flag in deployment. These proxies can introduce visible artefacts, such as reasoning about a ``side task'' absent from the instructions shown to the monitor, that affect monitor judgements. Given the sensitivity above, the choice of proxy can change an evaluation's conclusion. Reading these results as evidence about deployment therefore requires a separate legitimacy argument for why the proxies are informative, including any justification of conservativeness. Making convincing arguments remains an open problem.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "safety evaluation",
+      "tags": [
+        "useful for your work",
+        "notable researcher",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1",
+      "overview": true
+    },
+    {
+      "id": "arxiv-2611.34801",
+      "arxiv_id": "2611.34801",
+      "title": "Guidance as Variance Matching",
+      "authors": [
+        "Ali Backour",
+        "Artem Lukoianov",
+        "Frank Permenter",
+        "Tommi Jaakkola",
+        "Justin Solomon",
+        "Vincent Sitzmann"
+      ],
+      "url": "https://arxiv.org/abs/2611.34801",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "abstract": "Guidance repels the prediction of a diffusion model away from a weaker reference prediction. It substantially improves sample quality, but its mechanism remains poorly understood. We first find that, at the scales used in practice, guidance does not improve the prediction of the posterior mean (the model's training target); it makes the prediction worse, while samples improve. Second, posterior-mean predictions have less variance than the data, and we find that guidance restores it. We introduce variance-matched guidance: a closed-form rule that picks the guidance scale by matching the variance of the guided predictions to that of the data. Without tuning, it recovers the hand-picked scales of eleven widely used models across image, video, audio, motion, and world generation; to our knowledge, no previous explanation of guidance predicts them. Applied per noise level, it yields a schedule without tuned hyperparameters that users prefer to hand-crafted ones on SD 3.5 Medium. Third, we offer an interpretation of the mechanism behind guidance: each model makes a random error in predicting the posterior mean, and guidance rescales the difference of these errors into a sample with the posterior's covariance, which improves sampling. This view also suggests two new hypotheses that our experiments support: guidance can work with negative scales, and guiding a model with its own checkpoint needs a larger scale than guiding it with an independently trained model.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "diffusion guidance",
+      "tags": [
+        "new method or architecture",
+        "theory",
+        "notable researcher"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34821",
+      "arxiv_id": "2611.34821",
+      "title": "LoopTitan: What Does Parameter Revisit Buy a Mixture-of-Experts?",
+      "authors": [
+        "Zichen Tian",
+        "Yudong Lu",
+        "Xuansheng Wu",
+        "Na Zou",
+        "Xia Hu",
+        "Guanchu Wang",
+        "Qianru Sun"
+      ],
+      "url": "https://arxiv.org/abs/2611.34821",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Looped Mixture-of-Experts (MoE) architectures revisit layer parameters across depths. This design increases effective depth without adding parameters. Recent looped MoE studies report substantial gains over the standard MoE at matched budgets (parameters, FLOPs and KV cache). However, the reported gains still confound parameter revisit with other design choices, e.g., network shape and residual scale. We ask, what does parameter revisit itself buy? Using matched non-revisit controls, we find that parameter revisit itself buys almost nothing. We argue that revisit only offers a freedom an MoE already has, i.e., trading experts for depth (more layers, fewer experts each) at fixed parameters. First, at matched budgets, we decompose the state-of-the-art looped recipe, with revisit last. A non-revisit control retains all the gain. Most comes from network shape, and the rest from residual scale. We prove this scale acts as a lower learning rate on revisited layers. This helps under AdamW's uneven layer step sizes, but disappears under Muon, which keeps them nearly equal. Second, beyond matched budgets, we evaluate revisit by adding compute at fixed parameters. One extra visit gains more than doubling the experts. Yet without revisit, a deeper standard MoE at equal parameters and compute obtains 90.2% of that gain under Muon. Overall, gains come from network shape, the optimizer and added compute, which a standard MoE can adopt. Accordingly, we propose LoopTitan-Base as a stronger MoE baseline. Under Muon, it matches the strongest looped recipe without revisit or residual scale. We open-source LoopTitan and release 17 pretrained models (including LoopTitan-Base and the control). Our experiment record is public as GitHub issues, with predictions pre-registered and the full exploration history kept. This is our Phase 1 technical report, laying the foundation for follow-up studies.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "model architecture",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "1Shanghai Artificial Intelligence Laboratory",
+        "2Singapore Management University"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.33893",
+      "arxiv_id": "2611.33893",
+      "title": "When Are Parallel Subagents Effective for Coding? An Empirical Study on Repository Construction",
+      "authors": [
+        "Zhiheng Lyu",
+        "Chengyu Yin",
+        "Lingming Zhang"
+      ],
+      "url": "https://arxiv.org/abs/2611.33893",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.MA",
+        "cs.AI"
+      ],
+      "abstract": "LLM-based coding agents are increasingly used for long-horizon tasks such as building an entire program from a specification. Products like Codex and Claude Code let an agent delegate work to parallel subagents, multiplying run cost, yet it remains unclear whether and when delegation produces a better program. We compare a single agent with a main agent delegating to subagents on repository-construction tasks from NL2Repo and ProgramBench (which also provides an executable reference program). We compare scores at equal time and equal cost, run intervention experiments, and analyze fine-grained behavior. On randomly drawn tasks, parallel subagents raise hidden-test pass rates by only about 1 to 5 percentage points at up to 3.8x the cost of a single agent. Their gain is larger on hard tasks, where we find evidence of three mechanisms. Self-checking: with GPT-5.6 Sol, one sentence telling a single agent to probe the reference program first recovers most of this gain at a fraction of the cost; from GPT-5.6 Sol to GPT-6.1 Sol, the gain shrinks as single agents check their own work more. Fresh context: in extended runs, a single agent that periodically starts a new session with an empty conversation makes faster early progress in every comparison than one that resumes its conversation. Modularity: multi-agent runs produce more modular code (more files and shorter functions), closer to the upstream source. We observe similar patterns in a smaller replication with Opus 5.5 on Claude Code. Overall, subagents help when (i) a single agent stops checking too early, (ii) a long session keeps editing with little improvement, or (iii) modular code helps on the task; otherwise, they mainly add cost.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "coding agents",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34373",
+      "arxiv_id": "2611.34373",
+      "title": "Under the Influence -- of What? A Controlled Evaluation of Influence Functions",
+      "authors": [
+        "Johannes Gabriel Sindlinger",
+        "Arzu Burcu Güven",
+        "Rob van der Goot",
+        "Anna Rogers"
+      ],
+      "url": "https://arxiv.org/abs/2611.34373",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "abstract": "Influence functions are a promising way to identify which training examples are responsible for a model's output. However, so far empirical evaluations on LLM pretraining level only assumed that they work as intended. This is the first work to systematically evaluate whether the 'influential' examples actually have properties relevant to a language model output, based on re-training with controlled data splits. We investigate three prominent Hessian approximation methods (GradSim, TrackStar, K-FAC) in two settings (linguistic phenomena and factual knowledge) in GPT-2 type models (68M-5.6B training tokens). We find that on average, the `influential' examples are indeed relevant, but they do not always bear the target properties directly, and the ratio and kind of relevance varies by setting.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "data attribution",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.03146",
+      "arxiv_id": "2611.03146",
+      "title": "Controlling Sharpening in LLM Post-Training",
+      "authors": [
+        "Simon Matrenok",
+        "Nicolas Menet",
+        "Nicolas Flammarion",
+        "Andreas Krause"
+      ],
+      "url": "https://arxiv.org/abs/2611.03146",
+      "submitted": "2026-11-02",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "LLM post-training via reinforcement learning has shown consistent improvements in accuracy at the cost of reducing behavioral coverage - a phenomenon known as sharpening that can stall progress on difficult tasks. Repeated sampling objectives such as $\\mathrm{pass@k}$ and $\\mathrm{max@k}$ are known to mitigate sharpening, but the mechanism behind it remains poorly understood. Moreover, existing approaches for $\\mathrm{@k}$ optimization use dedicated algorithms, and no general framework exists for adapting established policy optimization methods from $\\mathrm{@}1$ to $\\mathrm{@k}$. We derive the optimal policies for KL-regularized $\\mathrm{pass@k}$ and $\\mathrm{max@k}$ objectives in closed form. Our explicit solutions reveal that $\\mathrm{@k}$ optimization naturally redistributes learning pressure based on prompt difficulty, directing it toward harder problems. Crucially, we show that standard $\\mathrm{@}1$ objectives achieve these exact same optimal policies through prompt-adaptive regularization or reward transformation. Ultimately, this yields an optimizer-independent explanation for why $\\mathrm{@k}$ objectives reduce sharpening on easy tasks while prioritizing success on harder ones. Building on these insights, we introduce $\\mathrm{@k}$ Adaptive Pressure for Policy Optimization (KAPPO). Following a one-time reference calibration, KAPPO seamlessly adapts existing $\\mathrm{@}1$ methods to $\\mathrm{@k}$ via prompt-adaptive regularization or reward transformation, without otherwise altering their training procedures. Experiments with several RL methods on mathematical reasoning and code generation demonstrate that KAPPO provides direct control over sharpening. Crucially, we demonstrate that $\\mathrm{@k}$ pressure can be fully realized with single completion training, matching the performance of multi-completion $\\mathrm{@k}$ optimizers at a fraction of the cost.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "reinforcement learning",
+      "tags": [
+        "theory",
+        "new method or architecture"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34215",
+      "arxiv_id": "2611.34215",
+      "title": "PROVE: Mitigating Long-Horizon LLM Collusion with Reinforcement Learning from Verified Evidence",
+      "authors": [
+        "Haochen Luo",
+        "Jie Fu",
+        "Mukai Li",
+        "Yuqi Wang",
+        "Qi Liu"
+      ],
+      "url": "https://arxiv.org/abs/2611.34215",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "abstract": "When LLM agents verify each other's work over a long interaction, they drift into collusion: they come to accept work without the evidence that the verification protocol requires. Collusion is absent at the start and builds up episode by episode, which we trace to accurate feedback accumulating in memory. An agent that follows the rule is told that its verdict was wrong whenever its peer was right, so breaking the rule is the reward-maximizing choice, and agents talk themselves into it in their private reflections. Existing mitigations leave the agents unchanged; we train the behavior out. PROVE (Protocol Reinforcement from Verified Evidence) is a multi-agent reinforcement learning method that rewards verdicts by the evidence behind them rather than by their outcome, and credits every call an agent makes, including the calls that solve its own task, with the outcome that call controls. On Qwen3.6-27B, a LoRA adapter trained on six-episode interactions takes the collusion rate on held-out task sequences at the original ten-episode horizon from 65.0% to 1.0%, with no detectable change in task success. Collusion that converged in every interaction now converges in none, and the gain holds four episodes beyond the longest interaction seen in training. The trained 27B model colludes less than every model evaluated in the original study, closed-weight frontier models included. Code is available at https://github.com/Haochen-Luo/PROVE.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "multi-agent safety",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34147",
+      "arxiv_id": "2611.34147",
+      "title": "Letting Models Manage Their Own Context: Where We Stand",
+      "authors": [
+        "Alessio Devoto",
+        "Avinash Vem",
+        "Tara Safavi",
+        "Sanjay Kariyappa",
+        "Yu-Hsuan Tseng",
+        "Paul Furgale",
+        "Ricardo Silveira Cabral"
+      ],
+      "url": "https://arxiv.org/abs/2611.34147",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.AI"
+      ],
+      "abstract": "Agent harnesses today manage context on the model's behalf: when the window fills, the harness triggers a compaction that summarizes the history. We study the alternative, \\emph{model-driven} context management, in which the model itself decides when and what to compact through a context API. We gave models control over their own context in \\nooa, NVIDIA's open source agent harness, and compared the two strategies on document research and machine learning engineering across context budgets from 8K to 512K tokens. Models that use the context API effectively reach higher accuracy, often with fewer input tokens, especially at tight budgets: \\textbf{GPT 6.1 nearly triples its score at a 32K budget} on OfficeQA Pro v2 (21\\%~$\\rightarrow$~56\\%), and \\textbf{Kimi gains with up to 41\\% fewer input tokens}. Models differ widely, however, in how often they use the API, how aggressively they compact, and when they start compacting, and prompt changes shift that timing. Finally, we show that \\textbf{inference engines can make model-driven edits cheaper}: by reusing the KV cache of the unchanged suffix after an edit, \\textbf{we cut prefill compute by up to 15\\% per request with no measurable change in accuracy}. Together, these results point to a new co-design frontier: models trained to manage their own context, served by inference engines that support KV cache editing.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent context",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Interestinmodel-drivencontextmanagementhasgrownsince. ResearchsuchasSideQuest(Kariyappa",
+        "We compared two context management strategies on document research and machine learning",
+        "When we released NOOA (Furgale et al., 2026), NVIDIA’s open source agent harness, we built",
+        "control over their own context in NOOA, NVIDIA’s open source agent harness, and compared the two",
+        "introduced an experimental context-management mode (OpenAI Codex, 2026b) that combines",
+        "strategies on document research and machine learning engineering across context budgets from 8K to 512K",
+        "© 2026 NVIDIA. All rights reserved. NVIDIA Technical Report"
+      ],
+      "hf_upvotes": 7,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.33896",
+      "arxiv_id": "2611.33896",
+      "title": "Looped Models are Fast Multi-Token Predictors",
+      "authors": [
+        "Ayhan Suleymanzade",
+        "Sean McLeish",
+        "Sehoon Kim",
+        "Jinwoo Kim",
+        "Antoine Bosselut"
+      ],
+      "url": "https://arxiv.org/abs/2611.33896",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "abstract": "Looped language models can adapt computation for predicting a token without a proportional rescaling in unique model parameters by adjusting the number of loops. This property has been used for self-speculative decoding, taking shallow loops as fast drafters and deep loops as verifiers, which is effective since drafting still uses full parameters. In this paper, we show that shallow loops can be also predictive of several future tokens and leverage this to drastically accelerate the inference of looped language models. To that end, we present Floodgates, a simple self-speculative decoding method that appends a block of mask tokens as a suffix and learns via low-rank adaptation to draft these tokens in parallel. Across seven models, five benchmarks, a range of batch sizes, and both greedy and sampled decoding, Floodgates is the fastest lossless decoding method in most cases, attaining up to 7.5x acceleration. Through analysis, we show that this speedup is enabled by all-depth training of looped models, with the shallow drafter's ability to leverage full-depth computation by conditioning on deep prefix cache evaluated during verification.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "efficient inference",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "1EPFL 2University of Maryland 3KAIST"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34492",
+      "arxiv_id": "2611.34492",
+      "title": "FlyingStart: Learned Cross-Token Warm Starts for Fixed-Point Decoding in Recurrent-Depth Language Models",
+      "authors": [
+        "Runguo Li",
+        "Dezhen Lu",
+        "Zixiang Ni"
+      ],
+      "url": "https://arxiv.org/abs/2611.34492",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "abstract": "Recurrent-depth language models generate each token by iterating a shared block of layers until its hidden state converges. Inference methods for these models decide when to stop the iteration, yet every token still starts from random noise and pays the full cost of converging. We show that where the iteration starts is a second, independent lever. A token's fixed point is predictable from the state at which the previous token stopped, after a learned change of coordinates, and we introduce FlyingStart, a linear warm start that is fitted in closed form on the frozen model and costs under 5% of one loop. The iteration and its stopping rule are unchanged, so the exit criterion certifies the same distance to the fixed point from any start: a better start removes loops at unchanged accuracy. On Huginn-0125, FlyingStart matches the accuracy of the strongest training-free baseline with 14--19% fewer decoding layers, raises batched throughput by 16--18% in two serving engines, and adds a further 10--14% on top of self-speculative decoding. A contraction analysis predicts the number of loops saved on all four models we study, including one where the prediction was recorded before any evaluation, and token by token on Huginn, and it identifies when a warm start pays off: the saving grows with the number of loops a model needs to converge.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "efficient inference",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.21056",
+      "arxiv_id": "2611.21056",
+      "title": "Evaluation-Free Recursive Self-Improvement for Coding Agents",
+      "authors": [
+        "Zhe Ren",
+        "Guowei Rong",
+        "Yimeng Chen",
+        "Nanbo Li",
+        "Piotr Piękos",
+        "Mateusz Ostaszewski",
+        "Dandan Guo",
+        "Jürgen Schmidhuber"
+      ],
+      "url": "https://arxiv.org/abs/2611.21056",
+      "submitted": "2026-11-16",
+      "categories": [
+        "cs.CL",
+        "cs.NE"
+      ],
+      "abstract": "Recent self-improving coding agents have achieved strong benchmark performance by iteratively modifying their own executable implementations. A common pattern uses downstream task-derived evidence to decide which candidates or lineages continue evolving, which we term evaluate-and-select. Obtaining this signal requires repeatedly executing evolved agents on downstream tasks, so broader exploration incurs increasing evaluation cost, while repeated optimization against a fixed evaluation distribution may encourage benchmark-specific adaptation. We ask: can coding agents self-improve without downstream task evaluation inside the evolution loop? We introduce Explore-then-Integrate (ELITE), which integrates implementation mechanisms rather than selecting a single exploratory child to continue the lineage. At each generation, ELITE proposes diverse focused improvements, implements them independently from the same parent, and inspects the resulting programs to identify complementary, redundant, and conflicting mechanisms before reimplementing a compatible subset as one coherent descendant. No downstream task outcomes or task-solving trajectories of evolved candidates are used to guide evolution; only deterministic checks of structural and operational validity are used inside the loop. On SWE-bench Pro, ELITE improves the initial agent from 60.0% to 85.6%, compared with 86.7% for the Darwin Godel Machine (DGM) and 88.3% for the Huxley-Godel Machine (HGM), while using zero candidate task evaluations and reducing observed wall-clock evolution time by 8.8x and 3.2x, respectively, under the evaluated configurations. In cross-benchmark transfer without further adaptation, ELITE averages 73.3% on SWE-bench Verified and 69.3% on Polyglot. Together, these results demonstrate the feasibility of coding-agent self-improvement without downstream candidate task evaluation in our setting.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "self-improving agents",
+      "tags": [
+        "strong result",
+        "notable researcher"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "hf_upvotes": 4,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34756",
+      "arxiv_id": "2611.34756",
+      "title": "Collect for Coverage, Replay with Evidence: Adaptive and Efficient On-Policy Distillation for Long-Horizon Agents",
+      "authors": [
+        "Haowen Hou",
+        "Gen Li",
+        "Ruilin Li",
+        "Yicheng Liu",
+        "Zhen Huang",
+        "Shuai Dong",
+        "Congcong Wang",
+        "Kaiwen Tuo",
+        "Hongrui Wu",
+        "Zelin Peng",
+        "Kanghui Tian",
+        "Ji Zhao",
+        "Dianyi Wang",
+        "Jiaqi Wang"
+      ],
+      "url": "https://arxiv.org/abs/2611.34756",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "abstract": "Fully online on-policy distillation (OPD) is costly for long-horizon agents because each update depends on fresh environment rollouts. Prefix replay offers an efficient alternative by sampling current-student responses from stored histories, reducing idle time for long-tail rollouts and allowing each collected trajectory to support multiple updates. However, our analysis of the complete prefix replay pipeline identifies two limitations in long-horizon settings. In trajectory collection, teacher-only trajectories miss student-induced histories, while broader history coverage can reduce teacher reliability. In trajectory reuse, fixed position-based schedules cannot identify critical decisions that may occur at any trajectory depth. We introduce CARE-OPD (Collect for coverAge, Replay with Evidence) to address both limitations. Student-seeded teacher completions and response-level confidence gating expand history coverage while filtering unreliable updates. Hindsight replay allocation then uses downstream execution evidence to select consequential turns. Across long-horizon tasks Software Engineering and Deep Research, CARE-OPD outperforms online OPD and prior prefix replay baselines. On SWE-bench Verified, it raises task success to 59.5% while reducing end-to-end training time by 45% and environment actions by 44% relative to asynchronous online OPD.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent training",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "hf_upvotes": 2,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34777",
+      "arxiv_id": "2611.34777",
+      "title": "When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL",
+      "authors": [
+        "Haowen Hou",
+        "Yicheng Liu",
+        "Zhen Huang",
+        "Jiaqi Wang"
+      ],
+      "url": "https://arxiv.org/abs/2611.34777",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "abstract": "Group-based reinforcement learning with verifiable rewards often yields all-fail groups on long-horizon agent tasks: every sampled trajectory receives zero reward, leaving group-relative methods without a reward-based policy gradient. A common remedy supplies complete solutions from a stronger model, but full trajectories are expensive and expose the learner to long off-policy histories. We introduce SPLICE, which constructs local training targets from failed current-policy trajectories online. For each all-fail group, a proposal model selects a splice point in a current-policy trajectory and generates several bounded options from that point. We estimate each option's value using repeated current-policy continuations, convert positive estimates into a return-weighted local target, and fit the current policy on the options. We evaluate SPLICE across two policy families on two long-horizon agent tasks, Software Engineering with SWE-bench Verified and Deep Research with BrowseComp-Plus. SPLICE outperforms GRPO and full-trajectory guidance baselines in all four settings, improving over GRPO by 2.8--9.8 percentage points. On initially failed SWE tasks, it raises GRPO's graduation rate by 10.8 percentage points. Further experiments show that SPLICE improves performance while reducing costly proposal-model computation.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent training",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "hf_upvotes": 2,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.17287",
+      "arxiv_id": "2611.17287",
+      "title": "Negative-Only Policy Optimization for One-Sided Verifiable Rewards",
+      "authors": [
+        "Jiacheng Xu",
+        "Shuo He",
+        "Fuxiang Zhang",
+        "Chaojie Wang",
+        "Bo An"
+      ],
+      "url": "https://arxiv.org/abs/2611.17287",
+      "submitted": "2026-11-12",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) typically relies on a verifier that can reliably judge whether sampled solutions are correct. However, in many realistic settings, complete verification is generally unavailable, while cheap checks can only falsify failures. We formalize this regime as one-sided verifiability (OSV): verified negatives are reliable counterexamples, but verified positives are merely non-falsified candidates and may contain many false positives. This asymmetry makes standard RLVR unreliable, because reinforcing verified positives can directly reward shortcuts that pass partial checks. To address this issue, we propose Negative-Only Policy Optimization (NOPO), which treats verified positives as unlabeled and updates the policy only by suppressing trusted verified negatives. Specifically, NOPO combines a reference-relative negative suppression loss with a group-level adapter that scales each update by the proportion of non-falsified responses. Across unit-test, constraint-check, and LLM self-verifiers, NOPO improves pass@k over baselines on code, logic, and math benchmarks when oracle rewards are unavailable. These gains persist under inference-time scaling and cross-benchmark transfer.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "reinforcement learning",
+      "tags": [
+        "new method or architecture",
+        "useful for your work"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "1Nanyang Technological University, Singapore 2Skywork AI"
+      ],
+      "hf_upvotes": 3,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.33759",
+      "arxiv_id": "2611.33759",
+      "title": "Understanding Double Descent through Universal Compression",
+      "authors": [
+        "Jiaxuan Cheng",
+        "Addison Spiegel"
+      ],
+      "url": "https://arxiv.org/abs/2611.33759",
+      "submitted": "2026-11-25",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "abstract": "Many deep learning models exhibit a double-descent phenomenon, where test loss exhibits a sharp peak near the interpolation threshold and then descends a second time as model size grows further, contrary to the U-shape predicted by the classical bias--variance tradeoff. The double-descent phenomenon has been found and explained in toy classical models, but is not well-understood in modern deep learning despite extensive empirical study. We interpret double descent through the novel lens of universal compression. Specifically, we upper bound the maximum-likelihood excess test loss as a sum of four terms: an approximation-and-shift term, a minimax batch regret, a prior cost, and an MLE-vs-Bayes gap. Under exact posterior sampling, we further show that the expected MLE-vs-ensemble gap lower-bounds the MLE-vs-Bayes gap in the well-specified setting. In our experiments, a Gaussian-prior SGLD approximation to the Bayes predictor, unlike SGD, shows no pronounced interpolation peak. Experiments with uniform random labels support this gap as a major contributor to the double-descent peak; here, the SGD cross-entropy is roughly four times the SGLD ensemble cross-entropy at the peak, while the ensemble cross-entropy remains near $\\log 10$.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "learning dynamics",
+      "tags": [
+        "theory",
+        "useful for your work"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.33943",
+      "arxiv_id": "2611.33943",
+      "title": "What Does Skill Lift Actually Measure? A Source-Code-Level Audit and Noise-Aware Reanalysis of SkillsBench",
+      "authors": [
+        "Haozhe Zhang",
+        "Zhen Long"
+      ],
+      "url": "https://arxiv.org/abs/2611.33943",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.SE"
+      ],
+      "abstract": "Agent skills are directories of instructions, reference materials, and scripts loaded on demand by coding agents. According to SkillsBench, although human-curated skills can raise the passing rate by about 16.6 percentage points (pp) on average, they have actually reduced the results for some tasks. Later research has started to gate or eliminate skills according to the above per-task gains. We have audited the above benchmark at the source-code level and analysed 7,554 public trials to form 1,421 paired \"(configuration, task) cells\". Source-code audit identified two controlled-verified cases of grader dependence and one operational definition gap; the average lift on these three tasks was 74.6 pp, and the overall average lift for the full set was 18.7 pp. The audit also found that four tasks contained placeholder skill directories, and a certain execution harness additionally added 48 built-in skills in most runs. No task-level reduction achieved statistical significance in the pooled reanalysis with multiple-testing correction. As there were at most three runs per condition for each cell, the observed negative differences are very susceptible to run-sampling noise, and arithmetically, 58% of the cells could not have shown a decrease. Therefore, the raw numbers of negative cells cannot show that skills cause harm. A gating strategy based on the skill-free score seems to improve by 2-3 pp in the logs; however, even after shuffling condition labels to remove any skill effect, it still achieves an increase of 4-7 pp. On the held-out runs not used for fitting and decision-making, there was no statistically significant improvement. The audit ledger and analysis scripts have been published by us.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent evaluation",
+      "tags": [
+        "useful for your work",
+        "worth knowing"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34637",
+      "arxiv_id": "2611.34637",
+      "title": "Carrying Feature Ablations Across Sparse Autoencoder Seeds",
+      "authors": [
+        "Karl Li"
+      ],
+      "url": "https://arxiv.org/abs/2611.34637",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "abstract": "A vision encoder turns an image into one vector per patch, refined layer by layer. A sparse autoencoder (SAE) writes each vector of one layer as a sum of learned directions, most with a coefficient of zero. Researchers call each direction a feature and edit the encoder by removing one feature. An SAE trained from another random seed learns different features. Earlier work matches the two SAEs' features one to one by how closely their directions agree. Matched features can point alike yet respond to different image parts, so removing them may change the encoder differently. We remove a feature and, separately, its match, then compare the changes in the encoder's output on the same held out images. When the second change nearly reproduces the first, we say the removal carries across seeds. A setting fixes a DINOv2 or SigLIP layer and its SAE feature count. At our tolerance, the removal carries for 12% to 70% of matched pairs across three settings. The share is 0% in two controls: an SAE whose directions stay random and, post hoc, matches shuffled among trained features. Post hoc, predicting which removals carry is more accurate with layer contributions than with directions. Some incorrect predictions remain. One persists on independent images. So pairs can be screened at the layer. Measuring the output detects errors this screen misses.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "interpretability",
+      "tags": [
+        "useful for your work",
+        "worth knowing"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34758",
+      "arxiv_id": "2611.34758",
+      "title": "Reading Fine-Tuning Diffs Through Lenses: Model Diffing for Backdoor Detection",
+      "authors": [
+        "Maximilian Petrowitsch",
+        "Ben Connors",
+        "Chris Kapulkin"
+      ],
+      "url": "https://arxiv.org/abs/2611.34758",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "abstract": "We introduce a common scoring system based on token readouts to evaluate weight, activation and output-based model diffing methods for backdoor detection in fine-tuning processes. We also improve existing weight and activation based methods by incorporating the $J$-lens and its refinement, the $J{+}{+}$-lens. We test our setup in experiments where we compare a backdoored model with the base model from which it was fine-tuned. Our results show that incorporating the $J{+}{+}$-lens improves the weight-based method in all our settings, while the $J$-lens improves its ranks within single layers. The strongest single method is $ΔW J{+}{+}$, the weight difference decoded through the $J{+}{+}$-lens of the base model, which ranks a token naming the backdoor among its first ten tokens in 11 of our 12 settings. Moreover, we show that output and activation based methods such as ADL and Diff Mining can easily break if the backdoored model is penalised during fine-tuning for giving the backdoor's words probability on clean inputs, whereas the weight-based methods are not affected. Conversely, permuting the hidden units or training only the layers that read the residual stream hides the backdoor from the weight-based methods but not from ADL and Diff Mining. No single method resists both attacks.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "model diffing",
+      "tags": [
+        "useful for your work",
+        "new method or architecture"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34762",
+      "arxiv_id": "2611.34762",
+      "title": "TASK Memory: Beyond Text-Only Memory with Activation Steering and Knowledge Editing against Memory Hallucination",
+      "authors": [
+        "Jinkun Zhao",
+        "Wenjun Wu"
+      ],
+      "url": "https://arxiv.org/abs/2611.34762",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.AI"
+      ],
+      "abstract": "LLM agents increasingly rely on external memory, yet they still hallucinate about what they remember. Often the correct memory is retrieved and placed in the prompt, but the answer contradicts it or the memory is applied to the wrong question. We call these use-time memory hallucinations. Across five open models, we find that they arise from the conflict between parametric knowledge and external memory and take three forms: memory-ignoring, where the model returns to a stale fact in its weights (up to 46% of queries); memory-misapplying, where it attributes the memory to unrelated entities (up to 24%, and 49% when retrieval is combined with weight editing); and version confusion, where 53% of answers about revised facts assert the superseded value when both versions remain stored. We propose TASK memory, which goes beyond text-only memory by combining a Text note with Activation Steering and Knowledge editing that share one in-model address. The text holds the content. A removable knowledge edit supplies the address through its subject key and supports multi-hop composition. A pair of steering vectors decides, query by query, whether the model adopts the memory or keeps its own answer; the vectors store no content and control how the text memory is used. On frozen models under a pre-registered, test-once protocol, TASK reduces memory-ignoring hallucinations to at most 1.5% in all ten model-dataset cells and cuts neighbour misuse from 39.2% to 7.5% (+10.8 pp composite on CounterFact). It improves a 300-memory library over BM25 RAG by 16.4 pp, an advantage that holds at 3,000 memories, resolves fact revisions without fact IDs, and adds 7.5 pp of multi-hop accuracy on MQuAKE. 21 of 23 cross-model comparisons (8B-27B, four families) are significant, and TASK beats three recent context-steering methods in 9 of 10 model-dataset cells.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent memory",
+      "tags": [
+        "new method or architecture",
+        "useful for your work"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34881",
+      "arxiv_id": "2611.34881",
+      "title": "Stranger Things: When Objects Appear Without Their Typical Neighbors",
+      "authors": [
+        "Siddhartha Gairola",
+        "Jiahao Xie",
+        "Anna Kukleva",
+        "Francesco Locatello",
+        "Bernt Schiele"
+      ],
+      "url": "https://arxiv.org/abs/2611.34881",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "abstract": "Visual context is a powerful cue for object recognition: scenes inform what, where, and at what scale objects are likely to appear. Yet over-reliance on context becomes a failure mode when models predict objects based on their typical neighbors rather than the objects' own visual features, which we call typicality bias. While extensively studied in the pre-Transformer era, it has often been assumed that architectural and scale improvements would naturally solve it, and a systematic diagnostic across the modern vision stack remains absent. We provide such a diagnostic framework. We measure typicality bias via normalized pointwise mutual information (NPMI) over object pairs, and introduce STRANGE-Bench (Synthetic Typicality-RANked Grounded Evaluation Benchmark): a photorealistic, layout-controlled benchmark spanning 17 sub-tiers from typical to never-co-occurring object pairs. Across five model families (specialist detectors, open-vocabulary detectors, self-supervised, vision-language, and multimodal large language models) and three recognition tasks (supervised detection, open-vocabulary detection, and classification), the bias is prevalent: gaps of 5-11 p.p. persist when objects appear outside their typical company, and do not consistently shrink with scale. To mitigate it, we turn to data augmentation: existing augmentations are designed for visual diversity, not for breaking co-occurrence shortcuts, and sample from the very distribution that produces typicality bias. We propose Anchor-Atypicality Sampling (AAS), a simple sampling rule for paste-based augmentations that uses the NPMI signal to tilt the training-time co-occurrence distribution toward atypical partners. AAS reduces the typicality gap by up to 1.6 p.p. on natural-image COCO splits and 23.0 p.p. on synthetic STRANGE-Bench across three model families, without sacrificing overall performance.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "vision robustness",
+      "tags": [
+        "benchmark or dataset",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34278",
+      "arxiv_id": "2611.34278",
+      "title": "Latent-in-the-Middle: On the Security of Cross-Model Latent Communication in Multi-Agent Systems",
+      "authors": [
+        "Manit Baser",
+        "Vyoman Jain",
+        "Rachel Yeo Hui Min",
+        "Xianglin Yang",
+        "Meenatchi Sundaram Muthu Selva Annamalai",
+        "Dinil Mon Divakaran"
+      ],
+      "url": "https://arxiv.org/abs/2611.34278",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "abstract": "As large language models increasingly collaborate in heterogeneous multi-agent systems, latent communication has emerged as an efficient alternative to exchanging natural-language messages. By sharing internal representations, agents can avoid repeatedly processing the same context, reducing communication overhead and prefill computation. One such mechanism is cross-model Key-Value (KV) cache transfer, which uses a learned mapper to translate a source model's KV cache into one a target model can use. However, this handoff means the target model consumes context it did not encode itself, thus calling into question whether its safety alignment still holds. In this work, we investigate the security implications of latent handoffs by introducing Chasm, a framework characterizing cross-model handoff attacks across three new attack surfaces: the source model, mapper, and handoff mechanism itself. Our experiments reveal that latent handoffs substantially undermine safety alignment and prompt-injection defenses. Notably, a target model that follows only 0.4% of benchmark prompt injections natively, follows up to 44.2% when transferred through a mapper from a source model. On the other hand, for jailbreak attacks, transfer alone raises attack success by up to 24.6 pp within a model family and zero-shot attacks by up to 69.2 pp, whereas white-box optimization through the mapper boosts the attack success rate to 92.5%, against 37.5% for ordinary GCG on the same target. To address these vulnerabilities, we propose a lightweight target-side cache guard that corrects transferred caches to restore the target model's refusal, considerably mitigating these attacks.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent security",
+      "tags": [
+        "new method or architecture",
+        "worth knowing"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34776",
+      "arxiv_id": "2611.34776",
+      "title": "DFly2: Turbocharging Long-Context Speculative Decoding by Sharing the Target's Sparsity",
+      "authors": [
+        "Hong Liu",
+        "Rui Cen",
+        "Junhan Shi",
+        "Lin Niu",
+        "Runzhi Fan",
+        "Zhaojing Zhou",
+        "Haodi Lei",
+        "Jiebin Zhang",
+        "Saiyong Yang",
+        "Junqiang Zheng",
+        "Zhenghai Xue",
+        "Guanghua Yu",
+        "Jianchen Zhu"
+      ],
+      "url": "https://arxiv.org/abs/2611.34776",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CL"
+      ],
+      "abstract": "To avoid the quadratic cost of dense attention over long contexts, models such as DeepSeek-V4 and Hy4 have turned natively sparse, and speculative decoding, which matters most where decoding is slowest, increasingly runs on them. Their drafters, however, still keep a context cache of their own, over the whole prompt or a sliding window. Beyond memory, such a cache costs prefill time, prefix-cache hits and decode concurrency. Drafters that read the target's cache avoid one of their own, but settle only which cache, not which positions, and still read everything or a recent window. Neither rule is made for the query at hand, and computing a selection per query in the drafter would cost more as the context grows. Yet a natively sparse target already picks positions for each query, over a cache it keeps anyway. Both of the drafter's choices are therefore already made, and paid for, by the target: its cache and its selection. We measure how far one selection carries: made a step early, it still covers close to nine tenths of what each later token selects on DS-V4.1-Flash. We present DFly2, a block-parallel drafter that shares the target's sparsity. Each draft layer reads the KV its paired target layer cached (KV sharing), at the positions that layer's indexer selected, a fixed number anywhere in the context (Index sharing). DFly2 thus runs no scoring pass and keeps no cache of its own. On DS-V4.1-Flash, GLM-5.3-Flash and Hy4~flash, whose sparse attention and architecture differ, it accepts more tokens per step than DFlash and DSpark trained on the same recipe, over general, long-context and agentic benchmarks. Its margin over the stronger baseline widens from 3.9%-10.5% on general workloads to 10.0%-31.5% on long-context and agentic ones. At high concurrency on DS-V4.1-Flash, at matched per-user decode speed, its throughput is 62% and 81% higher on two 64K sets.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "speculative decoding",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2610.38331",
+      "arxiv_id": "2610.38331",
+      "title": "Multi-Token Prediction Done Right",
+      "authors": [
+        "Jayden Teoh"
+      ],
+      "url": "https://arxiv.org/abs/2610.38331",
+      "submitted": "2026-10-28",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Multi-Token Prediction (MTP) is now a common ingredient in language-model pre-training, as it improves downstream performance and enables faster inference through speculative decoding. We identify a flaw in standard MTP training, in which a residual component of the MTP gradient interferes with both next-token and multi-token learning, increasingly so with scale. Specifically, the MTP cross-entropy gradient can be decomposed exactly into a KL self-distillation term that pulls each MTP head toward the model's own next-token prediction (NTP) distribution and improves speculative decoding, and a residual that has a low signal-to-noise ratio and buries the useful KL signal. We introduce the KL gradient-recovery trick: when two distributions share a linear output head, the gradient of their KL divergence can be recovered exactly by combining their cross-entropy gradients through straight-through gradient routing. Unlike minimizing the KL directly, this trick requires no vocabulary-sized logit matrices and is compatible with standard fused cross-entropy kernels. This enables Soft Multi-Token Prediction (Soft-MTP), a one-line code change to MTP that removes the noisy residual and backpropagates only the KL self-distillation signal by reusing the existing NTP and MTP cross-entropy computations. Soft-MTP supports both DeepSeek- and Meta-style MTP, adds no parameters, and incurs no measurable overhead. From 167M to 1.2B parameters, Soft-MTP improves over standard MTP with lower NTP perplexity, faster speculative decoding and higher zero-shot accuracy at every scale, lower MTP perplexity from 689M onward, and stronger math and code reasoning after fine-tuning at 1.2B. Soft-MTP also matches, if not exceeds, direct KL divergence minimization on most metrics. Soft-MTP is, in effect, a free lunch for MTP optimization. Our code can be found at https://github.com/JaydenTeoh/Soft-MTP.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "language model pretraining",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v2"
+    },
+    {
+      "id": "arxiv-2611.34767",
+      "arxiv_id": "2611.34767",
+      "title": "When to Trust a PFN: Detecting Harmful Shift in Tabular Foundation Models",
+      "authors": [
+        "Viet Nguyen",
+        "Herman Bergström",
+        "Stephan Rabanser",
+        "Rahul G. Krishnan"
+      ],
+      "url": "https://arxiv.org/abs/2611.34767",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Tabular prior-fitted networks (PFNs) work well across tabular classification problems but can fail silently at deployment when distributions shift. We propose CALD (Calibrated Anchor-Loss Disagreement), a lightweight unsupervised monitor that triggers an alarm to warn when a PFN might fail. By finetuning the decoder to maximize disagreement with the test-set prediction while maintaining accuracy on an ID anchor set, CALD identifies harmful OOD batches through the resulting anchor loss, requiring no labels on test batches. We prove that the post-finetune anchor loss has a strictly lower expectation under sufficiently severe shift than under ID eval, yielding a one-sided test. Across 14 datasets covering tabular and structured distribution shift, on both TabPFN and TabICL, CALD matches or outperforms baselines on harmful shifts and is markedly more resilient to benign-shift false alarms.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "distribution shift",
+      "tags": [
+        "new method or architecture",
+        "theory"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.33823",
+      "arxiv_id": "2611.33823",
+      "title": "Pitfalls of Dependency-Ready Decoding for Masked Diffusion Language Models",
+      "authors": [
+        "Lina Berrayana",
+        "Christopher Malon",
+        "Yoichi Ishibashi",
+        "Taichi Aida",
+        "Masafumi Oyamada"
+      ],
+      "url": "https://arxiv.org/abs/2611.33823",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "abstract": "Masked diffusion models (MDMs) have shown strong performance on structured reasoning tasks such as Sudoku, Trip Planning, and Countdown. MDMs introduce a freedom in the order in which tokens may be unmasked, and to exercise this freedom for good accuracy, early decoding strategies relied on signals of confidence or the downstream impact of decoding a token. However, simple examples seem to illustrate that resolving a token's dependencies before unmasking it should be important. Therefore, we examine whether this principle, which we call dependency-ready decoding, would contribute to better accuracy, from a practical and a theoretical perspective. We examine a recent decoder that implements dependency-readiness through attention, and generally find that when it performs better than confidence-based or future utility baselines, its decoding order collapses to left-to-right decoding. For theoretical analysis, we establish a definition of dependency without resorting to attention, measured by an information-theoretic score of how much revealing a single masked token (or a set) would shift the model's prediction for another. We prove that when the margin is large relative to this score, no such revelation can change the top prediction, so in this regime Maximum-Margin decoding already commits dependency-ready tokens. These findings leave only a narrow scope for future dependency-ready decoders: their potential benefit is limited to positions with margins smaller than the information-theoretic sensitivity, and reliance on attention should be questioned.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "diffusion language models",
+      "tags": [
+        "theory",
+        "worth knowing"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "NEC Laboratories America, Princeton, USA"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34092",
+      "arxiv_id": "2611.34092",
+      "title": "Improving Tail-Augmented Speculative Drafting with Hidden State Mixing and Gradient Detach",
+      "authors": [
+        "Yaniv Galron",
+        "Rabeeh Karimi Mahabadi",
+        "Maor Ashkenazi",
+        "Roger Waleffe",
+        "Talor Abramovich",
+        "Tiyasa Mitra",
+        "Yoav Miron",
+        "Dor Tsur",
+        "Sanjeev Satheesh",
+        "Jimmy Zhang",
+        "Jiaji Huang",
+        "Yonatan Geifman",
+        "Mostofa Patwary",
+        "Mohammad Shoeybi",
+        "Bita Rouhani",
+        "Ran Zilberstein"
+      ],
+      "url": "https://arxiv.org/abs/2611.34092",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "abstract": "Multi-token prediction (MTP) modules and EAGLE-style drafters support efficient speculative decoding by reusing target-model hidden states. Their autoregressive use, however, introduces a training-inference mismatch: training supplies sequences of hidden states from the backbone or a single MTP step, whereas inference attends to a target-model prefix followed by a growing tail of recurrently generated MTP states. EAGLE-3's training-time test (TTT) explicitly simulates this behavior during training, at the cost of additional memory and specialized attention masks. We introduce two training-only methods for improving autoregressive drafting. Hidden State Mixing (HSM) samples among backbone and MTP hidden states aligned to the same prediction target, exposing the drafter to mixtures of states from different MTP steps without explicitly simulating inference. Hidden State Gradient Detach (HSGD) is a regularization method that stochastically blocks gradients through hidden state and embedding pathways while preserving the forward computation. Neither method adds inference cost. In joint pretraining followed by supervised fine-tuning, HSGD yields the highest acceptance rates at early draft positions, while HSM performs best later in the draft. These acceptance rate trends favor HSM for long-draft-length serving and HSGD for short-draft-length serving. Furthermore, across four Nemotron models and DeepSeek-V4-Pro, HSM-based MTP boosting with a frozen backbone improves mean acceptance length by up to 52.2% over the co-trained MTP. For EAGLE-3 drafters, HSM offers competitive acceptance with TTT, with 48% lower peak reserved training memory in a four-step Qwen3-8B comparison. HSM implementations are publicly available in Megatron-LM and NVIDIA Model Optimizer.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "speculative decoding",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2610.04011",
+      "arxiv_id": "2610.04011",
+      "title": "Exploration-Preserving Policy Optimization",
+      "authors": [
+        "Hangzhan jin",
+        "Mohammad Hamdaqa",
+        "Doina Precup"
+      ],
+      "url": "https://arxiv.org/abs/2610.04011",
+      "submitted": "2026-10-02",
+      "categories": [
+        "cs.AI"
+      ],
+      "abstract": "Reinforcement learning with verifiable rewards improves reasoning, while the allocation of learning signal shapes which solutions remain accessible under repeated sampling. Group-relative objectives assign equal advantages to equally rewarded responses, making aggregate credit proportional to sampled mode frequency. We introduce Exploration-Preserving Policy Optimization (ExPPO), a lightweight advantage-shaping rule that redistributes credit using prompt-relative, length-normalized response surprisal and prompt pass rate. ExPPO combines bounded shaping with shared normalization to preserve verifier polarity and approximately maintain each prompt group's total absolute sequence-advantage mass. Our analysis characterizes response-level credit allocation alongside sampled mode updates, deriving local conditions for gains in entropy and correct-mode discovery. Experiments show improved in-domain and out-of-domain reasoning coverage, higher aggregate response accuracy, and strong coverage at large sampling budgets. A controlled multi-answer evaluation further demonstrates increased correct-mode yield and gains in diversity among verified-correct responses. Code is available at https://github.com/jinhangzhan/ExPPO",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "reinforcement learning",
+      "tags": [
+        "new method or architecture",
+        "notable researcher"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34830",
+      "arxiv_id": "2611.34830",
+      "title": "Not all world models can doubt: how training objective and architecture shape epistemic uncertainty in JEPA and RSSM world models",
+      "authors": [
+        "Simon Baur",
+        "Wojciech Samek",
+        "Jackie Ma"
+      ],
+      "url": "https://arxiv.org/abs/2611.34830",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "abstract": "World models predict how an environment responds to actions, so that candidate actions can be evaluated before execution. Executed actions, or decisions, taken in this manner are only as reliable as the model's predictive capabilities, and predictions in turn are only reliable within the model's experience. Epistemic uncertainty (EU) is the signal that marks where that experience ends. In this work we offer an extensive empirical study on how training objectives and architectures shape epistemic uncertainty of world models. More precisely, we present a controlled comparison of post-hoc EU (last-layer Laplace and ensembles) between two dominant models of different paradigms: 1) LeWorldModel (LeWM): A joint-embedding predictive architecture (JEPA), which predicts the next embedding without a decoder, and 2) DreamerV3: A recurrent state-space model (RSSM), which reconstructs the observation from a recurrent latent state. In ten simulated visual-control environments, we follow a controlled state perturbation of the environment state through every stage of the models up to the final EU estimate. We find that the RSSM attenuates the state perturbation through two mechanisms before it reaches an estimator on the predictor feature. Its recurrent update averages over context, so a change in a single frame reaches the state at a fraction of its size and recovers only as the change persists. Its reconstruction objective weights an entity by the pixels it covers, so a small object can be lost due to the training objective. The JEPA has neither mechanism and passes the change through all stages to the uncertainty. We further show that this translates to gaps in five uncertainty related downstream tasks, from unfamiliar-state detection to uncertainty-penalised planning: the RSSM uncertainty misses deviations that its own posterior registers, whereas the JEPA uncertainty reports what its model sees.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "world models",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34509",
+      "arxiv_id": "2611.34509",
+      "title": "Long-Horizon Planning with Latent World Models via Graph Anchors",
+      "authors": [
+        "Syed Nazmus Sakib",
+        "Abdul Monaf Chowdhury",
+        "Peizhen Li",
+        "Nafiul Haque",
+        "Chandak Chakma",
+        "Md Mehedi Hasan",
+        "Zehong Cao",
+        "Shifat E. Arman"
+      ],
+      "url": "https://arxiv.org/abs/2611.34509",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "abstract": "Latent world models plan in a compact latent space by predicting the outcomes of actions. Their planners judge a plan by the latent distance between its predicted end state and the goal image. We show that this distance fails in two distinct ways. First, it loses directional signal a few steps from the goal, causing distant goals to fail. Second, it weighs the robot arm over the manipulated object, causing manipulation to fail at contact. We measure both failures directly on recorded data by asking whether a lower latent distance corresponds to true progress toward the goal. Across five environments, six visual representations (including raw pixels and V-JEPA 2), and nine Meta-World tasks, this ranking test cleanly separates the two failures, and the graph distance to a goal predicts where closed-loop planning breaks down. Both failures share a single remedy: replacing the distant goal with a nearby target that lies on a recorded trajectory. We realize this principle with Graph Anchors, a training-free planner for frozen latent world models. It builds a sparse graph once over the model's own training frames and aims each planning step at a node a few moves ahead along the shortest path to the goal, keeping paths on recorded transitions wherever contact matters. On goals up to 400 steps away, Graph Anchors raise LeWM's success from 13% to 85% on PointMaze-Medium, from 8% to 87% on PointMaze-Large, and from 5% to 71% on Push-T, where stronger search toward the goal fails and where prior training-free planners break down under missing step horizons, subsampling shortcuts, or fragmented contact.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "world models",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.33951",
+      "arxiv_id": "2611.33951",
+      "title": "BReD: Block Replay Dithering for Stable Low-Bit EMA Optimizer States",
+      "authors": [
+        "Heshen Zhan",
+        "Youhan Huang",
+        "Yunke Peng",
+        "Yao Wang",
+        "Linghui Kong",
+        "Ziwei Zhu",
+        "Qingyu Han",
+        "Yaoyuan Wang",
+        "Congliang Chen",
+        "Ruoyu Sun"
+      ],
+      "url": "https://arxiv.org/abs/2611.33951",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "abstract": "Low-bit storage of optimizer states can substantially reduce the memory footprint of large-scale training. In practice, however, these states are not quantized once: at every training step, they are dequantized, updated, requantized, and written back. This iterative quantization pipeline can destabilize training. We identify a failure mode behind this instability: for states updated via exponential moving averages (EMAs), quantization errors are recursively fed into subsequent updates. As a result, biased errors accumulate over time while high-variance errors are amplified, particularly when the EMA decay factor is close to 1. To address this error accumulation, we propose BReD (Block Replay Dithering), a method that reduces rounding bias and controls rounding variance during quantization. BReD adapts classical subtractive dithering to optimizer-state quantization by combining deterministic seed replay with block-wise shared dither values, avoiding auxiliary random-tensor storage and per-element dither values generation. Across the default pretraining settings (five optimizers at 120M; AdamW and Muon at 1.1B and 3.4B model) and supervised fine-tuning (AdamW and Muon at 7B model), 4-bit BReD closely matches training with full-precision optimizer states, with PPL shifts $\\leq0.5$ in pretraining and $\\leq0.2$ in fine-tuning and average downstream performance changes within 0.7 points. Moreover, 3-bit BReD preserves stable convergence in the evaluated settings, offering a more aggressive alternative. Our implementation of BReD is available at: https://github.com/ZhanHeshen/BReD",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "optimizer quantization",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34400",
+      "arxiv_id": "2611.34400",
+      "title": "EvoLink-Bench: A Benchmark for Evaluating Self-Evolving Agents in Long-Horizon Interdependent Task Streams",
+      "authors": [
+        "Wei Chen",
+        "Xiaodong Lu",
+        "Weihao Shen",
+        "Gongxun Li",
+        "Xingyu Guo",
+        "Qihang Sun",
+        "Fuwei Zhang",
+        "Zhao Zhang",
+        "Yikun Ban",
+        "Shuang Li",
+        "Deqing Wang",
+        "Fuzhen Zhuang"
+      ],
+      "url": "https://arxiv.org/abs/2611.34400",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.AI"
+      ],
+      "abstract": "Large language model (LLM) agents are evolving from passive chatbots into autonomous systems that operate continuously in dynamic environments. Such agents need not only solve current tasks but also learn from past interactions to improve future performance. However, existing streaming benchmarks often rely on short task sequences or largely independent tasks, providing limited evidence of whether agents can effectively reuse experience when later tasks depend on earlier outcomes. To address this gap, we introduce \\textbf{EvoLink-Bench}, a benchmark for evaluating self-evolving agents in long-horizon, interdependent task streams. It covers daily office work, multi-turn dialogue, and AutoResearch-style workflows, with persistent workspaces and dependencies across tasks. The benchmark includes two complementary levels: \\textbf{L1}, which evaluates the acquisition and revision of language-expressible knowledge, and \\textbf{L2}, which assesses the development of task-level capabilities through execution and feedback. Its evaluation further distinguishes within-task recovery, persistent-state updates, and experience reuse in later tasks. We evaluate five agent frameworks across three backbone configurations under three persistence conditions, covering 19,635 scored task slots from selected evaluation cohorts. Results show that no framework consistently performs best across both levels, retries recover only a limited proportion of failed tasks, and persistent-state updates do not necessarily improve subsequent performance. Furthermore, the effects of evolution differ between knowledge- and capability-level tasks, suggesting that these two forms of evolution require different learning mechanisms. Performance gains also vary across domains and task streams, with improvements on some tasks not necessarily extending to others.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent benchmarks",
+      "tags": [
+        "benchmark or dataset",
+        "useful for your work"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "/university Beihang University /calendar-al◎ Date: November 24, 2026",
+        "EvoLink-BenchEvaluating self-evolving agents in interdependent task streams Office work Dialogue AutoResearch"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.33794",
+      "arxiv_id": "2611.33794",
+      "title": "Keep or Roll Back? Out-of-Loop Judges for Self-Improving VLA and End-to-End Embodied Policies",
+      "authors": [
+        "Zilin Huang",
+        "Zhengyang Wan",
+        "Kangan Qian",
+        "Zihao Sheng",
+        "Sikai Chen"
+      ],
+      "url": "https://arxiv.org/abs/2611.33794",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "abstract": "Self-improvement is now a practical recipe for embodied policies: a policy collects experience, is retrained, and is kept when a judge rates it higher. However, the judge is usually trained or chosen inside the same loop, so its evidence is not independent of the policy. We introduce SealedLoop, an evaluation framework that adds a sealed judge: an evaluator outside the loop that the improver cannot see or optimize against. A new policy is kept only when a sequential test on the sealed judge confirms the gain, with a bounded probability of keeping a worse one. Running the same loop under each judge, we separate two sources of a false gain, which we call judge error (the loop's judge is wrong on its own data) and transfer gap (a real gain there does not carry over to unseen conditions). We evaluate on LIBERO manipulation, NAVSIM driving, and a full-scale real vehicle. In manipulation, a success classifier accepted 65 of 196 failures in one generation. In driving, policies that gain on the loop's own frames lose in an unseen city, so even an exact in-loop judge would keep 8/15 of them. When the sealed test decides, a driving loop built to improve ends with a better policy than under its own critic (0.674 against 0.649 PDMS, from 0.638), and on driving pairs with known sealed gain the test accepted 11 of 12 real gains and none of 59 losses. In a real-world field experiment on a published improvement step, the reinforced version drove further into a curve than the version it started from in all 6 blind pairs, though neither completed it. These results show that evidence from inside the loop, however accurate, is not enough to decide whether a policy has improved. SealedLoop offers a foundation for trustworthy self-improvement of embodied policies, in which progress is judged by evidence the improving system cannot influence.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "embodied evaluation",
+      "tags": [
+        "new method or architecture",
+        "worth knowing"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34751",
+      "arxiv_id": "2611.34751",
+      "title": "What Is a Theory Worth to an LLM Solver? Measuring, Inducing, and Merging Theories in Context",
+      "authors": [
+        "Jun Gao",
+        "Shuchao Bi"
+      ],
+      "url": "https://arxiv.org/abs/2611.34751",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.AI"
+      ],
+      "abstract": "Mathematicians solve problems faster when they know the right theory. We ask how much a stated theory is worth to a large language model (LLM) solver, and whether a model can write that theory itself. In a length-matched protocol, adding the right theory to the context of Qwen3-14B raises pass@1 on pattern waiting-time problems from 0.37 to 0.83 and cuts the median tokens of correct solutions from 10.2k to 6.3k, while worked examples of the same length do not help. The gain shrinks as the solver and its token budget grow (+0.46, +0.26, +0.07), and at a long budget it comes almost entirely from finishing within budget: solutions that finish are correct 98--100\\% of the time in every condition. To separate induction from recall, we plant unpublished theorems in custom probability families and measure how much of the oracle theory's gain an induced theory recovers. A strong open model, required to explore the training problems with code before writing, recovers 60\\% of the gain on one planted family, 48\\% on a second, and almost none on a third, where it finds the right form but not the condition that makes the form computable. No single induced note is complete, but a strong model that merges several notes recovers 61\\% of the gain on the classic family, above the best single note (47\\%). Theories are worth the reasoning they save, and models can find their pieces before they can assemble them.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "LLM reasoning",
+      "tags": [
+        "worth knowing",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34493",
+      "arxiv_id": "2611.34493",
+      "title": "Auditing Identity and Timing Signals in Operational Logs",
+      "authors": [
+        "Andrew Hendel"
+      ],
+      "url": "https://arxiv.org/abs/2611.34493",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Models that predict events from operational logs, such as sepsis in ICU records or failures in hard drives, can score well by recognizing which patient or drive a record came from, or when it was recorded, instead of predicting the event. I introduce two simple audits that measure how much of this information a dataset carries before any event-prediction model is trained, and apply them to seven public datasets in six domains. One asks whether a classifier can tell that two records came from the same unit; the other asks which of two records from the same unit came later. Under the stated nulls, both have expected AUC 0.5. In ICU data, the identity audit flags a common preprocessing step: carrying the last measurement forward raises identity AUC from 0.916 to 0.993. On a 12-hour sepsis forecasting task, carrying forward makes a model look 0.163 AUC better than raw values when a patient's hours are split between training and test, but only 0.046 better when patients are held out. The exaggeration under patient overlap also appears in a second ICU dataset with mortality as the outcome. On the sepsis task, a chronological control with complete follow-up, in which training sees only a patient's earlier, resolved hours, shows no positive mean overlap gap. Timing is a strong predictor: with complete follow-up, hour of stay and measurement counts alone, with no clinical value, score 0.761 on held-out patients, and adding the raw clinical values changes that by +0.018. Outside the ICU, 95% of drives and 75% of loans have records on both sides of a calendar cut, and the overlap gap persists under a calendar split. The audits show which features and preprocessing choices to check; the evaluation protocol decides the consequences. I release the code, a library that runs the audits on any table with a unit column and a time column, and a guide to using the audits.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "evaluation methodology",
+      "tags": [
+        "useful for your work",
+        "benchmark or dataset"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34627",
+      "arxiv_id": "2611.34627",
+      "title": "DecisionReplay: A Corpus and Offline Simulator for Ensembling Decision Models",
+      "authors": [
+        "Dean Ariel",
+        "Seffi Cohen"
+      ],
+      "url": "https://arxiv.org/abs/2611.34627",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.DB"
+      ],
+      "abstract": "Comparing ensembles, routers and cascades requires the output of every model on every item, and its cost. Stored collections built for routing keep no per-option probabilities. We provide a dataset on which ensemble methods, routers and cascades are simulated quickly, without new model calls. DecisionReplay holds the probability vectors of 17 commercial decision models, endpoints that return a probability for every answer option, on 35 benchmarks, with the token counts, billed cost and measured latency of every call, all released. A deterministic simulator replays any policy that selects, combines or cascades them. One well-chosen model per benchmark is hard to beat: pooling all models loses 2.7 accuracy points to it, and stacking gains 1.0 points at 3.4 times its cost. The models are wrong together: two that are both wrong choose the same wrong option in 72% of cases. The best router matches that model at 64% of its cost, and certified early exit cuts the cost of a stacked ensemble by 43% without changing an answer. DecisionReplay makes it cheap and fast to test whether a new method changes these results.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "model ensembles",
+      "tags": [
+        "benchmark or dataset",
+        "worth knowing"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "affiliations": [
+        "Affiliation:"
+      ],
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34397",
+      "arxiv_id": "2611.34397",
+      "title": "Strong Starts, Simple Recipes: Unified Multi-Teacher On-Policy Distillation from Multimodal Specialists",
+      "authors": [
+        "Wenzheng Chang",
+        "Taiqiang Wu",
+        "Yuqi Xu",
+        "Yongfu Zhu",
+        "Zelin Peng",
+        "Ji Zhao",
+        "Shuai Dong",
+        "Wenpu Liu",
+        "Caoyuan Ma",
+        "Xuehui Wang",
+        "Ziyue Wang",
+        "Weichu Xie",
+        "Haiyuan Wan",
+        "Ngai Wong",
+        "Tong He",
+        "Wenqi Shao",
+        "Jiaqi Wang"
+      ],
+      "url": "https://arxiv.org/abs/2611.34397",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.CL",
+        "cs.CV"
+      ],
+      "abstract": "Multi-teacher on-policy distillation (MOPD) integrates separately trained domain specialists into a single unified model. Existing methods focus on refining the distillation procedure while initializing the student from a base model or a multi-domain SFT checkpoint, which leaves capability integration largely to distillation itself. Instead, we treat the starting point as a design variable and propose Unified MOPD (Uni-MOPD), which pairs a strong start with a simple recipe: a training-free uniform merge of specialists from the same base model initializes the student, and short MOPD with uniform domain sampling and full-vocabulary reverse KL refines it. Across five multimodal domains and 19 benchmarks, our study establishes three findings. (1) The starting point matters more than subsequent training choices: before any training, the uniform merge already matches the score that the base model reaches after 200 MOPD updates, and after short distillation it matches higher-scoring, search-based starts. (2) Short MOPD recovers most of the capabilities the merge leaves unintegrated; it improves every domain, with the largest gains where the domain teacher still leads. (3) From a strong start, uniform domain sampling and full-vocabulary reverse KL match or exceed every evaluated sampling strategy and divergence, without schedules, per-token weighting, or truncation hyperparameters. Uni-MOPD outperforms Open-MOPD at the same training budget while training 3.3 times faster than its released code. We will release the training framework, specialist checkpoints, and unified student.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "multimodal distillation",
+      "tags": [
+        "strong result",
+        "new method or architecture"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "affiliations": [
+        "1Shanghai Jiao Tong University, 2JD.COM, 3The University of Hong Kong, 4University of Science and",
+        "Technology of China, 5Fudan University, 6SII, 7Peking University, 8The University of Tokyo, 9Tsinghua",
+        "University"
+      ],
+      "version": "v1"
+    }
+  ],
+  "generated_at": "2026-11-27T03:35:21Z",
+  "generator": "claude-scheduled-task",
+  "notes": "2702 fetched, 568 read, 202 passed, 38 kept."
+}

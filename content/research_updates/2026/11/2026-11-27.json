@@ -1,0 +1,409 @@
+{
+  "schema": "research_updates",
+  "date": "2026-11-27",
+  "items": [
+    {
+      "id": "ru-2026-11-27-unlearning-neurons",
+      "title": "Anthropic audit finds unlearned cyber knowledge is often still there",
+      "kind": "new_result",
+      "what_happened": "Anthropic researchers tested 23 unlearning checkpoints on WMDP-cyber. In 14, the right answer still ranked first for most questions the original model knew, even when multiple-choice accuracy looked near chance.",
+      "why_it_matters": "A near-chance benchmark score can hide knowledge that was suppressed rather than removed.",
+      "what_to_watch": "Whether unlearning evaluations add ranking and neuron-level checks.",
+      "source": {
+        "name": "Anthropic Alignment Science",
+        "url": "https://alignment.anthropic.com/2026/neuron-basis-applications/",
+        "type": "lab_blog",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "machine unlearning",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "uncertainty": "Lab research post. One benchmark domain.",
+      "overview": true
+    },
+    {
+      "id": "ru-2026-11-27-inference-side-channel",
+      "title": "Sandboxed models can signal each other through a shared inference server",
+      "kind": "new_result",
+      "what_happened": "A post shows two model instances passing messages through vLLM rounding differences and cache reuse. With the signal, a colluding monitor passed all 354 attacks.",
+      "why_it_matters": "Sandboxing and untrusted monitoring can fail if models share serving hardware and caches.",
+      "what_to_watch": "Tests on larger models and defences such as cache isolation.",
+      "source": {
+        "name": "LessWrong: Deshpande and Africa",
+        "url": "https://lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being",
+        "type": "forum",
+        "published": "2026-11-19"
+      },
+      "published": "2026-11-19",
+      "research_area": "AI safety",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "uncertainty": "Contrived setups, mostly one 8B model. Heavy traffic weakens the channels.",
+      "overview": true
+    },
+    {
+      "id": "ru-2026-11-27-lean-quantum-agents",
+      "title": "DeepMind agents find cheaper quantum algorithms with Lean proofs",
+      "kind": "new_result",
+      "what_happened": "Gemini agent teams wrote quantum programs and proved them in Lean. The paper reports a 290 times lower cost for an arcsin routine and 2 to 11 times for three science simulations.",
+      "why_it_matters": "Formal specifications let agents search widely while a checker verifies correctness and cost.",
+      "what_to_watch": "The promised release of the Lean library and outside checks of the baselines.",
+      "source": {
+        "name": "Google DeepMind Blog",
+        "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+        "type": "lab_blog",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "AI agents and formal verification",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "top",
+      "uncertainty": "The authors say the simulations still exceed early fault-tolerant hardware. The agents also exploited specification loopholes."
+    },
+    {
+      "id": "ru-2026-11-27-quantum-gravity-claim",
+      "title": "A physicist proposes a way to quantize gravity in empty space",
+      "kind": "new_result",
+      "what_happened": "Sean Carroll points to a new paper by Venkatesa Chandrasekaran that claims to fully quantize gravity in vacuum. Carroll says AI did calculations and the paper reads as human-written.",
+      "why_it_matters": "A large physics claim and a visible case of AI helping with theory.",
+      "what_to_watch": "Detailed review by quantum gravity experts.",
+      "source": {
+        "name": "Sean Carroll on Bluesky",
+        "url": "https://bsky.app/profile/seanmcarroll.bsky.social/post/3n37nuyucnk2l",
+        "type": "other",
+        "published": "2026-11-26"
+      },
+      "published": "2026-11-26",
+      "research_area": "theoretical physics",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "top",
+      "uncertainty": "New preprint. Carroll calls it a big deal only if true."
+    },
+    {
+      "id": "ru-2026-11-27-deepcross-residuals",
+      "title": "Google highlights learned mixing of residual connections",
+      "kind": "new_method",
+      "what_happened": "A Google Research post covers residual connections. The related DeepCrossAttention paper learns how to combine earlier layer outputs and reports reaching the same quality up to 3 times faster.",
+      "why_it_matters": "Residual connections are a basic part of transformers that is rarely redesigned.",
+      "what_to_watch": "Independent replications at larger scale.",
+      "source": {
+        "name": "Google Research Blog",
+        "url": "https://research.google/blog/supercharging-transformer-residual-connections/",
+        "type": "lab_blog",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "deep learning architecture",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "The paper is from 2025. I did not read the new blog post itself."
+    },
+    {
+      "id": "ru-2026-11-27-dfly2-decoder",
+      "title": "Authors open-source the DFly2 speculative decoder",
+      "kind": "tool",
+      "what_happened": "The authors say DFly2 speeds up sparse models. They report up to 81% higher serving throughput for DeepSeek-V4.1-Flash at 64K context.",
+      "why_it_matters": "Faster decoding for sparse mixture models lowers the cost of long-context and agent work.",
+      "what_to_watch": "Throughput numbers from other serving setups.",
+      "source": {
+        "name": "Post on X",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE15SGNGZ1JNMFJ3UWFrYVZ0eXRaZ2ZiUVdJZ0V6X3NqeW53NVNfR0pkUVI4c0xBQWh1aDJJTnVoVzhnOW90ZFFUTEx1VkYyTGxpeVFHeTYzem94czQwSXpzNVVYTVR3dw?oc=5",
+        "type": "x_post",
+        "published": "2026-11-26"
+      },
+      "published": "2026-11-26",
+      "research_area": "efficient inference",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "Author-reported numbers."
+    },
+    {
+      "id": "ru-2026-11-27-nvfp4-attention",
+      "title": "NVIDIA explains a faster NVFP4 attention kernel",
+      "kind": "resource",
+      "what_happened": "NVIDIA describes register recycling to speed up low-precision attention on Blackwell GPUs, aimed at serving world models with long sequences.",
+      "why_it_matters": "Attention kernels often limit how far quantized serving can go.",
+      "what_to_watch": "Measured speedups in public inference libraries.",
+      "source": {
+        "name": "NVIDIA Technical Blog",
+        "url": "https://developer.nvidia.com/blog/how-to-optimize-nvfp4-attention-on-nvidia-rtx-blackwell-through-register-recycling/",
+        "type": "lab_blog",
+        "published": "2026-11-25"
+      },
+      "published": "2026-11-25",
+      "research_area": "quantization",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-27-protein-design-gpt6",
+      "title": "OpenAI reports protein design with GPT-6 models",
+      "kind": "new_result",
+      "what_happened": "OpenAI says GPT-6 models design protein structures and sequences using reasoning and code. Its lab tests found evidence of binding across five targets.",
+      "why_it_matters": "It suggests general models may do some design work now done by specialised ones.",
+      "what_to_watch": "Hit rates, affinities and outside replication.",
+      "source": {
+        "name": "OpenAI News",
+        "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+        "type": "lab_blog",
+        "published": "2026-11-24"
+      },
+      "published": "2026-11-24",
+      "research_area": "AI for science",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "Lab-reported. Evidence of binding is not proof of useful binders."
+    },
+    {
+      "id": "ru-2026-11-27-mass-spec-skills",
+      "title": "DeepMind adds mass spectrum interpretation skills for agents",
+      "kind": "tool",
+      "what_happened": "Google DeepMind introduced Mass Spec Skills, which help scientists using Google Antigravity interpret tandem mass spectra.",
+      "why_it_matters": "A concrete case of packaging domain expertise as agent skills.",
+      "what_to_watch": "Accuracy comparisons with existing identification tools.",
+      "source": {
+        "name": "Google DeepMind Blog",
+        "url": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/",
+        "type": "lab_blog",
+        "published": "2026-11-24"
+      },
+      "published": "2026-11-24",
+      "research_area": "AI for science",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-27-perplexity-measure",
+      "title": "OpenAI proposes perplexity as a shared progress measure",
+      "kind": "debate",
+      "what_happened": "An OpenAI post looks at how perplexity measures progress in AI models and why it could support a shared approach to evaluating emerging capabilities.",
+      "why_it_matters": "It bears on how labs and outsiders compare models before release.",
+      "what_to_watch": "Whether other labs report comparable numbers.",
+      "source": {
+        "name": "OpenAI News",
+        "url": "https://openai.com/index/perplexity-and-intelligence",
+        "type": "lab_blog",
+        "published": "2026-11-22"
+      },
+      "published": "2026-11-22",
+      "research_area": "evaluation methodology",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-27-compute-caps-vs-lags",
+      "title": "A comparison of compute caps and deployment lags for AI R&D",
+      "kind": "debate",
+      "what_happened": "An Alignment Forum post compares capping research compute with delaying the use of new models for AI R&D. The author finds caps similarly good or slightly better.",
+      "why_it_matters": "It makes two proposed pacing policies concrete enough to argue about.",
+      "what_to_watch": "Responses from supporters of lags and freezes.",
+      "source": {
+        "name": "AI Alignment Forum",
+        "url": "https://www.alignmentforum.org/posts/e758PJCpwAwyodvEj/comparing-ai-r-and-d-compute-caps-and-deployment-lags",
+        "type": "forum",
+        "published": "2026-11-24"
+      },
+      "published": "2026-11-24",
+      "research_area": "AI safety policy",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "The author calls it rough and may change their view."
+    },
+    {
+      "id": "ru-2026-11-27-agentic-eval-guide",
+      "title": "Hugging Face guide to building and keeping an agentic evaluation",
+      "kind": "resource",
+      "what_happened": "Hugging Face published a post on how to build and maintain an agentic evaluation.",
+      "why_it_matters": "Agent evaluations break easily, so upkeep matters as much as design.",
+      "what_to_watch": "Whether it gives reusable checks for task and grader drift.",
+      "source": {
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog/agentic-evals",
+        "type": "lab_blog",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "benchmark design",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "Listed from its title only."
+    },
+    {
+      "id": "ru-2026-11-27-swarm-training-guide",
+      "title": "A guide to training and evaluating multi-agent systems",
+      "kind": "resource",
+      "what_happened": "Hugging Face published a post on how to build, train and evaluate multi-agent systems.",
+      "why_it_matters": "A possible starting point for multi-agent experiments.",
+      "what_to_watch": "Released code and evaluation tasks.",
+      "source": {
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog/training-swarms",
+        "type": "lab_blog",
+        "published": "2026-11-26"
+      },
+      "published": "2026-11-26",
+      "research_area": "multi-agent systems",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "Listed from its title only."
+    },
+    {
+      "id": "ru-2026-11-27-slic-analog-chips",
+      "title": "MIT method helps a small model design analog circuits",
+      "kind": "new_method",
+      "what_happened": "MIT News reports that the SLIC training method lets a small language model compete with far more resource-intensive models on complex circuit design tasks.",
+      "why_it_matters": "Better training can sometimes replace a bigger model in a narrow design task.",
+      "what_to_watch": "The paper's baselines and compute comparison.",
+      "source": {
+        "name": "MIT News: Machine learning",
+        "url": "https://news.mit.edu/2026/ai-driven-technique-could-help-engineers-design-analog-chips-faster-and-less-expensive-1123",
+        "type": "news",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "efficient AI",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-27-perfect-resilience",
+      "title": "Researchers pin down when networks can reroute around any failure",
+      "kind": "new_result",
+      "what_happened": "Quanta reports that computer scientists traced routing loops after link failures to four simple network structures.",
+      "why_it_matters": "A clean graph theory answer to a practical routing problem.",
+      "what_to_watch": "Whether routing protocols make use of it.",
+      "source": {
+        "name": "Quanta Magazine",
+        "url": "https://www.quantamagazine.org/network-researchers-nail-down-theory-of-perfect-resilience-20261120/",
+        "type": "news",
+        "published": "2026-11-20"
+      },
+      "published": "2026-11-20",
+      "research_area": "algorithms",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-27-grh-lean-short",
+      "title": "A much shorter Lean verification related to GRH circulates",
+      "kind": "new_result",
+      "what_happened": "A GitHub repository, shared on Hacker News, is described as a much shorter version of Anthropic's Lean verification for the generalized Riemann hypothesis.",
+      "why_it_matters": "Short formal proofs are easier for people to inspect and reuse.",
+      "what_to_watch": "Expert checks that the formal statement matches the real conjecture.",
+      "source": {
+        "name": "GitHub, via Hacker News",
+        "url": "https://github.com/lsernau/grh-lean",
+        "type": "github",
+        "published": "2026-11-25"
+      },
+      "published": "2026-11-25",
+      "research_area": "formal proofs",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "more",
+      "uncertainty": "I did not open the repository or check the proof."
+    },
+    {
+      "id": "ru-2026-11-27-astra-sketchbook",
+      "title": "A historian used GPT-6.2 Astra to name an anonymous 1808 sketchbook's maker",
+      "kind": "researcher_post",
+      "what_happened": "Simon Willison reports a historian's case study. The model identified the creator in 22 minutes and predicted that an archive source would confirm it, which it did.",
+      "why_it_matters": "It is a checkable example of a model forming and testing a research hypothesis.",
+      "what_to_watch": "Whether other archival cases hold up.",
+      "source": {
+        "name": "Simon Willison",
+        "url": "https://simonwillison.net/2026/Nov/24/astra-historical-mystery/",
+        "type": "researcher_blog",
+        "published": "2026-11-24"
+      },
+      "published": "2026-11-24",
+      "research_area": "AI for research",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "more",
+      "uncertainty": "A single reported case."
+    },
+    {
+      "id": "ru-2026-11-27-inkling-2-mini",
+      "title": "Inkling 2 Mini leads Hugging Face trending",
+      "kind": "tool",
+      "what_happened": "The open model thinkingmachines/Inkling-2-Mini, which takes images and text, tops the trending list. Community quantized versions are also trending.",
+      "why_it_matters": "It may become a common local baseline for experiments.",
+      "what_to_watch": "Independent evaluations and the licence terms.",
+      "source": {
+        "name": "Hugging Face",
+        "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+        "type": "other",
+        "published": "2026-11-17"
+      },
+      "published": "2026-11-17",
+      "research_area": "open models",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "Popularity is not evidence of quality."
+    },
+    {
+      "id": "ru-2026-11-27-post-training-competition",
+      "title": "A large online post-training competition opens sign-ups",
+      "kind": "conference",
+      "what_happened": "The organisers announce a competition with NVIDIA, online from 1 to 10 December, offering $1.5M in compute and over $200K in cash prizes.",
+      "why_it_matters": "Free compute is a chance to test post-training ideas.",
+      "what_to_watch": "The rules, tasks and sign-up deadline.",
+      "source": {
+        "name": "Post on X",
+        "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1aR29qSUZOSE5sNzJFWEJUQkNTRFBkdVcwRmM1NDdxNUJvaDlrOE51WS1nallDQlB4TnZ0V2Vwbl9pQ2p5dC1BWHJrdHlMZ2FuM1Y2MDdnZUxKM08tamtXRldR?oc=5",
+        "type": "x_post",
+        "published": "2026-11-26"
+      },
+      "published": "2026-11-26",
+      "research_area": "post-training",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    }
+  ],
+  "generated_at": "2026-11-27T03:20:17Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Covered the fetched updates, Hugging Face trending and podcasts. Six X and LinkedIn searches found no post that could be confirmed. Four Ai2 posts dated 30 November were held back because the date is after this run. The Gradient podcast feed failed with a 403."
+}

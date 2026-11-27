@@ -63,7 +63,92 @@
       "kind": "trending",
       "hf_upvotes": 96,
       "added": "2026-11-26"
+    },
+    {
+      "id": "rl-unlearning-neuron-audit",
+      "title": "Returning to the Neuron Basis for Interpretability, Part 2: Using Neurons For Safety Applications",
+      "url": "https://alignment.anthropic.com/2026/neuron-basis-applications/",
+      "authors": [
+        "Jasmine Shone",
+        "Lisa Dunlap"
+      ],
+      "source": "blog",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "note": "Uses neurons to audit unlearning and other safety behaviour.",
+      "kind": "lab",
+      "group": "Anthropic",
+      "added": "2026-11-27"
+    },
+    {
+      "id": "rl-sft-retention",
+      "title": "Tune for Retention, Not Just Gain: SFT Forgets Far Less than You Think",
+      "url": "https://arxiv.org/abs/2611.34579",
+      "authors": [
+        "Nirmit Joshi",
+        "Nathan Srebro",
+        "Eran Malach"
+      ],
+      "arxiv_id": "2611.34579",
+      "source": "arxiv",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "note": "Shows careful settings let supervised fine-tuning learn new tasks with little forgetting.",
+      "kind": "for_you",
+      "added": "2026-11-27"
+    },
+    {
+      "id": "rl-monitor-eval-attacks",
+      "title": "Attack Policy Selection can Mislead Monitor Evaluators",
+      "url": "https://arxiv.org/abs/2611.34934",
+      "authors": [
+        "Charlie Griffin",
+        "Oliver Makins",
+        "Asa Cooper Stickland",
+        "Alessandro Abate",
+        "Yarin Gal",
+        "Abby D'Cruz",
+        "Xander Davies"
+      ],
+      "arxiv_id": "2611.34934",
+      "source": "arxiv",
+      "tags": [
+        "useful for your work",
+        "notable researcher",
+        "strong result"
+      ],
+      "note": "Shows that the choice of attack can change what a safety monitor evaluation concludes.",
+      "kind": "for_you",
+      "added": "2026-11-27"
+    },
+    {
+      "id": "rl-mixture-of-loops",
+      "title": "Mixture-of-Loops Transformer",
+      "url": "https://arxiv.org/abs/2611.34923",
+      "authors": [
+        "Lianghui Zhu",
+        "Shijie Wang",
+        "Xinggang Wang",
+        "Jinze Bai",
+        "Bo Wang",
+        "Xiang Bai"
+      ],
+      "arxiv_id": "2611.34923",
+      "source": "arxiv",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "note": "A looped Transformer that reuses keys and values across loops to save training and decoding work.",
+      "kind": "trending",
+      "alphaxiv_votes": 18,
+      "hf_upvotes": 65,
+      "added": "2026-11-27"
     }
   ],
-  "generated_at": "2026-11-26T03:52:10Z"
+  "generated_at": "2026-11-27T03:35:21Z"
 }

@@ -245,7 +245,36 @@
       "kind": "lab",
       "group": "Stanford and UC Berkeley",
       "added": "2026-11-26"
+    },
+    {
+      "id": "rl-worldleague-physical-agency",
+      "title": "WorldLeague: Benchmarking Physical Agency",
+      "url": "https://arxiv.org/abs/2611.30989",
+      "arxiv_id": "2611.30989",
+      "source": "arxiv",
+      "tags": [
+        "benchmark or dataset",
+        "worth knowing"
+      ],
+      "kind": "trending",
+      "alphaxiv_votes": 0,
+      "hf_upvotes": 139,
+      "added": "2026-11-28"
+    },
+    {
+      "id": "rl-proactive-perception-cua",
+      "title": "Don't Sleep, Keep Watch: Proactive Perception for Computer-Use Agents",
+      "url": "https://arxiv.org/abs/2611.28947",
+      "arxiv_id": "2611.28947",
+      "source": "arxiv",
+      "tags": [
+        "worth knowing"
+      ],
+      "kind": "trending",
+      "alphaxiv_votes": 0,
+      "hf_upvotes": 103,
+      "added": "2026-11-28"
     }
   ],
-  "generated_at": "2026-11-26T07:39:38Z"
+  "generated_at": "2026-11-28T01:19:33Z"
 }

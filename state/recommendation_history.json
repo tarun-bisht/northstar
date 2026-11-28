@@ -382,16 +382,6 @@
       "status": "suggested",
       "url": null
     },
-    "weekly:w-2026-W49-hyper-connections": {
-      "date": "2026-11-30",
-      "title": "New in AI: rethinking the residual connection with hyper-connections",
-      "category": "ai_study",
-      "dimensions": [
-        "research"
-      ],
-      "status": "suggested",
-      "url": null
-    },
     "weekly:w-2026-W49-kuhn-paradigms": {
       "date": "2026-11-30",
       "title": "Thomas Kuhn and how science really changes",
@@ -410,6 +400,17 @@
       "dimensions": [
         "knowledge",
         "curiosity"
+      ],
+      "status": "suggested",
+      "url": null
+    },
+    "weekly:w-2026-W49-lean-formal-proof": {
+      "date": "2026-11-30",
+      "title": "New in AI: AI and formal proof with Lean, and what a checked proof really shows",
+      "category": "ai_study",
+      "dimensions": [
+        "research",
+        "knowledge"
       ],
       "status": "suggested",
       "url": null

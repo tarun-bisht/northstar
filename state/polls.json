@@ -63,8 +63,10 @@
           "topic": "Machine unlearning and how to audit it"
         }
       ],
-      "status": "open",
-      "choices": []
+      "status": "closed",
+      "choices": [
+        "AI and formal proof with Lean"
+      ]
     }
   ]
 }

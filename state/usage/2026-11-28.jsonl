@@ -1,0 +1,9 @@
+{"t": "2026-11-28T01:16:59+00:00", "run": "weekly", "event": "start"}
+{"t": "2026-11-28T01:16:59+00:00", "run": "weekly", "read": "runbook and prompts", "chars": 108887}
+{"t": "2026-11-28T01:16:59+00:00", "run": "weekly", "read": "period", "chars": 226}
+{"t": "2026-11-28T01:17:04+00:00", "run": "weekly", "read": "polls list --open", "chars": 1462}
+{"t": "2026-11-28T01:17:14+00:00", "run": "weekly", "read": "polls close --kind", "chars": 535}
+{"t": "2026-11-28T01:17:21+00:00", "run": "weekly", "read": "context weekly --period", "chars": 32142}
+{"t": "2026-11-28T01:19:22+00:00", "run": "weekly", "read": "candidates arxiv --trending-week", "chars": 9330}
+{"t": "2026-11-28T01:19:26+00:00", "run": "weekly", "read": "candidates arxiv --trending-week", "chars": 9330}
+{"t": "2026-11-28T01:19:33+00:00", "run": "weekly", "event": "end"}

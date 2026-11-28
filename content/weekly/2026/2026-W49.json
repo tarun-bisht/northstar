@@ -6,7 +6,7 @@
   "generated_at": "2026-11-26T07:44:33Z",
   "generator": "claude-weekly",
   "load": "normal",
-  "intro": "Your world-models map leads the week, with hyper-connections from the trending papers, the physics of forgetting, Sakamoto in December, and a room that becomes a camera. Pick anything, or nothing.",
+  "intro": "Your world-models map and your poll pick, AI and formal proof with Lean, lead the week. Then the physics of forgetting, Sakamoto in December, and a room that becomes a camera. Pick anything, or nothing.",
   "items": [
     {
       "id": "w-2026-W49-world-models-map",
@@ -100,76 +100,94 @@
       "then": "Explain the three families to a friend in two minutes, with one example each."
     },
     {
-      "id": "w-2026-W49-hyper-connections",
+      "id": "w-2026-W49-lean-formal-proof",
       "origin": "system",
       "status": "suggested",
-      "title": "New in AI: rethinking the residual connection with hyper-connections",
+      "title": "New in AI: AI and formal proof with Lean, and what a checked proof really shows",
       "category": "ai_study",
       "section": "research_reading",
       "dimensions": [
-        "research"
+        "research",
+        "knowledge"
       ],
       "tier": "established",
       "mode": "learn",
-      "topic": "residual connections and hyper-connections",
-      "time_estimate": "1-2h",
-      "description": "The residual stream has been fixed since ResNet. Hyper-connections widen it into several parallel streams with learned mixing. DeepSeek's mHC made this stable by keeping the mixing matrices doubly stochastic. This week's trending papers on cmHC and loom attention push the idea further.",
-      "why": "Two of the week's most upvoted papers are about how information flows between layers. It is a rare change to a part of the transformer most people never question.",
+      "topic": "formal verification and AI theorem proving",
+      "time_estimate": "few_hours",
+      "description": "Your poll pick. On 20 November a Lean proof of the Riemann hypothesis, built with Claude, was announced. Lean and Mathlib groups certified on 21 November that it compiles and uses only standard axioms. No mathematician has yet read the argument. This week learns what Lean checks, what it cannot check, and how AI provers work.",
+      "why": "AI provers are now producing results too long for people to read. Knowing exactly what a machine check guarantees is a core skill for judging these claims.",
       "explain": {
-        "what": "A residual connection adds a layer's input to its output. Hyper-connections keep n copies of the residual stream and learn how to mix them at every layer.",
-        "why": "Plain residuals trade off gradient flow against representation collapse. Learned mixing can do better, but unconstrained mixing can blow up or vanish over many layers.",
-        "how": "mHC projects each mixing matrix onto the Birkhoff polytope, the set of doubly stochastic matrices, using Sinkhorn iterations. Products of such matrices stay bounded, so the signal neither explodes nor dies.",
+        "what": "Lean is a programming language and proof assistant. A theorem is a type, and a proof is a program of that type. A small trusted kernel checks every step.",
+        "why": "A kernel check removes the need to trust the author or the AI. An LLM can guess wildly, and the checker only accepts what is correct.",
+        "how": "An AI prover proposes tactics or whole proofs. Lean checks them and returns errors. The model searches and repairs until the kernel accepts. Mathlib, a large shared library, supplies the definitions and known results.",
         "components": [
-          "n parallel residual streams",
-          "learned stream-mixing matrices",
-          "a doubly stochastic constraint via Sinkhorn",
-          "width and depth connection weights"
+          "the trusted kernel",
+          "the theorem statement and its definitions",
+          "the axioms the proof depends on",
+          "Mathlib as the shared library",
+          "an AI model that proposes proof steps"
         ],
-        "limitations": "Extra memory for n streams. cmHC reports a trade-off: too little mixing wastes the streams, too much mixing makes them all the same.",
-        "research_relevance": "A clean case of a geometric constraint making training stable. The same idea shows up in optimal transport and Markov chains."
+        "limitations": "A check proves the formal statement, not the informal one. If a definition is wrong, the proof proves the wrong thing. You must also audit the axioms and look for sorry. A checked proof can still give no human understanding. Reports also differ on details, so treat news summaries with care.",
+        "research_relevance": "It is a clean case of verifiable rewards. The same loop drives RL for reasoning. Open questions: how to check that a statement is faithful, and how to turn a huge machine proof into an idea people can learn."
       },
       "steps": [
-        "Read the Hyper-Connections abstract and its main figure. Draw one layer with n = 2 streams",
-        "Read the mHC method section. Find where Sinkhorn is used and why",
-        "Read the cmHC and loom attention abstracts from this week. Write one sentence on what each changes",
-        "Do the doubly stochastic exercise in Research practice to see the maths behind the stability"
+        "Play the first two worlds of the Natural Number Game to feel how a kernel accepts or rejects a step (30 minutes)",
+        "Read chapter 1 and the start of chapter 2 of Mathematics in Lean. Prove one small lemma yourself",
+        "Read one news account of the Riemann proof claim. List what was checked: compile, axioms, statement matching, independent checkers. List what was not",
+        "Read the LeanTrail abstract on auditing paper-to-Lean alignment, and the paper on how AI agents diverge from human choices when they formalize",
+        "Write three sentences: what would convince you that a machine-checked proof proves what it claims?"
       ],
       "resources": [
         {
-          "title": "Hyper-Connections",
-          "type": "paper",
-          "url": "https://arxiv.org/pdf/2409.19606",
-          "creator": "ByteDance Seed",
-          "year": 2024
+          "title": "Lean and Mathlib Communities Certify Claude-Assisted Riemann Proof",
+          "type": "article",
+          "url": "https://www.unite.ai/lean-and-mathlib-communities-certify-claude-assisted-riemann-proof/",
+          "creator": "Unite.AI",
+          "year": 2026,
+          "note": "the news, with the list of checks run. Details differ between reports"
         },
         {
-          "title": "mHC: Manifold-Constrained Hyper-Connections",
-          "type": "paper",
-          "url": "https://arxiv.org/html/2512.24880v2",
-          "creator": "DeepSeek",
-          "year": 2025
+          "title": "Lean checked a GRH proof, no human has read it",
+          "type": "article",
+          "url": "https://www.startuphub.ai/ai-news/ai-research/2026/lean-checked-a-grh-proof-no-human-has-read-it",
+          "year": 2026,
+          "note": "the other side: what the check leaves open"
         },
         {
-          "title": "mHC in the LLM Architecture Gallery",
-          "type": "blog",
-          "url": "https://www.sebastianraschka.com/llm-architecture-gallery/mhc/",
-          "creator": "Sebastian Raschka",
-          "note": "a visual overview"
+          "title": "Natural Number Game (Lean 4)",
+          "type": "course",
+          "url": "https://github.com/hhu-adam/NNG4",
+          "creator": "Kevin Buzzard and others"
         },
         {
-          "title": "cmHC: Balancing Stream Mixing in Hyper-Connections via Geometric Contraction",
+          "title": "Mathematics in Lean",
+          "type": "book",
+          "url": "https://www.imo.universite-paris-saclay.fr/~patrick.massot/mil/index.html",
+          "creator": "Jeremy Avigad and Patrick Massot",
+          "chapters": "chapters 1 and 2"
+        },
+        {
+          "title": "What Has Actually Been Proved? Auditable Paper-to-Lean Alignment with LeanTrail",
           "type": "paper",
-          "url": "https://arxiv.org/abs/2611.27193",
+          "url": "https://arxiv.org/pdf/2610.35926",
           "year": 2026
         },
         {
-          "title": "Rewirable Circuits in Transformers with Loom Attention",
+          "title": "Autonomous AI Agents Systematically Diverge From Human Preferences in Proof Formalization",
           "type": "paper",
-          "url": "https://arxiv.org/abs/2611.30634",
+          "url": "https://arxiv.org/pdf/2611.06995",
           "year": 2026
+        },
+        {
+          "title": "How Terry Tao became an evangelist for AI in math",
+          "type": "article",
+          "url": "https://quantamagazine.org/how-terry-tao-became-an-evangelist-for-ai-in-math-20260608",
+          "creator": "Quanta Magazine",
+          "year": 2026,
+          "note": "optional background"
         }
       ],
-      "then": "Explain to a colleague why a doubly stochastic matrix cannot blow up a signal."
+      "then": "Explain to a friend in two minutes why a proof can be checked and still not understood."
     },
     {
       "id": "w-2026-W49-doubly-stochastic-sinkhorn",
@@ -188,7 +206,7 @@
       "time_estimate": "1-2h",
       "difficulty": "medium",
       "description": "A small proof plus a 20-line implementation. Show that doubly stochastic matrices are closed under products and never increase the norm of a vector. Then write Sinkhorn-Knopp and watch what repeated mixing does.",
-      "why": "This is the maths behind mHC, and the same tool behind entropic optimal transport. Proving and building it beats reading about it.",
+      "why": "This is the maths behind hyper-connections (mHC), a trending idea this month, and the same tool behind entropic optimal transport. Proving and building it beats reading about it.",
       "steps": [
         "Prove that the product of two doubly stochastic matrices is doubly stochastic",
         "Prove that a doubly stochastic matrix has spectral norm at most 1",
@@ -214,6 +232,13 @@
           "type": "paper",
           "url": "https://arxiv.org/html/2512.24880v2",
           "chapters": "method section on the Birkhoff polytope"
+        },
+        {
+          "title": "cmHC: Balancing Stream Mixing in Hyper-Connections via Geometric Contraction",
+          "type": "paper",
+          "url": "https://arxiv.org/abs/2611.27193",
+          "year": 2026,
+          "note": "this week's paper on over-mixing"
         }
       ],
       "then": "Write three sentences on what over-mixing means for the residual streams."
@@ -967,7 +992,7 @@
     }
   ],
   "reflection_prompt": "Optional: which item this week made you curious enough to look further?",
-  "notes": "No poll reply for W49, so New in AI follows the week's trending papers (cmHC, loom attention). ATLAS in the world-models idea is World Labs' Atlas (blog post of 1 September 2026, no paper), verified on worldlabs.ai.",
+  "notes": "Poll reply for W49 arrived on 27 November: AI and formal proof with Lean. It replaces the earlier hyper-connections New in AI item. The Sinkhorn exercise stays as research practice. The Riemann proof claim is new and reports differ on details, so the item sticks to what the checks cover. ATLAS in the world-models idea is World Labs' Atlas (blog post of 1 September 2026, no paper), verified on worldlabs.ai.",
   "language": {
     "lessons": [
       {

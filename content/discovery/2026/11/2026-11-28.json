@@ -1,0 +1,278 @@
+{
+  "schema": "discovery",
+  "date": "2026-11-28",
+  "items": [
+    {
+      "id": "yt-hORDMRY_bZ0",
+      "title": "Fei-Fei Li’s $8B World Model",
+      "creator": "Welch Labs",
+      "type": "video",
+      "category": "world models",
+      "topic": "world models",
+      "url": "https://www.youtube.com/watch?v=hORDMRY_bZ0",
+      "url_verified": true,
+      "description": "A visual explainer on Fei-Fei Li and world models, starting from the ImageNet years.",
+      "why_recommended": "Welch Labs explains with care, and world models are one of your interests.",
+      "what_i_might_get_from_it": "A clearer picture of the path from ImageNet to today's world model work.",
+      "action": "watch",
+      "time_required": "1h",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "optional",
+      "duration": "43 min",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-28-weng-reward-hacking",
+      "title": "Reward Hacking in Reinforcement Learning",
+      "creator": "Lilian Weng",
+      "type": "article",
+      "category": "AI safety",
+      "topic": "reward hacking",
+      "url": "https://lilianweng.github.io/posts/2024-11-28-reward-hacking/",
+      "url_verified": true,
+      "description": "A survey of how agents and language models score well without doing the intended task.",
+      "why_recommended": "It was published two years ago today and maps the problem well. Newer work will not be in it.",
+      "what_i_might_get_from_it": "You will be able to tell a badly specified goal from reward tampering, and name ways RLHF can be gamed.",
+      "action": "read",
+      "time_required": "1h",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "optional",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-28-quanta-attention",
+      "title": "Is ‘Attention’ the Essence of Intelligence?",
+      "creator": "The Quanta Podcast",
+      "type": "podcast",
+      "category": "AI and cognitive science",
+      "topic": "attention and intelligence",
+      "url": "https://play.prx.org/listen?ge=prx_11709_8998912a-780c-494f-a727-725496ce9838&uf=https%3A%2F%2Fquantapodcast.quantamagazine.org%2F",
+      "url_verified": true,
+      "description": "Where the attention mechanism came from, and whether predicting words says anything about intelligence.",
+      "why_recommended": "A short, fresh episode that goes past how attention works to what it may be missing.",
+      "what_i_might_get_from_it": "You will know why attention was invented for translation, and one case for why it may not be enough on efficiency.",
+      "action": "listen",
+      "time_required": "30m",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "optional",
+      "audio_url": "https://tracking.swap.fm/track/sblTq32fyWAjsHzze2LG/dts.podtrac.com/redirect.mp3/dovetail.prxu.org/11709/8998912a-780c-494f-a727-725496ce9838/Quanta_Ep78_FINAL.mp3",
+      "duration": "27 min",
+      "cross_domain": {
+        "fields": [
+          "machine learning",
+          "cognitive science"
+        ],
+        "connection": "It sets the transformer beside the human brain, which needs far less data and energy."
+      },
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-28-friends-house",
+      "title": "Where Is the Friend's House? (1987)",
+      "creator": "Abbas Kiarostami",
+      "type": "film",
+      "category": "world cinema",
+      "topic": "Iranian cinema",
+      "url": "https://www.criterion.com/films/28638-where-is-the-friends-house",
+      "url_verified": true,
+      "description": "A boy takes his classmate's notebook by mistake and sets out to find his home.",
+      "why_recommended": "A quiet, much admired film for a Saturday, built from a very small problem.",
+      "what_i_might_get_from_it": "The feeling of how much is at stake in a small duty, seen from a child's height.",
+      "action": "watch",
+      "time_required": "2h",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "priority": "optional",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-28-geminids",
+      "title": "Plan a night for the Geminid meteors (13-14 December)",
+      "creator": "EarthSky",
+      "type": "experience",
+      "category": "nature observation",
+      "topic": "meteor shower",
+      "url": "https://earthsky.org/astronomy-essentials/everything-you-need-to-know-geminid-meteor-shower/?ftag=YHF4eb9d17",
+      "url_verified": true,
+      "description": "The Geminids peak on the night of 13-14 December 2026, with little moonlight in the way.",
+      "why_recommended": "About two weeks of notice, if a dark sky is easy to reach. Skip it freely if not.",
+      "what_i_might_get_from_it": "The sight of meteors with your own eyes. Find a dark spot, lie back and give it an hour.",
+      "action": "try",
+      "time_required": "2h",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity"
+      ],
+      "priority": "optional",
+      "overview": true
+    },
+    {
+      "id": "disc-2026-11-28-auditors-sabotage",
+      "title": "“Auditors Struggle to Catch Sabotage in End-to-End Transcripts of AI Safety Research” by keshavs, Vivek Hebbar, Julian Stastny, sebastian_prasanna, egan",
+      "creator": "LessWrong (30+ Karma)",
+      "type": "podcast",
+      "category": "AI safety",
+      "topic": "auditing AI research",
+      "url": "https://podcasts.apple.com/us/podcast/auditors-struggle-to-catch-sabotage-in-end-to-end-transcripts/id1698192712?i=1000803240660&uo=4",
+      "url_verified": true,
+      "description": "A narrated post on a test of whether auditors can spot secret sabotage in safety research.",
+      "why_recommended": "Nine minutes on a hard question for anyone who lets agents run experiments.",
+      "what_i_might_get_from_it": "A sense of why a full research log may still not be enough to catch deliberate sabotage.",
+      "action": "listen",
+      "time_required": "15m",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "optional",
+      "audio_url": "https://dl.type3.audio/episode/dd8ee29d-34d6-4bee-a024-a9257f1d0d61.mp3?request_source=rss&client_id=lesswrong&feed_id=lesswrong_ai_narrations%20lesswrong__30_karma&type=ai_narration&author=keshavs%252C%2520Vivek%2520Hebbar%252C%2520Julian%2520Stastny%252C%2520sebastian_prasanna%252C%2520egan&title=%22Auditors%20Struggle%20to%20Catch%20Sabotage%20in%20End-to-End%20Transcripts%20of%20AI%20Safety%20Research%22%20by%20keshavs%2C%20Vivek%20Hebbar%2C%20Julian%20Stastny%2C%20sebastian_prasanna%2C%20egan&source_url=https%3A%2F%2Fwww.lesswrong.com%2Fposts%2FhJELtMx786Gyei63e%2Fauditors-struggle-to-catch-sabotage-in-end-to-end&created_at=2026-11-20T23%3A28%3A38.88144%2B00%3A00&duration=587",
+      "duration": "9 min"
+    },
+    {
+      "id": "yt-sQUILVdbo4Y",
+      "title": "We Mapped the Invisible Universe. Something Doesn’t Add Up.",
+      "creator": "PBS Space Time",
+      "type": "video",
+      "category": "cosmology",
+      "topic": "dark matter maps",
+      "url": "https://www.youtube.com/watch?v=sQUILVdbo4Y",
+      "url_verified": true,
+      "description": "How 3D maps of dark matter are being made, and a puzzle they raise.",
+      "why_recommended": "New this week, with a strong like rate for the channel.",
+      "what_i_might_get_from_it": "An idea of how something invisible can be mapped, and where the results are still puzzling.",
+      "action": "watch",
+      "time_required": "30m",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "priority": "optional",
+      "duration": "20 min"
+    },
+    {
+      "id": "disc-2026-11-28-orwell-politics-english",
+      "title": "Politics and the English Language",
+      "creator": "George Orwell",
+      "type": "article",
+      "category": "explaining clearly",
+      "topic": "clear writing",
+      "url": "https://public.websites.umich.edu/~sanders/214/other/paper/orwell.html",
+      "url_verified": true,
+      "description": "Orwell's 1946 essay on how vague language and vague thinking feed each other.",
+      "why_recommended": "A classic that helps with explaining research as much as with politics.",
+      "what_i_might_get_from_it": "Six plain rules you can test on one paragraph of your own writing.",
+      "action": "read",
+      "time_required": "30m",
+      "tier": "growth",
+      "dimensions": [
+        "research",
+        "people"
+      ],
+      "priority": "optional"
+    },
+    {
+      "id": "yt-QjYh1QAzoXw",
+      "title": "The Red and The Grey Matter: New Architecture in Africa",
+      "creator": "DW History",
+      "type": "documentary",
+      "category": "architecture",
+      "topic": "new architecture in Africa",
+      "url": "https://www.youtube.com/watch?v=QjYh1QAzoXw",
+      "url_verified": true,
+      "description": "A documentary on new African architecture, including Francis Kéré's Goethe-Institut in Dakar.",
+      "why_recommended": "Something outside the usual: buildings shaped by local materials and traditions.",
+      "what_i_might_get_from_it": "You will see why an architect might choose red clay, and how local building methods shape a modern design.",
+      "action": "watch",
+      "time_required": "1h",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "priority": "optional",
+      "duration": "56 min"
+    },
+    {
+      "id": "disc-2026-11-28-nine-post-cards",
+      "title": "Music for Nine Post Cards (1982)",
+      "creator": "Hiroshi Yoshimura",
+      "type": "album",
+      "category": "music",
+      "topic": "Japanese ambient music",
+      "url": "https://hiroshiyoshimura.bandcamp.com/album/music-for-nine-post-cards",
+      "url_verified": true,
+      "description": "Home-recorded ambient music that Yoshimura imagined playing inside a Tokyo art museum.",
+      "why_recommended": "Gentle listening that suits reading, walking or doing nothing.",
+      "what_i_might_get_from_it": "A calm half hour, and a sense of how music can be made for a particular space.",
+      "action": "listen",
+      "time_required": "1h",
+      "tier": "exploration",
+      "dimensions": [
+        "culture"
+      ],
+      "priority": "optional"
+    },
+    {
+      "id": "disc-2026-11-28-99pi-moccasin",
+      "title": "100 Objects #25: Beaded Moccasin",
+      "creator": "99% Invisible",
+      "type": "podcast",
+      "category": "design and history",
+      "topic": "the story of an object",
+      "url": "https://99percentinvisible.org/?p=48454",
+      "url_verified": true,
+      "description": "A poet traces the story of a pair of beaded moccasins that hung on a family wall.",
+      "why_recommended": "A personal way into history through one object.",
+      "what_i_might_get_from_it": "A look at what a family keepsake can reveal about Native boarding schools and the people behind a gift.",
+      "action": "listen",
+      "time_required": "1h",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "people"
+      ],
+      "priority": "optional",
+      "audio_url": "https://mgln.ai/e/2/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/3bb687b0-04af-4257-90f1-39eef4e631b6/episodes/839885a0-6bbd-4b58-858f-4470a0e48d57/audio/128/default.mp3?aid=rss_feed&awCollectionId=3bb687b0-04af-4257-90f1-39eef4e631b6&awEpisodeId=839885a0-6bbd-4b58-858f-4470a0e48d57&feed=BqbsxVfO",
+      "duration": "50 min"
+    },
+    {
+      "id": "disc-2026-11-28-dwarkesh-rsi-objections",
+      "title": "Responding to objections to recursive self-improvement",
+      "creator": "Dwarkesh Podcast",
+      "type": "podcast",
+      "category": "AI research",
+      "topic": "recursive self-improvement",
+      "url": "https://www.dwarkesh.com/p/rsiobjections",
+      "url_verified": true,
+      "description": "Dwarkesh Patel answers the strongest objections to his essay on AI improving AI.",
+      "why_recommended": "Useful if you want to test the argument rather than just hear it.",
+      "what_i_might_get_from_it": "The main objections, such as whether AI research can be checked, and how well the replies hold.",
+      "action": "listen",
+      "time_required": "2h",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "optional",
+      "audio_url": "https://api.substack.com/feed/podcast/226413128/4ad273437a5ffb5c6234fc0a6a855326.mp3",
+      "duration": "65 min"
+    }
+  ],
+  "generated_at": "2026-11-28T03:15:08Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Podcasts and videos come from the candidate files fetched on 2026-11-27, the latest available."
+}

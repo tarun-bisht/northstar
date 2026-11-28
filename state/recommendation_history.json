@@ -193,6 +193,100 @@
         "culture"
       ]
     },
+    "discovery:disc-2026-11-28-99pi-moccasin": {
+      "date": "2026-11-28",
+      "title": "100 Objects #25: Beaded Moccasin",
+      "url": "https://99percentinvisible.org/?p=48454",
+      "category": "design and history",
+      "type": "podcast",
+      "dimensions": [
+        "culture",
+        "people"
+      ]
+    },
+    "discovery:disc-2026-11-28-auditors-sabotage": {
+      "date": "2026-11-28",
+      "title": "“Auditors Struggle to Catch Sabotage in End-to-End Transcripts of AI Safety Research” by keshavs, Vivek Hebbar, Julian Stastny, sebastian_prasanna, egan",
+      "url": "https://podcasts.apple.com/us/podcast/auditors-struggle-to-catch-sabotage-in-end-to-end-transcripts/id1698192712?i=1000803240660&uo=4",
+      "category": "AI safety",
+      "type": "podcast",
+      "dimensions": [
+        "research"
+      ]
+    },
+    "discovery:disc-2026-11-28-dwarkesh-rsi-objections": {
+      "date": "2026-11-28",
+      "title": "Responding to objections to recursive self-improvement",
+      "url": "https://www.dwarkesh.com/p/rsiobjections",
+      "category": "AI research",
+      "type": "podcast",
+      "dimensions": [
+        "research"
+      ]
+    },
+    "discovery:disc-2026-11-28-friends-house": {
+      "date": "2026-11-28",
+      "title": "Where Is the Friend's House? (1987)",
+      "url": "https://www.criterion.com/films/28638-where-is-the-friends-house",
+      "category": "world cinema",
+      "type": "film",
+      "dimensions": [
+        "culture",
+        "people"
+      ]
+    },
+    "discovery:disc-2026-11-28-geminids": {
+      "date": "2026-11-28",
+      "title": "Plan a night for the Geminid meteors (13-14 December)",
+      "url": "https://earthsky.org/astronomy-essentials/everything-you-need-to-know-geminid-meteor-shower/?ftag=YHF4eb9d17",
+      "category": "nature observation",
+      "type": "experience",
+      "dimensions": [
+        "curiosity"
+      ]
+    },
+    "discovery:disc-2026-11-28-nine-post-cards": {
+      "date": "2026-11-28",
+      "title": "Music for Nine Post Cards (1982)",
+      "url": "https://hiroshiyoshimura.bandcamp.com/album/music-for-nine-post-cards",
+      "category": "music",
+      "type": "album",
+      "dimensions": [
+        "culture"
+      ]
+    },
+    "discovery:disc-2026-11-28-orwell-politics-english": {
+      "date": "2026-11-28",
+      "title": "Politics and the English Language",
+      "url": "https://public.websites.umich.edu/~sanders/214/other/paper/orwell.html",
+      "category": "explaining clearly",
+      "type": "article",
+      "dimensions": [
+        "research",
+        "people"
+      ]
+    },
+    "discovery:disc-2026-11-28-quanta-attention": {
+      "date": "2026-11-28",
+      "title": "Is ‘Attention’ the Essence of Intelligence?",
+      "url": "https://play.prx.org/listen?ge=prx_11709_8998912a-780c-494f-a727-725496ce9838&uf=https%3A%2F%2Fquantapodcast.quantamagazine.org%2F",
+      "category": "AI and cognitive science",
+      "type": "podcast",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ]
+    },
+    "discovery:disc-2026-11-28-weng-reward-hacking": {
+      "date": "2026-11-28",
+      "title": "Reward Hacking in Reinforcement Learning",
+      "url": "https://lilianweng.github.io/posts/2024-11-28-reward-hacking/",
+      "category": "AI safety",
+      "type": "article",
+      "dimensions": [
+        "research"
+      ]
+    },
     "discovery:yt-9eJQQVrUUoI": {
       "date": "2026-11-26",
       "title": "MIT 6.S184: Flow Matching and Diffusion Models, Lecture 01: Flow and Diffusion Models (2026)",
@@ -210,6 +304,17 @@
       "category": "history of computing",
       "type": "video",
       "dimensions": [
+        "knowledge"
+      ]
+    },
+    "discovery:yt-QjYh1QAzoXw": {
+      "date": "2026-11-28",
+      "title": "The Red and The Grey Matter: New Architecture in Africa",
+      "url": "https://www.youtube.com/watch?v=QjYh1QAzoXw",
+      "category": "architecture",
+      "type": "documentary",
+      "dimensions": [
+        "culture",
         "knowledge"
       ]
     },
@@ -234,6 +339,16 @@
         "curiosity"
       ]
     },
+    "discovery:yt-hORDMRY_bZ0": {
+      "date": "2026-11-28",
+      "title": "Fei-Fei Li’s $8B World Model",
+      "url": "https://www.youtube.com/watch?v=hORDMRY_bZ0",
+      "category": "world models",
+      "type": "video",
+      "dimensions": [
+        "research"
+      ]
+    },
     "discovery:yt-of60wacXiTQ": {
       "date": "2026-11-26",
       "title": "Old trams waste power on purpose. Here's why",
@@ -253,6 +368,17 @@
       "dimensions": [
         "curiosity",
         "knowledge"
+      ]
+    },
+    "discovery:yt-sQUILVdbo4Y": {
+      "date": "2026-11-28",
+      "title": "We Mapped the Invisible Universe. Something Doesn’t Add Up.",
+      "url": "https://www.youtube.com/watch?v=sQUILVdbo4Y",
+      "category": "cosmology",
+      "type": "video",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
       ]
     },
     "discovery:yt-svl_1upFpQo": {

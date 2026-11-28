@@ -1,0 +1,116 @@
+{
+  "schema": "language",
+  "date": "2026-11-28",
+  "items": [
+    {
+      "id": "lang-2026-11-28",
+      "language": "japanese",
+      "title": "When you don't understand",
+      "theme": "keeping a conversation going: excuse me, I don't understand, again please, slowly please",
+      "minutes": 5,
+      "phrases": [
+        {
+          "text": "すみません",
+          "romanization": "sumimasen",
+          "meaning": "excuse me, sorry",
+          "note": "A soft way to start. Use it to get attention or before you ask for help."
+        },
+        {
+          "text": "わかりません",
+          "romanization": "wakarimasen",
+          "meaning": "I don't understand"
+        },
+        {
+          "text": "もう一度お願いします",
+          "romanization": "mō ichido onegai shimasu",
+          "meaning": "once more, please",
+          "note": "お願いします (onegai shimasu) is the same \"please\" you met in yoroshiku onegai shimasu."
+        },
+        {
+          "text": "もう少しゆっくりお願いします",
+          "romanization": "mō sukoshi yukkuri onegai shimasu",
+          "meaning": "a little more slowly, please"
+        },
+        {
+          "text": "英語を話せますか",
+          "romanization": "eigo o hanasemasu ka",
+          "meaning": "can you speak English?"
+        },
+        {
+          "text": "わかりました",
+          "romanization": "wakarimashita",
+          "meaning": "I understand now, got it",
+          "note": "Same word as wakarimasen, but in the past form. It means the meaning has landed."
+        }
+      ],
+      "dialogue": [
+        {
+          "text": "週末は何をしますか。",
+          "romanization": "Shūmatsu wa nani o shimasu ka.",
+          "meaning": "What will you do on the weekend?"
+        },
+        {
+          "text": "すみません、わかりません。もう一度お願いします。",
+          "romanization": "Sumimasen, wakarimasen. Mō ichido onegai shimasu.",
+          "meaning": "Sorry, I don't understand. Once more, please."
+        },
+        {
+          "text": "週末は、何をしますか。",
+          "romanization": "Shūmatsu wa, nani o shimasu ka.",
+          "meaning": "What will you do on the weekend?"
+        },
+        {
+          "text": "すみません、もう少しゆっくりお願いします。",
+          "romanization": "Sumimasen, mō sukoshi yukkuri onegai shimasu.",
+          "meaning": "Sorry, a little more slowly, please."
+        },
+        {
+          "text": "週末は…何を…しますか。",
+          "romanization": "Shūmatsu wa... nani o... shimasu ka.",
+          "meaning": "What... will you do... on the weekend?"
+        },
+        {
+          "text": "あ、わかりました。ありがとうございます。",
+          "romanization": "A, wakarimashita. Arigatō gozaimasu.",
+          "meaning": "Ah, got it. Thank you."
+        }
+      ],
+      "practice": [
+        {
+          "question": "How would you say \"I don't understand\"?",
+          "answer": "わかりません。(Wakarimasen.)"
+        },
+        {
+          "question": "You didn't catch what someone said. How do you ask them to say it again?",
+          "answer": "すみません、もう一度お願いします。(Sumimasen, mō ichido onegai shimasu.)",
+          "hint": "once more + please"
+        },
+        {
+          "question": "Someone is speaking too fast. What do you say?",
+          "answer": "すみません、もう少しゆっくりお願いします。(Sumimasen, mō sukoshi yukkuri onegai shimasu.)"
+        },
+        {
+          "question": "What is the difference between わかりません (wakarimasen) and わかりました (wakarimashita)?",
+          "answer": "Wakarimasen means \"I don't understand\". Wakarimashita means \"I understand now\" or \"got it\"."
+        }
+      ],
+      "say_aloud": "Say this three times, slowly: すみません、もう一度お願いします。(Sumimasen, mō ichido onegai shimasu.) It is the one line that keeps any conversation going.",
+      "resource": {
+        "title": "Survival Phrases S2 #7: I Don't Understand",
+        "creator": "JapanesePod101",
+        "type": "podcast",
+        "url": "https://www.japanesepod101.com/lesson/survival-phrases-s2-7-i-dont-understand",
+        "url_verified": true,
+        "note": "A short beginner audio lesson, explained in English, on sumimasen and wakarimasen. Listen once, then repeat each line out loud."
+      },
+      "tier": "growth",
+      "dimensions": [
+        "people",
+        "culture"
+      ]
+    }
+  ],
+  "generated_at": "2026-11-28T03:14:51Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Third pack. After greetings and self-introduction, it adds the lines that keep a conversation going when you get lost. The listening link was found by search and opened in this run."
+}

@@ -1,0 +1,757 @@
+{
+  "schema": "world",
+  "date": "2026-11-28",
+  "items": [
+    {
+      "id": "world-2026-11-28-delimitation-bill-freeze",
+      "title": "Delimitation bill keeps each state's Lok Sabha share until 2051",
+      "section": "india",
+      "topic": "politics",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "The Cabinet cleared a new amendment and delimitation bill. Every state would get 50% more Lok Sabha seats, and state shares would stay frozen until 2051.",
+      "confirmed_facts": [
+        "The Lok Sabha ceiling would rise to 850.",
+        "The 33% reservation for women would start once delimitation begins.",
+        "A similar bill failed in April with 298 votes when 352 were needed."
+      ],
+      "why_it_matters": "It answers the main fear of southern states that they would lose weight in Parliament.",
+      "context": "Boundaries would be redrawn using the latest published census, which in practice means 2011 data.",
+      "what_to_watch": "The special sitting from November 30, and whether the government reaches two thirds.",
+      "lesson": {
+        "concept": "Why a constitutional amendment is harder to pass",
+        "explanation": "An ordinary bill needs more votes for than against. Most constitutional amendments need a majority of all members and two thirds of those voting, in both Houses. So a government with a simple majority often needs allies or rivals."
+      },
+      "sources": [
+        {
+          "name": "Siasat",
+          "url": "https://www.siasat.com/delimitation-states-lok-sabha-seat-share-to-stay-frozen-till-2051-3588724/",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "The Hindu National",
+          "url": "https://www.thehindu.com/news/national/centre-proposes-freeze-on-lok-sabha-seat-proportions-for-states-until-2051/article71752150.ece",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "The Federal",
+          "url": "https://thefederal.com/category/news/womens-quota-bill-what-it-proposes-264314",
+          "type": "news",
+          "published": "2026-11-28"
+        }
+      ],
+      "published": "2026-11-27",
+      "follows_up": "world-2026-11-27-delimitation-sitting",
+      "uncertainty": "The bills can still change, and the vote count is not settled."
+    },
+    {
+      "id": "world-2026-11-28-food-warning-labels",
+      "title": "Supreme Court orders red warning labels on packaged food",
+      "section": "india",
+      "topic": "health",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "The Supreme Court told the food regulator FSSAI to require front-of-pack warnings for food high in sugar, salt or saturated fat.",
+      "confirmed_facts": [
+        "FSSAI has about four months to finalise the rules.",
+        "Businesses then get 365 days to comply.",
+        "Each warning is a red hexagon naming the nutrient."
+      ],
+      "why_it_matters": "Shoppers could spot unhealthy food at a glance, and companies may change recipes.",
+      "context": "Nutrition details usually sit in small tables on the back of a pack.",
+      "what_to_watch": "FSSAI's draft thresholds, which decide which products carry a warning.",
+      "lesson": {
+        "concept": "Front-of-pack warning labels",
+        "explanation": "A back-of-pack table asks the shopper to read and calculate. A warning on the front does that work and shows a simple signal. Makers may then reformulate products to avoid the mark."
+      },
+      "sources": [
+        {
+          "name": "The Logical Indian",
+          "url": "https://thelogicalindian.com/supreme-court-orders-135361/",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "The Hindu National",
+          "url": "https://www.thehindu.com/sci-tech/health/why-the-supreme-court-wants-red-warning-labels-on-unhealthy-packaged-foods-explained/article71753487.ece",
+          "type": "news",
+          "published": "2026-11-28"
+        }
+      ],
+      "published": "2026-11-26"
+    },
+    {
+      "id": "world-2026-11-28-markets-week-crude",
+      "title": "Sensex falls 989 points and rupee slides as crude nears $97",
+      "section": "economy_markets",
+      "topic": "finance",
+      "regions": [
+        "India",
+        "Middle East"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "On Friday the Sensex fell 989 points to 83,339 and the Nifty 277 to 25,607. The rupee lost 60 paise to 92.98 a dollar.",
+      "confirmed_facts": [
+        "Brent crude traded near $97.19 a barrel.",
+        "The Nifty ended a four week winning run.",
+        "The 10 year government bond yield touched 7.265%."
+      ],
+      "why_it_matters": "Dearer oil raises India's import bill, pushes up inflation and makes a rate rise more likely.",
+      "context": "Reports tie the oil jump to attacks on Saudi oil facilities and on ships near the Strait of Hormuz.",
+      "what_to_watch": "Oil prices and the RBI's December policy decision.",
+      "lesson": {
+        "concept": "How oil moves the rupee",
+        "explanation": "India imports most of its oil and pays in dollars. When oil gets dearer, importers need more dollars. That extra demand weakens the rupee, which makes imports dearer still."
+      },
+      "sources": [
+        {
+          "name": "Telangana Today",
+          "url": "https://telanganatoday.com/strong-dollar-rising-crude-prices-drag-rupee-down-to-92-98",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "BusinessLine",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPY3NtbGxmU05oTDlvbjljMHUtS0RFbDl1ckdnbkFHZ3VBTGJ1eFpnQzJlUXNKZGZKeHNYOFVQUll5UGFhUVJ2NGZZbkl3WkVaZTh6eTZJaVpsb09VU0JjeGNwMTdSRFp4bXB3djFnQ0hhRnkwU0p6SmcxajAyc2VWbUhmdzJDNUVPUU9kUG5ranVDNk50c3RFam8teURMdFVGTGluS3dtNlZSYXNVSXZsM25nYjhYMWFDbGExeUF4eUJ2dHphN2xMWtIBzwFBVV95cUxOZ3hWVWtDVWJUYkdSa2xhQ3ptQWRCWVdvVXFNNFVfM1c3Wnp3Qk5sVlJ2UmliRzhjT3lVd1dLYUVidkJqQThpZHZBME9uQUxFc2NFcjZtYnZTNi0wcVozWnpBNkdTOWVXdmxvLUVrbjZrWHZJM0pCc2FkQTRjbUxzanh1alpBOE1ITFFKYXVKM0V0ZDUya3NIbERLRUZxOTRHeFNGZFJqV2lLaWtlLV9hYnlxejBhMlRJU2NhbG5KY1Q2SWZjTFhVbkRvMkh1TFE?oc=5",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "Economic Times Markets",
+          "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-slump-as-oil-spike-adds-to-rbi-hike-bets/articleshow/136221243.cms",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-27",
+      "follows_up": "world-2026-11-27-markets-sensex-crude"
+    },
+    {
+      "id": "world-2026-11-28-rbi-daily-crr",
+      "title": "RBI lets banks hold less of their required cash each day",
+      "section": "economy_markets",
+      "topic": "finance",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "The RBI cut the daily minimum for the cash reserve ratio from 99% to 90% of the required balance, from December 1.",
+      "confirmed_facts": [
+        "The cash reserve ratio itself stays at 3%.",
+        "Banking system liquidity had turned to deficit for the first time in five months."
+      ],
+      "why_it_matters": "Banks get more room to manage cash, which can ease short term borrowing costs.",
+      "context": "Tax payments and RBI sales of dollars had drained rupees from banks. In October the daily floor had been raised to 99%.",
+      "what_to_watch": "Overnight money market rates and the December policy meeting.",
+      "lesson": {
+        "concept": "Cash reserve ratio",
+        "explanation": "Banks must keep a share of deposits as cash with the central bank. The share is checked as an average over a fortnight, with a minimum for each day. A lower daily minimum lets a bank dip on tight days and make it up later."
+      },
+      "sources": [
+        {
+          "name": "Nation Press",
+          "url": "https://www.nationpress.com/business/rbi-eases-daily-crr-floor-to-90percent",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "The Hindu Business",
+          "url": "https://www.thehindu.com/business/Economy/rbi-cuts-daily-crr-maintenance-to-90-to-unlock-over-40000-crore/article71751043.ece",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-27"
+    },
+    {
+      "id": "world-2026-11-28-openai-countersues-apple",
+      "title": "OpenAI countersues Apple over trade secrets and suppliers",
+      "section": "technology",
+      "topic": "technology",
+      "regions": [
+        "United States"
+      ],
+      "dimensions": [
+        "world",
+        "research"
+      ],
+      "what_happened": "OpenAI filed counterclaims against Apple. It alleges Apple took confidential information and pressured suppliers not to work on OpenAI's devices.",
+      "confirmed_facts": [
+        "Apple sued OpenAI first, over its own trade secrets.",
+        "Apple called the counterclaims an attempt to distract.",
+        "Apple's case is reportedly set for trial in July 2027."
+      ],
+      "why_it_matters": "The fight is about who gets to build the next kind of AI hardware.",
+      "context": "OpenAI is developing its own device and relies on suppliers that also serve Apple.",
+      "what_to_watch": "Apple's request for a preliminary injunction.",
+      "lesson": {
+        "concept": "Trade secrets",
+        "explanation": "A trade secret is valuable information a firm actively keeps private. Unlike a patent, it is never published and has no fixed end date. The owner must show it was taken or used improperly, not just that someone changed jobs."
+      },
+      "sources": [
+        {
+          "name": "Political.org",
+          "url": "https://political.org/2026/11/27/openai-countersues-apple-accusing-it-of-stealing-trade-secrets-and-pressuring-hardware-suppliers/",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "Al Jazeera",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxON1UyNzVUM1VWYllDUVB5Rl9LVDYwZExiMWt2WFp4eWVUckVjdDhqbFFfSXR1b2NiRm9LbFZQZ2xlZTNkRmtaSkZnb2M4ekJwVkVxbE1jdmNlazc2QUMxallwb1JpTWRvVk9ZOW12SVM5MTZ4RS1CQkNGcW5qZlMySWJZTjBkNXBtZXByR0NuVWdJZWVXWW8zcWRsTUF1ZUJXMlNVNWxEM2l0VThn0gGyAUFVX3lxTE16T05QbEdEbTdCUklBU3kyX05YX2RxaTZrVl9yWTEtWDF4dThXOFAyODNDTjFHTy1LRmJkZEJpd1E0eTBOaWxkS0NXV1BIWFo0V1ZTU01JMzd5bVpkMHFWTEhSNEVBT3E1cXd1NVJFbEJtSXFURGpxMzlKOWtNTXg1amFKZDhEOWttUlhkU1Y2UmVnSUgwRWZqWmJmTzdRaVBNM01pczFxTnh0RzYxRk02MFE?oc=5",
+          "type": "news",
+          "published": "2026-11-28"
+        }
+      ],
+      "published": "2026-11-27",
+      "uncertainty": "These are allegations. No court has ruled on OpenAI's claims."
+    },
+    {
+      "id": "world-2026-11-28-swiss-ai-agent-attacks",
+      "title": "Switzerland reports five cyber attacks that used AI agents",
+      "section": "technology",
+      "topic": "technology",
+      "regions": [
+        "Europe"
+      ],
+      "dimensions": [
+        "world",
+        "research"
+      ],
+      "what_happened": "Switzerland's cybersecurity office said AI agents were used in five recent attacks. In four of them, systems were compromised.",
+      "confirmed_facts": [
+        "Three targets were critical infrastructure operators.",
+        "The office did not name who was behind the attacks."
+      ],
+      "why_it_matters": "It is an official sign that AI agents are now used in real intrusions, including on essential services.",
+      "context": "An AI agent can plan and carry out a chain of steps with less human direction than ordinary tools.",
+      "what_to_watch": "Technical details on how much the agents did on their own.",
+      "lesson": {
+        "concept": "Why agents change cyber defence",
+        "explanation": "An attack has many steps, such as finding a weak system, getting in and moving around. Software that can chain these steps lets one attacker try more targets faster. Defenders then need quick patching and monitoring that spots unusual behaviour."
+      },
+      "sources": [
+        {
+          "name": "Global Banking and Finance",
+          "url": "https://www.globalbankingandfinance.com/ai-agents-used-five-cyber-attacks-switzerland-government/",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "The Hindu Sci-Tech",
+          "url": "https://www.thehindu.com/sci-tech/technology/ai-agents-used-in-five-cyber-attacks-in-switzerland-government-says/article71749266.ece",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-26",
+      "uncertainty": "Public reports do not say how autonomous the agents were."
+    },
+    {
+      "id": "world-2026-11-28-euclid-distant-quasar",
+      "title": "Euclid finds the most distant quasar yet",
+      "section": "science_space",
+      "topic": "science",
+      "regions": [
+        "Global"
+      ],
+      "dimensions": [
+        "knowledge"
+      ],
+      "what_happened": "Astronomers found a quasar seen as it was 630 million years after the Big Bang. The Euclid telescope spotted it and Webb helped measure it.",
+      "confirmed_facts": [
+        "Its black hole is about 360 million times the Sun's mass.",
+        "It is about 40 million years earlier than the previous record.",
+        "The study appeared in Astronomy and Astrophysics."
+      ],
+      "why_it_matters": "So large a black hole so early is hard to explain with usual growth rates.",
+      "context": "A quasar is the bright glow of gas falling into a giant black hole at the centre of a galaxy.",
+      "what_to_watch": "Whether Euclid turns up more, which would test ideas about how black holes start.",
+      "lesson": {
+        "concept": "Looking far is looking back",
+        "explanation": "Light takes time to travel. Light from a very distant object left it long ago, so we see it as it was then. That lets astronomers study the young universe directly."
+      },
+      "sources": [
+        {
+          "name": "Space.com",
+          "url": "https://www.space.com/astronomy/black-holes/dark-universe-detective-telescope-discovers-most-distant-and-ancient-supermassive-black-hole-powered-quasar",
+          "type": "news",
+          "published": "2026-11-25"
+        },
+        {
+          "name": "Los Angeles Times",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPS25oZFVpbXc1TzU3Ni16REZ2V21kdTd3YWhiNUV1U2ZROFN0RXVXMFZTOG5wZDJoUHNsSURxV0lYb25xdkxWNmZrVWpkM09qYjBGanB4eFBRdlB5VDd1S2lmblNNeThBaGljU2VJUDJtM2gyckthZFAxdDdUcGRRRTFCeDJMSkFKeHlFek1IS2FndmVvSE10WjQyMkxRLU4z?oc=5",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-25"
+    },
+    {
+      "id": "world-2026-11-28-bepicolombo-glitch",
+      "title": "BepiColombo is in Mercury orbit, but not the planned one",
+      "section": "science_space",
+      "topic": "science",
+      "regions": [
+        "Europe",
+        "Japan"
+      ],
+      "dimensions": [
+        "knowledge"
+      ],
+      "what_happened": "A software glitch cut short the burn on November 21. The European and Japanese craft is safely in a 75 hour orbit instead of a 58 hour one.",
+      "confirmed_facts": [
+        "The burn ran 28 minutes instead of 37.",
+        "The two orbiters are due to separate on December 9 and 10.",
+        "ESA says no extra thruster burns are needed."
+      ],
+      "why_it_matters": "The mission goes on, though reports say there is now less margin for further problems.",
+      "context": "The probe launched in 2018 and was already delayed by a propulsion problem.",
+      "what_to_watch": "The separation of the two orbiters, and science operations from April 2027.",
+      "lesson": {
+        "concept": "Why arriving at Mercury is hard",
+        "explanation": "A craft falling towards the Sun speeds up a lot. To be captured by small Mercury it must shed speed with flybys and engine burns. If a burn ends early, the craft stays in a higher, looser orbit."
+      },
+      "sources": [
+        {
+          "name": "ESA",
+          "url": "https://www.esa.int/articles/about-us/directorates/science/bepicolombo/latest-updates-bepicolombo-s-arrival-at-mercury",
+          "type": "news",
+          "published": "2026-11-23"
+        },
+        {
+          "name": "Yahoo News Singapore",
+          "url": "https://sg.news.yahoo.com/ll-correct-bumpy-mission-closest-171415350.html",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-23"
+    },
+    {
+      "id": "world-2026-11-28-ukraine-black-sea-offer",
+      "title": "Ukraine offers Russia a Black Sea ceasefire",
+      "section": "conflict_disaster",
+      "topic": "conflict",
+      "regions": [
+        "Europe"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "Ukraine proposed a ceasefire at sea to protect navigation and farm exports. It says it is waiting for Russia's answer.",
+      "confirmed_facts": [
+        "Russia wants oil shipments included. Ukraine says oil belongs in a wider energy ceasefire.",
+        "Reuters reported in August that Ukraine's grain exports were down 76% on a year earlier."
+      ],
+      "why_it_matters": "Ukraine is a major food exporter, so safe shipping affects food prices far from the war.",
+      "context": "A UN and Turkey brokered grain deal worked from 2022 until Russia left it in 2023.",
+      "what_to_watch": "Russia's reply, and whether Turkey or India's proposals gain ground.",
+      "lesson": {
+        "concept": "Why partial ceasefires are tried",
+        "explanation": "A full peace is hard to agree. A narrow deal covering one area, such as shipping, can serve both sides and be easier to check. It still fails if each side wants different things inside it."
+      },
+      "sources": [
+        {
+          "name": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/27/kyiv-offers-black-sea-ceasefire-as-putin-expands-russias-navy",
+          "type": "news",
+          "published": "2026-11-27"
+        },
+        {
+          "name": "France 24",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQQXNRZXdNdVkybkZ1TXRQSlFzaXNXT2xNM252Xzg4TWpfUmVYUi1DVjhuREFHT1ZKbVdWNjc1U2pTUWJtZmRFeWtKa2Y1cFBXR1VZRGg4dHZ2NkxPSE80YTl1VG1rdnkyYW1OUFFDRUhzUGJnQzcxOEkxSlUxU0hXb19ZTjQxYmV6eUFCWUZZc24xMkJubE9BNFAxZlVuTXZTRG5OUGdlQTVmWVEyOEE?oc=5",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-27"
+    },
+    {
+      "id": "world-2026-11-28-taiwan-local-elections",
+      "title": "Taiwan votes in local elections, with Taipei in focus",
+      "section": "geopolitics",
+      "topic": "politics",
+      "regions": [
+        "East Asia"
+      ],
+      "dimensions": [
+        "world"
+      ],
+      "what_happened": "Taiwan is voting on November 28 for mayors and other local leaders.",
+      "confirmed_facts": [
+        "The Taipei mayoral race is a key contest.",
+        "Taipei is a stronghold of the opposition Kuomintang."
+      ],
+      "why_it_matters": "The results test the governing Democratic Progressive Party, whose stance on China is closely watched.",
+      "context": "The Kuomintang generally favours closer engagement with Beijing than the governing party does.",
+      "what_to_watch": "Results in Taipei and the other large cities.",
+      "lesson": {
+        "concept": "What local elections can signal",
+        "explanation": "Local votes often turn on local services and candidates. They can still show a governing party's mood and raise or sink future national leaders. Reading them as a verdict on China policy alone would go too far."
+      },
+      "sources": [
+        {
+          "name": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/28/taiwan-votes-in-local-elections-to-choose-mayors-other-leaders?traffic_source=rss",
+          "type": "news",
+          "published": "2026-11-28"
+        }
+      ],
+      "published": "2026-11-28",
+      "uncertainty": "Results were not in when the news was fetched."
+    },
+    {
+      "id": "world-2026-11-28-india-measles-target",
+      "title": "India is likely to miss its 2026 measles and rubella goal",
+      "section": "health",
+      "topic": "health",
+      "regions": [
+        "India"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "India is unlikely to meet the 2026 elimination goal despite high vaccine coverage.",
+      "confirmed_facts": [
+        "Coverage is 98% for the first measles dose and 95% for the second.",
+        "Reported measles cases fell from 65,150 in 2023 to 17,995 in 2025."
+      ],
+      "why_it_matters": "Small pockets of unvaccinated children can keep the disease spreading even when averages look excellent.",
+      "context": "Officials point to underserved communities and vaccine misinformation.",
+      "what_to_watch": "A WHO expert projects interruption by 2029 and verification in 2032.",
+      "lesson": {
+        "concept": "Herd immunity and measles",
+        "explanation": "Measles spreads very easily, so about 95% of people need immunity to stop it. A high national average can hide a village or neighbourhood far below that. Outbreaks start in those gaps."
+      },
+      "sources": [
+        {
+          "name": "Daijiworld",
+          "url": "https://daijiworld.com/news/newsDisplay?newsID=1336502",
+          "type": "news",
+          "published": "2026-11-28"
+        },
+        {
+          "name": "The Indian Express",
+          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOR1B4NGVMX0s0LWJTYVlrUUxHVm9oYVM1eldGWWNGdy1UN3lpdy1PUmJocklVYy1KNVVEcmRIQjNFNTZwQ0gyMlFOb05SZGFSQm5WWENrUVBJekRqZ0xDZWRBVmZVX21iVURMNnFud0ZFLUswaUNtTEw2UWw2UmdBdlEybUZJSl9OYjNqQ2V6UGhIb1Btdi1uVXFhWHZtVjFvWmdlVS1uNC03Um10X3h3OXhHaTZyeVhkS01LYTN4RHBZVGg0VHZKMHNYdFlJdVAzYXBiS2VMYUVYUExJRUhQT3pMUndsNmgwei1hbtIB8wFBVV95cUxPRVJ6RVo3VFpCZ1E2QkRudHJvSUNtdUkydmtpdU5pb2JSSzIzVlJxWEJUYkRsRFEzSTE1akI0cmxuRkNnSWllV2ZldC1YWF9xRmRaSjNMa2RpUnh0TTUwS2VJX0V0aFpTTFVEc0VoWDg3R1huTWdLcXNrdnQxSnUzbEc0U3FnR1ZQR25MOGJnM0lsekVGUHhPTk13c092cVBQbm9oYVlpVTV5WlFZbUh5UFBqQzE4YkxzYTdzUkJQZWlWMTNnSTMwTkZhbEVPb3M0bDdZZllFZV9nX1A4R3RUOXNvWm1Cb0FiS0VPLTJFNU53N0U?oc=5",
+          "type": "news",
+          "published": "2026-11-27"
+        }
+      ],
+      "published": "2026-11-28"
+    },
+    {
+      "id": "world-2026-11-28-explainer-starmind-sky",
+      "title": "Explainer: what a million satellites would do to the sky",
+      "section": "explainers",
+      "topic": "science",
+      "regions": [
+        "Global"
+      ],
+      "dimensions": [
+        "knowledge",
+        "world"
+      ],
+      "what_happened": "An astronomer writes that SpaceX's approved Starmind plan would change the night sky and raise safety and environmental risks.",
+      "confirmed_facts": [
+        "It would multiply operational satellites about 50 times.",
+        "With five year lifespans, about 500 would need replacing every day."
+      ],
+      "why_it_matters": "Hundreds of bright satellites could be visible from anywhere, affecting astronomy and ordinary stargazing.",
+      "context": "The plan is for data centres in orbit to run AI. The author doubts it is feasible.",
+      "what_to_watch": "Whether any are launched at scale, and any challenge to the approval.",
+      "lesson": {
+        "concept": "Kessler syndrome",
+        "explanation": "Objects in orbit move very fast, so even small pieces do great damage. One collision makes debris that can cause more collisions. In a crowded orbit this could run on by itself."
+      },
+      "sources": [
+        {
+          "name": "The Conversation (Global)",
+          "url": "https://theconversation.com/elon-musk-has-approval-to-launch-1-million-satellites-an-astronomer-explains-how-this-would-impact-the-sky-297646",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "analysis": "The author argues the plan reflects a satellite boom, an AI investment bubble and weakened environmental rules.",
+      "follows_up": "world-2026-11-26-spacex-orbital-data-centres"
+    },
+    {
+      "id": "world-2026-11-28-explainer-icc-pressure",
+      "title": "Explainer: can the International Criminal Court withstand US pressure?",
+      "section": "explainers",
+      "topic": "international_relations",
+      "regions": [
+        "Global",
+        "Southeast Asia"
+      ],
+      "dimensions": [
+        "world",
+        "knowledge"
+      ],
+      "what_happened": "As Rodrigo Duterte's trial nears on November 30, a Conversation piece weighs the threat US sanctions pose to the court.",
+      "confirmed_facts": [
+        "The US has never joined the court.",
+        "In October the US widened sanctions from individual officials to the whole court.",
+        "Duterte faces crimes against humanity charges."
+      ],
+      "why_it_matters": "Sanctions can limit the court's banking, IT services and work with witnesses.",
+      "context": "The court has no police of its own and depends on states to arrest and cooperate.",
+      "what_to_watch": "The opening of the trial, and how firmly member states back the court.",
+      "lesson": {
+        "concept": "Why leaving the court does not erase a case",
+        "explanation": "The court's powers come from a treaty that states join. A state can withdraw, but the court keeps jurisdiction over crimes from the time of membership. That is why a Philippine case can go on."
+      },
+      "sources": [
+        {
+          "name": "The Conversation (Global)",
+          "url": "https://theconversation.com/can-the-international-criminal-court-survive-trumps-attacks-and-hold-world-leaders-to-account-297530",
+          "type": "news",
+          "published": "2026-11-26"
+        },
+        {
+          "name": "EB News Daily",
+          "url": "https://www.ebnewsdaily.co.za/2026/11/26/can-the-international-criminal-court-survive-trumps-attacks-and-hold-world-leaders-to-account/",
+          "type": "news",
+          "published": "2026-11-26"
+        }
+      ],
+      "published": "2026-11-26",
+      "analysis": "The expert interviewed expects the court's survival to depend on member states, and does not expect a mass exit."
+    }
+  ],
+  "generated_at": "2026-11-28T03:26:53Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Indian Express Explained, Indian Express India and Reddit world and science failed to fetch today. No major national or global leadership change beyond one brief. Some stories use only the fetched summary or outside reports where the original page would not open.",
+  "briefs": [
+    {
+      "title": "China Resources Land president resigns amid official scrutiny",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQYkIta1NnRngyYm1MczlaMFBHVXFnQjZ0WEhyZXNCYlB4MkNhMTBPQWlpQWswQVNxLXg0N0pWLWtLVi0za2xCQk1uR1NHUkVfUmtUWDZfaGd3MlNrZGVpeGxYTkR1Q1ViT0ZUdGRKTU5GQ0ZCa0YwRk5BUm4wMUx5bHFVS1FkSXlaMmhKMlNtbzg4ZzJNUWtmdFpaQ1JINFd3c2UzYW5FT3B3TEM4ekRuUzN1V2RuRGs?oc=5",
+      "source": "Caixin Global",
+      "section": "leadership",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "India and Nepal set out a ten-pillar vision for ties",
+      "url": "https://www.thehindu.com/news/national/ten-pillars-of-nepal-india-vision-statement-issued-during-prime-minister-balendra-shahs-visit/article71753492.ece",
+      "source": "The Hindu National",
+      "section": "geopolitics",
+      "published": "2026-11-28"
+    },
+    {
+      "title": "US military says it disabled a ship leaving an Iranian port",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/11/27/us-disables-ship-attempting-to-breach-iran-blockade?traffic_source=rss",
+      "source": "Al Jazeera",
+      "section": "geopolitics",
+      "published": "2026-11-27",
+      "line": "The ship ignored warnings to stop, the military says."
+    },
+    {
+      "title": "Venezuela to repeal law barring opposition figures from office",
+      "url": "https://www.aljazeera.com/news/2026/11/27/venezuela-to-repeal-law-that-bans-opposition-figures-from-office?traffic_source=rss",
+      "source": "Al Jazeera",
+      "section": "geopolitics",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Estonia confirms closure of its Russia border from December 1",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUGRvYVkyUzA3LVU1aXNTMUZNNGVyTWJsUU5oUWJJWTNhaEtIQXltdlZMSE41clhZcDNrMkRCTWM0REtrMFZoX3AzLUVSTER6NnB5VUpvVllGQUdsS1ZwQnI0MXZPNlExY3VzNEdHdlplbmVVRTM4UWVEcWJtZzJsTnFFWGM3SmtVTVNKa1NWQUdlSS1qejNVdDdkLVotMFk4ZDJBY1BVeUloMGh2aEF0aGc1YlpET3BORFVKS3hqdUg2R1JQ?oc=5",
+      "source": "Euronews.com",
+      "section": "geopolitics",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Netanyahu reportedly readying rotation offer to Eisenkot",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQY3k4dk1ZZzQ2Q2VsTHRMVldmbGNUQzFyNUxPeW54VDBLNS1YemhnOUxFdEVxRTZabXJUbUt2UnlkXy1KS21oNWtpcEhtWDdoeDlTcnZuMUR6cnBvSkY2cGV1amhNd0tUZFNTNTVaeWtpaFVaYm96X3hWbjdhelBRVU5MOENPQkxLcmpPSTFjcmFIeF96VjlHeTBNb3JaeUU3cHFpS0Y2ajlTcjVqQnV4SktwVHfSAboBQVVfeXFMT2IwT2RzZnlfYjhhbHhXXzk2NEpPLU5GNERaUy1qeXFZNkhzbjEwYWlnYmRSX0xMNWVYQThjdnlFaGpFRG83akJ2dnVhV2puSWN1aElzQVF3VmNMNU9Hc2ZoVUlYbjRlblRfQ2JIU3JmdVlvRGctbnpxVWVQa3hXQ0xDWWREaWw5MS16ZFF3WWpsejAwR0pWRm5NSFV1WkdmdF9OTmRPX3lzcGRISWFiZkpzWU9DaXk3WU9B?oc=5",
+      "source": "The Times of Israel",
+      "section": "geopolitics",
+      "published": "2026-11-28"
+    },
+    {
+      "title": "Victoria votes in a close-watched Australian state election",
+      "url": "https://www.theguardian.com/australia-news/live/2026/nov/28/victorian-election-live-results-updates-premier-ben-carroll-jess-wilson-warren-pickering-2026-victoria-polls-votes-latest-news-ntwnfb",
+      "source": "The Guardian World",
+      "section": "geopolitics",
+      "published": "2026-11-28"
+    },
+    {
+      "title": "Pakistan, Saudi Arabia and Turkey condemn Houthi attacks",
+      "url": "https://www.aljazeera.com/news/2026/11/27/mecca-pact-allies-condemn-heinous-houthi-attacks-on-saudi-arabia?traffic_source=rss",
+      "source": "Al Jazeera",
+      "section": "conflict_disaster",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Israeli strike on a Gaza MSF clinic kills two watchmen",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/11/28/israel-kills-two-msf-staff-in-targeted-strike-on-gaza-clinic?traffic_source=rss",
+      "source": "Al Jazeera",
+      "section": "conflict_disaster",
+      "published": "2026-11-28"
+    },
+    {
+      "title": "Cairo fuel tanker explosion leaves 31 dead, driver held",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxObG90X19acEE5bXhPU0ZOeVhYS0trdUxQbWg0NlhWckZvVEZNZHhpNGMzS2tXQkszWDZwYXpxWTRGdW15RXg5czZ4RzhobDVSOWJnSmFYMGlHWGNZU2daWS1LRWxiSkJjcVNTNU9pRkwyQ2ZaaDBmR1NBWmZHLW5wc1ZEckdZdUd0cHFVdkJ2Rlp5cTJCcEI0allFRXRFYTk4bEFHRWwxcVN1R2J3Q0tZMDY3Y3AyenlyR0hWTkNyeGlyNjZCSGliVXR2WlRobU5qajM3aGVZMnpDOEtxZmJUblhkMXMwN3FKcXfSAe8BQVVfeXFMTUVLUXhEX1laMVZ1a21MQ0tpSEpqaTd0TVgtSGdfVFlBbGFyZ1dyZ0U0NVEzVm1UUVlSQjBsc0N1TTBkTmNDSWlJT1lYbGQ0bU5Ecm5ZOFJ5ZHZ5aGQzWlFsR0lza05HUllGUlJVSk45eVBsblZOS2hEdVMzRWh6d1BWMjduM1BweEJyYjdmZkZTWTBUaHU0eEc4ZlVwb1gycFh5TWRsV2owLXg1TE5fSzdIVkJPazBxRF80VF9KVmdwWWhVTUhhbDFmWmJ4RjdoeU9TRDk1MGFPUWVjT1NjcXBZbUJRMFlZNjRXdEdHUms?oc=5",
+      "source": "The Times of India",
+      "section": "conflict_disaster",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "UN warns famine is set to rise with conflict and El Nino",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOeWZmSFR2U1RwbkN6Z2dtRm1sWnJZdVBya1hHTk9MdXI0LUotYVZaLXNjRzNwY0FmeGJEMmtCMkVja3k1VVlqbzRoM0dhYnJIeUFUbWJ6V2tPTm5OTFkzZDVRN3pGZ3hfNHVfdUFzY3lKcXg4UUo5cGxUT1ZqV0dFSmd2OHAxcWFRUUpPY0ppLUFVSDlBQzlKT214NmFibmNKV1BTTHhB0gGrAUFVX3lxTFBieV9WWnVUUFB4M29oWXhOUmhrVEpFV3M2eDZwX3dYQlNSSU54bUtyVkl6U0FLVl9VQXNtZGhha2ltWVhFQ24yWG1JRHdRR2Z2a2h4NUZyeVdOLWNMWGdFQ3RJNVVqeUZtVEthQnk4dVJ5TW9YelFUelRnT29KZ0VudGduYmRyUzJsOVJCWEdrYlZBd0JMYjg2RmdEQmc0MVhXb2MwaXVnaW1QMA?oc=5",
+      "source": "Al Jazeera",
+      "section": "conflict_disaster",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "S&P cuts France's credit outlook to negative",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPZjhJZEpaWkF6R1Rza205U2NPQ3d1MDlBT19oWHNQQlpRVnFBSUxIbU1Jc1habzBUUC1FSmp5WktnZ0tHbkY1M1VfVTRJOGpobzExRWpHTGs0TjRzTm95Wnh0OXdhRlE4SlhUX1JoSTRXR1RWbUczdFpVMjdUdkNwNDNocEw?oc=5",
+      "source": "Financial Times",
+      "section": "economy_markets",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "India's forex reserves fall $4.44 billion to $700.90 billion",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNNVc2MjBmdU9lWEI1VjMzMzdTcVZOQnFVYW1wYUFBWnJmX09oV1QwOEZGUVFCRTl0MDU4elk3bEN3UnVsdXRXVXFmS2RfbndJQUhYTjNnMjZpT1hQbDdPZ3RkLUl4cHJ4eENOaFgyNzFZUkppZVctbHBKTVhnckpnSTRwWll1b3pmYVNCWWV3OHVnSm1LZnRHRklpWDhmME5TYWMxY1Zpc3JqZ3c4M2ZLU2JUNUNIQkZVaFI3V3JtRk1GYTVXWWZsLUQzYW1jdnFqNm10WHZjZEtXbnBId3ZJ?oc=5",
+      "source": "TradingView",
+      "section": "economy_markets",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "China's cabinet backs markets in a rare midday statement",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQak5CQ2hzYk9WT0pEN2JpTjdqdU81V2pWSkxEVmdVcy11NDhqX0RfRngwU3ZXczl6dXFkZXg3aEpPakM2ZTY4QXNJVlpiVEJ2MUs0bUF0MzVJUXd3dWtvWFJna2U2aVhYbTNmM3o1UmZBaGxZRzVCS0JwS1FMYVlUSmltWE1GTkkwdmhxMG5xYi1sNDBDLURIVExoODFYVVhHZkdaa1VyUnFTLTNw?oc=5",
+      "source": "Bloomberg.com",
+      "section": "economy_markets",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "US seeks its lowest World Bank aid pledge in years",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBMbXdRcE51bG1CNjZlVnJ0NUZRd0xUQ1plRXN0aEhtdFFSRVNiaVhxd1FSRFN6eWFzbzVOV3d5STJpSTVoeFp6eEI1UE5Cb0tFVXplclhIMkJQdmhXNkQ1NzJNOUtiUjlZVHVVa0FCR2ZjcHJ5TVJtVURXRGo?oc=5",
+      "source": "Legis1",
+      "section": "economy_markets",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Adani Group seeks approval to invest in airlines",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPbFNxMTJzLVZqUHlMZGRLQ0tLOFJTNG5rZWZ0UW02WVpKMmtsekMweERvNVVmOGxKLVl5c3d5QXl3M0lLcHczNV9ULU5mRXFYTkEybW5fWTA2MDB3b0ZZcjZfOEZoMmoxQWY2UVQtMlZURlBoVGtIblZ1ZWFVamMtQTlJbTVGU29XTENtVFBocVM2Z3Y4UnBLLVR1c3EzUjJ4SklXbHQ5ODJXOV9yNUZIZ0RHQlEzWnIzWDI3M3RSOTZTRGZjMGJIanRzdw?oc=5",
+      "source": "Moneycontrol.com",
+      "section": "business",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Consortium agrees $16 billion deal for Lukoil's overseas assets",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPbG54UzRPNW02Vkd5SjNzQ3F1SlZxanBxVGY2UDBjeHdwMGhsdy0wR3lza2RBRm9mT2lBYXI4WTBaS2FZcndjaWlZUlI1c1ZTWnV4VFhVTkczN2xrVkpBY0R2c0p1bEtRbGJxZndHRERDemJGUXlpYThsVFZPTFZYbmFISTVpRGc1bkdZZUV4bDlWVVF2Tl9QY1V0RFl2WTBjU29WaWNLWHhDVVFhRG56TERibGM4MlhTeUlaNGpLeXVybno3SmN5VUg2a1pvMjNFRzBjek15dw?oc=5",
+      "source": "https://internationalfinance.com/",
+      "section": "business",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "IBM consulting unit ends visa sponsorship for most US roles",
+      "url": "https://www.thehindu.com/news/national/tech-workers-woes-ibm-ends-us-visa-green-card-sponsorship-for-most-roles-in-consulting-unit/article71750142.ece",
+      "source": "The Hindu Business",
+      "section": "business",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Indian chip startup C2i Semiconductors raises $15 million",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQSFVfSTY2U3hXSXZQLWhPejhWakJWSmw4elV1T01yRWdWR3lGZ0hTVGVxRjVBb09JVFlMQm5taHROaFhWRFViR0dWak1CM2JnQ2tEenl6dzlWSThJSVNoOXZVcWNMMkJCX0xmLXNjZHFJTE5sTGJoU1lBSXdBeTg1UjJLRGdienpvVDhzMDZZZUhSS0xaSENiNm40V1FXdUR6UHc5d2VJYlFGMDVCZEg1Ty1NZm1BMEhZSVQydTQ2eVJfUFRJNTJBVC1XanNZb1owdlFYNEpkVQ?oc=5",
+      "source": "DD News",
+      "section": "business",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Nvidia Blackwell chips reportedly turn up at a China site",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOajRDYnpkT2kwWEdlR2REeG93cnBZdkdsYmo3dTFmaVp3enZYN3Jid0RYVWZwNXJvcE00OG5FNjdwd0MzQXpFV1gzeUxkdnhxTVNoaGVNRmpnRllMTGY4emNtNW9VYnc4RWZVX0I2WExQNy1Ha21aV0FNWWVUb0FacnFLM01rUWRudjBCdGJpbGxCVUx3dl9KMEtZb0pyYURCTG1iWW5xUmNpaDlnc0lsMVpldmV6QQ?oc=5",
+      "source": "Bloomberg.com",
+      "section": "technology",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "SAP reportedly weighs cutting at least 10,000 jobs in AI push",
+      "url": "https://www.cnbc.com/2026/11/27/sap-job-cuts-ai-restructuring.html",
+      "source": "CNBC World Markets",
+      "section": "technology",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "EU proposes a €50 billion fund for quantum computing",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQRDZ3TDBfU2t4S1hWcEtVSVFHZm41b0N4dDFheERjZ01ldDlNOW9vWUQ0djdhd2R6dDNqYjdicDZ6eFlRaDBIOFl4S196cHVNU3R2b1ZyTmhvNXpQMEdGN1QyLS1fVlNha0JyTENzMmRLeFZmSTU5aC1QNnJBVWREM2ZGRWxjMVdSZE95amQ2NFlGSk9lYlduTjJmRWs?oc=5",
+      "source": "SC Media",
+      "section": "technology",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Apple pulls MiniMax chatbot over child safety concerns",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPVFFqQzIxVXotOEhJVUdieFk4a1pxV2E3STRyNmZOcEZYVkNMNEl5Qm1COGdQUXBEVTVzSk8ta3Y5VHdIdi1kZ0V0VmNkQjAzNy02b0E3T2Z1WkczMFZmcHljR1htTFFkckd2QUNuR0ZMQnVKMkVLR0FFQU92TEtSbl9ha21falZINGNQblFOTlI3Z1BkTGNZWXNGcTdvOXhIcnZQRThUTGNwS2pFWXJNNGowbVEwbmlfbDVXYkE2YlMxdnc?oc=5",
+      "source": "Caixin Global",
+      "section": "technology",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "European Southern Observatory warns satellite plan could streak images",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQTURYRWZ2eVFZRFNFeEd2cXdUeU5RNzNxUm51QWJaTEdjdnlkNTk2S3hpNUxEa2hnSmprN1hrcVloV0hmRS11UVoyekFiaDF3dDFiZ2RMbkxjY2s0QzhrWFFIeko5Z2x0bFhtNFlTT1dJdy1RNjN2eUhWQ1R4YTJGSF9pamdMTlZpNTU3V09xeDJ4eWpNQjhJUVpaRjY4cWhyYTctOWtSWHBSTHhwVGRrc0c1RFFYcUU?oc=5",
+      "source": "Around Prague",
+      "section": "science_space",
+      "published": "2026-11-28"
+    },
+    {
+      "title": "World's ice will keep melting even at net zero, scientists explain",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQSkRIenBVTXVSUDgtQ0JlOVktR1k3ZVFhYi1Lcl9kN2Y1N2JlZlQySFRDdE9ublJGTzZjVGZJZVRoNkpyODlpZGMzZnZQa3hMcFhhb0I4MVo0NzE5N0JvdjNYS2t1VXZqSUNpalhXSlpiNFJ0cWdEOUVydkswOC1YNjduX0NNMDZWNkNSYWxtZVU4RGNYR2NlZ3NrTUd5TUFKcWkyN3EzdG4yek5DUnZVdEFmOEdxZXBEMGNFZnlyVjk4dV85VkhRTmVWbGNVWW8?oc=5",
+      "source": "The Conversation",
+      "section": "climate_energy",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Delhi tops NCR cities for particle pollution",
+      "url": "https://www.thehindu.com/sci-tech/health/delhi-tops-list-of-most-polluted-ncr-cities-for-pm25-pm10-despite-no-severe-aqi-days/article71747599.ece",
+      "source": "The Hindu Sci-Tech",
+      "section": "climate_energy",
+      "published": "2026-11-26"
+    },
+    {
+      "title": "England to require daily reading time in primary schools",
+      "url": "https://www.theguardian.com/education/2026/nov/27/schools-in-england-must-set-aside-time-for-pupils-to-read-for-pleasure",
+      "source": "The Guardian World",
+      "section": "society",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "CBSE makes vocational subjects compulsory in classes 9 and 10",
+      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxOcHEzSHE1LV85QmpmZTBieXpIT1NsenFPZkpiTUxyVm1EVU5zZ0hJa3NTWGE3dGRFX2pIMlV3V1BYMUVEdzU0akhVaEprRC1VYU12emFvdUJibVUtUzI1OWp6UXR6bjNkMVFSV3Z3LTlMdW15ZWVqMnM5M3lQWldtUUZBRzhnOURNOHdUb2h6Vm5kNHo5LVEwbV9xeVZWOFpXbUdOSjFJR2k2eDU0YVh0cWVyY0czMDBieDJJVmF1VW5GMHB4dXF3TW53VHZBUVR6NHUwVGhZX29XUFlKWGI1eVBOakNacXdUSlYtd09LQVlzdGtBWkZBcXZ5c0pxQUlBQVpV?oc=5",
+      "source": "Education Times",
+      "section": "society",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Hundreds of migrants arrive in Spain's Canary Islands",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/11/27/spanish-rescuers-treat-migrants-as-hundreds-arrive-in-canary-islands?traffic_source=rss",
+      "source": "Al Jazeera",
+      "section": "society",
+      "published": "2026-11-27"
+    },
+    {
+      "title": "Supreme Court finds contempt in Thirupparankundram lamp case",
+      "url": "https://www.thehindu.com/news/national/tamil-nadu/thiruparankundram-deepam-issue-supreme-court-contempt-tamil-nadu-karthigai-deepam-deepathoon-row-live-updates-november-28-2026/article71753437.ece",
+      "source": "The Hindu National",
+      "section": "india",
+      "published": "2026-11-28"
+    }
+  ]
+}

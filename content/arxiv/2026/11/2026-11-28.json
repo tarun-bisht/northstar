@@ -1,0 +1,1176 @@
+{
+  "schema": "arxiv",
+  "date": "2026-11-28",
+  "items": [
+    {
+      "id": "arxiv-2611.34232",
+      "arxiv_id": "2611.34232",
+      "title": "OS-Omni: Benchmarking Generalist Computer-Using Agents on Long-Horizon Workflows Across Platforms",
+      "authors": [
+        "Hui Shen",
+        "Yunta Hsieh",
+        "Jianing Ma",
+        "Zhuoran Yin",
+        "Zhuhan Bao",
+        "Ziyuan Liu",
+        "Qi Han",
+        "Xiuqi Xu",
+        "Xianbang Wang",
+        "Wenhao Chai",
+        "Sihan Xu",
+        "Chenyang Zhao",
+        "Yanheng Shang",
+        "Dongfu Jiang",
+        "Rui Sun",
+        "Xingzhi Li",
+        "Chenqi Yin",
+        "Zesen Zhao",
+        "Boyuan Zheng",
+        "Jisen Li",
+        "Xiaoxia Wu",
+        "Ruoyan Zhang",
+        "Ruiyao Liu",
+        "Jing Xiong",
+        "He Xiao",
+        "Nan Zheng",
+        "Hangxiang Chen",
+        "Shengyang Tao",
+        "Deyang Luorong",
+        "Yifeng Liu",
+        "Jingxuan Zhang",
+        "Chaofan Tao",
+        "Yuren Wang",
+        "Jiaqi Mo",
+        "Rui Hu",
+        "Xing Wei",
+        "Xiaofeng Liu",
+        "Xin Xu",
+        "Han Wu",
+        "Mengyao Wen",
+        "Guobin Zhang",
+        "Shatong Zhu",
+        "Hei Ting Una Chan",
+        "Sicheng Chen",
+        "Kai Zhang",
+        "Mengkang Hu",
+        "Zhongwei Wan",
+        "Xin Wang",
+        "Chuanyang Zheng",
+        "Ziheng Zhang",
+        "Hengyuan Zhang",
+        "Zunhai Su",
+        "Kanzhi Cheng",
+        "Dehan Kong",
+        "Yian Wang",
+        "Hanrong Zhang",
+        "Jiawei Lu",
+        "Yifan Zhang",
+        "Junnan Li",
+        "Changyi Yang",
+        "Jintao Qu",
+        "Wenyao Gao",
+        "Jiaxuan Luo",
+        "Jiaxin Deng",
+        "Yuhao Chen",
+        "Xuesong Ye",
+        "Jingwen Gu",
+        "Yichi Zhang",
+        "Qun Lou",
+        "Shen Yan",
+        "Ben Athiwaratkun",
+        "Qiushi Sun",
+        "Mi Zhang",
+        "Ping Luo",
+        "Wenhu Chen",
+        "Ngai Wong"
+      ],
+      "url": "https://arxiv.org/abs/2611.34232",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Computer-using agents are increasingly expected to complete realistic user goals rather than isolated GUI actions. However, existing benchmarks typically isolate web, mobile, or desktop environments, leaving it unclear whether a single generalist agent can execute long-horizon workflows that span multiple operating systems and persistent application states. We introduce OS-Omni, a live cross-platform benchmark and execution environment for evaluating computer-using agents across Windows, Ubuntu, macOS, iOS, Android, and Web environments. OS-Omni is released in versioned waves of 300 tasks each; this paper focuses on the first release, v1, which contains 48 tasks per platform and 12 cross-platform workflows that pair a desktop with an Android phone. OS-Omni provides reproducible initialization, platform-specific adapters, trajectory logging, and executable final-state evaluators, and includes controlled service-backed applications for workflows involving account, cart, budget, calendar, message, and other persistent state. Human studies show that OS-Omni tasks require 67.54 interaction steps, substantially exceeding OSWorld references of 15.0 steps. On v1, the strongest evaluated agent, Claude Opus 5.5, reaches 68.5% average success, trailing the 77.3% human reference by 8.8 points; the gap is uneven across platforms, with frontier models exceeding humans on Linux but trailing them by more than 25 points on iOS and macOS. These results indicate that current agents remain far from platform-robust, long-horizon computer use, especially when success requires sustained state tracking and durable final-state changes.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "computer-use agents",
+      "tags": [
+        "benchmark or dataset",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "field",
+      "trusted": 0,
+      "hf_upvotes": 104,
+      "version": "v1",
+      "overview": true
+    },
+    {
+      "id": "arxiv-2611.25588",
+      "arxiv_id": "2611.25588",
+      "title": "Rubric Semantics or Numerical Priors? Auditing Scale-Direction Bias in LLM Judges",
+      "authors": [
+        "Chanwoo Kim",
+        "Doyun Kim",
+        "Minsoo Song",
+        "Sihyeon Lee",
+        "Chanjun Park"
+      ],
+      "url": "https://arxiv.org/abs/2611.25588",
+      "submitted": "2026-11-19",
+      "categories": [
+        "cs.CL"
+      ],
+      "abstract": "Recent benchmark evaluations increasingly rely on Large Language Models (LLMs) as automatic judges. This paradigm assumes LLMs evaluate based on the rubric's semantic meaning rather than its numeric scale. We question this assumption by introducing semantic faithfulness: the principle that semantically equivalent rubrics must yield consistent scores. To quantify this, we propose a scale-reversal probe that inverts score anchors without altering evaluation criteria. Furthermore, we introduce floor normalization to calibrate reversal disagreement against intrinsic model variability, enabling fair cross-model comparisons. Experiments across five meta-evaluation benchmarks with seven diverse LLM judges spanning open-weight and proprietary models reveal widespread violations of semantic faithfulness, showing that raw reversal agreement alone is misleading. Finally, we demonstrate that bidirectional anchor averaging reduces dependence on any single anchor direction without compromising alignment with human judgments. Our findings emphasize that trustworthy LLM judges must reliably follow rubric semantics, not just correlate with human ratings.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "LLM judges",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v1",
+      "overview": true
+    },
+    {
+      "id": "arxiv-2611.34813",
+      "arxiv_id": "2611.34813",
+      "title": "Solve Vision with Code: Coding Agents Are Stronger Visual Reasoners Than Video Models",
+      "authors": [
+        "Dezhi Luo",
+        "Fengyuan Yu",
+        "Haotian Zhang",
+        "Zehong Zhao",
+        "Ran Ji",
+        "Siyuan An",
+        "Huayi Qin",
+        "Qingying Gao",
+        "Zhongang Cai",
+        "Lei Yang",
+        "Ziqi Huang",
+        "Ruisi Wang",
+        "Maijunxian Wang",
+        "Hokin Deng"
+      ],
+      "url": "https://arxiv.org/abs/2611.34813",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG",
+        "cs.MM"
+      ],
+      "abstract": "Video generation models are increasingly evaluated as visual reasoners: given a first frame and a natural-language prompt, can the model produce the video in which the specified task is carried out? The paradigm is considered advantageous because the reasoning is native to the visual medium, unfolding directly in the frames rather than through language or code. Whether this native route is in fact the more reliable path to visual reasoning has not been tested against a symbolic alternative under the same conditions. We therefore pose the same tasks, with identical inputs, output specification and evaluator, to both media: rather than denoising pixels, a coding agent writes a program that renders the answer video, which an unmodified rule-based evaluator scores. On VBVR-Pro-Bench (Xu et al., 2026), a 500-instance suite spanning five cognitive categories with symbolic ground truth, the agent receives the same first frame and prompt as the video model, with no access to ground truth, metadata or generation models, and one attempt per instance. Three closed-model agents (Codex with gpt-6-astra, Claude Code with Fable 5.1 and Gemini CLI with Gemini 3.1 Pro) score 0.923, 0.894 and 0.893, each more than 0.22 above the strongest video model. Among 23 runnable open-weight models, the best, GLM-5, reaches 0.572, above all video models except the RL-trained one. Together, we show that for tasks whose solutions can be computed from a first frame and a prompt, program synthesis is currently a substantially more reliable route to visual reasoning than video generation. We further distinguish depictive programs, which navigate the image to recover a transferable scheme, from propositional programs, which operate on hard-coded values, revealing how visual reasoning unfolds in agent-written programs and what it implies for its nature of reasoning in general.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "visual reasoning",
+      "tags": [
+        "strong result",
+        "notable researcher",
+        "worth knowing"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "field",
+      "trusted": 1,
+      "hf_upvotes": 59,
+      "version": "v1",
+      "overview": true,
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34739",
+      "arxiv_id": "2611.34739",
+      "title": "Was the Model Given the Right Action? Auditing and Repairing Action Interfaces in Navigation World Models",
+      "authors": [
+        "Ajmain Istiak Apon",
+        "Md Mehedi Hasan",
+        "Sejuti Rahman"
+      ],
+      "url": "https://arxiv.org/abs/2611.34739",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "abstract": "World models are evaluated by predicting future observations from actions. These evaluations assume that actions are prepared the same way as during training, but an unchecked mismatch can make a model appear less accurate than it is. We audit this assumption in Navigation World Models (NWM) and find three interacting differences between its training and rollout code. Correcting the inputs, without retraining, reduces mean visual prediction error by 42%, measured with DreamSim on the RECON navigation dataset. The correction also changes the ranking of NWM checkpoints in an exploratory analysis and removes or reduces two alternative models' measured advantages. Correcting only the normalization offset instead increases error, showing why interacting mismatches must be checked together. To test whether sensitivity to input preparation extends beyond NWM, we deliberately introduce encoding errors into two alternative models; both become less accurate. We introduce ActRosetta, a tool that checks whether action encoding matches training, identifies supported causes of disagreement, and repairs inputs when sufficient information is available. Repair helps little where predictions barely respond to actions, the tool's diagnosis has limited coverage, and improved control remains unproven. For any action-conditioned world model, the lesson is the same: before reporting rollout error, verify that evaluation encodes actions exactly as training did.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "world models",
+      "tags": [
+        "useful for your work",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v1",
+      "affiliations": [
+        "1University of Dhaka 2New Uzbekistan University"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34703",
+      "arxiv_id": "2611.34703",
+      "title": "Maco-RL: Scaling Agent Capabilities with Mixed-Task Reinforcement Learning",
+      "authors": [
+        "Jiacheng Zhang",
+        "Qixing Zhou",
+        "Haiyang Wang",
+        "Qipeng Gu",
+        "Shuzhe Wu",
+        "Feiyang Pan",
+        "Lue Fan",
+        "Dandan Tu",
+        "Zhaoxiang Zhang"
+      ],
+      "url": "https://arxiv.org/abs/2611.34703",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "abstract": "Mixed-task reinforcement learning (MixRL) directly trains a unified policy across domains to continually expand agent capabilities without training separate specialists or requiring an extra distillation stage. Despite its appeal, scaling MixRL poses significant challenges in achieving stable and efficient mixed-task learning, effectively allocating rollout compute, and supporting continual domain expansion. To address these challenges, we propose Maco-RL, an approach that effectively scales MixRL. Specifically, Maco-RL employs a quota-based scheduler for asynchronous rollouts across multiple task domains, thereby stabilizing training by balancing gradient contributions and mitigating off-policy effects. Along an orthogonal axis, Maco-RL further introduces Tri-Buffer Sampling (TBS) to allocate compute among samples with varying levels of mastery, promoting sustained frontier exploration while preserving acquired capabilities. Experiments on five benchmarks show Maco-RL raises Qwen3.5-27B's overall score from 43.6 to 54.2 and then to 60.1 with continual expansion, reaching the frontier held by Qwen3.8-27B, which is further pushed outward by +5.7. Maco-RL also outperforms single-task RL with less compute for policy updates. These results support MixRL as a practical and compute-efficient post-training approach with substantial potential to strengthen general agent capabilities.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent training",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34848",
+      "arxiv_id": "2611.34848",
+      "title": "Put the World Back: Timestamps Matter in Time Series Reasoning",
+      "authors": [
+        "Tingrui Huang",
+        "Yuanyuan Deng",
+        "Qingren Yao",
+        "Joaquin Vanschoren",
+        "Mykola Pechenizkiy",
+        "Songgaojun Deng"
+      ],
+      "url": "https://arxiv.org/abs/2611.34848",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Large language models (LLMs) are increasingly applied to time series reasoning. However, current evaluations often give models events in chronological order and already matched to the time series. This makes it unclear whether models use timestamps to connect events with observations or simply take shortcuts. To expose this ambiguity, we reformulate time series reasoning from a world-to-series projection perspective, viewing timestamps as explicit indices that connect numerical observations and external events to shared world states. We identify three structures that timestamps can make explicit: temporal causal structure, time semantics, and event-series alignment. Building on this perspective, we develop a diagnostic protocol that distinguishes timestamp-grounded reasoning from correlational shortcuts, a distinction that accuracy-based benchmarks cannot make. Controlled interventions on 310 questions from two tasks show that high accuracy can persist when timestamps are replaced by relative offsets or removed, while breaking event-series alignment induces systematic failures. When context is pre-aligned, models barely need timestamps. When order is missing, they use dates to recall world knowledge. Without dates, they rely on correlational shortcuts and rarely notice incorrect timestamps. These findings show that high accuracy on pre-aligned, ordered inputs does not establish that a model uses timestamps to synchronize observations with the world. We release our code, model outputs, and trajectory labels at https://github.com/tingrui-huang/timestamps-matter.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "temporal reasoning",
+      "tags": [
+        "useful for your work",
+        "benchmark or dataset"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34188",
+      "arxiv_id": "2611.34188",
+      "title": "MINE: A Training-Free Defense against Indirect Prompt Injection via Mutual Information and Embedding Variance",
+      "authors": [
+        "Truong Phan",
+        "Ngoc-Quan Pham",
+        "Dat Quoc Nguyen"
+      ],
+      "url": "https://arxiv.org/abs/2611.34188",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "abstract": "Existing defenses against indirect prompt injection in retrieval-augmented generation (RAG) are inherently reactive: prompt-engineering methods are often overridden by the injected instructions, while supervised detectors must be retrained for each new attack style. We propose a different paradigm: defend by maximizing relevance, not by detecting attacks. Our method, MINE, is training-free and attack-agnostic, and it also serves as a query-conditioned reranker. To evaluate defenses under realistic conditions, we introduce LC-Inj-SQuAD, a long-context benchmark with an average of 4,032 words per context. We evaluate on four datasets spanning short-context QA (Inj-SQuAD, Inj-TriviaQA), long-context QA (LC-Inj-SQuAD), and agent tool-call injection (InjecAgent). Across all four, MINE achieves the best accuracy--security trade-off among training-free defenses. It is also the only defense that stays usable against a fully adaptive attacker, generalizes to agent tool-call injection, and achieves the lowest inference latency on long contexts.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent security",
+      "tags": [
+        "useful for your work",
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.08977",
+      "arxiv_id": "2611.08977",
+      "title": "Energy-Based Reasoners: Your Recurrent Reasoner Should Be an Energy-Based Model",
+      "authors": [
+        "William Xingxu Chen",
+        "Alexi Gladstone",
+        "Zeyu Michael Li",
+        "Heng Ji",
+        "Yilun Du"
+      ],
+      "url": "https://arxiv.org/abs/2611.08977",
+      "submitted": "2026-11-06",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Looping is a powerful inductive bias for reasoning. By repeatedly iterating a recurrent block, looped models can scale their effective depth and enable multi-step reasoning in latent space. However, existing looped models are not inherently guided by an explicit measure of progress, making it difficult to determine when to stop looping and how to improve upon the current state. To enable this, we introduce Energy-Based Reasoners (EBRs), which learn an energy function over latent reasoning states and formulate looped updates as gradient descent on this energy. The energy scores latent states, while its gradient guides refinement and provides a signal for stopping. To train EBRs effectively, we further introduce exploration-based training to discover additional modes and to better shape the energy landscape over a broader set of states. Across four algorithmic reasoning benchmarks, EBRs match or outperform prior recurrent reasoning models, achieving 99.9% accuracy on Sudoku-Extreme while using 345$\\times$ less inference compute than the next-best model and maintaining comparable training compute. On all multi-solution benchmarks, EBRs achieve state-of-the-art coverage of distinct valid solutions while maintaining near-100% single-sample accuracy. These results suggest that energy-based models are a promising approach for strong reasoning performance.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "latent reasoning",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "field",
+      "trusted": 0,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34656",
+      "arxiv_id": "2611.34656",
+      "title": "Do We Still Need Reinforcement Learning When We Can Read the World Model?",
+      "authors": [
+        "Mingchao Zhang",
+        "Miduo Cui",
+        "Kangze He",
+        "Yuanjun Li",
+        "Dapeng Li",
+        "Ce Zhang",
+        "Chuanchen Luo",
+        "Xue Yan",
+        "Mingzhe Xing",
+        "Zhumin Chen",
+        "Hangyu Mao",
+        "Bin Zhang",
+        "Zhiwei Xu"
+      ],
+      "url": "https://arxiv.org/abs/2611.34656",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "abstract": "Reinforcement learning has achieved remarkable success in sequential decision-making, but learning effective policies often requires substantial interaction experience. Model-based reinforcement learning alleviates this dependence by leveraging world models, which are typically used to support planning or policy optimization. In this paper, we investigate an alternative paradigm in which autonomous LLM-based coding agents directly synthesize control policies by reasoning over readable world models. By examining environment source code, these agents translate environmental knowledge into executable decision rules and iteratively refine their policies using online feedback or offline data, without task-specific RL training. Experiments across diverse decision-making benchmarks show that synthesized policies match or outperform conventional RL methods while requiring substantially less experience. Further analyses reveal interpretable decision rules and how they evolve through feedback-driven refinement. Comparisons with policies generated without source code access and experiments under challenging conditions further demonstrate the benefits of readable world models. These findings suggest that direct policy synthesis can reduce reliance on trial and error, challenging the necessity of task-specific RL training.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "policy synthesis",
+      "tags": [
+        "worth knowing",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.10156",
+      "arxiv_id": "2611.10156",
+      "title": "DeepResearch RewardBench: Evaluating Reward Models for Deep Research Report",
+      "authors": [
+        "Shudong Liu",
+        "Yuting Zhong",
+        "Guanhua Chen",
+        "Xinyi Yang",
+        "Junnan Liu",
+        "Lidia S. Chao",
+        "Jiaheng Liu",
+        "Derek F. Wong"
+      ],
+      "url": "https://arxiv.org/abs/2611.10156",
+      "submitted": "2026-11-06",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "abstract": "Empowered by Large Language Models (LLMs), deep research systems integrate online information into research reports through multi-step web searching and information synthesis. Evaluating these reports presents a significant challenge due to their long context, high information density, and domain specificity, necessitating the use of AI evaluation as a substitute for prohibitively expensive human assessment. However, few studies have examined the effectiveness of existing reward models or LLMs in understanding and evaluating such research reports. To bridge this gap, we introduce DeepResearch RewardBench, the first benchmark dedicated to evaluating reward modeling for research reports. We collect diverse report candidates from multiple agents or tool-augmented LLMs. These candidates are scored using query-specific golden rubrics, and we ensure data quality and difficulty through a combination of multi-round filtering and human verification. Our benchmark comprises preference datasets formatted as pairs, triplets, and quadruplets to test ranking capabilities across varying levels of difficulty. Extensive experiments demonstrate that while current reward models handle general coherence effectively, their performance significantly degrades when evaluating research reports. Generative LLMs acting as judges demonstrate comprehensive superiority in this domain, with comparative evaluation proving more effective than direct scoring methods. We anticipate that this benchmark will serve as a vital testbed for the evaluation and advancement of research agents.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "reward models",
+      "tags": [
+        "benchmark or dataset",
+        "useful for your work"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34635",
+      "arxiv_id": "2611.34635",
+      "title": "ZeroHero: Training Small Language Agents from Scratch",
+      "authors": [
+        "Nikita Sorokin",
+        "Zoya Volovikova",
+        "Alexey Skrynnik",
+        "Aleksandr Panov"
+      ],
+      "url": "https://arxiv.org/abs/2611.34635",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.AI"
+      ],
+      "abstract": "Large pretrained language models provide capable policies for interactive tasks, but how much model capacity is necessary for a specialized language agent? We introduce ZeroHero, a framework for training small language agents (SLAs) from scratch. In each environment, a large language model acts as the expert, and we collect its successful trajectories. We pretrain each SLA, which has fewer than 50 million parameters, to predict the expert's responses given the interaction history. We then post-train the agent on its own interactions using proximal policy optimization (PPO). During post-training, reasoning alignment supplements environment rewards with expert supervision on the language the agent generates alongside its actions. We evaluate the agents in three multistep environments where acting requires both understanding and generating language. In Crafter, agents interpret textual observations and generate reasoning before acting. In WebShop, they translate shopping instructions into search queries. In Alfworld-Dialogue, they ask clarifying questions and use the answers to guide household actions. The agents approach expert performance on WebShop and surpass their respective demonstration experts on Crafter training rollouts and held-out Alfworld-Dialogue tasks. An interactive demo is available at https://zoyav.github.io/-ZoyaV-zerohero-demo.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "small agents",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34907",
+      "arxiv_id": "2611.34907",
+      "title": "Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation",
+      "authors": [
+        "Shaoteng Liu",
+        "Shuai Yang",
+        "Wei Huang",
+        "Luozhou Wang",
+        "Song Han",
+        "Yukang Chen"
+      ],
+      "url": "https://arxiv.org/abs/2611.34907",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Real-time autoregressive video generators stream minutes of video and accept new prompts on the fly, but struggle to keep people, objects, and places consistent over a long interactive story. Agent systems provide such memory for offline multi-shot generation, yet they read the whole script in advance, plan each shot before generating it, and regenerate failed shots, which a live stream does not allow. We present Agentic LongLive, an asynchronous agentic memory for long video generation. A memory agent on separate GPUs reads only the prompts revealed so far, never the generated video, and keeps a text state and evolving images for every person, object, and scene. From this entity memory it composes a global image and a per-shot memory image, which an auxiliary GPU prefills into the generator's attention sink before the next shot starts, and writes entity cards for the prompts that name them, so the video never waits for memory and video errors are not written back. A small language model, trained with reinforcement learning and an image reward calibrated using downstream video outcomes, decides what to remember before the next prompt is known. On LongStory-Online, a new benchmark of 25 stories (857 shots) revealed one shot at a time, Agentic LongLive improves persistent-state accuracy of LongLive-2.0, its base generator, by 26.3 points, protagonist identity by 44.9, and revisited-place consistency by 40.4, at about 1% extra generation time on H100. The full system streams faster than real time on one 8xB200 node with the generator in BF16 (34.3 FPS), keeps image quality stable over 14-minute stories, and improves identity on two MiniMax-H3 generators, one of which, LongLive-H3, also runs in real time with it. To our knowledge, it is the first real-time video generator with text and image memory kept by an LLM agent.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "video generation",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "notable researcher"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "hf_upvotes": 19,
+      "version": "v1",
+      "affiliations": [
+        "1NVIDIA 2MIT 3CUHK"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34466",
+      "arxiv_id": "2611.34466",
+      "title": "EgoUseBench: Benchmarking Computer-Use Agents under Evolving First-Person Contexts",
+      "authors": [
+        "Yurun Chen",
+        "Biao Yi",
+        "Qihang Yu",
+        "Keting Yin",
+        "Shengyu Zhang"
+      ],
+      "url": "https://arxiv.org/abs/2611.34466",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.AI"
+      ],
+      "abstract": "AI wearables, such as smart glasses, extend the context available to agents beyond digital environments to users' physical surroundings. With these devices, computer tasks can originate from users' ongoing activities rather than solely from explicit instructions. Through first-person observations, agents can identify objects and activities relevant to user requests and ground digital tasks in the surrounding context. We call this interaction paradigm Ego Use. However, first-person observations are limited by the wearer's viewpoint and may provide incomplete or ambiguous evidence of ongoing activities. As new observations arrive, agents may need to revise their understanding of the physical context and user intent, and reassess whether prior digital actions remain valid. Whether current agents can reliably handle these changes remains insufficiently evaluated. We introduce EgoUseBench, a benchmark for evaluating Ego Use across three interaction settings with different levels of first-person context. Computer-Use relies on explicit instructions, Offline Ego Use provides prerecorded first-person context before execution, and Online Ego Use provides continuous observations as user intent evolves. Based on over 74 hours of real-world first-person recordings, we construct 693 tasks across the three interaction settings. To capture task evolution, we track first-person observations, user requirements, and website state separately. We further group tasks by how information changes during execution, resulting in three types: Graft (revised user requirements), Refresh (new first-person observations), and Clarify (agent-initiated information seeking). We evaluate advanced models and find that average success rates in Online Ego Use are 26.3% lower than in Computer-Use. This result reveals the difficulty of keeping task execution aligned with evolving first-person context and user intent.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "agent evaluation",
+      "tags": [
+        "benchmark or dataset"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "hf_upvotes": 20,
+      "version": "v1",
+      "affiliations": [
+        "Zhejiang University"
+      ]
+    },
+    {
+      "id": "arxiv-2611.33915",
+      "arxiv_id": "2611.33915",
+      "title": "SEEK: Self-Evolution through Execution Knowledge for Agentic Robot Manipulation",
+      "authors": [
+        "Zeyang Guan",
+        "Qihao Zhao",
+        "Rui Gong",
+        "Zhang Haitian",
+        "Yalun Dai",
+        "Yangyu Huang",
+        "Lingao Xiao",
+        "Haozhe Du",
+        "Xuehui Yu",
+        "Ye Lu",
+        "Jianjun Gao",
+        "Ruoyu Wang",
+        "Haowen Bai",
+        "Hao Li",
+        "Scarlett Li",
+        "Kim-Hui Yap"
+      ],
+      "url": "https://arxiv.org/abs/2611.33915",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "abstract": "General-purpose multimodal foundation models enable robots to adapt during deployment from observations and execution feedback, without task-specific demonstrations or training. However, the robot retains what it learns only in the model's working context. Once the task ends, it loses this execution knowledge, such as how to carry a bowl between two grippers. On the next attempt at the task, the robot may take just as long and repeat the same mistakes. To avoid this repetition, robots must retain execution knowledge across attempts. Yet replaying past actions is insufficient, because their effects depend on the current conditions. Procedures that determine actions from the current scene address this, but when they meet conditions that earlier attempts did not cover, revising them requires the measured effects of earlier actions. We therefore propose SEEK, an agentic framework that retains both, enabling robots to improve across attempts while keeping the underlying model fixed. To adapt retained knowledge to the current scene, SEEK adopts a Self-Evolving Programmatic Policy (SEPP) that encodes manipulation as executable procedures and determines each action from current observations. As the robot executes these procedures, SEEK records the measured effects of its actions, including those from failed attempts, in a Persistent Action-Effect Bank (PAEB). Where a retained procedure applies, it acts without a model request; where it meets a condition it does not cover, this evidence guides its revision. On RoboDojo, knowledge retained over ten attempts raises SEEK's average task score from 27.0 to 54.4 and its success rate from 19.7% to 48.0% across all 42 tasks. On 34 of these tasks with GPT-6.2 Astra, SEEK reaches 80.1 after five attempts, against 49.6 for the same model acting directly, and uses 77.6% fewer model requests. https://zeyangguan.github.io/SEEK-Agentic-Robot-Manipulation/",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "robot agents",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "hf_upvotes": 12,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34237",
+      "arxiv_id": "2611.34237",
+      "title": "VibeVideoAgent: Closing the Perceptual Loop for Code-Driven Video Generation",
+      "authors": [
+        "Xuanyu Zheng",
+        "Luoyuan Zhang",
+        "Yancheng Long",
+        "Haoyang Xu",
+        "Muxi Diao",
+        "Yuzhe Chen",
+        "Kaiyu Jiang",
+        "Bin Wen",
+        "Tingting Gao"
+      ],
+      "url": "https://arxiv.org/abs/2611.34237",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Code-driven video generation asks a coding agent to write and run rendering programs. This gives exact control over typography, data visualizations, synchronized audio, and multi-shot scenes, and it leaves an editable project behind. A program that exits cleanly can still render overlapping labels, a camera aimed away from its subject, broken object interactions, or narration that drifts out of sync, and none of these raise a runtime error. Feeding rendered frames and audio back into the coding session bloats its long-horizon context, while critiquing only the finished full-resolution render turns early design mistakes into costly rewrites. We introduce VibeVideoAgent, a training-free framework that lets coding agents inspect their drafts throughout production. Multimodal perception runs in short-lived contexts kept apart from the coder and returns compact, grounded Findings. Seven primitives operate on a unified multi-clock representation of assets and drafts: they explore media from coarse to fine, verify quoted requirements with evidence from every required modality, compare a draft with a reference or an earlier revision on separate clocks, and measure stream signals locally. A lightweight staged protocol has the agent test its riskiest decision on a minimal preview first. On all 239 VibeVideoBench tasks, with matched agent runtimes and a fixed perception model, VibeVideoAgent improves holistic audiovisual quality (L3) for Claude Opus 5.5 (4.03 -> 4.43, while L2 rubric compliance rises from 98.87% to 99.35%), GPT-6 Astra (4.03 -> 4.27), and Claude Sonnet 5.5 (3.97 -> 4.10), with the largest gains in audio-visual synchronization (up to +0.56). Controlled ablations show that each component contributes, and trajectory audits show that the granularity of code edits governs the trade-off between rubric adherence and perceptual quality.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "video agents",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "hf_upvotes": 58,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34843",
+      "arxiv_id": "2611.34843",
+      "title": "Probing Visual Idiosyncrasies in Text-to-Image Models",
+      "authors": [
+        "Yongqian Peng",
+        "Hongjie Li",
+        "Yichao Zhou",
+        "Chi Zhang",
+        "Yixin Zhu"
+      ],
+      "url": "https://arxiv.org/abs/2611.34843",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "abstract": "Text-to-Image (T2I) models turn short text descriptions into images, and the leading models now produce images of comparable visual quality. Whether their outputs still carry model-specific characteristics matters for attribution, for model comparison beyond aggregate quality, and for evaluations that assume anonymity. We ask whether images from frontier T2I models can still be classified by source, and which visual properties make this possible. Here we show that a standard ResNet-50 identifies the source of an image among HiDream-O1-Dev, FLUX.2-dev, HunyuanImage-3.0, and Qwen-Image-2512, the four highest-ranked open-source models on the Text-to-Image Arena, with 100.00% accuracy on held-out prompts. Human participants reach only 62.61% on the pairwise version of this task, so the distinguishing cues are not visually obvious. They are also not tied to a particular classifier and survive severe image corruptions and out-of-distribution prompts. We trace them to visual idiosyncrasies at three levels. Low-level texture statistics alone let a lightweight multi-layer perceptron match ResNet-50. Object layout, depth, and albedo estimated from the images each carry a source signal. Image captions reveal model-specific preferences in style and background that the prompts never specify. A one-sentence hint about these cues raises human accuracy by 9.03 percentage points. These idiosyncrasies make source classification a tool for measuring similarity between models and between real and generated images, and they caution against assuming anonymity in human preference evaluation of T2I models.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "image generation",
+      "tags": [
+        "strong result",
+        "worth knowing"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1",
+      "affiliations": [
+        "1School of Intelligence Science and Technology, Peking University",
+        "2School of Psychological and Cognitive Sciences, Peking University 3Institute for Artificial Intelligence, Peking University",
+        "4State Key Laboratory of General Artificial Intelligence, Peking University",
+        "5 Beijing Key Laboratory of Brain-Computer Interface and Mental Health Modulation",
+        "6 Embodied Intelligence Lab, PKU-Wuhan Institute for AI 7 XS Vision"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34457",
+      "arxiv_id": "2611.34457",
+      "title": "ProxyGenBench: Benchmarking Proxy-Guided Video Generation",
+      "authors": [
+        "Zhenchen Tang",
+        "Haolin Lu",
+        "Songlin Yang",
+        "Xiaotong Zhao",
+        "Ran Zhang",
+        "Bo Peng",
+        "Shuai Li",
+        "Haotian Fan",
+        "Haobin Zhong",
+        "Yanni Zhang",
+        "Songlian Li",
+        "Ning Zhang",
+        "Xun Gao",
+        "Alan Zhao",
+        "Jing Dong"
+      ],
+      "url": "https://arxiv.org/abs/2611.34457",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "abstract": "Recent video generators produce realistic videos, yet controlling how scenes unfold remains challenging. Structural proxies, such as animated 3D blockouts, guide generation by specifying scene layout, motion, camera behavior, and event order. However, these coarse inputs leave details unspecified and may contain artifacts that should not be reproduced. Successful proxy-guided generation must therefore Preserve intended structure, Complete missing content and correct proxy artifacts, and Bind text, image, and audio conditions to the right entities and events. We introduce ProxyGenBench to study these interacting requirements, with 312 evaluation cases from 60 scenes across three scene tasks and controlled variations in proxy fidelity, text detail, and multimodal inputs. We evaluate five video generators using verified, case-specific checklists. Experiments show that proxies improve spatiotemporal control, but greater proxy detail can coincide with poorer completion, while strong structural adherence does not ensure correct binding.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "video evaluation",
+      "tags": [
+        "benchmark or dataset"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "hf_upvotes": 36,
+      "version": "v1",
+      "affiliations": [
+        "1New Laboratory of Pattern Recognition, Institute of Automation,",
+        "2University of California, San Diego 3The Hong Kong University of Science and Technology",
+        "4Tencent 5School of Artificial Intelligence, University of Chinese Academy of Sciences",
+        "Chinese Academy of Sciences"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34941",
+      "arxiv_id": "2611.34941",
+      "title": "Improving and Expanding Video Editing Capabilities Without Videos",
+      "authors": [
+        "Ji Xie",
+        "Yanhao Jia",
+        "Xiangpeng Yang",
+        "Martin Q. Ma",
+        "Sihan Xu",
+        "Erik Cambria",
+        "Louis-Philippe Morency"
+      ],
+      "url": "https://arxiv.org/abs/2611.34941",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Image editing models can follow a wide range of instructions, but video editing models still lag behind, limited in part by the difficulty of collecting paired source and edited videos. Is it possible to transfer advanced image editing capabilities to video editors without new paired videos? We introduce Image-to-Video Transfer (I2VT), which improves pretrained video editors and expands them to new editing tasks using an image editor. It enables efficient post-training with no architectural changes and no new videos, using only individual images. Our key idea is to let the video editor role-play as an image editor: it edits an image as a one-frame video, with the image editor guiding the video editor's predictions at each denoising step. Although the video editor sees only single images during training, at test time it applies the improved and expanded capabilities to whole video clips while preserving temporal consistency. To push the boundaries of video editing, we introduce OpenVE++, an extension of OpenVE-Bench that adds four new editing tasks useful for video production, including action changes, expression changes, body movements, and scene relighting. Our experiments across three different video editors show that I2VT improves existing editing capabilities and expands them to new tasks, and our models achieve state-of-the-art (SOTA) performance on both OpenVE-Bench and OpenVE++.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "video editing",
+      "tags": [
+        "new method or architecture",
+        "strong result",
+        "notable researcher"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "field",
+      "trusted": 1,
+      "hf_upvotes": 46,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.33144",
+      "arxiv_id": "2611.33144",
+      "title": "PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents",
+      "authors": [
+        "Feixiang Ruan",
+        "Guodong Lv",
+        "Kewei Zhang",
+        "Wenbo Huang",
+        "Yintianrun Zhang",
+        "Qiang Wang",
+        "Ruiyang Si",
+        "Shunyu Yang",
+        "Shulong Jiang",
+        "Weicheng Duan",
+        "Rui Ni",
+        "Jianxin Bi",
+        "Lekai Wang",
+        "Yuze Fan",
+        "Haobo Li",
+        "Zeliang Fu",
+        "Jiankun Zhang",
+        "Duomin Wang",
+        "Enze Xie",
+        "Daquan Zhou"
+      ],
+      "url": "https://arxiv.org/abs/2611.33144",
+      "submitted": "2026-11-24",
+      "categories": [
+        "cs.RO"
+      ],
+      "abstract": "Learning for dexterous manipulation is limited by the scarcity of high-quality demonstrations: retargeting from human video is imprecise, teleoperation gives no force feedback to the operator, and exoskeleton-based collection is hard to scale up. We present PyRUA-Dex, a framework that enables coding agents to develop dexterous manipulation through programmatic policy, without the need of demonstrations. The programmatic policy is developed in two stages: during exploration, multiple agents explore in parallel for task skills and ways to compose them, and a distilling agent condenses the successful attempts into a task library and one program. During refinement, this program is improved through randomized layouts for enhanced robustness and execution efficiency. In simulated environments, PyRUA-Dex achieves SOTA on Bench2Dex with a score of 72.9 and reaches 81.0% success on DexJoCo under full randomization, ahead of every trained policy on both benchmarks. In real world experiments on a bimanual platform with two 22-DoF hands, PyRUA-Dex learns to play piano, write calligraphy, and other tasks efficiently: learning a new piece from sheet music takes as little as 30 minutes. These results suggest that PyRUA-Dex is an effective framework for developing dexterous manipulation policies with coding agents in the absence of high quality dexterous manipulation demonstrations.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "dexterous manipulation",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "field",
+      "trusted": 1,
+      "hf_upvotes": 43,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34726",
+      "arxiv_id": "2611.34726",
+      "title": "Hierarchical Graph Metanetworks",
+      "authors": [
+        "Ioannis Kalogeropoulos",
+        "Giorgos Bouritsas",
+        "Yannis Panagakis"
+      ],
+      "url": "https://arxiv.org/abs/2611.34726",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "The emerging field of weight space learning has demonstrated the potential to enable metanetworks, i.e. models that process neural network (NN) data, to support several steps of the machine learning lifecycle, from model optimisation to evaluation and adaptation. However, this potential has yet to materialise beyond small-scale MLPs or CNNs: most current models, including message-passing based graph metanetworks (GMNs), operate exclusively at the finest level of granularity, processing every neuron and weight of the input model. Their cost therefore scales with the number of parameters. Yet NNs are inherently organised hierarchically, with neurons forming layers and layers forming blocks and modules. Additionally, several of their properties, such as Lipschitz upper bounds and generalisation measures, are compositions of layer- and block-level quantities. To incorporate this inductive bias, we introduce Hierarchical Graph Metanetworks (H-GMNs), which leverage the input architecture's hierarchy to coarsen and refine the graph using permutation-symmetry-preserving pooling and un-pooling layers. Further, we extend H-GMNs to Transformers by introducing a graph construction that preserves permutation symmetries and enables multi-level pooling. Our evaluation includes new ResNet-18, ViT and varying ViT model zoos of up to 86M parameters, on tasks spanning model evaluation (an analytic Lipschitz bound proxy, generalisation and robustness prediction), testing (backdoor detection) and editing (pruning). Experimental results show that, compared to non-equivariant alternatives and flat GMNs, H-GMNs are markedly more sample-efficient, and their cost remains nearly constant as metanetwork depth grows, allowing deeper and more expressive processing where flat GMNs run out of memory, without compromising accuracy, which in certain cases considerably improves.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "weight-space learning",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.33998",
+      "arxiv_id": "2611.33998",
+      "title": "The Reference Matters: Displacement Probing for Weight-Space Learning",
+      "authors": [
+        "Haechan Shin",
+        "Hoonki Lee",
+        "Jungwoon Kang",
+        "Wooyeol Baek",
+        "Sangyeob Kim",
+        "Jongyoo Kim"
+      ],
+      "url": "https://arxiv.org/abs/2611.33998",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Weight-space learning predicts a model's attributes directly from its parameters, and probing-based methods do so efficiently by reading a model's responses to learned probes. Prior work shows that probing succeeds within a Model Tree -- models fine-tuned from a shared pretrained origin -- but not why. We trace this to the shared origin itself: since a tree's leaves start from the same weights, what distinguishes them is their displacement from that origin. This motivates probing the displacement rather than the raw weight, an intervention we call the DiSplacement Probe (DSProbe). We develop this idea along two axes: extending it to second-order Gram responses, whose displacement, to first order, tracks the feature changes induced by fine-tuning; and treating the reference as a design choice, learning a shared component to subtract beyond the pretrained origin. Across four architectures on the Model Jungle benchmark, the resulting Refined-DSProbe (R-DSProbe) sets a new state of the art, matches prior accuracy with substantially fewer probes, and supports a single encoder shared across Model Trees, reducing metanetwork parameters by 3.61 times. Code is available at https://github.com/hoonki2002/DSProbe.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "weight-space learning",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1",
+      "affiliations": [
+        "Yonsei University Agency for Defense Development Yonsei University",
+        "Yonsei University Yonsei University Yonsei University"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34785",
+      "arxiv_id": "2611.34785",
+      "title": "PersonaFactory: Stylistic User Prompt Augmentation with Synthetic Persona Bank",
+      "authors": [
+        "Bich Ngoc Doan",
+        "Hanna Yukhymenko",
+        "Imanol Schlag"
+      ],
+      "url": "https://arxiv.org/abs/2611.34785",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "abstract": "Large language models increasingly replace real people in the AI development pipeline, as they are used to generate training dialogues at scale and to drive alignment and evaluation. However, out-of-the-box models produce monolingual and stylistically flat texts as synthetic user prompts, failing to replicate the real user-AI communication mechanics. We present PersonaFactory, an end-to-end pipeline that generates detailed user personas and uses them to augment existing user prompts from their point of view, producing a bank of over 740000 structured synthetic personas detailing their background and communication behaviors, and a corpus of roughly 1.24 million persona-styled synthetic conversations spanning 85 languages. We evaluate the effect of personal features on style adoption and intent preservation, using an LLM-judge and heuristic metrics to assess augmentation fidelity together with the downstream impact on assistant persona control through training data. Results show that our structured, attribute-based style representation enables per-axis control and better intent preservation at comparable style fidelity than free-text persona descriptions used in existing methods. A human expert evaluation found the augmented conversations plausible, with favorable ratings for intent preservation, style naturalness, and multilingual authenticity. Finally, PersonaFactory conversations achieve comparable performance to original training data on capability benchmarks, are preferred on real user prompts at equal reply length, and adapt their reply style more closely to users without explicit steering.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "synthetic data",
+      "tags": [
+        "new method or architecture",
+        "benchmark or dataset"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34615",
+      "arxiv_id": "2611.34615",
+      "title": "PipeAxes: Decoupling Compute and Communication Granularities for Pipeline-Parallel LLM Serving",
+      "authors": [
+        "Xiaoqiang Guo",
+        "Yifan Lin",
+        "Yang Liu",
+        "Jianan Zhang",
+        "Yingqi Peng",
+        "Jiamei Lv",
+        "Yi Gao",
+        "Wei Dong"
+      ],
+      "url": "https://arxiv.org/abs/2611.34615",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.DC",
+        "cs.PF"
+      ],
+      "abstract": "Pipeline parallelism can serve long-context language models on PCIe servers and across heterogeneous GPU clusters. Existing engines split prefill into token chunks to limit decode stalls. The chunk size also sets the GPU batch width and the size of activation transfers between stages. Small chunks reload model weights more often. Large chunks can keep the GPU and the link busy long enough to delay interactive requests. PipeAxes runs wide prefill batches a few layers at a time so decodes can run between slices. A fused Triton Hadamard-INT4 codec compresses activations, which travel in independently sized row groups over parallel TCP sockets. The scheduler uses latency slack to choose batch width, slice depth, and row-group size. We evaluated PipeAxes in 97 replays covering 5,016 requests on A800, RTX 4090, and RTX 3090 GPUs. All 74 requests met their latency targets during a tenfold bandwidth swing. In a four-stage mixture-of-experts pipeline, PipeAxes served requests within their latency targets at 23.3x the rate of calibrated Revisit-PP and 4.44x the rate of Fixed-4096 with Express. In a mixed 64K-context workload, p95 time to first token for short requests fell from 129.8 s with native vLLM to 512 ms. With INT4 transport, MMLU accuracy rose by 0.06 percentage points and GSM8K accuracy fell by 0.46 percentage points relative to BF16.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "LLM serving",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.34799",
+      "arxiv_id": "2611.34799",
+      "title": "Split-RL: Local Conflict Resolution in Reinforcement Learning",
+      "authors": [
+        "Benjamin Fuhrer",
+        "Chen Tessler",
+        "Gal Dalal"
+      ],
+      "url": "https://arxiv.org/abs/2611.34799",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Reinforcement learning (RL) policies are often trained by mixing contradictory feedback that is localized in space and time. For example, a robot may prioritize speed in open areas versus precision in tight gaps. We introduce Split-RL, a Gradient Boosting Trees (GBT) algorithm that uses guidance labels to locally isolate these conflicting signals. Standard neural networks (NNs) lack the structural mechanism to do this, as their parameters share feedback from all sources. While GBT provides the inductive bias to explicitly partition the state-space per objective, standard tree-fitting procedures aggregate contradictory gradient signals before they reach the leaves. Split-RL leverages this bias to integrate guidance labels into tree construction, routing these updates into disjoint state-space regions and preventing signal interference. Such labels can arise from heuristics, sensor-derived events, or existing rule-based systems, allowing Split-RL to incorporate rule-derived structure while retaining a learned policy. We theoretically show how early gradient aggregation loses objective-specific information and characterize when the Split-RL score isolates conflicting updates. We focus on constrained RL and offline RL with mixed datasets, each balancing two objectives that conflict locally. Across domains with spatial, rare-event, and temporal conflicts, Split-RL consistently outperforms existing methods by meeting the episodic cost budget while maintaining competitive rewards. In offline settings, Split-RL localizes the tradeoff between imitation and policy improvement, outperforming other methods and achieving near-expert performance across varying dataset sizes.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "reinforcement learning",
+      "tags": [
+        "new method or architecture",
+        "theory"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34678",
+      "arxiv_id": "2611.34678",
+      "title": "Provably Efficient Concave Utility Reinforcement Learning with Linear Function Approximation",
+      "authors": [
+        "Max Qiushi Lin",
+        "Ahmed Magd",
+        "Sharan Vaswani"
+      ],
+      "url": "https://arxiv.org/abs/2611.34678",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Concave utility reinforcement learning (CURL) unifies a diverse range of problems, including standard reinforcement learning (RL), imitation learning, and maximum entropy exploration. Unlike standard RL, CURL generally requires estimating high-dimensional state-action occupancy measures. Consequently, existing methods for CURL either sidestep the exploration problem, are restricted to the tabular setting, or lack computationally efficient policy optimization. To address this, we study CURL in finite-horizon episodic bilinear MDPs, where the transition model admits a low-dimensional representation in known feature spaces. We use the bilinear structure to efficiently estimate occupancy measures via low-dimensional feature expectations, and propose a model-based optimistic concave utility policy optimization (OCUPO) framework. We first instantiate OCUPO in the on-policy setting, where each iteration uses independent trajectories to estimate the concave utility policy gradient, and prove an $\\widetilde{O}(ε^{-4})$ sample complexity. To improve sample efficiency, we then instantiate OCUPO in the off-policy setting. We propose a novel backward feature regression subroutine that reuses trajectories collected by past policies to estimate the occupancy measure of the current policy. Under suitable technical assumptions on the policy class (satisfied, e.g., by log-linear policies with sufficiently expressive features), we prove that the resulting algorithm achieves an $\\widetilde{O}(ε^{-2})$ sample complexity, up to a controllable projection error. We further extend our framework to linear MDPs and show that the resulting off-policy algorithm retains the same sample complexity. In these settings, the dependence on $ε$ matches that for standard RL with linear function approximation. Moreover, our algorithms do not rely on the integral oracle required by prior work.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "RL theory",
+      "tags": [
+        "theory"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v1"
+    },
+    {
+      "id": "arxiv-2611.33192",
+      "arxiv_id": "2611.33192",
+      "title": "Dynamics of Collective Diversity in Human-AI Co-Creation for Creative Tasks",
+      "authors": [
+        "Manh Hung Nguyen",
+        "Chao Wen",
+        "Sebastian Tschiatschek",
+        "Adish Singla"
+      ],
+      "url": "https://arxiv.org/abs/2611.33192",
+      "submitted": "2026-11-15",
+      "categories": [
+        "cs.HC",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "abstract": "Generative AI systems are increasingly deployed at scale to support human users in creative tasks across a variety of domains. However, as more users adopt the same AI agent, the resulting artifacts may become increasingly homogeneous, leading to a collapse in collective diversity. Prior work has documented this risk, but lacks a systematic framework for understanding how collective diversity changes as AI adoption scales across co-creation settings. In this work, we conduct a large-scale crowdsourcing study to understand and model the dynamics of collective diversity, quality, and effort in human-AI co-creation across two creative domains: Creative Hypothesis Generation and Creative Story Writing. We find that current AI agents used in co-creation can improve artifact quality and reduce effort, but at the cost of declining collective diversity as adoption increases. We further show that more fine-grained human-AI interaction, along with more diverse agent policies, can mitigate this collapse. Finally, we fit predictive models that quantify how collective diversity scales with adoption across co-creation settings, providing insights for designing AI agents that aim to preserve collective diversity.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "human-AI creativity",
+      "tags": [
+        "worth knowing",
+        "strong result"
+      ],
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "priority": "more",
+      "lane": "field",
+      "trusted": 1,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34056",
+      "arxiv_id": "2611.34056",
+      "title": "Understanding Diffusion Acceleration: Methods, Trade-Offs, and Open Questions",
+      "authors": [
+        "Xiaofeng Mao",
+        "Fu-yun Wang",
+        "Le Zhuo",
+        "Zhengkai Jiang",
+        "Shaohao Rui",
+        "Weijie Ma"
+      ],
+      "url": "https://arxiv.org/abs/2611.34056",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Diffusion and flow-based generative models support high-quality image, audio, and video synthesis. Sampling can require dozens to hundreds of denoiser evaluations, with each pass becoming more expensive as resolution, video length, or model size increases. This cost affects latency and energy use in interactive and edge applications. We examine four approaches to accelerating inference: distillation, consistency training, sampling methods, and denoiser design. We express training objectives, transition maps, and numerical updates in a common notation to compare changes to the learning target, the sampling trajectory, and the work performed within each denoiser pass. Published image and video benchmarks illustrate the quality--cost trade-offs of one- and few-step generation, the interaction between solvers and timestep schedules, the effect of feature caching, and the difference between first-frame latency and sustained streaming throughput. We close with open problems in visual-native architectures and post-compression distillation, solver-aware few-step training, and semantic trajectory alignment with factorized distribution matching.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "diffusion acceleration",
+      "tags": [
+        "survey or tutorial"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "field",
+      "trusted": 0,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.33886",
+      "arxiv_id": "2611.33886",
+      "title": "DeltaRAE: Derivative Tokenization for Long Video Generation",
+      "authors": [
+        "Mingzhuo Yu",
+        "Shengcao Cao",
+        "Chengzhi Mao",
+        "Yong Cheng",
+        "Di Jiang",
+        "Lijun Yu"
+      ],
+      "url": "https://arxiv.org/abs/2611.33886",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Latent video generators are trained on clips of a few seconds, and much of this limit lies in their tokenizers, which spend as many tokens on a static frame as on a moving one and need future frames that do not exist during generation. We introduce DeltaRAE, a causal representation autoencoder for video. Its derivative tokenization encodes periodic anchor frames in full and all remaining frames with a few tokens each, and its causal encoder and decoder read a frozen pretrained image encoder. On UCF-101 and Kinetics-600, a standard diffusion transformer trained on DeltaRAE latents is competitive with state-of-the-art video tokenizers. DeltaRAE halves the tokenizer GFLOPs on 16-frame clips relative to keeping the same number of patch tokens for every frame, and it represents a minute of video with 18.8x fewer tokens. The tokenizer trains end to end on one-minute videos, and in video prediction a generator on its latents produces a full minute of video. The same generator collapses within 15 seconds in most videos when the tokenizer has the same token budget but no pretrained encoder.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "video tokenization",
+      "tags": [
+        "new method or architecture",
+        "strong result"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.33919",
+      "arxiv_id": "2611.33919",
+      "title": "DiCALM: Converting Autoregressive Convolution-Attention Language Models into Discrete Diffusion Language Models",
+      "authors": [
+        "Phong Le",
+        "Ngoc-Quan Pham",
+        "Dat Quoc Nguyen"
+      ],
+      "url": "https://arxiv.org/abs/2611.33919",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "abstract": "Existing methods for adapting autoregressive (AR) language models to diffusion generation focus mainly on full-attention architectures. More efficient hybrid architectures remain underexplored. We introduce DiCALM, a recipe for converting the hybrid convolution-attention models of the LFM2 family (LFM2 and LFM2.5) from AR to masked-diffusion generation. DiCALM progressively extends LFM2's causal gated convolution so that it captures local context in both directions. It combines this extension with a masking warm-up and joint AR--diffusion training. In controlled experiments, DiCALM performs comparably to the corresponding fine-tuned LFM2.5-based AR models and delivers consistent speedups over them at both the 350M and 1.2B scales: over 1.4x on average and up to 1.79x.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "diffusion LMs",
+      "tags": [
+        "new method or architecture"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 0,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    },
+    {
+      "id": "arxiv-2611.34105",
+      "arxiv_id": "2611.34105",
+      "title": "What Makes a Gavagai? Learning Visual Concepts from One Positive and Few Negatives",
+      "authors": [
+        "Katsuya Ogata",
+        "Kazuya Nishimura",
+        "Yuta Nakashima"
+      ],
+      "url": "https://arxiv.org/abs/2611.34105",
+      "submitted": "2026-11-25",
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Humans can recognize novel concepts from only a few observations by identifying defining visual attributes and eliminating alternative interpretations. However, a single observation is consistent with multiple possible concepts, and accurate visual perception alone is insufficient to determine the intended interpretation. Negative evidence can reduce this ambiguity by eliminating competing hypotheses. Inspired by Quine's gavagai problem, we introduce the Gavagai Benchmark to evaluate whether vision-language models can identify the attributes defining a novel concept from positive and negative examples. The benchmark consists of synthetic images depicting novel combinations of visual attributes and real images of newly described species. Using these datasets, we examine how models use negative examples to identify novel concepts and analyze the respective roles of visual perception and reasoning. Several models struggle even when correct attributes are provided, while others show large gaps when ground-truth attributes are replaced with model predictions. These diagnostic comparisons highlight challenges in both attribute perception and inference from limited evidence.",
+      "abstract_source": "arxiv_api_candidates",
+      "research_area": "concept learning",
+      "tags": [
+        "benchmark or dataset"
+      ],
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "lane": "strong",
+      "trusted": 1,
+      "version": "v1",
+      "affiliations": [
+        "Affiliation:"
+      ]
+    }
+  ],
+  "generated_at": "2026-11-28T03:44:10Z",
+  "generator": "claude-scheduled-task",
+  "notes": "1846 fetched, 118 read in full, 30 kept. Affiliations from page 1 were not available when the choice was made and were added afterwards."
+}

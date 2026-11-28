@@ -3077,12 +3077,13 @@
     },
     "Jiaheng Liu": {
       "papers": [
-        "2611.32973"
+        "2611.32973",
+        "2611.10156"
       ],
       "kinds": {
-        "picked": 1
+        "picked": 2
       },
-      "last": "2026-11-26"
+      "last": "2026-11-28"
     },
     "Daehee Kim": {
       "papers": [
@@ -7302,12 +7303,13 @@
     },
     "Md Mehedi Hasan": {
       "papers": [
-        "2611.34509"
+        "2611.34509",
+        "2611.34739"
       ],
       "kinds": {
-        "picked": 1
+        "picked": 2
       },
-      "last": "2026-11-27"
+      "last": "2026-11-28"
     },
     "Zehong Cao": {
       "papers": [
@@ -7686,37 +7688,1813 @@
         "picked": 1
       },
       "last": "2026-11-27"
+    },
+    "Xuanyu Zheng": {
+      "papers": [
+        "2611.34237"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Luoyuan Zhang": {
+      "papers": [
+        "2611.34237"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yancheng Long": {
+      "papers": [
+        "2611.34237"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Haoyang Xu": {
+      "papers": [
+        "2611.34237"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Muxi Diao": {
+      "papers": [
+        "2611.34237"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yuzhe Chen": {
+      "papers": [
+        "2611.34237"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Kaiyu Jiang": {
+      "papers": [
+        "2611.34237"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Bin Wen": {
+      "papers": [
+        "2611.34237"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Tingting Gao": {
+      "papers": [
+        "2611.34237"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zhenchen Tang": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Haolin Lu": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Songlin Yang": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xiaotong Zhao": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ran Zhang": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Bo Peng": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shuai Li": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Haotian Fan": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Haobin Zhong": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yanni Zhang": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Songlian Li": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ning Zhang": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yurun Chen": {
+      "papers": [
+        "2611.34466"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Biao Yi": {
+      "papers": [
+        "2611.34466"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Qihang Yu": {
+      "papers": [
+        "2611.34466"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Keting Yin": {
+      "papers": [
+        "2611.34466"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shengyu Zhang": {
+      "papers": [
+        "2611.34466"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Baihan Yang": {
+      "papers": [
+        "2611.34929"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xin Lin": {
+      "papers": [
+        "2611.34929"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yufan Wei": {
+      "papers": [
+        "2611.34929"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Baiang Li": {
+      "papers": [
+        "2611.34929"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yuheng Liu": {
+      "papers": [
+        "2611.34929"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Juanxi Tian": {
+      "papers": [
+        "2611.34929"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xiaohui Xie": {
+      "papers": [
+        "2611.34929"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Truong Nguyen": {
+      "papers": [
+        "2611.34929"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Dezhi Luo": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Fengyuan Yu": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Haotian Zhang": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zehong Zhao": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ran Ji": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Siyuan An": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Huayi Qin": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Qingying Gao": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zhongang Cai": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Lei Yang": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ziqi Huang": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ruisi Wang": {
+      "papers": [
+        "2611.34813"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ji Xie": {
+      "papers": [
+        "2611.34941"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yanhao Jia": {
+      "papers": [
+        "2611.34941"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xiangpeng Yang": {
+      "papers": [
+        "2611.34941"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Martin Q. Ma": {
+      "papers": [
+        "2611.34941"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Sihan Xu": {
+      "papers": [
+        "2611.34941",
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 2
+      },
+      "last": "2026-11-28"
+    },
+    "Erik Cambria": {
+      "papers": [
+        "2611.34941"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Louis-Philippe Morency": {
+      "papers": [
+        "2611.34941"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Feixiang Ruan": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Guodong Lv": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Kewei Zhang": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Wenbo Huang": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yintianrun Zhang": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Qiang Wang": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ruiyang Si": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shunyu Yang": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shulong Jiang": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Weicheng Duan": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Rui Ni": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Jianxin Bi": {
+      "papers": [
+        "2611.33144"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Hui Shen": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yunta Hsieh": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Jianing Ma": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zhuoran Yin": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zhuhan Bao": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ziyuan Liu": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Qi Han": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xiuqi Xu": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xianbang Wang": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Wenhao Chai": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Chenyang Zhao": {
+      "papers": [
+        "2611.34232"
+      ],
+      "kinds": {
+        "trending": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Chanwoo Kim": {
+      "papers": [
+        "2611.25588"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Doyun Kim": {
+      "papers": [
+        "2611.25588"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Minsoo Song": {
+      "papers": [
+        "2611.25588"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Sihyeon Lee": {
+      "papers": [
+        "2611.25588"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Chanjun Park": {
+      "papers": [
+        "2611.25588"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ajmain Istiak Apon": {
+      "papers": [
+        "2611.34739"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Sejuti Rahman": {
+      "papers": [
+        "2611.34739"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Jiacheng Zhang": {
+      "papers": [
+        "2611.34703"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Qixing Zhou": {
+      "papers": [
+        "2611.34703"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Haiyang Wang": {
+      "papers": [
+        "2611.34703"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Qipeng Gu": {
+      "papers": [
+        "2611.34703"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shuzhe Wu": {
+      "papers": [
+        "2611.34703"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Feiyang Pan": {
+      "papers": [
+        "2611.34703"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Lue Fan": {
+      "papers": [
+        "2611.34703"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Dandan Tu": {
+      "papers": [
+        "2611.34703"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zhaoxiang Zhang": {
+      "papers": [
+        "2611.34703"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Tingrui Huang": {
+      "papers": [
+        "2611.34848"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yuanyuan Deng": {
+      "papers": [
+        "2611.34848"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Qingren Yao": {
+      "papers": [
+        "2611.34848"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Joaquin Vanschoren": {
+      "papers": [
+        "2611.34848"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Mykola Pechenizkiy": {
+      "papers": [
+        "2611.34848"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Songgaojun Deng": {
+      "papers": [
+        "2611.34848"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Truong Phan": {
+      "papers": [
+        "2611.34188"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ngoc-Quan Pham": {
+      "papers": [
+        "2611.34188",
+        "2611.33919"
+      ],
+      "kinds": {
+        "picked": 2
+      },
+      "last": "2026-11-28"
+    },
+    "Dat Quoc Nguyen": {
+      "papers": [
+        "2611.34188",
+        "2611.33919"
+      ],
+      "kinds": {
+        "picked": 2
+      },
+      "last": "2026-11-28"
+    },
+    "William Xingxu Chen": {
+      "papers": [
+        "2611.08977"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Alexi Gladstone": {
+      "papers": [
+        "2611.08977"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zeyu Michael Li": {
+      "papers": [
+        "2611.08977"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Heng Ji": {
+      "papers": [
+        "2611.08977"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yilun Du": {
+      "papers": [
+        "2611.08977"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Mingchao Zhang": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Miduo Cui": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Kangze He": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yuanjun Li": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Dapeng Li": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ce Zhang": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Chuanchen Luo": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xue Yan": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Mingzhe Xing": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zhumin Chen": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Hangyu Mao": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Bin Zhang": {
+      "papers": [
+        "2611.34656"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shudong Liu": {
+      "papers": [
+        "2611.10156"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yuting Zhong": {
+      "papers": [
+        "2611.10156"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Guanhua Chen": {
+      "papers": [
+        "2611.10156"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xinyi Yang": {
+      "papers": [
+        "2611.10156"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Junnan Liu": {
+      "papers": [
+        "2611.10156"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Lidia S. Chao": {
+      "papers": [
+        "2611.10156"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Derek F. Wong": {
+      "papers": [
+        "2611.10156"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Nikita Sorokin": {
+      "papers": [
+        "2611.34635"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zoya Volovikova": {
+      "papers": [
+        "2611.34635"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Alexey Skrynnik": {
+      "papers": [
+        "2611.34635"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Aleksandr Panov": {
+      "papers": [
+        "2611.34635"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shaoteng Liu": {
+      "papers": [
+        "2611.34907"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shuai Yang": {
+      "papers": [
+        "2611.34907"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Wei Huang": {
+      "papers": [
+        "2611.34907"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Luozhou Wang": {
+      "papers": [
+        "2611.34907"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yukang Chen": {
+      "papers": [
+        "2611.34907"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zeyang Guan": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Qihao Zhao": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Rui Gong": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zhang Haitian": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yalun Dai": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yangyu Huang": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Lingao Xiao": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Haozhe Du": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xuehui Yu": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ye Lu": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Jianjun Gao": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ruoyu Wang": {
+      "papers": [
+        "2611.33915"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yongqian Peng": {
+      "papers": [
+        "2611.34843"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Hongjie Li": {
+      "papers": [
+        "2611.34843"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yichao Zhou": {
+      "papers": [
+        "2611.34843"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Chi Zhang": {
+      "papers": [
+        "2611.34843"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yixin Zhu": {
+      "papers": [
+        "2611.34843"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ioannis Kalogeropoulos": {
+      "papers": [
+        "2611.34726"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Giorgos Bouritsas": {
+      "papers": [
+        "2611.34726"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yannis Panagakis": {
+      "papers": [
+        "2611.34726"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Haechan Shin": {
+      "papers": [
+        "2611.33998"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Hoonki Lee": {
+      "papers": [
+        "2611.33998"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Jungwoon Kang": {
+      "papers": [
+        "2611.33998"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Wooyeol Baek": {
+      "papers": [
+        "2611.33998"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Sangyeob Kim": {
+      "papers": [
+        "2611.33998"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Jongyoo Kim": {
+      "papers": [
+        "2611.33998"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Bich Ngoc Doan": {
+      "papers": [
+        "2611.34785"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Hanna Yukhymenko": {
+      "papers": [
+        "2611.34785"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Imanol Schlag": {
+      "papers": [
+        "2611.34785"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xiaoqiang Guo": {
+      "papers": [
+        "2611.34615"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yifan Lin": {
+      "papers": [
+        "2611.34615"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yang Liu": {
+      "papers": [
+        "2611.34615"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Jianan Zhang": {
+      "papers": [
+        "2611.34615"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yingqi Peng": {
+      "papers": [
+        "2611.34615"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Jiamei Lv": {
+      "papers": [
+        "2611.34615"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yi Gao": {
+      "papers": [
+        "2611.34615"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Wei Dong": {
+      "papers": [
+        "2611.34615"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Benjamin Fuhrer": {
+      "papers": [
+        "2611.34799"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Chen Tessler": {
+      "papers": [
+        "2611.34799"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Gal Dalal": {
+      "papers": [
+        "2611.34799"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Max Qiushi Lin": {
+      "papers": [
+        "2611.34678"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Ahmed Magd": {
+      "papers": [
+        "2611.34678"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Sharan Vaswani": {
+      "papers": [
+        "2611.34678"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Manh Hung Nguyen": {
+      "papers": [
+        "2611.33192"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Chao Wen": {
+      "papers": [
+        "2611.33192"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Sebastian Tschiatschek": {
+      "papers": [
+        "2611.33192"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Adish Singla": {
+      "papers": [
+        "2611.33192"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Xiaofeng Mao": {
+      "papers": [
+        "2611.34056"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Fu-yun Wang": {
+      "papers": [
+        "2611.34056"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Le Zhuo": {
+      "papers": [
+        "2611.34056"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Zhengkai Jiang": {
+      "papers": [
+        "2611.34056"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shaohao Rui": {
+      "papers": [
+        "2611.34056"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Weijie Ma": {
+      "papers": [
+        "2611.34056"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Mingzhuo Yu": {
+      "papers": [
+        "2611.33886"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Shengcao Cao": {
+      "papers": [
+        "2611.33886"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Chengzhi Mao": {
+      "papers": [
+        "2611.33886"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yong Cheng": {
+      "papers": [
+        "2611.33886"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Di Jiang": {
+      "papers": [
+        "2611.33886"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Lijun Yu": {
+      "papers": [
+        "2611.33886"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Phong Le": {
+      "papers": [
+        "2611.33919"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Katsuya Ogata": {
+      "papers": [
+        "2611.34105"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Kazuya Nishimura": {
+      "papers": [
+        "2611.34105"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Yuta Nakashima": {
+      "papers": [
+        "2611.34105"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
     }
   },
   "orgs": {
     "Affiliation:": {
       "papers": [
-        "2611.21056",
-        "2611.34756",
-        "2611.34777",
-        "2611.33759",
-        "2611.33943",
-        "2611.34637",
-        "2611.34758",
-        "2611.34762",
-        "2611.34881",
-        "2611.34278",
-        "2611.34776",
-        "2611.34767",
-        "2611.34092",
-        "2611.34830",
-        "2611.34509",
-        "2611.33951",
-        "2611.33794",
-        "2611.34751",
         "2611.34493",
-        "2611.34627"
+        "2611.34627",
+        "2611.34813",
+        "2611.34188",
+        "2611.08977",
+        "2611.34656",
+        "2611.10156",
+        "2611.34635",
+        "2611.33915",
+        "2611.34237",
+        "2611.34941",
+        "2611.33144",
+        "2611.34726",
+        "2611.34785",
+        "2611.34799",
+        "2611.33192",
+        "2611.34056",
+        "2611.33886",
+        "2611.33919",
+        "2611.34105"
       ],
       "kinds": {
         "trending": 1,
-        "picked": 27
+        "picked": 45
       },
-      "last": "2026-11-27"
+      "last": "2026-11-28"
     },
     "Shanghai Artificial Intelligence Laboratory": {
       "papers": [
@@ -7789,6 +9567,42 @@
         "picked": 1
       },
       "last": "2026-11-27"
+    },
+    "1University of Dhaka 2New Uzbekistan University": {
+      "papers": [
+        "2611.34739"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "5 Beijing Key Laboratory of Brain-Computer Interface and Mental Health Modulation": {
+      "papers": [
+        "2611.34843"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "1New Laboratory of Pattern Recognition, Institute of Automation,": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
+    },
+    "Chinese Academy of Sciences": {
+      "papers": [
+        "2611.34457"
+      ],
+      "kinds": {
+        "picked": 1
+      },
+      "last": "2026-11-28"
     }
   }
 }

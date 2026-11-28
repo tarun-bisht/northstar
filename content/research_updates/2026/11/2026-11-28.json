@@ -1,0 +1,252 @@
+{
+  "schema": "research_updates",
+  "date": "2026-11-28",
+  "items": [
+    {
+      "id": "ru-2026-11-28-mlp-superposition",
+      "title": "A researcher argues transformer MLP neurons do not use superposition",
+      "kind": "researcher_post",
+      "what_happened": "An Alignment Forum post argues that trained, under-parametrized transformers compress features in the residual stream but not in MLP neurons.",
+      "why_it_matters": "Many interpretability methods rest on assumptions about where superposition happens.",
+      "what_to_watch": "Experiments or replies that test the claim directly.",
+      "source": {
+        "name": "AI Alignment Forum",
+        "url": "https://www.alignmentforum.org/posts/o9dPGxEbpQrnasgDB/i-don-t-expect-superposition-in-transformer-mlp-neurons",
+        "type": "researcher_blog",
+        "published": "2026-11-27"
+      },
+      "published": "2026-11-27",
+      "research_area": "interpretability",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "uncertainty": "One author's argument, stated as a current belief.",
+      "overview": true
+    },
+    {
+      "id": "ru-2026-11-28-social-reasoning-fuse",
+      "title": "Google tests how well assistants read social situations secondhand",
+      "kind": "benchmark",
+      "what_happened": "Google Research wrote about Fuse, a simulation where the true hidden motive is known. Across 12 models, working from a user's own account was harder than seeing the events.",
+      "why_it_matters": "It gives a checkable way to measure social advice, including the effect of a one-sided story.",
+      "what_to_watch": "Whether the results hold with real users rather than simulated ones.",
+      "source": {
+        "name": "Google Research Blog",
+        "url": "https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/",
+        "type": "lab_blog",
+        "published": "2026-11-25"
+      },
+      "published": "2026-11-25",
+      "research_area": "evaluation methodology",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "uncertainty": "Results come from simulations.",
+      "additional_sources": [
+        {
+          "name": "arXiv paper",
+          "url": "https://arxiv.org/pdf/2609.17496",
+          "type": "paper"
+        }
+      ],
+      "overview": true
+    },
+    {
+      "id": "ru-2026-11-28-kokotajlo-erdil",
+      "title": "Kokotajlo and Erdil debate what AI researchers should do next",
+      "kind": "debate",
+      "what_happened": "Dwarkesh Patel published a discussion between Daniel Kokotajlo and Ege Erdil. Their main disagreement is how likely some form of intelligence explosion is.",
+      "why_it_matters": "It sets out where two informed views on AI-driven research differ and where they agree.",
+      "what_to_watch": "Which observable signs each side would accept as evidence.",
+      "source": {
+        "name": "Dwarkesh Podcast",
+        "url": "https://www.dwarkesh.com/p/daniel-kokotajlo-ege-erdil",
+        "type": "podcast",
+        "published": "2026-11-27"
+      },
+      "published": "2026-11-27",
+      "research_area": "AI safety",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "uncertainty": "Forecasts and opinion, not results."
+    },
+    {
+      "id": "ru-2026-11-28-ascendgym",
+      "title": "AscendGYM benchmarks models at improving chip kernels",
+      "kind": "benchmark",
+      "what_happened": "Import AI reports that researchers in Shenzhen released AscendGYM, a benchmark for improving kernels on Huawei chips.",
+      "why_it_matters": "Kernel optimisation is a concrete test of AI helping to speed up AI systems.",
+      "what_to_watch": "Independent scores and whether the gains carry over to real workloads.",
+      "source": {
+        "name": "Import AI",
+        "url": "https://jack-clark.net/2026/11/23/import-ai-482-huawei-kernel-benchmarks-airborne-drone-detection-and-a-national-labs-ai-science-benchmark/",
+        "type": "researcher_blog",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "AI infrastructure",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "top",
+      "uncertainty": "Based on a newsletter summary."
+    },
+    {
+      "id": "ru-2026-11-28-misanthropic-statement",
+      "title": "A public statement disputes Anthropic's safety claims",
+      "kind": "debate",
+      "what_happened": "The Center for AI Safety released a statement calling Anthropic not a safe AI company. Signatories include Judea Pearl and Max Tegmark.",
+      "why_it_matters": "It is an open dispute among researchers about how lab safety commitments should be judged.",
+      "what_to_watch": "Whether Anthropic answers the specific charges.",
+      "source": {
+        "name": "The Next Web",
+        "url": "https://thenextweb.com/news/misanthropic-statement-anthropic-not-safe-ai-company-cais-ipo",
+        "type": "news",
+        "published": "2026-11-19"
+      },
+      "published": "2026-11-19",
+      "research_area": "AI safety",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "These are the signatories' charges. No response was reported."
+    },
+    {
+      "id": "ru-2026-11-28-nagel-consciousness",
+      "title": "Thomas Nagel rejects consciousness in today's chatbots",
+      "kind": "debate",
+      "what_happened": "The philosopher says he sees no reason to attribute consciousness to current language models. Producing meaningful words does not show lived experience behind them.",
+      "why_it_matters": "It is a clear philosophical position to weigh against arguments that models might be conscious.",
+      "what_to_watch": "Replies from researchers who think behaviour or internal structure can count as evidence.",
+      "source": {
+        "name": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument/",
+        "type": "news",
+        "published": "2026-11-23"
+      },
+      "published": "2026-11-23",
+      "research_area": "philosophy of mind",
+      "dimensions": [
+        "knowledge"
+      ],
+      "priority": "more",
+      "additional_sources": [
+        {
+          "name": "Magica",
+          "url": "https://magica.com/news/thomas-nagel-chatbot-consciousness-lived-experience",
+          "type": "news"
+        }
+      ]
+    },
+    {
+      "id": "ru-2026-11-28-ultralight-dark-matter",
+      "title": "New experiments widen the search for ultralight dark matter",
+      "kind": "other",
+      "what_happened": "Quanta reports that scientists are inventing new ways to search for ultralight forms of the universe's missing mass.",
+      "why_it_matters": "It is a readable view of how physicists test ideas that older detectors cannot reach.",
+      "what_to_watch": "Whether any of the new setups reports a signal or a tighter limit.",
+      "source": {
+        "name": "Quanta Magazine",
+        "url": "https://www.quantamagazine.org/novel-experiments-expand-the-hunt-for-ultralight-dark-matter-20261125/",
+        "type": "news",
+        "published": "2026-11-25"
+      },
+      "published": "2026-11-25",
+      "research_area": "cosmology",
+      "dimensions": [
+        "knowledge"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-28-ternary-bonsai-25",
+      "title": "Ternary Bonsai 2.5 27B is trending on Hugging Face",
+      "kind": "tool",
+      "what_happened": "PrismML's Ternary Bonsai 2.5 27B, released in GGUF format, is among the top trending models on Hugging Face.",
+      "why_it_matters": "Ternary weights are a strong form of quantization worth testing for quality loss.",
+      "what_to_watch": "Independent comparisons with the full-precision base model.",
+      "source": {
+        "name": "Hugging Face",
+        "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+        "type": "other",
+        "published": "2026-11-24"
+      },
+      "published": "2026-11-24",
+      "research_area": "quantization",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "Trending counts do not show quality."
+    },
+    {
+      "id": "ru-2026-11-28-astra-exoplanets",
+      "title": "Amateurs use Codex and Astra to look for exoplanets",
+      "kind": "other",
+      "what_happened": "OpenAI describes two amateur astronomers who used its tools to find potential exoplanets in public Kepler and TESS data.",
+      "why_it_matters": "It shows agents helping with analysis of open scientific data.",
+      "what_to_watch": "Whether any candidate is confirmed by follow-up observation.",
+      "source": {
+        "name": "OpenAI",
+        "url": "https://openai.com/index/searching-for-distant-planets-with-astra",
+        "type": "lab_blog",
+        "published": "2026-11-24"
+      },
+      "published": "2026-11-24",
+      "research_area": "AI for science",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more",
+      "uncertainty": "The finds are potential planets, from a company account."
+    },
+    {
+      "id": "ru-2026-11-28-llamacpp-amd-dashboard",
+      "title": "A llama.cpp benchmark dashboard arrives for AMD hardware",
+      "kind": "tool",
+      "what_happened": "Hugging Face's blog introduced a llama.cpp benchmark dashboard for AMD Ryzen and Radeon.",
+      "why_it_matters": "Shared measurements make local inference choices easier to compare.",
+      "what_to_watch": "Which models and quantization levels it covers over time.",
+      "source": {
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+        "type": "lab_blog",
+        "published": "2026-11-26"
+      },
+      "published": "2026-11-26",
+      "research_area": "inference",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    },
+    {
+      "id": "ru-2026-11-28-uncertainty-intro",
+      "title": "An introduction to uncertainty in machine learning",
+      "kind": "resource",
+      "what_happened": "A new blog post introducing uncertainty in machine learning drew attention on Hacker News.",
+      "why_it_matters": "Uncertainty is a core idea for reliable evaluation and robustness.",
+      "what_to_watch": "Read it to judge depth and fit before relying on it.",
+      "source": {
+        "name": "chrhenning.com",
+        "url": "https://chrhenning.com/blog/2026/introduction-to-uncertainty/",
+        "type": "researcher_blog",
+        "published": "2026-11-26"
+      },
+      "published": "2026-11-26",
+      "research_area": "statistics",
+      "dimensions": [
+        "research"
+      ],
+      "priority": "more"
+    }
+  ],
+  "generated_at": "2026-11-28T03:15:22Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Covered the fetched updates, Hugging Face trending and podcasts. Five X and LinkedIn searches found no post that could be confirmed. Ai2 posts dated 30 November were held back because the date is after this run. The LangChain, EleutherAI and two Reddit feeds failed, and so did The Gradient podcast feed."
+}

@@ -1,0 +1,1019 @@
+{
+  "schema": "youtube_shorts",
+  "date": "2026-11-28",
+  "items": [
+    {
+      "id": "yt-yCsAh61b3RU",
+      "video_id": "yCsAh61b3RU",
+      "title": "What is Machine Learning?",
+      "channel": {
+        "name": "Graduate ML",
+        "id": "UCBpzFCxWcL-bMFMjZINHhtA"
+      },
+      "url": "https://www.youtube.com/shorts/yCsAh61b3RU",
+      "embed_url": "https://www.youtube.com/embed/yCsAh61b3RU",
+      "thumbnail": "https://i.ytimg.com/vi/yCsAh61b3RU/hqdefault.jpg",
+      "duration_seconds": 41,
+      "published": "2026-10-08",
+      "topic": "machine learning",
+      "category": "AI",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Presents the loss function as the core idea behind machine learning.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-SqCZhI-XNiU",
+      "video_id": "SqCZhI-XNiU",
+      "title": "The Intuition Behind Differential Equations",
+      "channel": {
+        "name": "The Synthetic Mind",
+        "id": "UCbQzDyfzx0SFcDSa2LTunnQ"
+      },
+      "url": "https://www.youtube.com/shorts/SqCZhI-XNiU",
+      "embed_url": "https://www.youtube.com/embed/SqCZhI-XNiU",
+      "thumbnail": "https://i.ytimg.com/vi/SqCZhI-XNiU/hqdefault.jpg",
+      "duration_seconds": 138,
+      "published": "2026-11-04",
+      "topic": "differential equations",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Builds intuition from cooling coffee and Euler's method up to phase space.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-96KQ47Or15Q",
+      "video_id": "96KQ47Or15Q",
+      "title": "Riemann Sum vs Integration Explained Visually | Area Under the Sine Curve #riemann #integration",
+      "channel": {
+        "name": "codematrixvishal",
+        "id": "UC3pDzpjVbCnU-k8YPbcNKWw"
+      },
+      "url": "https://www.youtube.com/shorts/96KQ47Or15Q",
+      "embed_url": "https://www.youtube.com/embed/96KQ47Or15Q",
+      "thumbnail": "https://i.ytimg.com/vi/96KQ47Or15Q/hqdefault.jpg",
+      "duration_seconds": 12,
+      "published": "2026-10-24",
+      "topic": "calculus",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Shows rectangles under a sine curve turning into a definite integral.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-dstXWtpX7zc",
+      "video_id": "dstXWtpX7zc",
+      "title": "Heart Fourier Visualization | Beautiful Cardioid Shape Through Fourier Series Mathematics #heart",
+      "channel": {
+        "name": "codematrixvishal",
+        "id": "UC3pDzpjVbCnU-k8YPbcNKWw"
+      },
+      "url": "https://www.youtube.com/shorts/dstXWtpX7zc",
+      "embed_url": "https://www.youtube.com/embed/dstXWtpX7zc",
+      "thumbnail": "https://i.ytimg.com/vi/dstXWtpX7zc/hqdefault.jpg",
+      "duration_seconds": 22,
+      "published": "2026-10-06",
+      "topic": "Fourier series",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Visualises how Fourier series can draw a heart-shaped curve.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-fpJ_81dXPiQ",
+      "video_id": "fpJ_81dXPiQ",
+      "title": "The Birthday Paradox: Why Your Intuition Gets Probability Wrong #shorts #mathparadox",
+      "channel": {
+        "name": "Math with Sir Asim",
+        "id": "UCZl-2II71WE6jbWcF6FjAjA"
+      },
+      "url": "https://www.youtube.com/shorts/fpJ_81dXPiQ",
+      "embed_url": "https://www.youtube.com/embed/fpJ_81dXPiQ",
+      "thumbnail": "https://i.ytimg.com/vi/fpJ_81dXPiQ/hqdefault.jpg",
+      "duration_seconds": 95,
+      "published": "2026-11-25",
+      "topic": "probability",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Works through the birthday paradox step by step.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-ipL4kliOYLc",
+      "video_id": "ipL4kliOYLc",
+      "title": "the coin-flip economy, explained.",
+      "channel": {
+        "name": "The Skull",
+        "id": "UCEmUPK_Q8rGHfUXCNOL1hAQ"
+      },
+      "url": "https://www.youtube.com/shorts/ipL4kliOYLc",
+      "embed_url": "https://www.youtube.com/embed/ipL4kliOYLc",
+      "thumbnail": "https://i.ytimg.com/vi/ipL4kliOYLc/hqdefault.jpg",
+      "duration_seconds": 46,
+      "published": "2026-10-17",
+      "topic": "probability",
+      "category": "mathematics",
+      "tier": "established",
+      "dimensions": [
+        "research",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains how a fair coin-flip game can still hand most wealth to one player.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-ixHP0kDXCIk",
+      "video_id": "ixHP0kDXCIk",
+      "title": "One Task Is Blocking EVERYTHING! 🤯 | Topological Sort #Shorts",
+      "channel": {
+        "name": "Algo Shine",
+        "id": "UCyJSDtHeWfhGF3A8DE2T8Yw"
+      },
+      "url": "https://www.youtube.com/shorts/ixHP0kDXCIk",
+      "embed_url": "https://www.youtube.com/embed/ixHP0kDXCIk",
+      "thumbnail": "https://i.ytimg.com/vi/ixHP0kDXCIk/hqdefault.jpg",
+      "duration_seconds": 26,
+      "published": "2026-11-27",
+      "topic": "algorithms",
+      "category": "computer science",
+      "tier": "established",
+      "dimensions": [
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Animates topological sorting as tasks that unlock one by one.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-TCC0j4EkLNY",
+      "video_id": "TCC0j4EkLNY",
+      "title": "Why We Make Short Sighted Decisions #psychologyofpeople #neuroscience #psychology",
+      "channel": {
+        "name": "Neuroscience with Alisa",
+        "id": "UCnwcS8IJb9ppxrcM4K-xrcA"
+      },
+      "url": "https://www.youtube.com/shorts/TCC0j4EkLNY",
+      "embed_url": "https://www.youtube.com/embed/TCC0j4EkLNY",
+      "thumbnail": "https://i.ytimg.com/vi/TCC0j4EkLNY/hqdefault.jpg",
+      "duration_seconds": 85,
+      "published": "2026-11-24",
+      "topic": "neuroscience of decisions",
+      "category": "neuroscience",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Looks at short-sighted choices and lists its journal sources.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-tbV-hCJZGhs",
+      "video_id": "tbV-hCJZGhs",
+      "title": "2026 Nobel Prize in Medicine",
+      "channel": {
+        "name": "The Brain Maze",
+        "id": "UC_2XL2lThI85UYxtLSwk18w"
+      },
+      "url": "https://www.youtube.com/shorts/tbV-hCJZGhs",
+      "embed_url": "https://www.youtube.com/embed/tbV-hCJZGhs",
+      "thumbnail": "https://i.ytimg.com/vi/tbV-hCJZGhs/hqdefault.jpg",
+      "duration_seconds": 44,
+      "published": "2026-10-09",
+      "topic": "optogenetics",
+      "category": "neuroscience",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Short introduction to switching neurons on and off with light.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-j65mKp7uKCQ",
+      "video_id": "j65mKp7uKCQ",
+      "title": "Quantum Wave Function Explained in 2 Minutes! ⚛️ #QuantumComputing #Shorts",
+      "channel": {
+        "name": "Chicken Puck's Quantum Computing tutorials",
+        "id": "UCsAqQkLjrboFQdjdwr_vdHw"
+      },
+      "url": "https://www.youtube.com/shorts/j65mKp7uKCQ",
+      "embed_url": "https://www.youtube.com/embed/j65mKp7uKCQ",
+      "thumbnail": "https://i.ytimg.com/vi/j65mKp7uKCQ/hqdefault.jpg",
+      "duration_seconds": 132,
+      "published": "2026-10-31",
+      "topic": "quantum wave function",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "research"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains the wave function, probability density and measurement.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-kzzb2qjBDNM",
+      "video_id": "kzzb2qjBDNM",
+      "title": "How a 1-in-a-Billion Error Created the Universe 🌌",
+      "channel": {
+        "name": "Kosmoglyph",
+        "id": "UCoGL4kH8KBzBUbQptZU7jfw"
+      },
+      "url": "https://www.youtube.com/shorts/kzzb2qjBDNM",
+      "embed_url": "https://www.youtube.com/embed/kzzb2qjBDNM",
+      "thumbnail": "https://i.ytimg.com/vi/kzzb2qjBDNM/hqdefault.jpg",
+      "duration_seconds": 121,
+      "published": "2026-11-28",
+      "topic": "cosmology",
+      "category": "physics",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Tells the early universe story from the matter imbalance to the first stars.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-3R7ZwiumXbE",
+      "video_id": "3R7ZwiumXbE",
+      "title": "Diogenes got sold as a slave, and became the master",
+      "channel": {
+        "name": "Zero Brainy",
+        "id": "UC8giM2H1bWKZx8SYOWOvKow"
+      },
+      "url": "https://www.youtube.com/shorts/3R7ZwiumXbE",
+      "embed_url": "https://www.youtube.com/embed/3R7ZwiumXbE",
+      "thumbnail": "https://i.ytimg.com/vi/3R7ZwiumXbE/hqdefault.jpg",
+      "duration_seconds": 114,
+      "published": "2026-11-14",
+      "topic": "Diogenes",
+      "category": "philosophy",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "A self-made telling of the story of Diogenes being sold as a slave.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-FNnXk2Ef3PY",
+      "video_id": "FNnXk2Ef3PY",
+      "title": "David Brooks Recommends Three Books for Getting Started on Philosophy",
+      "channel": {
+        "name": "The Atlantic",
+        "id": "UCK0z0_5uL7mb9IjntOKi5XQ"
+      },
+      "url": "https://www.youtube.com/shorts/FNnXk2Ef3PY",
+      "embed_url": "https://www.youtube.com/embed/FNnXk2Ef3PY",
+      "thumbnail": "https://i.ytimg.com/vi/FNnXk2Ef3PY/hqdefault.jpg",
+      "duration_seconds": 96,
+      "published": "2026-10-14",
+      "topic": "philosophy books",
+      "category": "philosophy",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "David Brooks suggests three books for starting philosophy.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-Kweg5q6X8tk",
+      "video_id": "Kweg5q6X8tk",
+      "title": "DESC tool for effective communication #short #communication #communicationskills",
+      "channel": {
+        "name": "Life Coaching with Nazia",
+        "id": "UCi-rOC5yTYiQPLMQUEOzfJg"
+      },
+      "url": "https://www.youtube.com/shorts/Kweg5q6X8tk",
+      "embed_url": "https://www.youtube.com/embed/Kweg5q6X8tk",
+      "thumbnail": "https://i.ytimg.com/vi/Kweg5q6X8tk/hqdefault.jpg",
+      "duration_seconds": 169,
+      "published": "2026-11-05",
+      "topic": "assertive communication",
+      "category": "communication",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Introduces the DESC tool for raising a concern clearly.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-ptO_BC0M2B8",
+      "video_id": "ptO_BC0M2B8",
+      "title": "Confidence Isn’t Competence: A Beavis and Butt-Head Leadership Lesson #Shorts",
+      "channel": {
+        "name": "Martin Rowinski",
+        "id": "UC4uwXOKGK4iyiz_jA5J97TA"
+      },
+      "url": "https://www.youtube.com/shorts/ptO_BC0M2B8",
+      "embed_url": "https://www.youtube.com/embed/ptO_BC0M2B8",
+      "thumbnail": "https://i.ytimg.com/vi/ptO_BC0M2B8/hqdefault.jpg",
+      "duration_seconds": 109,
+      "published": "2026-10-13",
+      "topic": "confidence and competence",
+      "category": "leadership",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "Contrasts a confident promise with a careful list of assumptions to test.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt--mjNXkzP_W8",
+      "video_id": "-mjNXkzP_W8",
+      "title": "A Short Reply Doesn't Always Mean They're Upset With You 🧠",
+      "channel": {
+        "name": "SCIENCE OF HEART",
+        "id": "UCVYShHU3ut-oXLCpoGIJKaw"
+      },
+      "url": "https://www.youtube.com/shorts/-mjNXkzP_W8",
+      "embed_url": "https://www.youtube.com/embed/-mjNXkzP_W8",
+      "thumbnail": "https://i.ytimg.com/vi/-mjNXkzP_W8/hqdefault.jpg",
+      "duration_seconds": 21,
+      "published": "2026-11-27",
+      "topic": "facts and assumptions",
+      "category": "emotional intelligence",
+      "tier": "growth",
+      "dimensions": [
+        "people"
+      ],
+      "language": "en",
+      "why_it_matches": "A prompt to separate what a short reply says from what you assume.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-nxDPo6F6vx0",
+      "video_id": "nxDPo6F6vx0",
+      "title": "How Italy Became One Country, From 7 Pieces to 1 Kingdom 🤯  #geography #animation #history #shorts",
+      "channel": {
+        "name": "Geo Cartovia",
+        "id": "UCToB9C_EsEA1WYaWFlesbwA"
+      },
+      "url": "https://www.youtube.com/shorts/nxDPo6F6vx0",
+      "embed_url": "https://www.youtube.com/embed/nxDPo6F6vx0",
+      "thumbnail": "https://i.ytimg.com/vi/nxDPo6F6vx0/hqdefault.jpg",
+      "duration_seconds": 101,
+      "published": "2026-11-19",
+      "topic": "Italian unification",
+      "category": "history",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Maps how seven states became one Italian kingdom.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-pdL3nDhtZo8",
+      "video_id": "pdL3nDhtZo8",
+      "title": "Was Napoleon Really That Short? British and French Portrayals #history #napoleon",
+      "channel": {
+        "name": "artloris",
+        "id": "UCZVohmoW-NRAwK02xJYA__A"
+      },
+      "url": "https://www.youtube.com/shorts/pdL3nDhtZo8",
+      "embed_url": "https://www.youtube.com/embed/pdL3nDhtZo8",
+      "thumbnail": "https://i.ytimg.com/vi/pdL3nDhtZo8/hqdefault.jpg",
+      "duration_seconds": 18,
+      "published": "2026-11-20",
+      "topic": "portraits and propaganda",
+      "category": "art history",
+      "tier": "growth",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Compares British and French portrayals of Napoleon.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-KmOW520Bf3c",
+      "video_id": "KmOW520Bf3c",
+      "title": "Racist Music Theory: Chinaman Riff 🇨🇳🤔🎼 #musictheory #piano #racism #oriental",
+      "channel": {
+        "name": "Zeke Lewis",
+        "id": "UC0TQgDy7HXIdREANix609nQ"
+      },
+      "url": "https://www.youtube.com/shorts/KmOW520Bf3c",
+      "embed_url": "https://www.youtube.com/embed/KmOW520Bf3c",
+      "thumbnail": "https://i.ytimg.com/vi/KmOW520Bf3c/hqdefault.jpg",
+      "duration_seconds": 178,
+      "published": "2026-11-20",
+      "topic": "music history",
+      "category": "music",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Traces a stereotyped musical riff and links its research sources.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-4UvqNL62DlM",
+      "video_id": "4UvqNL62DlM",
+      "title": "How short is a 256th note?",
+      "channel": {
+        "name": "Bandroom",
+        "id": "UCgzRI503g8uxO2GRYquyyxA"
+      },
+      "url": "https://www.youtube.com/shorts/4UvqNL62DlM",
+      "embed_url": "https://www.youtube.com/embed/4UvqNL62DlM",
+      "thumbnail": "https://i.ytimg.com/vi/4UvqNL62DlM/hqdefault.jpg",
+      "duration_seconds": 21,
+      "published": "2026-11-10",
+      "topic": "note values",
+      "category": "music",
+      "tier": "growth",
+      "dimensions": [
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "A playful look at how short a 256th note really is.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-mqHtV_T17Fg",
+      "video_id": "mqHtV_T17Fg",
+      "title": "Learn 3,000 Japanese words in 30 seconds #shorts",
+      "channel": {
+        "name": "Hibi - Learn Real Japanese",
+        "id": "UCjlfsWM9dP2xL5R0YzAokxA"
+      },
+      "url": "https://www.youtube.com/shorts/mqHtV_T17Fg",
+      "embed_url": "https://www.youtube.com/embed/mqHtV_T17Fg",
+      "thumbnail": "https://i.ytimg.com/vi/mqHtV_T17Fg/hqdefault.jpg",
+      "duration_seconds": 38,
+      "published": "2026-11-22",
+      "topic": "Japanese loanwords",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Japanese for beginners, in English: sound patterns behind English loanwords.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-E5TPEQj93rw",
+      "video_id": "E5TPEQj93rw",
+      "title": "5 Japanese Phrases for When Something Goes Wrong — and the Numbers to Call",
+      "channel": {
+        "name": "KODAWARI Sensei",
+        "id": "UCFnavQxSlenrFXmY_3eC37w"
+      },
+      "url": "https://www.youtube.com/shorts/E5TPEQj93rw",
+      "embed_url": "https://www.youtube.com/embed/E5TPEQj93rw",
+      "thumbnail": "https://i.ytimg.com/vi/E5TPEQj93rw/hqdefault.jpg",
+      "duration_seconds": 18,
+      "published": "2026-10-06",
+      "topic": "Japanese safety phrases",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Japanese for beginners, in English: phrases for when something goes wrong.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-v1k-i81KvvU",
+      "video_id": "v1k-i81KvvU",
+      "title": "Speak Telugu Instantly! 5 Warm Greetings 🙏✨ #Shorts #LearnTelugu",
+      "channel": {
+        "name": "LearnCasualTelugu",
+        "id": "UCW_o6C_WtMg-zNyPgmVuAbw"
+      },
+      "url": "https://www.youtube.com/shorts/v1k-i81KvvU",
+      "embed_url": "https://www.youtube.com/embed/v1k-i81KvvU",
+      "thumbnail": "https://i.ytimg.com/vi/v1k-i81KvvU/hqdefault.jpg",
+      "duration_seconds": 38,
+      "published": "2026-11-21",
+      "topic": "Telugu greetings",
+      "category": "language learning",
+      "tier": "growth",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Telugu for beginners, in English: five everyday greetings and polite phrases.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-EwfXz7N1hRs",
+      "video_id": "EwfXz7N1hRs",
+      "title": "Why Don't Escalators Collapse When They Stop? ⚙️ #shorts #engineering",
+      "channel": {
+        "name": "shirusekaii",
+        "id": "UCDGIg0AJYKkdB_VVZzkverw"
+      },
+      "url": "https://www.youtube.com/shorts/EwfXz7N1hRs",
+      "embed_url": "https://www.youtube.com/embed/EwfXz7N1hRs",
+      "thumbnail": "https://i.ytimg.com/vi/EwfXz7N1hRs/hqdefault.jpg",
+      "duration_seconds": 136,
+      "published": "2026-11-13",
+      "topic": "escalator safety",
+      "category": "engineering",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Explains what keeps an escalator safe when power is lost.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-nH3ntiVHutg",
+      "video_id": "nH3ntiVHutg",
+      "title": "How Did Ancient Rome Build Underwater Foundations 2,000 Years Ago?",
+      "channel": {
+        "name": "HIDDEN BEYOND",
+        "id": "UCU8SHcP5zamCHGrKPdFwZ4w"
+      },
+      "url": "https://www.youtube.com/shorts/nH3ntiVHutg",
+      "embed_url": "https://www.youtube.com/embed/nH3ntiVHutg",
+      "thumbnail": "https://i.ytimg.com/vi/nH3ntiVHutg/hqdefault.jpg",
+      "duration_seconds": 71,
+      "published": "2026-11-27",
+      "topic": "Roman engineering",
+      "category": "architecture",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Shows how Trajan's Bridge got foundations in the Danube.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-b8qkzjUKa0o",
+      "video_id": "b8qkzjUKa0o",
+      "title": "They Laughed At His Invention... Until It Stuck 😳 #inventions #science #history #animation #shorts",
+      "channel": {
+        "name": "heatedSalt",
+        "id": "UC5DMT7f8b--QdSkuinRSRMw"
+      },
+      "url": "https://www.youtube.com/shorts/b8qkzjUKa0o",
+      "embed_url": "https://www.youtube.com/embed/b8qkzjUKa0o",
+      "thumbnail": "https://i.ytimg.com/vi/b8qkzjUKa0o/hqdefault.jpg",
+      "duration_seconds": 80,
+      "published": "2026-11-23",
+      "topic": "accidental inventions",
+      "category": "inventions",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity",
+        "knowledge"
+      ],
+      "language": "en",
+      "why_it_matches": "Animated story of how Harry Coover came to superglue.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-Gm2IxxJ_H2s",
+      "video_id": "Gm2IxxJ_H2s",
+      "title": "How this tool cuts bone but not brain tissue #science #engineering #medical #shortvideo",
+      "channel": {
+        "name": "Varz Thought",
+        "id": "UCuLjPEb5aJQBW8rclUnvlOA"
+      },
+      "url": "https://www.youtube.com/shorts/Gm2IxxJ_H2s",
+      "embed_url": "https://www.youtube.com/embed/Gm2IxxJ_H2s",
+      "thumbnail": "https://i.ytimg.com/vi/Gm2IxxJ_H2s/hqdefault.jpg",
+      "duration_seconds": 24,
+      "published": "2026-10-07",
+      "topic": "surgical tool design",
+      "category": "engineering",
+      "tier": "exploration",
+      "dimensions": [
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Demonstrates a spring-loaded blade that spares delicate membranes.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-zfm8meEjXt4",
+      "video_id": "zfm8meEjXt4",
+      "title": "Building the Flatiron Building 🏗️",
+      "channel": {
+        "name": "Quandale builds",
+        "id": "UCadEvj4qr5fpTheYaN75HxQ"
+      },
+      "url": "https://www.youtube.com/shorts/zfm8meEjXt4",
+      "embed_url": "https://www.youtube.com/embed/zfm8meEjXt4",
+      "thumbnail": "https://i.ytimg.com/vi/zfm8meEjXt4/hqdefault.jpg",
+      "duration_seconds": 49,
+      "published": "2026-11-18",
+      "topic": "Flatiron Building",
+      "category": "architecture",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "The problem of building a tall tower on a very narrow plot.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-bld10WWNs6s",
+      "video_id": "bld10WWNs6s",
+      "title": "Architecture has always shaped how we live, but now it has to shape how we survive. If doctors ...",
+      "channel": {
+        "name": "EASTERN BLUE DESIGN STUDIO",
+        "id": "UCaIEtEYCYxxBgqI-8BK-sJw"
+      },
+      "url": "https://www.youtube.com/shorts/bld10WWNs6s",
+      "embed_url": "https://www.youtube.com/embed/bld10WWNs6s",
+      "thumbnail": "https://i.ytimg.com/vi/bld10WWNs6s/hqdefault.jpg",
+      "duration_seconds": 75,
+      "published": "2026-11-14",
+      "topic": "architecture and climate",
+      "category": "architecture",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "world"
+      ],
+      "language": "en",
+      "why_it_matches": "Asks what oath architecture should take in a changing climate.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-3YJX9l3GmRA",
+      "video_id": "3YJX9l3GmRA",
+      "title": "Plants Can SCREAM? Scientists Discovered This! 🌱🤯 #PlantScience #Biology #Science #shorts",
+      "channel": {
+        "name": "BioSpark Explained",
+        "id": "UChv_Qzxnawhn-Th7ViZv6ag"
+      },
+      "url": "https://www.youtube.com/shorts/3YJX9l3GmRA",
+      "embed_url": "https://www.youtube.com/embed/3YJX9l3GmRA",
+      "thumbnail": "https://i.ytimg.com/vi/3YJX9l3GmRA/hqdefault.jpg",
+      "duration_seconds": 88,
+      "published": "2026-11-12",
+      "topic": "plant sounds",
+      "category": "biology",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Describes research recording ultrasonic sounds from stressed tomato plants.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-GrSu5iV2-Ag",
+      "video_id": "GrSu5iV2-Ag",
+      "title": "caterpillar dissolve its own body and transform into a beautiful butterfly #shorts #nature",
+      "channel": {
+        "name": "Arjun UK",
+        "id": "UCeYZb0fijX5v7rZIqk8reOw"
+      },
+      "url": "https://www.youtube.com/shorts/GrSu5iV2-Ag",
+      "embed_url": "https://www.youtube.com/embed/GrSu5iV2-Ag",
+      "thumbnail": "https://i.ytimg.com/vi/GrSu5iV2-Ag/hqdefault.jpg",
+      "duration_seconds": 84,
+      "published": "2026-11-27",
+      "topic": "metamorphosis",
+      "category": "biology",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Follows the monarch butterfly from egg to adult.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-0k0IaEfMk5Y",
+      "video_id": "0k0IaEfMk5Y",
+      "title": "Which Two Countries Have The Same Flag? 🤯🚩 #geography #flags #maps",
+      "channel": {
+        "name": "Crazy Map Facts",
+        "id": "UCO1laCXkou9v9pYFHl0Bi_Q"
+      },
+      "url": "https://www.youtube.com/shorts/0k0IaEfMk5Y",
+      "embed_url": "https://www.youtube.com/embed/0k0IaEfMk5Y",
+      "thumbnail": "https://i.ytimg.com/vi/0k0IaEfMk5Y/hqdefault.jpg",
+      "duration_seconds": 55,
+      "published": "2026-11-26",
+      "topic": "flags and maps",
+      "category": "geography",
+      "tier": "exploration",
+      "dimensions": [
+        "knowledge",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Compares five pairs of look-alike flags and how far apart the countries are.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-DyV8U7W3CXU",
+      "video_id": "DyV8U7W3CXU",
+      "title": "Why the main character always sits by the window #anime #animetropes #maincharacter #animefacts",
+      "channel": {
+        "name": "TsomahAG",
+        "id": "UCsqPmuMj-PBv7Nvs5S3OMiw"
+      },
+      "url": "https://www.youtube.com/shorts/DyV8U7W3CXU",
+      "embed_url": "https://www.youtube.com/embed/DyV8U7W3CXU",
+      "thumbnail": "https://i.ytimg.com/vi/DyV8U7W3CXU/hqdefault.jpg",
+      "duration_seconds": 30,
+      "published": "2026-11-22",
+      "topic": "anime storytelling",
+      "category": "anime",
+      "tier": "exploration",
+      "dimensions": [
+        "culture"
+      ],
+      "language": "en",
+      "why_it_matches": "Looks at why anime heroes so often sit by the window.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    },
+    {
+      "id": "yt-kFXkCwePyn0",
+      "video_id": "kFXkCwePyn0",
+      "title": "POV: Lost in the timeless beauty of castle architecture 🏰🤍 #CastleSketch #Architecture #Art #short",
+      "channel": {
+        "name": "Zhila Creates",
+        "id": "UCQLAvN_vMzA8xcILQ7DfI9Q"
+      },
+      "url": "https://www.youtube.com/shorts/kFXkCwePyn0",
+      "embed_url": "https://www.youtube.com/embed/kFXkCwePyn0",
+      "thumbnail": "https://i.ytimg.com/vi/kFXkCwePyn0/hqdefault.jpg",
+      "duration_seconds": 10,
+      "published": "2026-10-31",
+      "topic": "architectural sketching",
+      "category": "drawing",
+      "tier": "exploration",
+      "dimensions": [
+        "culture",
+        "curiosity"
+      ],
+      "language": "en",
+      "why_it_matches": "Pen and ink shading builds stone texture on a castle tower.",
+      "discovery_source": "youtube_data_api",
+      "format": "short",
+      "format_evidence": "shorts_url_check",
+      "verification": {
+        "method": "youtube_data_api",
+        "verified_at": "2026-11-28T03:08:41Z"
+      }
+    }
+  ],
+  "generated_at": "2026-11-28T03:24:00Z",
+  "generator": "claude-scheduled-task",
+  "notes": "Few strong research or AI videos today, so the established tier is small. No filler added.",
+  "candidates_considered": 250
+}

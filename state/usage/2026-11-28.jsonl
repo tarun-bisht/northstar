@@ -7,3 +7,19 @@
 {"t": "2026-11-28T01:19:22+00:00", "run": "weekly", "read": "candidates arxiv --trending-week", "chars": 9330}
 {"t": "2026-11-28T01:19:26+00:00", "run": "weekly", "read": "candidates arxiv --trending-week", "chars": 9330}
 {"t": "2026-11-28T01:19:33+00:00", "run": "weekly", "event": "end"}
+{"t": "2026-11-28T02:44:27+00:00", "run": "daily", "event": "start"}
+{"t": "2026-11-28T02:44:27+00:00", "run": "daily", "read": "runbook and prompts", "chars": 78475}
+{"t": "2026-11-28T03:02:59+00:00", "run": "daily", "read": "polls list --open", "chars": 917}
+{"t": "2026-11-28T03:13:30+00:00", "run": "daily", "read": "papers stage1 batches (Haiku)", "chars": 600844}
+{"t": "2026-11-28T03:13:30+00:00", "run": "daily", "read": "papers stage1 --date", "chars": 1824}
+{"t": "2026-11-28T03:13:51+00:00", "run": "daily", "read": "context research_updates --date", "chars": 6758}
+{"t": "2026-11-28T03:13:51+00:00", "run": "daily", "read": "candidates updates --date", "chars": 87346}
+{"t": "2026-11-28T03:13:53+00:00", "run": "daily", "read": "candidates hf --date", "chars": 16940}
+{"t": "2026-11-28T03:13:53+00:00", "run": "daily", "read": "candidates podcasts --date", "chars": 89656}
+{"t": "2026-11-28T03:14:03+00:00", "run": "daily", "read": "reading show --week", "chars": 4605}
+{"t": "2026-11-28T03:15:22+00:00", "run": "daily", "read": "history rebuild", "chars": 92}
+{"t": "2026-11-28T03:15:30+00:00", "run": "daily", "read": "history rebuild", "chars": 92}
+{"t": "2026-11-28T03:15:34+00:00", "run": "daily", "read": "candidates updates --date", "chars": 150178}
+{"t": "2026-11-28T03:15:37+00:00", "run": "daily", "read": "history rebuild", "chars": 92}
+{"t": "2026-11-28T03:27:03+00:00", "run": "daily", "read": "papers merge --date", "chars": 1382}
+{"t": "2026-11-28T03:44:22+00:00", "run": "daily", "event": "end"}

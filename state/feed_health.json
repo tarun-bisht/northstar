@@ -173,13 +173,13 @@
  },
  "https://indianexpress.com/section/explained/feed/": {
   "checked": "2026-11-28",
-  "fails": 14,
+  "fails": 16,
   "name": "Indian Express Explained",
   "status": "403"
  },
  "https://indianexpress.com/section/india/feed/": {
   "checked": "2026-11-28",
-  "fails": 14,
+  "fails": 16,
   "name": "Indian Express India",
   "status": "403"
  },
@@ -681,7 +681,7 @@
  },
  "https://old.reddit.com/r/MachineLearning+LocalLLaMA+LocalLLM+computervision+LanguageTechnology+reinforcementlearning+deeplearning+StableDiffusion/top/.rss?t=week": {
   "checked": "2026-11-28",
-  "fails": 12,
+  "fails": 14,
   "name": "reddit papers",
   "status": "ParseError"
  },
@@ -693,7 +693,7 @@
  },
  "https://old.reddit.com/r/worldnews+geopolitics+science+economics/top/.rss?t=day": {
   "checked": "2026-11-28",
-  "fails": 14,
+  "fails": 16,
   "name": "Reddit world and science",
   "status": "ParseError"
  },

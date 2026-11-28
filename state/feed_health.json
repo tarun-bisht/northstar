@@ -173,13 +173,13 @@
  },
  "https://indianexpress.com/section/explained/feed/": {
   "checked": "2026-11-28",
-  "fails": 12,
+  "fails": 14,
   "name": "Indian Express Explained",
   "status": "403"
  },
  "https://indianexpress.com/section/india/feed/": {
   "checked": "2026-11-28",
-  "fails": 12,
+  "fails": 14,
   "name": "Indian Express India",
   "status": "403"
  },
@@ -214,14 +214,14 @@
  "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 58,
+  "items": 61,
   "name": "Google News Business",
   "status": "ok"
  },
  "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 66,
+  "items": 62,
   "name": "Google News Business (US)",
   "status": "ok"
  },
@@ -242,14 +242,14 @@
  "https://news.google.com/rss/headlines/section/topic/NATION?hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 54,
+  "items": 53,
   "name": "Google News Nation",
   "status": "ok"
  },
  "https://news.google.com/rss/headlines/section/topic/NATION?hl=en-US&gl=US&ceid=US%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 66,
+  "items": 62,
   "name": "Google News Nation (US)",
   "status": "ok"
  },
@@ -263,7 +263,7 @@
  "https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=en-US&gl=US&ceid=US%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 54,
+  "items": 57,
   "name": "Google News Science (US)",
   "status": "ok"
  },
@@ -277,7 +277,7 @@
  "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=en-US&gl=US&ceid=US%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 67,
+  "items": 69,
   "name": "Google News Technology (US)",
   "status": "ok"
  },
@@ -319,42 +319,42 @@
  "https://news.google.com/rss/search?q=%28%22cognitive+science%22+OR+%22philosophy+of+science%22+OR+%22evolutionary+biology%22+OR+%22linguistics+and+language+evolution%22+OR+%22behavioral+economics%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 6,
+  "items": 7,
   "name": "Google News: interests 5",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=%28%22cognitive+science%22+OR+%22philosophy+of+science%22+OR+%22evolutionary+biology%22+OR+%22linguistics+and+language+evolution%22+OR+%22behavioral+economics%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 6,
+  "items": 8,
   "name": "Google News: interests 5 (US)",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=%28%22economic+history%22+OR+%22earth+science%22+OR+%22international+relations%22+OR+%22technology+policy%22+OR+%22demographics+and+migration%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 42,
+  "items": 62,
   "name": "Google News: interests 6",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=%28%22economic+history%22+OR+%22earth+science%22+OR+%22international+relations%22+OR+%22technology+policy%22+OR+%22demographics+and+migration%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 61,
+  "items": 42,
   "name": "Google News: interests 6 (US)",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=%28%22international+development%22+OR+%22science+and+technology+policy%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 44,
+  "items": 43,
   "name": "Google News: interests 7",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=%28%22international+development%22+OR+%22science+and+technology+policy%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 27,
+  "items": 42,
   "name": "Google News: interests 7 (US)",
   "status": "ok"
  },
@@ -368,7 +368,7 @@
  "https://news.google.com/rss/search?q=%28%22large+language+models%22+OR+%22evaluation+methodology%22+OR+%22machine+unlearning%22+OR+%22NLP%22+OR+%22AI+systems%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 29,
+  "items": 61,
   "name": "Google News: interests 1 (US)",
   "status": "ok"
  },
@@ -389,7 +389,7 @@
  "https://news.google.com/rss/search?q=%28%22named+CEO%22+OR+%22appointed+CEO%22+OR+%22steps+down+as+CEO%22+OR+%22chief+executive+resigns%22%29+%28bank+OR+tech+OR+global+OR+India%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 11,
+  "items": 13,
   "name": "Google News: (\"named CEO\" OR \"appointed CEO\" OR \"steps down as CEO\" OR \"chief executive resigns\") (bank OR tech OR global OR India)",
   "status": "ok"
  },
@@ -403,28 +403,28 @@
  "https://news.google.com/rss/search?q=%28%22research+methodology%22+OR+%22generalization+and+learning+dynamics%22+OR+%22stability+of+learning+algorithms%22+OR+%22deep+learning+theory%22+OR+%22continual+and+lifelong+learning%22%29+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 5,
+  "items": 4,
   "name": "Google News: interests 3",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=%28%22research+methodology%22+OR+%22generalization+and+learning+dynamics%22+OR+%22stability+of+learning+algorithms%22+OR+%22deep+learning+theory%22+OR+%22continual+and+lifelong+learning%22%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 5,
+  "items": 4,
   "name": "Google News: interests 3 (US)",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=%28leaves+OR+departs+OR+exits+OR+quits+OR+joins+OR+poached%29+%28OpenAI+OR+Google+OR+DeepMind+OR+Apple+OR+Microsoft+OR+Meta+OR+Nvidia+OR+Anthropic+OR+Amazon+OR+Tesla+OR+xAI%29+executive+OR+researcher+OR+chief+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 53,
+  "items": 100,
   "name": "Google News: (leaves OR departs OR exits OR quits OR joins OR poached) (OpenAI OR Google OR DeepMind OR Apple OR Microsoft OR Meta OR Nvidia OR Anthropic OR Amazon OR Tesla OR xAI) executive OR researcher OR chief",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=AI+safety+OR+%22AI+security%22+OR+jailbreak+OR+deepfake+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 85,
+  "items": 87,
   "name": "Google News: AI safety OR \"AI security\" OR jailbreak OR deepfake",
   "status": "ok"
  },
@@ -445,7 +445,7 @@
  "https://news.google.com/rss/search?q=ISRO+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 26,
+  "items": 14,
   "name": "Google News: ISRO",
   "status": "ok"
  },
@@ -459,21 +459,21 @@
  "https://news.google.com/rss/search?q=India+science+research+OR+%22higher+education%22+India+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 48,
+  "items": 25,
   "name": "Google News: India science research OR \"higher education\" India",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=Japan+culture+OR+anime+industry+OR+manga+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 23,
+  "items": 44,
   "name": "Google News: Japan culture OR anime industry OR manga",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=Nobel+OR+%22Fields+Medal%22+OR+%22Turing+Award%22+OR+%22Breakthrough+Prize%22+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 43,
+  "items": 46,
   "name": "Google News: Nobel OR \"Fields Medal\" OR \"Turing Award\" OR \"Breakthrough Prize\"",
   "status": "ok"
  },
@@ -529,7 +529,7 @@
  "https://news.google.com/rss/search?q=artificial+intelligence+policy+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 55,
+  "items": 33,
   "name": "Google News: artificial intelligence policy",
   "status": "ok"
  },
@@ -557,28 +557,28 @@
  "https://news.google.com/rss/search?q=mathematician+OR+%22maths+prize%22+OR+%22proof%22+mathematics+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 27,
+  "items": 26,
   "name": "Google News: mathematician OR \"maths prize\" OR \"proof\" mathematics",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=migration+OR+census+OR+education+policy+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 78,
+  "items": 28,
   "name": "Google News: migration OR census OR education policy",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=museum+exhibition+OR+art+auction+OR+artist+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 56,
+  "items": 30,
   "name": "Google News: museum exhibition OR art auction OR artist",
   "status": "ok"
  },
  "https://news.google.com/rss/search?q=neuroscience+study+OR+brain+research+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 24,
+  "items": 30,
   "name": "Google News: neuroscience study OR brain research",
   "status": "ok"
  },
@@ -599,7 +599,7 @@
  "https://news.google.com/rss/search?q=renewable+energy+OR+oil+prices+OR+emissions+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 24,
+  "items": 51,
   "name": "Google News: renewable energy OR oil prices OR emissions",
   "status": "ok"
  },
@@ -613,7 +613,7 @@
  "https://news.google.com/rss/search?q=semiconductor+chips+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 99,
+  "items": 94,
   "name": "Google News: semiconductor chips",
   "status": "ok"
  },
@@ -634,7 +634,7 @@
  "https://news.google.com/rss/search?q=startup+funding+OR+acquisition+OR+merger+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen": {
   "checked": "2026-11-28",
   "fails": 0,
-  "items": 33,
+  "items": 60,
   "name": "Google News: startup funding OR acquisition OR merger",
   "status": "ok"
  },
@@ -693,7 +693,7 @@
  },
  "https://old.reddit.com/r/worldnews+geopolitics+science+economics/top/.rss?t=day": {
   "checked": "2026-11-28",
-  "fails": 12,
+  "fails": 14,
   "name": "Reddit world and science",
   "status": "ParseError"
  },
